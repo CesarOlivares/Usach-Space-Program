@@ -4,38 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>USACH Space Program</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Paleta de colores basada en el Logo USP */
+        /* Paleta de colores solicitada */
         :root {
-            --bg-space: #070913; /* Azul muy oscuro del fondo */
-            --lion-orange: #E8831A; /* Borde y melena naranja */
-            --lion-gold: #F3C130; /* Rostro del león */
-            --flare-blue: #58A4DF; /* Resplandor celeste inferior */
-            --text-main: #E2E8F0;
-            --card-bg: #111524;
+            --bg-black: #000000;
+            --bg-navy: #090938;
+            --text-cream: #F8EBD3;
+            --accent-yellow: #F6AE1F;
         }
 
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-space);
-            color: var(--text-main);
-            overflow-x: hidden;
-        }
-
-        /* Fondo estrellado simple con CSS */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background-image: 
-                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 4px),
-                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 3px);
-            background-size: 550px 550px, 350px 350px;
-            background-position: 0 0, 40px 60px;
-            z-index: -1;
-            opacity: 0.4;
+            background-color: var(--bg-black);
+            color: var(--text-cream);
+            line-height: 1.6;
         }
 
         /* Navegación */
@@ -44,129 +28,169 @@
             justify-content: space-between;
             align-items: center;
             padding: 1.5rem 5%;
-            background: rgba(7, 9, 19, 0.9);
-            border-bottom: 1px solid rgba(88, 164, 223, 0.3);
+            background: var(--bg-black);
+            border-bottom: 2px solid var(--bg-navy);
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(10px);
         }
 
         .logo-text {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--text-main);
+            color: var(--text-cream);
             text-decoration: none;
             letter-spacing: 2px;
         }
 
-        .logo-text span { color: var(--lion-orange); }
+        .logo-text span { color: var(--accent-yellow); }
 
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 8rem 2rem;
-            background: radial-gradient(circle at center bottom, rgba(88, 164, 223, 0.2) 0%, transparent 70%);
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--bg-navy) 0%, var(--bg-black) 100%);
         }
 
         h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
+            font-size: 3.5rem;
             margin: 0;
-            background: linear-gradient(90deg, var(--lion-gold), var(--lion-orange));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--accent-yellow);
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
         }
 
         .tagline {
-            font-size: 1.5rem;
-            color: var(--flare-blue);
-            margin-top: 1rem;
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 1px;
-        }
-
-        .mantra {
-            font-weight: 300;
             font-size: 1.2rem;
-            margin-top: 2rem;
-            font-style: italic;
+            margin-top: 1rem;
+            font-weight: 300;
         }
 
         /* Secciones Generales */
-        section {
-            padding: 5rem 10%;
-        }
+        section { padding: 4rem 10%; }
 
         h2 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
-            color: var(--flare-blue);
-            border-bottom: 2px solid var(--lion-orange);
+            font-size: 2rem;
+            color: var(--text-cream);
+            border-bottom: 3px solid var(--accent-yellow);
             padding-bottom: 0.5rem;
             display: inline-block;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
-        /* Misión */
-        .mission-box {
-            background: rgba(17, 21, 36, 0.8);
-            border-left: 5px solid var(--lion-gold);
-            padding: 2rem;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            border-radius: 0 10px 10px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        /* Grillas para Ejes y Proyectos */
-        .grid-container {
+        /* Ejes - Grilla simple */
+        .ejes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .eje-card {
+            background: var(--bg-navy);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--accent-yellow);
+        }
+
+        .eje-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            margin-top: 0;
+            color: var(--accent-yellow);
+            font-size: 1.1rem;
+        }
+
+        /* Proyectos - Formato Filas */
+        .proyectos-lista {
+            display: flex;
+            flex-direction: column;
             gap: 2rem;
         }
 
-        .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 12px;
+        .proyecto-fila {
+            background: var(--bg-navy);
+            border-radius: 10px;
             padding: 2rem;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            border-left: 6px solid var(--accent-yellow);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: transform 0.2s ease;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--lion-orange);
-            box-shadow: 0 10px 20px rgba(232, 131, 26, 0.15);
+        .proyecto-fila:hover {
+            transform: translateX(5px);
         }
 
-        .card h3 {
+        .proyecto-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .proyecto-header h3 {
             font-family: 'Orbitron', sans-serif;
-            color: var(--lion-gold);
-            margin-top: 0;
-            font-size: 1.3rem;
+            font-size: 1.8rem;
+            margin: 0;
+            color: var(--accent-yellow);
         }
 
-        .card p {
-            line-height: 1.6;
-            color: #A0AEC0;
+        .btn-postular {
+            background-color: var(--accent-yellow);
+            color: var(--bg-black);
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            border-radius: 5px;
+            transition: background 0.3s;
+            text-align: center;
+        }
+
+        .btn-postular:hover {
+            background-color: var(--text-cream);
+        }
+
+        .proyecto-detalles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .detalle-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detalle-label {
+            font-size: 0.85rem;
+            color: var(--accent-yellow);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .detalle-valor {
+            font-size: 1rem;
+            font-weight: 400;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 3rem;
-            background: #04050a;
-            border-top: 1px solid rgba(88, 164, 223, 0.2);
-            margin-top: 4rem;
-        }
-
-        .footer-text {
-            color: #718096;
+            padding: 2rem;
+            background: var(--bg-navy);
             font-size: 0.9rem;
+            margin-top: 3rem;
         }
     </style>
 </head>
@@ -177,71 +201,175 @@
     </nav>
 
     <header class="hero">
-        <h1>Ad Astra</h1>
-        <div class="tagline">Innovación Aeroespacial Multidisciplinaria</div>
-        <div class="mantra">"Pienso - Crea - Aprende"</div>
+        <h1>Misiones Activas</h1>
+        <div class="tagline">"Pienso - Crea - Aprende"</div>
     </header>
 
     <section id="mision">
         <h2>Nuestra Misión</h2>
-        <div class="mission-box">
-            <p>El USACH Space Program (USP) es una organización estudiantil científico-tecnológica. Nuestra misión es ser un espacio de desarrollo y aprendizaje donde cualquier estudiante de la Universidad de Santiago, independientemente de su carrera o conocimientos previos, pueda participar activamente en la carrera espacial universitaria.</p>
+        <p>El USACH Space Program (USP) es una organización estudiantil científico-tecnológica multidisciplinaria. Nuestra misión es ser un espacio de desarrollo y aprendizaje donde cualquier estudiante, independientemente de su carrera o conocimientos previos, pueda participar en la carrera espacial universitaria.</p>
+    </section>
+
+    <section id="proyectos">
+        <h2>Proyectos de Ingeniería (Postulaciones Abiertas)</h2>
+        <div class="proyectos-lista">
+
+            <div class="proyecto-fila">
+                <div class="proyecto-header">
+                    <h3>Plataforma Rover Nivelador</h3>
+                    <a href="https://forms.google.com/" target="_blank" class="btn-postular">POSTULAR</a>
+                </div>
+                <div class="proyecto-detalles">
+                    <div class="detalle-item">
+                        <span class="detalle-label">Tiempo de Ejecución</span>
+                        <span class="detalle-valor">8 Semanas</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-label">Cupos</span>
+                        <span class="detalle-valor">Equipo de 3 personas</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-label">Objetivo</span>
+                        <span class="detalle-valor">Control de motores, filtrado de señales (acelerómetro/giroscopio) y diseño mecánico para terrenos adversos.</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-label">Presentación Final</span>
+                        <span class="detalle-valor">Simulación de Misión: Demostración dinámica con obstáculos manteniendo la carga paralela al suelo.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="proyecto-fila">
+                <div class="proyecto-header">
+                    <h3>Hackathon CanSat Terrestre</h3>
+                    <a href="https://forms.google.com/" target="_blank" class="btn-postular">POSTULAR</a>
+                </div>
+                <div class="proyecto-detalles">
+                    <div class="detalle-item">
+                        <span class="detalle-label">Tiempo de Ejecución</span>
+                        <span class="detalle-valor">6 Semanas</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-label">Cupos</span>
+                        <span class="detalle-valor">Equipo de 3 personas</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-label">Objetivo</span>
+                        <span class="detalle-valor">Configuración de radio, sensores ambientales, GUI de estación terrena y empaquetamiento de hardware.</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-label">Presentación Final</span>
+                        <span class="detalle-valor">Simulación de Misión: Lanzamiento del satélite transmitiendo datos en vivo durante su descenso.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="proyecto-fila">
+                <div class="proyecto-header">
+                    <h3>Taller de Impresión 3D</h3>
+                    <a href="https://forms.google.com/" target="_blank" class="btn-postular">POSTULAR</a>
+                </div>
+                <div class="proyecto-detalles">
+                    <div class="detalle-item">
+                        <span class="detalle-label">Tiempo de Ejecución</span>
+                        <span class="detalle-valor">4 Semanas (Aprox.)</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-label">Cupos</span>
+                        <span class="detalle-valor">Equipo de 3 personas</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-label">Objetivo</span>
+                        <span class="detalle-valor">Uso de herramientas de manufactura aditiva y diseño CAD aplicado a componentes aeroespaciales.</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-label">Presentación Final</span>
+                        <span class="detalle-valor">Exhibición de prototipos funcionales y piezas mecánicas manufacturadas.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="proyecto-fila">
+                <div class="proyecto-header">
+                    <h3>Egg Drop Espacial</h3>
+                    <a href="https://forms.google.com/" target="_blank" class="btn-postular">POSTULAR</a>
+                </div>
+                <div class="proyecto-detalles">
+                    <div class="detalle-item">
+                        <span class="detalle-label">Tiempo de Ejecución</span>
+                        <span class="detalle-valor">4 Semanas</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-label">Cupos</span>
+                        <span class="detalle-valor">Equipo de 3 personas</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-label">Objetivo</span>
+                        <span class="detalle-valor">Cálculo de velocidad terminal, costura de paracaídas y técnicas de absorción de impactos.</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-label">Presentación Final</span>
+                        <span class="detalle-valor">Competencia Expositiva: Lanzamiento prediciendo tiempo de caída y aterrizaje seguro cerca del objetivo.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="proyecto-fila">
+                <div class="proyecto-header">
+                    <h3>Cohetería a Propulsión (Agua)</h3>
+                    <a href="https://forms.google.com/" target="_blank" class="btn-postular">POSTULAR</a>
+                </div>
+                <div class="proyecto-detalles">
+                    <div class="detalle-item">
+                        <span class="detalle-label">Tiempo de Ejecución</span>
+                        <span class="detalle-valor">3 Semanas</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-label">Cupos</span>
+                        <span class="detalle-valor">Equipo de 3 personas</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-label">Objetivo</span>
+                        <span class="detalle-valor">Estabilidad aerodinámica (CP vs CG), diseño de mecanismos de liberación y logística de lanzamiento.</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-label">Presentación Final</span>
+                        <span class="detalle-valor">Competencia Abierta: Evento en patios USACH. Gana quien alcance mayor altura o distancia.</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <section id="ejes">
-        <h2>Líneas de Desarrollo</h2>
-        <div class="grid-container">
-            <div class="card">
+        <h2>Dominios Principales</h2>
+        <div class="ejes-grid">
+            <div class="eje-card">
                 <h3>I. Exploración y Mecanismos</h3>
-                <p>Diseño, prototipado y validación de robótica móvil (Rovers) y estructuras mecánicas espaciales desplegables para terrenos irregulares.</p>
+                <p>Robótica móvil (Rovers) y estructuras desplegables.</p>
             </div>
-            <div class="card">
+            <div class="eje-card">
                 <h3>II. Simulación y Dinámica</h3>
-                <p>El filtro analítico. Creación de "Gemelos Digitales", estudio aerodinámico, predicción de trayectorias y diseño de operaciones seguras.</p>
+                <p>Gemelos Digitales, aerodinámica y predicción de trayectorias.</p>
             </div>
-            <div class="card">
+            <div class="eje-card">
                 <h3>III. Cohetería Experimental</h3>
-                <p>Convertimos la física en hardware que vuela. Diseño estructural, fuselajes y caracterización de sistemas de propulsión de sondeo.</p>
+                <p>Diseño estructural, propulsión y manufactura de hardware de vuelo.</p>
             </div>
-            <div class="card">
+            <div class="eje-card">
                 <h3>IV. Aviónica y Satélites</h3>
-                <p>El cerebro de nuestras misiones. Desarrollo de aviónica, sistemas de telemetría en tiempo real, microcontroladores y gestión energética solar.</p>
+                <p>Electrónica de vuelo, telemetría y gestión energética.</p>
             </div>
-            <div class="card">
+            <div class="eje-card">
                 <h3>V. USP Academy</h3>
-                <p>El puente con la comunidad. Alfabetización aeroespacial, difusión científica, misiones análogas y traducción del lenguaje hiper-técnico.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="proyectos">
-        <h2>Proyectos Activos (Hands-On)</h2>
-        <div class="grid-container">
-            <div class="card">
-                <h3>🚀 Plataforma Rover Nivelador</h3>
-                <p>Desarrollo de un vehículo terrestre con cinemática avanzada y control PID. El objetivo es atravesar terrenos irregulares manteniendo su plataforma de carga útil perfectamente paralela al suelo mediante compensación inercial.</p>
-            </div>
-            <div class="card">
-                <h3>🛰️ Hackathon CanSat Terrestre</h3>
-                <p>Integración electrónica y programación de satélites tamaño lata. Los equipos lanzan sus sondas para transmitir datos de presión y temperatura en vivo hacia una estación terrena durante su descenso.</p>
-            </div>
-            <div class="card">
-                <h3>🪂 Egg Drop Espacial</h3>
-                <p>Competencia de diseño y testeo de sistemas de recuperación. Implica el cálculo aerodinámico, costura de paracaídas y absorción de impactos para asegurar la supervivencia de una carga frágil en caída libre.</p>
-            </div>
-            <div class="card">
-                <h3>💧 Cohetería a Propulsión</h3>
-                <p>Taller intensivo de manufactura y competencia de lanzamiento. Se trabaja en la estabilidad aerodinámica (CP vs CG) y el diseño de mecanismos de liberación a alta presión utilizando plataformas accesibles.</p>
+                <p>Alfabetización aeroespacial, difusión científica y misiones análogas.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-text">
-            <p>&copy; 2026 USACH Space Program. Dirección General y Gestión de Proyectos.</p>
-            <p>Universidad de Santiago de Chile.</p>
-        </div>
+        <p>&copy; 2026 Dirección General - USACH Space Program. Todos los derechos reservados.</p>
     </footer>
 
 </body>
