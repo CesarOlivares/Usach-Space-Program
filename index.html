@@ -315,6 +315,158 @@
     margin-top: 1.5rem;
 }
 
+/* --- ESTILOS DE LA PORTADA ESPACIAL (HERO) --- */
+.hero-espacial {
+    position: relative;
+    height: 100vh; /* Ocupa toda la pantalla */
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #000000; /* Fondo negro puro base */
+}
+
+/* El fondo de estrellas generado */
+.stars-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('espacio.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    opacity: 0.6; /* Un poco tenue para que el texto resalte */
+}
+
+/* --- ÓRBITAS (Líneas circulares CSS) --- */
+.orbita {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(248, 235, 211, 0.15); /* Color crema muy tenue */
+    border-radius: 50%;
+    z-index: 1;
+}
+.orbita-1 { width: 75vw; height: 75vw; max-width: 850px; max-height: 850px; }
+.orbita-2 { width: 95vw; height: 95vw; max-width: 1150px; max-height: 1150px; }
+.orbita-3 { width: 115vw; height: 115vw; max-width: 1450px; max-height: 1450px; }
+
+/* Puntos en las órbitas (Nodos) */
+.nodo {
+    position: absolute; width: 6px; height: 6px;
+    background-color: #F6AE1F; /* Amarillo acento */
+    border-radius: 50%;
+    box-shadow: 0 0 10px #F6AE1F;
+}
+.orbita-1 .nodo { top: 15%; left: 15%; }
+.orbita-2 .nodo { top: 20%; right: 15%; }
+.orbita-3 .nodo { bottom: 25%; left: 10%; }
+
+/* --- TUS PLANETAS (Posicionamiento y Blending) --- */
+
+/* Contenedor especial para el JPG de la Tierra */
+.tierra-contenedor {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70vw; max-width: 800px;
+    z-index: 2;
+    overflow: hidden;
+    border-radius: 50%; /* Obliga a la imagen a ser redonda */
+    /* TRUCO: Gradiente que oculta los bordes negros del JPG y hace blending */
+    box-shadow: 
+        0 0 60px 20px #000000 inset, /* Sombra interna para blendear */
+        0 0 50px 10px rgba(88, 164, 223, 0.2); /* Resplandor azul atmosférico */
+}
+
+.tierra-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.9;
+    /* Un pequeño ajuste de color para que se vea más dramática */
+    filter: contrast(1.1) brightness(0.9) saturate(1.1);
+}
+
+.marte-img {
+    position: absolute;
+    top: 25%; left: 8%;
+    width: clamp(30px, 4vw, 50px);
+    z-index: 3;
+    filter: drop-shadow(0 0 15px rgba(232, 131, 26, 0.6));
+}
+
+.luna-img {
+    position: absolute;
+    top: 30%; right: 10%;
+    width: clamp(60px, 8vw, 100px);
+    z-index: 3;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+}
+
+/* --- TEXTO FRONTAL (Cinemático) --- */
+.hero-contenido {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    width: 100%;
+    padding: 0 5%;
+}
+
+.hero-contenido h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300; /* Letra delgada como la referencia */
+    font-size: clamp(2.2rem, 6vw, 5rem);
+    letter-spacing: 14px; /* Letras muy separadas */
+    color: #F8EBD3; /* Crema para elegancia */
+    margin: 0 0 15px 0;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.9);
+}
+
+.hero-subtitulo {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.7rem, 2vw, 0.9rem);
+    letter-spacing: 5px;
+    color: #CBD5E0;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+/* --- BOTONES --- */
+.hero-botones {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 15px;
+}
+
+.btn-primario {
+    background: rgba(9, 9, 56, 0.7); /* Azul marino semitransparente */
+    border: 1px solid rgba(88, 164, 223, 0.3);
+    color: #F8EBD3;
+    padding: 14px 35px;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px); /* Efecto cristal pro */
+}
+.btn-primario:hover {
+    background: rgba(88, 164, 223, 0.3);
+    box-shadow: 0 0 20px rgba(88, 164, 223, 0.4);
+    color: white;
+}
+
+.btn-secundario {
+    color: #CBD5E0;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: color 0.3s;
+}
+.btn-secundario:hover { color: #F6AE1F; }
+        
 .tech-tag {
     background: rgba(248, 235, 211, 0.05);
     border: 1px solid rgba(248, 235, 211, 0.2);
@@ -333,15 +485,29 @@
         <a href="#" class="logo-text">USACH <span>SPACE PROGRAM</span></a>
     </nav>
 
-    <header class="hero">
+    <header class="hero-espacial">
     <div class="stars-overlay"></div>
-    <h1>USACH <span>SPACE PROGRAM</span></h1>
-    <div class="tagline" style="color: var(--accent-yellow); font-family: 'Orbitron'; letter-spacing: 3px; margin-top: 15px;">
-        AD ASTRA PER ASPERA
+
+    <div class="orbita orbita-1"><div class="nodo"></div></div>
+    <div class="orbita orbita-2"><div class="nodo"></div></div>
+    <div class="orbita orbita-3"><div class="nodo"></div></div>
+
+    <div class="tierra-contenedor">
+        <img src="Tierra.jpg" alt="Tierra" class="tierra-img">
     </div>
-    <div class="mantra" style="opacity: 0.8; font-weight: 300; margin-top: 20px;">
-        Exploración • Ingeniería • Comunidad
+    <img src="marte.png" alt="Marte" class="marte-img">
+    <img src="luna.png" alt="Luna" class="luna-img">
+
+    <div class="hero-contenido">
+        <h1>USACH SPACE PROGRAM</h1>
+        <p class="hero-subtitulo">INNOVACIÓN Y DESARROLLO AEROESPACIAL DESDE LA UNIVERSIDAD DE SANTIAGO</p>
+        
+        <div class="hero-botones">
+            <a href="#proyectos" class="btn-primario">VER PROYECTOS »</a>
+            <a href="#mision" class="btn-secundario">Conoce más de nosotros »</a>
+        </div>
     </div>
+</header>
 </header>
 
     <section id="mision">
