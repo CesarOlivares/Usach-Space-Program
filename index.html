@@ -15,12 +15,43 @@
         }
 
         body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-black);
-            color: var(--text-cream);
-            line-height: 1.6;
-        }
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-black);
+    /* Capas de estrellas usando gradientes radiales */
+    background-image: 
+        radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 50px 160px, var(--text-cream), rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 80px 120px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 110px 210px, var(--accent-yellow), rgba(0,0,0,0)),
+        linear-gradient(to bottom, #000000 0%, #090938 100%);
+    background-repeat: repeat;
+    background-size: 250px 250px, 350px 350px, 400px 400px, 200px 200px, 300px 300px, 100% 100%;
+    color: var(--text-cream);
+    line-height: 1.6;
+}
+        .hero {
+    position: relative;
+    text-align: center;
+    padding: 12rem 2rem;
+    overflow: hidden;
+    /* Efecto de resplandor atmosférico en la base */
+    background: radial-gradient(circle at center 120%, #2a4b8d 0%, transparent 60%);
+}
+        .hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4.5rem;
+    margin: 0;
+    color: var(--text-cream); /* Texto principal en crema */
+    text-shadow: 0 0 20px rgba(246, 174, 31, 0.4);
+    letter-spacing: 8px;
+}
+
+.hero h1 span {
+    color: var(--accent-yellow);
+}
+        
 
         /* Navegación */
         nav {
@@ -303,9 +334,15 @@
     </nav>
 
     <header class="hero">
-        <h1>Misiones Activas</h1>
-        <div class="tagline">"Pienso - Crea - Aprende"</div>
-    </header>
+    <div class="stars-overlay"></div>
+    <h1>USACH <span>SPACE PROGRAM</span></h1>
+    <div class="tagline" style="color: var(--accent-yellow); font-family: 'Orbitron'; letter-spacing: 3px; margin-top: 15px;">
+        AD ASTRA PER ASPERA
+    </div>
+    <div class="mantra" style="opacity: 0.8; font-weight: 300; margin-top: 20px;">
+        Exploración • Ingeniería • Comunidad
+    </div>
+</header>
 
     <section id="mision">
         <h2>Nuestra Misión</h2>
@@ -512,21 +549,22 @@
             </div>
         </div>
 
-        <div class="eje-card-expanded" style="animation-delay: 0.5s;">
-            <span class="eje-num">DOMINIO V</span>
-            <h3>USP Academy</h3>
-            <p>Alfabetización aeroespacial y vinculación con la comunidad multidisciplinaria.</p>
-            <ul class="eje-details">
-                <li>Onboarding técnico para nuevos miembros[cite: 1].</li>
-                <li>Investigación en Legislación y Ética Espacial[cite: 1].</li>
-                <li>Integración de cargas útiles biológicas y sociales[cite: 1].</li>
-            </ul>
-            <div class="tech-stack">
-                <span class="tech-tag">Sci-Comm</span>
-                <span class="tech-tag">Space Law</span>
-                <span class="tech-tag">Pedagogía</span>
-            </div>
-        </div>
+        <div class="eje-card-expanded" style="animation-delay: 0.5s; border-left: 4px solid var(--accent-yellow);">
+    <span class="eje-num">DOMINIO V</span>
+    <h3>USP Academy</h3>
+    <p>El núcleo de formación técnica. Nuestro objetivo es la alfabetización aeroespacial mediante el aprendizaje práctico y experimental[cite: 165, 168].</p>
+    <ul class="eje-details">
+        <li><strong>Talleres de Electrónica:</strong> Fundamentos de sistemas embebidos, soldadura y sensores críticos para telemetría[cite: 141, 163].</li>
+        <li><strong>Impresión y Diseño 3D:</strong> Manufactura aditiva aplicada a piezas de fuselaje, toberas y componentes de Rover[cite: 109, 155].</li>
+        <li><strong>Habilidades Fundamentales:</strong> Onboarding técnico para nivelar conocimientos en CAD y mecánica básica[cite: 169, 171].</li>
+        <li><strong>Sci-Comm:</strong> Traducción de conceptos de ingeniería compleja a lenguaje accesible para toda la comunidad[cite: 169, 173].</li>
+    </ul>
+    <div class="tech-stack">
+        <span class="tech-tag">Electrónica</span>
+        <span class="tech-tag">Diseño 3D</span>
+        <span class="tech-tag">Manufactura</span>
+    </div>
+</div>
 
     </div>
 </section>
