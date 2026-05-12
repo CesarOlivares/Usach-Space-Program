@@ -381,12 +381,27 @@
 }
 
 .tierra-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    opacity: 0.9;
-    /* Un pequeño ajuste de color para que se vea más dramática */
-    filter: contrast(1.1) brightness(0.9) saturate(1.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65vw; /* Tamaño relativo a la pantalla */
+    max-width: 750px; /* Tamaño máximo para que no se pixele */
+    z-index: 2;
+    /* Efecto de resplandor atmosférico azulado */
+    filter: drop-shadow(0 0 40px rgba(88, 164, 223, 0.4));
+    opacity: 0.95; /* Un toque de transparencia sutil para que se vea más real */
+    transition: transform 0.5s ease;
+}
+
+        @keyframes flotar {
+    0% { transform: translate(-50%, -52%); }
+    50% { transform: translate(-50%, -48%); }
+    100% { transform: translate(-50%, -52%); }
+}
+
+.tierra-img {
+    animation: flotar 10s ease-in-out infinite;
 }
 
 .marte-img {
