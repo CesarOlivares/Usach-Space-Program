@@ -192,6 +192,108 @@
             font-size: 0.9rem;
             margin-top: 3rem;
         }
+        /* Animación de aparición */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.ejes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    perspective: 1000px;
+}
+
+.eje-card-expanded {
+    background: linear-gradient(145deg, #090938, #000000);
+    border: 1px solid rgba(246, 174, 31, 0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: fadeInUp 0.8s ease backwards;
+}
+
+.eje-card-expanded:hover {
+    transform: translateY(-10px) rotateX(2deg);
+    border-color: var(--accent-yellow);
+    box-shadow: 0 15px 35px rgba(246, 174, 31, 0.15);
+}
+
+/* Decoración de fondo de la tarjeta */
+.eje-card-expanded::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(246, 174, 31, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.eje-num {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    color: var(--accent-yellow);
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.eje-card-expanded h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.6rem;
+    color: var(--text-cream);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.eje-details {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    z-index: 1;
+    position: relative;
+}
+
+.eje-details li {
+    font-size: 0.95rem;
+    color: #cbd5e0;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.eje-details li::before {
+    content: '◈';
+    color: var(--accent-yellow);
+    margin-right: 10px;
+    font-size: 0.8rem;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.tech-tag {
+    background: rgba(248, 235, 211, 0.05);
+    border: 1px solid rgba(248, 235, 211, 0.2);
+    color: var(--text-cream);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+}       
     </style>
 </head>
 <body>
@@ -343,30 +445,91 @@
     </section>
 
     <section id="ejes">
-        <h2>Dominios Principales</h2>
-        <div class="ejes-grid">
-            <div class="eje-card">
-                <h3>I. Exploración y Mecanismos</h3>
-                <p>Robótica móvil (Rovers) y estructuras desplegables.</p>
-            </div>
-            <div class="eje-card">
-                <h3>II. Simulación y Dinámica</h3>
-                <p>Gemelos Digitales, aerodinámica y predicción de trayectorias.</p>
-            </div>
-            <div class="eje-card">
-                <h3>III. Cohetería Experimental</h3>
-                <p>Diseño estructural, propulsión y manufactura de hardware de vuelo.</p>
-            </div>
-            <div class="eje-card">
-                <h3>IV. Aviónica y Satélites</h3>
-                <p>Electrónica de vuelo, telemetría y gestión energética.</p>
-            </div>
-            <div class="eje-card">
-                <h3>V. USP Academy</h3>
-                <p>Alfabetización aeroespacial, difusión científica y misiones análogas.</p>
+    <h2 style="margin-bottom: 4rem;">Ejes Estratégicos</h2>
+    <div class="ejes-container">
+
+        <div class="eje-card-expanded" style="animation-delay: 0.1s;">
+            <span class="eje-num">DOMINIO I</span>
+            <h3>Exploración Planetaria</h3>
+            <p>Diseño y validación de robótica móvil y estructuras mecánicas para entornos hostiles.</p>
+            <ul class="eje-details">
+                <li>Sistemas de suspensión tipo Rocker-Bogie[cite: 1].</li>
+                <li>Mecanismos desplegables basados en Miura-ori[cite: 1].</li>
+                <li>Integración de sensores inerciales MPU6050[cite: 1].</li>
+            </ul>
+            <div class="tech-stack">
+                <span class="tech-tag">CAD Avanzado</span>
+                <span class="tech-tag">Cinemática</span>
+                <span class="tech-tag">Impresión 3D</span>
             </div>
         </div>
-    </section>
+
+        <div class="eje-card-expanded" style="animation-delay: 0.2s;">
+            <span class="eje-num">DOMINIO II</span>
+            <h3>Dinámica de Vuelo</h3>
+            <p>Análisis predictivo y creación del "Gemelo Digital" antes de la manufactura física.</p>
+            <ul class="eje-details">
+                <li>Validación de estabilidad aerodinámica (CP vs CG)[cite: 1].</li>
+                <li>Simulaciones de dispersión por viento (Wind Drift)[cite: 1].</li>
+                <li>Dimensionamiento de sistemas de recuperación paracaídas[cite: 1].</li>
+            </ul>
+            <div class="tech-stack">
+                <span class="tech-tag">OpenRocket</span>
+                <span class="tech-tag">OpenMotor</span>
+                <span class="tech-tag">Análisis Meteorológico</span>
+            </div>
+        </div>
+
+        <div class="eje-card-expanded" style="animation-delay: 0.3s;">
+            <span class="eje-num">DOMINIO III</span>
+            <h3>Cohetería Experimental</h3>
+            <p>Desarrollo de vehículos de lanzamiento y sistemas de propulsión de alta precisión.</p>
+            <ul class="eje-details">
+                <li>Investigación de propulsantes sólidos (Deep-Tech)[cite: 1].</li>
+                <li>Termodinámica de toberas Laval mecanizadas[cite: 1].</li>
+                <li>Uso de celdas de carga para adquisición de datos DAQ[cite: 1].</li>
+            </ul>
+            <div class="tech-stack">
+                <span class="tech-tag">Torno CNC</span>
+                <span class="tech-tag">Python DAQ</span>
+                <span class="tech-tag">Seguridad Operacional</span>
+            </div>
+        </div>
+
+        <div class="eje-card-expanded" style="animation-delay: 0.4s;">
+            <span class="eje-num">DOMINIO IV</span>
+            <h3>Sistemas Espaciales</h3>
+            <p>Desarrollo del cerebro electrónico y sistemas de comunicación de largo alcance.</p>
+            <ul class="eje-details">
+                <li>Enlaces de radiofrecuencia de largo alcance (LoRa)[cite: 1].</li>
+                <li>Módulos de gestión energética solar MPPT[cite: 1].</li>
+                <li>Diseño de PCBs redundantes para misiones críticas[cite: 1].</li>
+            </ul>
+            <div class="tech-stack">
+                <span class="tech-tag">STM32 / ESP32</span>
+                <span class="tech-tag">Telemetría</span>
+                <span class="tech-tag">Energía Solar</span>
+            </div>
+        </div>
+
+        <div class="eje-card-expanded" style="animation-delay: 0.5s;">
+            <span class="eje-num">DOMINIO V</span>
+            <h3>USP Academy</h3>
+            <p>Alfabetización aeroespacial y vinculación con la comunidad multidisciplinaria.</p>
+            <ul class="eje-details">
+                <li>Onboarding técnico para nuevos miembros[cite: 1].</li>
+                <li>Investigación en Legislación y Ética Espacial[cite: 1].</li>
+                <li>Integración de cargas útiles biológicas y sociales[cite: 1].</li>
+            </ul>
+            <div class="tech-stack">
+                <span class="tech-tag">Sci-Comm</span>
+                <span class="tech-tag">Space Law</span>
+                <span class="tech-tag">Pedagogía</span>
+            </div>
+        </div>
+
+    </div>
+</section>
 
     <footer>
         <p>&copy; 2026 Dirección General - USACH Space Program. Todos los derechos reservados.</p>
