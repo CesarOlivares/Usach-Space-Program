@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USACH Space Program | Inicio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================= VARIABLES DE COLOR ================= */
+        :root {
+            --azul-marino: #050A30;
+            --blanco-crema: #F9F8F6;
+            --texto-oscuro: #1A1A1A;
+            --acento: #0A1128;
+        }
+
+        /* ================= RESET Y BASE ================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--blanco-crema);
+            color: var(--texto-oscuro);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .horizon-font {
+            font-family: 'Syncopate', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* ================= NAVEGACIÓN ================= */
+        header {
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            align-items: center;
+            background-color: var(--blanco-crema);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--texto-oscuro);
+        }
+
+        .logo-img {
+            width: 60px; /* Aquí irá tu logo del león */
+            height: auto;
+        }
+
+        /* ================= SECCIÓN HERO (ESTILO SPLIT) ================= */
+        .hero {
+            display: flex;
+            min-height: 85vh;
+            padding: 0 50px 50px 50px;
+            gap: 40px;
+        }
+
+        /* Lado Izquierdo - Imagen principal */
+        .hero-image-container {
+            flex: 1;
+            background-color: #EAEAEA; /* Fondo gris temporal mientras pones tu imagen */
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Lado Derecho - Contenido */
+        .hero-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            color: var(--azul-marino);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: #333;
+            max-width: 90%;
+        }
+
+        /* Botón hacia la página de proyectos */
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: var(--azul-marino);
+            color: var(--blanco-crema);
+            text-decoration: none;
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-link:hover {
+            transform: translateX(10px);
+        }
+
+        /* Cuadrícula de Pilares / Ejes */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 80%;
+        }
+
+        .pillar-box {
+            background-color: var(--azul-marino);
+            color: var(--blanco-crema);
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* ================= RESPONSIVO ================= */
+        @media (max-width: 968px) {
+            .hero {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-image-container {
+                min-height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="ruta-a-tu-logo.png" alt="Logo USACH Space Program" class="logo-img">
+            <span class="horizon-font">USACH SPACE PROGRAM</span>
+        </div>
+    </header>
+
+    <main class="hero">
+        
+        <div class="hero-image-container">
+            <img src="ruta-a-tu-imagen-principal.jpg" alt="Ilustración principal del proyecto">
+        </div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">USACH<br>SPACE<br>PROGRAM</h1>
+            
+            <p class="hero-subtitle">
+                Iniciativa estudiantil autogestionada que nace con el objetivo de ser el primer acercamiento extracurricular de los estudiantes hacia el sector aeroespacial[cite: 29]. Somos un espacio donde diversas disciplinas convergen, impulsando el avance continuo para generar proyectos aeroespaciales de alto valor[cite: 39].
+            </p>
+
+            <a href="proyectos.html" class="btn-link" title="Ir a Proyectos">&#8594;</a>
+
+            <div class="pillars-grid">
+                <div class="pillar-box">Innovación</div>
+                <div class="pillar-box">Investigación</div>
+                <div class="pillar-box">Colaboración</div>
+                <div class="pillar-box">Desarrollo</div>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>
