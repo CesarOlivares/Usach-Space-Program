@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USACH Space Program | Inicio</title>
+    <title>USACH Space Program | Proyectos</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Syncopate:wght@700&display=swap" rel="stylesheet">
 
     <style>
-        /* ================= VARIABLES DE COLOR ================= */
+        /* ================= VARIABLES ================= */
         :root {
             --azul-marino: #050A30;
             --blanco-crema: #F9F8F6;
             --texto-oscuro: #1A1A1A;
             --acento: #0A1128;
+            --hover-blue: #101c52;
         }
 
         /* ================= RESET Y BASE ================= */
@@ -29,7 +30,9 @@
             background-color: var(--blanco-crema);
             color: var(--texto-oscuro);
             font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         h1, h2, h3, .horizon-font {
@@ -43,6 +46,7 @@
             padding: 20px 50px;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             background-color: var(--blanco-crema);
         }
 
@@ -53,110 +57,216 @@
             font-weight: 700;
             font-size: 1.2rem;
             color: var(--texto-oscuro);
+            text-decoration: none;
         }
 
         .logo-img {
-            width: 60px; /* Aquí irá tu logo del león */
+            width: 60px; /* Aquí irá tu logo */
             height: auto;
         }
 
-        /* ================= SECCIÓN HERO (ESTILO SPLIT) ================= */
-        .hero {
-            display: flex;
-            min-height: 85vh;
-            padding: 0 50px 50px 50px;
-            gap: 40px;
-        }
-
-        /* Lado Izquierdo - Imagen principal */
-        .hero-image-container {
-            flex: 1;
-            background-color: #EAEAEA; /* Fondo gris temporal mientras pones tu imagen */
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Lado Derecho - Contenido */
-        .hero-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
+        .nav-link {
+            text-decoration: none;
             color: var(--azul-marino);
-            line-height: 1.1;
-            margin-bottom: 20px;
+            font-family: 'Syncopate', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: color 0.3s;
         }
 
-        .hero-subtitle {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 40px;
-            color: #333;
-            max-width: 90%;
+        .nav-link:hover {
+            color: #4a5a9c;
         }
 
-        /* Botón hacia la página de proyectos */
-        .btn-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
+        /* ================= SECCIÓN PROYECTOS ================= */
+        main {
+            flex: 1;
+            padding: 40px 50px;
+            text-align: center;
+        }
+
+        .main-title {
+            color: var(--azul-marino);
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Tarjeta del Proyecto */
+        .project-card {
             background-color: var(--azul-marino);
             color: var(--blanco-crema);
-            text-decoration: none;
-            font-size: 1.5rem;
-            margin-bottom: 40px;
+            padding: 40px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            background-color: var(--hover-blue);
+        }
+
+        .project-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
             transition: transform 0.3s ease;
         }
 
-        .btn-link:hover {
-            transform: translateX(10px);
+        .project-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            z-index: 2;
         }
 
-        /* Cuadrícula de Pilares / Ejes */
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            max-width: 80%;
-        }
-
-        .pillar-box {
-            background-color: var(--azul-marino);
-            color: var(--blanco-crema);
-            padding: 15px;
-            text-align: center;
-            font-weight: 600;
+        /* Descripción breve oculta que aparece en Hover */
+        .short-desc {
             font-size: 0.9rem;
+            line-height: 1.4;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            text-align: center;
+        }
+
+        .project-card:hover .short-desc {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card:hover .project-icon {
+            transform: scale(0.8) translateY(-20px);
+            opacity: 0.5;
+        }
+
+        /* ================= MODAL (EXPANSIÓN DEL PROYECTO) ================= */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(5, 10, 48, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: var(--blanco-crema);
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 8px;
+            padding: 40px;
+            position: relative;
+            transform: translateY(50px);
+            transition: transform 0.3s ease;
+            text-align: left;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2rem;
+            color: var(--azul-marino);
+            cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: #d93838;
+        }
+
+        .modal-header {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--azul-marino);
+        }
+
+        .modal-header h2 {
+            color: var(--azul-marino);
+            font-size: 2rem;
+        }
+
+        .modal-header .eje {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #666;
+            margin-top: 5px;
             text-transform: uppercase;
         }
 
+        .modal-body p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .modal-body ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .tag-costo {
+            display: inline-block;
+            background-color: var(--azul-marino);
+            color: var(--blanco-crema);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
         /* ================= RESPONSIVO ================= */
-        @media (max-width: 968px) {
-            .hero {
-                flex-direction: column;
-                padding: 20px;
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 1.8rem;
             }
-            .hero-title {
-                font-size: 2.5rem;
+            .modal-content {
+                padding: 25px;
             }
-            .hero-image-container {
-                min-height: 400px;
+            .modal-header h2 {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -164,36 +274,163 @@
 <body>
 
     <header>
-        <div class="logo-container">
-            <img src="ruta-a-tu-logo.png" alt="Logo USACH Space Program" class="logo-img">
-            <span class="horizon-font">USACH SPACE PROGRAM</span>
-        </div>
+        <a href="index.html" class="logo-container">
+            <img src="ruta-a-tu-logo.png" alt="Logo USP" class="logo-img">
+            <span class="horizon-font">USP</span>
+        </a>
+        <a href="index.html" class="nav-link">VOLVER AL INICIO</a>
     </header>
 
-    <main class="hero">
+    <main>
+        <h1 class="main-title">ELIGE EL PROYECTO QUE TE INTERESE</h1>
         
-        <div class="hero-image-container">
-            <img src="ruta-a-tu-imagen-principal.jpg" alt="Ilustración principal del proyecto">
-        </div>
-
-        <div class="hero-content">
-            <h1 class="hero-title">USACH<br>SPACE<br>PROGRAM</h1>
-            
-            <p class="hero-subtitle">
-                Iniciativa estudiantil autogestionada que nace con el objetivo de ser el primer acercamiento extracurricular de los estudiantes hacia el sector aeroespacial[cite: 29]. Somos un espacio donde diversas disciplinas convergen, impulsando el avance continuo para generar proyectos aeroespaciales de alto valor[cite: 39].
-            </p>
-
-            <a href="proyectos.html" class="btn-link" title="Ir a Proyectos">&#8594;</a>
-
-            <div class="pillars-grid">
-                <div class="pillar-box">Innovación</div>
-                <div class="pillar-box">Investigación</div>
-                <div class="pillar-box">Colaboración</div>
-                <div class="pillar-box">Desarrollo</div>
+        <div class="projects-grid">
             </div>
-        </div>
-
     </main>
 
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <h2 id="modalTitle">Título</h2>
+                <div class="eje" id="modalEje">Eje de desarrollo</div>
+            </div>
+            <div class="modal-body" id="modalBody">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        // Base de datos de proyectos extráida del PDF
+        const proyectosData = [
+            {
+                id: 'rover',
+                icon: '🚙', // Puedes cambiar esto por una etiqueta <img> con tus propios íconos SVG
+                title: 'Proyecto Rover',
+                shortDesc: 'Diseño, ensamblaje y programación de un prototipo terrestre a escala para exploración planetaria.',
+                eje: 'Eje I. Exploración Planetaria',
+                content: `
+                    <p>Un Rover es un vehículo robótico de exploración espacial diseñado para desplazarse por la superficie de planetas o lunas, con el fin de recolectar datos y tomar muestras. Consiste en el diseño, ensamblaje y programación de un prototipo capaz de sortear terrenos irregulares.</p>
+                    <h3>Objetivos</h3>
+                    <ul>
+                        <li>Desarrollar una plataforma robótica terrestre utilizando componentes de bajo costo (impresión 3D).</li>
+                        <li>Aplicar diseño CAD avanzado y cinemática.</li>
+                        <li>Integrar electrónica básica (Arduino/ESP32, MPU6050) para el control de actuadores.</li>
+                    </ul>
+                    <span class="tag-costo">Costo aprox: $35.000 - $55.000 CLP</span>
+                `
+            },
+            {
+                id: 'cansat',
+                icon: '🛰️',
+                title: 'CanSat Terrestre',
+                shortDesc: 'Simulación de un satélite a escala integrado dentro del volumen de una lata de refresco.',
+                eje: 'Eje IV. Sistemas Espaciales, Satélites y Energía',
+                content: `
+                    <p>En esta variante "terrestre", el proyecto se centra puramente en el desarrollo de la carga útil: diseñar, ensamblar y programar la aviónica. El objetivo es recolectar datos atmosféricos en tiempo real y transmitirlos a una estación base.</p>
+                    <h3>Objetivos</h3>
+                    <ul>
+                        <li>Desarrollar un sistema embebido ultracompacto.</li>
+                        <li>Aplicar protocolos de comunicación (I2C, SPI) para sensores atmosféricos e inerciales.</li>
+                        <li>Implementar un enlace de radiofrecuencia (LoRa/NRF24L01+) para telemetría.</li>
+                    </ul>
+                    <span class="tag-costo">Costo aprox: $25.000 - $45.000 CLP</span>
+                `
+            },
+            {
+                id: 'cohete',
+                icon: '🚀',
+                title: 'Cohete de Agua',
+                shortDesc: 'Vehículo aeroespacial de introducción impulsado por aire comprimido y agua.',
+                eje: 'Eje III. Cohetería Experimental y de Sondeo',
+                content: `
+                    <p>Este proyecto sirve como la primera aproximación práctica a los principios de la astronáutica: acción y reacción, estabilidad aerodinámica y sistemas de recuperación. Se construye reciclando botellas PET.</p>
+                    <h3>Objetivos</h3>
+                    <ul>
+                        <li>Comprender los principios de la mecánica de fluidos y relaciones de presión/volumen.</li>
+                        <li>Dominar la estabilidad aerodinámica ajustando el Centro de Presión (CP) y de Gravedad (CG).</li>
+                        <li>Manufacturar un sistema de recuperación funcional (paracaídas).</li>
+                    </ul>
+                    <span class="tag-costo">Costo aprox: $5.000 - $10.000 CLP</span>
+                `
+            },
+            {
+                id: 'eggdrop',
+                icon: '🥚',
+                title: 'Egg Drop',
+                shortDesc: 'Diseño de un receptáculo capaz de proteger un huevo crudo de una caída libre.',
+                eje: 'Eje II. Simulación, Dinámica de Vuelo y Operaciones',
+                content: `
+                    <p>Desafío clásico que simula el aterrizaje de una sonda. La gestión de la energía cinética y la disipación del impacto son críticas para la supervivencia de la carga útil.</p>
+                    <h3>Objetivos</h3>
+                    <ul>
+                        <li>Estudiar las leyes de Newton (impulso y cantidad de movimiento).</li>
+                        <li>Comprender la absorción y disipación de energía mediante estructuras de sacrificio.</li>
+                        <li>Aplicar conceptos de aerodinámica para reducir la velocidad terminal (drag).</li>
+                    </ul>
+                    <span class="tag-costo">Costo aprox: $3.000 - $7.000 CLP</span>
+                `
+            },
+            {
+                id: 'taller3d',
+                icon: '🖨️',
+                title: 'Taller de Impresión 3D',
+                shortDesc: 'Capacitación intensiva en diseño CAD y manufactura aditiva (FDM).',
+                eje: 'Eje V. Educación y Experiencia',
+                content: `
+                    <p>Programa diseñado para llevar a los estudiantes desde una idea hasta la manufactura física. Es el filtro ideal para que los miembros sin experiencia adquieran herramientas necesarias para contribuir rápidamente.</p>
+                    <h3>Objetivos</h3>
+                    <ul>
+                        <li>Aprender fundamentos de modelado 3D (Tinkercad, Fusion 360).</li>
+                        <li>Comprender el flujo de trabajo de manufactura aditiva (slicing, relleno, soportes).</li>
+                        <li>Operar y calibrar impresoras 3D con materiales como PLA y PETG.</li>
+                    </ul>
+                    <span class="tag-costo">Costo aprox: $2.000 - $5.000 CLP</span>
+                `
+            }
+        ];
+
+        // Función para renderizar las tarjetas en la grilla
+        const grid = document.querySelector('.projects-grid');
+        
+        proyectosData.forEach(proyecto => {
+            const card = document.createElement('div');
+            card.classList.add('project-card');
+            card.onclick = () => openModal(proyecto);
+            
+            card.innerHTML = `
+                <div class="project-icon">${proyecto.icon}</div>
+                <h3>${proyecto.title}</h3>
+                <div class="short-desc">${proyecto.shortDesc}</div>
+            `;
+            grid.appendChild(card);
+        });
+
+        // Funciones del Modal
+        const modal = document.getElementById('projectModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalEje = document.getElementById('modalEje');
+        const modalBody = document.getElementById('modalBody');
+
+        function openModal(proyecto) {
+            modalTitle.innerText = proyecto.title;
+            modalEje.innerText = proyecto.eje;
+            modalBody.innerHTML = proyecto.content;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Evita que el fondo haga scroll
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restaura el scroll
+        }
+
+        // Cerrar modal al hacer clic fuera del contenido
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
