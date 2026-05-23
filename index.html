@@ -1,767 +1,199 @@
 <!DOCTYPE html>
 <html lang="es">
-    <link rel="icon" type="image/jpeg" href="logo.jpg">
-
-    <meta property="og:title" content="USACH Space Program">
-    <meta property="og:description" content="Innovación y desarrollo aeroespacial desde la Universidad de Santiago.">
-    
-    <meta property="og:image" content="https://cesarolivares.github.io/Usach-Space-Program/logo.jpg">
-    <meta property="og:url" content="https://cesarolivares.github.io/Usach-Space-Program/#mision">
-    <meta name="twitter:card" content="summary_large_image">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USACH Space Program</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>USACH Space Program | Inicio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+
     <style>
-        /* Paleta de colores solicitada */
+        /* ================= VARIABLES DE COLOR ================= */
         :root {
-            --bg-black: #000000;
-            --bg-navy: #090938;
-            --text-cream: #F8EBD3;
-            --accent-yellow: #F6AE1F;
+            --azul-marino: #050A30;
+            --blanco-crema: #F9F8F6;
+            --texto-oscuro: #1A1A1A;
+            --acento: #0A1128;
+        }
+
+        /* ================= RESET Y BASE ================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-black);
-    /* Capas de estrellas usando gradientes radiales */
-    background-image: 
-        radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
-        radial-gradient(1.5px 1.5px at 50px 160px, var(--text-cream), rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 80px 120px, #fff, rgba(0,0,0,0)),
-        radial-gradient(1.5px 1.5px at 110px 210px, var(--accent-yellow), rgba(0,0,0,0)),
-        linear-gradient(to bottom, #000000 0%, #090938 100%);
-    background-repeat: repeat;
-    background-size: 250px 250px, 350px 350px, 400px 400px, 200px 200px, 300px 300px, 100% 100%;
-    color: var(--text-cream);
-    line-height: 1.6;
-}
-        .hero {
-    position: relative;
-    text-align: center;
-    padding: 12rem 2rem;
-    overflow: hidden;
-    /* Efecto de resplandor atmosférico en la base */
-    background: radial-gradient(circle at center 120%, #2a4b8d 0%, transparent 60%);
-}
-        .hero h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 4.5rem;
-    margin: 0;
-    color: var(--text-cream); /* Texto principal en crema */
-    text-shadow: 0 0 20px rgba(246, 174, 31, 0.4);
-    letter-spacing: 8px;
-}
+            background-color: var(--blanco-crema);
+            color: var(--texto-oscuro);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
 
-.hero h1 span {
-    color: var(--accent-yellow);
-}
-        
+        h1, h2, h3, .horizon-font {
+            font-family: 'Syncopate', sans-serif;
+            text-transform: uppercase;
+        }
 
-        /* Navegación */
-        nav {
+        /* ================= NAVEGACIÓN ================= */
+        header {
+            width: 100%;
+            padding: 20px 50px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 5%;
-            background: var(--bg-black);
-            border-bottom: 2px solid var(--bg-navy);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            background-color: var(--blanco-crema);
         }
 
-        .logo-text {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             font-weight: 700;
-            color: var(--text-cream);
-            text-decoration: none;
-            letter-spacing: 2px;
-        }
-
-        .logo-text span { color: var(--accent-yellow); }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 6rem 2rem;
-            background: linear-gradient(180deg, var(--bg-navy) 0%, var(--bg-black) 100%);
-        }
-
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
-            margin: 0;
-            color: var(--accent-yellow);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .tagline {
             font-size: 1.2rem;
-            margin-top: 1rem;
-            font-weight: 300;
+            color: var(--texto-oscuro);
         }
 
-        /* Secciones Generales */
-        section { padding: 4rem 10%; }
-
-        h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
-            color: var(--text-cream);
-            border-bottom: 3px solid var(--accent-yellow);
-            padding-bottom: 0.5rem;
-            display: inline-block;
-            margin-bottom: 2rem;
+        .logo-img {
+            width: 60px; /* Aquí irá tu logo del león */
+            height: auto;
         }
 
-        /* Ejes - Grilla simple */
-        .ejes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+        /* ================= SECCIÓN HERO (ESTILO SPLIT) ================= */
+        .hero {
+            display: flex;
+            min-height: 85vh;
+            padding: 0 50px 50px 50px;
+            gap: 40px;
         }
 
-        .eje-card {
-            background: var(--bg-navy);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-top: 4px solid var(--accent-yellow);
+        /* Lado Izquierdo - Imagen principal */
+        .hero-image-container {
+            flex: 1;
+            background-color: #EAEAEA; /* Fondo gris temporal mientras pones tu imagen */
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .eje-card h3 {
-            font-family: 'Orbitron', sans-serif;
-            margin-top: 0;
-            color: var(--accent-yellow);
-            font-size: 1.1rem;
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        /* Proyectos - Formato Filas */
-        .proyectos-lista {
+        /* Lado Derecho - Contenido */
+        .hero-content {
+            flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            justify-content: center;
         }
 
-        .proyecto-fila {
-            background: var(--bg-navy);
-            border-radius: 10px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            border-left: 6px solid var(--accent-yellow);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            transition: transform 0.2s ease;
+        .hero-title {
+            font-size: 3.5rem;
+            color: var(--azul-marino);
+            line-height: 1.1;
+            margin-bottom: 20px;
         }
 
-        .proyecto-fila:hover {
-            transform: translateX(5px);
+        .hero-subtitle {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: #333;
+            max-width: 90%;
         }
 
-        .proyecto-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .proyecto-header h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            margin: 0;
-            color: var(--accent-yellow);
-        }
-
-        .btn-postular {
-            background-color: var(--accent-yellow);
-            color: var(--bg-black);
-            padding: 0.8rem 1.5rem;
+        /* Botón hacia la página de proyectos */
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: var(--azul-marino);
+            color: var(--blanco-crema);
             text-decoration: none;
-            font-weight: 700;
-            font-family: 'Orbitron', sans-serif;
-            border-radius: 5px;
-            transition: background 0.3s;
-            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease;
         }
 
-        .btn-postular:hover {
-            background-color: var(--text-cream);
+        .btn-link:hover {
+            transform: translateX(10px);
         }
 
-        .proyecto-detalles {
+        /* Cuadrícula de Pilares / Ejes */
+        .pillars-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 1.5rem;
-            border-radius: 8px;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 80%;
         }
 
-        .detalle-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .detalle-label {
-            font-size: 0.85rem;
-            color: var(--accent-yellow);
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 0.3rem;
-        }
-
-        .detalle-valor {
-            font-size: 1rem;
-            font-weight: 400;
-        }
-
-        /* Footer */
-        footer {
+        .pillar-box {
+            background-color: var(--azul-marino);
+            color: var(--blanco-crema);
+            padding: 15px;
             text-align: center;
-            padding: 2rem;
-            background: var(--bg-navy);
+            font-weight: 600;
             font-size: 0.9rem;
-            margin-top: 3rem;
+            text-transform: uppercase;
         }
-        /* Animación de aparición */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
 
-.ejes-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2.5rem;
-    perspective: 1000px;
-}
-
-.eje-card-expanded {
-    background: linear-gradient(145deg, #090938, #000000);
-    border: 1px solid rgba(246, 174, 31, 0.2);
-    border-radius: 20px;
-    padding: 2.5rem;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    animation: fadeInUp 0.8s ease backwards;
-}
-
-.eje-card-expanded:hover {
-    transform: translateY(-10px) rotateX(2deg);
-    border-color: var(--accent-yellow);
-    box-shadow: 0 15px 35px rgba(246, 174, 31, 0.15);
-}
-
-/* Decoración de fondo de la tarjeta */
-.eje-card-expanded::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(246, 174, 31, 0.1) 0%, transparent 70%);
-    border-radius: 50%;
-    z-index: 0;
-}
-
-.eje-num {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.9rem;
-    color: var(--accent-yellow);
-    font-weight: 900;
-    letter-spacing: 2px;
-    margin-bottom: 1rem;
-    display: block;
-}
-
-.eje-card-expanded h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.6rem;
-    color: var(--text-cream);
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 1;
-}
-
-.eje-details {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0;
-    z-index: 1;
-    position: relative;
-}
-
-.eje-details li {
-    font-size: 0.95rem;
-    color: #cbd5e0;
-    margin-bottom: 0.8rem;
-    display: flex;
-    align-items: flex-start;
-}
-
-.eje-details li::before {
-    content: '◈';
-    color: var(--accent-yellow);
-    margin-right: 10px;
-    font-size: 0.8rem;
-}
-
-.tech-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1.5rem;
-}
-
-/* --- ESTILOS DE LA PORTADA ESPACIAL (HERO) --- */
-.hero-espacial {
-    position: relative;
-    height: 100vh; /* Ocupa toda la pantalla */
-    min-height: 700px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background-color: #000000; /* Fondo negro puro base */
-}
-
-/* El fondo de estrellas generado */
-.stars-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    /* URL directa a una foto de espacio profundo en alta calidad */
-    background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1920&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
-    z-index: 0;
-    opacity: 0.6; /* Un poco tenue para que el texto resalte */
-}
-
-/* --- ÓRBITAS (Líneas circulares CSS) --- */
-.orbita {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid rgba(248, 235, 211, 0.15); /* Color crema muy tenue */
-    border-radius: 50%;
-    z-index: 1;
-}
-.orbita-1 { width: 75vw; height: 75vw; max-width: 850px; max-height: 850px; }
-.orbita-2 { width: 95vw; height: 95vw; max-width: 1150px; max-height: 1150px; }
-.orbita-3 { width: 115vw; height: 115vw; max-width: 1450px; max-height: 1450px; }
-
-/* Puntos en las órbitas (Nodos) */
-.nodo {
-    position: absolute; width: 6px; height: 6px;
-    background-color: #F6AE1F; /* Amarillo acento */
-    border-radius: 50%;
-    box-shadow: 0 0 10px #F6AE1F;
-}
-.orbita-1 .nodo { top: 15%; left: 15%; }
-.orbita-2 .nodo { top: 20%; right: 15%; }
-.orbita-3 .nodo { bottom: 25%; left: 10%; }
-
-/* --- TUS PLANETAS (Posicionamiento y Blending) --- */
-
-/* Contenedor especial para el JPG de la Tierra */
-.tierra-contenedor {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70vw; max-width: 800px;
-    z-index: 2;
-    overflow: hidden;
-    border-radius: 50%; /* Obliga a la imagen a ser redonda */
-    /* TRUCO: Gradiente que oculta los bordes negros del JPG y hace blending */
-    box-shadow: 
-        0 0 60px 20px #000000 inset, /* Sombra interna para blendear */
-        0 0 50px 10px rgba(88, 164, 223, 0.2); /* Resplandor azul atmosférico */
-}
-
-.tierra-img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 65vw; /* Tamaño relativo a la pantalla */
-    max-width: 750px; /* Tamaño máximo para que no se pixele */
-    z-index: 2;
-    /* Efecto de resplandor atmosférico azulado */
-    filter: drop-shadow(0 0 40px rgba(88, 164, 223, 0.4));
-    opacity: 0.95; /* Un toque de transparencia sutil para que se vea más real */
-    transition: transform 0.5s ease;
-}
-
-        @keyframes flotar {
-    0% { transform: translate(-50%, -52%); }
-    50% { transform: translate(-50%, -48%); }
-    100% { transform: translate(-50%, -52%); }
-}
-
-.tierra-img {
-    animation: flotar 10s ease-in-out infinite;
-}
-
-.marte-img {
-    position: absolute;
-    top: 25%; left: 8%;
-    width: clamp(30px, 4vw, 50px);
-    z-index: 3;
-    filter: drop-shadow(0 0 15px rgba(232, 131, 26, 0.6));
-}
-
-.luna-img {
-    position: absolute;
-    top: 30%; right: 10%;
-    width: clamp(60px, 8vw, 100px);
-    z-index: 3;
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
-}
-
-/* --- TEXTO FRONTAL (Cinemático) --- */
-.hero-contenido {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-    width: 100%;
-    padding: 0 5%;
-}
-
-.hero-contenido h1 {
-    font-family: 'Inter', sans-serif;
-    font-weight: 300; /* Letra delgada como la referencia */
-    font-size: clamp(2.2rem, 6vw, 5rem);
-    letter-spacing: 14px; /* Letras muy separadas */
-    color: #F8EBD3; /* Crema para elegancia */
-    margin: 0 0 15px 0;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.9);
-}
-
-.hero-subtitulo {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(0.7rem, 2vw, 0.9rem);
-    letter-spacing: 5px;
-    color: #CBD5E0;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.9);
-    margin-bottom: 50px;
-    font-weight: 300;
-}
-
-/* --- BOTONES --- */
-.hero-botones {
-    display: flex; flex-direction: column;
-    align-items: center; gap: 15px;
-}
-
-.btn-primario {
-    background: rgba(9, 9, 56, 0.7); /* Azul marino semitransparente */
-    border: 1px solid rgba(88, 164, 223, 0.3);
-    color: #F8EBD3;
-    padding: 14px 35px;
-    text-decoration: none;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px); /* Efecto cristal pro */
-}
-.btn-primario:hover {
-    background: rgba(88, 164, 223, 0.3);
-    box-shadow: 0 0 20px rgba(88, 164, 223, 0.4);
-    color: white;
-}
-
-.btn-secundario {
-    color: #CBD5E0;
-    text-decoration: none;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    transition: color 0.3s;
-}
-.btn-secundario:hover { color: #F6AE1F; }
-        
-.tech-tag {
-    background: rgba(248, 235, 211, 0.05);
-    border: 1px solid rgba(248, 235, 211, 0.2);
-    color: var(--text-cream);
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-family: 'Orbitron', sans-serif;
-    text-transform: uppercase;
-}       
+        /* ================= RESPONSIVO ================= */
+        @media (max-width: 968px) {
+            .hero {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-image-container {
+                min-height: 400px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#" class="logo-text">USACH <span>SPACE PROGRAM</span></a>
-    </nav>
+    <header>
+        <div class="logo-container">
+            <img src="ruta-a-tu-logo.png" alt="Logo USACH Space Program" class="logo-img">
+            <span class="horizon-font">USACH SPACE PROGRAM</span>
+        </div>
+    </header>
 
-    <header class="hero-espacial">
-    <div class="stars-overlay"></div>
-
-    <div class="orbita orbita-1"><div class="nodo"></div></div>
-    <div class="orbita orbita-2"><div class="nodo"></div></div>
-    <div class="orbita orbita-3"><div class="nodo"></div></div>
-
-    <div class="tierra-contenedor">
-        <img src="Tierra.png" alt="Tierra" class="tierra-img">
-    </div>
-    <img src="marte.png" alt="Marte" class="marte-img">
-    <img src="luna.png" alt="Luna" class="luna-img">
-
-    <div class="hero-contenido">
-        <h1>USACH SPACE PROGRAM</h1>
-        <p class="hero-subtitulo">INNOVACIÓN Y DESARROLLO AEROESPACIAL DESDE LA UNIVERSIDAD DE SANTIAGO</p>
+    <main class="hero">
         
-        <div class="hero-botones">
-            <a href="#proyectos" class="btn-primario">VER PROYECTOS »</a>
-            <a href="#mision" class="btn-secundario">Conoce más de nosotros »</a>
+        <div class="hero-image-container">
+            <img src="ruta-a-tu-imagen-principal.jpg" alt="Ilustración principal del proyecto">
         </div>
-    </div>
-</header>
-</header>
 
-    <section id="mision">
-        <h2>Nuestra Misión</h2>
-        <p>El USACH Space Program (USP) es una organización estudiantil científico-tecnológica multidisciplinaria. Nuestra misión es ser un espacio de desarrollo y aprendizaje donde cualquier estudiante, independientemente de su carrera o conocimientos previos, pueda participar en la carrera espacial universitaria.</p>
-    </section>
+        <div class="hero-content">
+            <h1 class="hero-title">USACH<br>SPACE<br>PROGRAM</h1>
+            
+            <p class="hero-subtitle">
+                Iniciativa estudiantil autogestionada que nace con el objetivo de ser el primer acercamiento extracurricular de los estudiantes hacia el sector aeroespacial[cite: 29]. Somos un espacio donde diversas disciplinas convergen, impulsando el avance continuo para generar proyectos aeroespaciales de alto valor[cite: 39].
+            </p>
 
-    <section id="proyectos">
-        <h2>Proyectos de Ingeniería (Postulaciones Abiertas)</h2>
-        <div class="proyectos-lista">
+            <a href="proyectos.html" class="btn-link" title="Ir a Proyectos">&#8594;</a>
 
-            <div class="proyecto-fila">
-                <div class="proyecto-header">
-                    <h3>Plataforma Rover Nivelador</h3>
-                    <a href="https://forms.google.com/" target="_blank" class="btn-postular">POSTULAR</a>
-                </div>
-                <div class="proyecto-detalles">
-                    <div class="detalle-item">
-                        <span class="detalle-label">Tiempo de Ejecución</span>
-                        <span class="detalle-valor">8 Semanas</span>
-                    </div>
-                    <div class="detalle-item">
-                        <span class="detalle-label">Cupos</span>
-                        <span class="detalle-valor">Equipo de 3 personas</span>
-                    </div>
-                    <div class="detalle-item">
-                        <span class="detalle-label">Objetivo</span>
-                        <span class="detalle-valor">Control de motores, filtrado de señales (acelerómetro/giroscopio) y diseño mecánico para terrenos adversos.</span>
-                    </div>
-                    <div class="detalle-item">
-                        <span class="detalle-label">Presentación Final</span>
-                        <span class="detalle-valor">Simulación de Misión: Demostración dinámica con obstáculos manteniendo la carga paralela al suelo.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="proyecto-fila">
-                <div class="proyecto-header">
-                    <h3>Hackathon CanSat Terrestre</h3>
-                    <a href="https://forms.google.com/" target="_blank" class="btn-postular">POSTULAR</a>
-                </div>
-                <div class="proyecto-detalles">
-                    <div class="detalle-item">
-                        <span class="detalle-label">Tiempo de Ejecución</span>
-                        <span class="detalle-valor">6 Semanas</span>
-                    </div>
-                    <div class="detalle-item">
-                        <span class="detalle-label">Cupos</span>
-                        <span class="detalle-valor">Equipo de 3 personas</span>
-                    </div>
-                    <div class="detalle-item">
-                        <span class="detalle-label">Objetivo</span>
-                        <span class="detalle-valor">Configuración de radio, sensores ambientales, GUI de estación terrena y empaquetamiento de hardware.</span>
-                    </div>
-                    <div class="detalle-item">
-                        <span class="detalle-label">Presentación Final</span>
-                        <span class="detalle-valor">Simulación de Misión: Lanzamiento del satélite transmitiendo datos en vivo durante su descenso.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="proyecto-fila">
-                <div class="proyecto-header">
-                    <h3>Taller de Impresión 3D</h3>
-                    <a href="https://forms.google.com/" target="_blank" class="btn-postular">POSTULAR</a>
-                </div>
-                <div class="proyecto-detalles">
-                    <div class="detalle-item">
-                        <span class="detalle-label">Tiempo de Ejecución</span>
-                        <span class="detalle-valor">4 Semanas (Aprox.)</span>
-                    </div>
-                    <div class="detalle-item">
-                        <span class="detalle-label">Cupos</span>
-                        <span class="detalle-valor">Equipo de 3 personas</span>
-                    </div>
-                    <div class="detalle-item">
-                        <span class="detalle-label">Objetivo</span>
-                        <span class="detalle-valor">Uso de herramientas de manufactura aditiva y diseño CAD aplicado a componentes aeroespaciales.</span>
-                    </div>
-                    <div class="detalle-item">
-                        <span class="detalle-label">Presentación Final</span>
-                        <span class="detalle-valor">Exhibición de prototipos funcionales y piezas mecánicas manufacturadas.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="proyecto-fila">
-                <div class="proyecto-header">
-                    <h3>Egg Drop Espacial</h3>
-                    <a href="https://forms.google.com/" target="_blank" class="btn-postular">POSTULAR</a>
-                </div>
-                <div class="proyecto-detalles">
-                    <div class="detalle-item">
-                        <span class="detalle-label">Tiempo de Ejecución</span>
-                        <span class="detalle-valor">4 Semanas</span>
-                    </div>
-                    <div class="detalle-item">
-                        <span class="detalle-label">Cupos</span>
-                        <span class="detalle-valor">Equipo de 3 personas</span>
-                    </div>
-                    <div class="detalle-item">
-                        <span class="detalle-label">Objetivo</span>
-                        <span class="detalle-valor">Cálculo de velocidad terminal, costura de paracaídas y técnicas de absorción de impactos.</span>
-                    </div>
-                    <div class="detalle-item">
-                        <span class="detalle-label">Presentación Final</span>
-                        <span class="detalle-valor">Competencia Expositiva: Lanzamiento prediciendo tiempo de caída y aterrizaje seguro cerca del objetivo.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="proyecto-fila">
-                <div class="proyecto-header">
-                    <h3>Cohetería a Propulsión (Agua)</h3>
-                    <a href="https://forms.google.com/" target="_blank" class="btn-postular">POSTULAR</a>
-                </div>
-                <div class="proyecto-detalles">
-                    <div class="detalle-item">
-                        <span class="detalle-label">Tiempo de Ejecución</span>
-                        <span class="detalle-valor">3 Semanas</span>
-                    </div>
-                    <div class="detalle-item">
-                        <span class="detalle-label">Cupos</span>
-                        <span class="detalle-valor">Equipo de 3 personas</span>
-                    </div>
-                    <div class="detalle-item">
-                        <span class="detalle-label">Objetivo</span>
-                        <span class="detalle-valor">Estabilidad aerodinámica (CP vs CG), diseño de mecanismos de liberación y logística de lanzamiento.</span>
-                    </div>
-                    <div class="detalle-item">
-                        <span class="detalle-label">Presentación Final</span>
-                        <span class="detalle-valor">Competencia Abierta: Evento en patios USACH. Gana quien alcance mayor altura o distancia.</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="ejes">
-    <h2 style="margin-bottom: 4rem;">Ejes Estratégicos</h2>
-    <div class="ejes-container">
-
-        <div class="eje-card-expanded" style="animation-delay: 0.1s;">
-            <span class="eje-num">DOMINIO I</span>
-            <h3>Exploración Planetaria</h3>
-            <p>Diseño y validación de robótica móvil y estructuras mecánicas para entornos hostiles.</p>
-            <ul class="eje-details">
-                <li>Sistemas de suspensión tipo Rocker-Bogie[cite: 1].</li>
-                <li>Mecanismos desplegables basados en Miura-ori[cite: 1].</li>
-                <li>Integración de sensores inerciales MPU6050[cite: 1].</li>
-            </ul>
-            <div class="tech-stack">
-                <span class="tech-tag">CAD Avanzado</span>
-                <span class="tech-tag">Cinemática</span>
-                <span class="tech-tag">Impresión 3D</span>
+            <div class="pillars-grid">
+                <div class="pillar-box">Innovación</div>
+                <div class="pillar-box">Investigación</div>
+                <div class="pillar-box">Colaboración</div>
+                <div class="pillar-box">Desarrollo</div>
             </div>
         </div>
 
-        <div class="eje-card-expanded" style="animation-delay: 0.2s;">
-            <span class="eje-num">DOMINIO II</span>
-            <h3>Dinámica de Vuelo</h3>
-            <p>Análisis predictivo y creación del "Gemelo Digital" antes de la manufactura física.</p>
-            <ul class="eje-details">
-                <li>Validación de estabilidad aerodinámica (CP vs CG)[cite: 1].</li>
-                <li>Simulaciones de dispersión por viento (Wind Drift)[cite: 1].</li>
-                <li>Dimensionamiento de sistemas de recuperación paracaídas[cite: 1].</li>
-            </ul>
-            <div class="tech-stack">
-                <span class="tech-tag">OpenRocket</span>
-                <span class="tech-tag">OpenMotor</span>
-                <span class="tech-tag">Análisis Meteorológico</span>
-            </div>
-        </div>
-
-        <div class="eje-card-expanded" style="animation-delay: 0.3s;">
-            <span class="eje-num">DOMINIO III</span>
-            <h3>Cohetería Experimental</h3>
-            <p>Desarrollo de vehículos de lanzamiento y sistemas de propulsión de alta precisión.</p>
-            <ul class="eje-details">
-                <li>Investigación de propulsantes sólidos (Deep-Tech)[cite: 1].</li>
-                <li>Termodinámica de toberas Laval mecanizadas[cite: 1].</li>
-                <li>Uso de celdas de carga para adquisición de datos DAQ[cite: 1].</li>
-            </ul>
-            <div class="tech-stack">
-                <span class="tech-tag">Torno CNC</span>
-                <span class="tech-tag">Python DAQ</span>
-                <span class="tech-tag">Seguridad Operacional</span>
-            </div>
-        </div>
-
-        <div class="eje-card-expanded" style="animation-delay: 0.4s;">
-            <span class="eje-num">DOMINIO IV</span>
-            <h3>Sistemas Espaciales</h3>
-            <p>Desarrollo del cerebro electrónico y sistemas de comunicación de largo alcance.</p>
-            <ul class="eje-details">
-                <li>Enlaces de radiofrecuencia de largo alcance (LoRa)[cite: 1].</li>
-                <li>Módulos de gestión energética solar MPPT[cite: 1].</li>
-                <li>Diseño de PCBs redundantes para misiones críticas[cite: 1].</li>
-            </ul>
-            <div class="tech-stack">
-                <span class="tech-tag">STM32 / ESP32</span>
-                <span class="tech-tag">Telemetría</span>
-                <span class="tech-tag">Energía Solar</span>
-            </div>
-        </div>
-
-        <div class="eje-card-expanded" style="animation-delay: 0.5s; border-left: 4px solid var(--accent-yellow);">
-    <span class="eje-num">DOMINIO V</span>
-    <h3>USP Academy</h3>
-    <p>El núcleo de formación técnica. Nuestro objetivo es la alfabetización aeroespacial mediante el aprendizaje práctico y experimental[cite: 165, 168].</p>
-    <ul class="eje-details">
-        <li><strong>Talleres de Electrónica:</strong> Fundamentos de sistemas embebidos, soldadura y sensores críticos para telemetría[cite: 141, 163].</li>
-        <li><strong>Impresión y Diseño 3D:</strong> Manufactura aditiva aplicada a piezas de fuselaje, toberas y componentes de Rover[cite: 109, 155].</li>
-        <li><strong>Habilidades Fundamentales:</strong> Onboarding técnico para nivelar conocimientos en CAD y mecánica básica[cite: 169, 171].</li>
-        <li><strong>Sci-Comm:</strong> Traducción de conceptos de ingeniería compleja a lenguaje accesible para toda la comunidad[cite: 169, 173].</li>
-    </ul>
-    <div class="tech-stack">
-        <span class="tech-tag">Electrónica</span>
-        <span class="tech-tag">Diseño 3D</span>
-        <span class="tech-tag">Manufactura</span>
-    </div>
-</div>
-
-    </div>
-</section>
-
-    <footer>
-        <p>&copy; 2026 Dirección General - USACH Space Program. Todos los derechos reservados.</p>
-    </footer>
+    </main>
 
 </body>
 </html>
