@@ -7,18 +7,18 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Syncopate:wght@700&display=swap" rel="stylesheet">
 
     <style>
-        /* ================= VARIABLES DE COLOR ================= */
+        /* ================= VARIABLES ================= */
         :root {
             --azul-marino: #050A30;
             --blanco-crema: #F9F8F6;
-            --texto-oscuro: #1A1A1A;
-            --acento: #0A1128;
+            --texto-secundario: #B0B5D1; /* Un tono crema/azulado oscurecido para textos largos */
+            --acento-translucido: rgba(249, 248, 246, 0.1);
         }
 
-        /* ================= RESET Y BASE ================= */
+        /* ================= BASE ================= */
         * {
             margin: 0;
             padding: 0;
@@ -26,10 +26,12 @@
         }
 
         body {
-            background-color: var(--blanco-crema);
-            color: var(--texto-oscuro);
+            background-color: var(--azul-marino);
+            color: var(--blanco-crema);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            /* Opcional: Puedes agregar un patrón de estrellas muy sutil aquí */
+            background-image: radial-gradient(circle at 50% 0%, #0a1142 0%, var(--azul-marino) 60%);
         }
 
         h1, h2, h3, .horizon-font {
@@ -40,10 +42,11 @@
         /* ================= NAVEGACIÓN ================= */
         header {
             width: 100%;
-            padding: 20px 50px;
+            padding: 25px 50px;
             display: flex;
             align-items: center;
-            background-color: var(--blanco-crema);
+            justify-content: space-between;
+            background: transparent;
         }
 
         .logo-container {
@@ -51,149 +54,241 @@
             align-items: center;
             gap: 15px;
             font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--texto-oscuro);
+            font-size: 1rem;
+            color: var(--blanco-crema);
+            text-decoration: none;
+            letter-spacing: 1px;
         }
 
         .logo-img {
-            width: 60px; /* Aquí irá tu logo del león */
+            width: 45px;
             height: auto;
         }
 
-        /* ================= SECCIÓN HERO (ESTILO SPLIT) ================= */
-        .hero {
-            display: flex;
-            min-height: 85vh;
-            padding: 0 50px 50px 50px;
-            gap: 40px;
+        .nav-links a {
+            color: var(--blanco-crema);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-left: 30px;
+            transition: opacity 0.3s;
         }
 
-        /* Lado Izquierdo - Imagen principal */
-        .hero-image-container {
-            flex: 1;
-            background-color: #EAEAEA; /* Fondo gris temporal mientras pones tu imagen */
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .nav-links a:hover {
+            opacity: 0.7;
         }
 
-        .hero-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Lado Derecho - Contenido */
-        .hero-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        /* ================= HERO TEXT (Centrado Superior) ================= */
+        .hero-header {
+            text-align: center;
+            padding: 80px 20px 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .hero-title {
-            font-size: 3.5rem;
-            color: var(--azul-marino);
-            line-height: 1.1;
-            margin-bottom: 20px;
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
-            line-height: 1.6;
+            font-size: 1.1rem;
+            color: var(--texto-secundario);
+            font-weight: 300;
             margin-bottom: 40px;
-            color: #333;
-            max-width: 90%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* Botón hacia la página de proyectos */
-        .btn-link {
-            display: inline-flex;
-            align-items: center;
+        .btn-launch {
+            display: inline-block;
+            background-color: var(--blanco-crema);
+            color: var(--azul-marino);
+            padding: 15px 35px;
+            border-radius: 30px; /* Botón tipo píldora como en tu referencia */
+            text-decoration: none;
+            font-family: 'Syncopate', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-launch:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(249, 248, 246, 0.2);
+        }
+
+        /* ================= ZONA DE ILUSTRACIÓN INMERSIVA ================= */
+        .hero-visual {
+            width: 100%;
+            height: 60vh; /* Ajusta la altura de tu imagen principal */
+            position: relative;
+            display: flex;
             justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        .hero-visual img {
+            width: 90%;
+            max-width: 1200px;
+            height: 100%;
+            object-fit: cover; /* Mantiene la proporción sin deformar */
+            border-radius: 20px;
+            /* Un ligero difuminado en la parte inferior para fundirlo con el fondo marino */
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+        }
+
+        /* ================= TEXTO INTERMEDIO (Misión) ================= */
+        .mission-section {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 100px auto;
+            padding: 0 20px;
+        }
+
+        .mission-section p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--texto-secundario);
+        }
+
+        /* ================= EJES DE DESARROLLO ("What we build") ================= */
+        .ejes-section {
+            max-width: 1200px;
+            margin: 0 auto 100px auto;
+            padding: 0 50px;
+        }
+
+        .ejes-title {
+            font-size: 1.5rem;
+            margin-bottom: 50px;
+            text-align: left;
+        }
+
+        .ejes-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .eje-item {
+            flex: 1;
+            min-width: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .eje-icon {
             width: 60px;
             height: 60px;
-            background-color: var(--azul-marino);
-            color: var(--blanco-crema);
-            text-decoration: none;
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            transition: transform 0.3s ease;
+            background-color: var(--acento-translucido);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
         }
 
-        .btn-link:hover {
-            transform: translateX(10px);
+        .eje-item:hover .eje-icon {
+            background-color: var(--blanco-crema);
+            color: var(--azul-marino);
         }
 
-        /* Cuadrícula de Pilares / Ejes */
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            max-width: 80%;
-        }
-
-        .pillar-box {
-            background-color: var(--azul-marino);
-            color: var(--blanco-crema);
-            padding: 15px;
-            text-align: center;
-            font-weight: 600;
+        .eje-item h3 {
             font-size: 0.9rem;
-            text-transform: uppercase;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .eje-item p {
+            font-size: 0.8rem;
+            color: var(--texto-secundario);
+            line-height: 1.5;
         }
 
         /* ================= RESPONSIVO ================= */
-        @media (max-width: 968px) {
-            .hero {
-                flex-direction: column;
-                padding: 20px;
-            }
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            .hero-image-container {
-                min-height: 400px;
-            }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.2rem; }
+            .hero-visual { height: 40vh; }
+            .ejes-title { text-align: center; }
+            .eje-item { align-items: center; text-align: center; min-width: 45%; }
+            header { flex-direction: column; gap: 20px; }
+            .nav-links { display: none; /* Simplificamos en móvil */ }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
-            <img src="ruta-a-tu-logo.png" alt="Logo USACH Space Program" class="logo-img">
+        <a href="index.html" class="logo-container">
+            <img src="ruta-a-tu-logo-blanco.png" alt="Logo USP" class="logo-img">
             <span class="horizon-font">USACH SPACE PROGRAM</span>
-        </div>
+        </a>
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="proyectos.html">Proyectos</a>
+        </nav>
     </header>
 
-    <main class="hero">
-        
-        <div class="hero-image-container">
-            <img src="ruta-a-tu-imagen-principal.jpg" alt="Ilustración principal del proyecto">
-        </div>
+    <section class="hero-header">
+        <h1 class="hero-title">DESARROLLAMOS TALENTO MULTIDISCIPLINARIO</h1>
+        <p class="hero-subtitle">
+            El Usach Space Program (USP) nace de la visión de transformar una iniciativa de interés común en una organización capaz de proyectar el talento hacia el sector aeroespacial. </p>
+        <a href="proyectos.html" class="btn-launch">VER PROYECTOS</a>
+    </section>
 
-        <div class="hero-content">
-            <h1 class="hero-title">USACH<br>SPACE<br>PROGRAM</h1>
+    <section class="hero-visual">
+        <img src="ruta-a-tu-ilustracion.jpg" alt="Ilustración espacial o modelo 3D">
+    </section>
+
+    <section class="mission-section">
+        <p>
+            Aspiramos a trascender el desarrollo puramente tecnológico para convertirnos en un espacio donde diversas disciplinas convergen, impulsando un avance continuo que genere proyectos aeroespaciales de alto valor y con un profundo impacto a nivel social. </p>
+    </section>
+
+    <section class="ejes-section">
+        <h2 class="ejes-title">NUESTROS EJES</h2>
+        <div class="ejes-grid">
             
-            <p class="hero-subtitle">
-                Iniciativa estudiantil autogestionada que nace con el objetivo de ser el primer acercamiento extracurricular de los estudiantes hacia el sector aeroespacial[cite: 29]. Somos un espacio donde diversas disciplinas convergen, impulsando el avance continuo para generar proyectos aeroespaciales de alto valor[cite: 39].
-            </p>
-
-            <a href="proyectos.html" class="btn-link" title="Ir a Proyectos">&#8594;</a>
-
-            <div class="pillars-grid">
-                <div class="pillar-box">Innovación</div>
-                <div class="pillar-box">Investigación</div>
-                <div class="pillar-box">Colaboración</div>
-                <div class="pillar-box">Desarrollo</div>
+            <div class="eje-item">
+                <div class="eje-icon">🚙</div>
+                <h3>Exploración Planetaria</h3>
+                <p>Diseño, prototipado y validación de robótica móvil. </p>
             </div>
-        </div>
 
-    </main>
+            <div class="eje-item">
+                <div class="eje-icon">📊</div>
+                <h3>Simulación y Dinámica</h3>
+                <p>Creación del Gemelo Digital y planificación de operaciones. </p>
+            </div>
+
+            <div class="eje-item">
+                <div class="eje-icon">🚀</div>
+                <h3>Cohetería Experimental</h3>
+                <p>Diseño estructural y propulsión aerospacial. </p>
+            </div>
+
+            <div class="eje-item">
+                <div class="eje-icon">🛰️</div>
+                <h3>Sistemas Espaciales</h3>
+                <p>Desarrollo de aviónica y sistemas de telemetría en tiempo real. </p>
+            </div>
+
+            <div class="eje-item">
+                <div class="eje-icon">🎓</div>
+                <h3>Educación y Experiencia</h3>
+                <p>Alfabetización aeroespacial y difusión científica. </p>
+            </div>
+
+        </div>
+    </section>
 
 </body>
 </html>
