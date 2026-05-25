@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>USACH Space Program</title>
+    
     <link rel="icon" type="image/png" href="logo.png">
+
     <style>
         /* === ESTILOS BASE (TIPO NASA) === */
         :root {
@@ -20,7 +22,7 @@
         body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Tipografía limpia */
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             background-color: var(--dark-bg);
             color: var(--text-main);
             scroll-behavior: smooth;
@@ -36,7 +38,7 @@
             width: 100%;
             top: 0;
             background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px); /* Efecto vidrio ahumado */
+            backdrop-filter: blur(10px);
             box-sizing: border-box;
             z-index: 1000;
             border-bottom: 1px solid #222;
@@ -83,12 +85,10 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /* Aquí usamos tu imagen de la Tierra de GitHub */
             background: url('Tierra.png') no-repeat center center/cover;
             position: relative;
         }
 
-        /* Capa oscura sobre la imagen para que el texto resalte */
         .hero::before {
             content: '';
             position: absolute;
@@ -102,7 +102,7 @@
         }
 
         .hero img {
-            width: 180px; /* Tamaño del logo */
+            width: 180px;
             margin-bottom: 20px;
         }
 
@@ -150,7 +150,7 @@
         .mission-vision-container {
             display: flex;
             gap: 40px;
-            flex-wrap: wrap; /* Se adapta a pantallas pequeñas */
+            flex-wrap: wrap;
         }
 
         .card {
@@ -164,7 +164,7 @@
         }
 
         .card:hover {
-            transform: translateY(-5px); /* Pequeño salto al pasar el mouse */
+            transform: translateY(-5px);
         }
 
         .card h3 {
@@ -184,6 +184,7 @@
             padding: 80px 0;
             background-color: var(--darker-bg);
             text-align: center;
+            border-top: 1px solid #222;
         }
 
         .gallery-section h2 {
@@ -195,7 +196,7 @@
         .carousel {
             display: flex;
             overflow-x: auto;
-            scroll-snap-type: x mandatory; /* Hace que las fotos se ajusten como imanes */
+            scroll-snap-type: x mandatory;
             gap: 20px;
             padding: 0 10%;
             scrollbar-width: thin;
@@ -216,12 +217,6 @@
             background-color: #333;
             scroll-snap-align: center;
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: #777;
-            /* Placeholder para fotos, luego las cambias por <img> */
             background-size: cover;
             background-position: center;
         }
@@ -233,10 +228,10 @@
     <header>
         <div class="nav-brand">USACH Space Program</div>
         <nav class="nav-links">
-            <a href="#">Inicio</a>
+            <a href="index.html">Inicio</a>
             <a href="proyectos.html">Proyectos</a>
-            <a href="#ejes">Ejes de Desarrollo</a>
-            <a href="#registro">Registrarse</a>
+            <a href="ejes.html">Ejes de Desarrollo</a>
+            <a href="registro.html">Registrarse</a>
             <a href="#login" class="btn-login">Iniciar Sesión</a>
         </nav>
     </header>
@@ -256,17 +251,17 @@
 
     <section class="about-section">
         <div class="about-desc">
-            <p>Somos una organización estudiantil dedicada al desarrollo tecnológico y científico. A través de la interdisciplinariedad estratégica, impulsamos proyectos complejos que van desde la ingeniería de hardware aeroespacial y sistemas de control, hasta la innovación en recursos, preparándonos para los desafíos del mañana.</p>
+            <p>Usach Space Program es una iniciativa estudiantil autogestionada que nace con el objetivo de ser el primer acercamiento extracurricular de los estudiantes hacia el sector aeroespacial, proyectándose como un espacio interdisciplinario y una incubadora de ideas.</p>
         </div>
         
         <div class="mission-vision-container">
             <div class="card">
                 <h3>Nuestra Misión</h3>
-                <p>Diseñar, investigar y construir soluciones tecnológicas aplicadas al sector espacial. Fomentamos un ecosistema donde estudiantes de diversas disciplinas convergen para crear proyectos tangibles, desde satélites CanSat hasta bancos de pruebas de propulsión y telemetría avanzada.</p>
+                <p>Consolidarnos como el principal núcleo de colaboración interdisciplinaria de la USACH, posicionando el talento de nuestra universidad dentro de la industria aeroespacial nacional e internacional, impulsando proyectos de alto valor y profundo impacto social.</p>
             </div>
             <div class="card">
                 <h3>Nuestra Visión</h3>
-                <p>Posicionarnos como el principal referente universitario en desarrollo espacial a nivel nacional, demostrando que desde la academia se puede hacer ingeniería de frontera con estándares profesionales, rigor metodológico y visión de futuro.</p>
+                <p>Impulsar el desarrollo científico-tecnológico en el ámbito aeroespacial dentro de la comunidad universitaria mediante la ejecución autogestionada de proyectos tangibles, fortaleciendo la experiencia estudiantil de manera complementaria a la formación académica.</p>
             </div>
         </div>
     </section>
@@ -274,19 +269,10 @@
     <section class="gallery-section">
         <h2>Registro de Operaciones</h2>
         <div class="carousel">
-            <div class="carousel-item" style="background-image: url('luna.png');">
-                </div>
-            <div class="carousel-item" style="background-image: url('marte.png');">
-                </div>
-            <div class="carousel-item">
-                Foto del Equipo 3
-            </div>
-            <div class="carousel-item">
-                Pruebas DAQ 4
-            </div>
-            <div class="carousel-item">
-                Diseño CAD 5
-            </div>
+            <div class="carousel-item" style="background-image: url('luna.png');"></div>
+            <div class="carousel-item" style="background-image: url('marte.png');"></div>
+            <div class="carousel-item" style="background-color: #333;"></div>
+            <div class="carousel-item" style="background-color: #444;"></div>
         </div>
     </section>
 
