@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Rover - USACH Space Program</title>
+    
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <style>
+        /* === ESTILOS BASE === */
+        :root {
+            --nasa-blue: #0B3D91;
+            --nasa-red: #FC3D21;
+            --dark-bg: #000000;
+            --darker-bg: #0a0a0a;
+            --card-bg: #151515;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            scroll-behavior: smooth;
+            line-height: 1.6;
+        }
+
+        /* === BARRA DE NAVEGACIÓN === */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            box-sizing: border-box;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .nav-brand { font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
+        .nav-links a {
+            color: var(--text-main); text-decoration: none; margin-left: 25px;
+            font-size: 0.85rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1px; transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--nasa-blue); }
+        .nav-links .btn-login {
+            background-color: transparent; border: 1px solid var(--text-main);
+            padding: 8px 15px; border-radius: 4px;
+        }
+        .nav-links .btn-login:hover { background-color: var(--text-main); color: var(--dark-bg); }
+
+        /* === HERO DEL PROYECTO === */
+        .project-hero {
+            height: 60vh;
+            background: url('marte.png') no-repeat center center/cover;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 10% 50px;
+            margin-top: 60px; /* Para la navbar */
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--dark-bg));
+        }
+
+        .hero-content {
+            z-index: 1;
+        }
+
+        .eje-tag {
+            background-color: var(--nasa-blue);
+            color: white;
+            padding: 5px 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .project-hero h1 {
+            font-size: 4rem;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* === CONTENIDO DEL PROYECTO (PLANTILLA) === */
+        .project-container {
+            padding: 50px 10%;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+        }
+
+        /* Columna Izquierda: Descripción y Detalles */
+        .main-content h2 {
+            color: var(--nasa-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        .main-content h2:first-child { margin-top: 0; }
+        
+        .main-content p { color: #ccc; font-size: 1.1rem; }
+        
+        .main-content ul {
+            color: #ccc;
+            font-size: 1.1rem;
+            padding-left: 20px;
+        }
+
+        .main-content li { margin-bottom: 10px; }
+
+        /* Columna Derecha: Specs de Misión (Panel lateral) */
+        .side-panel {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #222;
+            height: fit-content;
+        }
+
+        .spec-item {
+            margin-bottom: 25px;
+        }
+
+        .spec-item h4 {
+            margin: 0 0 5px 0;
+            color: var(--nasa-blue);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .spec-item p { margin: 0; color: #ddd; font-size: 1rem; }
+
+        .btn-back {
+            display: block;
+            text-align: center;
+            background-color: transparent;
+            border: 1px solid var(--text-main);
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: all 0.3s;
+        }
+
+        .btn-back:hover {
+            background-color: var(--text-main);
+            color: var(--dark-bg);
+        }
+        
+        /* Ajuste para pantallas pequeñas */
+        @media (max-width: 900px) {
+            .project-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-brand">USACH Space Program</div>
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="ejes.html">Ejes de Desarrollo</a>
+            <a href="registro.html">Registrarse</a>
+            <a href="#login" class="btn-login">Iniciar Sesión</a>
+        </nav>
+    </header>
+
+    <section class="project-hero">
+        <div class="hero-content">
+            <div class="eje-tag">Eje I: Exploración Planetaria</div>
+            <h1>Proyecto Rover</h1>
+        </div>
+    </section>
+
+    <section class="project-container">
+        
+        <div class="main-content">
+            <h2>Descripción de la Misión</h2>
+            <p>Un Rover es un vehículo robótico de exploración espacial diseñado para desplazarse por la superficie de planetas o lunas, con el fin de recolectar datos, tomar muestras y tomar fotografías[cite: 135]. En el contexto de este proyecto, consiste en el diseño, ensamblaje y programación de un prototipo terrestre a escala capaz de sortear terrenos irregulares, operando de manera teledirigida o semi-autónoma para cumplir una misión específica[cite: 136].</p>
+            
+            <h2>Objetivos y Metas de Aprendizaje</h2>
+            <ul>
+                <li>Desarrollar una plataforma robótica terrestre funcional utilizando componentes de bajo costo y manufactura local (como impresión 3D)[cite: 141, 142, 143].</li>
+                <li>Aplicar diseño CAD avanzado y comprender la cinemática de mecanismos aplicados a la movilidad robótica[cite: 144].</li>
+                <li>Integrar electrónica básica y programación de microcontroladores para el control de actuadores electromecánicos[cite: 145].</li>
+            </ul>
+
+            <h2>Materiales y Hardware</h2>
+            <ul>
+                <li><strong>Chasis y ruedas:</strong> Piezas impresas en 3D (PLA o PETG) o acrílico cortado en láser[cite: 151].</li>
+                <li><strong>Electrónica de control:</strong> Microcontrolador (ej. placa Arduino o ESP32) y un driver controlador de motores (ej. Puente H L298N)[cite: 152].</li>
+                <li><strong>Sensores:</strong> Módulo inercial (MPU6050) para control de estabilidad, y sensores ultrasónicos para evasión de obstáculos[cite: 153].</li>
+                <li><strong>Actuadores y Energía:</strong> 2 a 4 motores DC con caja reductora, alimentados por Baterías LiPo (7.4V) o celdas 18650[cite: 154, 155].</li>
+            </ul>
+
+            <h2>Dificultades Técnicas Previstas</h2>
+            <ul>
+                <li><strong>Tolerancias de manufactura:</strong> Lograr que las piezas impresas en 3D encajen correctamente sin generar fricción[cite: 167].</li>
+                <li><strong>Gestión de energía:</strong> Evitar caídas de voltaje en el microcontrolador cuando los motores exigen mucha corriente[cite: 168].</li>
+                <li><strong>Sincronización PWM:</strong> Programar las señales para que el vehículo avance en línea recta y ajuste su tracción en terrenos con tierra[cite: 169].</li>
+            </ul>
+
+            <h2>Presentación: Simulación de Misión</h2>
+            <p>Los Rovers deberán superar un circuito cerrado que simule terreno marciano (una caja de arena con rocas, pendientes e irregularidades)[cite: 174]. La misión consistirá en que el Rover navegue desde el punto A al punto B, esquive un obstáculo central y transmita un dato básico[cite: 175].</p>
+        </div>
+
+        <div class="side-panel">
+            <div class="spec-item">
+                <h4>Costo Aproximado</h4>
+                <p>Entre $35.000 y $55.000 CLP por equipo[cite: 158].</p>
+            </div>
+            <div class="spec-item">
+                <h4>Tiempo Estimado</h4>
+                <p>4 a 6 semanas (3 a 5 hrs semanales)[cite: 160].</p>
+            </div>
+            <div class="spec-item">
+                <h4>Rol Organizador</h4>
+                <p>Scrum Master y facilitador técnico[cite: 171].</p>
+            </div>
+            <div class="spec-item">
+                <h4>Recompensa de Misión</h4>
+                <p>Mission Patch exclusivo de Exploración Planetaria y un kit de componentes electrónicos para Nivel 2[cite: 185].</p>
+            </div>
+
+            <a href="proyectos.html" class="btn-back">Volver a Proyectos</a>
+        </div>
+
+    </section>
+
+</body>
+</html>
