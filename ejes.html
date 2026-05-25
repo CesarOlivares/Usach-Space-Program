@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejes de Desarrollo - USACH Space Program</title>
+    
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <style>
+        /* === ESTILOS BASE (TIPO NASA) === */
+        :root {
+            --nasa-blue: #0B3D91;
+            --nasa-red: #FC3D21;
+            --dark-bg: #000000;
+            --darker-bg: #0a0a0a;
+            --card-bg: #151515;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            scroll-behavior: smooth;
+        }
+
+        /* === BARRA DE NAVEGACIÓN === */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            box-sizing: border-box;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .nav-brand { font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
+        .nav-links a {
+            color: var(--text-main); text-decoration: none; margin-left: 25px;
+            font-size: 0.85rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1px; transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--nasa-blue); }
+        .nav-links .btn-login {
+            background-color: transparent; border: 1px solid var(--text-main);
+            padding: 8px 15px; border-radius: 4px;
+        }
+        .nav-links .btn-login:hover { background-color: var(--text-main); color: var(--dark-bg); }
+
+        /* === PÁGINA DE EJES DE DESARROLLO === */
+        .ejes-section {
+            padding: 120px 10% 80px; /* Margen superior amplio para la barra fija */
+            background-color: var(--darker-bg);
+            min-height: 100vh;
+        }
+
+        .ejes-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .ejes-header h1 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 2.8rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+        }
+
+        .ejes-header p {
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .ejes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .eje-item {
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--nasa-blue);
+            padding: 30px 40px;
+            border-radius: 0 8px 8px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .eje-item:hover {
+            transform: translateX(10px);
+            background-color: #1a1a1a;
+        }
+
+        .eje-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--nasa-blue);
+            opacity: 0.8;
+            min-width: 60px;
+            line-height: 1;
+        }
+
+        .eje-content h3 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .eje-content p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .eje-content strong {
+            color: var(--text-main);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-brand">USACH Space Program</div>
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="ejes.html">Ejes de Desarrollo</a>
+            <a href="registro.html">Registrarse</a>
+            <a href="#login" class="btn-login">Iniciar Sesión</a>
+        </nav>
+    </header>
+
+    <section class="ejes-section">
+        <div class="ejes-header">
+            <h1>Ejes Estratégicos</h1>
+            <p>Para estructurar este crecimiento, se han definido 5 ejes estratégicos apersonales que funcionan como el norte operativo de la organización. [cite: 58] Bajo la filosofía Piensa - Crea - Aprende, el USP utiliza estos ejes para validar hitos técnicos mediante prototipos rápidos (MVP). [cite: 60]</p>
+        </div>
+
+        <div class="ejes-list">
+            
+            <div class="eje-item">
+                <div class="eje-number">I</div>
+                <div class="eje-content">
+                    <h3>Exploración Planetaria</h3>
+                    <p><strong>¿Qué implica?:</strong> Está enfocado en el diseño, prototipado y validación de robótica móvil (Rovers) y estructuras mecánicas espaciales. [cite: 68] Aquí la ingeniería mecánica, la cinemática y el control se unen para resolver problemas de movilidad en terrenos irregulares y optimización de volumen en el espacio. [cite: 69]</p>
+                    <p><strong>Objetivo:</strong> Desarrollar plataformas robóticas terrestres y mecanismos desplegables viables, utilizando componentes de bajo costo y manufactura local (impresión 3D, corte láser). [cite: 71]</p>
+                </div>
+            </div>
+
+            <div class="eje-item">
+                <div class="eje-number">II</div>
+                <div class="eje-content">
+                    <h3>Simulación, Dinámica de Vuelo y Operaciones</h3>
+                    <p><strong>¿Qué implica?:</strong> Este eje es el filtro analítico del programa. Su objetivo es crear el "Gemelo Digital" de cualquier sistema antes de que pase a manufactura, reduciendo costos y riesgos operativos. [cite: 82] Se encarga del estudio de la aerodinámica, la predicción de trayectorias, el diseño de misiones y la logística de campo para garantizar que, una vez que algo despega o se despliega, sepamos exactamente cómo, cuándo y dónde va a aterrizar. [cite: 83]</p>
+                    <p><strong>Objetivo:</strong> Validar virtualmente la estabilidad y el rendimiento de los diseños aeroespaciales (cohetes, sondas o rovers) y planificar operaciones seguras de lanzamiento y recuperación. [cite: 85]</p>
+                </div>
+            </div>
+
+            <div class="eje-item">
+                <div class="eje-number">III</div>
+                <div class="eje-content">
+                    <h3>Cohetería Experimental y de Sondeo</h3>
+                    <p><strong>¿Qué implica?:</strong> Este eje es el encargado de convertir la física teórica en hardware que vuela. [cite: 95] Se centra en el diseño estructural (fuselajes, aletas, sistemas de acople) y en la propulsión. [cite: 96]</p>
+                    <p><strong>Objetivo:</strong> Desarrollar vehículos de lanzamiento seguros y eficientes, dominando la manufactura de fuselajes y la caracterización de sistemas de propulsión. [cite: 99]</p>
+                </div>
+            </div>
+
+            <div class="eje-item">
+                <div class="eje-number">IV</div>
+                <div class="eje-content">
+                    <h3>Sistemas Espaciales, Satélites y Energía</h3>
+                    <p><strong>¿Qué implica?:</strong> Este eje representa el cerebro y el sistema nervioso de nuestros proyectos aeroespaciales. [cite: 108] Se centra en el desarrollo de aviónica (electrónica de vuelo), sistemas de telemetría para la transmisión de datos en tiempo real y la gestión eficiente de la energía. [cite: 109]</p>
+                    <p><strong>Objetivo:</strong> Desarrollar sistemas electrónicos robustos y autónomos, capaces de capturar, procesar y transmitir datos críticos de misión bajo condiciones de alta exigencia. [cite: 112]</p>
+                </div>
+            </div>
+
+            <div class="eje-item">
+                <div class="eje-number">V</div>
+                <div class="eje-content">
+                    <h3>Educación y Experiencia</h3>
+                    <p><strong>¿Qué implica?:</strong> Este eje es el puente entre la ingeniería profunda y la comunidad universitaria. [cite: 121] Su propósito es la alfabetización aeroespacial, la difusión científica y la integración de talentos de todas las facultades (Diseño, Humanidades, Biología, etc.). [cite: 122] Se encarga del onboarding de los nuevos miembros, de traducir los conceptos técnicos a un lenguaje accesible y de construir la narrativa pública y visual del USACH Space Program. [cite: 123]</p>
+                    <p><strong>Objetivo:</strong> Democratizar el conocimiento espacial dentro de la USACH, garantizando que cualquier estudiante con curiosidad tenga las herramientas básicas para integrarse activamente a los proyectos técnicos. [cite: 125]</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
