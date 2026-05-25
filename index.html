@@ -3,290 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USACH Space Program | Inicio</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Syncopate:wght@700&display=swap" rel="stylesheet">
-
+    <title>USACH Space Program</title>
     <style>
-        /* ================= VARIABLES ================= */
+        /* === ESTILOS BASE (TIPO NASA) === */
         :root {
-            --azul-marino: #050A30;
-            --blanco-crema: #F9F8F6;
-            --texto-secundario: #B0B5D1; /* Un tono crema/azulado oscurecido para textos largos */
-            --acento-translucido: rgba(249, 248, 246, 0.1);
+            --nasa-blue: #0B3D91;
+            --nasa-red: #FC3D21;
+            --dark-bg: #000000;
+            --darker-bg: #0a0a0a;
+            --card-bg: #151515;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
         }
 
-        /* ================= BASE ================= */
-        * {
+        body, html {
             margin: 0;
             padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Tipografía limpia */
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            scroll-behavior: smooth;
+        }
+
+        /* === BARRA DE NAVEGACIÓN === */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px); /* Efecto vidrio ahumado */
             box-sizing: border-box;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
         }
 
-        body {
-            background-color: var(--azul-marino);
-            color: var(--blanco-crema);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            /* Opcional: Puedes agregar un patrón de estrellas muy sutil aquí */
-            background-image: radial-gradient(circle at 50% 0%, #0a1142 0%, var(--azul-marino) 60%);
-        }
-
-        h1, h2, h3, .horizon-font {
-            font-family: 'Syncopate', sans-serif;
+        .nav-brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        /* ================= NAVEGACIÓN ================= */
-        header {
-            width: 100%;
-            padding: 25px 50px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: transparent;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--blanco-crema);
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
-
-        .logo-img {
-            width: 45px;
-            height: auto;
-        }
-
         .nav-links a {
-            color: var(--blanco-crema);
+            color: var(--text-main);
             text-decoration: none;
-            font-size: 0.9rem;
-            margin-left: 30px;
-            transition: opacity 0.3s;
+            margin-left: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            opacity: 0.7;
+            color: var(--nasa-blue);
         }
 
-        /* ================= HERO TEXT (Centrado Superior) ================= */
-        .hero-header {
-            text-align: center;
-            padding: 80px 20px 40px 20px;
-            max-width: 900px;
-            margin: 0 auto;
+        .nav-links .btn-login {
+            background-color: transparent;
+            border: 1px solid var(--text-main);
+            padding: 8px 15px;
+            border-radius: 4px;
         }
 
-        .hero-title {
-            font-size: 3rem;
-            line-height: 1.2;
-            margin-bottom: 25px;
-            letter-spacing: 2px;
+        .nav-links .btn-login:hover {
+            background-color: var(--text-main);
+            color: var(--dark-bg);
         }
 
-        .hero-subtitle {
-            font-size: 1.1rem;
-            color: var(--texto-secundario);
-            font-weight: 300;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn-launch {
-            display: inline-block;
-            background-color: var(--blanco-crema);
-            color: var(--azul-marino);
-            padding: 15px 35px;
-            border-radius: 30px; /* Botón tipo píldora como en tu referencia */
-            text-decoration: none;
-            font-family: 'Syncopate', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 700;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .btn-launch:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(249, 248, 246, 0.2);
-        }
-
-        /* ================= ZONA DE ILUSTRACIÓN INMERSIVA ================= */
-        .hero-visual {
-            width: 100%;
-            height: 60vh; /* Ajusta la altura de tu imagen principal */
-            position: relative;
-            display: flex;
-            justify-content: center;
-            margin-bottom: 60px;
-        }
-
-        .hero-visual img {
-            width: 90%;
-            max-width: 1200px;
-            height: 100%;
-            object-fit: cover; /* Mantiene la proporción sin deformar */
-            border-radius: 20px;
-            /* Un ligero difuminado en la parte inferior para fundirlo con el fondo marino */
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
-        }
-
-        /* ================= TEXTO INTERMEDIO (Misión) ================= */
-        .mission-section {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 100px auto;
-            padding: 0 20px;
-        }
-
-        .mission-section p {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--texto-secundario);
-        }
-
-        /* ================= EJES DE DESARROLLO ("What we build") ================= */
-        .ejes-section {
-            max-width: 1200px;
-            margin: 0 auto 100px auto;
-            padding: 0 50px;
-        }
-
-        .ejes-title {
-            font-size: 1.5rem;
-            margin-bottom: 50px;
-            text-align: left;
-        }
-
-        .ejes-grid {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .eje-item {
-            flex: 1;
-            min-width: 180px;
+        /* === SECCIÓN PRINCIPAL (HERO) === */
+        .hero {
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
+            justify-content: center;
+            /* Aquí usamos tu imagen de la Tierra de GitHub */
+            background: url('Tierra.png') no-repeat center center/cover;
+            position: relative;
         }
 
-        .eje-icon {
-            width: 60px;
-            height: 60px;
-            background-color: var(--acento-translucido);
-            border-radius: 12px;
+        /* Capa oscura sobre la imagen para que el texto resalte */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content {
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero img {
+            width: 180px; /* Tamaño del logo */
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin: 0;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* === FRASE ICÓNICA === */
+        .quote-section {
+            padding: 100px 20px;
+            text-align: center;
+            background-color: var(--darker-bg);
+            border-bottom: 1px solid #222;
+        }
+
+        .quote {
+            font-size: 2.2rem;
+            font-style: italic;
+            font-weight: 300;
+            max-width: 900px;
+            margin: auto;
+            color: #ddd;
+        }
+
+        /* === DESCRIPCIÓN, MISIÓN Y VISIÓN === */
+        .about-section {
+            padding: 100px 10%;
+            background-color: var(--dark-bg);
+        }
+
+        .about-desc {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-muted);
+        }
+
+        .mission-vision-container {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap; /* Se adapta a pantallas pequeñas */
+        }
+
+        .card {
+            flex: 1;
+            min-width: 300px;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            border-top: 4px solid var(--nasa-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* Pequeño salto al pasar el mouse */
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            margin-top: 0;
+            letter-spacing: 1.5px;
+        }
+
+        .card p {
+            line-height: 1.7;
+            color: #ccc;
+        }
+
+        /* === CARRUSEL DE FOTOS === */
+        .gallery-section {
+            padding: 80px 0;
+            background-color: var(--darker-bg);
+            text-align: center;
+        }
+
+        .gallery-section h2 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory; /* Hace que las fotos se ajusten como imanes */
+            gap: 20px;
+            padding: 0 10%;
+            scrollbar-width: thin;
+            scrollbar-color: var(--nasa-blue) #222;
+        }
+
+        .carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+        .carousel::-webkit-scrollbar-thumb {
+            background-color: var(--nasa-blue);
+            border-radius: 4px;
+        }
+
+        .carousel-item {
+            min-width: 400px;
+            height: 250px;
+            background-color: #333;
+            scroll-snap-align: center;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            transition: background-color 0.3s;
+            font-size: 1.2rem;
+            color: #777;
+            /* Placeholder para fotos, luego las cambias por <img> */
+            background-size: cover;
+            background-position: center;
         }
 
-        .eje-item:hover .eje-icon {
-            background-color: var(--blanco-crema);
-            color: var(--azul-marino);
-        }
-
-        .eje-item h3 {
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-
-        .eje-item p {
-            font-size: 0.8rem;
-            color: var(--texto-secundario);
-            line-height: 1.5;
-        }
-
-        /* ================= RESPONSIVO ================= */
-        @media (max-width: 768px) {
-            .hero-title { font-size: 2.2rem; }
-            .hero-visual { height: 40vh; }
-            .ejes-title { text-align: center; }
-            .eje-item { align-items: center; text-align: center; min-width: 45%; }
-            header { flex-direction: column; gap: 20px; }
-            .nav-links { display: none; /* Simplificamos en móvil */ }
-        }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo-container">
-            <img src="logo.png" alt="Logo USP" class="logo-img">
-            <span class="horizon-font">USACH SPACE PROGRAM</span>
-        </a>
+        <div class="nav-brand">USACH Space Program</div>
         <nav class="nav-links">
-            <a href="index.html">Inicio</a>
+            <a href="#">Inicio</a>
             <a href="proyectos.html">Proyectos</a>
+            <a href="#ejes">Ejes de Desarrollo</a>
+            <a href="#registro">Registrarse</a>
+            <a href="#login" class="btn-login">Iniciar Sesión</a>
         </nav>
     </header>
 
-    <section class="hero-header">
-        <h1 class="hero-title">DESARROLLAMOS TALENTO MULTIDISCIPLINARIO</h1>
-        <p class="hero-subtitle">
-            El Usach Space Program (USP) nace de la visión de transformar una iniciativa de interés común en una organización capaz de proyectar el talento hacia el sector aeroespacial. </p>
-        <a href="proyectos.html" class="btn-launch">VER PROYECTOS</a>
+    <section class="hero">
+        <div class="hero-content">
+            <img src="logo.png" alt="Logo USACH Space Program">
+            <h1>USACH Space Program</h1>
+        </div>
     </section>
 
-    <section class="hero-visual">
-        <img src="ruta-a-tu-ilustracion.jpg" alt="Ilustración espacial o modelo 3D">
+    <section class="quote-section">
+        <div class="quote">
+            "Aquí debes escribir esa frase icónica que siempre spameas. La que define la actitud del equipo."
+        </div>
     </section>
 
-    <section class="mission-section">
-        <p>
-            Aspiramos a trascender el desarrollo puramente tecnológico para convertirnos en un espacio donde diversas disciplinas convergen, impulsando un avance continuo que genere proyectos aeroespaciales de alto valor y con un profundo impacto a nivel social. </p>
+    <section class="about-section">
+        <div class="about-desc">
+            <p>Somos una organización estudiantil dedicada al desarrollo tecnológico y científico. A través de la interdisciplinariedad estratégica, impulsamos proyectos complejos que van desde la ingeniería de hardware aeroespacial y sistemas de control, hasta la innovación en recursos, preparándonos para los desafíos del mañana.</p>
+        </div>
+        
+        <div class="mission-vision-container">
+            <div class="card">
+                <h3>Nuestra Misión</h3>
+                <p>Diseñar, investigar y construir soluciones tecnológicas aplicadas al sector espacial. Fomentamos un ecosistema donde estudiantes de diversas disciplinas convergen para crear proyectos tangibles, desde satélites CanSat hasta bancos de pruebas de propulsión y telemetría avanzada.</p>
+            </div>
+            <div class="card">
+                <h3>Nuestra Visión</h3>
+                <p>Posicionarnos como el principal referente universitario en desarrollo espacial a nivel nacional, demostrando que desde la academia se puede hacer ingeniería de frontera con estándares profesionales, rigor metodológico y visión de futuro.</p>
+            </div>
+        </div>
     </section>
 
-    <section class="ejes-section">
-        <h2 class="ejes-title">NUESTROS EJES</h2>
-        <div class="ejes-grid">
-            
-            <div class="eje-item">
-                <div class="eje-icon">🚙</div>
-                <h3>Exploración Planetaria</h3>
-                <p>Diseño, prototipado y validación de robótica móvil. </p>
+    <section class="gallery-section">
+        <h2>Registro de Operaciones</h2>
+        <div class="carousel">
+            <div class="carousel-item" style="background-image: url('luna.png');">
+                </div>
+            <div class="carousel-item" style="background-image: url('marte.png');">
+                </div>
+            <div class="carousel-item">
+                Foto del Equipo 3
             </div>
-
-            <div class="eje-item">
-                <div class="eje-icon">📊</div>
-                <h3>Simulación y Dinámica</h3>
-                <p>Creación del Gemelo Digital y planificación de operaciones. </p>
+            <div class="carousel-item">
+                Pruebas DAQ 4
             </div>
-
-            <div class="eje-item">
-                <div class="eje-icon">🚀</div>
-                <h3>Cohetería Experimental</h3>
-                <p>Diseño estructural y propulsión aerospacial. </p>
+            <div class="carousel-item">
+                Diseño CAD 5
             </div>
-
-            <div class="eje-item">
-                <div class="eje-icon">🛰️</div>
-                <h3>Sistemas Espaciales</h3>
-                <p>Desarrollo de aviónica y sistemas de telemetría en tiempo real. </p>
-            </div>
-
-            <div class="eje-item">
-                <div class="eje-icon">🎓</div>
-                <h3>Educación y Experiencia</h3>
-                <p>Alfabetización aeroespacial y difusión científica. </p>
-            </div>
-
         </div>
     </section>
 
