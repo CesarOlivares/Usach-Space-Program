@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CanSat Terrestre - USACH Space Program</title>
+    
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <style>
+        /* === ESTILOS BASE === */
+        :root {
+            --nasa-blue: #0B3D91;
+            --nasa-red: #FC3D21;
+            --dark-bg: #000000;
+            --darker-bg: #0a0a0a;
+            --card-bg: #151515;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            scroll-behavior: smooth;
+            line-height: 1.6;
+        }
+
+        /* === BARRA DE NAVEGACIÓN === */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            box-sizing: border-box;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .nav-brand { font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
+        .nav-links a {
+            color: var(--text-main); text-decoration: none; margin-left: 25px;
+            font-size: 0.85rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1px; transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--nasa-blue); }
+        .nav-links .btn-login {
+            background-color: transparent; border: 1px solid var(--text-main);
+            padding: 8px 15px; border-radius: 4px;
+        }
+        .nav-links .btn-login:hover { background-color: var(--text-main); color: var(--dark-bg); }
+
+        /* === HERO DEL PROYECTO === */
+        .project-hero {
+            height: 60vh;
+            background: url('Tierra.png') no-repeat center center/cover;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 10% 50px;
+            margin-top: 60px;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), var(--dark-bg));
+        }
+
+        .hero-content {
+            z-index: 1;
+        }
+
+        .eje-tag {
+            background-color: var(--nasa-blue);
+            color: white;
+            padding: 5px 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .project-hero h1 {
+            font-size: 4rem;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* === CONTENIDO DEL PROYECTO === */
+        .project-container {
+            padding: 50px 10%;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+        }
+
+        .main-content h2 {
+            color: var(--nasa-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        .main-content h2:first-child { margin-top: 0; }
+        .main-content p { color: #ccc; font-size: 1.1rem; }
+        .main-content ul { color: #ccc; font-size: 1.1rem; padding-left: 20px; }
+        .main-content li { margin-bottom: 10px; }
+
+        .side-panel {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #222;
+            height: fit-content;
+        }
+
+        .spec-item { margin-bottom: 25px; }
+        .spec-item h4 {
+            margin: 0 0 5px 0;
+            color: var(--nasa-blue);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        .spec-item p { margin: 0; color: #ddd; font-size: 1rem; }
+
+        .btn-back {
+            display: block;
+            text-align: center;
+            background-color: transparent;
+            border: 1px solid var(--text-main);
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: all 0.3s;
+        }
+
+        .btn-back:hover {
+            background-color: var(--text-main);
+            color: var(--dark-bg);
+        }
+        
+        @media (max-width: 900px) {
+            .project-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-brand">USACH Space Program</div>
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="ejes.html">Ejes de Desarrollo</a>
+            <a href="registro.html">Registrarse</a>
+            <a href="#login" class="btn-login">Iniciar Sesión</a>
+        </nav>
+    </header>
+
+    <section class="project-hero">
+        <div class="hero-content">
+            <div class="eje-tag">Eje IV: Sistemas Espaciales y Energía</div>
+            <h1>CanSat Terrestre</h1>
+        </div>
+    </section>
+
+    <section class="project-container">
+        
+        <div class="main-content">
+            <h2>Descripción de la Misión</h2>
+            <p>Un CanSat es una simulación de un satélite a escala, cuyos componentes deben integrarse dentro del volumen y la forma geométrica de una lata de refresco estándar (aprox. 330 ml)[cite: 193]. En esta variante "terrestre", el proyecto omite la fase de lanzamiento balístico para centrarse puramente en el desarrollo de la carga útil: diseñar, ensamblar y programar la aviónica[cite: 194]. El objetivo es que el dispositivo logre recolectar datos atmosféricos y de orientación en tiempo real, transmitiéndolos de forma inalámbrica a una estación terrena base mientras se somete a pruebas de campo o manipulaciones manuales[cite: 195].</p>
+            
+            <h2>Objetivos y Metas de Aprendizaje</h2>
+            <ul>
+                <li>Desarrollar un sistema embebido ultracompacto que cumpla con restricciones estrictas de volumen y peso[cite: 200].</li>
+                <li>Comprender y aplicar protocolos de comunicación de datos (I2C, SPI) para la lectura de sensores atmosféricos e inerciales[cite: 201].</li>
+                <li>Implementar un enlace de radiofrecuencia confiable para la transmisión de telemetría en tiempo real hacia una estación terrena[cite: 202].</li>
+            </ul>
+
+            <h2>Materiales y Hardware</h2>
+            <ul>
+                <li><strong>Estructura:</strong> Piezas y soportes internos impresos en 3D (PLA, PETG o ABS) diseñados para encajar dentro del diámetro de una lata[cite: 208].</li>
+                <li><strong>Procesamiento:</strong> Microcontrolador compacto (ej. Arduino Nano, ESP32, o Raspberry Pi Pico)[cite: 209].</li>
+                <li><strong>Sensores:</strong> Barómetro/Termómetro (BMP280 o BME280) para altitud y clima, y un módulo inercial IMU (MPU6050) para aceleración y giroscopio[cite: 210].</li>
+                <li><strong>Comunicaciones y Energía:</strong> Módulo transmisor de radiofrecuencia (LoRa SX1278 o módulo NRF24L01+) [cite: 211], alimentado por una batería LiPo de 3.7V con módulo elevador de voltaje[cite: 212].</li>
+            </ul>
+
+            <h2>Dificultades Técnicas Previstas</h2>
+            <ul>
+                <li><strong>Empaquetamiento (Packaging):</strong> El mayor desafío es el diseño CAD de la estructura interna para organizar la batería, la placa y los sensores en un espacio cilíndrico tan reducido sin causar cortocircuitos[cite: 225].</li>
+                <li><strong>Ruido y pérdida de datos:</strong> Configurar correctamente el módulo de radiofrecuencia para evitar la pérdida de paquetes de datos (packet loss) durante la transmisión a la estación terrena[cite: 226].</li>
+                <li><strong>Gestión del cableado:</strong> Realizar soldaduras limpias y precisas, ya que el uso excesivo de cables largos tipo jumper imposibilitará el cierre de la carcasa[cite: 227].</li>
+            </ul>
+
+            <h2>Presentación: Validación de Telemetría</h2>
+            <p>Los equipos deberán presentar su CanSat completamente ensamblado[cite: 232]. La prueba consistirá en encender el dispositivo y demostrar la recepción fluida de datos (Temperatura, Presión y Orientación) en la pantalla del computador de la estación terrena[cite: 233]. Se realizarán movimientos bruscos y cambios de altura manuales para verificar que las gráficas de telemetría respondan en tiempo real sin interrupciones[cite: 234].</p>
+        </div>
+
+        <div class="side-panel">
+            <div class="spec-item">
+                <h4>Costo Aproximado</h4>
+                <p>Entre $25.000 y $45.000 CLP por equipo[cite: 215].</p>
+            </div>
+            <div class="spec-item">
+                <h4>Tiempo Estimado</h4>
+                <p>4 a 5 semanas[cite: 218].</p>
+            </div>
+            <div class="spec-item">
+                <h4>Rol Organizador</h4>
+                <p>Jefe de Sistemas y Coordinador de Telemetría[cite: 229].</p>
+            </div>
+            <div class="spec-item">
+                <h4>Recompensa de Misión</h4>
+                <p>Mission Patch exclusivo de Sistemas Espaciales y componentes de nivel intermedio[cite: 244].</p>
+            </div>
+
+            <a href="proyectos.html" class="btn-back">Volver a Proyectos</a>
+        </div>
+
+    </section>
+
+</body>
+</html>
