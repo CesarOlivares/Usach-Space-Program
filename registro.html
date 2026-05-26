@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USACH Space Program</title>
+    <title>Reclutamiento - USACH Space Program</title>
     
-    <link rel="icon" type="image/png" href="logo_noTextBLACK.png">
+    <link rel="icon" type="image/png" href="logo.png">
 
     <style>
-        /* === ESTILOS BASE (TIPO NASA) === */
+        /* === ESTILOS BASE === */
         :root {
             --nasa-blue: #0B3D91;
             --nasa-red: #FC3D21;
@@ -68,9 +68,7 @@
             transition: color 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--nasa-blue);
-        }
+        .nav-links a:hover { color: var(--nasa-blue); }
 
         .nav-links .btn-login {
             background-color: transparent;
@@ -78,13 +76,9 @@
             padding: 8px 15px;
             border-radius: 4px;
         }
+        .nav-links .btn-login:hover { background-color: var(--text-main); color: var(--dark-bg); }
 
-        .nav-links .btn-login:hover {
-            background-color: var(--text-main);
-            color: var(--dark-bg);
-        }
-
-        /* Botón hamburguesa oculto en PC */
+        /* Botón hamburguesa para móviles */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -105,163 +99,120 @@
             transition: all 0.3s ease;
         }
 
-        /* === SECCIÓN PRINCIPAL (HERO) === */
-        .hero {
-            height: 100vh;
+        /* === CONTENEDOR DEL FORMULARIO === */
+        .registro-section {
+            padding: 140px 10% 80px; 
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            background: url('Tierra.png') no-repeat center center/cover;
+            align-items: center;
+            background: url('luna.png') no-repeat center center/cover;
             position: relative;
+            box-sizing: border-box;
         }
 
-        .hero::before {
+        .registro-section::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(5px);
         }
 
-        .hero-content {
-            z-index: 1;
-            text-align: center;
-        }
-
-        .hero img {
-            width: 180px;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin: 0;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
-
-        /* === FRASE ICÓNICA === */
-        .quote-section {
-            padding: 100px 20px;
-            text-align: center;
-            background-color: var(--darker-bg);
-            border-bottom: 1px solid #222;
-        }
-
-        .quote {
-            font-size: 2.2rem;
-            font-style: italic;
-            font-weight: 300;
-            max-width: 900px;
-            margin: auto;
-            color: #ddd;
-        }
-
-        /* === DESCRIPCIÓN, MISIÓN Y VISIÓN === */
-        .about-section {
-            padding: 100px 10%;
-            background-color: var(--dark-bg);
-        }
-
-        .about-desc {
-            text-align: center;
-            margin-bottom: 60px;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--text-muted);
-        }
-
-        .mission-vision-container {
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .card {
-            flex: 1;
-            min-width: 300px;
-            background: var(--card-bg);
-            padding: 40px;
+        .form-container {
+            background-color: var(--card-bg);
+            padding: 50px;
             border-radius: 8px;
             border-top: 4px solid var(--nasa-blue);
-            transition: transform 0.3s ease;
+            width: 100%;
+            max-width: 600px;
+            z-index: 1;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            box-sizing: border-box;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            margin-top: 0;
-            letter-spacing: 1.5px;
-        }
-
-        .card p {
-            line-height: 1.7;
-            color: #ccc;
-        }
-
-        /* === CARRUSEL DE FOTOS === */
-        .gallery-section {
-            padding: 80px 0;
-            background-color: var(--darker-bg);
+        .form-header {
             text-align: center;
-            border-top: 1px solid #222;
-        }
-
-        .gallery-section h2 {
-            text-transform: uppercase;
-            letter-spacing: 2px;
             margin-bottom: 40px;
         }
 
-        .carousel {
+        .form-header h1 {
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 2.2rem;
+        }
+
+        .form-header p {
+            color: var(--text-muted);
+            margin-top: 15px;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        /* === ESTILOS DE LOS INPUTS === */
+        .form-group {
+            margin-bottom: 25px;
             display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 20px;
-            padding: 0 10%;
-            scrollbar-width: thin;
-            scrollbar-color: var(--nasa-blue) #222;
+            flex-direction: column;
         }
 
-        .carousel::-webkit-scrollbar {
-            height: 8px;
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #ddd;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
         }
-        .carousel::-webkit-scrollbar-thumb {
-            background-color: var(--nasa-blue);
+
+        .form-group input {
+            padding: 12px 15px;
+            background-color: #222;
+            border: 1px solid #444;
             border-radius: 4px;
+            color: white;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
         }
 
-        .carousel-item {
-            min-width: 400px;
-            height: 250px;
-            background-color: #333;
-            scroll-snap-align: center;
-            border-radius: 8px;
-            background-size: cover;
-            background-position: center;
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--nasa-blue);
+            background-color: #2a2a2a;
         }
+
+        .form-group .help-text {
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        /* === BOTÓN DE ENVÍO === */
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--nasa-blue);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover { background-color: #082d6b; }
+        .btn-submit:active { transform: scale(0.98); }
 
         /* =======================================================
            SISTEMA RESPONSIVE MULTI-DISPOSITIVO (TABLET Y MÓVIL)
            ======================================================= */
-        
-        /* --- AJUSTES PARA TABLETS --- */
-        @media (max-width: 1024px) and (min-width: 769px) {
-            header { padding: 15px 30px; }
-            .nav-brand { font-size: 1.1rem; }
-            .nav-links a { margin-left: 15px; font-size: 0.75rem; }
-            .hero h1 { font-size: 3rem; }
-        }
-
-        /* --- AJUSTES PARA TELÉFONOS --- */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             html, body {
                 overflow-x: hidden;
                 width: 100%;
@@ -272,10 +223,8 @@
 
             .nav-links {
                 position: fixed;
-                top: 0;
-                right: -100%;
-                width: 280px;
-                height: 100vh;
+                top: 0; right: -100%;
+                width: 280px; height: 100vh;
                 background: rgba(10, 10, 10, 0.98);
                 backdrop-filter: blur(15px);
                 border-left: 1px solid #222;
@@ -296,54 +245,10 @@
             .menu-toggle.active span:nth-child(2) { opacity: 0; }
             .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-            /* Ajustes del contenido principal (Hero, About, etc.) para que no se corte */
-            .hero {
-                width: 100%;
-                box-sizing: border-box;
-                background-attachment: scroll;
-                background-size: cover;
-                background-position: center center;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-                letter-spacing: 2px;
-                padding: 0 15px;
-            }
-
-            .hero img {
-                width: 130px;
-            }
-
-            .quote-section {
-                padding: 60px 20px;
-            }
-
-            .quote {
-                font-size: 1.4rem;
-                padding: 0 15px;
-            }
-
-            .about-section, .gallery-section {
-                padding-left: 20px;
-                padding-right: 20px;
-                width: 100%;
-                box-sizing: border-box;
-                padding-top: 50px;
-                padding-bottom: 50px;
-            }
-
-            .mission-vision-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .card {
-                min-width: 100%;
-                box-sizing: border-box;
-            }
+            .registro-section { padding: 100px 20px 40px; }
+            .form-container { padding: 30px 20px; }
+            .form-header h1 { font-size: 1.8rem; }
         }
-
     </style>
 </head>
 <body>
@@ -366,47 +271,40 @@
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <img src="logo.png" alt="Logo USACH Space Program">
-            <h1>USACH Space Program</h1>
-        </div>
-    </section>
-
-    <section class="quote-section">
-        <div class="quote">
-            "La ciencia no pertenece a un solo hombre ni a una sola época; pertenece a cualquiera que esté dispuesto a sacrificar su presente por el progreso del mañana"
-        </div>
-    </section>
-
-    <section class="about-section">
-        <div class="about-desc">
-            <p>Usach Space Program es una iniciativa estudiantil autogestionada que nace con el objetivo de ser el primer acercamiento extracurricular de los estudiantes hacia el sector aeroespacial, proyectándose como un espacio interdisciplinario y una incubadora de ideas.</p>
-        </div>
-        
-        <div class="mission-vision-container">
-            <div class="card">
-                <h3>Nuestra Misión</h3>
-                <p>Consolidarnos como el principal núcleo de colaboración interdisciplinaria de la USACH, posicionando el talento de nuestra universidad dentro de la industria aeroespacial nacional e internacional, impulsando proyectos de alto valor y profundo impacto social.</p>
+    <section class="registro-section">
+        <div class="form-container">
+            
+            <div class="form-header">
+                <h1>Registro Abierto</h1>
+                <p>Actualmente nos encontramos en fase de planificación y estructuración de sistemas de la OE. Ingresa tus datos en nuestro manifiesto de vuelo para notificarte de forma prioritaria en cuanto se abran las postulaciones generales y las inscripciones a proyectos técnicos.</p>
             </div>
-            <div class="card">
-                <h3>Nuestra Visión</h3>
-                <p>Impulsar el desarrollo científico-tecnológico en el ámbito aeroespacial dentro de la comunidad universitaria mediante la ejecución autogestionada de proyectos tangibles, fortaleciendo la experiencia estudiantil de manera complementaria a la formación académica.</p>
-            </div>
-        </div>
-    </section>
 
-    <section class="gallery-section">
-        <h2>Registro de Operaciones</h2>
-        <div class="carousel">
-            <div class="carousel-item" style="background-image: url('luna.png');"></div>
-            <div class="carousel-item" style="background-image: url('marte.png');"></div>
-            <div class="carousel-item" style="background-color: #333;"></div>
-            <div class="carousel-item" style="background-color: #444;"></div>
+            <form id="reclutamientoForm">
+                
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre y apellido" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="carrera">Carrera</label>
+                    <input type="text" id="carrera" name="carrera" placeholder="Ej: Ingeniería Civil Mecatrónica" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cv_link">Enlace a tu CV o Perfil Profesional (Opcional)</label>
+                    <input type="text" id="cv_link" name="cv_link" placeholder="Ej: https://linkedin.com/in/... (o dejar en blanco)">
+                    <span class="help-text">Puedes usar un link público de tu Google Drive o LinkedIn. Si no tienes uno, puedes dejar este campo en blanco.</span>
+                </div>
+
+                <button type="submit" class="btn-submit">Anotarse en la Lista de Espera</button>
+            </form>
+
         </div>
     </section>
 
     <script>
+        // Control de Menú Desplegable Adaptable
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
 
@@ -415,14 +313,53 @@
             navLinks.classList.toggle('active');
         });
 
-        // Cierra el menú al hacer clic en un enlace
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
                 navLinks.classList.remove('active');
             });
         });
-    </script>
 
+        // Envío invisible a Google Sheets (Solo Google Form)
+        document.getElementById('reclutamientoForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+
+            const btn = document.querySelector('.btn-submit');
+            const textoOriginal = btn.innerHTML;
+            btn.innerHTML = 'Registrando tripulante...';
+
+            const nombre = document.getElementById('nombre').value;
+            const carrera = document.getElementById('carrera').value;
+            const cv = document.getElementById('cv_link').value;
+
+            // URL apuntando a formResponse de tu formulario exacto
+            const urlGoogleForm = 'https://docs.google.com/forms/d/e/1FAIpQLSf5ad1kQyhQqIUZXvP8V7Yt5WdOlDS4ruzRX9Rizw7PdsRE7w/formResponse';
+            
+            const formData = new URLSearchParams();
+            formData.append('entry.957077564', nombre);
+            formData.append('entry.2006805985', carrera);
+            formData.append('entry.1483108375', cv);
+
+            fetch(urlGoogleForm, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: formData.toString()
+            }).then(() => {
+                // ÉXITO TOTAL: Modificamos el botón y limpiamos. Físicamente no hay redirección.
+                btn.innerHTML = '¡Registro completado con éxito!';
+                btn.style.backgroundColor = '#2e7d32'; 
+                btn.disabled = true; 
+                
+                document.getElementById('reclutamientoForm').reset();
+            }).catch((error) => {
+                console.error('Error en la transmisión:', error);
+                btn.innerHTML = 'Fallo de conexión. Intente de nuevo.';
+                setTimeout(() => btn.innerHTML = textoOriginal, 3000);
+            });
+        });
+    </script>
 </body>
 </html>
