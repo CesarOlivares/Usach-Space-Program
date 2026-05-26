@@ -164,77 +164,106 @@
             pointer-events: none;
         }
     /* === AJUSTES PARA TELÉFONOS (RESPONSIVE DESIGN) === */
+        /* === NUEVA CONFIGURACIÓN ULTRA-RESPONSIVE PARA PROYECTOS === */
         @media (max-width: 768px) {
-            /* 1. Barra de navegación: Apila el logo y los links */
+            /* 1. Navbar Adaptable */
             header {
                 flex-direction: column;
-                padding: 15px 20px;
-                position: relative; /* Quita el fixed para que no tape contenido en móviles */
+                padding: 15px 10px;
+                position: static; /* Evita que tape las tarjetas */
+                height: auto;
+            }
+            .nav-brand {
+                margin-bottom: 10px;
+                font-size: 1.1rem;
             }
             .nav-links {
-                margin-top: 15px;
+                margin-top: 5px;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 15px;
+                gap: 10px;
             }
             .nav-links a {
                 margin-left: 0;
                 font-size: 0.75rem;
             }
-            .nav-links .btn-login {
-                padding: 6px 12px;
-                font-size: 0.75rem;
+
+            /* 2. Reconfiguración del contenedor Slider para móviles */
+            body, html {
+                overflow-y: auto; /* Permitimos scroll vertical general si se necesita */
+            }
+            
+            .projects-slider {
+                height: auto;
+                min-height: calc(100vh - 120px);
+                padding: 20px 5vw; /* Centrado perfecto con márgenes iguales a los lados */
+                gap: 5vw;
+                align-items: flex-start; /* Alinea arriba para que no se desfase al crecer */
             }
 
-            /* 2. Textos principales (Hero): Reduce el tamaño de los títulos gigantes */
-            .hero h1, .project-hero h1, .ejes-header h1, .form-header h1 {
-                font-size: 2.2rem;
-                letter-spacing: 1px;
-            }
-            .quote {
-                font-size: 1.5rem;
-            }
-
-            /* 3. Ajuste de márgenes: Reduce el espacio a los lados */
-            .about-section, .gallery-section, .project-container, .ejes-section, .registro-section {
-                padding-left: 5%;
-                padding-right: 5%;
-                padding-top: 50px;
-                padding-bottom: 50px;
-            }
-
-            /* 4. Tarjetas y contenedores: Usa todo el ancho disponible */
-            .card {
-                min-width: 100%;
-                padding: 25px;
-            }
-            .mission-vision-container {
+            /* 3. Tarjeta flexible que no esconde el botón */
+            .project-card {
+                flex: 0 0 90vw; /* Ancho del 90% de la pantalla del celular */
+                height: auto; /* ¡CLAVE! Crece según el contenido para no esconder el botón */
+                margin-top: 10px;
+                margin-bottom: 30px;
+                display: flex;
                 flex-direction: column;
             }
 
-            /* 5. Carrusel gigante de Proyectos */
-            .project-card {
-                flex: 0 0 90vw; /* Toma casi toda la pantalla */
-                height: 85vh;
-                margin-top: 20px;
+            /* Reducimos la imagen para darle espacio al texto */
+            .project-image {
+                height: 200px; 
             }
+
+            /* Ajustes del contenedor de información */
             .project-info {
+                height: auto;
                 padding: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 15px;
             }
+
             .project-info h2 {
                 font-size: 1.8rem;
+                letter-spacing: 1px;
+                margin: 5px 0;
             }
+
+            .project-info .eje-tag {
+                font-size: 0.75rem;
+                margin-bottom: 5px;
+            }
+
             .project-info p {
-                font-size: 1rem;
+                font-size: 0.95rem;
+                line-height: 1.5;
                 max-width: 100%;
+                margin-bottom: 10px;
             }
+
+            /* Aseguramos que el botón sea visible, grande y fácil de presionar con el pulgar */
             .btn-details {
-                padding: 10px 20px;
-                font-size: 0.9rem;
+                align-self: stretch; /* Ocupa todo el ancho disponible abajo */
+                text-align: center;
+                padding: 14px;
+                font-size: 1rem;
+                margin-top: auto; /* Se pega al fondo de la info */
+            }
+
+            /* 4. Indicador de scroll reubicado para que no estorbe */
+            .scroll-indicator {
+                position: relative;
+                bottom: 0;
+                padding: 15px 0;
+                font-size: 0.75rem;
+                color: #888;
+                background-color: var(--dark-bg);
             }
         }
-
         
     </style>
 </head>
