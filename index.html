@@ -221,75 +221,98 @@
             background-position: center;
         }
 
-        /* === AJUSTES PARA TELÉFONOS (RESPONSIVE DESIGN) === */
+        /* === AJUSTES RESPONSIVE REFORZADOS (ANTI-DESBORDAMIENTO) === */
         @media (max-width: 768px) {
-            /* 1. Barra de navegación: Apila el logo y los links */
+            /* Bloquea de raíz cualquier desplazamiento horizontal fantasma */
+            html, body {
+                overflow-x: hidden;
+                width: 100%;
+            }
+
+            /* 1. Navbar compacta y perfectamente centrada en móviles */
             header {
                 flex-direction: column;
-                padding: 15px 20px;
-                position: relative; /* Quita el fixed para que no tape contenido en móviles */
+                padding: 15px 10px !important;
+                position: static; /* Evita colisiones de capas fijas */
+                width: 100% !important;
+                box-sizing: border-box;
+                height: auto;
             }
+            
+            .nav-brand {
+                margin-bottom: 12px;
+                font-size: 1.1rem;
+                text-align: center;
+                width: 100%;
+            }
+
+            /* Distribuye los botones en una cuadrícula limpia para que no empujen los bordes */
             .nav-links {
-                margin-top: 15px;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
+                margin-top: 0;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+                gap: 10px;
+                width: 100%;
+                box-sizing: border-box;
+                justify-items: center;
+                align-items: center;
             }
+
             .nav-links a {
-                margin-left: 0;
-                font-size: 0.75rem;
+                margin-left: 0 !important;
+                font-size: 0.7rem !important;
+                text-align: center;
+                white-space: nowrap; /* Evita que los textos se partan feo */
             }
+
+            /* El botón de iniciar sesión ocupa la parte inferior completa de la grilla de la navbar */
             .nav-links .btn-login {
-                padding: 6px 12px;
-                font-size: 0.75rem;
+                grid-column: span 3; /* Se estira a lo ancho */
+                width: 100%;
+                padding: 8px 0 !important;
+                box-sizing: border-box;
             }
 
-            /* 2. Textos principales (Hero): Reduce el tamaño de los títulos gigantes */
-            .hero h1, .project-hero h1, .ejes-header h1, .form-header h1 {
-                font-size: 2.2rem;
-                letter-spacing: 1px;
+            /* 2. Corrección de Fondos (Hero) para evitar cortes en la Tierra */
+            .hero, .project-hero {
+                width: 100% !important;
+                box-sizing: border-box;
+                background-attachment: scroll !important; /* Optimiza el renderizado móvil */
+                background-size: cover !important;
+                background-position: center center !important;
             }
+
+            .hero h1 {
+                font-size: 2.2rem !important;
+                letter-spacing: 2px;
+                padding: 0 15px;
+            }
+
+            .hero img {
+                width: 130px !important; /* Escala el logo para que respire */
+            }
+
             .quote {
-                font-size: 1.5rem;
+                font-size: 1.4rem !important;
+                padding: 0 15px;
             }
 
-            /* 3. Ajuste de márgenes: Reduce el espacio a los lados */
+            /* 3. Reajuste de espaciados generales */
             .about-section, .gallery-section, .project-container, .ejes-section, .registro-section {
-                padding-left: 5%;
-                padding-right: 5%;
-                padding-top: 50px;
-                padding-bottom: 50px;
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+                width: 100%;
+                box-sizing: border-box;
             }
 
-            /* 4. Tarjetas y contenedores: Usa todo el ancho disponible */
-            .card {
-                min-width: 100%;
-                padding: 25px;
-            }
             .mission-vision-container {
-                flex-direction: column;
+                flex-direction: column !important;
+                gap: 20px;
             }
 
-            /* 5. Carrusel gigante de Proyectos */
-            .project-card {
-                flex: 0 0 90vw; /* Toma casi toda la pantalla */
-                height: 85vh;
-                margin-top: 20px;
-            }
-            .project-info {
-                padding: 20px;
-            }
-            .project-info h2 {
-                font-size: 1.8rem;
-            }
-            .project-info p {
-                font-size: 1rem;
-                max-width: 100%;
-            }
-            .btn-details {
-                padding: 10px 20px;
-                font-size: 0.9rem;
+            .card {
+                min-width: 100% !important;
+                box-sizing: border-box;
             }
         }
 
