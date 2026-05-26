@@ -28,7 +28,7 @@
             scroll-behavior: smooth;
         }
 
-        /* === BARRA DE NAVEGACIÓN === */
+        /* === BARRA DE NAVEGACIÓN (ESCRITORIO) === */
         header {
             display: flex;
             justify-content: space-between;
@@ -37,35 +37,78 @@
             position: fixed;
             width: 100%;
             top: 0;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(10px);
             box-sizing: border-box;
-            z-index: 1000;
+            z-index: 2000;
             border-bottom: 1px solid #222;
         }
 
-        .nav-brand { font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
-        .nav-links a {
-            color: var(--text-main); text-decoration: none; margin-left: 25px;
-            font-size: 0.85rem; font-weight: 600; text-transform: uppercase;
-            letter-spacing: 1px; transition: color 0.3s ease;
+        .nav-brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            white-space: nowrap;
         }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
         .nav-links a:hover { color: var(--nasa-blue); }
+
         .nav-links .btn-login {
-            background-color: transparent; border: 1px solid var(--text-main);
-            padding: 8px 15px; border-radius: 4px;
+            background-color: transparent;
+            border: 1px solid var(--text-main);
+            padding: 8px 15px;
+            border-radius: 4px;
         }
         .nav-links .btn-login:hover { background-color: var(--text-main); color: var(--dark-bg); }
 
+        /* Botón hamburguesa para móviles */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 2100;
+            padding: 0;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 2px;
+            background-color: var(--text-main);
+            transition: all 0.3s ease;
+        }
+
         /* === CONTENEDOR DEL FORMULARIO === */
         .registro-section {
-            padding: 120px 10% 80px;
+            padding: 140px 10% 80px; /* Ajustado para dar espacio a la barra */
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             background: url('luna.png') no-repeat center center/cover;
             position: relative;
+            box-sizing: border-box;
         }
 
         .registro-section::before {
@@ -85,6 +128,7 @@
             max-width: 600px;
             z-index: 1;
             box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            box-sizing: border-box;
         }
 
         .form-header {
@@ -101,8 +145,9 @@
 
         .form-header p {
             color: var(--text-muted);
-            margin-top: 10px;
-            font-size: 1rem;
+            margin-top: 15px;
+            font-size: 1.05rem;
+            line-height: 1.6;
         }
 
         /* === ESTILOS DE LOS INPUTS === */
@@ -164,18 +209,65 @@
         .btn-submit:hover { background-color: #082d6b; }
         .btn-submit:active { transform: scale(0.98); }
 
+        /* =======================================================
+           SISTEMA RESPONSIVE MULTI-DISPOSITIVO (TABLET Y MÓVIL)
+           ======================================================= */
+        @media (max-width: 1024px) {
+            html, body {
+                overflow-x: hidden;
+                width: 100%;
+            }
+
+            header { padding: 15px 25px; }
+            .menu-toggle { display: flex; }
+
+            .nav-links {
+                position: fixed;
+                top: 0; right: -100%;
+                width: 280px; height: 100vh;
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(15px);
+                border-left: 1px solid #222;
+                flex-direction: column;
+                justify-content: center;
+                gap: 30px;
+                transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
+                z-index: 2050;
+                box-sizing: border-box;
+                padding: 40px;
+            }
+
+            .nav-links.active { right: 0; }
+            .nav-links a { margin-left: 0; font-size: 1.1rem; width: 100%; text-align: center; padding: 10px 0; }
+            .nav-links .btn-login { width: 100%; margin-top: 10px; }
+
+            .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .menu-toggle.active span:nth-child(2) { opacity: 0; }
+            .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+            .registro-section { padding: 100px 20px 40px; }
+            .form-container { padding: 30px 20px; }
+            .form-header h1 { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <div class="nav-brand">USACH Space Program</div>
-        <nav class="nav-links">
+        
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-links" id="navLinks">
             <a href="index.html">Inicio</a>
             <a href="proyectos.html">Proyectos</a>
             <a href="ejes.html">Ejes de Desarrollo</a>
             <a href="registro.html">Registrarse</a>
-            <a href="#login" class="btn-login">Iniciar Sesión</a>
+            <a href="login.html" class="btn-login">Iniciar Sesión</a>
         </nav>
     </header>
 
@@ -183,8 +275,8 @@
         <div class="form-container">
             
             <div class="form-header">
-                <h1>Únete a la Misión</h1>
-                <p>Ingresa tus datos y serás redirigido para agendar tu entrevista.</p>
+                <h1>Registro Abierto</h1>
+                <p>Actualmente nos encontramos en fase de planificación y estructuración de sistemas de la OE. Ingresa tus datos en nuestro manifiesto de vuelo para notificarte de forma prioritaria en cuanto se abran las postulaciones generales y las inscripciones a proyectos técnicos.</p>
             </div>
 
             <form id="reclutamientoForm">
@@ -200,40 +292,54 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="cv_link">Enlace a tu CV</label>
-                    <input type="url" id="cv_link" name="cv_link" placeholder="Ej: https://drive.google.com/..." required>
-                    <span class="help-text">Asegúrate de que el enlace sea público (Drive, LinkedIn, Notion, etc.)</span>
+                    <label for="cv_link">Enlace a tu CV o Perfil Profesional</label>
+                    <input type="url" id="cv_link" name="cv_link" placeholder="Ej: https://linkedin.com/in/..." required>
+                    <span class="help-text">Puedes usar un link público de tu Google Drive, LinkedIn o Notion.</span>
                 </div>
 
-                <button type="submit" class="btn-submit">Continuar a Agendar</button>
+                <button type="submit" class="btn-submit">Anotarse en la Lista de Espera</button>
             </form>
 
         </div>
     </section>
-<script>
-        document.getElementById('reclutamientoForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Evita que la página intente recargar
 
-            // Cambiamos el texto del botón para feedback visual
+    <script>
+        // Control de Menú Desplegable Adaptable
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Envío invisible a Google Sheets
+        document.getElementById('reclutamientoForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+
             const btn = document.querySelector('.btn-submit');
             const textoOriginal = btn.innerHTML;
-            btn.innerHTML = 'Transmitiendo coordenadas...';
+            btn.innerHTML = 'Registrando tripulante...';
 
-            // Capturamos los datos ingresados por el postulante
             const nombre = document.getElementById('nombre').value;
             const carrera = document.getElementById('carrera').value;
             const cv = document.getElementById('cv_link').value;
 
-            // URL original de tu form (cambiando viewform por formResponse)
-            const urlGoogleForm = 'https://docs.google.com/forms/d/e/1FAIpQLSf5ad1kQyhQqIUZXvP8V7Yt5WdOlDS4ruzRX9Rizw7PdsRE7w/viewform?usp=publish-editor';
+            // URL Optimizada apuntando a formResponse de tu formulario exacto
+            const urlGoogleForm = 'https://docs.google.com/forms/d/e/1FAIpQLSf5ad1kQyhQqIUZXvP8V7Yt5WdOlDS4ruzRX9Rizw7PdsRE7w/formResponse';
             
-            // Armamos el paquete de datos con tus Entry IDs secretos
             const formData = new URLSearchParams();
             formData.append('entry.957077564', nombre);
             formData.append('entry.2006805985', carrera);
             formData.append('entry.1483108375', cv);
 
-            // Enviamos los datos en secreto (modo no-cors es vital para no ser bloqueados)
             fetch(urlGoogleForm, {
                 method: 'POST',
                 mode: 'no-cors',
@@ -242,11 +348,11 @@
                 },
                 body: formData.toString()
             }).then(() => {
-                // ¡Éxito! Los datos ya están en tu Excel. Redirigimos al calendario:
+                // Éxito. Envía los datos y redirige a la agenda de Google para confirmar la recepción
                 window.location.href = 'https://calendar.app.google/UBCXpNTu1HNcAXAg9';
             }).catch((error) => {
                 console.error('Error en la transmisión:', error);
-                btn.innerHTML = 'Error en la conexión. Intenta de nuevo.';
+                btn.innerHTML = 'Fallo de conexión. Intente de nuevo.';
                 setTimeout(() => btn.innerHTML = textoOriginal, 3000);
             });
         });
