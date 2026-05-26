@@ -221,6 +221,78 @@
             background-position: center;
         }
 
+        /* === AJUSTES PARA TELÉFONOS (RESPONSIVE DESIGN) === */
+        @media (max-width: 768px) {
+            /* 1. Barra de navegación: Apila el logo y los links */
+            header {
+                flex-direction: column;
+                padding: 15px 20px;
+                position: relative; /* Quita el fixed para que no tape contenido en móviles */
+            }
+            .nav-links {
+                margin-top: 15px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .nav-links a {
+                margin-left: 0;
+                font-size: 0.75rem;
+            }
+            .nav-links .btn-login {
+                padding: 6px 12px;
+                font-size: 0.75rem;
+            }
+
+            /* 2. Textos principales (Hero): Reduce el tamaño de los títulos gigantes */
+            .hero h1, .project-hero h1, .ejes-header h1, .form-header h1 {
+                font-size: 2.2rem;
+                letter-spacing: 1px;
+            }
+            .quote {
+                font-size: 1.5rem;
+            }
+
+            /* 3. Ajuste de márgenes: Reduce el espacio a los lados */
+            .about-section, .gallery-section, .project-container, .ejes-section, .registro-section {
+                padding-left: 5%;
+                padding-right: 5%;
+                padding-top: 50px;
+                padding-bottom: 50px;
+            }
+
+            /* 4. Tarjetas y contenedores: Usa todo el ancho disponible */
+            .card {
+                min-width: 100%;
+                padding: 25px;
+            }
+            .mission-vision-container {
+                flex-direction: column;
+            }
+
+            /* 5. Carrusel gigante de Proyectos */
+            .project-card {
+                flex: 0 0 90vw; /* Toma casi toda la pantalla */
+                height: 85vh;
+                margin-top: 20px;
+            }
+            .project-info {
+                padding: 20px;
+            }
+            .project-info h2 {
+                font-size: 1.8rem;
+            }
+            .project-info p {
+                font-size: 1rem;
+                max-width: 100%;
+            }
+            .btn-details {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
     </style>
 </head>
 <body>
