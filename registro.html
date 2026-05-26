@@ -319,7 +319,7 @@
             });
         });
 
-        // Envío invisible a Google Sheets
+        // Envío invisible a Google Sheets (Solo Google Form)
         document.getElementById('reclutamientoForm').addEventListener('submit', function(e) {
             e.preventDefault(); 
 
@@ -331,7 +331,7 @@
             const carrera = document.getElementById('carrera').value;
             const cv = document.getElementById('cv_link').value;
 
-            // URL Optimizada apuntando a formResponse de tu formulario exacto
+            // URL apuntando a formResponse de tu formulario
             const urlGoogleForm = 'https://docs.google.com/forms/d/e/1FAIpQLSf5ad1kQyhQqIUZXvP8V7Yt5WdOlDS4ruzRX9Rizw7PdsRE7w/formResponse';
             
             const formData = new URLSearchParams();
@@ -347,8 +347,14 @@
                 },
                 body: formData.toString()
             }).then(() => {
-                // Éxito. Envía los datos y redirige a la agenda de Google para confirmar la recepción
-                window.location.href = 'https://calendar.app.google/UBCXpNTu1HNcAXAg9';
+                // ÉXITO: Se eliminó la redirección al Calendar. 
+                // Ahora solo muestra confirmación en el botón y limpia el formulario.
+                btn.innerHTML = '¡Registro completado con éxito!';
+                btn.style.backgroundColor = '#2e7d32'; // Cambia a verde éxito
+                btn.disabled = true; // Deshabilita para evitar doble envío
+                
+                // Opcional: Limpiar los campos de texto
+                document.getElementById('reclutamientoForm').reset();
             }).catch((error) => {
                 console.error('Error en la transmisión:', error);
                 btn.innerHTML = 'Fallo de conexión. Intente de nuevo.';
