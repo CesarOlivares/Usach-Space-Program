@@ -29,6 +29,7 @@
         }
 
         /* === BARRA DE NAVEGACIÓN === */
+        /* === ESTILOS BASE DE LA NAVBAR (ESCRITORIO) === */
         header {
             display: flex;
             justify-content: space-between;
@@ -37,287 +38,141 @@
             position: fixed;
             width: 100%;
             top: 0;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(10px);
             box-sizing: border-box;
-            z-index: 1000;
+            z-index: 2000;
             border-bottom: 1px solid #222;
         }
 
-        .nav-brand { font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
-        .nav-links a {
-            color: var(--text-main); text-decoration: none; margin-left: 25px;
-            font-size: 0.85rem; font-weight: 600; text-transform: uppercase;
-            letter-spacing: 1px; transition: color 0.3s ease;
+        .nav-brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            white-space: nowrap;
         }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
         .nav-links a:hover { color: var(--nasa-blue); }
+
         .nav-links .btn-login {
-            background-color: transparent; border: 1px solid var(--text-main);
-            padding: 8px 15px; border-radius: 4px;
+            background-color: transparent;
+            border: 1px solid var(--text-main);
+            padding: 8px 15px;
+            border-radius: 4px;
         }
         .nav-links .btn-login:hover { background-color: var(--text-main); color: var(--dark-bg); }
 
-        /* === CARRUSEL SELECCIÓN DE PERSONAJE === */
-        .projects-slider {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            height: 100vh; /* Ocupa toda la pantalla */
-            align-items: center;
-            padding: 0 10vw; /* Margen a los lados para que la tarjeta quede al centro */
-            gap: 10vw; /* Espacio entre proyectos */
-            scrollbar-width: none; /* Oculta scrollbar en Firefox */
-        }
-        
-        .projects-slider::-webkit-scrollbar {
-            display: none; /* Oculta scrollbar en Chrome/Edge */
-        }
-
-        .project-card {
-            scroll-snap-align: center;
-            flex: 0 0 80vw; /* El ancho de la tarjeta es el 80% de la pantalla */
-            height: 75vh;
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            border: 1px solid #333;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-            margin-top: 60px; /* Compensa la barra de navegación */
-        }
-
-        /* MITAD SUPERIOR: IMAGEN */
-        .project-image {
-            height: 50%;
-            background-color: #222;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        /* Capa oscura inferior en la imagen para transición suave */
-        .project-image::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; width: 100%; height: 50%;
-            background: linear-gradient(to bottom, transparent, var(--card-bg));
-        }
-
-        /* MITAD INFERIOR: INFORMACIÓN */
-        .project-info {
-            height: 50%;
-            padding: 30px 50px;
-            display: flex;
+        /* Botón hamburguesa oculto en PC */
+        .menu-toggle {
+            display: none;
             flex-direction: column;
             justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 2100;
+            padding: 0;
         }
 
-        .project-info h2 {
-            font-size: 3rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--text-main);
-        }
-
-        .project-info .eje-tag {
-            color: var(--nasa-blue);
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-
-        .project-info p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: var(--text-muted);
-            max-width: 90%;
-        }
-
-        .btn-details {
-            align-self: flex-start;
-            background-color: var(--nasa-blue);
-            color: #fff;
-            text-decoration: none;
-            padding: 12px 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            border-radius: 4px;
-            letter-spacing: 1px;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-details:hover {
-            background-color: #082d6b;
-        }
-
-        /* Indicador de scroll (opcional visual) */
-        .scroll-indicator {
-            position: fixed;
-            bottom: 20px;
+        .menu-toggle span {
             width: 100%;
-            text-align: center;
-            color: #555;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            pointer-events: none;
-        }
-   @media (max-width: 1024px) and (min-width: 769px) {
-            header {
-                padding: 15px 30px !important; /* Achica el margen lateral de la barra */
-            }
-            .nav-brand {
-                font-size: 1.1rem !important; /* Letra un poco más compacta */
-            }
-            .nav-links a {
-                margin-left: 15px !important; /* Junta los enlaces para que no se desborden */
-                font-size: 0.75rem !important;
-            }
-            .nav-links .btn-login {
-                padding: 6px 12px !important;
-            }
-            .hero h1, .project-hero h1 {
-                font-size: 3rem !important; /* Ajusta títulos gigantes al tamaño tablet */
-            }
-            .project-card {
-                flex: 0 0 70vw !important; /* La tarjeta de proyectos se adapta al ancho tablet */
-            }
+            height: 2px;
+            background-color: var(--text-main);
+            transition: all 0.3s ease;
         }
 
-        /* --- NIVEL 2: TELÉFONOS Y PANTALLAS PEQUEÑAS (Hasta 768px) --- */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                padding: 15px 10px !important;
-                position: static !important;
-                width: 100% !important;
-                box-sizing: border-box;
-                height: auto;
-            }
-            
-            .nav-brand {
-                margin-bottom: 12px;
-                font-size: 1.1rem;
-                text-align: center;
+        /* ==========================================
+           SISTEMA RESPONSIVE INTELIGENTE (MÓVIL Y TABLET)
+           ========================================== */
+        @media (max-width: 1024px) {
+            html, body {
+                overflow-x: hidden;
                 width: 100%;
             }
 
+            header {
+                padding: 15px 25px;
+            }
+
+            /* Muestra el botón de tres líneas */
+            .menu-toggle {
+                display: flex;
+            }
+
+            /* Transforma el menú en un panel superpuesto de pantalla completa */
             .nav-links {
-                margin-top: 0;
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
-                width: 100%;
+                position: fixed;
+                top: 0;
+                right: -100%; /* Escondido por defecto a la derecha */
+                width: 280px; /* Ancho cómodo para tablets y teléfonos */
+                height: 100vh;
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(15px);
+                border-left: 1px solid #222;
+                flex-direction: column;
+                justify-content: center;
+                gap: 30px;
+                transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
+                z-index: 2050;
                 box-sizing: border-box;
-                justify-items: center;
-                align-items: center;
+                padding: 40px;
+            }
+
+            /* Cuando el menú se activa, se desliza hacia adentro */
+            .nav-links.active {
+                right: 0;
             }
 
             .nav-links a {
-                margin-left: 0 !important;
-                font-size: 0.7rem !important;
+                margin-left: 0;
+                font-size: 1.1rem;
+                width: 100%;
                 text-align: center;
-                white-space: nowrap;
+                padding: 10px 0;
             }
 
             .nav-links .btn-login {
-                grid-column: span 3;
                 width: 100%;
-                padding: 8px 0 !important;
-                box-sizing: border-box;
-            }
-
-            /* Adaptación de contenidos para celular */
-            .hero, .project-hero {
-                width: 100% !important;
-                box-sizing: border-box;
-                background-attachment: scroll !important;
-                background-size: cover !important;
-                background-position: center center !important;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem !important;
-                letter-spacing: 2px;
-                padding: 0 15px;
-            }
-
-            .hero img {
-                width: 130px !important;
-            }
-
-            .quote {
-                font-size: 1.4rem !important;
-                padding: 0 15px;
-            }
-
-            .about-section, .gallery-section, .project-container, .ejes-section, .registro-section {
-                padding-left: 20px !important;
-                padding-right: 20px !important;
-                width: 100%;
-                box-sizing: border-box;
-                padding-top: 50px !important;
-                padding-bottom: 50px !important;
-            }
-
-            .mission-vision-container {
-                flex-direction: column !important;
-                gap: 20px;
-            }
-
-            .card {
-                min-width: 100% !important;
-                box-sizing: border-box;
-            }
-
-            /* Configuración específica del slider de proyectos en celular */
-            .projects-slider {
-                height: auto;
-                min-height: calc(100vh - 120px);
-                padding: 20px 5vw !important;
-                gap: 5vw;
-                align-items: flex-start;
-            }
-
-            .project-card {
-                flex: 0 0 90vw !important;
-                height: auto !important;
                 margin-top: 10px;
-                margin-bottom: 30px;
             }
 
-            .project-image {
-                height: 200px !important;
+            /* Animación del botón de hamburguesa transformándose en una X */
+            .menu-toggle.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .menu-toggle.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
             }
 
-            .project-info {
-                height: auto !important;
-                padding: 20px !important;
-                gap: 15px;
-            }
-
-            .project-info h2 {
-                font-size: 1.8rem !important;
-            }
-
-            .btn-details {
-                align-self: stretch !important;
-                text-align: center;
-                padding: 14px !important;
-                font-size: 1rem !important;
-            }
-
-            .scroll-indicator {
-                position: relative !important;
-                bottom: 0 !important;
-                padding: 15px 0 !important;
-                font-size: 0.75rem !important;
-                color: #888;
-                background-color: var(--dark-bg);
-            }
+            /* Ajustes menores de layouts para que respiren en dispositivos */
+            .hero h1, .project-hero h1 { font-size: 2.2rem !important; text-align: center; }
+            .projects-slider { padding: 20px 5vw !important; gap: 5vw; }
+            .project-card { flex: 0 0 90vw !important; height: auto !important; }
+            .project-image { height: 200px !important; }
+            .project-info h2 { font-size: 1.8rem !important; }
+            .btn-details { align-self: stretch !important; text-align: center; }
         }
     </style>
 </head>
@@ -325,11 +180,18 @@
 
     <header>
         <div class="nav-brand">USACH Space Program</div>
-        <nav class="nav-links">
+        
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-links" id="navLinks">
             <a href="index.html">Inicio</a>
             <a href="proyectos.html">Proyectos</a>
             <a href="ejes.html">Ejes de Desarrollo</a>
-            <a href="index.html#registro">Registrarse</a>
+            <a href="registro.html">Registrarse</a>
             <a href="#login" class="btn-login">Iniciar Sesión</a>
         </nav>
     </header>
