@@ -80,43 +80,94 @@
         .mission-box h2 { text-transform: uppercase; letter-spacing: 2px; margin-top: 0; font-size: 2rem; color: var(--nasa-blue-glow); }
         .mission-box p { font-size: 1.1rem; line-height: 1.8; color: #ccc; }
 
-        /* === CRONOLOGÍA DE LA MISIÓN (TIMELINE) === */
-        .timeline-section { padding: 80px 10%; background-color: var(--dark-bg); position: relative; }
-        .timeline-section h2 { text-align: center; text-transform: uppercase; letter-spacing: 2px; font-size: 2.5rem; margin-bottom: 60px; color: var(--text-main); }
+        /* === CRONOLOGÍA HORIZONTAL (TRAYECTORIA ORBITAL) === */
+        .timeline-section { padding: 80px 10%; background-color: var(--dark-bg); text-align: center; }
+        .timeline-section h2 { text-transform: uppercase; letter-spacing: 2px; font-size: 2.5rem; margin-bottom: 70px; color: var(--text-main); }
         
-        .timeline { position: relative; max-width: 1000px; margin: 0 auto; }
-        .timeline::before {
-            content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
-            width: 4px; background: rgba(26, 95, 255, 0.3); transform: translateX(-50%); border-radius: 2px;
+        .timeline-horizontal {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 20px;
         }
 
-        .timeline-item { position: relative; width: 50%; padding: 20px 40px; box-sizing: border-box; }
-        .timeline-item:nth-child(odd) { left: 0; text-align: right; }
-        .timeline-item:nth-child(even) { left: 50%; text-align: left; }
-
-        .timeline-icon {
-            position: absolute; top: 30px; width: 40px; height: 40px;
-            background-color: var(--card-bg); border: 3px solid var(--nasa-blue-glow);
-            border-radius: 50%; display: flex; justify-content: center; align-items: center;
-            font-size: 1.2rem; z-index: 10; box-shadow: 0 0 15px rgba(26, 95, 255, 0.6);
+        /* Línea de trayectoria (Órbita) */
+        .timeline-horizontal::before {
+            content: '';
+            position: absolute;
+            top: 35px; /* Mitad exacta de los iconos */
+            left: 5%;
+            right: 5%;
+            height: 2px;
+            border-top: 2px dashed rgba(26, 95, 255, 0.6);
+            z-index: 1;
         }
-        .timeline-item:nth-child(odd) .timeline-icon { right: -20px; }
-        .timeline-item:nth-child(even) .timeline-icon { left: -20px; }
 
-        .timeline-content {
-            background: var(--card-bg); padding: 30px; border-radius: 8px;
-            border: 1px solid var(--card-border); transition: transform 0.3s;
+        .timeline-item-hz {
+            flex: 1;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .timeline-content:hover { transform: translateY(-5px); border-color: var(--nasa-blue-glow); }
-        .timeline-content h3 { margin-top: 0; color: var(--text-main); font-size: 1.3rem; text-transform: uppercase; }
-        .timeline-content p { color: #bbb; line-height: 1.6; margin-bottom: 0; }
-        
-        /* Hito Final Destacado */
-        .final-hito .timeline-content { border-color: var(--nasa-red); box-shadow: 0 0 25px rgba(252, 61, 33, 0.2); }
-        .final-hito .timeline-icon { border-color: var(--nasa-red); box-shadow: 0 0 20px rgba(252, 61, 33, 0.8); font-size: 1.5rem;}
-        .final-hito h3 { color: var(--nasa-red); }
 
-        /* === MODALIDAD DE TRABAJO (ZIG-ZAG) === */
+        /* Nodos planetarios / Fases */
+        .timeline-icon-hz {
+            width: 70px;
+            height: 70px;
+            background-color: var(--darker-bg);
+            border: 3px solid var(--nasa-blue-glow);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(26, 95, 255, 0.4), inset 0 0 15px rgba(26, 95, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-item-hz:hover .timeline-icon-hz {
+            transform: scale(1.15);
+            box-shadow: 0 0 35px rgba(26, 95, 255, 0.8), inset 0 0 20px rgba(26, 95, 255, 0.5);
+            background-color: var(--card-bg);
+        }
+
+        .timeline-content-hz h3 {
+            color: var(--text-main);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .timeline-content-hz p {
+            color: #bbb;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0 10px;
+        }
+
+        /* Hito Final Destacado (Objetivo) */
+        .final-hito-hz .timeline-icon-hz {
+            border-color: var(--nasa-red);
+            box-shadow: 0 0 25px rgba(252, 61, 33, 0.6), inset 0 0 15px rgba(252, 61, 33, 0.3);
+            font-size: 2rem;
+        }
+        .final-hito-hz:hover .timeline-icon-hz {
+            box-shadow: 0 0 45px rgba(252, 61, 33, 0.9), inset 0 0 25px rgba(252, 61, 33, 0.5);
+        }
+        .final-hito-hz h3 {
+            color: var(--nasa-red);
+        }
+
+        /* === DESAFÍOS DE OPERACIÓN (ZIG-ZAG) === */
         .modalidad-section { padding: 100px 10%; background-color: var(--darker-bg); }
         .modalidad-section h2 { text-align: center; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 70px; font-size: 2.5rem; }
 
@@ -137,15 +188,15 @@
             border: 2px dashed rgba(255,255,255,0.2); border-radius: 8px; text-transform: uppercase;
         }
 
-        /* === ESPECIFICACIONES (REEMPLAZA LA GALERÍA PARA CANSAT) === */
+        /* === ESPECIFICACIONES (SIN COSTOS, 2 COLUMNAS) === */
         .specs-section { padding: 80px 10%; background-color: var(--dark-bg); text-align: center; }
-        .specs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 900px; margin: 0 auto; }
+        .specs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 800px; margin: 0 auto; }
         .spec-card { background: var(--card-bg); border: 1px solid var(--card-border); padding: 30px; border-radius: 8px; }
         .spec-card h4 { color: var(--nasa-blue-glow); text-transform: uppercase; margin: 0 0 10px 0; font-size: 1rem; letter-spacing: 1px; }
         .spec-card p { color: #fff; font-size: 1.2rem; font-weight: bold; margin: 0; }
 
         /* === RECOMPENSA (EL PARCHE) === */
-        .reward-section { padding: 80px 10%; background-color: var(--dark-bg); text-align: center; }
+        .reward-section { padding: 40px 10% 20px; background-color: var(--dark-bg); text-align: center; }
         .reward-box {
             max-width: 700px; margin: 0 auto; padding: 40px; border-radius: 12px;
             background: linear-gradient(135deg, rgba(11, 61, 145, 0.2), rgba(0,0,0,1));
@@ -161,7 +212,7 @@
             display: inline-block; background-color: var(--nasa-blue); color: white;
             text-decoration: none; padding: 18px 45px; font-size: 1.1rem; font-weight: bold;
             text-transform: uppercase; letter-spacing: 2px; border-radius: 4px;
-            box-shadow: 0 0 20px rgba(11, 61, 145, 0.4); transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(11, 61, 145, 0.4); transition: all 0.3s ease; margin-top: 20px;
         }
         .btn-join-mission:hover { background-color: var(--nasa-blue-glow); box-shadow: 0 0 30px var(--nasa-blue-glow); transform: translateY(-2px); }
 
@@ -183,9 +234,15 @@
             .mod-image { width: 100%; height: 250px; }
             .specs-grid { grid-template-columns: 1fr; }
             
-            .timeline::before { left: 30px; }
-            .timeline-item, .timeline-item:nth-child(even), .timeline-item:nth-child(odd) { width: 100%; padding: 20px 0 20px 80px; left: 0; text-align: left; }
-            .timeline-item:nth-child(odd) .timeline-icon, .timeline-item:nth-child(even) .timeline-icon { left: 10px; right: auto; }
+            /* Ajuste de la trayectoria orbital para móviles (Se vuelve vertical si la pantalla es pequeña) */
+            .timeline-horizontal { flex-direction: column; align-items: center; gap: 50px; }
+            .timeline-horizontal::before {
+                top: 0; bottom: 0; left: 50%; right: auto; width: 2px; height: 100%;
+                border-top: none; border-left: 2px dashed rgba(26, 95, 255, 0.6);
+                transform: translateX(-50%);
+            }
+            .timeline-item-hz { width: 100%; max-width: 400px; }
+            .timeline-icon-hz { margin: 0 auto 20px auto; }
         }
     </style>
 </head>
@@ -229,49 +286,49 @@
         </div>
     </section>
 
-    <!-- EL CAMINO DEL CANSAT (TIMELINE) -->
+    <!-- CRONOLOGÍA HORIZONTAL (TRAYECTORIA ORBITAL) -->
     <section class="timeline-section">
         <h2>Ciclo de Desarrollo Aviónico</h2>
-        <div class="timeline">
+        <div class="timeline-horizontal">
             
-            <div class="timeline-item">
-                <div class="timeline-icon">💡</div>
-                <div class="timeline-content">
-                    <h3>1. Arquitectura de Sistemas</h3>
-                    <p>Definición del diagrama de bloques. Seleccionarán los protocolos y los componentes para que el hardware se comunique sin cuellos de botella.</p>
+            <div class="timeline-item-hz">
+                <div class="timeline-icon-hz">💡</div>
+                <div class="timeline-content-hz">
+                    <h3>1. Arquitectura</h3>
+                    <p>Definición del diagrama de bloques. Selección de componentes para comunicación sin cuellos de botella.</p>
                 </div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-icon">🔌</div>
-                <div class="timeline-content">
-                    <h3>2. Integración de Componentes</h3>
-                    <p>Integrarás un microcontrolador compacto (ej. Arduino Nano, ESP32, o Raspberry Pi Pico), y sensores como un Barómetro/Termómetro (BMP280 o BME280) y un módulo inercial IMU (MPU6050).</p>
+            <div class="timeline-item-hz">
+                <div class="timeline-icon-hz">🔌</div>
+                <div class="timeline-content-hz">
+                    <h3>2. Integración</h3>
+                    <p>Conexión del microcontrolador (Arduino/ESP32) junto a sensores de telemetría (Barómetro e IMU).</p>
                 </div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-icon">📦</div>
-                <div class="timeline-content">
-                    <h3>3. Empaquetamiento Estructural</h3>
-                    <p>Se requieren piezas y soportes internos impresos en 3D (PLA, PETG o ABS) diseñados para encajar dentro del diámetro de una lata. Es un puzzle de alta precisión mecánica.</p>
+            <div class="timeline-item-hz">
+                <div class="timeline-icon-hz">📦</div>
+                <div class="timeline-content-hz">
+                    <h3>3. Empaquetamiento</h3>
+                    <p>Diseño en 3D de la estructura interna. Un puzzle de alta precisión mecánica dentro de un cilindro.</p>
                 </div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-icon">📡</div>
-                <div class="timeline-content">
-                    <h3>4. Enlace de Datos (Data Link)</h3>
-                    <p>Implementarás un enlace de radiofrecuencia confiable para la transmisión de telemetría en tiempo real hacia una estación terrena. Usarás un módulo transmisor de radiofrecuencia (LoRa SX1278 o módulo NRF24L01+).</p>
+            <div class="timeline-item-hz">
+                <div class="timeline-icon-hz">📡</div>
+                <div class="timeline-content-hz">
+                    <h3>4. Enlace (Data Link)</h3>
+                    <p>Implementación de transmisores de radiofrecuencia (LoRa/NRF24) para telemetría en vivo.</p>
                 </div>
             </div>
 
             <!-- HITO FINAL DESTACADO -->
-            <div class="timeline-item final-hito">
-                <div class="timeline-icon">💻</div>
-                <div class="timeline-content">
-                    <h3>Hito Final: Validación de Telemetría</h3>
-                    <p>Los equipos deberán presentar su CanSat completamente ensamblado. La prueba consistirá en encender el dispositivo y demostrar la recepción fluida de datos (Temperatura, Presión y Orientación) en la pantalla del computador de la estación terrena. Se realizarán movimientos bruscos y cambios de altura manuales para verificar que las gráficas de telemetría respondan en tiempo real sin interrupciones.</p>
+            <div class="timeline-item-hz final-hito-hz">
+                <div class="timeline-icon-hz">💻</div>
+                <div class="timeline-content-hz">
+                    <h3>Validación Final</h3>
+                    <p>Demostración de recepción fluida de datos en la estación terrena bajo movimientos bruscos.</p>
                 </div>
             </div>
 
@@ -297,7 +354,7 @@
         <div class="mod-row">
             <div class="mod-text">
                 <h3>El Sistema Nervioso y Energía</h3>
-                <p>Deberás comprender y aplicar protocolos de comunicación de datos (I2C, SPI) para la lectura de sensores atmosféricos e inerciales. Todo el sistema será alimentado por una batería LiPo de 3.7V con módulo elevador de voltaje, obligándote a optimizar el consumo.</p>
+                <p>Deberás comprender y aplicar protocolos de comunicación de datos (I2C, SPI) para la lectura de sensores atmosféricos e inerciales. Todo el sistema será alimentado por una batería LiPo de 3.7V con módulo elevador de voltaje, obligándote a optimizar el consumo eléctrico del microcontrolador.</p>
             </div>
             <div class="mod-image">
                 <div class="photo-placeholder-text">[Foto 2: Alguien conectando una batería LiPo o un sensor BMP280]</div>
@@ -317,13 +374,9 @@
 
     </section>
 
-    <!-- ESPECIFICACIONES TÉCNICAS RÁPIDAS -->
+    <!-- ESPECIFICACIONES TÉCNICAS RÁPIDAS (SIN COSTOS) -->
     <section class="specs-section">
         <div class="specs-grid">
-            <div class="spec-card">
-                <h4>Costo Aproximado</h4>
-                <p>$25.000 - $45.000 CLP</p>
-            </div>
             <div class="spec-card">
                 <h4>Tiempo Estimado</h4>
                 <p>4 a 5 semanas</p>
@@ -339,7 +392,7 @@
     <section class="reward-section">
         <div class="reward-box">
             <h3>Gloria y Electrónica 🎖️</h3>
-            <p>Completar el CanSat no solo te dará habilidades invaluables en desarrollo de hardware. Quienes superen la Validación de Telemetría obtendrán el <span class="reward-highlight">Mission Patch exclusivo de Sistemas Espaciales</span> y acceso a componentes de nivel intermedio para futuros proyectos del USP.</p>
+            <p>La participación está abierta para todos. Quienes superen la Validación de Telemetría y sean miembros del USP obtendrán el <span class="reward-highlight">Mission Patch exclusivo de Sistemas Espaciales</span> y certificarán sus horas de vuelo operativo en el diseño de aviónica.</p>
         </div>
     </section>
 
