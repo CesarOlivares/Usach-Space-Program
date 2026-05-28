@@ -6,7 +6,7 @@
     <title>Proyecto Rover - USACH Space Program</title>
     <link rel="icon" type="image/png" href="logo.png">
     <style>
-        /* === ESTILOS BASE (ESTILO COMANDO NASA) === */
+        /* === ESTILOS BASE === */
         :root {
             --nasa-blue: #0B3D91;
             --nasa-blue-glow: #1a5fff;
@@ -26,359 +26,178 @@
             background-color: var(--dark-bg);
             color: var(--text-main);
             scroll-behavior: smooth;
-        }
-
-        /* Bloqueo de desbordamiento horizontal global */
-        html, body {
             overflow-x: hidden;
             width: 100%;
         }
 
         /* === BARRA DE NAVEGACIÓN === */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            box-sizing: border-box;
-            z-index: 2000;
-            border-bottom: 1px solid #222;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 50px; position: fixed; width: 100%; top: 0;
+            background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(10px);
+            box-sizing: border-box; z-index: 2000; border-bottom: 1px solid #222;
         }
 
         .nav-brand { font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; white-space: nowrap; }
         .nav-links { display: flex; align-items: center; }
-        .nav-links a {
-            color: var(--text-main); text-decoration: none; margin-left: 25px;
-            font-size: 0.85rem; font-weight: 600; text-transform: uppercase;
-            letter-spacing: 1px; transition: color 0.3s ease;
-        }
+        .nav-links a { color: var(--text-main); text-decoration: none; margin-left: 25px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; }
         .nav-links a:hover { color: var(--nasa-blue-glow); }
-        .nav-links .btn-login {
-            background-color: transparent; border: 1px solid var(--text-main);
-            padding: 8px 15px; border-radius: 4px;
-        }
+        .nav-links .btn-login { background-color: transparent; border: 1px solid var(--text-main); padding: 8px 15px; border-radius: 4px; }
         .nav-links .btn-login:hover { background-color: var(--text-main); color: var(--dark-bg); }
 
-        .menu-toggle {
-            display: none; flex-direction: column; justify-content: space-between;
-            width: 24px; height: 18px; background: transparent; border: none; cursor: pointer; z-index: 2100; padding: 0;
-        }
+        .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; background: transparent; border: none; cursor: pointer; z-index: 2100; padding: 0; }
         .menu-toggle span { width: 100%; height: 2px; background-color: var(--text-main); transition: all 0.3s ease; }
 
         /* === PORTADA HERO === */
         .rover-hero {
             height: 70vh;
             background: linear-gradient(rgba(0,0,0,0.3), var(--dark-bg)), url('marte.png') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 20px;
-            position: relative;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; padding: 0 20px; position: relative;
         }
 
-        .rover-hero h1 {
-            font-size: 4rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin: 0;
-            text-shadow: 0 0 20px rgba(26, 95, 255, 0.6);
+        .rover-hero h1 { font-size: 4.5rem; text-transform: uppercase; letter-spacing: 4px; margin: 0; text-shadow: 0 0 20px rgba(26, 95, 255, 0.6); }
+        .rover-hero p { font-size: 1.4rem; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 10px; }
+
+        /* === INSPIRACIÓN === */
+        .inspiration-section { padding: 80px 10%; text-align: center; background: linear-gradient(var(--dark-bg), var(--darker-bg)); }
+        .inspiration-container { max-width: 850px; margin: 0 auto; }
+        .inspiration-container h2 { font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; color: var(--text-main); }
+        .inspiration-container p { font-size: 1.25rem; line-height: 1.8; color: #ddd; font-style: italic; font-weight: 300; }
+
+        /* === CRONOLOGÍA DE LA MISIÓN (TIMELINE) === */
+        .timeline-section { padding: 80px 10%; background-color: var(--darker-bg); position: relative; }
+        .timeline-section h2 { text-align: center; text-transform: uppercase; letter-spacing: 2px; font-size: 2.5rem; margin-bottom: 60px; color: var(--nasa-blue-glow); }
+        
+        .timeline { position: relative; max-width: 1000px; margin: 0 auto; }
+        /* Línea central */
+        .timeline::before {
+            content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
+            width: 4px; background: rgba(26, 95, 255, 0.3); transform: translateX(-50%);
+            border-radius: 2px;
         }
 
-        .rover-hero p {
-            font-size: 1.3rem;
-            color: var(--text-muted);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-top: 10px;
+        .timeline-item { position: relative; width: 50%; padding: 20px 40px; box-sizing: border-box; }
+        .timeline-item:nth-child(odd) { left: 0; text-align: right; }
+        .timeline-item:nth-child(even) { left: 50%; text-align: left; }
+
+        /* Icono del Rover en la línea */
+        .timeline-icon {
+            position: absolute; top: 30px; width: 40px; height: 40px;
+            background-color: var(--card-bg); border: 3px solid var(--nasa-blue-glow);
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            font-size: 1.2rem; z-index: 10; box-shadow: 0 0 15px rgba(26, 95, 255, 0.6);
+        }
+        .timeline-item:nth-child(odd) .timeline-icon { right: -20px; }
+        .timeline-item:nth-child(even) .timeline-icon { left: -20px; }
+
+        .timeline-content {
+            background: var(--card-bg); padding: 30px; border-radius: 8px;
+            border: 1px solid var(--card-border); transition: transform 0.3s;
+        }
+        .timeline-content:hover { transform: translateY(-5px); border-color: var(--nasa-blue-glow); }
+        .timeline-content h3 { margin-top: 0; color: var(--text-main); font-size: 1.3rem; text-transform: uppercase; }
+        .timeline-content p { color: #bbb; line-height: 1.6; margin-bottom: 0; }
+        
+        /* Hito Final Destacado */
+        .final-hito .timeline-content { border-color: var(--nasa-red); box-shadow: 0 0 25px rgba(252, 61, 33, 0.2); }
+        .final-hito .timeline-icon { border-color: var(--nasa-red); box-shadow: 0 0 20px rgba(252, 61, 33, 0.8); font-size: 1.5rem;}
+        .final-hito h3 { color: var(--nasa-red); }
+
+        /* === MODALIDAD DE TRABAJO (ZIG-ZAG) === */
+        .modalidad-section { padding: 100px 10%; background-color: var(--dark-bg); }
+        .modalidad-section h2 { text-align: center; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 70px; font-size: 2.5rem; }
+
+        .mod-row { display: flex; align-items: center; gap: 50px; margin-bottom: 60px; }
+        .mod-row:nth-child(even) { flex-direction: row-reverse; } /* Invierte el orden de la fila par */
+        
+        .mod-text { flex: 1; }
+        .mod-text h3 { font-size: 1.8rem; color: var(--nasa-blue-glow); text-transform: uppercase; margin-top: 0; }
+        .mod-text p { font-size: 1.1rem; line-height: 1.7; color: #ccc; }
+
+        .mod-image {
+            flex: 1; height: 350px; border-radius: 12px;
+            background-color: #1a1a24; /* Color de fondo mientras pones tus fotos */
+            border: 1px solid #333; position: relative; overflow: hidden;
+            background-size: cover; background-position: center;
+        }
+        
+        /* Cajas de placeholder indicando qué fotos poner */
+        .photo-placeholder-text {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            color: rgba(255,255,255,0.3); font-size: 1rem; text-align: center; padding: 20px;
+            border: 2px dashed rgba(255,255,255,0.2); border-radius: 8px; text-transform: uppercase;
         }
 
-        /* === FRAGMENTO DE INSPIRACIÓN === */
-        .inspiration-section {
-            padding: 80px 10%;
-            text-align: center;
-            background: linear-gradient(var(--dark-bg), var(--darker-bg));
-        }
+        /* === GALERÍA (Mantenida pero más limpia) === */
+        .gallery-section { padding: 80px 10%; background-color: var(--darker-bg); text-align: center; }
+        .gallery-section h2 { text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px; font-size: 2rem; }
+        .rover-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; max-width: 1100px; margin: 0 auto; }
+        .rover-pic-card { background-color: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; overflow: hidden; transition: transform 0.3s; }
+        .rover-pic-card:hover { transform: scale(1.03); border-color: var(--nasa-blue-glow); }
+        .rover-img-placeholder { height: 220px; background-size: cover; background-position: center; background-color: #222; }
+        .rover-pic-card h3 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin: 15px 0 5px; }
+        .rover-pic-card p { font-size: 0.85rem; color: var(--text-muted); margin: 0 0 15px; padding: 0 10px; }
 
-        .inspiration-container {
-            max-width: 850px;
-            margin: 0 auto;
-        }
+        /* === EXPERIENCIA === */
+        .skills-section { padding: 80px 10%; background-color: var(--dark-bg); text-align: center; }
+        .skills-container { max-width: 800px; margin: 0 auto; background: var(--card-bg); border: 1px solid #222; padding: 50px; border-radius: 12px; }
+        .skills-container h2 { text-transform: uppercase; letter-spacing: 2px; margin-top: 0; font-size: 2rem; }
+        .skills-container p { font-size: 1.1rem; line-height: 1.7; color: #ccc; margin-bottom: 0; }
 
-        .inspiration-container h2 {
-            font-size: 2.2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-            color: var(--text-main);
+        /* === RECOMPENSA (EL PARCHE) === */
+        .reward-section { padding: 40px 10% 20px; background-color: var(--dark-bg); text-align: center; }
+        .reward-box {
+            max-width: 700px; margin: 0 auto; padding: 40px; border-radius: 12px;
+            background: linear-gradient(135deg, rgba(11, 61, 145, 0.2), rgba(0,0,0,1));
+            border: 2px dashed var(--nasa-blue-glow);
         }
-
-        .inspiration-container p {
-            font-size: 1.25rem;
-            line-height: 1.8;
-            color: #ddd;
-            font-style: italic;
-            font-weight: 300;
-        }
-
-        /* === SECCIÓN OBJETIVO / LA MISIÓN === */
-        .mission-section {
-            padding: 80px 10%;
-            background-color: var(--darker-bg);
-        }
-
-        .mission-box {
-            background-color: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-left: 5px solid var(--nasa-blue-glow);
-            padding: 50px;
-            border-radius: 8px;
-            max-width: 1000px;
-            margin: 0 auto;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-        }
-
-        .mission-box h2 {
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 0;
-            font-size: 2rem;
-            color: var(--nasa-blue-glow);
-        }
-
-        .mission-box p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #ccc;
-        }
-
-        /* === GALERÍA DE ROVERS IMPORTANTES === */
-        .gallery-section {
-            padding: 80px 10%;
-            background-color: var(--dark-bg);
-            text-align: center;
-        }
-
-        .gallery-section h2 {
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 40px;
-            font-size: 2rem;
-        }
-
-        .rover-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .rover-pic-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .rover-pic-card:hover {
-            transform: scale(1.03);
-            border-color: var(--nasa-blue-glow);
-        }
-
-        .rover-img-placeholder {
-            height: 220px;
-            background-size: cover;
-            background-position: center;
-            background-color: #222;
-        }
-
-        .rover-pic-card h3 {
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 15px 0 5px;
-        }
-
-        .rover-pic-card p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin: 0 0 15px;
-            padding: 0 10px;
-        }
-
-        /* === MODALIDAD Y DINÁMICA DE TRABAJO === */
-        .modalidad-section {
-            padding: 80px 10%;
-            background-color: var(--darker-bg);
-            text-align: center;
-        }
-
-        .modalidad-section h2 {
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 50px;
-            font-size: 2rem;
-        }
-
-        .mod-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .mod-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--card-border);
-            padding: 35px;
-            border-radius: 8px;
-            text-align: left;
-            position: relative;
-            transition: border-color 0.3s;
-        }
-        .mod-card:hover { border-color: var(--nasa-blue-glow); }
-
-        .mod-card h3 {
-            margin-top: 0;
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--nasa-blue-glow);
-            margin-bottom: 15px;
-        }
-
-        .mod-card p {
-            color: #bbb;
-            line-height: 1.7;
-            font-size: 0.95rem;
-            margin: 0;
-        }
-
-        /* === EXPERIENCIA Y TALLERES === */
-        .skills-section {
-            padding: 80px 10%;
-            background-color: var(--dark-bg);
-            text-align: center;
-        }
-
-        .skills-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #0e0e14, #050508);
-            border: 1px solid #222;
-            padding: 50px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .skills-container h2 {
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 0;
-            font-size: 2rem;
-        }
-
-        .skills-container p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #ccc;
-            margin-bottom: 30px;
-        }
+        .reward-box h3 { font-size: 1.8rem; color: #fff; text-transform: uppercase; margin-top: 0; }
+        .reward-box p { font-size: 1.1rem; color: #ccc; line-height: 1.6; }
+        .reward-highlight { color: #ffd700; font-weight: bold; } /* Dorado espacial */
 
         /* === BOTÓN ACCIÓN FINAL === */
-        .cta-container {
-            margin-top: 60px;
-            text-align: center;
-            padding-bottom: 80px;
-            background-color: var(--dark-bg);
-        }
-
+        .cta-container { text-align: center; padding-bottom: 80px; background-color: var(--dark-bg); }
         .btn-join-mission {
-            display: inline-block;
-            background-color: var(--nasa-blue);
-            color: white;
-            text-decoration: none;
-            padding: 18px 45px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-radius: 4px;
-            box-shadow: 0 0 20px rgba(11, 61, 145, 0.4);
-            transition: all 0.3s ease;
+            display: inline-block; background-color: var(--nasa-blue); color: white;
+            text-decoration: none; padding: 18px 45px; font-size: 1.1rem; font-weight: bold;
+            text-transform: uppercase; letter-spacing: 2px; border-radius: 4px;
+            box-shadow: 0 0 20px rgba(11, 61, 145, 0.4); transition: all 0.3s ease; margin-top: 20px;
         }
+        .btn-join-mission:hover { background-color: var(--nasa-blue-glow); box-shadow: 0 0 30px var(--nasa-blue-glow); transform: translateY(-2px); }
 
-        .btn-join-mission:hover {
-            background-color: var(--nasa-blue-glow);
-            box-shadow: 0 0 30px var(--nasa-blue-glow);
-            transform: translateY(-2px);
-        }
-
-        /* =======================================================
-           SISTEMA RESPONSIVE MAESTRO (TABLET Y MÓVIL)
-           ======================================================= */
+        /* === SISTEMA RESPONSIVE === */
         @media (max-width: 1024px) {
             header { padding: 15px 25px; }
             .menu-toggle { display: flex; }
-
             .nav-links {
-                position: fixed;
-                top: 0; right: -100%;
-                width: 280px; height: 100vh;
-                background: rgba(10, 10, 10, 0.98);
-                backdrop-filter: blur(15px);
-                border-left: 1px solid #222;
-                flex-direction: column;
-                justify-content: center;
-                gap: 30px;
-                transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
-                z-index: 2050;
-                box-sizing: border-box;
-                padding: 40px;
+                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+                background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(15px);
+                flex-direction: column; justify-content: center; gap: 30px; transition: right 0.4s;
             }
-
             .nav-links.active { right: 0; }
-            .nav-links a { margin-left: 0; font-size: 1.1rem; width: 100%; text-align: center; padding: 10px 0; }
+            .nav-links a { margin-left: 0; font-size: 1.1rem; width: 100%; text-align: center; }
             .nav-links .btn-login { width: 100%; margin-top: 10px; }
 
-            .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-            .menu-toggle.active span:nth-child(2) { opacity: 0; }
-            .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-            /* Ajustes de grillas y fuentes */
-            .rover-hero h1 { font-size: 2.5rem; }
-            .rover-hero p { font-size: 1rem; }
-            .inspiration-container h2, .mission-box h2, .gallery-section h2, .modalidad-section h2, .skills-container h2 { font-size: 1.6rem; }
-            .inspiration-container p { font-size: 1.1rem; }
-            
+            .rover-hero h1 { font-size: 3rem; }
+            .mod-row, .mod-row:nth-child(even) { flex-direction: column; gap: 30px; } /* Apila las fotos y textos */
+            .mod-image { width: 100%; height: 250px; }
             .rover-grid { grid-template-columns: 1fr; max-width: 400px; }
-            .mod-grid { grid-template-columns: 1fr; }
-            .mission-box, .skills-container { padding: 30px 20px; }
-            .btn-join-mission { width: 90%; box-sizing: border-box; padding: 15px 20px; font-size: 1rem; }
+            
+            /* Adapta la línea de tiempo a móviles (todo hacia la izquierda) */
+            .timeline::before { left: 30px; }
+            .timeline-item, .timeline-item:nth-child(even), .timeline-item:nth-child(odd) { width: 100%; padding: 20px 0 20px 80px; left: 0; text-align: left; }
+            .timeline-item:nth-child(odd) .timeline-icon, .timeline-item:nth-child(even) .timeline-icon { left: 10px; right: auto; }
         }
     </style>
 </head>
 <body>
 
-    <!-- BARRA DE NAVEGACIÓN -->
     <header>
         <div class="nav-brand">USACH Space Program</div>
-        
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </button>
-
         <nav class="nav-links" id="navLinks">
             <a href="index.html">Inicio</a>
             <a href="proyectos.html">Proyectos</a>
@@ -388,13 +207,11 @@
         </nav>
     </header>
 
-    <!-- PORTADA HERO -->
     <section class="rover-hero">
         <h1>Proyecto Rover</h1>
         <p>Exploración Robótica Superficial</p>
     </section>
 
-    <!-- BREVE PARTE DE INSPIRACIÓN -->
     <section class="inspiration-section">
         <div class="inspiration-container">
             <h2>No vienes a sentarte a escuchar una clase</h2>
@@ -402,98 +219,150 @@
         </div>
     </section>
 
-    <!-- DESCRIPCIÓN DE LA ACTIVIDAD / OBJETIVO FINAL -->
-    <section class="mission-section">
-        <div class="mission-box">
-            <h2>El Objetivo Final: Misión de Simulación Análoga</h2>
-            <p>La meta de este ciclo no es simplemente conectar motores a una placa. El hito cúspide del proyecto consiste en someter a los rovers construidos a una <strong>Misión de Simulación Espacial Real</strong> en un entorno hostil controlado que replicará la superficie de la Luna o Marte. Tu vehículo tendrá que navegar de manera autónoma o por telemetría, sortear obstáculos, recolectar datos ambientales y transmitir video en tiempo real. Es la prueba de fuego de tus sistemas.</p>
+    <section class="timeline-section">
+        <h2>El Camino hacia el Lanzamiento</h2>
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <div class="timeline-icon">🚙</div>
+                <div class="timeline-content">
+                    <h3>1. Formación de Escuadrones</h3>
+                    <p>Integración de equipos interdisciplinarios. Conocerás a tus ingenieros de sistemas, programadores y mecánicos. Se hace entrega del Kit de Suministros USP inicial.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">🚙</div>
+                <div class="timeline-content">
+                    <h3>2. Diseño Conceptual y CAD</h3>
+                    <p>Fase de tablero de dibujo. Determinarán la geometría del rover, el sistema de suspensión y modelarán en software 3D las piezas personalizadas que necesitarán imprimir.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">🚙</div>
+                <div class="timeline-content">
+                    <h3>3. Manufactura y Ensamblaje</h3>
+                    <p>Las impresoras 3D echan humo. Se integran los chasis, se montan los motores, ruedas y se estructura la base física del vehículo de exploración.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">🚙</div>
+                <div class="timeline-content">
+                    <h3>4. Aviónica y Subsistemas</h3>
+                    <p>Es la hora de los cables. Se sueldan las placas, se conectan los controladores de motores, sistemas de telemetría y sensores ambientales al cerebro principal (Arduino/ESP32).</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">🚙</div>
+                <div class="timeline-content">
+                    <h3>5. Programación y Control (Debugging)</h3>
+                    <p>Darle vida al monstruo. Se programa la lógica de movimiento, evasión de obstáculos o control remoto por radiofrecuencia. Fase intensiva de prueba y error en el taller.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item final-hito">
+                <div class="timeline-icon">🚩</div>
+                <div class="timeline-content">
+                    <h3>Hito Final: Misión de Simulación Análoga</h3>
+                    <p>El día del juicio. Los rovers se despliegan en las <strong>Canchas de Tenis del Departamento de Deportes USACH</strong>, especialmente ambientadas para simular la superficie hostil de Marte. Tu vehículo tendrá que sortear terreno, cumplir objetivos de navegación y recolectar datos bajo presión en un evento abierto al público.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- GALERÍA DE ROVERS IMPORTANTES -->
+    <section class="modalidad-section">
+        <h2>Modalidad Operativa: Libertad Total</h2>
+        
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Escuadrones de Trabajo</h3>
+                <p>Te integrarás en equipos compactos donde cada miembro asume un rol crítico: sistemas de potencia, telecomunicaciones, estructura mecánica o software de control. Aprenderás a trabajar bajo el marco real de la ingeniería de sistemas.</p>
+            </div>
+            <div class="mod-image">
+                <div class="photo-placeholder-text">[Insertar Foto 1: Estudiantes en grupo analizando un plano/notebook]</div>
+            </div>
+        </div>
+
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>El Kit de Suministros USP</h3>
+                <p>El programa proveerá a cada equipo los componentes e insumos electrónicos básicos (motores, controladores, microcontroladores y sensores). Las bases estructurales están cubiertas, lo demás depende de tu ingenio.</p>
+            </div>
+            <div class="mod-image">
+                <div class="photo-placeholder-text">[Insertar Foto 2: Componentes electrónicos, Arduinos, motores en mesa]</div>
+            </div>
+        </div>
+
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Espacio de Co-Working & Tips</h3>
+                <p>Tendrás acceso a sesiones presenciales de trabajo. No dictamos cátedras aburridas; abrimos espacios de desarrollo donde los directores y mentores te darán tips flash, análisis de buenas prácticas aeroespaciales y resolución de problemas en caliente.</p>
+            </div>
+            <div class="mod-image">
+                <div class="photo-placeholder-text">[Insertar Foto 3: Alguien soldando o mentor apuntando a circuito]</div>
+            </div>
+        </div>
+
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Libertad de "Tuneo"</h3>
+                <p>Tienes carta blanca absoluta. Tu equipo tiene la total libertad creativa y técnica para rediseñar la geometría, añadir piezas impresas en 3D personalizadas, y tunear el rover para cumplir la misión de la forma que ustedes decidan.</p>
+            </div>
+            <div class="mod-image">
+                <div class="photo-placeholder-text">[Insertar Foto 4: Impresora 3D trabajando o CAD en pantalla]</div>
+            </div>
+        </div>
+    </section>
+
     <section class="gallery-section">
         <h2>Nuestros Pilares de Inspiración</h2>
         <div class="rover-grid">
-            
             <div class="rover-pic-card">
                 <div class="rover-img-placeholder" style="background-image: url('marte.png');"></div>
                 <h3>Sojourner Base</h3>
                 <p>El pionero de la movilidad. Compacto, robusto y eficiente en distribución espacial.</p>
             </div>
-
             <div class="rover-pic-card">
                 <div class="rover-img-placeholder" style="background-image: url('luna.png');"></div>
                 <h3>Curiosity Class</h3>
                 <p>Sistemas de suspensión avanzados y cinemática compleja para sortear cualquier duna.</p>
             </div>
-
             <div class="rover-pic-card">
                 <div class="rover-img-placeholder" style="background-color: #1a1a24;"></div>
                 <h3>Prototipos USP</h3>
-                <p>Nuestros propios desarrollos experimentales modulares, hechos con manufactura local y manufactura aditiva.</p>
+                <p>Nuestros desarrollos modulares, hechos con manufactura local e impresión 3D.</p>
             </div>
-
         </div>
     </section>
 
-    <!-- MODALIDAD DE TRABAJO -->
-    <section class="modalidad-section">
-        <h2>Modalidad Operativa: Libertad Total de Diseño</h2>
-        <div class="mod-grid">
-            
-            <div class="mod-card">
-                <h3>Escuadrones de Trabajo</h3>
-                <p>Te integrarás en equipos interdisciplinarios compactos donde cada miembro asume un rol crítico: sistemas de potencia, telecomunicaciones, estructura mecánica o software de control.</p>
-            </div>
-
-            <div class="mod-card">
-                <h3>El Kit de Suministros USP</h3>
-                <p>El programa proveerá a cada equipo los componentes e insumos electrónicos básicos (motores, controladores, microcontroladores y sensores). Las bases estructurales están cubiertas.</p>
-            </div>
-
-            <div class="mod-card">
-                <h3>Espacio de Co-Working & Tips</h3>
-                <p>Tendrás acceso a sesiones presenciales de trabajo en taller. No dictamos cátedras aburridas; abrimos espacios de desarrollo donde mentores te darán tips flash, análisis de buenas y malas prácticas en ingeniería aeroespacial, y resolución de problemas en caliente.</p>
-            </div>
-
-            <div class="mod-card">
-                <h3>Libertad de "Tuneo"</h3>
-                <p>Tienes carta blanca absoluta. Tu equipo tiene la total libertad creativa y técnica para rediseñar la geometría, añadir piezas impresas en 3D personalizadas, programar lógicas avanzadas y tunear el rover para cumplir la misión de la forma que ustedes decidan.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- EXPERIENCIAS MÍNIMAS Y TALLERES -->
     <section class="skills-section">
         <div class="skills-container">
             <h2>¿Se requieren conocimientos previos?</h2>
-            <p><strong>La respuesta corta es: No.</strong> Puedes unirte completamente desde cero. Si tienes la motivación, nosotros nos encargamos de enseñarte la ingeniería en el camino. Sin embargo, para nivelar los sistemas de toda la tripulación de forma rápida, recomendamos fuertemente tomar los <strong>Mini-Talleres USP de Nivelación</strong> (Impresión 3D, Fundamentos de Arduino y Kinematics de Robots) que estaremos dictando durante las primeras semanas.</p>
+            <p><strong>La respuesta corta es: No.</strong> Puedes unirte completamente desde cero. Si tienes la motivación, nosotros nos encargamos de enseñarte la ingeniería en el camino. Sin embargo, para nivelar los sistemas de toda la tripulación, recomendamos fuertemente tomar los <strong>Mini-Talleres USP de Nivelación</strong> que estaremos dictando al inicio de la temporada.</p>
         </div>
     </section>
 
-    <!-- BOTÓN DE ACCIÓN FINAL -->
+    <section class="reward-section">
+        <div class="reward-box">
+            <h3>Comunidad y Gloria 🎖️</h3>
+            <p>La participación en el Proyecto Rover está abierta a cualquier estudiante de la USACH, sin importar si eres miembro activo de la organización o no. <br><br>
+            Sin embargo, aquellos que sean <span class="reward-highlight">Miembros Oficiales del USP</span> y logren completar con éxito la Misión de Simulación Análoga, serán condecorados con un <strong>Parche de Misión Temático y Original</strong>, validando su estatus y sus horas de vuelo operativo dentro del programa.</p>
+        </div>
+    </section>
+
     <div class="cta-container">
-        <a href="registro.html" class="btn-join-mission">Anotarse en la Lista de Espera de Reclutamiento</a>
+        <a href="registro.html" class="btn-join-mission">Anotarse en la Lista de Espera</a>
     </div>
 
-    <!-- LÓGICA DEL MENÚ DESPLEGABLE -->
     <script>
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
+        menuToggle.addEventListener('click', () => { menuToggle.classList.toggle('active'); navLinks.classList.toggle('active'); });
+        document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { menuToggle.classList.remove('active'); navLinks.classList.remove('active'); }); });
     </script>
-
 </body>
 </html>
