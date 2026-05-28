@@ -150,7 +150,7 @@
             line-height: 1.6;
         }
 
-        /* === ESTILOS DE LOS INPUTS === */
+        /* === ESTILOS DE LOS INPUTS Y SELECTORES === */
         .form-group {
             margin-bottom: 25px;
             display: flex;
@@ -166,7 +166,8 @@
             text-transform: uppercase;
         }
 
-        .form-group input {
+        /* Añadimos estilos para el elemento 'select' para unificar diseño */
+        .form-group input, .form-group select {
             padding: 12px 15px;
             background-color: #222;
             border: 1px solid #444;
@@ -175,9 +176,20 @@
             font-size: 1rem;
             font-family: inherit;
             transition: border-color 0.3s;
+            appearance: none; /* Quita el diseño por defecto del navegador */
+            -webkit-appearance: none;
         }
 
-        .form-group input:focus {
+        /* Añadimos una pequeña flecha sutil para los menús desplegables */
+        .form-group select {
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='white'><polygon points='0,0 10,0 5,5'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            padding-right: 40px;
+            cursor: pointer;
+        }
+
+        .form-group input:focus, .form-group select:focus {
             outline: none;
             border-color: var(--nasa-blue);
             background-color: #2a2a2a;
@@ -253,6 +265,7 @@
 </head>
 <body>
 
+    <!-- BARRA DE NAVEGACIÓN -->
     <header>
         <div class="nav-brand">USACH Space Program</div>
         
@@ -271,6 +284,7 @@
         </nav>
     </header>
 
+    <!-- SECCIÓN DE RECLUTAMIENTO -->
     <section class="registro-section">
         <div class="form-container">
             
@@ -281,20 +295,41 @@
 
             <form id="reclutamientoForm">
                 
+                <!-- 1. NOMBRE COMPLETO -->
                 <div class="form-group">
                     <label for="nombre">Nombre Completo</label>
                     <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre y apellido" required>
                 </div>
 
+                <!-- 2. SELECTOR DE CARRERA (Evita duplicados estadísticos) -->
                 <div class="form-group">
                     <label for="carrera">Carrera</label>
-                    <input type="text" id="carrera" name="carrera" placeholder="Ej: Ingeniería Civil Mecatrónica" required>
+                    <select id="carrera" name="carrera" required>
+                        <option value="" disabled selected>Selecciona tu carrera</option>
+                        <option value="Ingeniería Civil Mecatrónica">Ingeniería Civil Mecatrónica</option>
+                        <option value="Ingeniería Civil Mecánica">Ingeniería Civil Mecánica</option>
+                        <option value="Ingeniería Civil Eléctrica">Ingeniería Civil Eléctrica</option>
+                        <option value="Ingeniería Civil Electrónica">Ingeniería Civil Electrónica</option>
+                        <option value="Ingeniería Civil Informática">Ingeniería Civil Informática</option>
+                        <option value="Ingeniería Civil Industrial">Ingeniería Civil Industrial</option>
+                        <option value="Ingeniería Civil Química / Biotecnología">Ingeniería Civil Química / Biotecnología</option>
+                        <option value="Tecnología / Técnico Universitario">Tecnología / Técnico Universitario</option>
+                        <option value="Otra Carrera (FING / Facultad de Ciencia)">Otra Carrera (FING / Facultad de Ciencia)</option>
+                    </select>
                 </div>
 
+                <!-- 3. SELECTOR DE PROYECTO DE INTERÉS (Reemplaza al CV) -->
                 <div class="form-group">
-                    <label for="cv_link">Enlace a tu CV o Perfil Profesional (Opcional)</label>
-                    <input type="text" id="cv_link" name="cv_link" placeholder="Ej: https://linkedin.com/in/... (o dejar en blanco)">
-                    <span class="help-text">Puedes usar un link público de tu Google Drive o LinkedIn. Si no tienes uno, puedes dejar este campo en blanco.</span>
+                    <label for="proyecto_interes">¿En qué proyecto te interesaría participar y mantenerte?</label>
+                    <select id="proyecto_interes" name="proyecto_interes" required>
+                        <option value="" disabled selected>Selecciona el proyecto que más te motiva</option>
+                        <option value="Proyecto Rover">Proyecto Rover (Eje I: Exploración Planetaria)</option>
+                        <option value="CanSat Terrestre">CanSat Terrestre (Eje IV: Sistemas Espaciales)</option>
+                        <option value="Cohete a Propulsión por Agua">Cohete a Propulsión por Agua (Eje III: Cohetería)</option>
+                        <option value="Proyecto Egg Drop">Proyecto Egg Drop (Eje II: Simulación y Operaciones)</option>
+                        <option value="Taller de Impresión 3D">Taller de Impresión 3D (Eje V: Educación)</option>
+                    </select>
+                    <span class="help-text">Selecciona tu prioridad actual para asignarte al escuadrón correcto en el despliegue técnico.</span>
                 </div>
 
                 <button type="submit" class="btn-submit">Anotarse en la Lista de Espera</button>
@@ -303,6 +338,7 @@
         </div>
     </section>
 
+    <!-- LÓGICA DE CONTROL DE INTERFAZ Y ENVÍO SILENCIOSO -->
     <script>
         // Control de Menú Desplegable Adaptable
         const menuToggle = document.getElementById('menuToggle');
@@ -330,7 +366,7 @@
 
             const nombre = document.getElementById('nombre').value;
             const carrera = document.getElementById('carrera').value;
-            const cv = document.getElementById('cv_link').value;
+            const proyecto = document.getElementById('proyecto_interes').value;
 
             // URL apuntando a formResponse de tu formulario exacto
             const urlGoogleForm = 'https://docs.google.com/forms/d/e/1FAIpQLSf5ad1kQyhQqIUZXvP8V7Yt5WdOlDS4ruzRX9Rizw7PdsRE7w/formResponse';
@@ -338,7 +374,7 @@
             const formData = new URLSearchParams();
             formData.append('entry.957077564', nombre);
             formData.append('entry.2006805985', carrera);
-            formData.append('entry.1483108375', cv);
+            formData.append('entry.1483108375', proyecto); // Envía la opción del proyecto seleccionada
 
             fetch(urlGoogleForm, {
                 method: 'POST',
@@ -348,7 +384,7 @@
                 },
                 body: formData.toString()
             }).then(() => {
-                // ÉXITO TOTAL: Modificamos el botón y limpiamos. Físicamente no hay redirección.
+                // ÉXITO TOTAL
                 btn.innerHTML = '¡Registro completado con éxito!';
                 btn.style.backgroundColor = '#2e7d32'; 
                 btn.disabled = true; 
