@@ -302,22 +302,153 @@
                 </div>
 
                 <!-- 2. SELECTOR DE CARRERA (Evita duplicados estadísticos) -->
-                <div class="form-group">
+               <div class="form-group" style="position: relative;">
                     <label for="carrera">Carrera</label>
-                    <select id="carrera" name="carrera" required>
-                        <option value="" disabled selected>Selecciona tu carrera</option>
-                        <option value="Ingeniería Civil Mecatrónica">Ingeniería Civil Mecatrónica</option>
-                        <option value="Ingeniería Civil Mecánica">Ingeniería Civil Mecánica</option>
-                        <option value="Ingeniería Civil Eléctrica">Ingeniería Civil Eléctrica</option>
-                        <option value="Ingeniería Civil Electrónica">Ingeniería Civil Electrónica</option>
-                        <option value="Ingeniería Civil Informática">Ingeniería Civil Informática</option>
-                        <option value="Ingeniería Civil Industrial">Ingeniería Civil Industrial</option>
-                        <option value="Ingeniería Civil Química / Biotecnología">Ingeniería Civil Química / Biotecnología</option>
-                        <option value="Tecnología / Técnico Universitario">Tecnología / Técnico Universitario</option>
-                        <option value="Otra Carrera (FING / Facultad de Ciencia)">Otra Carrera (FING / Facultad de Ciencia)</option>
-                    </select>
-                </div>
+                    <div class="search-select-container">
+                        <input type="text" id="carrera" name="carrera" placeholder="Escribe para buscar tu carrera..." autocomplete="off" required>
+                        
+                        <div class="options-dropdown" id="carreraDropdown">
+                            <div class="option-item">Ingeniería Civil Mecatrónica</div>
+                            <div class="option-item">Ingeniería Civil Mecánica</div>
+                            <div class="option-item">Ingeniería Civil Eléctrica</div>
+                            <div class="option-item">Ingeniería Civil Electrónica</div>
+                            <div class="option-item">Ingeniería Civil Informática</div>
+                            <div class="option-item">Ingeniería Civil Industrial</div>
+                            <div class="option-item">Ingeniería Civil Química</div>
+                            <div class="option-item">Ingeniería Civil en Biotecnología</div>
+                            <div class="option-item">Ingeniería Civil en Metalurgia</div>
+                            <div class="option-item">Ingeniería Civil en Minas</div>
+                            <div class="option-item">Ingeniería Civil en Obras Civiles</div>
+                            <div class="option-item">Ingeniería Civil en Geomensura</div>
+                            <div class="option-item">Ingeniería Civil en Ambiente</div>
+                            <div class="option-item">Ingeniería de Ejecución en Mecánica</div>
+                            <div class="option-item">Ingeniería de Ejecución en Electricidad</div>
+                            <div class="option-item">Ingeniería de Ejecución en Electrónica</div>
+                            <div class="option-item">Ingeniería de Ejecución en Computación e Informática</div>
+                            <div class="option-item">Ingeniería de Ejecución en Metalurgia</div>
+                            <div class="option-item">Ingeniería de Ejecución en Minas</div>
+                            <div class="option-item">Ingeniería de Ejecución en Geomensura</div>
+                            <div class="option-item">Ingeniería de Ejecución en Climatización</div>
+                            
+                            <div class="option-item">Licenciatura en Ciencia de la Computación</div>
+                            <div class="option-item">Licenciatura en Física Aplicada</div>
+                            <div class="option-item">Licenciatura en Matemática</div>
+                            <div class="option-item">Analista en Computación Científica</div>
+                            <div class="option-item">Química y Farmacia</div>
+                            <div class="option-item">Bioquímica</div>
+                            <div class="option-item">Química</div>
+                            <div class="option-item">Licenciatura en Educación en Física y Matemática</div>
+                            <div class="option-item">Licenciatura en Educación en Matemática y Computación</div>
+                            
+                            <div class="option-item">Ingeniería Comercial</div>
+                            <div class="option-item">Contador Público y Auditor</div>
+                            <div class="option-item">Administración Pública</div>
+                            <div class="option-item">Derecho</div>
+                            
+                            <div class="option-item">Psicología</div>
+                            <div class="option-item">Periodismo</div>
+                            <div class="option-item">Publicidad</div>
+                            <div class="option-item">Sociología</div>
+                            <div class="option-item">Estudios Internacionales</div>
+                            <div class="option-item">Licenciatura en Historia</div>
+                            <div class="option-item">Licenciatura en Lingüística Aplicada</div>
+                            <div class="option-item">Licenciatura en Literatura</div>
+                            <div class="option-item">Traducción Inglés-Español</div>
+                            <div class="option-item">Pedagogía en Educación Física</div>
+                            <div class="option-item">Pedagogía en Inglés</div>
+                            
+                            <div class="option-item">Medicina</div>
+                            <div class="option-item">Enfermería</div>
+                            <div class="option-item">Kinesiología</div>
+                            <div class="option-item">Obstetricia y Puericultura</div>
+                            <div class="option-item">Terapia Ocupacional</div>
+                            
+                            <div class="option-item">Arquitectura</div>
+                            <div class="option-item">Diseño Industrial</div>
+                            <div class="option-item">Diseño en Comunicación Visual</div>
+                            
+                            <div class="option-item">Programa de Bachillerato</div>
+                            <div class="option-item">Otra Carrera / Postgrado</div>
+                        </div>
+                    </div>
 
+                    <style>
+                        .search-select-container {
+                            position: relative;
+                            width: 100%;
+                        }
+                        .options-dropdown {
+                            position: absolute;
+                            top: 100%; left: 0; width: 100%;
+                            max-height: 220px;
+                            overflow-y: auto;
+                            background-color: #151515;
+                            border: 1px solid #444;
+                            border-radius: 0 0 4px 4px;
+                            z-index: 1000;
+                            display: none;
+                            box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+                            box-sizing: border-box;
+                        }
+                        .option-item {
+                            padding: 11px 15px;
+                            cursor: pointer;
+                            color: #ccc;
+                            font-size: 0.95rem;
+                            transition: background-color 0.2s, color 0.2s;
+                            text-align: left;
+                        }
+                        .option-item:hover {
+                            background-color: #0B3D91;
+                            color: white;
+                        }
+                        .options-dropdown::-webkit-scrollbar { width: 6px; }
+                        .options-dropdown::-webkit-scrollbar-thumb { background-color: #0B3D91; border-radius: 3px; }
+                    </style>
+
+                    <script>
+                        (function() {
+                            const inputCarrera = document.getElementById('carrera');
+                            const dropdownCarrera = document.getElementById('carreraDropdown');
+                            const itemsCarrera = dropdownCarrera.getElementsByClassName('option-item');
+
+                            // Desplegar lista al hacer foco
+                            inputCarrera.addEventListener('focus', () => {
+                                dropdownCarrera.style.display = 'block';
+                            });
+
+                            // Filtrar dinámicamente en tiempo real según la escritura
+                            inputCarrera.addEventListener('input', () => {
+                                const filter = inputCarrera.value.toLowerCase();
+                                dropdownCarrera.style.display = 'block';
+                                
+                                for (let i = 0; i < itemsCarrera.length; i++) {
+                                    const txtValue = itemsCarrera[i].textContent || itemsCarrera[i].innerText;
+                                    if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                                        itemsCarrera[i].style.display = "";
+                                    } else {
+                                        itemsCarrera[i].style.display = "none";
+                                    }
+                                }
+                            });
+
+                            // Seleccionar elemento al hacer click
+                            dropdownCarrera.addEventListener('click', (e) => {
+                                if (e.target && e.target.classList.contains('option-item')) {
+                                    inputCarrera.value = e.target.textContent;
+                                    dropdownCarrera.style.display = 'none';
+                                }
+                            });
+
+                            // Cerrar la lista si se hace click fuera del componente
+                            document.addEventListener('click', (e) => {
+                                if (!e.target.closest('.search-select-container')) {
+                                    dropdownCarrera.style.display = 'none';
+                                }
+                            });
+                        })();
+                    </script>
+                </div>
                 <!-- 3. SELECTOR DE PROYECTO DE INTERÉS (Reemplaza al CV) -->
                 <div class="form-group">
                     <label for="proyecto_interes">¿En qué proyecto te interesaría participar y mantenerte?</label>
