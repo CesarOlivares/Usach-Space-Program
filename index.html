@@ -8,10 +8,12 @@
     <link rel="icon" type="image/png" href="logo_noTextBLACK.png">
 
     <style>
-        /* === ESTILOS BASE (TIPO NASA) === */
+        /* === ESTILOS BASE === */
         :root {
             --nasa-blue: #0B3D91;
+            --nasa-blue-glow: #1a5fff;
             --nasa-red: #FC3D21;
+            --nasa-gold: #ffb703; /* Nuevo acento para proyectos élite */
             --dark-bg: #000000;
             --darker-bg: #0a0a0a;
             --card-bg: #151515;
@@ -22,120 +24,99 @@
         body, html {
             margin: 0; padding: 0;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-main);
-            scroll-behavior: smooth;
-            overflow-x: hidden;
+            background-color: var(--dark-bg); color: var(--text-main);
+            scroll-behavior: smooth; overflow-x: hidden;
         }
 
-        /* === BARRA DE NAVEGACIÓN === */
+        /* === NAV === */
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 50px; position: fixed; width: 100%; top: 0;
             background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(10px);
             box-sizing: border-box; z-index: 2000; border-bottom: 1px solid #222;
         }
-
         .nav-brand { font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; white-space: nowrap; }
         .nav-links { display: flex; align-items: center; }
         .nav-links a { color: var(--text-main); text-decoration: none; margin-left: 25px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; }
-        .nav-links a:hover { color: var(--nasa-blue); }
+        .nav-links a:hover { color: var(--nasa-blue-glow); }
         .nav-links .btn-login { background-color: transparent; border: 1px solid var(--text-main); padding: 8px 15px; border-radius: 4px; }
         .nav-links .btn-login:hover { background-color: var(--text-main); color: var(--dark-bg); }
 
-        .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; background: transparent; border: none; cursor: pointer; z-index: 2100; padding: 0; }
+        .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; background: transparent; border: none; cursor: pointer; padding: 0; }
         .menu-toggle span { width: 100%; height: 2px; background-color: var(--text-main); transition: all 0.3s ease; }
 
-        /* === HERO CON ESTRELLAS SUTILES === */
+        /* === HERO === */
         .hero {
             height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            background: url('Tierra.png') no-repeat center center/cover;
-            background-color: var(--dark-bg); position: relative;
+            background: url('Tierra.png') no-repeat center center/cover; background-color: var(--dark-bg); position: relative;
         }
         .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.65); z-index: 1; }
         .hero::after {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)), radial-gradient(1px 1px at 40px 70px, #e0e0e0, rgba(0,0,0,0)), radial-gradient(2px 2px at 50px 160px, #ffffff, rgba(0,0,0,0)), radial-gradient(1.5px 1.5px at 90px 40px, #cccccc, rgba(0,0,0,0)), radial-gradient(1px 1px at 130px 80px, #ffffff, rgba(0,0,0,0)), radial-gradient(2px 2px at 160px 120px, #dddddd, rgba(0,0,0,0));
+            background-image: radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)), radial-gradient(1px 1px at 40px 70px, #e0e0e0, rgba(0,0,0,0)), radial-gradient(2px 2px at 50px 160px, #ffffff, rgba(0,0,0,0));
             background-repeat: repeat; background-size: 250px 250px; opacity: 0.25; z-index: 2;
         }
-
         .hero-content { z-index: 3; text-align: center; position: relative; }
         .hero img { width: 180px; margin-bottom: 20px; }
         .hero h1 { font-size: 4rem; margin: 0; letter-spacing: 4px; text-transform: uppercase; text-shadow: 0 0 15px rgba(255,255,255,0.3); }
-
-        .btn-cta {
-            display: inline-block; margin-top: 30px; padding: 12px 30px;
-            background-color: var(--nasa-blue); color: var(--text-main);
-            text-decoration: none; font-weight: 700; text-transform: uppercase;
-            border-radius: 4px; letter-spacing: 1px; transition: background-color 0.3s ease;
-        }
+        .btn-cta { display: inline-block; margin-top: 30px; padding: 12px 30px; background-color: var(--nasa-blue); color: var(--text-main); text-decoration: none; font-weight: 700; text-transform: uppercase; border-radius: 4px; letter-spacing: 1px; transition: background-color 0.3s ease; }
         .btn-cta:hover { background-color: var(--nasa-red); }
 
-        /* === SECCIONES GLOBALES === */
+        /* === GLOBAL SECTIONS === */
         .quote-section { padding: 100px 20px; text-align: center; background-color: var(--darker-bg); border-bottom: 1px solid #222; }
         .quote { font-size: 2.2rem; font-style: italic; font-weight: 300; max-width: 900px; margin: auto; color: #ddd; }
 
         .about-section { padding: 100px 10%; background-color: var(--dark-bg); }
         .about-desc { text-align: center; margin-bottom: 60px; font-size: 1.2rem; line-height: 1.8; max-width: 800px; margin: auto auto 60px auto; color: var(--text-muted); }
         .mission-vision-container { display: flex; gap: 40px; flex-wrap: wrap; }
-        
-        .card { flex: 1; min-width: 300px; background: var(--card-bg); padding: 40px; border-radius: 8px; border-top: 4px solid var(--nasa-blue); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card { flex: 1; min-width: 300px; background: var(--card-bg); padding: 40px; border-radius: 8px; border-top: 4px solid var(--nasa-blue); transition: transform 0.3s; }
         .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(11, 61, 145, 0.2); }
         .card h3 { font-size: 1.8rem; text-transform: uppercase; margin-top: 0; letter-spacing: 1.5px; }
         .card p { line-height: 1.7; color: #ccc; }
 
-        /* === PROYECTOS DESTACADOS === */
+        /* === SISTEMA DE 2 NIVELES DE PROYECTOS === */
         .projects-section { padding: 100px 10%; background-color: var(--darker-bg); border-top: 1px solid #222; }
-        .projects-section h2 { text-align: center; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 60px; font-size: 2.5rem; }
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
-        
-        .project-card { background-color: var(--card-bg); border-radius: 8px; overflow: hidden; border: 1px solid #222; transition: transform 0.3s ease, border-color 0.3s ease; }
-        .project-card:hover { transform: translateY(-5px); border-color: var(--nasa-blue); }
-        .project-image { width: 100%; height: 250px; background-size: cover; background-position: center; }
-        .project-content { padding: 30px; }
-        .project-content h4 { margin-top: 0; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); }
-        .project-content p { color: var(--text-muted); line-height: 1.6; }
-        
-        .btn-project { display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: var(--card-bg); border: 1px solid var(--text-main); color: var(--text-main); text-decoration: none; font-weight: 600; text-transform: uppercase; border-radius: 4px; font-size: 0.8rem; transition: background-color 0.3s; }
-        .btn-project:hover { background-color: var(--text-main); color: var(--dark-bg); }
+        .projects-section h2 { text-align: center; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-size: 2.5rem; }
+        .projects-desc { text-align: center; color: var(--text-muted); max-width: 800px; margin: 0 auto 60px auto; font-size: 1.1rem; line-height: 1.6;}
 
-        /* === NUEVA SECCIÓN DE 5 EJES === */
+        .tier-title {
+            font-size: 1.8rem; text-transform: uppercase; letter-spacing: 2px;
+            margin: 60px 0 30px 0; padding-bottom: 15px; border-bottom: 1px solid #333;
+            color: var(--text-main); display: flex; align-items: center; justify-content: space-between;
+        }
+        
+        .tier-title.community { border-color: var(--nasa-blue-glow); }
+        .tier-title.flagship { border-color: var(--nasa-gold); }
+
+        .tier-badge { font-size: 0.9rem; padding: 5px 15px; border-radius: 20px; font-weight: bold; letter-spacing: 1px; }
+        .badge-community { background-color: rgba(26, 95, 255, 0.2); color: var(--nasa-blue-glow); }
+        .badge-flagship { background-color: rgba(255, 183, 3, 0.2); color: var(--nasa-gold); }
+
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .project-card { background-color: var(--card-bg); border-radius: 8px; overflow: hidden; border: 1px solid #222; transition: transform 0.3s, border-color 0.3s; display: flex; flex-direction: column;}
+        .project-card.community-card:hover { transform: translateY(-5px); border-color: var(--nasa-blue-glow); }
+        .project-card.flagship-card:hover { transform: translateY(-5px); border-color: var(--nasa-gold); }
+
+        .project-image { width: 100%; height: 200px; background-size: cover; background-position: center; }
+        .project-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
+        .project-content h4 { margin-top: 0; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); }
+        .project-content p { color: var(--text-muted); line-height: 1.6; flex-grow: 1; }
+        
+        .btn-project { display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: transparent; border: 1px solid var(--text-main); color: var(--text-main); text-decoration: none; font-weight: 600; text-transform: uppercase; border-radius: 4px; font-size: 0.8rem; text-align: center; transition: all 0.3s; }
+        .community-card .btn-project:hover { background-color: var(--nasa-blue-glow); border-color: var(--nasa-blue-glow); color: #fff; }
+        .flagship-card .btn-project:hover { background-color: var(--nasa-gold); border-color: var(--nasa-gold); color: #000; }
+
+        /* === EJES (RESUMEN CORTO) === */
         .ejes-section { padding: 100px 10%; background-color: var(--dark-bg); text-align: center; }
         .ejes-section h2 { text-transform: uppercase; letter-spacing: 2px; font-size: 2.5rem; margin-bottom: 20px; }
         .ejes-lead { font-size: 1.2rem; color: var(--text-muted); max-width: 800px; margin: auto auto 60px auto; }
-        
-        .ejes-summary {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        
-        .ejes-icon-card {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 8px;
-            border: 1px solid #222;
-            flex: 1 1 300px; /* Crecen y se ajustan dinámicamente */
-            max-width: 380px;
-            text-align: left;
-            transition: border-color 0.3s ease;
-        }
-
-        .ejes-icon-card:hover { border-color: var(--nasa-blue); }
-        
-        .ejes-icon-card .eje-badge {
-            color: var(--nasa-blue);
-            font-size: 0.8rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .ejes-icon-card h4 { font-size: 1.2rem; text-transform: uppercase; margin: 0 0 10px 0; }
-        .ejes-icon-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;}
+        .ejes-summary { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .ejes-icon-card { background-color: var(--card-bg); padding: 30px; border-radius: 8px; border: 1px solid #222; flex: 1 1 250px; text-align: left; transition: border-color 0.3s; }
+        .ejes-icon-card:hover { border-color: var(--nasa-blue-glow); }
+        .ejes-icon-card .eje-badge { color: var(--nasa-blue-glow); font-size: 0.8rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .ejes-icon-card h4 { font-size: 1.1rem; text-transform: uppercase; margin: 0 0 10px 0; }
+        .ejes-icon-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin: 0;}
 
         /* === CARRUSEL === */
         .gallery-section { padding: 100px 0; background-color: var(--darker-bg); text-align: center; border-top: 1px solid #222; }
@@ -143,35 +124,17 @@
         .carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding: 0 10%; scrollbar-width: thin; scrollbar-color: var(--nasa-blue) #222; }
         .carousel::-webkit-scrollbar { height: 8px; }
         .carousel::-webkit-scrollbar-thumb { background-color: var(--nasa-blue); border-radius: 4px; }
-        .carousel-item { min-width: 400px; height: 280px; background-color: #333; scroll-snap-align: center; border-radius: 8px; background-size: cover; background-position: center; transition: transform 0.3s ease; }
+        .carousel-item { min-width: 400px; height: 280px; background-color: #333; scroll-snap-align: center; border-radius: 8px; background-size: cover; background-position: center; transition: transform 0.3s; }
         .carousel-item:hover { transform: scale(1.03); }
 
         /* === RESPONSIVE === */
-        @media (max-width: 1024px) and (min-width: 769px) {
-            header { padding: 15px 30px; }
-            .nav-links a { margin-left: 15px; font-size: 0.75rem; }
-            .hero h1 { font-size: 3rem; }
-        }
-
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             header { padding: 15px 25px; }
+            .nav-links { display: none; } /* En móvil usamos el menú hamburguesa */
             .menu-toggle { display: flex; }
-            .nav-links { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(15px); border-left: 1px solid #222; flex-direction: column; justify-content: center; gap: 30px; transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1); z-index: 2050; padding: 40px; box-sizing: border-box; }
-            .nav-links.active { right: 0; }
-            .nav-links a { margin-left: 0; font-size: 1.1rem; width: 100%; text-align: center; padding: 10px 0; }
-            .nav-links .btn-login { width: 100%; margin-top: 10px; }
-            .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-            .menu-toggle.active span:nth-child(2) { opacity: 0; }
-            .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-            .hero h1 { font-size: 2.2rem; padding: 0 15px; }
-            .hero img { width: 130px; }
-            .quote-section { padding: 60px 20px; }
-            .quote { font-size: 1.4rem; padding: 0 15px; }
-            .about-section, .gallery-section, .projects-section, .ejes-section { padding-left: 20px; padding-right: 20px; padding-top: 60px; padding-bottom: 60px; }
-            .mission-vision-container, .projects-grid, .ejes-summary { flex-direction: column; }
-            .ejes-icon-card { max-width: 100%; }
+            .tier-title { flex-direction: column; align-items: flex-start; gap: 10px; }
             .carousel-item { min-width: 300px; height: 200px; }
+            .projects-section, .ejes-section, .about-section { padding-left: 20px; padding-right: 20px; }
         }
     </style>
 </head>
@@ -179,24 +142,21 @@
 
     <header>
         <div class="nav-brand">USACH Space Program</div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-            <span></span><span></span><span></span>
-        </button>
         <nav class="nav-links" id="navLinks">
             <a href="index.html">Inicio</a>
-            <a href="proyectos.html">Proyectos</a>
-            <a href="ejes.html">Ejes de Desarrollo</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="ejes.html">Ejes</a>
             <a href="registro.html">Registrarse</a>
             <a href="login.html" class="btn-login">Iniciar Sesión</a>
         </nav>
     </header>
 
-    <section class="hero" id="hero">
+    <section class="hero">
         <div class="hero-content">
-            <img src="logo.png" alt="Logo USACH Space Program">
+            <img src="logo.png" alt="Logo USP">
             <h1>USACH Space Program</h1>
             <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 10px auto 0 auto;">Impulsando la innovación aeroespacial estudiantil en Chile hacia el infinito.</p>
-            <a href="#proyectos" class="btn-cta">Explorar Nuestros Proyectos</a>
+            <a href="#proyectos" class="btn-cta">Explorar Operaciones</a>
         </div>
     </section>
 
@@ -210,78 +170,109 @@
         <div class="about-desc">
             <p>Usach Space Program es una iniciativa estudiantil autogestionada que nace con el objetivo de ser el primer acercamiento extracurricular de los estudiantes hacia el sector aeroespacial, proyectándose como un espacio interdisciplinario y una incubadora de ideas.</p>
         </div>
-        
         <div class="mission-vision-container">
             <div class="card">
                 <h3>Nuestra Misión</h3>
-                <p>Consolidarnos como el principal núcleo de colaboración interdisciplinaria de la USACH, posicionando el talento de nuestra universidad dentro de la industria aeroespacial nacional e internacional, impulsando proyectos de alto valor y profundo impacto social.</p>
+                <p>Consolidarnos como el principal núcleo de colaboración interdisciplinaria de la USACH, posicionando el talento de nuestra universidad dentro de la industria aeroespacial nacional e internacional.</p>
             </div>
             <div class="card">
                 <h3>Nuestra Visión</h3>
-                <p>Impulsar el desarrollo científico-tecnológico en el ámbito aeroespacial dentro de la comunidad universitaria mediante la ejecución autogestionada de proyectos tangibles, fortaleciendo la experiencia estudiantil de manera complementaria a la formación académica.</p>
+                <p>Impulsar el desarrollo científico-tecnológico en el ámbito aeroespacial dentro de la comunidad universitaria mediante la ejecución autogestionada de proyectos tangibles.</p>
             </div>
         </div>
     </section>
 
+    <!-- SISTEMA DE PROYECTOS DIVIDIDO EN NIVELES -->
     <section class="projects-section" id="proyectos">
         <h2>Un Ecosistema de Innovación</h2>
+        <p class="projects-desc">Nuestra estructura operativa está diseñada para abarcar desde la alfabetización técnica de nuevos estudiantes hasta la investigación y desarrollo estudiantil de hardware aeroespacial avanzado de nuestra directiva técnica.</p>
+
+        <!-- NIVEL 1: COMUNIDAD -->
+        <div class="tier-title community">
+            Iniciativas de Comunidad
+            <span class="tier-badge badge-community">NIVEL 1: ONBOARDING</span>
+        </div>
+        <p style="color: var(--text-muted); margin-top: -15px; margin-bottom: 30px;">Proyectos ágiles y accesibles diseñados para permeabilizar el conocimiento aeroespacial a estudiantes con o sin experiencia previa.</p>
+        
         <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image" style="background-image: url('IMG-20260607-WA0030.jpg');"></div>
+            <div class="project-card community-card">
                 <div class="project-content">
-                    <h4>Desarrollo de Rover Planetario</h4>
-                    <p>Diseño y construcción de vehículos autónomos para exploración en terrenos hostiles, integrando mecánica avanzada y sistemas de visión computacional.</p>
-                    <a href="rover.html" class="btn-project">Saber más</a>
+                    <h4>CubeSat 1U (Educativo)</h4>
+                    <p>Misión de introducción a la aviónica y telemetría. Empaquetado de sensores y comunicación dentro del estándar de 10x10x10 cm.</p>
+                    <a href="cansat.html" class="btn-project">Explorar Misión</a>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card community-card">
+                <div class="project-content">
+                    <h4>Mini-Rover Explorador</h4>
+                    <p>Diseño y construcción de vehículos a escala para sortear obstáculos. Introducción práctica a la robótica y el diseño 3D.</p>
+                    <a href="rover.html" class="btn-project">Explorar Misión</a>
+                </div>
+            </div>
+            <div class="project-card community-card">
+                <div class="project-content">
+                    <h4>Cohetería de Sondeo (Agua)</h4>
+                    <p>Aplicación de las leyes de Newton, cálculo del centro de presión y gravedad mediante vehículos de introducción a presión.</p>
+                    <a href="cohete.html" class="btn-project">Explorar Misión</a>
+                </div>
+            </div>
+            <div class="project-card community-card">
+                <div class="project-content">
+                    <h4>Simulación Egg Drop</h4>
+                    <p>Desafío de gestión de energía e impacto. Diseño de estructuras de sacrificio para proteger una carga útil durante una caída libre.</p>
+                    <a href="eggdrop.html" class="btn-project">Explorar Misión</a>
+                </div>
+            </div>
+            <div class="project-card community-card">
+                <div class="project-content">
+                    <h4>Taller de Impresión 3D</h4>
+                    <p>Nivelación técnica en modelado CAD paramétrico y manufactura aditiva, herramientas vitales para la organización.</p>
+                    <a href="impresion3d.html" class="btn-project">Explorar Taller</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- NIVEL 2: FLAGSHIP / INSIGNIA -->
+        <div class="tier-title flagship" style="margin-top: 80px;">
+            Proyectos Insignia (I+D)
+            <span class="tier-badge badge-flagship">NIVEL 2: ESTANDARTE USP</span>
+        </div>
+        <p style="color: var(--text-muted); margin-top: -15px; margin-bottom: 30px;">Plataformas tecnológicas de alta complejidad desarrolladas por los miembros experimentados y la dirección técnica del equipo.</p>
+        
+        <div class="projects-grid" style="grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));">
+            <div class="project-card flagship-card">
+                <div class="project-image" style="background-image: url('IMG-20260607-WA0030.jpg');"></div>
+                <div class="project-content">
+                    <h4>Rover Plataforma "Mascota"</h4>
+                    <p>Vehículo de exploración de escala mayor y complejidad avanzada. Integra cinemática de suspensión compleja, telemetría de largo alcance, diseño mecatrónico robusto y visión computacional.</p>
+                    <a href="#" class="btn-project">Desarrollo Interno</a>
+                </div>
+            </div>
+            <div class="project-card flagship-card">
                 <div class="project-image" style="background-image: url('IMG-20260607-WA0039.jpg');"></div>
                 <div class="project-content">
-                    <h4>Desarrollo de CubeSats</h4>
-                    <p>Ingeniería de sistemas espaciales basada en el estándar internacional de nano-satélites para la validación de telemetría, aviónica y gestión de energía.</p>
-                    <a href="cubesat.html" class="btn-project">Saber más</a>
+                    <h4>CubeSat 3U Avanzado</h4>
+                    <p>Desarrollo del hardware estandarte del programa. Un satélite de 3 unidades (10x10x30 cm) orientado a la prueba rigurosa de control de altitud, paneles de potencia y enlaces con estación terrena.</p>
+                    <a href="#" class="btn-project">Desarrollo Interno</a>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="ejes-section">
-        <h2>Pilares de Nuestro Desarrollo</h2>
-        <p class="ejes-lead">Operamos bajo 5 ejes estratégicos que estructuran nuestro crecimiento y validan conocimientos mediante prototipos rápidos (MVP).</p>
-        
+        <h2>Pilares de Desarrollo</h2>
         <div class="ejes-summary">
-            <div class="ejes-icon-card">
-                <span class="eje-badge">Eje 01</span>
-                <h4>Exploración Planetaria</h4>
-                <p>Diseño y prototipado de robótica móvil (Rovers) y estructuras mecánicas para movilidad en terrenos hostiles.</p>
-            </div>
-            <div class="ejes-icon-card">
-                <span class="eje-badge">Eje 02</span>
-                <h4>Simulación y Operaciones</h4>
-                <p>Dinámica de vuelo, creación de gemelos digitales y planificación logística para despliegues seguros (Misión Egg Drop).</p>
-            </div>
-            <div class="ejes-icon-card">
-                <span class="eje-badge">Eje 03</span>
-                <h4>Cohetería de Sondeo</h4>
-                <p>Diseño estructural aerodinámico y caracterización de sistemas de propulsión experimental (Cohetería y Banco de Pruebas).</p>
-            </div>
-            <div class="ejes-icon-card">
-                <span class="eje-badge">Eje 04</span>
-                <h4>Sistemas y Energía</h4>
-                <p>Desarrollo de aviónica, telemetría y diseño de hardware embebido estandarizado (Desarrollo CubeSat).</p>
-            </div>
-            <div class="ejes-icon-card">
-                <span class="eje-badge">Eje 05</span>
-                <h4>Educación y Experiencia</h4>
-                <p>Alfabetización técnica, onboarding y difusión científica para democratizar el conocimiento espacial (Taller Impresión 3D).</p>
-            </div>
+            <div class="ejes-icon-card"><span class="eje-badge">01</span><h4>Exploración Planetaria</h4></div>
+            <div class="ejes-icon-card"><span class="eje-badge">02</span><h4>Simulación y Operaciones</h4></div>
+            <div class="ejes-icon-card"><span class="eje-badge">03</span><h4>Cohetería de Sondeo</h4></div>
+            <div class="ejes-icon-card"><span class="eje-badge">04</span><h4>Sistemas y Energía</h4></div>
+            <div class="ejes-icon-card"><span class="eje-badge">05</span><h4>Educación y Experiencia</h4></div>
         </div>
-        
-        <a href="ejes.html" class="btn-project" style="margin-top: 50px;">Explorar Ejes Detalladamente</a>
+        <a href="ejes.html" class="btn-project" style="margin-top: 40px; border-color: var(--nasa-blue-glow); color: var(--nasa-blue-glow);">Ver Ejes Completos</a>
     </section>
 
     <section class="gallery-section">
-        <h2>Registro de Operaciones y Comunidad</h2>
+        <h2>Registro de Operaciones</h2>
         <div class="carousel">
             <div class="carousel-item" style="background-image: url('IMG-20260605-WA0073.jpg');"></div>
             <div class="carousel-item" style="background-image: url('IMG-20260607-WA0022.jpg');"></div>
@@ -294,21 +285,5 @@
         <p style="color: var(--text-muted); font-size: 0.9rem;">Impulsando la ciencia y la tecnología aeroespacial desde la USACH.</p>
     </footer>
 
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
 </body>
 </html>
