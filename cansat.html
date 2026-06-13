@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CanSat Terrestre - USACH Space Program</title>
+    <title>Misión CubeSat 1U - USACH Space Program</title>
     <link rel="icon" type="image/png" href="logo.png">
     <style>
         /* === ESTILOS BASE === */
@@ -20,23 +20,17 @@
         }
 
         body, html {
-            margin: 0; padding: 0;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-main);
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-            width: 100%;
+            margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--dark-bg); color: var(--text-main); scroll-behavior: smooth; overflow-x: hidden;
         }
 
-        /* === BARRA DE NAVEGACIÓN === */
+        /* === NAV === */
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 50px; position: fixed; width: 100%; top: 0;
             background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(10px);
             box-sizing: border-box; z-index: 2000; border-bottom: 1px solid #222;
         }
-
         .nav-brand { font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; white-space: nowrap; }
         .nav-links { display: flex; align-items: center; }
         .nav-links a { color: var(--text-main); text-decoration: none; margin-left: 25px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; }
@@ -44,25 +38,18 @@
         .nav-links .btn-login { background-color: transparent; border: 1px solid var(--text-main); padding: 8px 15px; border-radius: 4px; }
         .nav-links .btn-login:hover { background-color: var(--text-main); color: var(--dark-bg); }
 
-        .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; background: transparent; border: none; cursor: pointer; z-index: 2100; padding: 0; }
-        .menu-toggle span { width: 100%; height: 2px; background-color: var(--text-main); transition: all 0.3s ease; }
-
-        /* === PORTADA HERO === */
-        .cansat-hero {
+        /* === HERO === */
+        .cubesat-hero {
             height: 70vh;
-            background: linear-gradient(rgba(0,0,0,0.5), var(--dark-bg)), url('Tierra.png') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.6), var(--dark-bg)), url('Tierra.png') no-repeat center center/cover;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             text-align: center; padding: 0 20px; position: relative;
         }
-
-        .eje-tag {
-            background-color: var(--nasa-blue); color: white; padding: 5px 15px;
-            font-size: 0.9rem; font-weight: bold; text-transform: uppercase;
-            border-radius: 4px; margin-bottom: 20px; letter-spacing: 1px;
-        }
-
-        .cansat-hero h1 { font-size: 4.5rem; text-transform: uppercase; letter-spacing: 4px; margin: 0; text-shadow: 0 0 20px rgba(26, 95, 255, 0.6); }
-        .cansat-hero p { font-size: 1.4rem; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 10px; }
+        .eje-tag { background-color: var(--nasa-blue); color: white; padding: 5px 15px; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; border-radius: 4px; margin-bottom: 20px; letter-spacing: 1px; }
+        .tier-tag { background-color: transparent; border: 1px solid var(--nasa-blue-glow); color: var(--nasa-blue-glow); padding: 5px 15px; font-size: 0.8rem; font-weight: bold; border-radius: 20px; margin-bottom: 15px; letter-spacing: 1px; }
+        
+        .cubesat-hero h1 { font-size: 4.5rem; text-transform: uppercase; letter-spacing: 4px; margin: 0; text-shadow: 0 0 20px rgba(26, 95, 255, 0.6); }
+        .cubesat-hero p { font-size: 1.4rem; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 10px; }
 
         /* === INSPIRACIÓN === */
         .inspiration-section { padding: 80px 10%; text-align: center; background: linear-gradient(var(--dark-bg), var(--darker-bg)); }
@@ -70,7 +57,7 @@
         .inspiration-container h2 { font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; color: var(--text-main); }
         .inspiration-container p { font-size: 1.25rem; line-height: 1.8; color: #ddd; font-style: italic; font-weight: 300; }
 
-        /* === OBJETIVO Y MISIÓN === */
+        /* === OBJETIVO TÉCNICO === */
         .mission-section { padding: 40px 10% 80px; background-color: var(--darker-bg); }
         .mission-box {
             background-color: var(--card-bg); border: 1px solid var(--card-border);
@@ -80,213 +67,80 @@
         .mission-box h2 { text-transform: uppercase; letter-spacing: 2px; margin-top: 0; font-size: 2rem; color: var(--nasa-blue-glow); }
         .mission-box p { font-size: 1.1rem; line-height: 1.8; color: #ccc; }
 
-        /* === CRONOLOGÍA HORIZONTAL (TRAYECTORIA ORBITAL) === */
+        /* === TIMELINE === */
         .timeline-section { padding: 80px 10%; background-color: var(--dark-bg); text-align: center; }
-        .timeline-section h2 { text-transform: uppercase; letter-spacing: 2px; font-size: 2.5rem; margin-bottom: 70px; color: var(--text-main); }
+        .timeline-section h2 { text-transform: uppercase; letter-spacing: 2px; font-size: 2.5rem; margin-bottom: 70px; }
         
-        .timeline-horizontal {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 20px;
-        }
+        .timeline-horizontal { display: flex; justify-content: space-between; align-items: flex-start; position: relative; max-width: 1200px; margin: 0 auto; gap: 20px; }
+        .timeline-horizontal::before { content: ''; position: absolute; top: 35px; left: 5%; right: 5%; height: 2px; border-top: 2px dashed rgba(26, 95, 255, 0.6); z-index: 1; }
+        .timeline-item-hz { flex: 1; position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
+        .timeline-icon-hz { width: 70px; height: 70px; background-color: var(--darker-bg); border: 3px solid var(--nasa-blue-glow); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; margin-bottom: 25px; box-shadow: 0 0 20px rgba(26, 95, 255, 0.4); transition: transform 0.3s; }
+        .timeline-item-hz:hover .timeline-icon-hz { transform: scale(1.15); box-shadow: 0 0 35px rgba(26, 95, 255, 0.8); background-color: var(--card-bg); }
+        .timeline-content-hz h3 { color: var(--text-main); font-size: 1.1rem; text-transform: uppercase; margin-top: 0; margin-bottom: 10px; }
+        .timeline-content-hz p { color: #bbb; font-size: 0.95rem; line-height: 1.6; margin: 0; padding: 0 10px; }
+        
+        .final-hito-hz .timeline-icon-hz { border-color: var(--nasa-red); box-shadow: 0 0 25px rgba(252, 61, 33, 0.6); font-size: 2rem; }
+        .final-hito-hz h3 { color: var(--nasa-red); }
 
-        /* Línea de trayectoria (Órbita) */
-        .timeline-horizontal::before {
-            content: '';
-            position: absolute;
-            top: 35px; /* Mitad exacta de los iconos */
-            left: 5%;
-            right: 5%;
-            height: 2px;
-            border-top: 2px dashed rgba(26, 95, 255, 0.6);
-            z-index: 1;
-        }
-
-        .timeline-item-hz {
-            flex: 1;
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* Nodos planetarios / Fases */
-        .timeline-icon-hz {
-            width: 70px;
-            height: 70px;
-            background-color: var(--darker-bg);
-            border: 3px solid var(--nasa-blue-glow);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            box-shadow: 0 0 20px rgba(26, 95, 255, 0.4), inset 0 0 15px rgba(26, 95, 255, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .timeline-item-hz:hover .timeline-icon-hz {
-            transform: scale(1.15);
-            box-shadow: 0 0 35px rgba(26, 95, 255, 0.8), inset 0 0 20px rgba(26, 95, 255, 0.5);
-            background-color: var(--card-bg);
-        }
-
-        .timeline-content-hz h3 {
-            color: var(--text-main);
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            margin-top: 0;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-
-        .timeline-content-hz p {
-            color: #bbb;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0 10px;
-        }
-
-        /* Hito Final Destacado (Objetivo) */
-        .final-hito-hz .timeline-icon-hz {
-            border-color: var(--nasa-red);
-            box-shadow: 0 0 25px rgba(252, 61, 33, 0.6), inset 0 0 15px rgba(252, 61, 33, 0.3);
-            font-size: 2rem;
-        }
-        .final-hito-hz:hover .timeline-icon-hz {
-            box-shadow: 0 0 45px rgba(252, 61, 33, 0.9), inset 0 0 25px rgba(252, 61, 33, 0.5);
-        }
-        .final-hito-hz h3 {
-            color: var(--nasa-red);
-        }
-
-        /* === DESAFÍOS DE OPERACIÓN (ZIG-ZAG) === */
+        /* === DESAFÍOS === */
         .modalidad-section { padding: 100px 10%; background-color: var(--darker-bg); }
         .modalidad-section h2 { text-align: center; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 70px; font-size: 2.5rem; }
-
         .mod-row { display: flex; align-items: center; gap: 50px; margin-bottom: 60px; }
         .mod-row:nth-child(even) { flex-direction: row-reverse; }
-        
         .mod-text { flex: 1; }
         .mod-text h3 { font-size: 1.8rem; color: var(--nasa-blue-glow); text-transform: uppercase; margin-top: 0; }
         .mod-text p { font-size: 1.1rem; line-height: 1.7; color: #ccc; }
+        .mod-image { flex: 1; height: 350px; border-radius: 12px; background-color: #1a1a24; border: 1px solid #333; position: relative; overflow: hidden; background-size: cover; background-position: center;}
+        
+        /* Uso de sus fotos */
+        .img-soldadura { background-image: url('IMG-20260607-WA0039.jpg'); } /* Foto de electrónica */
 
-        .mod-image {
-            flex: 1; height: 350px; border-radius: 12px; background-color: #1a1a24;
-            border: 1px solid #333; position: relative; overflow: hidden;
-        }
-        .photo-placeholder-text {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            color: rgba(255,255,255,0.3); font-size: 1rem; text-align: center; padding: 20px;
-            border: 2px dashed rgba(255,255,255,0.2); border-radius: 8px; text-transform: uppercase;
-        }
-
-        /* === ESPECIFICACIONES (SIN COSTOS, 2 COLUMNAS) === */
-        .specs-section { padding: 80px 10%; background-color: var(--dark-bg); text-align: center; }
-        .specs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 800px; margin: 0 auto; }
-        .spec-card { background: var(--card-bg); border: 1px solid var(--card-border); padding: 30px; border-radius: 8px; }
-        .spec-card h4 { color: var(--nasa-blue-glow); text-transform: uppercase; margin: 0 0 10px 0; font-size: 1rem; letter-spacing: 1px; }
-        .spec-card p { color: #fff; font-size: 1.2rem; font-weight: bold; margin: 0; }
-
-        /* === RECOMPENSA (EL PARCHE) === */
-        .reward-section { padding: 40px 10% 20px; background-color: var(--dark-bg); text-align: center; }
-        .reward-box {
-            max-width: 700px; margin: 0 auto; padding: 40px; border-radius: 12px;
-            background: linear-gradient(135deg, rgba(11, 61, 145, 0.2), rgba(0,0,0,1));
-            border: 2px dashed var(--nasa-blue-glow);
-        }
-        .reward-box h3 { font-size: 1.8rem; color: #fff; text-transform: uppercase; margin-top: 0; }
-        .reward-box p { font-size: 1.1rem; color: #ccc; line-height: 1.6; }
-        .reward-highlight { color: #ffd700; font-weight: bold; }
-
-        /* === BOTÓN ACCIÓN FINAL === */
-        .cta-container { text-align: center; padding-bottom: 80px; background-color: var(--dark-bg); }
-        .btn-join-mission {
-            display: inline-block; background-color: var(--nasa-blue); color: white;
-            text-decoration: none; padding: 18px 45px; font-size: 1.1rem; font-weight: bold;
-            text-transform: uppercase; letter-spacing: 2px; border-radius: 4px;
-            box-shadow: 0 0 20px rgba(11, 61, 145, 0.4); transition: all 0.3s ease; margin-top: 20px;
-        }
+        /* === CTA === */
+        .cta-container { text-align: center; padding-bottom: 80px; background-color: var(--darker-bg); }
+        .btn-join-mission { display: inline-block; background-color: var(--nasa-blue); color: white; text-decoration: none; padding: 18px 45px; font-size: 1.1rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; box-shadow: 0 0 20px rgba(11, 61, 145, 0.4); transition: all 0.3s; margin-top: 20px; }
         .btn-join-mission:hover { background-color: var(--nasa-blue-glow); box-shadow: 0 0 30px var(--nasa-blue-glow); transform: translateY(-2px); }
 
-        /* === SISTEMA RESPONSIVE === */
         @media (max-width: 1024px) {
-            header { padding: 15px 25px; }
-            .menu-toggle { display: flex; }
-            .nav-links {
-                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-                background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(15px);
-                flex-direction: column; justify-content: center; gap: 30px; transition: right 0.4s;
-            }
-            .nav-links.active { right: 0; }
-            .nav-links a { margin-left: 0; font-size: 1.1rem; width: 100%; text-align: center; }
-            .nav-links .btn-login { width: 100%; margin-top: 10px; }
-
-            .cansat-hero h1 { font-size: 3rem; }
-            .mod-row, .mod-row:nth-child(even) { flex-direction: column; gap: 30px; }
-            .mod-image { width: 100%; height: 250px; }
-            .specs-grid { grid-template-columns: 1fr; }
-            
-            /* Ajuste de la trayectoria orbital para móviles (Se vuelve vertical si la pantalla es pequeña) */
             .timeline-horizontal { flex-direction: column; align-items: center; gap: 50px; }
-            .timeline-horizontal::before {
-                top: 0; bottom: 0; left: 50%; right: auto; width: 2px; height: 100%;
-                border-top: none; border-left: 2px dashed rgba(26, 95, 255, 0.6);
-                transform: translateX(-50%);
-            }
+            .timeline-horizontal::before { top: 0; bottom: 0; left: 50%; right: auto; width: 2px; height: 100%; border-top: none; border-left: 2px dashed rgba(26, 95, 255, 0.6); transform: translateX(-50%); }
             .timeline-item-hz { width: 100%; max-width: 400px; }
             .timeline-icon-hz { margin: 0 auto 20px auto; }
+            .mod-row, .mod-row:nth-child(even) { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-    <!-- BARRA DE NAVEGACIÓN -->
     <header>
         <div class="nav-brand">USACH Space Program</div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-            <span></span><span></span><span></span>
-        </button>
-        <nav class="nav-links" id="navLinks">
+        <nav class="nav-links">
             <a href="index.html">Inicio</a>
             <a href="proyectos.html">Proyectos</a>
             <a href="ejes.html">Ejes de Desarrollo</a>
-            <a href="registro.html">Registrarse</a>
-            <a href="login.html" class="btn-login">Iniciar Sesión</a>
         </nav>
     </header>
 
-    <!-- PORTADA HERO -->
-    <section class="cansat-hero">
+    <section class="cubesat-hero">
+        <div class="tier-tag">NIVEL 1: INICIATIVA DE COMUNIDAD</div>
         <div class="eje-tag">Eje IV: Sistemas Espaciales y Energía</div>
-        <h1>CanSat Terrestre</h1>
-        <p>Ingeniería a Escala Milimétrica</p>
+        <h1>Misión CubeSat 1U</h1>
+        <p>Introducción al Estándar Internacional de Nano-Satélites</p>
     </section>
 
-    <!-- INSPIRACIÓN (Enfoque Aviónica) -->
     <section class="inspiration-section">
         <div class="inspiration-container">
             <h2>El cerebro de la misión espacial</h2>
-            <p>"Mientras otros miran la estructura externa, nosotros diseñamos el sistema nervioso. Un CanSat no es un simple juguete; es un laboratorio donde la física teórica y el manejo de datos chocan contra la realidad del hardware. Aquí aprenderás que una antena bien orientada y un código eficiente valen tanto como el mejor de los cohetes."</p>
+            <p>"Mientras otros miran la estructura externa, nosotros diseñamos el sistema nervioso. Este programa educativo, estructurado bajo el estándar internacional CubeSat 1U (10x10x10 cm), es tu puerta de entrada al hardware espacial. Aquí aprenderás que una antena bien orientada y un código eficiente valen tanto como el mejor de los motores."</p>
         </div>
     </section>
 
-    <!-- OBJETIVO TÉCNICO -->
     <section class="mission-section">
         <div class="mission-box">
-            <h2>La Misión: Empaquetar el Cosmos en una Lata</h2>
-            <p>Un CanSat es una simulación de un satélite a escala, cuyos componentes deben integrarse dentro del volumen y la forma geométrica de una lata de refresco estándar (aprox. 330 ml). En esta variante "terrestre", el proyecto omite la fase de lanzamiento balístico para centrarse puramente en el desarrollo de la carga útil: diseñar, ensamblar y programar la aviónica. El objetivo es que el dispositivo logre recolectar datos atmosféricos y de orientación en tiempo real, transmitiéndolos de forma inalámbrica a una estación terrena base mientras se somete a pruebas de campo o manipulaciones manuales.</p>
+            <h2>Objetivo: Ingeniería a Escala Geométrica</h2>
+            <p>Hemos evolucionado los clásicos CanSats a un desafío universitario de mayor rigor. El objetivo de esta iniciativa abierta a la comunidad es enseñar electrónica aplicada y programación embebida. Formarás parte de un escuadrón que diseñará, imprimirá en 3D y soldará un micro-satélite de exactamente 10x10x10 cm. Deberá recolectar datos atmosféricos e inerciales y transmitirlos de manera inalámbrica a un "Dashboard" en tiempo real.</p>
         </div>
     </section>
 
-    <!-- CRONOLOGÍA HORIZONTAL (TRAYECTORIA ORBITAL) -->
     <section class="timeline-section">
         <h2>Ciclo de Desarrollo Aviónico</h2>
         <div class="timeline-horizontal">
@@ -295,7 +149,7 @@
                 <div class="timeline-icon-hz">💡</div>
                 <div class="timeline-content-hz">
                     <h3>1. Arquitectura</h3>
-                    <p>Definición del diagrama de bloques. Selección de componentes para comunicación sin cuellos de botella.</p>
+                    <p>Definición del diagrama de bloques. Introducción a microcontroladores (ESP32/Arduino) y protocolos I2C/SPI.</p>
                 </div>
             </div>
 
@@ -303,15 +157,15 @@
                 <div class="timeline-icon-hz">🔌</div>
                 <div class="timeline-content-hz">
                     <h3>2. Integración</h3>
-                    <p>Conexión del microcontrolador (Arduino/ESP32) junto a sensores de telemetría (Barómetro e IMU).</p>
+                    <p>Conexión de sensores de telemetría (Barómetro, IMU, GPS) y cálculo del balance de potencia eléctrica.</p>
                 </div>
             </div>
 
             <div class="timeline-item-hz">
                 <div class="timeline-icon-hz">📦</div>
                 <div class="timeline-content-hz">
-                    <h3>3. Empaquetamiento</h3>
-                    <p>Diseño en 3D de la estructura interna. Un puzzle de alta precisión mecánica dentro de un cilindro.</p>
+                    <h3>3. Empaquetamiento 1U</h3>
+                    <p>Diseño CAD e impresión 3D del chasis estandarizado. Un puzzle de alta precisión mecánica en 10 cm³.</p>
                 </div>
             </div>
 
@@ -323,90 +177,43 @@
                 </div>
             </div>
 
-            <!-- HITO FINAL DESTACADO -->
             <div class="timeline-item-hz final-hito-hz">
                 <div class="timeline-icon-hz">💻</div>
                 <div class="timeline-content-hz">
-                    <h3>Validación Final</h3>
-                    <p>Demostración de recepción fluida de datos en la estación terrena bajo movimientos bruscos.</p>
+                    <h3>Validación Terrena</h3>
+                    <p>Prueba de estrés del sistema. Recepción fluida de datos en la estación base bajo manipulaciones ambientales.</p>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- DESAFÍOS (ZIG-ZAG DINÁMICO) -->
     <section class="modalidad-section">
-        <h2>Desafíos de la Operación</h2>
+        <h2>Retos del Programa Educativo</h2>
         
-        <!-- Fila 1 -->
         <div class="mod-row">
             <div class="mod-text">
-                <h3>Empaquetamiento Extremo</h3>
-                <p>El mayor desafío es el diseño CAD de la estructura interna para organizar la batería, la placa y los sensores en un espacio cilíndrico tan reducido sin causar cortocircuitos. Desarrollarás un sistema embebido ultracompacto que cumpla con restricciones estrictas de volumen y peso. Realizarás soldaduras limpias y precisas, ya que el uso excesivo de cables largos tipo jumper imposibilitará el cierre de la carcasa.</p>
+                <h3>El Desafío del Volumen (1U)</h3>
+                <p>El mayor reto de ingeniería es organizar la batería, la placa, los cables y los sensores en un cubo de 10 cm sin causar cortocircuitos ni interferencias electromagnéticas. Aprenderás a realizar ruteos limpios, gestión térmica básica y diseño de ensambles compactos, habilidades vitales para futuros proyectos avanzados.</p>
             </div>
-            <div class="mod-image">
-                <div class="photo-placeholder-text">[Foto 1: Interior de un CanSat ensamblado con cables muy cortos y precisos]</div>
+            <div class="mod-image" style="background-color: #222;">
+                <!-- Placeholder para foto de chasis 3D del cubesat -->
+                <div style="color: #666; text-align: center; line-height: 350px;">Estructura 1U Impresa en 3D</div>
             </div>
         </div>
 
-        <!-- Fila 2 -->
         <div class="mod-row">
             <div class="mod-text">
-                <h3>El Sistema Nervioso y Energía</h3>
-                <p>Deberás comprender y aplicar protocolos de comunicación de datos (I2C, SPI) para la lectura de sensores atmosféricos e inerciales. Todo el sistema será alimentado por una batería LiPo de 3.7V con módulo elevador de voltaje, obligándote a optimizar el consumo eléctrico del microcontrolador.</p>
+                <h3>Manejo de Datos y Telemetría</h3>
+                <p>Un satélite ciego no sirve de nada. En este taller aprenderás a programar el módulo de radiofrecuencia para evitar la pérdida de paquetes de datos (packet loss). Tu equipo desarrollará su propia interfaz visual (Dashboard) en un computador portátil para interpretar las gráficas de altitud, temperatura y orientación del CubeSat en tiempo real.</p>
             </div>
-            <div class="mod-image">
-                <div class="photo-placeholder-text">[Foto 2: Alguien conectando una batería LiPo o un sensor BMP280]</div>
-            </div>
-        </div>
-
-        <!-- Fila 3 -->
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Estación Terrena y Pérdida de Datos</h3>
-                <p>Un satélite ciego no sirve de nada. Habrá que configurar correctamente el módulo de radiofrecuencia para evitar la pérdida de paquetes de datos (packet loss) durante la transmisión a la estación terrena. La calidad de la señal y la programación de tu dashboard serán tu única conexión visual con el sistema.</p>
-            </div>
-            <div class="mod-image">
-                <div class="photo-placeholder-text">[Foto 3: Pantalla de notebook mostrando gráficos de telemetría (Dashboard)]</div>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- ESPECIFICACIONES TÉCNICAS RÁPIDAS (SIN COSTOS) -->
-    <section class="specs-section">
-        <div class="specs-grid">
-            <div class="spec-card">
-                <h4>Tiempo Estimado</h4>
-                <p>4 a 5 semanas</p>
-            </div>
-            <div class="spec-card">
-                <h4>Jefatura del Proyecto</h4>
-                <p>Jefe de Sistemas y Coordinador de Telemetría</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN RECOMPENSA (PARCHE) -->
-    <section class="reward-section">
-        <div class="reward-box">
-            <h3>Gloria y Electrónica 🎖️</h3>
-            <p>La participación está abierta para todos. Quienes superen la Validación de Telemetría y sean miembros del USP obtendrán el <span class="reward-highlight">Mission Patch exclusivo de Sistemas Espaciales</span> y certificarán sus horas de vuelo operativo en el diseño de aviónica.</p>
+            <div class="mod-image img-soldadura"></div>
         </div>
     </section>
 
     <div class="cta-container">
-        <a href="registro.html" class="btn-join-mission">Anotarse en la Lista de Espera</a>
+        <a href="registro.html" class="btn-join-mission">Inscribirse al Proyecto</a>
     </div>
-
-    <!-- LÓGICA DEL MENÚ DESPLEGABLE -->
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        menuToggle.addEventListener('click', () => { menuToggle.classList.toggle('active'); navLinks.classList.toggle('active'); });
-        document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { menuToggle.classList.remove('active'); navLinks.classList.remove('active'); }); });
-    </script>
 
 </body>
 </html>
