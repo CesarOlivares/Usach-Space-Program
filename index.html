@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USACH Space Program</title>
+    <title>USACH Space Program - Innovación Aeroespacial Estudiantil</title>
     
     <link rel="icon" type="image/png" href="logo_noTextBLACK.png">
 
     <style>
-        /* === ESTILOS BASE (TIPO NASA) === */
+        /* === ESTILOS BASE (TIPO NASA - MEJORADO) === */
         :root {
             --nasa-blue: #0B3D91;
             --nasa-red: #FC3D21;
@@ -26,6 +26,7 @@
             background-color: var(--dark-bg);
             color: var(--text-main);
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         /* === BARRA DE NAVEGACIÓN (ESCRITORIO) === */
@@ -105,7 +106,7 @@
             transition: all 0.3s ease;
         }
 
-        /* === SECCIÓN PRINCIPAL (HERO) === */
+        /* === SECCIÓN PRINCIPAL (HERO) - CON TIERRA Y ESTRELLAS SUTILES === */
         .hero {
             height: 100vh;
             display: flex;
@@ -113,19 +114,41 @@
             align-items: center;
             justify-content: center;
             background: url('Tierra.png') no-repeat center center/cover;
+            background-color: var(--dark-bg);
             position: relative;
         }
 
+        /* Filtro de oscurecimiento para legibilidad del texto */
         .hero::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.65);
+            z-index: 1;
+        }
+
+        /* Fondo de estrellas formal generado por CSS */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, #e0e0e0, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 50px 160px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 90px 40px, #cccccc, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 130px 80px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 160px 120px, #dddddd, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 250px 250px;
+            opacity: 0.25; /* Opacidad baja para un efecto profesional y no invasivo */
+            z-index: 2;
         }
 
         .hero-content {
-            z-index: 1;
+            z-index: 3;
             text-align: center;
+            position: relative;
         }
 
         .hero img {
@@ -138,6 +161,25 @@
             margin: 0;
             letter-spacing: 4px;
             text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(255,255,255,0.3);
+        }
+
+        .btn-cta {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background-color: var(--nasa-blue);
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--nasa-red);
         }
 
         /* === FRASE ICÓNICA === */
@@ -187,11 +229,12 @@
             padding: 40px;
             border-radius: 8px;
             border-top: 4px solid var(--nasa-blue);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(11, 61, 145, 0.2);
         }
 
         .card h3 {
@@ -206,9 +249,132 @@
             color: #ccc;
         }
 
+        /* === SECCIÓN DE PROYECTOS === */
+        .projects-section {
+            padding: 100px 10%;
+            background-color: var(--darker-bg);
+            border-top: 1px solid #222;
+        }
+
+        .projects-section h2 {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #222;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--nasa-blue);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-content {
+            padding: 30px;
+        }
+
+        .project-content h4 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
+        .project-content p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .btn-project {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--text-main);
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-project:hover {
+            background-color: var(--text-main);
+            color: var(--dark-bg);
+        }
+
+        /* === SECCIÓN DE EJES (RESUMEN) === */
+        .ejes-section {
+            padding: 100px 10%;
+            background-color: var(--dark-bg);
+            text-align: center;
+        }
+
+        .ejes-section h2 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .ejes-lead {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: auto auto 60px auto;
+        }
+
+        .ejes-summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .ejes-icon-card {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid #222;
+        }
+
+        .ejes-icon-card h4 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .ejes-icon-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
         /* === CARRUSEL DE FOTOS === */
         .gallery-section {
-            padding: 80px 0;
+            padding: 100px 0;
             background-color: var(--darker-bg);
             text-align: center;
             border-top: 1px solid #222;
@@ -217,7 +383,8 @@
         .gallery-section h2 {
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
         }
 
         .carousel {
@@ -240,33 +407,29 @@
 
         .carousel-item {
             min-width: 400px;
-            height: 250px;
+            height: 280px;
             background-color: #333;
             scroll-snap-align: center;
             border-radius: 8px;
             background-size: cover;
             background-position: center;
+            transition: transform 0.3s ease;
         }
 
-        /* =======================================================
-           SISTEMA RESPONSIVE MULTI-DISPOSITIVO (TABLET Y MÓVIL)
-           ======================================================= */
-        
-        /* --- AJUSTES PARA TABLETS --- */
+        .carousel-item:hover {
+            transform: scale(1.03);
+        }
+
+        /* === RESPONSIVE === */
         @media (max-width: 1024px) and (min-width: 769px) {
             header { padding: 15px 30px; }
             .nav-brand { font-size: 1.1rem; }
             .nav-links a { margin-left: 15px; font-size: 0.75rem; }
             .hero h1 { font-size: 3rem; }
+            .ejes-summary { grid-template-columns: 1fr; }
         }
 
-        /* --- AJUSTES PARA TELÉFONOS --- */
         @media (max-width: 768px) {
-            html, body {
-                overflow-x: hidden;
-                width: 100%;
-            }
-
             header { padding: 15px 25px; }
             .menu-toggle { display: flex; }
 
@@ -296,54 +459,15 @@
             .menu-toggle.active span:nth-child(2) { opacity: 0; }
             .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-            /* Ajustes del contenido principal (Hero, About, etc.) para que no se corte */
-            .hero {
-                width: 100%;
-                box-sizing: border-box;
-                background-attachment: scroll;
-                background-size: cover;
-                background-position: center center;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-                letter-spacing: 2px;
-                padding: 0 15px;
-            }
-
-            .hero img {
-                width: 130px;
-            }
-
-            .quote-section {
-                padding: 60px 20px;
-            }
-
-            .quote {
-                font-size: 1.4rem;
-                padding: 0 15px;
-            }
-
-            .about-section, .gallery-section {
-                padding-left: 20px;
-                padding-right: 20px;
-                width: 100%;
-                box-sizing: border-box;
-                padding-top: 50px;
-                padding-bottom: 50px;
-            }
-
-            .mission-vision-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .card {
-                min-width: 100%;
-                box-sizing: border-box;
-            }
+            .hero h1 { font-size: 2.2rem; letter-spacing: 2px; padding: 0 15px; }
+            .hero img { width: 130px; }
+            .quote-section { padding: 60px 20px; }
+            .quote { font-size: 1.4rem; padding: 0 15px; }
+            .about-section, .gallery-section, .projects-section, .ejes-section { padding-left: 20px; padding-right: 20px; padding-top: 60px; padding-bottom: 60px; }
+            .mission-vision-container, .projects-grid, .ejes-summary { flex-direction: column; grid-template-columns: 1fr; gap: 20px; }
+            .card, .project-card, .ejes-icon-card { min-width: 100%; box-sizing: border-box; }
+            .carousel-item { min-width: 300px; height: 200px; }
         }
-
     </style>
 </head>
 <body>
@@ -366,10 +490,12 @@
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="hero-content">
             <img src="logo.png" alt="Logo USACH Space Program">
             <h1>USACH Space Program</h1>
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 10px auto 0 auto;">Impulsando la innovación aeroespacial estudiantil en Chile hacia el infinito.</p>
+            <a href="#proyectos" class="btn-cta">Explorar Nuestros Proyectos</a>
         </div>
     </section>
 
@@ -396,15 +522,61 @@
         </div>
     </section>
 
-    <section class="gallery-section">
-        <h2>Registro de Operaciones</h2>
-        <div class="carousel">
-            <div class="carousel-item" style="background-image: url('luna.png');"></div>
-            <div class="carousel-item" style="background-image: url('marte.png');"></div>
-            <div class="carousel-item" style="background-color: #333;"></div>
-            <div class="carousel-item" style="background-color: #444;"></div>
+    <section class="projects-section" id="proyectos">
+        <h2>Un Ecosistema de Innovación</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('IMG-20260607-WA0030.jpg');"></div>
+                <div class="project-content">
+                    <h4>Desarrollo de Rover Planetario</h4>
+                    <p>Diseño y construcción de vehículos autónomos para exploración en terrenos hostiles, integrando mecánica avanzada y sistemas de visión computacional.</p>
+                    <a href="proyectos.html" class="btn-project">Saber más</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('IMG-20260607-WA0039.jpg');"></div>
+                <div class="project-content">
+                    <h4>Desarrollo de Cansat y CubeSats</h4>
+                    <p>Misiones suborbitales y de órbita baja para la recopilación de datos atmosféricos y pruebas tecnológicas con micro-satélites autogestionados.</p>
+                    <a href="proyectos.html" class="btn-project">Saber más</a>
+                </div>
+            </div>
         </div>
     </section>
+
+    <section class="ejes-section">
+        <h2>Pilares de Nuestro Desarrollo</h2>
+        <p class="ejes-lead">Nuestra organización opera en tres ejes fundamentales que nutren y potencian cada uno de nuestros proyectos aeroespaciales.</p>
+        <div class="ejes-summary">
+            <div class="ejes-icon-card">
+                <h4>Eje Mecánico</h4>
+                <p>Diseño estructural y análisis térmico para vehículos y misiones.</p>
+            </div>
+            <div class="ejes-icon-card">
+                <h4>Eje de Electrónica y Aviónica</h4>
+                <p>Sistemas de control, energía, comunicaciones y telemetría de vanguardia.</p>
+            </div>
+            <div class="ejes-icon-card">
+                <h4>Eje de Software</h4>
+                <p>Navegación autónoma, procesamiento de datos y control de misiones.</p>
+            </div>
+        </div>
+        <a href="ejes.html" class="btn-project" style="margin-top: 50px;">Explorar Ejes Detalladamente</a>
+    </section>
+
+    <section class="gallery-section">
+        <h2>Registro de Operaciones y Comunidad</h2>
+        <div class="carousel">
+            <div class="carousel-item" style="background-image: url('IMG-20260605-WA0073.jpg');"></div>
+            <div class="carousel-item" style="background-image: url('IMG-20260607-WA0022.jpg');"></div>
+            <div class="carousel-item" style="background-image: url('IMG-20260611-WA0050.jpg');"></div>
+        </div>
+    </section>
+
+    <footer style="padding: 50px; text-align: center; border-top: 1px solid #222; background-color: var(--darker-bg);">
+        <div class="nav-brand" style="font-size: 1.5rem; margin-bottom: 20px;">USACH Space Program</div>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Impulsando la ciencia y la tecnología aeroespacial desde la USACH.</p>
+    </footer>
 
     <script>
         const menuToggle = document.getElementById('menuToggle');
@@ -415,7 +587,6 @@
             navLinks.classList.toggle('active');
         });
 
-        // Cierra el menú al hacer clic en un enlace
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
