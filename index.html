@@ -13,7 +13,7 @@
             --nasa-blue: #0B3D91;
             --nasa-blue-glow: #1a5fff;
             --nasa-red: #FC3D21;
-            --nasa-gold: #ffb703; /* Nuevo acento para proyectos élite */
+            --nasa-gold: #ffb703;
             --dark-bg: #000000;
             --darker-bg: #0a0a0a;
             --card-bg: #151515;
@@ -130,7 +130,7 @@
         /* === RESPONSIVE === */
         @media (max-width: 1024px) {
             header { padding: 15px 25px; }
-            .nav-links { display: none; } /* En móvil usamos el menú hamburguesa */
+            .nav-links { display: none; }
             .menu-toggle { display: flex; }
             .tier-title { flex-direction: column; align-items: flex-start; gap: 10px; }
             .carousel-item { min-width: 300px; height: 200px; }
@@ -185,7 +185,7 @@
     <!-- SISTEMA DE PROYECTOS DIVIDIDO EN NIVELES -->
     <section class="projects-section" id="proyectos">
         <h2>Un Ecosistema de Innovación</h2>
-        <p class="projects-desc">Nuestra estructura operativa está diseñada para abarcar desde la alfabetización técnica de nuevos estudiantes hasta la investigación y desarrollo estudiantil de hardware aeroespacial avanzado de nuestra directiva técnica.</p>
+        <p class="projects-desc">Nuestra estructura operativa está diseñada para abarcar desde la alfabetización técnica de nuevos estudiantes hasta el prototipado de hardware aeroespacial avanzado de nuestra directiva técnica.</p>
 
         <!-- NIVEL 1: COMUNIDAD -->
         <div class="tier-title community">
@@ -232,12 +232,12 @@
             </div>
         </div>
 
-        <!-- NIVEL 2: FLAGSHIP / INSIGNIA -->
+        <!-- NIVEL 2: FLAGSHIP / DESARROLLO AVANZADO -->
         <div class="tier-title flagship" style="margin-top: 80px;">
-            Proyectos Insignia (I+D)
+            Proyectos Insignia (Desarrollo Avanzado)
             <span class="tier-badge badge-flagship">NIVEL 2: ESTANDARTE USP</span>
         </div>
-        <p style="color: var(--text-muted); margin-top: -15px; margin-bottom: 30px;">Plataformas tecnológicas de alta complejidad desarrolladas por los miembros experimentados y la dirección técnica del equipo.</p>
+        <p style="color: var(--text-muted); margin-top: -15px; margin-bottom: 30px;">Plataformas de experimentación y prototipado complejo desarrolladas por los miembros experimentados y la dirección técnica del equipo.</p>
         
         <div class="projects-grid" style="grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));">
             <div class="project-card flagship-card">
@@ -245,7 +245,7 @@
                 <div class="project-content">
                     <h4>Rover Plataforma "Mascota"</h4>
                     <p>Vehículo de exploración de escala mayor y complejidad avanzada. Integra cinemática de suspensión compleja, telemetría de largo alcance, diseño mecatrónico robusto y visión computacional.</p>
-                    <a href="#" class="btn-project">Desarrollo Interno</a>
+                    <a href="rover_avanzado.html" class="btn-project">Desarrollo Interno</a>
                 </div>
             </div>
             <div class="project-card flagship-card">
@@ -253,7 +253,7 @@
                 <div class="project-content">
                     <h4>CubeSat 3U Avanzado</h4>
                     <p>Desarrollo del hardware estandarte del programa. Un satélite de 3 unidades (10x10x30 cm) orientado a la prueba rigurosa de control de altitud, paneles de potencia y enlaces con estación terrena.</p>
-                    <a href="#" class="btn-project">Desarrollo Interno</a>
+                    <a href="cubesat_avanzado.html" class="btn-project">Desarrollo Interno</a>
                 </div>
             </div>
         </div>
@@ -285,5 +285,21 @@
         <p style="color: var(--text-muted); font-size: 0.9rem;">Impulsando la ciencia y la tecnología aeroespacial desde la USACH.</p>
     </footer>
 
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
