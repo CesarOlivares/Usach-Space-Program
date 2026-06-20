@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - USACH Space Program</title>
+    
+    <link rel="icon" type="image/png" href="./src/assets/logo.png">
+    <link rel="stylesheet" href="./src/styles/main.css">
+    
+    <style>
+        .login-section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #050510, #0a0a20);
+            position: relative;
+        }
+
+        .login-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-top: 4px solid var(--nasa-blue);
+            padding: 50px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            z-index: 10;
+        }
+
+        .login-card h2 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0;
+            color: var(--text-main);
+        }
+
+        .login-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-portal {
+            display: inline-block;
+            background-color: var(--nasa-blue);
+            color: #fff;
+            padding: 12px 30px;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+        }
+        .btn-portal:hover { background-color: var(--nasa-blue-glow); }
+    </style>
+</head>
+<body>
+
+    <load src="src/components/header.html" root="./" />
+
+    <section class="login-section">
+        <div class="login-card">
+            <h2>Acceso Denegado</h2>
+            <p>El portal de operaciones de vuelo y acceso al manifiesto de tripulantes de Usach Space Program se encuentra restringido a directores autorizados y personal técnico de control de misión.</p>
+            <a href="index.html" class="btn-portal">Volver al Inicio</a>
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <load src="src/components/footer.html" />
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => { 
+            menuToggle.classList.toggle('active'); 
+            navLinks.classList.toggle('active'); 
+        });
+    </script>
+</body>
+</html>

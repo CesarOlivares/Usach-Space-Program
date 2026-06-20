@@ -4,54 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Rover - USACH Space Program</title>
-    <link rel="icon" type="image/png" href="logo.png">
+    
+    <link rel="icon" type="image/png" href="../../../src/assets/logo.png">
+    <link rel="stylesheet" href="../../../src/styles/main.css">
+    
     <style>
-        /* === ESTILOS BASE === */
-        :root {
-            --nasa-blue: #0C3D91;
-            --nasa-blue-glow: #1a5fff;
-            --nasa-red: #FC3D21;
-            --dark-bg: #000000;
-            --darker-bg: #050508;
-            --card-bg: #0e0e14;
-            --card-border: #1f1f2e;
-            --text-main: #ffffff;
-            --text-muted: #a0a0a0;
-        }
-
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-main);
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-            width: 100%;
-        }
-
-        /* === BARRA DE NAVEGACIÓN === */
-        header {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 50px; position: fixed; width: 100%; top: 0;
-            background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(10px);
-            box-sizing: border-box; z-index: 2000; border-bottom: 1px solid #222;
-        }
-
-        .nav-brand { font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; white-space: nowrap; }
-        .nav-links { display: flex; align-items: center; }
-        .nav-links a { color: var(--text-main); text-decoration: none; margin-left: 25px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; }
-        .nav-links a:hover { color: var(--nasa-blue-glow); }
-        .nav-links .btn-login { background-color: transparent; border: 1px solid var(--text-main); padding: 8px 15px; border-radius: 4px; }
-        .nav-links .btn-login:hover { background-color: var(--text-main); color: var(--dark-bg); }
-
-        .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; background: transparent; border: none; cursor: pointer; z-index: 2100; padding: 0; }
-        .menu-toggle span { width: 100%; height: 2px; background-color: var(--text-main); transition: all 0.3s ease; }
-
-        /* === PORTADA HERO === */
+        /* === ROVER LOCAL LAYOUT === */
         .rover-hero {
             height: 70vh;
-            background: linear-gradient(rgba(0,0,0,0.3), var(--dark-bg)), url('marte.png') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.3), var(--dark-bg)), url('../../../src/assets/marte.png') no-repeat center center/cover;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             text-align: center; padding: 0 20px; position: relative;
         }
@@ -59,18 +20,15 @@
         .rover-hero h1 { font-size: 4.5rem; text-transform: uppercase; letter-spacing: 4px; margin: 0; text-shadow: 0 0 20px rgba(26, 95, 255, 0.6); }
         .rover-hero p { font-size: 1.4rem; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 10px; }
 
-        /* === INSPIRACIÓN === */
         .inspiration-section { padding: 80px 10%; text-align: center; background: linear-gradient(var(--dark-bg), var(--darker-bg)); }
         .inspiration-container { max-width: 850px; margin: 0 auto; }
         .inspiration-container h2 { font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; color: var(--text-main); }
         .inspiration-container p { font-size: 1.25rem; line-height: 1.8; color: #ddd; font-style: italic; font-weight: 300; }
 
-        /* === CRONOLOGÍA DE LA MISIÓN (TIMELINE) === */
         .timeline-section { padding: 80px 10%; background-color: var(--darker-bg); position: relative; }
         .timeline-section h2 { text-align: center; text-transform: uppercase; letter-spacing: 2px; font-size: 2.5rem; margin-bottom: 60px; color: var(--nasa-blue-glow); }
         
         .timeline { position: relative; max-width: 1000px; margin: 0 auto; }
-        /* Línea central */
         .timeline::before {
             content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
             width: 4px; background: rgba(26, 95, 255, 0.3); transform: translateX(-50%);
@@ -81,7 +39,6 @@
         .timeline-item:nth-child(odd) { left: 0; text-align: right; }
         .timeline-item:nth-child(even) { left: 50%; text-align: left; }
 
-        /* Icono del Rover en la línea */
         .timeline-icon {
             position: absolute; top: 30px; width: 40px; height: 40px;
             background-color: var(--card-bg); border: 3px solid var(--nasa-blue-glow);
@@ -99,17 +56,15 @@
         .timeline-content h3 { margin-top: 0; color: var(--text-main); font-size: 1.3rem; text-transform: uppercase; }
         .timeline-content p { color: #bbb; line-height: 1.6; margin-bottom: 0; }
         
-        /* Hito Final Destacado */
         .final-hito .timeline-content { border-color: var(--nasa-red); box-shadow: 0 0 25px rgba(252, 61, 33, 0.2); }
         .final-hito .timeline-icon { border-color: var(--nasa-red); box-shadow: 0 0 20px rgba(252, 61, 33, 0.8); font-size: 1.5rem;}
         .final-hito h3 { color: var(--nasa-red); }
 
-        /* === MODALIDAD DE TRABAJO (ZIG-ZAG) === */
         .modalidad-section { padding: 100px 10%; background-color: var(--dark-bg); }
         .modalidad-section h2 { text-align: center; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 70px; font-size: 2.5rem; }
 
         .mod-row { display: flex; align-items: center; gap: 50px; margin-bottom: 60px; }
-        .mod-row:nth-child(even) { flex-direction: row-reverse; } /* Invierte el orden de la fila par */
+        .mod-row:nth-child(even) { flex-direction: row-reverse; }
         
         .mod-text { flex: 1; }
         .mod-text h3 { font-size: 1.8rem; color: var(--nasa-blue-glow); text-transform: uppercase; margin-top: 0; }
@@ -117,19 +72,17 @@
 
         .mod-image {
             flex: 1; height: 350px; border-radius: 12px;
-            background-color: #1a1a24; /* Color de fondo mientras pones tus fotos */
+            background-color: #1a1a24;
             border: 1px solid #333; position: relative; overflow: hidden;
             background-size: cover; background-position: center;
         }
         
-        /* Cajas de placeholder indicando qué fotos poner */
         .photo-placeholder-text {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
             color: rgba(255,255,255,0.3); font-size: 1rem; text-align: center; padding: 20px;
             border: 2px dashed rgba(255,255,255,0.2); border-radius: 8px; text-transform: uppercase;
         }
 
-        /* === GALERÍA (Mantenida pero más limpia) === */
         .gallery-section { padding: 80px 10%; background-color: var(--darker-bg); text-align: center; }
         .gallery-section h2 { text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px; font-size: 2rem; }
         .rover-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; max-width: 1100px; margin: 0 auto; }
@@ -139,13 +92,11 @@
         .rover-pic-card h3 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin: 15px 0 5px; }
         .rover-pic-card p { font-size: 0.85rem; color: var(--text-muted); margin: 0 0 15px; padding: 0 10px; }
 
-        /* === EXPERIENCIA === */
         .skills-section { padding: 80px 10%; background-color: var(--dark-bg); text-align: center; }
         .skills-container { max-width: 800px; margin: 0 auto; background: var(--card-bg); border: 1px solid #222; padding: 50px; border-radius: 12px; }
         .skills-container h2 { text-transform: uppercase; letter-spacing: 2px; margin-top: 0; font-size: 2rem; }
         .skills-container p { font-size: 1.1rem; line-height: 1.7; color: #ccc; margin-bottom: 0; }
 
-        /* === RECOMPENSA (EL PARCHE) === */
         .reward-section { padding: 40px 10% 20px; background-color: var(--dark-bg); text-align: center; }
         .reward-box {
             max-width: 700px; margin: 0 auto; padding: 40px; border-radius: 12px;
@@ -154,9 +105,8 @@
         }
         .reward-box h3 { font-size: 1.8rem; color: #fff; text-transform: uppercase; margin-top: 0; }
         .reward-box p { font-size: 1.1rem; color: #ccc; line-height: 1.6; }
-        .reward-highlight { color: #ffd700; font-weight: bold; } /* Dorado espacial */
+        .reward-highlight { color: #ffd700; font-weight: bold; }
 
-        /* === BOTÓN ACCIÓN FINAL === */
         .cta-container { text-align: center; padding-bottom: 80px; background-color: var(--dark-bg); }
         .btn-join-mission {
             display: inline-block; background-color: var(--nasa-blue); color: white;
@@ -166,25 +116,12 @@
         }
         .btn-join-mission:hover { background-color: var(--nasa-blue-glow); box-shadow: 0 0 30px var(--nasa-blue-glow); transform: translateY(-2px); }
 
-        /* === SISTEMA RESPONSIVE === */
         @media (max-width: 1024px) {
-            header { padding: 15px 25px; }
-            .menu-toggle { display: flex; }
-            .nav-links {
-                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-                background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(15px);
-                flex-direction: column; justify-content: center; gap: 30px; transition: right 0.4s;
-            }
-            .nav-links.active { right: 0; }
-            .nav-links a { margin-left: 0; font-size: 1.1rem; width: 100%; text-align: center; }
-            .nav-links .btn-login { width: 100%; margin-top: 10px; }
-
             .rover-hero h1 { font-size: 3rem; }
-            .mod-row, .mod-row:nth-child(even) { flex-direction: column; gap: 30px; } /* Apila las fotos y textos */
+            .mod-row, .mod-row:nth-child(even) { flex-direction: column; gap: 30px; }
             .mod-image { width: 100%; height: 250px; }
             .rover-grid { grid-template-columns: 1fr; max-width: 400px; }
             
-            /* Adapta la línea de tiempo a móviles (todo hacia la izquierda) */
             .timeline::before { left: 30px; }
             .timeline-item, .timeline-item:nth-child(even), .timeline-item:nth-child(odd) { width: 100%; padding: 20px 0 20px 80px; left: 0; text-align: left; }
             .timeline-item:nth-child(odd) .timeline-icon, .timeline-item:nth-child(even) .timeline-icon { left: 10px; right: auto; }
@@ -193,19 +130,8 @@
 </head>
 <body>
 
-    <header>
-        <div class="nav-brand">USACH Space Program</div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-            <span></span><span></span><span></span>
-        </button>
-        <nav class="nav-links" id="navLinks">
-            <a href="index.html">Inicio</a>
-            <a href="proyectos.html">Proyectos</a>
-            <a href="ejes.html">Ejes de Desarrollo</a>
-            <a href="registro.html">Registrarse</a>
-            <a href="login.html" class="btn-login">Iniciar Sesión</a>
-        </nav>
-    </header>
+    <!-- Load Header component with backtracking root parameter -->
+    <load src="src/components/header.html" root="../../../" />
 
     <section class="rover-hero">
         <h1>Proyecto Rover</h1>
@@ -322,12 +248,12 @@
         <h2>Nuestros Pilares de Inspiración</h2>
         <div class="rover-grid">
             <div class="rover-pic-card">
-                <div class="rover-img-placeholder" style="background-image: url('marte.png');"></div>
+                <div class="rover-img-placeholder" style="background-image: url('../../../src/assets/marte.png');"></div>
                 <h3>Sojourner Base</h3>
                 <p>El pionero de la movilidad. Compacto, robusto y eficiente en distribución espacial.</p>
             </div>
             <div class="rover-pic-card">
-                <div class="rover-img-placeholder" style="background-image: url('luna.png');"></div>
+                <div class="rover-img-placeholder" style="background-image: url('../../../src/assets/luna.png');"></div>
                 <h3>Curiosity Class</h3>
                 <p>Sistemas de suspensión avanzados y cinemática compleja para sortear cualquier duna.</p>
             </div>
@@ -355,14 +281,8 @@
     </section>
 
     <div class="cta-container">
-        <a href="registro.html" class="btn-join-mission">Anotarse en la Lista de Espera</a>
+        <a href="../registro.html" class="btn-join-mission">Anotarse en la Lista de Espera</a>
     </div>
 
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        menuToggle.addEventListener('click', () => { menuToggle.classList.toggle('active'); navLinks.classList.toggle('active'); });
-        document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { menuToggle.classList.remove('active'); navLinks.classList.remove('active'); }); });
-    </script>
 </body>
 </html>

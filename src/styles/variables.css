@@ -1,0 +1,13 @@
+/* === DESIGN TOKENS === */
+:root {
+    --nasa-blue: #0B3D91;
+    --nasa-blue-glow: #1a5fff;
+    --nasa-red: #FC3D21;
+    --nasa-gold: #ffb703;
+    --dark-bg: #000000;
+    --darker-bg: #0a0a0a;
+    --card-bg: #151515;
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+    --card-border: #22222a;
+}

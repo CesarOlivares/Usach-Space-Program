@@ -4,103 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyectos - USACH Space Program</title>
-    <link rel="icon" type="image/png" href="logo.png">
+    
+    <link rel="icon" type="image/png" href="../../src/assets/logo.png">
+    <link rel="stylesheet" href="../../src/styles/main.css">
+    
     <style>
-        /* === ESTILOS BASE (TIPO NASA) === */
-        :root {
-            --nasa-blue: #0B3D91;
-            --nasa-red: #FC3D21;
-            --dark-bg: #000000;
-            --darker-bg: #0a0a0a;
-            --card-bg: #151515;
-            --text-main: #ffffff;
-            --text-muted: #a0a0a0;
-        }
-
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-main);
-            width: 100%;
-        }
-
         /* En escritorio ocultamos el scroll vertical para forzar la experiencia de juego */
         @media (min-width: 1025px) {
             body, html {
                 overflow-y: hidden;
             }
-        }
-
-        /* === BARRA DE NAVEGACIÓN (ESCRITORIO) === */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            box-sizing: border-box;
-            z-index: 2000;
-            border-bottom: 1px solid #222;
-        }
-
-        .nav-brand {
-            font-weight: 700;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover { color: var(--nasa-blue); }
-
-        .nav-links .btn-login {
-            background-color: transparent;
-            border: 1px solid var(--text-main);
-            padding: 8px 15px;
-            border-radius: 4px;
-        }
-        .nav-links .btn-login:hover { background-color: var(--text-main); color: var(--dark-bg); }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 24px;
-            height: 18px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            z-index: 2100;
-            padding: 0;
-        }
-
-        .menu-toggle span {
-            width: 100%;
-            height: 2px;
-            background-color: var(--text-main);
-            transition: all 0.3s ease;
         }
 
         /* === CONFIGURACIÓN DEL SLIDER HORIZONTAL (ESCRITORIO) === */
@@ -166,7 +79,7 @@
         }
 
         .project-info .eje-tag {
-            color: var(--nasa-blue);
+            color: var(--nasa-blue-glow);
             font-weight: bold;
             letter-spacing: 1px;
             font-size: 0.85rem;
@@ -208,15 +121,8 @@
             z-index: 10;
         }
 
-        /* =======================================================
-           SISTEMA RESPONSIVE MULTI-DISPOSITIVO (TABLET Y MÓVIL)
-           ======================================================= */
-        
         /* --- AJUSTES PARA TABLETS --- */
         @media (max-width: 1024px) and (min-width: 769px) {
-            header { padding: 15px 30px; }
-            .nav-brand { font-size: 1.1rem; }
-            .nav-links a { margin-left: 15px; font-size: 0.75rem; }
             .project-card { flex: 0 0 75vw; height: 65vh; }
             .project-info h2 { font-size: 2.2rem; }
         }
@@ -228,35 +134,6 @@
                 width: 100%;
                 overflow-y: auto; /* Permitimos scroll vertical en móviles */
             }
-
-            header { padding: 15px 25px; }
-            .menu-toggle { display: flex; }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 280px;
-                height: 100vh;
-                background: rgba(10, 10, 10, 0.98);
-                backdrop-filter: blur(15px);
-                border-left: 1px solid #222;
-                flex-direction: column;
-                justify-content: center;
-                gap: 30px;
-                transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
-                z-index: 2050;
-                box-sizing: border-box;
-                padding: 40px;
-            }
-
-            .nav-links.active { right: 0; }
-            .nav-links a { margin-left: 0; font-size: 1.1rem; width: 100%; text-align: center; padding: 10px 0; }
-            .nav-links .btn-login { width: 100%; margin-top: 10px; }
-
-            .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-            .menu-toggle.active span:nth-child(2) { opacity: 0; }
-            .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
             /* Reajuste completo del Slider en móvil */
             .projects-slider {
@@ -286,47 +163,32 @@
 </head>
 <body>
 
-    <header>
-        <div class="nav-brand">USACH Space Program</div>
-        
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
-        <nav class="nav-links" id="navLinks">
-            <a href="index.html">Inicio</a>
-            <a href="proyectos.html">Proyectos</a>
-            <a href="ejes.html">Ejes de Desarrollo</a>
-            <a href="registro.html">Registrarse</a>
-            <a href="#login" class="btn-login">Iniciar Sesión</a>
-        </nav>
-    </header>
+    <!-- Load Header component with backtracking root parameter -->
+    <load src="src/components/header.html" root="../../" />
 
     <div class="projects-slider">
 
         <div class="project-card">
-            <div class="project-image" style="background-image: url('marte.png');"></div>
+            <div class="project-image" style="background-image: url('../../src/assets/marte.png');"></div>
             <div class="project-info">
                 <div>
                     <span class="eje-tag">EJE I: EXPLORACIÓN PLANETARIA</span>
                     <h2>Proyecto Rover</h2>
                     <p>Consiste en el diseño, ensamblaje y programación de un prototipo terrestre a escala capaz de sortear terrenos irregulares. Es un vehículo robótico de exploración espacial diseñado para desplazarse por la superficie de planetas o lunas, con el fin de recolectar datos, tomar muestras y tomar fotografías.</p>
                 </div>
-                <a href="rover.html" class="btn-details">Más detalles</a>
+                <a href="proyectos/rover.html" class="btn-details">Más detalles</a>
             </div>
         </div>
 
         <div class="project-card">
-            <div class="project-image" style="background-image: url('Tierra.png');"></div>
+            <div class="project-image" style="background-image: url('../../src/assets/Tierra.png');"></div>
             <div class="project-info">
                 <div>
                     <span class="eje-tag">EJE IV: SISTEMAS ESPACIALES Y ENERGÍA</span>
                     <h2>CanSat Terrestre</h2>
                     <p>El proyecto omite la fase de lanzamiento balístico para centrarse puramente en el desarrollo de la carga útil. Los componentes deben integrarse dentro del volumen y la forma geométrica de una lata de refresco estándar (aprox. 330 ml).</p>
                 </div>
-                <a href="cansat.html" class="btn-details">Más detalles</a>
+                <a href="proyectos/cansat.html" class="btn-details">Más detalles</a>
             </div>
         </div>
 
@@ -338,7 +200,7 @@
                     <h2>Cohete a Propulsión por Agua</h2>
                     <p>Es un vehículo aeroespacial de introducción impulsado por la liberación a presión de una mezcla de aire comprimido y agua. Se construye utilizando botellas de plástico PET como tanque de presión y fuselaje.</p>
                 </div>
-                <a href="cohete.html" class="btn-details">Más detalles</a>
+                <a href="proyectos/cohete.html" class="btn-details">Más detalles</a>
             </div>
         </div>
 
@@ -350,7 +212,7 @@
                     <h2>Proyecto Egg Drop</h2>
                     <p>Consiste en diseñar y construir un receptáculo o estructura capaz de proteger un huevo crudo de una caída libre desde una altura considerable. Este proyecto simula el aterrizaje de una sonda o rover en una superficie planetaria.</p>
                 </div>
-                <a href="eggdrop.html" class="btn-details">Más detalles</a>
+                <a href="proyectos/eggdrop.html" class="btn-details">Más detalles</a>
             </div>
         </div>
 
@@ -362,7 +224,7 @@
                     <h2>Taller de Impresión 3D</h2>
                     <p>Consiste en la enseñanza de fundamentos de diseño asistido por computadora (CAD) y la operación práctica de máquinas de manufactura aditiva (impresoras 3D FDM).</p>
                 </div>
-                <a href="impresion3d.html" class="btn-details">Más detalles</a>
+                <a href="proyectos/impresion3d.html" class="btn-details">Más detalles</a>
             </div>
         </div>
 
