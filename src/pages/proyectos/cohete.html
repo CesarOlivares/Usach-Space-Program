@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cohete de Agua - USACH Space Program</title>
+    
+    <link rel="icon" type="image/png" href="../../../assets/logo-B9DE3e4g.png">
+
+    <style>
+        /* === COHETE LOCAL LAYOUT === */
+        .project-hero {
+            height: 60vh;
+            background-color: #2a2a2a; /* Fondo gris oscuro neutro */
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 10% 50px;
+            margin-top: 60px;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), var(--dark-bg));
+        }
+
+        .hero-content {
+            z-index: 1;
+        }
+
+        .eje-tag {
+            background-color: var(--nasa-blue);
+            color: white;
+            padding: 5px 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .project-hero h1 {
+            font-size: 4rem;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .project-container {
+            padding: 50px 10%;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+        }
+
+        .main-content h2 {
+            color: var(--nasa-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        .main-content h2:first-child { margin-top: 0; }
+        .main-content p { color: #ccc; font-size: 1.1rem; }
+        .main-content ul { color: #ccc; font-size: 1.1rem; padding-left: 20px; }
+        .main-content li { margin-bottom: 10px; }
+
+        .side-panel {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #222;
+            height: fit-content;
+        }
+
+        .spec-item { margin-bottom: 25px; }
+        .spec-item h4 {
+            margin: 0 0 5px 0;
+            color: var(--nasa-blue);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        .spec-item p { margin: 0; color: #ddd; font-size: 1rem; }
+
+        .btn-back {
+            display: block;
+            text-align: center;
+            background-color: transparent;
+            border: 1px solid var(--text-main);
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: all 0.3s;
+        }
+
+        .btn-back:hover {
+            background-color: var(--text-main);
+            color: var(--dark-bg);
+        }
+        
+        @media (max-width: 900px) {
+            .project-container { grid-template-columns: 1fr; }
+        }
+    </style>
+  <link rel="stylesheet" crossorigin href="../../../assets/main-DNb1Ix7c.css">
+</head>
+<body>
+
+    <!-- Load Header component with backtracking root parameter -->
+    <header>
+    <div class="nav-brand">USACH Space Program</div>
+    
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="../../../index.html">Inicio</a>
+        <a href="../../../src/pages/proyectos.html">Proyectos</a>
+        <a href="../../../src/pages/ejes.html">Ejes</a>
+        <a href="../../../src/pages/registro.html">Registrarse</a>
+        <a href="../../../login.html" class="btn-login">Iniciar Sesión</a>
+    </nav>
+</header>
+
+
+    <section class="project-hero">
+        <div class="hero-content">
+            <div class="eje-tag">Eje III: Cohetería de Sondeo</div>
+            <h1>Cohete a Propulsión por Agua</h1>
+        </div>
+    </section>
+
+    <section class="project-container">
+        
+        <div class="main-content">
+            <h2>Descripción de la Misión</h2>
+            <p>Un cohete de agua (o cohete neumático) es un vehículo aeroespacial de introducción impulsado por la liberación a presión de una mezcla de aire comprimido y agua. Se construye utilizando botellas de plástico PET como tanque de presión y fuselaje. Este proyecto sirve como la primera aproximación práctica y segura a los principios fundamentales de la astronáutica: acción y reacción, estabilidad aerodinámica y sistemas de recuperación, operando como una excelente herramienta de reclutamiento y nivelación técnica.</p>
+            
+            <h2>Objetivos y Metas de Aprendizaje</h2>
+            <ul>
+                <li>Comprender los principios básicos de la mecánica de fluidos y experimentar empíricamente con las relaciones de presión y volumen en botellas PET.</li>
+                <li>Dominar el concepto de estabilidad aerodinámica mediante el cálculo y ajuste de la relación entre el Centro de Presión (CP) y el Centro de Gravedad (CG).</li>
+                <li>Diseñar y manufacturar un sistema de recuperación funcional (paracaídas) que garantice un descenso seguro.</li>
+            </ul>
+
+            <h2>Materiales y Hardware</h2>
+            <ul>
+                <li><strong>Fuselaje y Tanque:</strong> 2 a 3 botellas PET de bebidas carbonatadas (imprescindible que sean para gas, ya que resisten alta presión).</li>
+                <li><strong>Superficies aerodinámicas (Aletas):</strong> Cartón corrugado, plástico corrugado (coroplast) o impresión 3D ligera.</li>
+                <li><strong>Lastre:</strong> Arcilla, plastilina o tuercas metálicas para ajustar el Centro de Gravedad en la ojiva.</li>
+                <li><strong>Recuperación:</strong> Bolsas de basura resistentes o tela de nylon, e hilo de volantín o paracord delgado.</li>
+            </ul>
+
+            <h2>Dificultades Técnicas Previstas</h2>
+            <ul>
+                <li><strong>Estabilidad aerodinámica:</strong> Lograr que el cohete vuele en línea recta sin dar volteretas, lo cual requiere un cálculo preciso de aletas y lastre.</li>
+                <li><strong>Integridad estructural:</strong> Garantizar un sellado hermético en las uniones que soporte presiones de entre 60 y 80 PSI sin sufrir despresurización prematura.</li>
+                <li><strong>Despliegue del paracaídas:</strong> Diseñar un mecanismo pasivo (como la separación por gravedad o fricción aerodinámica) que libere el paracaídas en el apogeo.</li>
+            </ul>
+
+            <h2>Presentación: Competencia de Lanzamiento</h2>
+            <p>Se realizará una jornada al aire libre (cancha o estadio) donde los equipos someterán sus cohetes a vuelo. Se evaluarán dos métricas principales: el apogeo estimado (mayor altura alcanzada) y el Time of Flight (Tiempo de Vuelo), esta última métrica validará indirectamente el correcto despliegue del paracaídas.</p>
+        </div>
+
+        <div class="side-panel">
+            <div class="spec-item">
+                <h4>Costo Aproximado</h4>
+                <p>Extremadamente bajo, entre $5.000 y $10.000 CLP por equipo.</p>
+            </div>
+            <div class="spec-item">
+                <h4>Tiempo Estimado</h4>
+                <p>1 a 2 semanas (4 a 6 horas totales).</p>
+            </div>
+            <div class="spec-item">
+                <h4>Rol Organizador</h4>
+                <p>Director de Lanzamiento (Range Safety Officer).</p>
+            </div>
+            <div class="spec-item">
+                <h4>Recompensa de Misión</h4>
+                <p>Mission Patch exclusivo de Cohetería y herramientas. Este hito motiva la transición hacia la investigación de propulsantes sólidos de nivel avanzado, preparando a los integrantes para trabajar con combustibles como el KNSU y medir curvas de empuje en bancos de prueba como el Senku DAQ.</p>
+            </div>
+
+            <a href="../proyectos.html" class="btn-back">Volver a Proyectos</a>
+        </div>
+
+    </section>
+
+</body>
+</html>

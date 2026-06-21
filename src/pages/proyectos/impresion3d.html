@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller de Impresión 3D - USACH Space Program</title>
+    
+    <link rel="icon" type="image/png" href="../../../assets/logo-B9DE3e4g.png">
+
+    <style>
+        /* === IMPRESION 3D LOCAL LAYOUT === */
+        .project-hero {
+            height: 60vh;
+            background: linear-gradient(to bottom, #051630, var(--dark-bg));
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 10% 50px;
+            margin-top: 60px;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), var(--dark-bg));
+        }
+
+        .hero-content {
+            z-index: 1;
+        }
+
+        .eje-tag {
+            background-color: var(--nasa-blue);
+            color: white;
+            padding: 5px 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .project-hero h1 {
+            font-size: 4rem;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .project-container {
+            padding: 50px 10%;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+        }
+
+        .main-content h2 {
+            color: var(--nasa-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        .main-content h2:first-child { margin-top: 0; }
+        .main-content p { color: #ccc; font-size: 1.1rem; }
+        .main-content ul { color: #ccc; font-size: 1.1rem; padding-left: 20px; }
+        .main-content li { margin-bottom: 10px; }
+
+        .side-panel {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #222;
+            height: fit-content;
+        }
+
+        .spec-item { margin-bottom: 25px; }
+        .spec-item h4 {
+            margin: 0 0 5px 0;
+            color: var(--nasa-blue);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        .spec-item p { margin: 0; color: #ddd; font-size: 1rem; }
+
+        .btn-back {
+            display: block;
+            text-align: center;
+            background-color: transparent;
+            border: 1px solid var(--text-main);
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: all 0.3s;
+        }
+
+        .btn-back:hover {
+            background-color: var(--text-main);
+            color: var(--dark-bg);
+        }
+        
+        @media (max-width: 900px) {
+            .project-container { grid-template-columns: 1fr; }
+        }
+    </style>
+  <link rel="stylesheet" crossorigin href="../../../assets/main-DNb1Ix7c.css">
+</head>
+<body>
+
+    <!-- Load Header component with backtracking root parameter -->
+    <header>
+    <div class="nav-brand">USACH Space Program</div>
+    
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="../../../index.html">Inicio</a>
+        <a href="../../../src/pages/proyectos.html">Proyectos</a>
+        <a href="../../../src/pages/ejes.html">Ejes</a>
+        <a href="../../../src/pages/registro.html">Registrarse</a>
+        <a href="../../../login.html" class="btn-login">Iniciar Sesión</a>
+    </nav>
+</header>
+
+
+    <section class="project-hero">
+        <div class="hero-content">
+            <div class="eje-tag">Eje V: Educación y Experiencia</div>
+            <h1>Taller de Impresión 3D y Modelaje</h1>
+        </div>
+    </section>
+
+    <section class="project-container">
+        
+        <div class="main-content">
+            <h2>Descripción de la Misión</h2>
+            <p>Este taller es un programa de capacitación intensiva diseñado para llevar a los estudiantes desde la concepción de una idea hasta la manufactura de una pieza física. Consiste en la enseñanza de fundamentos de diseño asistido por computadora (CAD) y la operación práctica de máquinas de manufactura aditiva (impresoras 3D FDM). Es el filtro de entrada ideal para que los miembros sin experiencia previa adquieran las herramientas necesarias para contribuir a los demás proyectos técnicos.</p>
+            
+            <h2>Objetivos y Metas de Aprendizaje</h2>
+            <ul>
+                <li>Aprender los fundamentos del modelado 3D, comenzando con plataformas intuitivas como Tinkercad o SketchUp para la nivelación espacial, y transicionando hacia software paramétrico profesional como Autodesk Fusion 360 y SolidWorks.</li>
+                <li>Comprender el flujo de trabajo de la manufactura aditiva: desde la exportación del archivo STL hasta la configuración de parámetros de laminado (slicing) como relleno, soportes y temperatura.</li>
+                <li>Operar de forma segura y calibrar impresoras 3D, entendiendo las propiedades mecánicas y térmicas de materiales comunes como PLA, PETG y TPU.</li>
+            </ul>
+
+            <h2>Materiales y Hardware</h2>
+            <ul>
+                <li><strong>Hardware:</strong> Computadores personales (BYOD) y acceso a impresoras 3D.</li>
+                <li><strong>Software:</strong> Licencias educativas de software CAD y software laminador (UltiMaker Cura o Prusa Slicer).</li>
+                <li><strong>Insumos:</strong> Bobinas de filamento, laca o pegamento en barra para adherencia, y alcohol isopropílico para limpieza.</li>
+                <li><strong>Herramientas:</strong> Pie de metro (calibre), espátulas, alicates de corte y llaves Allen.</li>
+            </ul>
+
+            <h2>Dificultades Técnicas Previstas</h2>
+            <ul>
+                <li><strong>Curva de aprendizaje del CAD:</strong> Superar la frustración inicial al dimensionar y restringir bocetos 2D para convertirlos en operaciones 3D.</li>
+                <li><strong>Diseño para Manufactura (DFM):</strong> Aprender a diseñar pensando en cómo se imprimirá la pieza, evitando voladizos excesivos que requieran demasiados soportes.</li>
+                <li><strong>Adherencia y calibración:</strong> Dominar la nivelación de la cama de impresión (bed leveling) para evitar que las piezas se despeguen.</li>
+            </ul>
+
+            <h2>Presentación: Exposición Técnica (Show and Tell)</h2>
+            <p>Al finalizar el taller, cada participante deberá modelar, laminar e imprimir una pieza mecánica funcional o un soporte a medida que resuelva un problema real. Se evaluará la precisión dimensional usando un pie de metro y el acabado superficial de la pieza.</p>
+        </div>
+
+        <div class="side-panel">
+            <div class="spec-item">
+                <h4>Costo Aproximado</h4>
+                <p>Muy bajo: $2.000 a $5.000 CLP (cuota de filamento).</p>
+            </div>
+            <div class="spec-item">
+                <h4>Tiempo Estimado</h4>
+                <p>3 a 4 semanas (2 horas semanales).</p>
+            </div>
+            <div class="spec-item">
+                <h4>Rol Organizador</h4>
+                <p>Instructor Principal y Técnico de Laboratorio.</p>
+            </div>
+            <div class="spec-item">
+                <h4>Recompensa de Misión</h4>
+                <p>Certificación interna de Operador Nivel 1 de Manufactura Aditiva, acceso libre a impresoras del programa y Mission Patch de Educación.</p>
+            </div>
+
+            <a href="../proyectos.html" class="btn-back">Volver a Proyectos</a>
+        </div>
+
+    </section>
+
+</body>
+</html>
