@@ -5,100 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reclutamiento - USACH Space Program</title>
     
-    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="icon" type="image/png" href="../../src/assets/logo.png">
+    <link rel="stylesheet" href="../../src/styles/main.css">
 
     <style>
-        /* === ESTILOS BASE === */
-        :root {
-            --nasa-blue: #0B3D91;
-            --nasa-red: #FC3D21;
-            --dark-bg: #000000;
-            --darker-bg: #0a0a0a;
-            --card-bg: #151515;
-            --text-main: #ffffff;
-            --text-muted: #a0a0a0;
-        }
-
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-main);
-            scroll-behavior: smooth;
-        }
-
-        /* === BARRA DE NAVEGACIÓN (ESCRITORIO) === */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            box-sizing: border-box;
-            z-index: 2000;
-            border-bottom: 1px solid #222;
-        }
-
-        .nav-brand {
-            font-weight: 700;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover { color: var(--nasa-blue); }
-
-        .nav-links .btn-login {
-            background-color: transparent;
-            border: 1px solid var(--text-main);
-            padding: 8px 15px;
-            border-radius: 4px;
-        }
-        .nav-links .btn-login:hover { background-color: var(--text-main); color: var(--dark-bg); }
-
-        /* Botón hamburguesa para móviles */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 24px;
-            height: 18px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            z-index: 2100;
-            padding: 0;
-        }
-
-        .menu-toggle span {
-            width: 100%;
-            height: 2px;
-            background-color: var(--text-main);
-            transition: all 0.3s ease;
-        }
-
         /* === CONTENEDOR DEL FORMULARIO === */
         .registro-section {
             padding: 140px 10% 80px; 
@@ -106,7 +16,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: url('luna.png') no-repeat center center/cover;
+            background: url('../../src/assets/luna.png') no-repeat center center/cover;
             position: relative;
             box-sizing: border-box;
         }
@@ -260,42 +170,7 @@
         .btn-submit:hover { background-color: #082d6b; }
         .btn-submit:active { transform: scale(0.98); }
 
-        /* =======================================================
-           SISTEMA RESPONSIVE MULTI-DISPOSITIVO (TABLET Y MÓVIL)
-           ======================================================= */
         @media (max-width: 1024px) {
-            html, body {
-                overflow-x: hidden;
-                width: 100%;
-            }
-
-            header { padding: 15px 25px; }
-            .menu-toggle { display: flex; }
-
-            .nav-links {
-                position: fixed;
-                top: 0; right: -100%;
-                width: 280px; height: 100vh;
-                background: rgba(10, 10, 10, 0.98);
-                backdrop-filter: blur(15px);
-                border-left: 1px solid #222;
-                flex-direction: column;
-                justify-content: center;
-                gap: 30px;
-                transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
-                z-index: 2050;
-                box-sizing: border-box;
-                padding: 40px;
-            }
-
-            .nav-links.active { right: 0; }
-            .nav-links a { margin-left: 0; font-size: 1.1rem; width: 100%; text-align: center; padding: 10px 0; }
-            .nav-links .btn-login { width: 100%; margin-top: 10px; }
-
-            .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-            .menu-toggle.active span:nth-child(2) { opacity: 0; }
-            .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
             .registro-section { padding: 100px 20px 40px; }
             .form-container { padding: 30px 20px; }
             .form-header h1 { font-size: 1.8rem; }
@@ -304,23 +179,8 @@
 </head>
 <body>
 
-    <header>
-        <div class="nav-brand">USACH Space Program</div>
-        
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
-        <nav class="nav-links" id="navLinks">
-            <a href="index.html">Inicio</a>
-            <a href="proyectos.html">Proyectos</a>
-            <a href="ejes.html">Ejes de Desarrollo</a>
-            <a href="registro.html">Registrarse</a>
-            <a href="login.html" class="btn-login">Iniciar Sesión</a>
-        </nav>
-    </header>
+    <!-- Load Header component -->
+    <load src="src/components/header.html" root="../../" />
 
     <section class="registro-section">
         <div class="form-container">
@@ -343,7 +203,7 @@
                         <input type="text" id="carrera" name="carrera" placeholder="Escribe para buscar tu carrera..." autocomplete="off" required>
                         
                         <div class="options-dropdown" id="carreraDropdown">
-<div class="option-item">Ingeniería Civil Mecatrónica</div>
+                            <div class="option-item">Ingeniería Civil Mecatrónica</div>
                             <div class="option-item">Ingeniería Civil Mecánica</div>
                             <div class="option-item">Ingeniería Civil en Electricidad</div>
                             <div class="option-item">Ingeniería Civil Informática</div>
