@@ -1,0 +1,381 @@
+---
+import Layout from '../layouts/Layout.astro';
+import lunaImg from '../assets/luna.png';
+
+const rawBaseUrl = import.meta.env.BASE_URL;
+const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
+---
+
+<Layout title="Reclutamiento - USACH Space Program">
+  <section class="registro-section" style={{ backgroundImage: `url(${lunaImg.src})` }}>
+    <div class="form-container">
+      
+      <div class="form-header">
+        <h1>Registro Abierto</h1>
+        <p>Actualmente nos encontramos en fase de planificación y estructuración de sistemas de la OE. Ingresa tus datos en nuestro manifiesto de vuelo para notificarte de forma prioritaria en cuanto se abran las postulaciones generales y las inscripciones a proyectos técnicos.</p>
+      </div>
+
+      <form id="reclutamientoForm">
+        
+        <div class="form-group">
+          <label for="nombre">Nombre Completo</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre y apellido" required>
+        </div>
+
+        <div class="form-group">
+          <label for="carrera">Carrera</label>
+          <div class="search-select-container">
+            <input type="text" id="carrera" name="carrera" placeholder="Escribe para buscar tu carrera..." autocomplete="off" required>
+            
+            <div class="options-dropdown" id="carreraDropdown">
+              <div class="option-item">Ingeniería Civil Mecatrónica</div>
+              <div class="option-item">Ingeniería Civil Mecánica</div>
+              <div class="option-item">Ingeniería Civil en Electricidad</div>
+              <div class="option-item">Ingeniería Civil Informática</div>
+              <div class="option-item">Ingeniería Civil Industrial</div>
+              <div class="option-item">Ingeniería Civil Química</div>
+              <div class="option-item">Ingeniería Civil en Biotecnología</div>
+              <div class="option-item">Ingeniería Civil en Metalurgia</div>
+              <div class="option-item">Ingeniería Civil en Minas</div>
+              <div class="option-item">Ingeniería Civil en Obras Civiles</div>
+              <div class="option-item">Ingeniería Civil en Geomensura</div>
+              <div class="option-item">Ingeniería Civil en Ambiente</div>
+              <div class="option-item">Ingeniería de Ejecución en Mecánica</div>
+              <div class="option-item">Ingeniería de Ejecución en Electricidad</div>
+              <div class="option-item">Ingeniería de Ejecución en Electrónica</div>
+              <div class="option-item">Ingeniería de Ejecución en Computación e Informática</div>
+              <div class="option-item">Ingeniería de Ejecución en Metalurgia</div>
+              <div class="option-item">Ingeniería de Ejecución en Minas</div>
+              <div class="option-item">Ingeniería de Ejecución en Geomensura</div>
+              <div class="option-item">Ingeniería de Ejecución en Climatización</div>
+              <div class="option-item">Ingeniería de Ejecución en Química</div>
+              
+              <div class="option-item">Licenciatura en Ciencia de la Computación</div>
+              <div class="option-item">Licenciatura en Física Aplicada</div>
+              <div class="option-item">Licenciatura en Matemática</div>
+              <div class="option-item">Analista en Computación Científica</div>
+              <div class="option-item">Ingeniería Estadística</div>
+              <div class="option-item">Pedagogía en Física y Matemática</div>
+              <div class="option-item">Pedagogía en Matemática y Computación</div>
+              
+              <div class="option-item">Química y Farmacia</div>
+              <div class="option-item">Bioquímica</div>
+              <div class="option-item">Química (Químico)</div>
+              <div class="option-item">Pedagogía en Química y Biología</div>
+              
+              <div class="option-item">Ingeniería Comercial</div>
+              <div class="option-item">Contador Público y Auditor</div>
+              <div class="option-item">Administración Pública</div>
+              
+              <div class="option-item">Medicina</div>
+              <div class="option-item">Enfermería</div>
+              <div class="option-item">Kinesiología</div>
+              <div class="option-item">Obstetricia y Puericultura</div>
+              <div class="option-item">Terapia Ocupacional</div>
+              
+              <div class="option-item">Psicología</div>
+              <div class="option-item">Periodismo</div>
+              <div class="option-item">Publicidad</div>
+              <div class="option-item">Sociología</div>
+              <div class="option-item">Licenciatura en Estudios Internacionales</div>
+              <div class="option-item">Licenciatura en Historia</div>
+              <div class="option-item">Licenciatura en Lingüística Aplicada a la Traducción</div>
+              <div class="option-item">Pedagogía en Educación Física</div>
+              <div class="option-item">Pedagogía en Inglés</div>
+              <div class="option-item">Pedagogía en Castellano</div>
+              <div class="option-item">Pedagogía en Historia y Ciencias Sociales</div>
+              
+              <div class="option-item">Arquitectura</div>
+              <div class="option-item">Diseño Industrial</div>
+              <div class="option-item">Diseño en Comunicación Visual</div>
+              
+              <div class="option-item">Derecho</div>
+              
+              <div class="option-item">Tecnología en Alimentos</div>
+              <div class="option-item">Tecnología en Automatización Industrial</div>
+              <div class="option-item">Tecnología en Construcciones Civiles</div>
+              <div class="option-item">Tecnología en Gestión de la Producción</div>
+              <div class="option-item">Tecnología en Mantenimiento Industrial</div>
+              <div class="option-item">Tecnología en Telecomunicaciones</div>
+              <div class="option-item">Técnico Universitario (Múltiples Menciones)</div>
+              
+              <div class="option-item">Programa de Bachillerato en Ciencias y Humanidades</div>
+              <div class="option-item">Otra Carrera / Postgrado</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="proyecto_interes">¿En qué proyecto te interesaría participar y mantenerte?</label>
+          <select id="proyecto_interes" name="proyecto_interes" required>
+            <option value="" disabled selected>Selecciona el proyecto que más te motiva</option>
+            <option value="Proyecto Rover">Proyecto Rover (Eje I: Exploración Planetaria)</option>
+            <option value="CanSat Terrestre">CanSat Terrestre (Eje IV: Sistemas Espaciales)</option>
+            <option value="Cohete a Propulsión por Agua">Cohete a Propulsión por Agua (Eje III: Cohetería)</option>
+            <option value="Proyecto Egg Drop">Proyecto Egg Drop (Eje II: Simulación y Operaciones)</option>
+            <option value="Taller de Impresión 3D">Taller de Impresión 3D (Eje V: Educación)</option>
+          </select>
+          <span class="help-text">Selecciona tu prioridad actual para asignarte al escuadrón correcto en el despliegue técnico.</span>
+        </div>
+
+        <button type="submit" class="btn-submit">Anotarse en la Lista de Espera</button>
+      </form>
+
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Lógica del mini-buscador de carreras
+  (function() {
+      const inputCarrera = document.getElementById('carrera') as HTMLInputElement;
+      const dropdownCarrera = document.getElementById('carreraDropdown') as HTMLElement;
+      const itemsCarrera = dropdownCarrera.getElementsByClassName('option-item');
+
+      if (inputCarrera && dropdownCarrera) {
+          inputCarrera.addEventListener('focus', () => {
+              dropdownCarrera.style.display = 'block';
+          });
+
+          inputCarrera.addEventListener('input', () => {
+              const filter = inputCarrera.value.toLowerCase();
+              dropdownCarrera.style.display = 'block';
+              
+              for (let i = 0; i < itemsCarrera.length; i++) {
+                  const item = itemsCarrera[i] as HTMLElement;
+                  const txtValue = item.textContent || item.innerText;
+                  if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                      item.style.display = "";
+                  } else {
+                      item.style.display = "none";
+                  }
+              }
+          });
+
+          dropdownCarrera.addEventListener('click', (e) => {
+              const target = e.target as HTMLElement;
+              if (target && target.classList.contains('option-item')) {
+                  inputCarrera.value = target.textContent || '';
+                  dropdownCarrera.style.display = 'none';
+              }
+          });
+
+          document.addEventListener('click', (e) => {
+              const target = e.target as HTMLElement;
+              if (!target.closest('.search-select-container')) {
+                  dropdownCarrera.style.display = 'none';
+              }
+          });
+      }
+  })();
+
+  // Envío a Google Sheets (Google Form post)
+  const form = document.getElementById('reclutamientoForm');
+  if (form) {
+      form.addEventListener('submit', function(e) {
+          e.preventDefault(); 
+
+          const btn = document.querySelector('.btn-submit') as HTMLButtonElement;
+          const textoOriginal = btn.innerHTML;
+          btn.innerHTML = 'Registrando tripulante...';
+
+          const nombre = (document.getElementById('nombre') as HTMLInputElement).value;
+          const carrera = (document.getElementById('carrera') as HTMLInputElement).value;
+          const proyecto = (document.getElementById('proyecto_interes') as HTMLSelectElement).value;
+
+          const urlGoogleForm = 'https://docs.google.com/forms/d/e/1FAIpQLSf5ad1kQyhQqIUZXvP8V7Yt5WdOlDS4ruzRX9Rizw7PdsRE7w/formResponse';
+          
+          const formData = new URLSearchParams();
+          formData.append('entry.957077564', nombre);
+          formData.append('entry.2006805985', carrera);
+          formData.append('entry.1483108375', proyecto);
+
+          fetch(urlGoogleForm, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded'
+              },
+              body: formData.toString()
+          }).then(() => {
+              btn.innerHTML = '¡Registro completado con éxito!';
+              btn.style.backgroundColor = '#2e7d32'; 
+              btn.disabled = true; 
+              (form as HTMLFormElement).reset();
+          }).catch((error) => {
+              console.error('Error en la transmisión:', error);
+              btn.innerHTML = 'Fallo de conexión. Intente de nuevo.';
+              setTimeout(() => btn.innerHTML = textoOriginal, 3000);
+          });
+      });
+  }
+</script>
+
+<style>
+  /* === CONTENEDOR DEL FORMULARIO === */
+  .registro-section {
+      padding: 140px 10% 80px; 
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      position: relative;
+      box-sizing: border-box;
+  }
+
+  .registro-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(5px);
+  }
+
+  .form-container {
+      background-color: var(--card-bg);
+      padding: 50px;
+      border-radius: 8px;
+      border-top: 4px solid var(--nasa-blue);
+      width: 100%;
+      max-width: 600px;
+      z-index: 1;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+      box-sizing: border-box;
+  }
+
+  .form-header {
+      text-align: center;
+      margin-bottom: 40px;
+  }
+
+  .form-header h1 {
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 2.2rem;
+      color: var(--text-main);
+  }
+
+  .form-header p {
+      color: var(--text-muted);
+      margin-top: 15px;
+      font-size: 1.05rem;
+      line-height: 1.6;
+  }
+
+  /* === ESTILOS DE LOS INPUTS Y SELECTORES === */
+  .form-group {
+      margin-bottom: 25px;
+      display: flex;
+      flex-direction: column;
+  }
+
+  .form-group label {
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #ddd;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+  }
+
+  .form-group input, .form-group select, .search-select-container input {
+      width: 100% !important;
+      box-sizing: border-box;
+      padding: 12px 15px;
+      background-color: #222;
+      border: 1px solid #444;
+      border-radius: 4px;
+      color: white;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.3s;
+      appearance: none; 
+      -webkit-appearance: none;
+  }
+
+  .form-group select {
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='white'><polygon points='0,0 10,0 5,5'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      padding-right: 40px;
+      cursor: pointer;
+  }
+
+  .form-group input:focus, .form-group select:focus, .search-select-container input:focus {
+      outline: none;
+      border-color: var(--nasa-blue);
+      background-color: #2a2a2a;
+  }
+
+  .form-group .help-text {
+      font-size: 0.8rem;
+      color: #777;
+      margin-top: 5px;
+  }
+
+  .search-select-container {
+      position: relative;
+      width: 100%;
+  }
+  
+  .options-dropdown {
+      position: absolute;
+      top: 100%; left: 0; width: 100%;
+      max-height: 220px;
+      overflow-y: auto;
+      background-color: #151515;
+      border: 1px solid #444;
+      border-radius: 0 0 4px 4px;
+      z-index: 1000;
+      display: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+      box-sizing: border-box;
+  }
+  
+  .option-item {
+      padding: 11px 15px;
+      cursor: pointer;
+      color: #ccc;
+      font-size: 0.95rem;
+      transition: background-color 0.2s, color 0.2s;
+      text-align: left;
+  }
+  
+  .option-item:hover {
+      background-color: #0B3D91;
+      color: white;
+  }
+  
+  .options-dropdown::-webkit-scrollbar { width: 6px; }
+  .options-dropdown::-webkit-scrollbar-thumb { background-color: #0B3D91; border-radius: 3px; }
+
+  /* === BOTÓN DE ENVÍO === */
+  .btn-submit {
+      width: 100%;
+      padding: 15px;
+      background-color: var(--nasa-blue);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+  }
+
+  .btn-submit:hover { background-color: #082d6b; }
+  .btn-submit:active { transform: scale(0.98); }
+
+  @media (max-width: 1024px) {
+      .registro-section { padding: 100px 20px 40px; }
+      .form-container { padding: 30px 20px; }
+      .form-header h1 { font-size: 1.8rem; }
+  }
+</style>

@@ -29,6 +29,16 @@ export default config({
           ],
           defaultValue: 'Level 1',
         }),
+        layoutType: fields.select({
+          label: 'Tipo de Diseño (Layout)',
+          options: [
+            { label: 'Timeline Horizontal (Style A - CanSat)', value: 'timeline-horizontal' },
+            { label: 'Timeline Vertical (Style A - Rover)', value: 'timeline-vertical' },
+            { label: 'Sidebar Azul (Style B - Cohete, Egg Drop, Impresión 3D)', value: 'sidebar-blue' },
+            { label: 'Sidebar Dorado (Style C - Cubesat/Rover Avanzado)', value: 'sidebar-gold' },
+          ],
+          defaultValue: 'sidebar-blue',
+        }),
         backgroundImage: fields.image({
           label: 'Imagen de Fondo',
           directory: 'src/assets/proyectos',
@@ -38,6 +48,18 @@ export default config({
           label: 'Parche de la Misión',
           directory: 'src/assets/proyectos',
           publicPath: '../../assets/proyectos/',
+        }),
+        specs: fields.object({
+          label: 'Especificaciones del Proyecto (Sidebar)',
+          fields: {
+            costo: fields.text({ label: 'Costo Aproximado' }),
+            tiempo: fields.text({ label: 'Tiempo Estimado' }),
+            rol: fields.text({ label: 'Rol Organizador / Eje' }),
+            recompensa: fields.text({ label: 'Recompensa de Misión', multiline: true }),
+            referenceLink: fields.text({ label: 'Enlace de Referencia (Opcional)' }),
+            referenceLabel: fields.text({ label: 'Etiqueta del Enlace (Opcional)' }),
+            techStack: fields.text({ label: 'Stack Tecnológico (Opcional, viñetas con saltos de línea)', multiline: true }),
+          }
         }),
         content: fields.markdoc({
           label: 'Contenido del Proyecto',

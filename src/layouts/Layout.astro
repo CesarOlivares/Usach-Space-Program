@@ -14,7 +14,8 @@ const {
   description = "Impulsando la ciencia y la tecnología aeroespacial desde la USACH." 
 } = Astro.props;
 
-const baseUrl = import.meta.env.BASE_URL;
+const rawBaseUrl = import.meta.env.BASE_URL;
+const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
 ---
 
 <!DOCTYPE html>

@@ -1,5 +1,6 @@
 ---
-const baseUrl = import.meta.env.BASE_URL;
+const rawBaseUrl = import.meta.env.BASE_URL;
+const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
 ---
 <header>
     <div class="nav-brand">USACH Space Program</div>

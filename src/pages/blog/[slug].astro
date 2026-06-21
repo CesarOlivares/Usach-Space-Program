@@ -1,0 +1,158 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const { title, author, publishDate, category } = entry.data;
+
+// Format date nicely
+const formattedDate = new Date(publishDate).toLocaleDateString('es-ES', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+
+const rawBaseUrl = import.meta.env.BASE_URL;
+const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
+---
+
+<Layout title={`${title} - Blog USP`} description={`Publicación de blog: ${title}`}>
+  <article class="blog-post-container">
+    <header class="blog-header">
+      <div class="blog-meta">
+        <span class="category-badge">{category}</span>
+        <time datetime={publishDate.toISOString()}>{formattedDate}</time>
+      </div>
+      <h1>{title}</h1>
+      <div class="author-info">
+        <span>Por <strong>{author}</strong></span>
+      </div>
+    </header>
+
+    <hr class="divider" />
+
+    <div class="blog-content">
+      <Content />
+    </div>
+
+    <footer class="blog-footer">
+      <a href={`${baseUrl}`} class="btn-back">Volver al Inicio</a>
+    </footer>
+  </article>
+</Layout>
+
+<style is:global>
+  .blog-post-container {
+      max-width: 800px;
+      margin: 140px auto 80px auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+  }
+  .blog-header {
+      text-align: left;
+      margin-bottom: 30px;
+  }
+  .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 15px;
+  }
+  .category-badge {
+      background-color: var(--nasa-blue);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+  }
+  .blog-header h1 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-main);
+      margin: 0 0 15px 0;
+      line-height: 1.2;
+  }
+  .author-info {
+      font-size: 1rem;
+      color: var(--text-muted);
+  }
+  .author-info strong {
+      color: var(--text-main);
+  }
+  .blog-post-container .divider {
+      border: 0;
+      height: 1px;
+      background-color: #333;
+      margin: 30px 0;
+  }
+  .blog-content {
+      color: #ddd;
+      font-size: 1.15rem;
+      line-height: 1.8;
+  }
+  .blog-content h2 {
+      color: var(--text-main);
+      text-transform: uppercase;
+      font-size: 1.8rem;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      border-bottom: 1px solid #222;
+      padding-bottom: 8px;
+  }
+  .blog-content p {
+      margin-bottom: 25px;
+  }
+  .blog-content ul {
+      margin-bottom: 25px;
+      padding-left: 20px;
+  }
+  .blog-content li {
+      margin-bottom: 10px;
+  }
+  .blog-footer {
+      margin-top: 60px;
+      border-top: 1px solid #333;
+      padding-top: 30px;
+      text-align: center;
+  }
+  .blog-footer .btn-back {
+      display: inline-block;
+      border: 1px solid var(--text-main);
+      color: var(--text-main);
+      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: all 0.3s;
+  }
+  .blog-footer .btn-back:hover {
+      background-color: var(--text-main);
+      color: var(--dark-bg);
+  }
+
+  @media (max-width: 768px) {
+      .blog-post-container {
+          margin-top: 100px;
+      }
+      .blog-header h1 {
+          font-size: 2.2rem;
+      }
+  }
+</style>
