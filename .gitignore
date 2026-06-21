@@ -21,6 +21,7 @@ web_modules/
 # Output directory
 dist/
 dist-ssr/
+.astro/
 
 # IDEs and editors
 .idea/

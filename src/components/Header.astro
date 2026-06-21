@@ -1,0 +1,39 @@
+---
+const baseUrl = import.meta.env.BASE_URL;
+---
+<header>
+    <div class="nav-brand">USACH Space Program</div>
+    
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+        <a href={`${baseUrl}`}>Inicio</a>
+        <a href={`${baseUrl}proyectos/`}>Proyectos</a>
+        <a href={`${baseUrl}ejes/`}>Ejes</a>
+        <a href={`${baseUrl}registro/`}>Registrarse</a>
+        <a href={`${baseUrl}login/`} class="btn-login">Iniciar Sesión</a>
+    </nav>
+</header>
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            const target = e.target as HTMLElement;
+            if (!menuToggle.contains(target) && !navLinks.contains(target)) {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    }
+</script>

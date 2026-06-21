@@ -4,12 +4,21 @@
   "version": "2.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.2.0",
+    "@keystatic/astro": "^5.0.0",
+    "@keystatic/core": "^0.5.2",
+    "astro": "^4.16.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "vite": "^5.2.0",
-    "vite-plugin-html-inject": "^1.1.2"
+    "typescript": "^5.5.2"
   }
 }
