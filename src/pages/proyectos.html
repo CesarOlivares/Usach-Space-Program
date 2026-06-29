@@ -110,17 +110,35 @@
             border-color: var(--bone-white);
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
         }
-        .scroll-indicator {
+        .slider-controls {
             position: fixed;
-            bottom: 25px;
+            bottom: 40px;
             width: 100%;
-            text-align: center;
-            color: var(--text-dark);
-            font-family: var(--font-mono);
-            letter-spacing: 2px;
-            font-size: 0.75rem;
-            pointer-events: none;
-            z-index: 10;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 100;
+        }
+        .btn-scroll {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-highlight);
+            color: var(--pure-white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            backdrop-filter: blur(10px);
+            transition: var(--transition-smooth);
+        }
+        .btn-scroll:hover {
+            background: var(--bone-white);
+            color: var(--space-black);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
         }
         @media (max-width: 1024px) and (min-width: 769px) {
             .slider-card { flex: 0 0 75vw; height: 65vh; }
@@ -140,6 +158,7 @@
                 flex-direction: column;
                 overflow-x: hidden;
             }
+            .slider-controls { display: none; }
             .slider-card {
                 flex: 0 0 auto !important;
                 width: 90vw !important;
@@ -234,7 +253,29 @@
 
     </div>
 
-    <div class="scroll-indicator">USA EL SCROLL HORIZONTAL (SHIFT + RUEDA) O DESLIZA PARA NAVEGAR</div>
+    <div class="slider-controls">
+        <button class="btn-scroll" id="btnPrev" aria-label="Anterior">←</button>
+        <button class="btn-scroll" id="btnNext" aria-label="Siguiente">→</button>
+    </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slider = document.querySelector('.projects-slider');
+            const btnPrev = document.getElementById('btnPrev');
+            const btnNext = document.getElementById('btnNext');
+
+            if (slider && btnPrev && btnNext) {
+                const scrollAmount = window.innerWidth * 0.8;
+                
+                btnPrev.addEventListener('click', () => {
+                    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                });
+                
+                btnNext.addEventListener('click', () => {
+                    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
 </body>
 </html>

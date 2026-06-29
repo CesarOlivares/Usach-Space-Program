@@ -100,6 +100,10 @@
             padding-right: 40px;
             cursor: pointer;
         }
+        .form-group select option {
+            background-color: #12121a;
+            color: #ffffff;
+        }
         .form-group input:focus, .form-group select:focus, .search-select-container input:focus {
             outline: none;
             border-color: var(--border-highlight);
@@ -191,8 +195,8 @@
             <form id="reclutamientoForm">
                 
                 <div class="form-group">
-                    <label for="nombre">Nombre Completo</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre y apellido" required>
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" name="correo" placeholder="Ingresa tu correo institucional o personal" required>
                 </div>
 
                 <div class="form-group">
@@ -348,14 +352,14 @@
             btn.innerHTML = 'REGISTRANDO TRIPULANTE...';
             btn.disabled = true;
 
-            const nombre = document.getElementById('nombre').value;
+            const correo = document.getElementById('correo').value;
             const carrera = document.getElementById('carrera').value;
             const proyecto = document.getElementById('proyecto_interes').value;
 
             const urlGoogleForm = 'https://docs.google.com/forms/d/e/1FAIpQLSf5ad1kQyhQqIUZXvP8V7Yt5WdOlDS4ruzRX9Rizw7PdsRE7w/formResponse';
             
             const formData = new URLSearchParams();
-            formData.append('entry.957077564', nombre);
+            formData.append('entry.957077564', correo);
             formData.append('entry.2006805985', carrera);
             formData.append('entry.1483108375', proyecto);
 
