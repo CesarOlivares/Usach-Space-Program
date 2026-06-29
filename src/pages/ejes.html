@@ -11,9 +11,22 @@
         /* === EJES PAGE LAYOUT === */
         .ejes-section {
             padding: 140px 10% 80px;
-            background-color: var(--space-black);
             min-height: 100vh;
             box-sizing: border-box;
+            background: url('../../assets/estrellas_azul-B8y0KchW.png') center/cover fixed;
+            position: relative;
+        }
+        .ejes-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(3px);
+            z-index: 0;
+        }
+        .ejes-header, .ejes-grid {
+            position: relative;
+            z-index: 1;
         }
         .ejes-header {
             text-align: center;
@@ -46,7 +59,8 @@
             grid-column: span 2;
         }
         .eje-item {
-            background-color: var(--space-card);
+            background: rgba(18, 18, 26, 0.75);
+            backdrop-filter: blur(12px);
             border: 1px solid var(--border-subtle);
             padding: 40px;
             border-radius: 12px;
@@ -55,7 +69,7 @@
             position: relative;
             overflow: hidden;
             transition: var(--transition-smooth);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
         }
         .eje-item::before {
             content: '';
@@ -67,9 +81,9 @@
         }
         .eje-item:hover {
             transform: translateY(-5px);
-            border-color: var(--border-highlight);
-            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.02);
-            background-color: var(--space-card-hover);
+            border-color: var(--nasa-blue-glow);
+            box-shadow: 0 15px 35px rgba(26, 95, 255, 0.15);
+            background: rgba(26, 26, 38, 0.9);
         }
         .eje-item:hover::before {
             opacity: 1;
@@ -90,8 +104,8 @@
             transition: var(--transition-smooth);
         }
         .eje-item:hover h3 {
-            color: var(--pure-white);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            color: var(--nasa-blue-glow);
+            text-shadow: 0 0 15px rgba(26, 95, 255, 0.4);
         }
         .eje-number {
             font-size: 3rem;
@@ -102,8 +116,9 @@
             transition: var(--transition-smooth);
         }
         .eje-item:hover .eje-number {
-            color: var(--bone-white);
+            color: var(--nasa-blue-glow);
             transform: scale(1.05);
+            text-shadow: 0 0 20px rgba(26, 95, 255, 0.3);
         }
         .eje-body p {
             color: var(--text-muted);
@@ -201,6 +216,7 @@
 
     <section class="ejes-section">
         <div class="ejes-header">
+            <img src="../../assets/icono_planeta-BjLjWcRd.png" alt="Planeta" style="width: 70px; height: auto; opacity: 0.75; margin-bottom: 20px; filter: invert(1); filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));">
             <h1>Ejes Estratégicos</h1>
             <p>Para estructurar nuestro crecimiento y marcar la dirección de las investigaciones presentes y futuras, definimos 5 dominios fundamentales de conocimiento. Bajo la filosofía <strong>Piensa - Crea - Aprende</strong>, estos ejes marcan nuestro norte operativo y validan hitos técnicos mediante prototipos rápidos (MVP).</p>
         </div>
@@ -293,9 +309,8 @@
         </div>
         <div class="footer-contact">
             <h4>Contacto</h4>
-            <p>Departamento de Ingeniería Mecánica / Eléctrica</p>
             <p>Universidad de Santiago de Chile</p>
-            <p><a href="mailto:contacto@usachspace.cl">contacto@usachspace.cl</a></p>
+            <p><a href="mailto:spaceprogram@usach.cl">spaceprogram@usach.cl</a></p>
         </div>
     </div>
     <div class="footer-bottom">
