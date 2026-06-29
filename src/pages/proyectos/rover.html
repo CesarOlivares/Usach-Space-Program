@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Rover - USACH Space Program</title>
+    
+    <link rel="icon" type="image/png" href="../../../src/assets/logo.png">
+    <link rel="stylesheet" href="../../../src/styles/main.css">
+    
+    <style>
+        /* === ROVER PAGE SPECIFIC STYLES === */
+        .eje-tag { 
+            background-color: var(--mars-rust); 
+            color: var(--pure-white); 
+            padding: 6px 16px; 
+            font-size: 0.8rem; 
+            font-family: var(--font-mono);
+            font-weight: bold; 
+            text-transform: uppercase; 
+            border-radius: 4px; 
+            margin-bottom: 20px; 
+            letter-spacing: 1px; 
+            display: inline-block;
+        }
+        .tier-tag { 
+            background-color: transparent; 
+            border: 1px solid var(--border-highlight); 
+            color: var(--bone-white); 
+            padding: 6px 16px; 
+            font-family: var(--font-mono);
+            font-size: 0.75rem; 
+            font-weight: 500; 
+            border-radius: 20px; 
+            margin-bottom: 15px; 
+            letter-spacing: 1px; 
+            display: inline-block;
+        }
+
+        .inspiration-section { 
+            padding: 80px 10%; 
+            text-align: center; 
+            background: linear-gradient(var(--space-black), var(--space-dark)); 
+        }
+        .inspiration-container { max-width: 850px; margin: 0 auto; }
+        .inspiration-container h2 { 
+            font-family: var(--font-title);
+            font-size: 2.2rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 25px; 
+            color: var(--pure-white); 
+        }
+        .inspiration-container p { 
+            font-size: 1.25rem; 
+            line-height: 1.8; 
+            color: var(--bone-white); 
+            font-style: italic; 
+            font-weight: 300; 
+        }
+
+        .timeline-section { 
+            padding: 100px 10%; 
+            background-color: var(--space-black); 
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .timeline-section h2 { 
+            font-family: var(--font-title);
+            text-align: center; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            font-size: 2.5rem; 
+            margin-bottom: 60px; 
+            color: var(--pure-white); 
+        }
+
+        .timeline-item.final-hito .timeline-content { 
+            border-color: var(--nasa-red); 
+            box-shadow: 0 0 25px rgba(252, 61, 33, 0.1); 
+        }
+        .timeline-item.final-hito .timeline-icon { 
+            border-color: var(--nasa-red); 
+            box-shadow: 0 0 20px rgba(252, 61, 33, 0.4); 
+            color: var(--nasa-red);
+        }
+        .timeline-item.final-hito h3 { color: var(--nasa-red); }
+
+        .modalidad-section { padding: 100px 10%; background-color: var(--space-dark); }
+        .modalidad-section h2 { 
+            font-family: var(--font-title);
+            text-align: center; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 70px; 
+            font-size: 2.5rem; 
+            color: var(--pure-white);
+        }
+        .mod-row { display: flex; align-items: center; gap: 50px; margin-bottom: 85px; }
+        .mod-row:nth-child(even) { flex-direction: row-reverse; }
+        .mod-text { flex: 1; }
+        .mod-text h3 { 
+            font-family: var(--font-title);
+            font-size: 1.8rem; 
+            color: var(--pure-white); 
+            text-transform: uppercase; 
+            margin-top: 0; 
+            letter-spacing: 1px;
+        }
+        .mod-text p { font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); }
+        .mod-image {
+            flex: 1; height: 350px; border-radius: 8px;
+            background-color: var(--space-card);
+            border: 1px solid var(--border-subtle); 
+            position: relative; 
+            overflow: hidden;
+            background-size: cover; 
+            background-position: center;
+        }
+
+        .gallery-section { 
+            padding: 100px 10%; 
+            background-color: var(--space-black); 
+            text-align: center; 
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .gallery-section h2 { 
+            font-family: var(--font-title);
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 50px; 
+            font-size: 2.2rem; 
+            color: var(--pure-white);
+        }
+        .rover-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; max-width: 1100px; margin: 0 auto; }
+        .rover-pic-card { 
+            background-color: var(--space-card); 
+            border: 1px solid var(--border-subtle); 
+            border-radius: 8px; 
+            overflow: hidden; 
+            transition: var(--transition-smooth); 
+        }
+        .rover-pic-card:hover { transform: translateY(-4px); border-color: var(--border-highlight); }
+        .rover-img-placeholder { height: 220px; background-size: cover; background-position: center; background-color: rgba(0,0,0,0.3); }
+        .rover-pic-card h3 { 
+            font-family: var(--font-title);
+            font-size: 1.15rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            margin: 20px 0 5px; 
+            color: var(--pure-white);
+        }
+        .rover-pic-card p { font-size: 0.85rem; color: var(--text-muted); margin: 0 0 20px; padding: 0 15px; line-height: 1.5; }
+
+        .skills-section { padding: 100px 10%; background-color: var(--space-dark); text-align: center; }
+        .skills-container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: var(--space-card); 
+            border: 1px solid var(--border-subtle); 
+            padding: 50px; 
+            border-radius: 12px; 
+            position: relative;
+        }
+        .skills-container::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--border-highlight), transparent);
+        }
+        .skills-container h2 { 
+            font-family: var(--font-title);
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-top: 0; 
+            font-size: 2rem; 
+            color: var(--pure-white);
+        }
+        .skills-container p { font-size: 1.1rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 0; }
+
+        .reward-section { padding: 40px 10% 20px; background-color: var(--space-dark); text-align: center; }
+        .reward-box {
+            max-width: 700px; margin: 0 auto; padding: 45px; border-radius: 12px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(0,0,0,0.4));
+            border: 1px dashed var(--border-highlight);
+        }
+        .reward-box h3 { 
+            font-family: var(--font-title);
+            font-size: 1.8rem; 
+            color: var(--pure-white); 
+            text-transform: uppercase; 
+            margin-top: 0; 
+            letter-spacing: 1.5px;
+        }
+        .reward-box p { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 0; }
+        .reward-highlight { color: var(--nasa-gold); font-weight: 600; font-family: var(--font-mono); }
+
+        .cta-container { text-align: center; padding: 60px 0 100px; background-color: var(--space-dark); }
+        .btn-join-mission {
+            display: inline-block; 
+            background-color: transparent; 
+            color: var(--bone-white);
+            border: 1px solid var(--border-highlight);
+            text-decoration: none; 
+            padding: 16px 45px; 
+            font-family: var(--font-mono);
+            font-size: 0.95rem; 
+            font-weight: 600;
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+        }
+        .btn-join-mission:hover { 
+            background-color: var(--bone-white); 
+            color: var(--space-black);
+            border-color: var(--bone-white);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.25); 
+            transform: translateY(-2px); 
+        }
+
+        @media (max-width: 1024px) {
+            .mod-row, .mod-row:nth-child(even) { flex-direction: column; gap: 30px; }
+            .mod-image { width: 100%; height: 250px; }
+            .rover-grid { grid-template-columns: 1fr; max-width: 400px; }
+            .timeline-section, .modalidad-section, .gallery-section, .skills-section { padding-left: 20px; padding-right: 20px; }
+        }
+    </style>
+</head>
+<body class="tech-grid">
+
+    <!-- Load Header component -->
+    <load src="src/components/header.html" root="../../../" />
+
+    <section class="project-hero" style="background-image: url('../../../src/assets/gallery/pngwing.com (3).png');">
+        <div class="project-hero-content">
+            <span class="tech-star" style="top: -20px; left: -10px;">✦</span>
+            <span class="tech-star" style="top: 30px; right: -40px;">✦</span>
+            <div class="tier-tag">NIVEL 1: ONBOARDING</div>
+            <div class="eje-tag">Eje I: Exploración Planetaria</div>
+            <h1>Proyecto Rover</h1>
+            <p>Diseño, ensamblaje y programación de un prototipo terrestre mecatrónico a escala.</p>
+        </div>
+    </section>
+
+    <section class="inspiration-section">
+        <div class="inspiration-container" style="position: relative;">
+            <span class="tech-star" style="top: -10px; left: 5%;">✦</span>
+            <span class="tech-star" style="bottom: -10px; right: 5%;">✦</span>
+            <h2>No vienes a sentarte a escuchar una clase</h2>
+            <p>"En el USACH Space Program no estudiamos la exploración planetaria en libros de texto; la construimos. El Proyecto Rover es un laboratorio vivo de innovación, un espacio de alta intensidad mecánica, electrónica y de control donde transformamos planos digitales en hardware real capaz de rodar sobre otros mundos."</p>
+        </div>
+    </section>
+
+    <section class="timeline-section">
+        <h2>El Camino hacia el Lanzamiento</h2>
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <div class="timeline-icon">01</div>
+                <div class="timeline-content">
+                    <h3>1. Formación de Escuadrones</h3>
+                    <p>Integración de equipos interdisciplinarios. Conocerás a tus ingenieros de sistemas, programadores y mecánicos. Se hace entrega del Kit de Suministros USP inicial.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">02</div>
+                <div class="timeline-content">
+                    <h3>2. Diseño Conceptual y CAD</h3>
+                    <p>Fase de tablero de dibujo. Determinarán la geometría del rover, el sistema de suspensión y modelarán en software 3D las piezas personalizadas que necesitarán imprimir.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">03</div>
+                <div class="timeline-content">
+                    <h3>3. Manufactura y Ensamblaje</h3>
+                    <p>Las impresoras 3D echan humo. Se integran los chasis, se montan los motores, ruedas y se estructura la base física del vehículo de exploración.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">04</div>
+                <div class="timeline-content">
+                    <h3>4. Aviónica y Subsistemas</h3>
+                    <p>Es la hora de los cables. Se sueldan las placas, se conectan los controladores de motores, sistemas de telemetría y sensores ambientales al cerebro principal (Arduino/ESP32).</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">05</div>
+                <div class="timeline-content">
+                    <h3>5. Programación y Control</h3>
+                    <p>Darle vida al monstruo. Se programa la lógica de movimiento, evasión de obstáculos o control remoto por radiofrecuencia. Fase intensiva de prueba y error en el taller.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item final-hito">
+                <div class="timeline-icon">★</div>
+                <div class="timeline-content">
+                    <h3>Hito Final: Simulación Análoga</h3>
+                    <p>El día del juicio. Los rovers se despliegan en las <strong>Canchas de Tenis del Departamento de Deportes USACH</strong>, especialmente ambientadas para simular la superficie hostil de Marte. Tu vehículo tendrá que sortear terreno, cumplir objetivos de navegación y recolectar datos bajo presión en un evento abierto al público.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="modalidad-section">
+        <h2>Modalidad Operativa: Libertad Total</h2>
+        
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Escuadrones de Trabajo</h3>
+                <p>Te integrarás en equipos compactos donde cada miembro asume un rol crítico: sistemas de potencia, telecomunicaciones, estructura mecánica o software de control. Aprenderás a trabajar bajo el marco real de la ingeniería de sistemas.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-202611-WA0050.jpg');"></div>
+        </div>
+
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>El Kit de Suministros USP</h3>
+                <p>El programa proveerá a cada equipo los componentes e insumos electrónicos básicos (motores, controladores, microcontroladores y sensores). Las bases estructurales están cubiertas, lo demás depende de tu ingenio.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-20260607-WA0039.jpg');"></div>
+        </div>
+
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Espacio de Co-Working & Tips</h3>
+                <p>Tendrás acceso a sesiones presenciales de trabajo. No dictamos cátedras aburridas; abrimos espacios de desarrollo donde los directores y mentores te darán tips flash, análisis de buenas prácticas aeroespaciales y resolución de problemas en caliente.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-20260605-WA0073.jpg');"></div>
+        </div>
+
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>El Desafío del Volumen (1U)</h3>
+                <p>Tienes carta blanca absoluta. Tu equipo tiene la total libertad creativa y técnica para rediseñar la geometría, añadir piezas impresas en 3D personalizadas, y tunear el rover para cumplir la misión de la forma que ustedes decidan.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-20260607-WA0030.jpg');"></div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <h2>Nuestros Pilares de Inspiración</h2>
+        <div class="rover-grid">
+            <div class="rover-pic-card">
+                <div class="rover-img-placeholder" style="background-image: url('../../../src/assets/marte.png');"></div>
+                <h3>Sojourner Base</h3>
+                <p>El pionero de la movilidad. Compacto, robusto y eficiente en distribución espacial.</p>
+            </div>
+            <div class="rover-pic-card">
+                <div class="rover-img-placeholder" style="background-image: url('../../../src/assets/luna.png');"></div>
+                <h3>Curiosity Class</h3>
+                <p>Sistemas de suspensión avanzados y cinemática compleja para sortear cualquier duna.</p>
+            </div>
+            <div class="rover-pic-card">
+                <div class="rover-img-placeholder" style="background-image: url('../../../src/assets/gallery/IMG-20260607-WA0030.jpg');"></div>
+                <h3>Prototipos USP</h3>
+                <p>Nuestros desarrollos modulares, hechos con manufactura local e impresión 3D.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills-section">
+        <div class="skills-container">
+            <h2>¿Se requieren conocimientos previos?</h2>
+            <p><strong>La respuesta corta es: No.</strong> Puedes unirte completamente desde cero. Si tienes la motivación, nosotros nos encargamos de enseñarte la ingeniería en el camino. Sin embargo, para nivelar los sistemas de toda la tripulación, recomendamos fuertemente tomar los <strong>Mini-Talleres USP de Nivelación</strong> que estaremos dictando al inicio de la temporada.</p>
+        </div>
+    </section>
+
+    <section class="reward-section">
+        <div class="reward-box">
+            <h3>Comunidad y Gloria 🎖️</h3>
+            <p>La participación en el Proyecto Rover está abierta a cualquier estudiante de la USACH, sin importar si eres miembro activo de la organización o no. <br><br>
+            Sin embargo, aquellos que sean <span class="reward-highlight">Miembros Oficiales del USP</span> y logren completar con éxito la Misión de Simulación Análoga, serán condecorados con un <strong>Parche de Misión Temático y Original</strong>, validando su estatus y sus horas de vuelo operativo dentro del programa.</p>
+        </div>
+    </section>
+
+    <div class="cta-container">
+        <a href="../registro.html" class="btn-join-mission">Anotarse en la Lista de Espera</a>
+    </div>
+
+    <!-- Global Footer -->
+    <load src="src/components/footer.html" root="../../../" />
+
+</body>
+</html>

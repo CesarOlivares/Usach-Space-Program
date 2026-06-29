@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rover de Exploración Avanzada - USACH Space Program</title>
+    
+    <link rel="icon" type="image/png" href="../../../src/assets/logo.png">
+    <link rel="stylesheet" href="../../../src/styles/main.css">
+    
+    <style>
+        .tier-badge { 
+            background-color: rgba(255, 183, 3, 0.1); 
+            color: var(--nasa-gold); 
+            padding: 6px 16px; 
+            font-size: 0.8rem; 
+            font-family: var(--font-mono);
+            font-weight: bold; 
+            border-radius: 20px; 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            border: 1px solid var(--nasa-gold); 
+            letter-spacing: 1px;
+        }
+        .inspiration-section { 
+            padding: 80px 10%; 
+            text-align: center; 
+            background: linear-gradient(var(--space-black), var(--space-dark)); 
+        }
+        .inspiration-container { max-width: 850px; margin: 0 auto; }
+        .inspiration-container h2 { 
+            font-family: var(--font-title);
+            font-size: 2.2rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 25px; 
+            color: var(--pure-white); 
+        }
+        .inspiration-container p { 
+            font-size: 1.25rem; 
+            line-height: 1.8; 
+            color: var(--bone-white); 
+            font-style: italic; 
+            font-weight: 300; 
+        }
+        .timeline-section { 
+            padding: 100px 10%; 
+            background-color: var(--space-black); 
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .timeline-section h2 { 
+            font-family: var(--font-title);
+            text-align: center; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            font-size: 2.5rem; 
+            margin-bottom: 60px; 
+            color: var(--pure-white); 
+        }
+        .modalidad-section { padding: 100px 10%; background-color: var(--space-dark); }
+        .modalidad-section h2 { 
+            font-family: var(--font-title);
+            text-align: center; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 70px; 
+            font-size: 2.5rem; 
+            color: var(--pure-white);
+        }
+        .mod-row { display: flex; align-items: center; gap: 50px; margin-bottom: 85px; }
+        .mod-row:nth-child(even) { flex-direction: row-reverse; }
+        .mod-text { flex: 1; }
+        .mod-text h3 { 
+            font-family: var(--font-title);
+            font-size: 1.8rem; 
+            color: var(--pure-white); 
+            text-transform: uppercase; 
+            margin-top: 0; 
+            letter-spacing: 1px;
+        }
+        .mod-text p { font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); }
+        .mod-image {
+            flex: 1; height: 350px; border-radius: 8px;
+            background-color: var(--space-card);
+            border: 1px solid var(--border-subtle); 
+            position: relative; 
+            overflow: hidden;
+            background-size: cover; 
+            background-position: center;
+        }
+        .reference-link { display: inline-block; color: var(--nasa-blue-glow); text-decoration: none; font-size: 0.9rem; word-break: break-all; margin-top: 5px; }
+        .reference-link:hover { text-decoration: underline; }
+
+        .btn-contact { 
+            display: block; 
+            text-align: center; 
+            background-color: var(--nasa-gold); 
+            color: var(--space-black); 
+            text-decoration: none; 
+            padding: 15px; 
+            border-radius: 4px; 
+            text-transform: uppercase; 
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: bold; 
+            margin-top: 20px; 
+            transition: var(--transition-smooth); 
+            letter-spacing: 1px;
+        }
+        .btn-contact:hover { 
+            background-color: var(--pure-white); 
+            color: var(--space-black);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+        @media (max-width: 1024px) {
+            .mod-row, .mod-row:nth-child(even) { flex-direction: column; gap: 30px; }
+            .mod-image { width: 100%; height: 250px; }
+            .timeline-section, .modalidad-section { padding-left: 20px; padding-right: 20px; }
+        }
+    </style>
+</head>
+<body class="tech-grid">
+
+    <!-- Load Header component -->
+    <load src="src/components/header.html" root="../../../" />
+
+    <section class="project-hero" style="background-image: url('../../../src/assets/gallery/pngwing.com (3).png');">
+        <div class="project-hero-content">
+            <span class="tech-star" style="top: -20px; left: -10px;">✦</span>
+            <span class="tech-star" style="top: 30px; right: -40px;">✦</span>
+            <span class="tier-badge">NIVEL 2: PLATAFORMA DE I+D (FLAGSHIP)</span>
+            <h1>Plataforma Rover Avanzada</h1>
+            <p>Vehículo robótico análogo para la investigación de navegación autónoma, cinemática Rocker-Bogie y efectores mecatrónicos.</p>
+        </div>
+    </section>
+
+    <section class="inspiration-section">
+        <div class="inspiration-container" style="position: relative;">
+            <span class="tech-star" style="top: -10px; left: 5%;">✦</span>
+            <span class="tech-star" style="bottom: -10px; right: 5%;">✦</span>
+            <h2>Estabilidad y cinemática compleja</h2>
+            <p>"El diseño Rocker-Bogie de la NASA cobra vida: mecatrónica avanzada y control sensorial integrados en nuestra plataforma insignia de exploración planetaria."</p>
+        </div>
+    </section>
+
+    <section class="project-container">
+        
+        <div class="main-content">
+            <h2>Contexto y Arquitectura Base</h2>
+            <p>El desarrollo de nuestra plataforma insignia de superficie comienza con el estudio y asimilación de la arquitectura de suspensión <strong>Rocker-Bogie</strong>, el estándar de oro utilizado por el JPL de la NASA en misiones marcianas. Para la estructuración inicial del chasis y la validación cinemática de este modelo a escala, nuestro equipo tomó como referencia de estudio la réplica de código abierto documentada por el proyecto <em>HowToMechatronics</em>. Esta base de conocimiento nos permitió superar rápidamente los problemas de tracción iniciales para concentrar nuestros recursos de ingeniería en la personalización y scalabilidad del vehículo.</p>
+
+            <h2>Desarrollo: Innovaciones USP</h2>
+            <p>Nuestra directiva técnica se encuentra expandiendo agresivamente las capacidades del rover base mediante el diseño e integración de subsistemas de hardware y software originales orientados a simular operaciones extravehiculares complejas.</p>
+        </div>
+
+        <div class="side-panel">
+            <div class="spec-item">
+                <h4>Estado Operativo</h4>
+                <p>En fase de prototipado iterativo y pruebas de integración de subsistemas (Hardware in the Loop).</p>
+            </div>
+            <div class="spec-item">
+                <h4>Arquitectura de Referencia</h4>
+                <p>Mecánica base estudiada a partir del modelo Perseverance Open-Source:</p>
+                <a href="https://howtomechatronics.com/projects/diy-mars-perseverance-rover-replica-with-arduino/" class="reference-link" target="_blank">Documentación HowToMechatronics ↗</a>
+            </div>
+            <div class="spec-item">
+                <h4>Stack Tecnológico</h4>
+                <p>• Impresión 3D (PETG/ABS)<br>• C/C++ (Microcontroladores)<br>• ROS (Robot Operating System)<br>• Fusión Sensorial (IMU + Lidar)</p>
+            </div>
+
+            <a href="mailto:contacto@usachspace.cl?subject=Solicitud de Dossier Técnico - Rover" class="btn-contact">Solicitar Dossier Técnico</a>
+            
+            <a href="../proyectos.html" class="btn-back">Volver a Proyectos</a>
+        </div>
+
+    </section>
+
+    <section class="timeline-section">
+        <h2>Fases del Desarrollo Mecatrónico</h2>
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <div class="timeline-icon">01</div>
+                <div class="timeline-content">
+                    <h3>1. Estudio Cinemático Rocker-Bogie</h3>
+                    <p>Modelado geométrico preliminar y calibración de los ángulos del sistema de suspensión para sortear terrenos irregulares.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">02</div>
+                <div class="timeline-content">
+                    <h3>2. Prototipado del Chasis</h3>
+                    <p>Manufactura aditiva de eslabones y acoples de suspensión. Pruebas mecánicas de flexión y distribución de cargas.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">03</div>
+                <div class="timeline-content">
+                    <h3>3. Integración de Lidar y SLAM</h3>
+                    <p>Montaje de sensores láser y cámaras de profundidad. Calibración de la evasión de obstáculos en tiempo real.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">04</div>
+                <div class="timeline-content">
+                    <h3>4. Brazo Robótico (Manipulador)</h3>
+                    <p>Desarrollo de las articulaciones del manipulador con múltiples grados de libertad y control cinemático inverso.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item final-hito">
+                <div class="timeline-icon">★</div>
+                <div class="timeline-content">
+                    <h3>Integración mecatrónica HIL</h3>
+                    <p>Ejecución de simulaciones de operación complejas (Hardware in the Loop). Muestreos y movimientos autónomos en banco de pruebas.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="modalidad-section">
+        <h2>Subsistemas de la Plataforma</h2>
+        
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Módulo de Sensores LIDAR</h3>
+                <p>Implementación de mapeo láser 2D/3D (SLAM) para el reconocimiento del entorno, permitiendo la transición del control por radiofrecuencia a rutinas de navegación verdaderamente autónomas y evasión dinámica de obstáculos.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-20260607-WA0030.jpg');"></div>
+        </div>
+
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Gestión de Potencia (EPS)</h3>
+                <p>Diseño de mecanismos de despliegue para matrices de paneles solares a escala. Este sistema incluye la gestión de carga de bancos de baterías Li-ion y el monitoreo de telemetría de consumo en tiempo real.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-20260607-WA0039.jpg');"></div>
+        </div>
+
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Brazo Robótico Articulado</h3>
+                <p>Desarrollo mecatrónico de un manipulador espacial con múltiples grados de libertad (DOF), acoplado a la bahía delantera del chasis para operaciones de precisión en terreno.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-202611-WA0050.jpg');"></div>
+        </div>
+
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>End-Effectors Intercambiables</h3>
+                <p>Ingeniería de un sistema de acople rápido en el efector final del brazo robótico, permitiendo al rover cambiar de herramientas (pinzas de extracción, taladros de muestreo o cámaras de inspección) según los requerimientos de la misión.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-20260607-WA0030.jpg');"></div>
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <load src="src/components/footer.html" root="../../../" />
+
+</body>
+</html>

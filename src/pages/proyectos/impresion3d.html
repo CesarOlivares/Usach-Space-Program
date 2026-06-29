@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talleres de Capacitación - USACH Space Program</title>
+    
+    <link rel="icon" type="image/png" href="../../../src/assets/logo.png">
+    <link rel="stylesheet" href="../../../src/styles/main.css">
+
+    <style>
+        .eje-tag {
+            background-color: var(--nasa-blue);
+            color: var(--pure-white);
+            padding: 6px 16px;
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .tier-tag { 
+            background-color: transparent; 
+            border: 1px solid var(--border-highlight); 
+            color: var(--bone-white); 
+            padding: 6px 16px; 
+            font-family: var(--font-mono);
+            font-size: 0.75rem; 
+            font-weight: 500; 
+            border-radius: 20px; 
+            margin-bottom: 15px; 
+            letter-spacing: 1px; 
+            display: inline-block;
+        }
+        .inspiration-section { 
+            padding: 80px 10%; 
+            text-align: center; 
+            background: linear-gradient(var(--space-black), var(--space-dark)); 
+        }
+        .inspiration-container { max-width: 850px; margin: 0 auto; }
+        .inspiration-container h2 { 
+            font-family: var(--font-title);
+            font-size: 2.2rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 25px; 
+            color: var(--pure-white); 
+        }
+        .inspiration-container p { 
+            font-size: 1.25rem; 
+            line-height: 1.8; 
+            color: var(--bone-white); 
+            font-style: italic; 
+            font-weight: 300; 
+        }
+        .timeline-section { 
+            padding: 100px 10%; 
+            background-color: var(--space-black); 
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .timeline-section h2 { 
+            font-family: var(--font-title);
+            text-align: center; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            font-size: 2.5rem; 
+            margin-bottom: 60px; 
+            color: var(--pure-white); 
+        }
+        .modalidad-section { padding: 100px 10%; background-color: var(--space-dark); }
+        .modalidad-section h2 { 
+            font-family: var(--font-title);
+            text-align: center; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 70px; 
+            font-size: 2.5rem; 
+            color: var(--pure-white);
+        }
+        .mod-row { display: flex; align-items: center; gap: 50px; margin-bottom: 85px; }
+        .mod-row:nth-child(even) { flex-direction: row-reverse; }
+        .mod-text { flex: 1; }
+        .mod-text h3 { 
+            font-family: var(--font-title);
+            font-size: 1.8rem; 
+            color: var(--pure-white); 
+            text-transform: uppercase; 
+            margin-top: 0; 
+            letter-spacing: 1px;
+        }
+        .mod-text p { font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); }
+        .mod-image {
+            flex: 1; height: 350px; border-radius: 8px;
+            background-color: var(--space-card);
+            border: 1px solid var(--border-subtle); 
+            position: relative; 
+            overflow: hidden;
+            background-size: cover; 
+            background-position: center;
+        }
+        @media (max-width: 1024px) {
+            .mod-row, .mod-row:nth-child(even) { flex-direction: column; gap: 30px; }
+            .mod-image { width: 100%; height: 250px; }
+            .timeline-section, .modalidad-section { padding-left: 20px; padding-right: 20px; }
+        }
+    </style>
+</head>
+<body class="tech-grid">
+
+    <!-- Load Header component with backtracking root parameter -->
+    <load src="src/components/header.html" root="../../../" />
+
+    <section class="project-hero" style="background-image: url('../../../src/assets/gallery/pngwing.com (1).png');">
+        <div class="project-hero-content">
+            <span class="tech-star" style="top: -20px; left: -10px;">✦</span>
+            <span class="tech-star" style="top: 30px; right: -40px;">✦</span>
+            <div class="tier-tag">NIVEL 1: ONBOARDING</div>
+            <div class="eje-tag">Eje V: Formación Técnica</div>
+            <h1>Talleres de Capacitación USP</h1>
+            <p>Programa introductorio práctico para nivelación en impresión 3D, electrónica de soldadura y sistemas embebidos.</p>
+        </div>
+    </section>
+
+    <section class="inspiration-section">
+        <div class="inspiration-container" style="position: relative;">
+            <span class="tech-star" style="top: -10px; left: 5%;">✦</span>
+            <span class="tech-star" style="bottom: -10px; right: 5%;">✦</span>
+            <h2>Tu Primer Paso en el Espacio</h2>
+            <p>"No necesitas experiencia previa para ser un fabricante espacial: nosotros nos encargamos de enseñarte la ingeniería en el camino para que moldees tus propias ideas."</p>
+        </div>
+    </section>
+
+    <section class="project-container">
+        
+        <div class="main-content">
+            <h2>Contexto del Programa Formativo</h2>
+            <p>Los Talleres de Capacitación USP constituyen un programa de introductivo-práctico diseñado para aplicarse previo a un proyecto y pensados exclusivamente para mitigar la brecha de experiencia en los estudiantes que se integran a nuestra organización aeroespacial. Esta es la etapa formativa ideal para adquirir una base sólida antes de involucrarte de lleno en nuestros macroproyectos. ¡No necesitas experiencia previa, solo motivación!</p>
+            
+            <h2>Metodología "Aprender Haciendo"</h2>
+            <p>La ejecución es de manera complementaria a la par con las necesidades de desarrollo de las misiones institucionales activas (como el Rover Emblema o misiones CanSat). Lo que modeles, sueldes y programes, se acoplará y será de utilidad práctica inmediata en el hardware real de nuestras misiones.</p>
+
+            <h2>Objetivos del Programa</h2>
+            <ul>
+                <li><strong>Estandarizar el nivel:</strong> Proveerte las herramientas prácticas indispensables para participar con seguridad en los proyectos.</li>
+                <li><strong>Cultura de seguridad:</strong> Entender el uso correcto de herramientas de soldadura, corte e instrumentación de medida.</li>
+                <li><strong>Aporte inmediato:</strong> Generar un ciclo donde aportes activamente a proyectos reales de la universidad desde tu ingreso.</li>
+            </ul>
+        </div>
+
+        <div class="side-panel">
+            <div class="spec-item">
+                <h4>Flexibilidad Temporal</h4>
+                <p>Nuestra planificación es modular. Los talleres se activan de forma dinámica y síncrona según el avance y las necesidades de los macroproyectos vigentes.</p>
+            </div>
+           
+            <div class="spec-item">
+                <h4>Instructores Líderes</h4>
+                <p>Simón García-Huidobro (Diseño 3D), Daniel González (Electrónica) y César Olivares (Programación).</p>
+            </div>
+            
+            <a href="../proyectos.html" class="btn-back">Volver a Proyectos</a>
+        </div>
+
+    </section>
+
+    <section class="timeline-section">
+        <h2>Módulos del Ciclo de Capacitación</h2>
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <div class="timeline-icon">01</div>
+                <div class="timeline-content">
+                    <h3>1. Módulo I - Diseño e Impresión 3D</h3>
+                    <p>Aprenderás a transferir una idea desde tu cabeza a un modelo digital usando software CAD (Fusion 360) y a materializarlo en manufactura aditiva.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">02</div>
+                <div class="timeline-content">
+                    <h3>2. Módulo II - Soldadura y Electrónica</h3>
+                    <p>Te enseñaremos a leer diagramas esquemáticos, identificar componentes e implementar técnicas seguras de soldadura de estaño sobre PCBs.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">03</div>
+                <div class="timeline-content">
+                    <h3>3. Módulo III - Programación y Embebidos</h3>
+                    <p>Entrarás al mundo de la lógica de control. Configurarás microcontroladores en C/C++, leerás sensores y controlarás servomotores.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item final-hito">
+                <div class="timeline-icon">★</div>
+                <div class="timeline-content">
+                    <h3>Hito de Integración de Sistemas</h3>
+                    <p>Aplicación de las habilidades en prototipos reales de las divisiones de hardware activo del USP (como el Rover o el CanSat).</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="modalidad-section">
+        <h2>Detalle de los Módulos</h2>
+        
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Modelado Paramétrico CAD</h3>
+                <p>El primer paso del prototipado consiste en digitalizar las ideas. Te enseñaremos a manejar Fusion 360, proyectar ensambles, tolerancias para manufactura y configurar laminadores (slicers) para impresión 3D en materiales como PLA, PETG y ABS.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-20260607-WA0039.jpg');"></div>
+        </div>
+
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Soldadura y Circuitos Físicos</h3>
+                <p>La aviónica requiere conexiones eléctricas robustas. En este módulo aprenderás a soldar cables y chips con seguridad, usar multímetros para continuidad, identificar capacitores, resistencias e integrar placas a medida.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-20260607-WA0039.jpg');"></div>
+        </div>
+
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Lógica de Control y Sensores</h3>
+                <p>Darle inteligencia al sistema. Programaremos en C/C++ usando entornos de desarrollo integrados. Aprenderás a calibrar sensores de temperatura, presión, acelerómetros y a gobernar actuadores para telemetría espacial.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-202611-WA0050.jpg');"></div>
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <load src="src/components/footer.html" root="../../../" />
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+/* === DESIGN TOKENS === */
+:root {
+    /* Colors */
+    --space-black: #000000;
+    --space-black-rgb: 0, 0, 0;
+    --space-dark: #050507;
+    --space-dark-rgb: 5, 5, 7;
+    --space-card: #08080c;
+    --space-card-hover: #0d0d14;
+    
+    --bone-white: #f5f5f0;
+    --bone-white-rgb: 245, 245, 240;
+    --pure-white: #ffffff;
+    --text-muted: #8c8c94;
+    --text-dark: #4b4b50;
+    
+    /* Aerospace Accents */
+    --nasa-blue: #0b3d91;
+    --nasa-blue-glow: #1a5fff;
+    --nasa-red: #fc3d21;
+    --nasa-gold: #ffb703;
+    
+    --mars-rust: #c1440e;
+    --earth-blue: #2a6f97;
+    --moon-gray: #a2a2a2;
+    
+    /* Layout Tokens */
+    --border-subtle: rgba(245, 245, 240, 0.06);
+    --border-highlight: rgba(245, 245, 240, 0.15);
+    
+    /* Fonts */
+    --font-title: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}

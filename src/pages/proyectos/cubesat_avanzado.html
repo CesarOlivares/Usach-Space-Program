@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma CubeSat 3U - USACH Space Program</title>
+    
+    <link rel="icon" type="image/png" href="../../../src/assets/logo.png">
+    <link rel="stylesheet" href="../../../src/styles/main.css">
+    
+    <style>
+        .tier-badge { 
+            background-color: rgba(255, 183, 3, 0.1); 
+            color: var(--nasa-gold); 
+            padding: 6px 16px; 
+            font-size: 0.8rem; 
+            font-family: var(--font-mono);
+            font-weight: bold; 
+            border-radius: 20px; 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            border: 1px solid var(--nasa-gold); 
+            letter-spacing: 1px;
+        }
+        .inspiration-section { 
+            padding: 80px 10%; 
+            text-align: center; 
+            background: linear-gradient(var(--space-black), var(--space-dark)); 
+        }
+        .inspiration-container { max-width: 850px; margin: 0 auto; }
+        .inspiration-container h2 { 
+            font-family: var(--font-title);
+            font-size: 2.2rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 25px; 
+            color: var(--pure-white); 
+        }
+        .inspiration-container p { 
+            font-size: 1.25rem; 
+            line-height: 1.8; 
+            color: var(--bone-white); 
+            font-style: italic; 
+            font-weight: 300; 
+        }
+        .timeline-section { 
+            padding: 100px 10%; 
+            background-color: var(--space-black); 
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .timeline-section h2 { 
+            font-family: var(--font-title);
+            text-align: center; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            font-size: 2.5rem; 
+            margin-bottom: 60px; 
+            color: var(--pure-white); 
+        }
+        .modalidad-section { padding: 100px 10%; background-color: var(--space-dark); }
+        .modalidad-section h2 { 
+            font-family: var(--font-title);
+            text-align: center; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 70px; 
+            font-size: 2.5rem; 
+            color: var(--pure-white);
+        }
+        .mod-row { display: flex; align-items: center; gap: 50px; margin-bottom: 85px; }
+        .mod-row:nth-child(even) { flex-direction: row-reverse; }
+        .mod-text { flex: 1; }
+        .mod-text h3 { 
+            font-family: var(--font-title);
+            font-size: 1.8rem; 
+            color: var(--pure-white); 
+            text-transform: uppercase; 
+            margin-top: 0; 
+            letter-spacing: 1px;
+        }
+        .mod-text p { font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); }
+        .mod-image {
+            flex: 1; height: 350px; border-radius: 8px;
+            background-color: var(--space-card);
+            border: 1px solid var(--border-subtle); 
+            position: relative; 
+            overflow: hidden;
+            background-size: cover; 
+            background-position: center;
+        }
+        .reference-link { display: inline-block; color: var(--nasa-blue-glow); text-decoration: none; font-size: 0.9rem; word-break: break-all; margin-top: 5px; }
+        .reference-link:hover { text-decoration: underline; }
+
+        .btn-contact { 
+            display: block; 
+            text-align: center; 
+            background-color: var(--nasa-gold); 
+            color: var(--space-black); 
+            text-decoration: none; 
+            padding: 15px; 
+            border-radius: 4px; 
+            text-transform: uppercase; 
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: bold; 
+            margin-top: 20px; 
+            transition: var(--transition-smooth); 
+            letter-spacing: 1px;
+        }
+        .btn-contact:hover { 
+            background-color: var(--pure-white); 
+            color: var(--space-black);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+        @media (max-width: 1024px) {
+            .mod-row, .mod-row:nth-child(even) { flex-direction: column; gap: 30px; }
+            .mod-image { width: 100%; height: 250px; }
+            .timeline-section, .modalidad-section { padding-left: 20px; padding-right: 20px; }
+        }
+    </style>
+</head>
+<body class="tech-grid">
+
+    <!-- Load Header component -->
+    <load src="src/components/header.html" root="../../../" />
+
+    <section class="project-hero" style="background-image: url('../../../src/assets/gallery/pngwing.com (2).png');">
+        <div class="project-hero-content">
+            <span class="tech-star" style="top: -20px; left: -10px;">✦</span>
+            <span class="tech-star" style="top: 30px; right: -40px;">✦</span>
+            <span class="tier-badge">NIVEL 2: PLATAFORMA DE I+D (FLAGSHIP)</span>
+            <h1>Bus Satelital CubeSat 3U</h1>
+            <p>Ingeniería de sistemas aeroespaciales en volumen restringido orientada a la validación de aviónica, comunicaciones en banda S y control de actitud.</p>
+        </div>
+    </section>
+
+    <section class="inspiration-section">
+        <div class="inspiration-container" style="position: relative;">
+            <span class="tech-star" style="top: -10px; left: 5%;">✦</span>
+            <span class="tech-star" style="bottom: -10px; right: 5%;">✦</span>
+            <h2>El estándar de oro para validación orbital</h2>
+            <p>"El desarrollo de un satélite de este calibre exige la división del trabajo en módulos altamente especializados, siguiendo rigurosamente las normas internacionales para operar en órbitas terrestres bajas (LEO)."</p>
+        </div>
+    </section>
+
+    <section class="project-container">
+        
+        <div class="main-content">
+            <h2>Contexto y Marco Normativo</h2>
+            <p>El estándar CubeSat revolucionó el acceso al espacio al proporcionar especificaciones volumétricas y de masa claras (1U = 10x10x10 cm, aprox. 1.33 kg) compatibles con despliegues orbitales comerciales. Nuestro estandarte técnico institucional se acoge rigurosamente a la <strong>Especificación de Diseño CubeSat (CDS)</strong> redactada por Cal Poly y la Universidad de Stanford. Operar bajo este estándar asegura que nuestra plataforma de 3 Unidades (10x10x30 cm) cumpla con los requerimientos de la industria, garantizando viabilidad técnica para futuras misiones suborbitales u orbitales (LEO).</p>
+
+            <h2>Arquitectura del Bus Satelital</h2>
+            <p>El desarrollo de un satélite de este calibre exige la división del trabajo en módulos altamente especializados. Actualmente nos encontramos en la fase de FlatSat (prototipado de aviónica en mesa) desarrollando los subsistemas de potencia, aviónica y comunicaciones.</p>
+        </div>
+
+        <div class="side-panel">
+            <div class="spec-item">
+                <h4>Volumen de Diseño</h4>
+                <p>Clase 3U (100.0 x 100.0 x 340.5 mm). Estimación de masa &lt; 4.0 kg.</p>
+            </div>
+            <div class="spec-item">
+                <h4>Estándar de Referencia Oficial</h4>
+                <p>Nuestra ingeniería estructural respeta los márgenes del CubeSat Design Specification (Rev. 14):</p>
+                <a href="https://www.cubesat.org/cubesatinfo" class="reference-link" target="_blank">Documentación CubeSat.org ↗</a>
+            </div>
+            <div class="spec-item">
+                <h4>Fase de Proyecto</h4>
+                <p>Diseño de misión conceptual (Fase A) y prototipado temprano de placa base (FlatSat).</p>
+            </div>
+
+            <a href="mailto:contacto@usachspace.cl?subject=Solicitud de Dossier Técnico - CubeSat 3U" class="btn-contact">Solicitar Dossier Técnico</a>
+            
+            <a href="../proyectos.html" class="btn-back">Volver a Proyectos</a>
+        </div>
+
+    </section>
+
+    <section class="timeline-section">
+        <h2>Ciclo de Desarrollo Satelital</h2>
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <div class="timeline-icon">01</div>
+                <div class="timeline-content">
+                    <h3>1. Arquitectura de Misión y CDS</h3>
+                    <p>Fase de diseño conceptual e investigación de los requerimientos estructurales y funcionales del estándar 3U.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">02</div>
+                <div class="timeline-content">
+                    <h3>2. Prototipado FlatSat en Mesa</h3>
+                    <p>Integración en banco de pruebas de laboratorio de los primeros circuitos base y microcontroladores sin restricciones de espacio.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">03</div>
+                <div class="timeline-content">
+                    <h3>3. Integración de EPS y COMMS</h3>
+                    <p>Desarrollo de las tarjetas de potencia, administración máxima del punto de potencia (MPPT) y módulos transceptores de RF.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">04</div>
+                <div class="timeline-content">
+                    <h3>4. Control de Actitud (ADCS)</h3>
+                    <p>Pruebas dinámicas de sensores solares, magnetómetros, y programación de la estabilización mediante ruedas de reacción y bobinas magnéticas.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item final-hito">
+                <div class="timeline-icon">🛰️</div>
+                <div class="timeline-content">
+                    <h3>Integración Estructural y Enlace</h3>
+                    <p>Montaje final de todas las placas dentro de la estructura metálica 3U y pruebas de telemetría de largo alcance con estación terrena.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="modalidad-section">
+        <h2>Descripción de Subsistemas</h2>
+        
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Computador de A Bordo (OBC & C&DH)</h3>
+                <p>El cerebro del satélite. Implementación de una arquitectura tolerante a fallos basada en microcontroladores de grado industrial para la recolección, empaquetado de telemetría y ejecución de rutinas de seguridad ante anomalías térmicas o de voltaje.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-20260607-WA0039.jpg');"></div>
+        </div>
+
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Comunicaciones y Telemetría (COMMS)</h3>
+                <p>Establecimiento de un enlace bidireccional fiable. Diseño de antenas desplegables y transceptores para operar balizas UHF/VHF y transmisión de datos de carga útil mediante enlaces de mayor ancho de banda (Banda S).</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-20260607-WA0022.jpg');"></div>
+        </div>
+
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Subsistema de Potencia Eléctrica (EPS)</h3>
+                <p>La columna vertebral energética. Desarrollo de matrices solares montadas en el chasis y sistemas de gestión máxima del punto de potencia (MPPT) para alimentar eficientemente los componentes mientras se orbita en fases de eclipse.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-20260607-WA0039.jpg');"></div>
+        </div>
+
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Determinación y Control de Actitud (ADCS)</h3>
+                <p>El desafío mecánico en el vacío. Desarrollo de algoritmos de fusión sensorial (magnetómetros, giroscopios, sensores solares) y actuadores físicos (ruedas de reacción y magnetorquers) para orientar el satélite y apuntar antenas/cargas útiles con precisión.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-20260607-WA0030.jpg');"></div>
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <load src="src/components/footer.html" root="../../../" />
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<header>
+    <div class="nav-brand">USACH Space Program</div>
+    
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="{=$root}index.html">Inicio</a>
+        <a href="{=$root}src/pages/proyectos.html">Proyectos</a>
+        <a href="{=$root}src/pages/ejes.html">Ejes</a>
+        <a href="{=$root}src/pages/registro.html">Registrarse</a>
+        <a href="{=$root}login.html" class="btn-login">Iniciar Sesión</a>
+    </nav>
+</header>
+
+<script>
+    (function() {
+        const initMenu = () => {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            if (menuToggle && navLinks) {
+                // Remove class on init just in case
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                
+                // Toggle action
+                menuToggle.addEventListener('click', () => {
+                    menuToggle.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+                
+                // Close navigation when clicking a link
+                document.querySelectorAll('#navLinks a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
+        };
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMenu);
+        } else {
+            initMenu();
+        }
+    })();
+</script>
