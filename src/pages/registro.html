@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="../../assets/logo-B9DE3e4g.png">
 
     <style>
-        /* === CONTENEDOR DEL FORMULARIO === */
+        /* === REGISTRO LAYOUT === */
         .registro-section {
             padding: 140px 10% 80px; 
             min-height: 100vh;
@@ -19,79 +19,79 @@
             position: relative;
             box-sizing: border-box;
         }
-
         .registro-section::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(5px);
+            background: rgba(var(--space-black-rgb), 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
-
         .form-container {
-            background-color: var(--card-bg);
+            background-color: var(--space-card);
             padding: 50px;
             border-radius: 8px;
-            border-top: 4px solid var(--nasa-blue);
+            border: 1px solid var(--border-subtle);
             width: 100%;
             max-width: 600px;
             z-index: 1;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
             box-sizing: border-box;
+            position: relative;
         }
-
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--border-highlight), transparent);
+        }
         .form-header {
             text-align: center;
             margin-bottom: 40px;
         }
-
         .form-header h1 {
+            font-family: var(--font-title);
             margin: 0;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-size: 2.2rem;
+            color: var(--pure-white);
         }
-
         .form-header p {
+            font-family: var(--font-body);
             color: var(--text-muted);
             margin-top: 15px;
-            font-size: 1.05rem;
+            font-size: 1rem;
             line-height: 1.6;
         }
-
-        /* === ESTILOS DE LOS INPUTS Y SELECTORES === */
         .form-group {
             margin-bottom: 25px;
             display: flex;
             flex-direction: column;
         }
-
         .form-group label {
             margin-bottom: 8px;
-            font-weight: bold;
-            color: #ddd;
+            font-family: var(--font-mono);
+            font-weight: 500;
+            color: var(--bone-white);
             letter-spacing: 1px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
         }
-
-        /* Forzamos a que todos los elementos de entrada ocupen el 100% simétrico */
         .form-group input, .form-group select, .search-select-container input {
             width: 100% !important;
             box-sizing: border-box;
             padding: 12px 15px;
-            background-color: #222;
-            border: 1px solid #444;
+            background-color: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-subtle);
             border-radius: 4px;
-            color: white;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: border-color 0.3s;
+            color: var(--pure-white);
+            font-size: 0.95rem;
+            font-family: var(--font-body);
+            transition: var(--transition-smooth);
             appearance: none; 
             -webkit-appearance: none;
         }
-
-        /* Flecha personalizada para menús de selección puros */
         .form-group select {
             background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='white'><polygon points='0,0 10,0 5,5'/></svg>");
             background-repeat: no-repeat;
@@ -99,85 +99,83 @@
             padding-right: 40px;
             cursor: pointer;
         }
-
         .form-group input:focus, .form-group select:focus, .search-select-container input:focus {
             outline: none;
-            border-color: var(--nasa-blue);
-            background-color: #2a2a2a;
+            border-color: var(--border-highlight);
+            background-color: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 10px rgba(255,255,255,0.05);
         }
-
         .form-group .help-text {
             font-size: 0.8rem;
-            color: #777;
+            color: var(--text-dark);
             margin-top: 5px;
+            font-family: var(--font-body);
         }
-
-        /* Estilos específicos locales del mini-buscador incorporado */
         .search-select-container {
             position: relative;
             width: 100%;
         }
-        
         .options-dropdown {
             position: absolute;
             top: 100%; left: 0; width: 100%;
             max-height: 220px;
             overflow-y: auto;
-            background-color: #151515;
-            border: 1px solid #444;
+            background-color: var(--space-card);
+            border: 1px solid var(--border-subtle);
             border-radius: 0 0 4px 4px;
             z-index: 1000;
             display: none;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.8);
             box-sizing: border-box;
         }
-        
         .option-item {
             padding: 11px 15px;
             cursor: pointer;
-            color: #ccc;
-            font-size: 0.95rem;
-            transition: background-color 0.2s, color 0.2s;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
             text-align: left;
         }
-        
         .option-item:hover {
-            background-color: #0B3D91;
-            color: white;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--pure-white);
         }
-        
-        .options-dropdown::-webkit-scrollbar { width: 6px; }
-        .options-dropdown::-webkit-scrollbar-thumb { background-color: #0B3D91; border-radius: 3px; }
+        .options-dropdown::-webkit-scrollbar { width: 4px; }
+        .options-dropdown::-webkit-scrollbar-thumb { background-color: var(--border-highlight); border-radius: 2px; }
 
-        /* === BOTÓN DE ENVÍO === */
         .btn-submit {
             width: 100%;
             padding: 15px;
-            background-color: var(--nasa-blue);
-            color: white;
-            border: none;
+            background-color: transparent;
+            color: var(--bone-white);
+            border: 1px solid var(--border-highlight);
             border-radius: 4px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition-smooth);
             margin-top: 10px;
         }
-
-        .btn-submit:hover { background-color: #082d6b; }
+        .btn-submit:hover {
+            background-color: var(--bone-white);
+            color: var(--space-black);
+            border-color: var(--bone-white);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
         .btn-submit:active { transform: scale(0.98); }
 
         @media (max-width: 1024px) {
             .registro-section { padding: 100px 20px 40px; }
-            .form-container { padding: 30px 20px; }
+            .form-container { padding: 40px 25px; }
             .form-header h1 { font-size: 1.8rem; }
         }
     </style>
-  <link rel="stylesheet" crossorigin href="../../assets/main-DNb1Ix7c.css">
+  <link rel="stylesheet" crossorigin href="../../assets/main-DKgcS8Ox.css">
 </head>
-<body>
+<body class="tech-grid">
 
     <!-- Load Header component -->
     <header>
@@ -197,6 +195,39 @@
         <a href="../../login.html" class="btn-login">Iniciar Sesión</a>
     </nav>
 </header>
+
+<script>
+    (function() {
+        const initMenu = () => {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            if (menuToggle && navLinks) {
+                // Remove class on init just in case
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                
+                // Toggle action
+                menuToggle.addEventListener('click', () => {
+                    menuToggle.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+                
+                // Close navigation when clicking a link
+                document.querySelectorAll('#navLinks a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
+        };
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMenu);
+        } else {
+            initMenu();
+        }
+    })();
+</script>
 
 
     <section class="registro-section">
@@ -298,7 +329,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="proyecto_interes">¿En qué proyecto te interesaría participar y mantenerte?</label>
+                    <label for="proyecto_interes">¿En qué proyecto te interesaría participar?</label>
                     <select id="proyecto_interes" name="proyecto_interes" required>
                         <option value="" disabled selected>Selecciona el proyecto que más te motiva</option>
                         <option value="Proyecto Rover">Proyecto Rover (Eje I: Exploración Planetaria)</option>
@@ -310,29 +341,43 @@
                     <span class="help-text">Selecciona tu prioridad actual para asignarte al escuadrón correcto en el despliegue técnico.</span>
                 </div>
 
-                <button type="submit" class="btn-submit">Anotarse en la Lista de Espera</button>
+                <button type="submit" class="btn-submit">Anotarse en el Manifiesto de Vuelo</button>
             </form>
 
         </div>
     </section>
 
+    <!-- Load Dynamic Footer -->
+    <footer>
+    <div class="footer-grid">
+        <div class="footer-info">
+            <h3>USACH Space Program</h3>
+            <p>Iniciativa estudiantil interdisciplinaria dedicada al desarrollo científico y tecnológico en el sector aeroespacial.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../../src/pages/proyectos.html">Proyectos</a></li>
+                <li><a href="../../src/pages/ejes.html">Ejes</a></li>
+                <li><a href="../../src/pages/registro.html">Registrarse</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h4>Contacto</h4>
+            <p>Departamento de Ingeniería Mecánica / Eléctrica</p>
+            <p>Universidad de Santiago de Chile</p>
+            <p><a href="mailto:contacto@usachspace.cl">contacto@usachspace.cl</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
+        <p>Diseño y Tecnología con Fines Educativos</p>
+    </div>
+</footer>
+
+
     <script>
-        // Control de Menú Desplegable Adaptable
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-
         // Lógica del mini-buscador de carreras
         (function() {
             const inputCarrera = document.getElementById('carrera');
@@ -377,7 +422,8 @@
 
             const btn = document.querySelector('.btn-submit');
             const textoOriginal = btn.innerHTML;
-            btn.innerHTML = 'Registrando tripulante...';
+            btn.innerHTML = 'REGISTRANDO TRIPULANTE...';
+            btn.disabled = true;
 
             const nombre = document.getElementById('nombre').value;
             const carrera = document.getElementById('carrera').value;
@@ -398,15 +444,21 @@
                 },
                 body: formData.toString()
             }).then(() => {
-                btn.innerHTML = '¡Registro completado con éxito!';
-                btn.style.backgroundColor = '#2e7d32'; 
-                btn.disabled = true; 
+                btn.innerHTML = '¡MANIFIESTO COMPLETADO CON ÉXITO!';
+                btn.style.backgroundColor = '#1e4620'; 
+                btn.style.borderColor = '#2e7d32';
+                btn.style.color = '#ffffff';
                 
                 document.getElementById('reclutamientoForm').reset();
             }).catch((error) => {
                 console.error('Error en la transmisión:', error);
-                btn.innerHTML = 'Fallo de conexión. Intente de nuevo.';
-                setTimeout(() => btn.innerHTML = textoOriginal, 3000);
+                btn.innerHTML = 'FALLO DE CONEXIÓN. REINTENTANDO...';
+                btn.disabled = false;
+                setTimeout(() => {
+                    btn.innerHTML = textoOriginal;
+                    btn.style.backgroundColor = '';
+                    btn.style.borderColor = '';
+                }, 3000);
             });
         });
     </script>

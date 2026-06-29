@@ -6,119 +6,135 @@
     <title>Cohete de Agua - USACH Space Program</title>
     
     <link rel="icon" type="image/png" href="../../../assets/logo-B9DE3e4g.png">
-
+    
     <style>
-        /* === COHETE LOCAL LAYOUT === */
-        .project-hero {
-            height: 60vh;
-            background-color: #2a2a2a; /* Fondo gris oscuro neutro */
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 0 10% 50px;
-            margin-top: 60px;
-        }
-
-        .project-hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2), var(--dark-bg));
-        }
-
-        .hero-content {
-            z-index: 1;
-        }
-
         .eje-tag {
             background-color: var(--nasa-blue);
-            color: white;
-            padding: 5px 15px;
-            font-size: 0.9rem;
+            color: var(--pure-white);
+            padding: 6px 16px;
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
             font-weight: bold;
             text-transform: uppercase;
             border-radius: 4px;
             display: inline-block;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             letter-spacing: 1px;
         }
-
-        .project-hero h1 {
-            font-size: 4rem;
-            margin: 0 0 10px 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .tier-tag { 
+            background-color: transparent; 
+            border: 1px solid var(--border-highlight); 
+            color: var(--bone-white); 
+            padding: 6px 16px; 
+            font-family: var(--font-mono);
+            font-size: 0.75rem; 
+            font-weight: 500; 
+            border-radius: 20px; 
+            margin-bottom: 15px; 
+            letter-spacing: 1px; 
+            display: inline-block;
         }
-
-        .project-container {
-            padding: 50px 10%;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 50px;
+        .inspiration-section { 
+            padding: 80px 10%; 
+            text-align: center; 
+            background: linear-gradient(var(--space-black), var(--space-dark)); 
         }
-
-        .main-content h2 {
-            color: var(--nasa-blue);
-            text-transform: uppercase;
+        .inspiration-container { max-width: 850px; margin: 0 auto; }
+        .inspiration-container h2 { 
+            font-family: var(--font-title);
+            font-size: 2.2rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 25px; 
+            color: var(--pure-white); 
+        }
+        .inspiration-container p { 
+            font-size: 1.25rem; 
+            line-height: 1.8; 
+            color: var(--bone-white); 
+            font-style: italic; 
+            font-weight: 300; 
+        }
+        .timeline-section { 
+            padding: 100px 10%; 
+            background-color: var(--space-black); 
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .timeline-section h2 { 
+            font-family: var(--font-title);
+            text-align: center; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            font-size: 2.5rem; 
+            margin-bottom: 60px; 
+            color: var(--pure-white); 
+        }
+        .modalidad-section { padding: 100px 10%; background-color: var(--space-dark); }
+        .modalidad-section h2 { 
+            font-family: var(--font-title);
+            text-align: center; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 70px; 
+            font-size: 2.5rem; 
+            color: var(--pure-white);
+        }
+        .mod-row { display: flex; align-items: center; gap: 50px; margin-bottom: 85px; }
+        .mod-row:nth-child(even) { flex-direction: row-reverse; }
+        .mod-text { flex: 1; }
+        .mod-text h3 { 
+            font-family: var(--font-title);
+            font-size: 1.8rem; 
+            color: var(--pure-white); 
+            text-transform: uppercase; 
+            margin-top: 0; 
             letter-spacing: 1px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
-            margin-top: 40px;
         }
-
-        .main-content h2:first-child { margin-top: 0; }
-        .main-content p { color: #ccc; font-size: 1.1rem; }
-        .main-content ul { color: #ccc; font-size: 1.1rem; padding-left: 20px; }
-        .main-content li { margin-bottom: 10px; }
-
-        .side-panel {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 8px;
-            border: 1px solid #222;
-            height: fit-content;
+        .mod-text p { font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); }
+        .mod-image {
+            flex: 1; height: 350px; border-radius: 8px;
+            background-color: var(--space-card);
+            border: 1px solid var(--border-subtle); 
+            position: relative; 
+            overflow: hidden;
+            background-size: cover; 
+            background-position: center;
         }
-
-        .spec-item { margin-bottom: 25px; }
-        .spec-item h4 {
-            margin: 0 0 5px 0;
-            color: var(--nasa-blue);
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
-        .spec-item p { margin: 0; color: #ddd; font-size: 1rem; }
-
-        .btn-back {
-            display: block;
-            text-align: center;
-            background-color: transparent;
-            border: 1px solid var(--text-main);
-            color: var(--text-main);
-            text-decoration: none;
-            padding: 12px;
+        .cta-container { text-align: center; padding: 60px 0 100px; background-color: var(--space-dark); }
+        .btn-join-mission {
+            display: inline-block; 
+            background-color: transparent; 
+            color: var(--bone-white);
+            border: 1px solid var(--border-highlight);
+            text-decoration: none; 
+            padding: 16px 45px; 
+            font-family: var(--font-mono);
+            font-size: 0.95rem; 
+            font-weight: 600;
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
             border-radius: 4px;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-top: 30px;
-            transition: all 0.3s;
+            transition: var(--transition-smooth);
         }
-
-        .btn-back:hover {
-            background-color: var(--text-main);
-            color: var(--dark-bg);
+        .btn-join-mission:hover { 
+            background-color: var(--bone-white); 
+            color: var(--space-black);
+            border-color: var(--bone-white);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.25); 
+            transform: translateY(-2px); 
         }
-        
-        @media (max-width: 900px) {
-            .project-container { grid-template-columns: 1fr; }
+        @media (max-width: 1024px) {
+            .mod-row, .mod-row:nth-child(even) { flex-direction: column; gap: 30px; }
+            .mod-image { width: 100%; height: 250px; }
+            .timeline-section, .modalidad-section { padding-left: 20px; padding-right: 20px; }
         }
     </style>
-  <link rel="stylesheet" crossorigin href="../../../assets/main-DNb1Ix7c.css">
+  <link rel="stylesheet" crossorigin href="../../../assets/main-DKgcS8Ox.css">
 </head>
-<body>
+<body class="tech-grid">
 
-    <!-- Load Header component with backtracking root parameter -->
+    <!-- Load Header component -->
     <header>
     <div class="nav-brand">USACH Space Program</div>
     
@@ -137,11 +153,57 @@
     </nav>
 </header>
 
+<script>
+    (function() {
+        const initMenu = () => {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            if (menuToggle && navLinks) {
+                // Remove class on init just in case
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                
+                // Toggle action
+                menuToggle.addEventListener('click', () => {
+                    menuToggle.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+                
+                // Close navigation when clicking a link
+                document.querySelectorAll('#navLinks a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
+        };
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMenu);
+        } else {
+            initMenu();
+        }
+    })();
+</script>
 
-    <section class="project-hero">
-        <div class="hero-content">
+
+    <section class="project-hero" style="background-image: url('../../../assets/pngwing.com-BBJbivOw.png');">
+        <div class="project-hero-content">
+            <span class="tech-star" style="top: -20px; left: -10px;">✦</span>
+            <span class="tech-star" style="top: 30px; right: -40px;">✦</span>
+            <div class="tier-tag">NIVEL 1: ONBOARDING</div>
             <div class="eje-tag">Eje III: Cohetería de Sondeo</div>
-            <h1>Cohete a Propulsión por Agua</h1>
+            <h1>Cohete de Agua</h1>
+            <p>Vehículo aeroespacial de introducción impulsado por la liberación a presión de una mezcla de aire comprimido y agua.</p>
+        </div>
+    </section>
+
+    <section class="inspiration-section">
+        <div class="inspiration-container" style="position: relative;">
+            <span class="tech-star" style="top: -10px; left: 5%;">✦</span>
+            <span class="tech-star" style="bottom: -10px; right: 5%;">✦</span>
+            <h2>El primer paso hacia las estrellas</h2>
+            <p>"La cohetería experimental no es solo física en movimiento; es la transformación de la teoría neumática y la estabilidad aerodinámica en el primer vuelo controlado de tu vida estudiantil."</p>
         </div>
     </section>
 
@@ -165,16 +227,6 @@
                 <li><strong>Lastre:</strong> Arcilla, plastilina o tuercas metálicas para ajustar el Centro de Gravedad en la ojiva.</li>
                 <li><strong>Recuperación:</strong> Bolsas de basura resistentes o tela de nylon, e hilo de volantín o paracord delgado.</li>
             </ul>
-
-            <h2>Dificultades Técnicas Previstas</h2>
-            <ul>
-                <li><strong>Estabilidad aerodinámica:</strong> Lograr que el cohete vuele en línea recta sin dar volteretas, lo cual requiere un cálculo preciso de aletas y lastre.</li>
-                <li><strong>Integridad estructural:</strong> Garantizar un sellado hermético en las uniones que soporte presiones de entre 60 y 80 PSI sin sufrir despresurización prematura.</li>
-                <li><strong>Despliegue del paracaídas:</strong> Diseñar un mecanismo pasivo (como la separación por gravedad o fricción aerodinámica) que libere el paracaídas en el apogeo.</li>
-            </ul>
-
-            <h2>Presentación: Competencia de Lanzamiento</h2>
-            <p>Se realizará una jornada al aire libre (cancha o estadio) donde los equipos someterán sus cohetes a vuelo. Se evaluarán dos métricas principales: el apogeo estimado (mayor altura alcanzada) y el Time of Flight (Tiempo de Vuelo), esta última métrica validará indirectamente el correcto despliegue del paracaídas.</p>
         </div>
 
         <div class="side-panel">
@@ -199,6 +251,115 @@
         </div>
 
     </section>
+
+    <section class="timeline-section">
+        <h2>Ciclo de Lanzamiento de Cohetes</h2>
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <div class="timeline-icon">01</div>
+                <div class="timeline-content">
+                    <h3>1. Diseño de Fuselaje y Ojiva</h3>
+                    <p>Fase inicial donde los equipos seleccionan las botellas PET adecuadas y configuran la ojiva para minimizar el arrastre aerodinámico.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">02</div>
+                <div class="timeline-content">
+                    <h3>2. Cálculo Aerodinámico</h3>
+                    <p>Determinación del Centro de Presión (CP) y Centro de Gravedad (CG). Se añade lastre y se diseñan las aletas estabilizadoras en CAD.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">03</div>
+                <div class="timeline-content">
+                    <h3>3. Manufactura del Tanque</h3>
+                    <p>Integración y sellado hermético de los tanques de presión PET. Pruebas hidráulicas para verificar que soporte presiones de hasta 80 PSI.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">04</div>
+                <div class="timeline-content">
+                    <h3>4. Sistema de Recuperación</h3>
+                    <p>Diseño y empaquetado del paracaídas. Implementación de mecanismos de liberación pasivos que actúan en el apogeo del vuelo.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item final-hito">
+                <div class="timeline-icon">🚀</div>
+                <div class="timeline-content">
+                    <h3>Competencia y Lanzamiento</h3>
+                    <p>Lanzamiento balístico en campo abierto. Se mide el apogeo estimado (altura máxima) y el tiempo total de vuelo para evaluar la eficiencia.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="modalidad-section">
+        <h2>Dificultades Técnicas Previstas</h2>
+        
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Estabilidad Aerodinámica</h3>
+                <p>Lograr que el cohete vuele en línea recta sin dar volteretas, lo cual requiere un cálculo preciso de la distancia entre el Centro de Presión y el Centro de Gravedad mediante el tamaño de las aletas y el lastre delantero.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../assets/marte-DJOh1vAi.png'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+        </div>
+
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Integridad Estructural</h3>
+                <p>Garantizar un sellado hermético en las uniones que soporte presiones de entre 60 y 80 PSI sin sufrir despresurización prematura. La cohesión estructural evita fallas mecánicas catastróficas en la rampa de lanzamiento.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../assets/IMG-20260607-WA0039-DYQQ2NnM.jpg');"></div>
+        </div>
+
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Despliegue del Paracaídas</h3>
+                <p>Diseñar un mecanismo pasivo (como la separación por gravedad o fricción aerodinámica) que libere el paracaídas en el apogeo, asegurando una recuperación suave del fuselaje sin dañar la estructura para futuros lanzamientos.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../assets/IMG-20260605-WA0073-DMIh01A4.jpg');"></div>
+        </div>
+    </section>
+
+    <div class="cta-container">
+        <a href="../registro.html" class="btn-join-mission">Anotarse en la Lista de Espera</a>
+    </div>
+
+    <!-- Global Footer -->
+    <footer>
+    <div class="footer-grid">
+        <div class="footer-info">
+            <h3>USACH Space Program</h3>
+            <p>Iniciativa estudiantil interdisciplinaria dedicada al desarrollo científico y tecnológico en el sector aeroespacial.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="../../../index.html">Inicio</a></li>
+                <li><a href="../../../src/pages/proyectos.html">Proyectos</a></li>
+                <li><a href="../../../src/pages/ejes.html">Ejes</a></li>
+                <li><a href="../../../src/pages/registro.html">Registrarse</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h4>Contacto</h4>
+            <p>Departamento de Ingeniería Mecánica / Eléctrica</p>
+            <p>Universidad de Santiago de Chile</p>
+            <p><a href="mailto:contacto@usachspace.cl">contacto@usachspace.cl</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
+        <p>Diseño y Tecnología con Fines Educativos</p>
+    </div>
+</footer>
+
 
 </body>
 </html>

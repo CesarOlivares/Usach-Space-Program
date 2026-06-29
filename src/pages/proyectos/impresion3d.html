@@ -8,117 +8,108 @@
     <link rel="icon" type="image/png" href="../../../assets/logo-B9DE3e4g.png">
 
     <style>
-        /* === IMPRESION 3D LOCAL LAYOUT === */
-        .project-hero {
-            height: 60vh;
-            background: linear-gradient(to bottom, #051630, var(--dark-bg));
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 0 10% 50px;
-            margin-top: 60px;
-        }
-
-        .project-hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1), var(--dark-bg));
-        }
-
-        .hero-content {
-            z-index: 1;
-        }
-
         .eje-tag {
             background-color: var(--nasa-blue);
-            color: white;
-            padding: 5px 15px;
-            font-size: 0.9rem;
+            color: var(--pure-white);
+            padding: 6px 16px;
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
             font-weight: bold;
             text-transform: uppercase;
             border-radius: 4px;
             display: inline-block;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             letter-spacing: 1px;
         }
-
-        .project-hero h1 {
-            font-size: 4rem;
-            margin: 0 0 10px 0;
-            text-transform: uppercase;
-            line-height: 1.1;
-            letter-spacing: 2px;
+        .tier-tag { 
+            background-color: transparent; 
+            border: 1px solid var(--border-highlight); 
+            color: var(--bone-white); 
+            padding: 6px 16px; 
+            font-family: var(--font-mono);
+            font-size: 0.75rem; 
+            font-weight: 500; 
+            border-radius: 20px; 
+            margin-bottom: 15px; 
+            letter-spacing: 1px; 
+            display: inline-block;
         }
-
-        .project-container {
-            padding: 50px 10%;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 50px;
+        .inspiration-section { 
+            padding: 80px 10%; 
+            text-align: center; 
+            background: linear-gradient(var(--space-black), var(--space-dark)); 
         }
-
-        .main-content h2 {
-            color: var(--nasa-blue);
-            text-transform: uppercase;
+        .inspiration-container { max-width: 850px; margin: 0 auto; }
+        .inspiration-container h2 { 
+            font-family: var(--font-title);
+            font-size: 2.2rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 25px; 
+            color: var(--pure-white); 
+        }
+        .inspiration-container p { 
+            font-size: 1.25rem; 
+            line-height: 1.8; 
+            color: var(--bone-white); 
+            font-style: italic; 
+            font-weight: 300; 
+        }
+        .timeline-section { 
+            padding: 100px 10%; 
+            background-color: var(--space-black); 
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .timeline-section h2 { 
+            font-family: var(--font-title);
+            text-align: center; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            font-size: 2.5rem; 
+            margin-bottom: 60px; 
+            color: var(--pure-white); 
+        }
+        .modalidad-section { padding: 100px 10%; background-color: var(--space-dark); }
+        .modalidad-section h2 { 
+            font-family: var(--font-title);
+            text-align: center; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 70px; 
+            font-size: 2.5rem; 
+            color: var(--pure-white);
+        }
+        .mod-row { display: flex; align-items: center; gap: 50px; margin-bottom: 85px; }
+        .mod-row:nth-child(even) { flex-direction: row-reverse; }
+        .mod-text { flex: 1; }
+        .mod-text h3 { 
+            font-family: var(--font-title);
+            font-size: 1.8rem; 
+            color: var(--pure-white); 
+            text-transform: uppercase; 
+            margin-top: 0; 
             letter-spacing: 1px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
-            margin-top: 40px;
         }
-
-        .main-content h2:first-child { margin-top: 0; }
-        .main-content p { color: #ccc; font-size: 1.1rem; line-height: 1.6; }
-        .main-content ul { color: #ccc; font-size: 1.1rem; padding-left: 20px; line-height: 1.6; }
-        .main-content li { margin-bottom: 15px; }
-
-        .side-panel {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 8px;
-            border: 1px solid #222;
-            height: fit-content;
+        .mod-text p { font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); }
+        .mod-image {
+            flex: 1; height: 350px; border-radius: 8px;
+            background-color: var(--space-card);
+            border: 1px solid var(--border-subtle); 
+            position: relative; 
+            overflow: hidden;
+            background-size: cover; 
+            background-position: center;
         }
-
-        .spec-item { margin-bottom: 25px; }
-        .spec-item h4 {
-            margin: 0 0 5px 0;
-            color: var(--nasa-blue);
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
-        .spec-item p { margin: 0; color: #ddd; font-size: 1rem; line-height: 1.5; }
-
-        .btn-back {
-            display: block;
-            text-align: center;
-            background-color: transparent;
-            border: 1px solid var(--text-main);
-            color: var(--text-main);
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-top: 30px;
-            transition: all 0.3s;
-        }
-
-        .btn-back:hover {
-            background-color: var(--text-main);
-            color: var(--dark-bg);
-        }
-        
-        @media (max-width: 900px) {
-            .project-container { grid-template-columns: 1fr; }
-            .project-hero h1 { font-size: 3rem; }
+        @media (max-width: 1024px) {
+            .mod-row, .mod-row:nth-child(even) { flex-direction: column; gap: 30px; }
+            .mod-image { width: 100%; height: 250px; }
+            .timeline-section, .modalidad-section { padding-left: 20px; padding-right: 20px; }
         }
     </style>
-  <link rel="stylesheet" crossorigin href="../../../assets/main-DNb1Ix7c.css">
+  <link rel="stylesheet" crossorigin href="../../../assets/main-DKgcS8Ox.css">
 </head>
-<body>
+<body class="tech-grid">
 
     <!-- Load Header component with backtracking root parameter -->
     <header>
@@ -139,28 +130,66 @@
     </nav>
 </header>
 
+<script>
+    (function() {
+        const initMenu = () => {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            if (menuToggle && navLinks) {
+                // Remove class on init just in case
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                
+                // Toggle action
+                menuToggle.addEventListener('click', () => {
+                    menuToggle.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+                
+                // Close navigation when clicking a link
+                document.querySelectorAll('#navLinks a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
+        };
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMenu);
+        } else {
+            initMenu();
+        }
+    })();
+</script>
 
-    <section class="project-hero">
-        <div class="hero-content">
+
+    <section class="project-hero" style="background-image: url('../../../assets/pngwing.com%20(1)-D6H3HI-M.png');">
+        <div class="project-hero-content">
+            <span class="tech-star" style="top: -20px; left: -10px;">✦</span>
+            <span class="tech-star" style="top: 30px; right: -40px;">✦</span>
+            <div class="tier-tag">NIVEL 1: ONBOARDING</div>
             <div class="eje-tag">Eje V: Formación Técnica</div>
             <h1>Talleres de Capacitación USP</h1>
+            <p>Programa introductorio práctico para nivelación en impresión 3D, electrónica de soldadura y sistemas embebidos.</p>
+        </div>
+    </section>
+
+    <section class="inspiration-section">
+        <div class="inspiration-container" style="position: relative;">
+            <span class="tech-star" style="top: -10px; left: 5%;">✦</span>
+            <span class="tech-star" style="bottom: -10px; right: 5%;">✦</span>
+            <h2>Tu Primer Paso en el Espacio</h2>
+            <p>"No necesitas experiencia previa para ser un fabricante espacial: nosotros nos encargamos de enseñarte la ingeniería en el camino para que moldees tus propias ideas."</p>
         </div>
     </section>
 
     <section class="project-container">
         
         <div class="main-content">
-            <h2>Tu Primer Paso en el Espacio</h2>
+            <h2>Contexto del Programa Formativo</h2>
             <p>Los Talleres de Capacitación USP constituyen un programa de introductivo-práctico diseñado para aplicarse previo a un proyecto y pensados exclusivamente para mitigar la brecha de experiencia en los estudiantes que se integran a nuestra organización aeroespacial. Esta es la etapa formativa ideal para adquirir una base sólida antes de involucrarte de lleno en nuestros macroproyectos. ¡No necesitas experiencia previa, solo motivación!</p>
             
-            <h2>¿Qué módulos aprenderás?</h2>
-            <p>El programa se divide en tres bloques técnicos independientes que te darán las herramientas necesarias para construir misiones reales:</p>
-            <ul>
-                <li><strong>Módulo I - Diseño e Impresión 3D:</strong> Aprenderás a transferir una idea desde tu cabeza a un modelo digital usando software CAD (Fusion 360) y a materializarlo diseñando piezas orientadas a la manufactura aditiva.</li>
-                <li><strong>Módulo II - Soldadura y Electrónica:</strong> Te enseñaremos a leer diagramas esquemáticos, identificar componentes e implementar técnicas seguras de soldadura de estaño sobre placas perforadas y PCB.</li>
-                <li><strong>Módulo III - Programación y Sistemas Embebidos:</strong> Entrarás al mundo de la lógica de control. Configurarás microcontroladores en C/C++, aprenderás a mover servomotores y a adquirir datos de sensores.</li>
-            </ul>
-
             <h2>Metodología "Aprender Haciendo"</h2>
             <p>La ejecución es de manera complementaria a la par con las necesidades de desarrollo de las misiones institucionales activas (como el Rover Emblema o misiones CanSat). Lo que modeles, sueldes y programes, se acoplará y será de utilidad práctica inmediata en el hardware real de nuestras misiones.</p>
 
@@ -179,15 +208,111 @@
             </div>
            
             <div class="spec-item">
-                <h4>Instructores Lideres</h4>
+                <h4>Instructores Líderes</h4>
                 <p>Simón García-Huidobro (Diseño 3D), Daniel González (Electrónica) y César Olivares (Programación).</p>
             </div>
             
-
             <a href="../proyectos.html" class="btn-back">Volver a Proyectos</a>
         </div>
 
     </section>
+
+    <section class="timeline-section">
+        <h2>Módulos del Ciclo de Capacitación</h2>
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <div class="timeline-icon">01</div>
+                <div class="timeline-content">
+                    <h3>1. Módulo I - Diseño e Impresión 3D</h3>
+                    <p>Aprenderás a transferir una idea desde tu cabeza a un modelo digital usando software CAD (Fusion 360) y a materializarlo en manufactura aditiva.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">02</div>
+                <div class="timeline-content">
+                    <h3>2. Módulo II - Soldadura y Electrónica</h3>
+                    <p>Te enseñaremos a leer diagramas esquemáticos, identificar componentes e implementar técnicas seguras de soldadura de estaño sobre PCBs.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">03</div>
+                <div class="timeline-content">
+                    <h3>3. Módulo III - Programación y Embebidos</h3>
+                    <p>Entrarás al mundo de la lógica de control. Configurarás microcontroladores en C/C++, leerás sensores y controlarás servomotores.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item final-hito">
+                <div class="timeline-icon">★</div>
+                <div class="timeline-content">
+                    <h3>Hito de Integración de Sistemas</h3>
+                    <p>Aplicación de las habilidades en prototipos reales de las divisiones de hardware activo del USP (como el Rover o el CanSat).</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="modalidad-section">
+        <h2>Detalle de los Módulos</h2>
+        
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Modelado Paramétrico CAD</h3>
+                <p>El primer paso del prototipado consiste en digitalizar las ideas. Te enseñaremos a manejar Fusion 360, proyectar ensambles, tolerancias para manufactura y configurar laminadores (slicers) para impresión 3D en materiales como PLA, PETG y ABS.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../assets/IMG-20260607-WA0039-DYQQ2NnM.jpg');"></div>
+        </div>
+
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Soldadura y Circuitos Físicos</h3>
+                <p>La aviónica requiere conexiones eléctricas robustas. En este módulo aprenderás a soldar cables y chips con seguridad, usar multímetros para continuidad, identificar capacitores, resistencias e integrar placas a medida.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../assets/IMG-20260607-WA0039-DYQQ2NnM.jpg');"></div>
+        </div>
+
+        <div class="mod-row">
+            <div class="mod-text">
+                <h3>Lógica de Control y Sensores</h3>
+                <p>Darle inteligencia al sistema. Programaremos en C/C++ usando entornos de desarrollo integrados. Aprenderás a calibrar sensores de temperatura, presión, acelerómetros y a gobernar actuadores para telemetría espacial.</p>
+            </div>
+            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-202611-WA0050.jpg');"></div>
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <footer>
+    <div class="footer-grid">
+        <div class="footer-info">
+            <h3>USACH Space Program</h3>
+            <p>Iniciativa estudiantil interdisciplinaria dedicada al desarrollo científico y tecnológico en el sector aeroespacial.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="../../../index.html">Inicio</a></li>
+                <li><a href="../../../src/pages/proyectos.html">Proyectos</a></li>
+                <li><a href="../../../src/pages/ejes.html">Ejes</a></li>
+                <li><a href="../../../src/pages/registro.html">Registrarse</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h4>Contacto</h4>
+            <p>Departamento de Ingeniería Mecánica / Eléctrica</p>
+            <p>Universidad de Santiago de Chile</p>
+            <p><a href="mailto:contacto@usachspace.cl">contacto@usachspace.cl</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
+        <p>Diseño y Tecnología con Fines Educativos</p>
+    </div>
+</footer>
+
 
 </body>
 </html>

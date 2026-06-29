@@ -8,60 +8,82 @@
     <link rel="icon" type="image/png" href="./assets/logo-B9DE3e4g.png">
     
     <style>
+        /* === LOGIN LAYOUT === */
         .login-section {
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #050510, #0a0a20);
+            background: linear-gradient(135deg, #020204, #08080f);
             position: relative;
+            box-sizing: border-box;
+            padding: 20px;
         }
-
         .login-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-top: 4px solid var(--nasa-blue);
+            background-color: var(--space-card);
+            border: 1px solid var(--border-subtle);
             padding: 50px;
             border-radius: 8px;
             text-align: center;
             max-width: 450px;
-            width: 90%;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            width: 100%;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
             z-index: 10;
+            position: relative;
         }
-
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--nasa-red), transparent);
+        }
         .login-card h2 {
+            font-family: var(--font-title);
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 0;
-            color: var(--text-main);
+            color: var(--pure-white);
+            font-size: 1.8rem;
         }
-
         .login-card p {
+            font-family: var(--font-body);
             color: var(--text-muted);
             line-height: 1.6;
             font-size: 0.95rem;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
-
         .btn-portal {
             display: inline-block;
-            background-color: var(--nasa-blue);
-            color: #fff;
-            padding: 12px 30px;
-            font-weight: bold;
+            background-color: transparent;
+            border: 1px solid var(--border-highlight);
+            color: var(--bone-white);
+            padding: 14px 35px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
             text-decoration: none;
             text-transform: uppercase;
             border-radius: 4px;
-            letter-spacing: 1px;
-            transition: background-color 0.3s;
+            letter-spacing: 1.5px;
+            transition: var(--transition-smooth);
+            width: 100%;
+            box-sizing: border-box;
         }
-        .btn-portal:hover { background-color: var(--nasa-blue-glow); }
+        .btn-portal:hover {
+            background-color: var(--bone-white);
+            color: var(--space-black);
+            border-color: var(--bone-white);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+        @media (max-width: 768px) {
+            .login-card { padding: 40px 25px; }
+        }
     </style>
-  <link rel="stylesheet" crossorigin href="./assets/main-DNb1Ix7c.css">
+  <link rel="stylesheet" crossorigin href="./assets/main-DKgcS8Ox.css">
 </head>
-<body>
+<body class="tech-grid">
 
+    <!-- Load Header component -->
     <header>
     <div class="nav-brand">USACH Space Program</div>
     
@@ -80,10 +102,43 @@
     </nav>
 </header>
 
+<script>
+    (function() {
+        const initMenu = () => {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            if (menuToggle && navLinks) {
+                // Remove class on init just in case
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                
+                // Toggle action
+                menuToggle.addEventListener('click', () => {
+                    menuToggle.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+                
+                // Close navigation when clicking a link
+                document.querySelectorAll('#navLinks a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
+        };
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMenu);
+        } else {
+            initMenu();
+        }
+    })();
+</script>
+
 
     <section class="login-section">
         <div class="login-card">
-            <h2>Acceso Denegado</h2>
+            <h2 style="color: var(--nasa-red); text-shadow: 0 0 10px rgba(252,61,33,0.15);">Acceso Denegado</h2>
             <p>El portal de operaciones de vuelo y acceso al manifiesto de tripulantes de Usach Space Program se encuentra restringido a directores autorizados y personal técnico de control de misión.</p>
             <a href="index.html" class="btn-portal">Volver al Inicio</a>
         </div>
@@ -91,18 +146,33 @@
 
     <!-- Global Footer -->
     <footer>
-    <div class="nav-brand">USACH Space Program</div>
-    <p>Impulsando la ciencia y la tecnología aeroespacial desde la USACH.</p>
+    <div class="footer-grid">
+        <div class="footer-info">
+            <h3>USACH Space Program</h3>
+            <p>Iniciativa estudiantil interdisciplinaria dedicada al desarrollo científico y tecnológico en el sector aeroespacial.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./src/pages/proyectos.html">Proyectos</a></li>
+                <li><a href="./src/pages/ejes.html">Ejes</a></li>
+                <li><a href="./src/pages/registro.html">Registrarse</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h4>Contacto</h4>
+            <p>Departamento de Ingeniería Mecánica / Eléctrica</p>
+            <p>Universidad de Santiago de Chile</p>
+            <p><a href="mailto:contacto@usachspace.cl">contacto@usachspace.cl</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
+        <p>Diseño y Tecnología con Fines Educativos</p>
+    </div>
 </footer>
 
 
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        menuToggle.addEventListener('click', () => { 
-            menuToggle.classList.toggle('active'); 
-            navLinks.classList.toggle('active'); 
-        });
-    </script>
 </body>
 </html>

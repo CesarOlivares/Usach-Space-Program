@@ -8,160 +8,154 @@
     <link rel="icon" type="image/png" href="../../assets/logo-B9DE3e4g.png">
     
     <style>
-        /* En escritorio ocultamos el scroll vertical para forzar la experiencia de juego */
+        /* === CONFIGURACIÓN DEL SLIDER HORIZONTAL === */
         @media (min-width: 1025px) {
             body, html {
                 overflow-y: hidden;
             }
         }
-
-        /* === CONFIGURACIÓN DEL SLIDER HORIZONTAL (ESCRITORIO) === */
         .projects-slider {
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             height: 100vh;
             align-items: center;
-            padding: 0 10vw;
-            gap: 10vw;
+            padding: 0 8vw;
+            gap: 5vw;
             box-sizing: border-box;
-            scrollbar-width: none; /* Oculta barra en Firefox */
+            scrollbar-width: none; /* Firefox */
         }
-        
         .projects-slider::-webkit-scrollbar {
-            display: none; /* Oculta barra en Chrome/Edge/Safari */
+            display: none; /* Chrome/Edge/Safari */
         }
-
-        .project-card {
+        .slider-card {
             scroll-snap-align: center;
-            flex: 0 0 80vw;
-            height: 70vh;
-            background-color: var(--card-bg);
+            flex: 0 0 75vw;
+            height: 65vh;
+            background-color: var(--space-card);
             border-radius: 12px;
-            border: 1px solid #333;
+            border: 1px solid var(--border-subtle);
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
             margin-top: 50px;
+            transition: var(--transition-smooth);
         }
-
-        .project-image {
+        .slider-card:hover {
+            border-color: var(--border-highlight);
+            box-shadow: 0 25px 60px rgba(255,255,255,0.02);
+        }
+        .slider-image {
             height: 50%;
-            background-size: cover;
+            background-size: contain;
+            background-repeat: no-repeat;
             background-position: center;
             position: relative;
+            margin-top: 30px;
         }
-
-        .project-image::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; width: 100%; height: 50%;
-            background: linear-gradient(to bottom, transparent, var(--card-bg));
+        .slider-image::after {
+            display: none;
         }
-
-        .project-info {
+        .slider-info {
             height: 50%;
-            padding: 30px 50px;
+            padding: 40px 50px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             box-sizing: border-box;
         }
-
-        .project-info h2 {
-            font-size: 2.5rem;
+        .slider-info h2 {
+            font-family: var(--font-title);
+            font-size: 2.4rem;
             margin: 5px 0 10px 0;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--text-main);
+            letter-spacing: 2px;
+            color: var(--pure-white);
         }
-
-        .project-info .eje-tag {
+        .slider-info .eje-tag {
+            font-family: var(--font-mono);
             color: var(--nasa-blue-glow);
-            font-weight: bold;
-            letter-spacing: 1px;
-            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
             display: inline-block;
         }
-
-        .project-info p {
-            font-size: 1.1rem;
-            line-height: 1.6;
+        .slider-info p {
+            font-size: 1.05rem;
+            line-height: 1.7;
             color: var(--text-muted);
             margin: 0;
         }
-
         .btn-details {
             align-self: flex-start;
-            background-color: var(--nasa-blue);
-            color: #fff;
+            background-color: transparent;
+            border: 1px solid var(--border-highlight);
+            color: var(--bone-white);
             text-decoration: none;
             padding: 12px 35px;
-            font-size: 1rem;
-            font-weight: bold;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
             text-transform: uppercase;
             border-radius: 4px;
-            letter-spacing: 1px;
-            transition: background-color 0.3s ease;
+            letter-spacing: 1.5px;
+            transition: var(--transition-smooth);
         }
-
-        .btn-details:hover { background-color: #082d6b; }
-
+        .btn-details:hover {
+            background-color: var(--bone-white);
+            color: var(--space-black);
+            border-color: var(--bone-white);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
         .scroll-indicator {
             position: fixed;
             bottom: 25px;
             width: 100%;
             text-align: center;
-            color: #555;
+            color: var(--text-dark);
+            font-family: var(--font-mono);
             letter-spacing: 2px;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             pointer-events: none;
             z-index: 10;
         }
-
-        /* --- AJUSTES PARA TABLETS --- */
         @media (max-width: 1024px) and (min-width: 769px) {
-            .project-card { flex: 0 0 75vw; height: 65vh; }
-            .project-info h2 { font-size: 2.2rem; }
+            .slider-card { flex: 0 0 75vw; height: 65vh; }
+            .slider-info h2 { font-size: 2.2rem; }
         }
-
-        /* --- AJUSTES PARA TELÉFONOS --- */
         @media (max-width: 768px) {
             html, body {
                 overflow-x: hidden;
                 width: 100%;
-                overflow-y: auto; /* Permitimos scroll vertical en móviles */
+                overflow-y: auto;
             }
-
-            /* Reajuste completo del Slider en móvil */
             .projects-slider {
                 height: auto;
                 min-height: calc(100vh - 80px);
                 padding: 100px 5vw 40px !important;
                 gap: 40px;
-                flex-direction: column; /* Apila los proyectos verticales en celis */
+                flex-direction: column;
                 overflow-x: hidden;
             }
-
-            .project-card {
+            .slider-card {
                 flex: 0 0 auto !important;
                 width: 90vw !important;
                 height: auto !important;
                 margin-top: 0;
             }
-
-            .project-image { height: 200px !important; }
-            .project-info { height: auto !important; padding: 25px 20px !important; gap: 15px; }
-            .project-info h2 { font-size: 1.8rem !important; }
-            .project-info p { font-size: 0.95rem !important; }
+            .slider-image { height: 200px !important; }
+            .slider-info { height: auto !important; padding: 25px 20px !important; gap: 15px; }
+            .slider-info h2 { font-size: 1.8rem !important; }
+            .slider-info p { font-size: 0.95rem !important; }
             .btn-details { align-self: stretch !important; text-align: center; padding: 14px !important; }
-            .scroll-indicator { display: none; } /* No se necesita indicador horizontal */
+            .scroll-indicator { display: none; }
         }
     </style>
-  <link rel="stylesheet" crossorigin href="../../assets/main-DNb1Ix7c.css">
+  <link rel="stylesheet" crossorigin href="../../assets/main-DKgcS8Ox.css">
 </head>
-<body>
+<body class="tech-grid">
 
     <!-- Load Header component with backtracking root parameter -->
     <header>
@@ -182,24 +176,61 @@
     </nav>
 </header>
 
+<script>
+    (function() {
+        const initMenu = () => {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            if (menuToggle && navLinks) {
+                // Remove class on init just in case
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                
+                // Toggle action
+                menuToggle.addEventListener('click', () => {
+                    menuToggle.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+                
+                // Close navigation when clicking a link
+                document.querySelectorAll('#navLinks a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
+        };
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMenu);
+        } else {
+            initMenu();
+        }
+    })();
+</script>
+
 
     <div class="projects-slider">
 
-        <div class="project-card">
-            <div class="project-image" style="background-image: url('../../assets/marte-DJOh1vAi.png');"></div>
-            <div class="project-info">
+        <div class="slider-card">
+            <span class="tech-star" style="top: 20px; right: 20px;">✦</span>
+            <span class="tech-star" style="bottom: 50%; left: 30px;">✦</span>
+            <div class="slider-image" style="background-image: url('../../assets/pngwing.com%20(3)-Cs6ZOwF_.png');"></div>
+            <div class="slider-info">
                 <div>
                     <span class="eje-tag">EJE I: EXPLORACIÓN PLANETARIA</span>
                     <h2>Proyecto Rover</h2>
-                    <p>Consiste en el diseño, ensamblaje y programación de un prototipo terrestre a escala capaz de sortear terrenos irregulares. Es un vehículo robótico de exploración espacial diseñado para desplazarse por la superficie de planetas o lunas, con el fin de recolectar datos, tomar muestras y tomar fotografías.</p>
+                    <p>Consiste en el diseño, ensamblaje y programación de un prototipo terrestre a escala capaz de sortear terrenos irregulares. Es un vehículo robótico de exploración espacial diseñado para desplazarse por la superficie de planetas o lunas, con el fin de recolectar datos, tomar muestras y fotografías.</p>
                 </div>
                 <a href="proyectos/rover.html" class="btn-details">Más detalles</a>
             </div>
         </div>
 
-        <div class="project-card">
-            <div class="project-image" style="background-image: url('../../assets/Tierra-B-LAaiv-.png');"></div>
-            <div class="project-info">
+        <div class="slider-card">
+            <span class="tech-star" style="top: 20px; right: 20px;">✦</span>
+            <span class="tech-star" style="bottom: 50%; left: 30px;">✦</span>
+            <div class="slider-image" style="background-image: url('../../assets/pngwing.com%20(2)-C-V46Zg2.png');"></div>
+            <div class="slider-info">
                 <div>
                     <span class="eje-tag">EJE IV: SISTEMAS ESPACIALES Y ENERGÍA</span>
                     <h2>CanSat Terrestre</h2>
@@ -209,9 +240,11 @@
             </div>
         </div>
 
-        <div class="project-card">
-            <div class="project-image" style="background-color: #444;"></div>
-            <div class="project-info">
+        <div class="slider-card">
+            <span class="tech-star" style="top: 20px; right: 20px;">✦</span>
+            <span class="tech-star" style="bottom: 50%; left: 30px;">✦</span>
+            <div class="slider-image" style="background-image: url('../../assets/pngwing.com-BBJbivOw.png');"></div>
+            <div class="slider-info">
                 <div>
                     <span class="eje-tag">EJE III: COHETERÍA DE SONDEO</span>
                     <h2>Cohete a Propulsión por Agua</h2>
@@ -221,9 +254,11 @@
             </div>
         </div>
 
-        <div class="project-card">
-            <div class="project-image" style="background-color: #333;"></div>
-            <div class="project-info">
+        <div class="slider-card">
+            <span class="tech-star" style="top: 20px; right: 20px;">✦</span>
+            <span class="tech-star" style="bottom: 50%; left: 30px;">✦</span>
+            <div class="slider-image" style="background-image: url('../../assets/luna-DrWTCES_.png'); background-size: 40% auto;"></div>
+            <div class="slider-info">
                 <div>
                     <span class="eje-tag">EJE II: SIMULACIÓN Y DINÁMICA DE VUELO</span>
                     <h2>Proyecto Egg Drop</h2>
@@ -233,13 +268,15 @@
             </div>
         </div>
 
-        <div class="project-card">
-            <div class="project-image" style="background-color: #222;"></div>
-            <div class="project-info">
+        <div class="slider-card">
+            <span class="tech-star" style="top: 20px; right: 20px;">✦</span>
+            <span class="tech-star" style="bottom: 50%; left: 30px;">✦</span>
+            <div class="slider-image" style="background-image: url('../../assets/pngwing.com%20(1)-D6H3HI-M.png');"></div>
+            <div class="slider-info">
                 <div>
                     <span class="eje-tag">EJE V: EDUCACIÓN Y EXPERIENCIA</span>
                     <h2>Talleres interdisciplinarios</h2>
-                    <p>Consisten en introducir las habilidades base recomendadas para distintos proyectos.</p>
+                    <p>Consisten en introducir las habilidades base (modelado CAD, soldadura de estaño, Arduino/ESP32 y programación en C/C++) recomendadas para incorporarse a los distintos proyectos.</p>
                 </div>
                 <a href="proyectos/impresion3d.html" class="btn-details">Más detalles</a>
             </div>
@@ -248,23 +285,6 @@
     </div>
 
     <div class="scroll-indicator">USA EL SCROLL HORIZONTAL (SHIFT + RUEDA) O DESLIZA PARA NAVEGAR</div>
-
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
 
 </body>
 </html>
