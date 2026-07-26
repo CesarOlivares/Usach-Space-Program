@@ -57,8 +57,8 @@
         }
 
         @keyframes twinkle {
-            0% { opacity: 0.15; transform: scale(0.7) translateY(0); }
-            100% { opacity: 0.85; transform: scale(1.3) translateY(-10px); box-shadow: 0 0 10px rgba(56, 189, 248, 0.8); }
+            0% { opacity: 0.15; }
+            100% { opacity: 0.85; }
         }
 
         /* --- NAVIGATION WRAPPER --- */
@@ -301,8 +301,8 @@
         }
 
         .split-image img:hover {
-            filter: grayscale(20%) brightness(0.9);
             transform: translateY(-4px);
+            opacity: 0.9;
         }
 
         /* --- GALLERY / TRAYECTORIA --- */
@@ -350,7 +350,7 @@
         }
 
         .gallery-card:hover img {
-            filter: grayscale(20%) brightness(0.9);
+            opacity: 0.9;
             transform: scale(1.03);
         }
 
@@ -734,7 +734,7 @@
             <p>Nuestra primera herramienta insignia de aprendizaje. Adoptamos y reinterpretamos la arquitectura Perseverance de la NASA para dominar la cinemática en contexto espacial. Un esfuerzo por comprender la robótica física y el comportamiento de suspensiones complejas sobre terrenos irregulares.</p>
         </div>
         <div class="split-image">
-            <img src="../../../assets/rover_primer%20plano-ClsAsrV1.jpeg" alt="Primer plano mecatrónico del Rover">
+            <img src="../../../assets/rover_primer%20plano-ClsAsrV1.jpeg" alt="Primer plano mecatrónico del Rover" loading="lazy">
         </div>
     </section>
 
@@ -746,7 +746,7 @@
             <p>Horas de modelado digital, manufactura de piezas y calibración constante. Tuvimos que sobreponernos a fallos en piezas de impresión 3D y problemas de alineación física. Cada contratiempo nos enseñó a refinar el diseño mecatrónico final.</p>
         </div>
         <div class="split-image">
-            <img src="../../../assets/IMG-20260607-WA0022-CSaDWZKk.jpg" alt="Proceso de diseño y frustración">
+            <img src="../../../assets/IMG-20260607-WA0022-CSaDWZKk.jpg" alt="Proceso de diseño y frustración" loading="lazy">
         </div>
     </section>
 
@@ -758,7 +758,7 @@
     <div class="gallery-grid">
         <!-- Card 1 -->
         <div class="gallery-card">
-            <img src="../../../assets/piezas_rover-B_6jLKGs.jpg" alt="Componentes de suspensión">
+            <img src="../../../assets/piezas_rover-B_6jLKGs.jpg" alt="Componentes de suspensión" loading="lazy">
             <div class="gallery-info">
                 <h4>Componentes Base</h4>
                 <p>Alineando perfiles de suspensión y motores.</p>
@@ -766,7 +766,7 @@
         </div>
         <!-- Card 2 -->
         <div class="gallery-card">
-            <img src="../../../assets/primeros_pasos_rover-DUssj7B8.jpg" alt="Primeros pasos del Rover">
+            <img src="../../../assets/primeros_pasos_rover-DUssj7B8.jpg" alt="Primeros pasos del Rover" loading="lazy">
             <div class="gallery-info">
                 <h4>Primeros Pasos</h4>
                 <p>Fase inicial de ensamblaje del chasis en el taller.</p>
@@ -774,7 +774,7 @@
         </div>
         <!-- Card 3 -->
         <div class="gallery-card">
-            <img src="../../../assets/primer_cuerpo_rover-BqKVYuMg.jpg" alt="Cuerpo base">
+            <img src="../../../assets/primer_cuerpo_rover-BqKVYuMg.jpg" alt="Cuerpo base" loading="lazy">
             <div class="gallery-info">
                 <h4>Estructura Base</h4>
                 <p>Validando la robustez mecánica estructural.</p>
@@ -782,7 +782,7 @@
         </div>
         <!-- Card 4 -->
         <div class="gallery-card">
-            <img src="../../../assets/rover_armado_foto_grupal-D3MWIR8w.jpg" alt="Foto grupal">
+            <img src="../../../assets/rover_armado_foto_grupal-D3MWIR8w.jpg" alt="Foto grupal" loading="lazy">
             <div class="gallery-info">
                 <h4>Esfuerzo Conjunto</h4>
                 <p>El equipo del USACH Space Program y el prototipo.</p>
@@ -790,7 +790,7 @@
         </div>
         <!-- Card 5 -->
         <div class="gallery-card">
-            <img src="../../../assets/rover_pizza-KyInT-zV.jpg" alt="Hito y camaradería">
+            <img src="../../../assets/rover_pizza-KyInT-zV.jpg" alt="Hito y camaradería" loading="lazy">
             <div class="gallery-info">
                 <h4>Hitos & Unión</h4>
                 <p>Celebrando el ensamblaje exitoso del Rover.</p>
@@ -798,7 +798,7 @@
         </div>
         <!-- Card 6 -->
         <div class="gallery-card">
-            <img src="../../../assets/IMG-20260607-WA0030-W4BQB12q.jpg" alt="Pruebas de tracción">
+            <img src="../../../assets/IMG-20260607-WA0030-W4BQB12q.jpg" alt="Pruebas de tracción" loading="lazy">
             <div class="gallery-info">
                 <h4>Un Pequeño Paso</h4>
                 <p>Primeras pruebas de movimiento exitosas.</p>
@@ -872,8 +872,8 @@
 
     <!-- Extra hidden assets container to keep clean markup -->
     <div class="extra-aside">
-        <img src="../../../assets/rover_primer%20ensamblaje-BGXrH5F-.jpeg" alt="Detalle del ensamblaje del Rover">
-        <img src="../../../assets/posando_rover_1-C0kCezaa.jpg" alt="Rover posando">
+        <img src="../../../assets/rover_primer%20ensamblaje-BGXrH5F-.jpeg" alt="Detalle del ensamblaje del Rover" loading="lazy">
+        <img src="../../../assets/posando_rover_1-C0kCezaa.jpg" alt="Rover posando" loading="lazy">
     </div>
 
     <footer class="cyber-footer" style="background-color: #000000 !important; border-top: 1px solid rgba(255,255,255,0.05);">
@@ -954,7 +954,7 @@
 
         // Generador simple de estrellas dinámicas
         const starsContainer = document.getElementById('stars');
-        for(let i = 0; i < 120; i++) {
+        for(let i = 0; i < 45; i++) {
             let star = document.createElement('div');
             star.className = 'star';
             star.style.width = Math.random() * 2.5 + 'px';
