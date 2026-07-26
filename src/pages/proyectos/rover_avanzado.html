@@ -411,6 +411,44 @@
             overflow: hidden;
             box-shadow: 0 30px 60px rgba(0,0,0,0.85);
             border: 1px solid rgba(255,255,255,0.05);
+            background: #000;
+        }
+
+        #video-cover {
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: url('../../../fotos_rover/posando_rover_1.jpg') no-repeat center center/cover;
+            transition: all 0.3s ease;
+        }
+
+        #video-cover:hover {
+            filter: brightness(1.05);
+        }
+
+        .play-btn-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: #fff;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #video-cover:hover .play-btn-circle {
+            transform: scale(1.1);
+            background: #ffffff;
+            color: var(--bg-dark);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
         }
 
         video {
@@ -723,11 +761,17 @@
         <span class="split-tag">04 / TESTING</span>
         <h2>Pruebas Dinámicas 360°</h2>
         <p>Validación de los sistemas de tracción y radio control.</p>
-        <div class="video-container">
-            <video autoplay loop muted controls poster="../../../fotos_rover/posando_rover_1.jpg">
-                <source src="../../../fotos_rover/rover_prueba_giro.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de video HTML5.
-            </video>
+        <div class="video-container" id="video-wrapper">
+            <!-- Poster with play button -->
+            <div id="video-cover">
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5);"></div>
+                <div style="z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px;">
+                    <div class="play-btn-circle">
+                        ▶
+                    </div>
+                    <span style="font-family: 'Syncopate', sans-serif; font-size: 0.85rem; letter-spacing: 2px; font-weight: 700; color: #fff;">CARGAR Y REPRODUCIR VIDEO</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -787,6 +831,17 @@
     </footer>
 
     <script>
+        // Cargar video diferido al hacer clic en el cover
+        document.getElementById('video-cover').addEventListener('click', function() {
+            const wrapper = document.getElementById('video-wrapper');
+            wrapper.innerHTML = `
+                <video autoplay loop muted controls style="width: 100%; display: block; background: #000;">
+                    <source src="../../../fotos_rover/rover_prueba_giro.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de video HTML5.
+                </video>
+            `;
+        });
+
         // Generador simple de estrellas dinámicas
         const starsContainer = document.getElementById('stars');
         for(let i = 0; i < 120; i++) {
