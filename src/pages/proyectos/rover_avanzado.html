@@ -3,264 +3,803 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rover de Exploración Avanzada - USACH Space Program</title>
+    <title>Rover Perseverance | USACH Space Program</title>
     
     <link rel="icon" type="image/png" href="../../../src/assets/logo.png">
     <link rel="stylesheet" href="../../../src/styles/main.css">
     
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    
     <style>
-        .tier-badge { 
-            background-color: rgba(255, 183, 3, 0.1); 
-            color: var(--nasa-gold); 
-            padding: 6px 16px; 
-            font-size: 0.8rem; 
-            font-family: var(--font-mono);
-            font-weight: bold; 
-            border-radius: 20px; 
-            display: inline-block; 
-            margin-bottom: 20px; 
-            border: 1px solid var(--nasa-gold); 
-            letter-spacing: 1px;
+        :root {
+            /* Negro profundo espacial */
+            --bg-dark: #000000; 
+            --bg-card: #0c0c0d;
+            --text-main: #ffffff;
+            --text-muted: #8e8e93;
+            --accent: #38bdf8;
+            --border-color: rgba(255, 255, 255, 0.08);
         }
-        .inspiration-section { 
-            padding: 80px 10%; 
-            text-align: center; 
-            background: linear-gradient(var(--space-black), var(--space-dark)); 
-        }
-        .inspiration-container { max-width: 850px; margin: 0 auto; }
-        .inspiration-container h2 { 
-            font-family: var(--font-title);
-            font-size: 2.2rem; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            margin-bottom: 25px; 
-            color: var(--pure-white); 
-        }
-        .inspiration-container p { 
-            font-size: 1.25rem; 
-            line-height: 1.8; 
-            color: var(--bone-white); 
-            font-style: italic; 
-            font-weight: 300; 
-        }
-        .timeline-section { 
-            padding: 100px 10%; 
-            background-color: var(--space-black); 
-            border-top: 1px solid var(--border-subtle);
-            border-bottom: 1px solid var(--border-subtle);
-        }
-        .timeline-section h2 { 
-            font-family: var(--font-title);
-            text-align: center; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            font-size: 2.5rem; 
-            margin-bottom: 60px; 
-            color: var(--pure-white); 
-        }
-        .modalidad-section { padding: 100px 10%; background-color: var(--space-dark); }
-        .modalidad-section h2 { 
-            font-family: var(--font-title);
-            text-align: center; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            margin-bottom: 70px; 
-            font-size: 2.5rem; 
-            color: var(--pure-white);
-        }
-        .mod-row { display: flex; align-items: center; gap: 50px; margin-bottom: 85px; }
-        .mod-row:nth-child(even) { flex-direction: row-reverse; }
-        .mod-text { flex: 1; }
-        .mod-text h3 { 
-            font-family: var(--font-title);
-            font-size: 1.8rem; 
-            color: var(--pure-white); 
-            text-transform: uppercase; 
-            margin-top: 0; 
-            letter-spacing: 1px;
-        }
-        .mod-text p { font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); }
-        .mod-image {
-            flex: 1; height: 350px; border-radius: 8px;
-            background-color: var(--space-card);
-            border: 1px solid var(--border-subtle); 
-            position: relative; 
-            overflow: hidden;
-            background-size: cover; 
-            background-position: center;
-        }
-        .reference-link { display: inline-block; color: var(--nasa-blue-glow); text-decoration: none; font-size: 0.9rem; word-break: break-all; margin-top: 5px; }
-        .reference-link:hover { text-decoration: underline; }
 
-        .btn-contact { 
-            display: block; 
-            text-align: center; 
-            background-color: var(--nasa-gold); 
-            color: var(--space-black); 
-            text-decoration: none; 
-            padding: 15px; 
-            border-radius: 4px; 
-            text-transform: uppercase; 
-            font-family: var(--font-mono);
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark) !important;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+            scroll-behavior: smooth;
+        }
+
+        /* Override general background overlays if any */
+        body.tech-grid {
+            background-image: none !important;
+            background-color: var(--bg-dark) !important;
+        }
+
+        /* --- ESTRELLAS DINÁMICAS --- */
+        .stars-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle infinite alternate ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.15; transform: scale(0.7) translateY(0); }
+            100% { opacity: 0.85; transform: scale(1.3) translateY(-10px); box-shadow: 0 0 10px rgba(56, 189, 248, 0.8); }
+        }
+
+        /* --- NAVIGATION WRAPPER --- */
+        .nav-offset {
+            height: 80px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 10%;
+            box-sizing: border-box;
+            background-color: transparent;
+            z-index: 10;
+        }
+
+        .hero-bg-text {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Syncopate', sans-serif;
+            font-size: 15vw;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
+            z-index: 0;
+            user-select: none;
+            font-weight: 700;
+            letter-spacing: -2px;
+            white-space: nowrap;
+        }
+
+        /* BARRA DE BÚSQUEDA */
+        .search-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            display: flex;
+            justify-content: flex-end;
+            z-index: 2;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px 18px;
+            width: 380px;
+            backdrop-filter: blur(8px);
+        }
+
+        .search-bar input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            margin-left: 10px;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        .search-icon {
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        .tech-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--accent);
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        /* SPLIT HERO */
+        .hero-container-split {
+            max-width: 1280px;
+            width: 100%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 50% Izquierda - 50% Derecha */
+            gap: 60px;
+            align-items: center;
+            z-index: 2;
+            text-align: left;
+        }
+
+        .hero-left-visual {
+            width: 100%;
+            position: relative;
+        }
+
+        .hero-left-visual img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9);
+            border: 1px solid var(--border-color);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+        }
+
+        .hero-left-visual img:hover {
+            transform: scale(1.02);
+            filter: brightness(1.05);
+        }
+
+        .hero-right-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .tech-badge {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero-title-main {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 3.2rem;
+            text-transform: uppercase;
+            margin: 10px 0;
+            line-height: 1.1;
+            color: var(--text-main);
+        }
+
+        .hero-subtitle-main {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--accent);
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            margin: 0 0 25px 0;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .hero-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.75;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        /* --- INFO BAR (ICONS LIKE DRONE PAGE) --- */
+        .specs-bar {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            padding: 60px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            width: 80%;
+            margin: 0 auto;
+            background-color: transparent;
+        }
+        
+        .spec-item {
+            text-align: center;
             font-size: 0.85rem;
-            font-weight: bold; 
-            margin-top: 20px; 
-            transition: var(--transition-smooth); 
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .spec-item strong {
+            display: block;
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        /* --- SPLIT SECTIONS (ZIG ZAG) --- */
+        .split-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 100px 10%;
+            gap: 80px;
+            background-color: transparent;
+        }
+        
+        .split-section.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .split-text {
+            flex: 1.1;
+        }
+
+        .split-tag {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .split-text h2 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 2.2rem;
+            margin: 0 0 20px 0;
+            line-height: 1.25;
+            text-transform: uppercase;
             letter-spacing: 1px;
         }
-        .btn-contact:hover { 
-            background-color: var(--pure-white); 
-            color: var(--space-black);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+
+        .split-text p {
+            color: var(--text-muted);
+            line-height: 1.75;
+            font-size: 1.05rem;
+            margin: 0;
+            font-weight: 300;
         }
-        @media (max-width: 1024px) {
-            .mod-row, .mod-row:nth-child(even) { flex-direction: column; gap: 30px; }
-            .mod-image { width: 100%; height: 250px; }
-            .timeline-section, .modalidad-section { padding-left: 20px; padding-right: 20px; }
+
+        .split-image {
+            flex: 0.9;
+            position: relative;
+        }
+
+        .split-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+        }
+
+        .split-image img:hover {
+            filter: grayscale(20%) brightness(0.9);
+            transform: translateY(-4px);
+        }
+
+        /* --- GALLERY / TRAYECTORIA --- */
+        .gallery-header {
+            text-align: center;
+            padding-top: 100px;
+            background-color: transparent;
+        }
+
+        .gallery-header h2 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 2.2rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            padding: 50px 10% 100px;
+            background-color: transparent;
+        }
+
+        .gallery-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.85);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            aspect-ratio: 1.1;
+            object-fit: cover;
+            display: block;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .gallery-card:hover img {
+            filter: grayscale(20%) brightness(0.9);
+            transform: scale(1.03);
+        }
+
+        .gallery-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(180deg, transparent 0%, rgba(1, 11, 25, 0.95) 80%);
+        }
+
+        .gallery-info h4 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 0.85rem;
+            margin: 0 0 6px 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-main);
+        }
+
+        .gallery-info p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* --- VIDEO SECTION --- */
+        .video-section {
+            text-align: center;
+            padding: 100px 10%;
+            background-color: transparent;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .video-section h2 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 2.2rem;
+            margin: 0 0 15px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .video-section p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+        
+        .video-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.85);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        video {
+            width: 100%;
+            display: block;
+            background: #000;
+        }
+
+        /* --- TIMELINE SECTION --- */
+        .timeline-section {
+            padding: 120px 10% 100px;
+            position: relative;
+            background-color: transparent;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 30px;
+            border-left: 2px solid var(--accent);
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--bg-dark);
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            background: var(--accent);
+            transform: scale(1.2);
+        }
+
+        .timeline-title {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .timeline-item p {
+            margin: 0;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* --- CITA FINAL INSPIRACIONAL --- */
+        .quote-section {
+            padding: 120px 10%;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            background: linear-gradient(to top, #000000 0%, var(--bg-dark) 100%);
+        }
+
+        .quote-text {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 2.5rem;
+            color: var(--text-main);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        
+        .quote-author {
+            color: var(--accent);
+            margin-top: 20px;
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* --- FOOTER DECORATION --- */
+        .footer-action {
+            text-align: center;
+            padding: 60px 20px 100px;
+            background-color: #000000;
+        }
+
+        .btn-dossier {
+            display: inline-block;
+            background: var(--text-main);
+            color: var(--bg-dark);
+            padding: 18px 45px;
+            border-radius: 30px;
+            font-family: 'Syncopate', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.1);
+        }
+
+        .btn-dossier:hover {
+            background: var(--accent);
+            color: var(--text-main);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(56, 189, 248, 0.3);
+        }
+
+        /* --- EXTRA ASSET ASIDE --- */
+        .extra-aside {
+            display: none;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 960px) {
+            .hero-bg-text {
+                font-size: 18vw;
+                top: 25%;
+            }
+            .hero-container-split {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            .hero-right-content {
+                align-items: center;
+            }
+            .search-container {
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            .search-bar {
+                width: 100%;
+                max-width: 380px;
+            }
+            .specs-bar {
+                flex-direction: column;
+                gap: 30px;
+                width: 90%;
+            }
+            .split-section, .split-section.reverse {
+                flex-direction: column;
+                padding: 60px 8%;
+                gap: 40px;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                padding: 30px 8%;
+            }
+            .quote-text {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body class="tech-grid">
 
-    <!-- Load Header component -->
+    <!-- FONDO DE ESTRELLAS -->
+    <div class="stars-container" id="stars"></div>
+
+    <!-- Global Header Component -->
     <load src="src/components/header.html" root="../../../" />
 
-    <section class="project-hero" style="background-image: url('../../../src/assets/gallery/pngwing.com (3).png');">
-        <div class="project-hero-content">
-            <span class="tech-star" style="top: -20px; left: -10px;">✦</span>
-            <span class="tech-star" style="top: 30px; right: -40px;">✦</span>
-            <span class="tier-badge">NIVEL 2: PLATAFORMA DE I+D (FLAGSHIP)</span>
-            <h1>Plataforma Rover Avanzada</h1>
-            <p>Vehículo robótico análogo para la investigación de navegación autónoma, cinemática Rocker-Bogie y efectores mecatrónicos.</p>
+    <div class="nav-offset"></div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg-text">ROVER</div>
+
+        <!-- BARRA DE BÚSQUEDA TOP -->
+        <div class="search-container">
+            <div class="search-bar">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Buscar subsistemas, telemetría, historial de desarrollo..." />
+                <span class="tech-tag">SEARCH // SYSTEM</span>
+            </div>
+        </div>
+
+        <div class="hero-container-split">
+            <!-- IZQUIERDA: IMAGEN PRINCIPAL -->
+            <div class="hero-left-visual">
+                <img src="../../../fotos_rover/rover_primer_ensamble_completo.jpg" alt="Rover Perseverance USACH Space Program">
+            </div>
+
+            <!-- DERECHA: TEXTOS -->
+            <div class="hero-right-content">
+                <div class="tech-badge">USACH SPACE PROGRAM · AEROSPACE ROBOTICS</div>
+                <h1 class="hero-title-main">Rover Perseverance</h1>
+                <h2 class="hero-subtitle-main">USACH SPACE PROGRAM</h2>
+                <p class="hero-desc">
+                    Plataforma de exploración análoga desarrollada para la investigación mecatrónica en entornos lunares y marcianos. Nuestra primera herramienta insignia de aprendizaje.
+                </p>
+            </div>
         </div>
     </section>
 
-    <section class="inspiration-section">
-        <div class="inspiration-container" style="position: relative;">
-            <span class="tech-star" style="top: -10px; left: 5%;">✦</span>
-            <span class="tech-star" style="bottom: -10px; right: 5%;">✦</span>
-            <h2>Estabilidad y cinemática compleja</h2>
-            <p>"El diseño Rocker-Bogie de la NASA cobra vida: mecatrónica avanzada y control sensorial integrados en nuestra plataforma insignia de exploración planetaria."</p>
+    <!-- SPECS BAR -->
+    <div class="specs-bar">
+        <div class="spec-item">
+            <strong>ROCKER-BOGIE</strong>
+            Sistema de Suspensión
+        </div>
+        <div class="spec-item">
+            <strong>PETG / ABS</strong>
+            Manufactura 3D
+        </div>
+        <div class="spec-item">
+            <strong>CUSTOM PCB</strong>
+            Aviónica y Telemetría
+        </div>
+        <div class="spec-item">
+            <strong>SLAM FUSION</strong>
+            Fusión Sensorial
+        </div>
+    </div>
+
+    <!-- SECCIÓN 1: ORÍGENES -->
+    <section class="split-section">
+        <div class="split-text">
+            <span class="split-tag">01 / CONCEPT</span>
+            <h2>El Origen, Basado en la Excelencia</h2>
+            <p>Nuestra primera herramienta insignia de aprendizaje. Adoptamos y reinterpretamos la arquitectura Perseverance de la NASA para dominar la cinemática en contexto espacial. Un esfuerzo por comprender la robótica física y el comportamiento de suspensiones complejas sobre terrenos irregulares.</p>
+        </div>
+        <div class="split-image">
+            <img src="../../../fotos_rover/rover_primer plano.jpeg" alt="Primer plano mecatrónico del Rover">
         </div>
     </section>
 
-    <section class="project-container">
-        
-        <div class="main-content">
-            <h2>Contexto y Arquitectura Base</h2>
-            <p>El desarrollo de nuestra plataforma insignia de superficie comienza con el estudio y asimilación de la arquitectura de suspensión <strong>Rocker-Bogie</strong>, el estándar de oro utilizado por el JPL de la NASA en misiones marcianas. Para la estructuración inicial del chasis y la validación cinemática de este modelo a escala, nuestro equipo tomó como referencia de estudio la réplica de código abierto documentada por el proyecto <em>HowToMechatronics</em>. Esta base de conocimiento nos permitió superar rápidamente los problemas de tracción iniciales para concentrar nuestros recursos de ingeniería en la personalización y scalabilidad del vehículo.</p>
-
-            <h2>Desarrollo: Innovaciones USP</h2>
-            <p>Nuestra directiva técnica se encuentra expandiendo agresivamente las capacidades del rover base mediante el diseño e integración de subsistemas de hardware y software originales orientados a simular operaciones extravehiculares complejas.</p>
+    <!-- SECCIÓN 2: EL PROCESO (REVERSE) -->
+    <section class="split-section reverse">
+        <div class="split-text">
+            <span class="split-tag">02 / HARDWARE ITERATION</span>
+            <h2>Ingeniería Dura y Frustración</h2>
+            <p>Horas de modelado digital, manufactura de piezas y calibración constante. Tuvimos que sobreponernos a fallos en piezas de impresión 3D y problemas de alineación física. Cada contratiempo nos enseñó a refinar el diseño mecatrónico final.</p>
         </div>
-
-        <div class="side-panel">
-            <div class="spec-item">
-                <h4>Estado Operativo</h4>
-                <p>En fase de prototipado iterativo y pruebas de integración de subsistemas (Hardware in the Loop).</p>
-            </div>
-            <div class="spec-item">
-                <h4>Arquitectura de Referencia</h4>
-                <p>Mecánica base estudiada a partir del modelo Perseverance Open-Source:</p>
-                <a href="https://howtomechatronics.com/projects/diy-mars-perseverance-rover-replica-with-arduino/" class="reference-link" target="_blank">Documentación HowToMechatronics ↗</a>
-            </div>
-            <div class="spec-item">
-                <h4>Stack Tecnológico</h4>
-                <p>• Impresión 3D (PETG/ABS)<br>• C/C++ (Microcontroladores)<br>• ROS (Robot Operating System)<br>• Fusión Sensorial (IMU + Lidar)</p>
-            </div>
-
-            <a href="mailto:contacto@usachspace.cl?subject=Solicitud de Dossier Técnico - Rover" class="btn-contact">Solicitar Dossier Técnico</a>
-            
-            <a href="../proyectos.html" class="btn-back">Volver a Proyectos</a>
+        <div class="split-image">
+            <img src="../../../fotos_rover/decenso_a_la_locura.jpg" alt="Proceso de diseño y frustración">
         </div>
-
     </section>
 
+    <!-- TRAYECTORIA Y EQUIPO -->
+    <div class="gallery-header">
+        <span class="split-tag">03 / TEAM CHRONICLE</span>
+        <h2>La Trayectoria del Equipo</h2>
+    </div>
+    <div class="gallery-grid">
+        <!-- Card 1 -->
+        <div class="gallery-card">
+            <img src="../../../fotos_rover/piezas_rover.jpg" alt="Componentes de suspensión">
+            <div class="gallery-info">
+                <h4>Componentes Base</h4>
+                <p>Alineando perfiles de suspensión y motores.</p>
+            </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="gallery-card">
+            <img src="../../../fotos_rover/primeros_pasos_rover.jpg" alt="Primeros pasos del Rover">
+            <div class="gallery-info">
+                <h4>Primeros Pasos</h4>
+                <p>Fase inicial de ensamblaje del chasis en el taller.</p>
+            </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="gallery-card">
+            <img src="../../../fotos_rover/primer_cuerpo_rover.jpg" alt="Cuerpo base">
+            <div class="gallery-info">
+                <h4>Estructura Base</h4>
+                <p>Validando la robustez mecánica estructural.</p>
+            </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="gallery-card">
+            <img src="../../../fotos_rover/rover_armado_foto_grupal.jpg" alt="Foto grupal">
+            <div class="gallery-info">
+                <h4>Esfuerzo Conjunto</h4>
+                <p>El equipo del USACH Space Program y el prototipo.</p>
+            </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="gallery-card">
+            <img src="../../../fotos_rover/rover_pizza.jpg" alt="Hito y camaradería">
+            <div class="gallery-info">
+                <h4>Hitos & Unión</h4>
+                <p>Celebrando el ensamblaje exitoso del Rover.</p>
+            </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="gallery-card">
+            <img src="../../../fotos_rover/un_pequeno_paso_rover.jpg" alt="Pruebas de tracción">
+            <div class="gallery-info">
+                <h4>Un Pequeño Paso</h4>
+                <p>Primeras pruebas de movimiento exitosas.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIDEO PRUEBA DINÁMICA -->
+    <section class="video-section">
+        <span class="split-tag">04 / TESTING</span>
+        <h2>Pruebas Dinámicas 360°</h2>
+        <p>Validación de los sistemas de tracción y radio control.</p>
+        <div class="video-container">
+            <video autoplay loop muted controls poster="../../../fotos_rover/posando_rover_1.jpg">
+                <source src="../../../fotos_rover/rover_prueba_giro.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video HTML5.
+            </video>
+        </div>
+    </section>
+
+    <!-- LÍNEA DE TIEMPO: EL FUTURO -->
     <section class="timeline-section">
-        <h2>Fases del Desarrollo Mecatrónico</h2>
+        <div style="text-align: center; margin-bottom: 60px;">
+            <span class="split-tag">05 / ROADMAP</span>
+            <h2 style="font-family: 'Syncopate', sans-serif; font-size: 2.2rem; margin: 0; text-transform: uppercase;">Hoja de Ruta: Hacia la Autonomía</h2>
+        </div>
         <div class="timeline">
-            
             <div class="timeline-item">
-                <div class="timeline-icon">01</div>
-                <div class="timeline-content">
-                    <h3>1. Estudio Cinemático Rocker-Bogie</h3>
-                    <p>Modelado geométrico preliminar y calibración de los ángulos del sistema de suspensión para sortear terrenos irregulares.</p>
-                </div>
+                <div class="timeline-title">Fase 1: Brazo Robótico</div>
+                <p style="color: var(--text-muted);">Integración del manipulador mecánico de múltiples grados de libertad.</p>
             </div>
-
             <div class="timeline-item">
-                <div class="timeline-icon">02</div>
-                <div class="timeline-content">
-                    <h3>2. Prototipado del Chasis</h3>
-                    <p>Manufactura aditiva de eslabones y acoples de suspensión. Pruebas mecánicas de flexión y distribución de cargas.</p>
-                </div>
+                <div class="timeline-title">Fase 2: Sistema de Visión (Cámara)</div>
+                <p style="color: var(--text-muted);">Implementación de cámara HD para telemetría visual y control remoto.</p>
             </div>
-
             <div class="timeline-item">
-                <div class="timeline-icon">03</div>
-                <div class="timeline-content">
-                    <h3>3. Integración de Lidar y SLAM</h3>
-                    <p>Montaje de sensores láser y cámaras de profundidad. Calibración de la evasión de obstáculos en tiempo real.</p>
-                </div>
+                <div class="timeline-title">Fase 3: Módulo de Toma de Muestras</div>
+                <p style="color: var(--text-muted);">Diseño del sistema de almacenamiento e inspección en el chasis.</p>
             </div>
-
             <div class="timeline-item">
-                <div class="timeline-icon">04</div>
-                <div class="timeline-content">
-                    <h3>4. Brazo Robótico (Manipulador)</h3>
-                    <p>Desarrollo de las articulaciones del manipulador con múltiples grados de libertad y control cinemático inverso.</p>
-                </div>
+                <div class="timeline-title">Fase 4: End-Effectors Intercambiables</div>
+                <p style="color: var(--text-muted);">Garras modulares y taladros acoplables al efector final del brazo.</p>
             </div>
-
-            <div class="timeline-item final-hito">
-                <div class="timeline-icon">★</div>
-                <div class="timeline-content">
-                    <h3>Integración mecatrónica HIL</h3>
-                    <p>Ejecución de simulaciones de operación complejas (Hardware in the Loop). Muestreos y movimientos autónomos en banco de pruebas.</p>
-                </div>
+            <div class="timeline-item">
+                <div class="timeline-title">Fase 5: Sensor LIDAR y SLAM</div>
+                <p style="color: var(--text-muted);">Mapeo láser del entorno para evasión de obstáculos y autonomía total.</p>
             </div>
-
+            <div class="timeline-item">
+                <div class="timeline-title" style="color: var(--accent);">Y más...</div>
+                <p style="color: var(--text-muted);">El objetivo final: Competencias internacionales y posicionar a la USACH.</p>
+            </div>
         </div>
     </section>
 
-    <section class="modalidad-section">
-        <h2>Subsistemas de la Plataforma</h2>
-        
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Módulo de Sensores LIDAR</h3>
-                <p>Implementación de mapeo láser 2D/3D (SLAM) para el reconocimiento del entorno, permitiendo la transición del control por radiofrecuencia a rutinas de navegación verdaderamente autónomas y evasión dinámica de obstáculos.</p>
-            </div>
-            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-20260607-WA0030.jpg');"></div>
-        </div>
-
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Gestión de Potencia (EPS)</h3>
-                <p>Diseño de mecanismos de despliegue para matrices de paneles solares a escala. Este sistema incluye la gestión de carga de bancos de baterías Li-ion y el monitoreo de telemetría de consumo en tiempo real.</p>
-            </div>
-            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-20260607-WA0039.jpg');"></div>
-        </div>
-
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Brazo Robótico Articulado</h3>
-                <p>Desarrollo mecatrónico de un manipulador espacial con múltiples grados de libertad (DOF), acoplado a la bahía delantera del chasis para operaciones de precisión en terreno.</p>
-            </div>
-            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-20260611-WA0050.jpg');"></div>
-        </div>
-
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>End-Effectors Intercambiables</h3>
-                <p>Ingeniería de un sistema de acople rápido en el efector final del brazo robótico, permitiendo al rover cambiar de herramientas (pinzas de extracción, taladros de muestreo o cámaras de inspección) según los requerimientos de la misión.</p>
-            </div>
-            <div class="mod-image" style="background-image: url('../../../src/assets/gallery/IMG-20260607-WA0030.jpg');"></div>
-        </div>
+    <!-- CITA INSPIRACIONAL -->
+    <section class="quote-section">
+        <div class="quote-text">"I won't fail"</div>
+        <div class="quote-author">— FORJANDO EL FUTURO DE LA ROBÓTICA AEROESPACIAL</div>
     </section>
 
-    <!-- Global Footer -->
-    <load src="src/components/footer.html" root="../../../" />
+    <!-- CALL TO ACTION -->
+    <section class="footer-action">
+        <a href="mailto:contacto@usachspace.cl?subject=Solicitud%20de%20Dossier%20T%C3%A9cnico%20-%20Rover" class="btn-dossier">Solicitar Dossier Técnico</a>
+    </section>
 
+    <!-- Extra hidden assets container to keep clean markup -->
+    <div class="extra-aside">
+        <img src="../../../fotos_rover/rover_primer ensamblaje.jpeg" alt="Detalle del ensamblaje del Rover">
+        <img src="../../../fotos_rover/posando_rover_1.jpg" alt="Rover posando">
+    </div>
+
+    <footer class="cyber-footer" style="background-color: #000000 !important; border-top: 1px solid rgba(255,255,255,0.05);">
+        <load src="src/components/footer.html" root="../../../" />
+    </footer>
+
+    <script>
+        // Generador simple de estrellas dinámicas
+        const starsContainer = document.getElementById('stars');
+        for(let i = 0; i < 120; i++) {
+            let star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = Math.random() * 2.5 + 'px';
+            star.style.height = star.style.width;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDuration = (Math.random() * 3 + 2.5) + 's';
+            star.style.animationDelay = (Math.random() * 2) + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
 </body>
 </html>
