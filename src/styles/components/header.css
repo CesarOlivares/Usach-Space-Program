@@ -1,0 +1,99 @@
+/* === NAV / HEADER === */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(var(--space-black-rgb), 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-sizing: border-box;
+    z-index: 2000;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.nav-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-logo {
+    height: 32px;
+    width: auto;
+}
+
+.nav-brand {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--pure-white);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--bone-white);
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: var(--transition-smooth);
+}
+
+.nav-links a:hover {
+    color: var(--nasa-blue-glow);
+    text-shadow: 0 0 10px rgba(26, 95, 255, 0.4);
+}
+
+.nav-links .btn-login {
+    background-color: transparent;
+    border: 1px solid var(--border-highlight);
+    padding: 8px 18px;
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+}
+
+.nav-links .btn-login:hover {
+    background-color: var(--bone-white);
+    color: var(--space-black);
+    border-color: var(--bone-white);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 2100;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--bone-white);
+    transition: var(--transition-smooth);
+}
+
+.menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }

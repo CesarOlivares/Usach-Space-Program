@@ -1,0 +1,94 @@
+/* === TIMELINES === */
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 40px auto 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border-subtle);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-icon {
+    position: absolute;
+    top: 25px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--space-card);
+    border: 2px solid var(--border-highlight);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    z-index: 10;
+    transition: var(--transition-smooth);
+    color: var(--bone-white);
+}
+
+.timeline-item:nth-child(odd) .timeline-icon {
+    right: -20px;
+}
+
+.timeline-item:nth-child(even) .timeline-icon {
+    left: -20px;
+}
+
+.timeline-content {
+    background: var(--space-card);
+    padding: 25px 30px;
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    transition: var(--transition-smooth);
+}
+
+.timeline-item:hover .timeline-icon {
+    border-color: var(--pure-white);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.timeline-content:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-highlight);
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: var(--pure-white);
+    font-family: var(--font-title);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timeline-content p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
