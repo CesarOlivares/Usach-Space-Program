@@ -5,174 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyectos - USACH Space Program</title>
     
-    <link rel="icon" type="image/png" href="../../src/assets/logo.png">
+    <link rel="icon" type="image/png" href="../../src/assets/images/logo.png">
     <link rel="stylesheet" href="../../src/styles/main.css">
     
-    <style>
-        /* === CONFIGURACIÓN DEL SLIDER HORIZONTAL === */
-        @media (min-width: 1025px) {
-            body, html {
-                overflow-y: hidden;
-            }
-        }
-        .projects-slider {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            height: 100vh;
-            align-items: center;
-            padding: 0 8vw;
-            gap: 5vw;
-            box-sizing: border-box;
-            scrollbar-width: none; /* Firefox */
-        }
-        .projects-slider::-webkit-scrollbar {
-            display: none; /* Chrome/Edge/Safari */
-        }
-        .slider-card {
-            scroll-snap-align: center;
-            flex: 0 0 75vw;
-            height: 65vh;
-            background-color: var(--space-card);
-            border-radius: 12px;
-            border: 1px solid var(--border-subtle);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
-            margin-top: 50px;
-            transition: var(--transition-smooth);
-        }
-        .slider-card:hover {
-            border-color: var(--border-highlight);
-            box-shadow: 0 25px 60px rgba(255,255,255,0.02);
-        }
-        .slider-image {
-            height: 50%;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            position: relative;
-            margin-top: 30px;
-        }
-        .slider-image::after {
-            display: none;
-        }
-        .slider-info {
-            height: 50%;
-            padding: 40px 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-sizing: border-box;
-        }
-        .slider-info h2 {
-            font-family: var(--font-title);
-            font-size: 2.4rem;
-            margin: 5px 0 10px 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--pure-white);
-        }
-        .slider-info .eje-tag {
-            font-family: var(--font-mono);
-            color: var(--nasa-blue-glow);
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            display: inline-block;
-        }
-        .slider-info p {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: var(--text-muted);
-            margin: 0;
-        }
-        .btn-details {
-            align-self: flex-start;
-            background-color: transparent;
-            border: 1px solid var(--border-highlight);
-            color: var(--bone-white);
-            text-decoration: none;
-            padding: 12px 35px;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            border-radius: 4px;
-            letter-spacing: 1.5px;
-            transition: var(--transition-smooth);
-        }
-        .btn-details:hover {
-            background-color: var(--bone-white);
-            color: var(--space-black);
-            border-color: var(--bone-white);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-        }
-        .slider-controls {
-            position: fixed;
-            bottom: 40px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            z-index: 100;
-        }
-        .btn-scroll {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-highlight);
-            color: var(--pure-white);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.5rem;
-            backdrop-filter: blur(10px);
-            transition: var(--transition-smooth);
-        }
-        .btn-scroll:hover {
-            background: var(--bone-white);
-            color: var(--space-black);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
-        }
-        @media (max-width: 1024px) and (min-width: 769px) {
-            .slider-card { flex: 0 0 75vw; height: 65vh; }
-            .slider-info h2 { font-size: 2.2rem; }
-        }
-        @media (max-width: 768px) {
-            html, body {
-                overflow-x: hidden;
-                width: 100%;
-                overflow-y: auto;
-            }
-            .projects-slider {
-                height: auto;
-                min-height: calc(100vh - 80px);
-                padding: 100px 5vw 40px !important;
-                gap: 40px;
-                flex-direction: column;
-                overflow-x: hidden;
-            }
-            .slider-controls { display: none; }
-            .slider-card {
-                flex: 0 0 auto !important;
-                width: 90vw !important;
-                height: auto !important;
-                margin-top: 0;
-            }
-            .slider-image { height: 200px !important; }
-            .slider-info { height: auto !important; padding: 25px 20px !important; gap: 15px; }
-            .slider-info h2 { font-size: 1.8rem !important; }
-            .slider-info p { font-size: 0.95rem !important; }
-            .btn-details { align-self: stretch !important; text-align: center; padding: 14px !important; }
-            .scroll-indicator { display: none; }
-        }
-    </style>
+    <style>@import url("../styles/pages/proyectos.css");</style>
 </head>
 <body class="tech-grid">
 
@@ -184,7 +20,7 @@
         <div class="slider-card">
             <span class="tech-star" style="top: 20px; right: 20px;">✦</span>
             <span class="tech-star" style="bottom: 50%; left: 30px;">✦</span>
-            <div class="slider-image" style="background-image: url('../../src/assets/gallery/pngwing.com (3).png');"></div>
+            <div class="slider-image" style="background-image: url('../../src/assets/images/gallery/pngwing.com (3).png');"></div>
             <div class="slider-info">
                 <div>
                     <span class="eje-tag">EJE I: EXPLORACIÓN PLANETARIA</span>
@@ -198,7 +34,7 @@
         <div class="slider-card">
             <span class="tech-star" style="top: 20px; right: 20px;">✦</span>
             <span class="tech-star" style="bottom: 50%; left: 30px;">✦</span>
-            <div class="slider-image" style="background-image: url('../../src/assets/gallery/pngwing.com (2).png');"></div>
+            <div class="slider-image" style="background-image: url('../../src/assets/images/gallery/pngwing.com (2).png');"></div>
             <div class="slider-info">
                 <div>
                     <span class="eje-tag">EJE IV: SISTEMAS ESPACIALES Y ENERGÍA</span>
@@ -212,7 +48,7 @@
         <div class="slider-card">
             <span class="tech-star" style="top: 20px; right: 20px;">✦</span>
             <span class="tech-star" style="bottom: 50%; left: 30px;">✦</span>
-            <div class="slider-image" style="background-image: url('../../src/assets/gallery/pngwing.com.png');"></div>
+            <div class="slider-image" style="background-image: url('../../src/assets/images/gallery/pngwing.com.png');"></div>
             <div class="slider-info">
                 <div>
                     <span class="eje-tag">EJE III: COHETERÍA DE SONDEO</span>
@@ -226,7 +62,7 @@
         <div class="slider-card">
             <span class="tech-star" style="top: 20px; right: 20px;">✦</span>
             <span class="tech-star" style="bottom: 50%; left: 30px;">✦</span>
-            <div class="slider-image" style="background-image: url('../../src/assets/luna.png'); background-size: 40% auto;"></div>
+            <div class="slider-image" style="background-image: url('../../src/assets/images/luna.png'); background-size: 40% auto;"></div>
             <div class="slider-info">
                 <div>
                     <span class="eje-tag">EJE II: SIMULACIÓN Y DINÁMICA DE VUELO</span>
@@ -240,7 +76,7 @@
         <div class="slider-card">
             <span class="tech-star" style="top: 20px; right: 20px;">✦</span>
             <span class="tech-star" style="bottom: 50%; left: 30px;">✦</span>
-            <div class="slider-image" style="background-image: url('../../src/assets/gallery/pngwing.com (1).png');"></div>
+            <div class="slider-image" style="background-image: url('../../src/assets/images/gallery/pngwing.com (1).png');"></div>
             <div class="slider-info">
                 <div>
                     <span class="eje-tag">EJE V: EDUCACIÓN Y EXPERIENCIA</span>
@@ -258,24 +94,6 @@
         <button class="btn-scroll" id="btnNext" aria-label="Siguiente">→</button>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const slider = document.querySelector('.projects-slider');
-            const btnPrev = document.getElementById('btnPrev');
-            const btnNext = document.getElementById('btnNext');
-
-            if (slider && btnPrev && btnNext) {
-                const scrollAmount = window.innerWidth * 0.8;
-                
-                btnPrev.addEventListener('click', () => {
-                    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-                });
-                
-                btnNext.addEventListener('click', () => {
-                    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                });
-            }
-        });
-    </script>
+    <script type="module" src="../js/pages/proyectos.js"></script>
 </body>
 </html>

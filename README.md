@@ -12,40 +12,36 @@ La plataforma está construida utilizando una arquitectura de aplicación multip
 El repositorio se organiza bajo una estructura modular para separar el contenido estático expuesto de los recursos fuente utilizados durante la fase de compilación.
 
 ```text
-/Usach-Space-Program (Raíz del Proyecto)
-├── /dist                       # Directorio autogenerado tras compilar (código de producción)
-├── /public                     # Recursos estáticos transferidos directamente sin procesar
-│   └── CNAME                   # Configuración del dominio personalizado para GitHub Pages
-├── /src                        # Código fuente del desarrollo de la plataforma
-│   ├── /assets                 # Recursos gráficos y de medios de comunicación
-│   │   ├── Tierra.png          # Ilustración Earth de fondo
-│   │   ├── luna.png            # Ilustración Moon de fondo
-│   │   ├── marte.png           # Ilustración Mars de fondo
-│   │   ├── logo.png            # Logotipo principal institucional
-│   │   ├── logo_noTextBLACK.png # Favicon institucional oscuro
-│   │   └── /gallery            # Registro fotográfico de operaciones análogas
-│   ├── /components             # Fragmentos de HTML reutilizables (plantillas estáticas)
-│   │   ├── header.html         # Barra de navegación superior
-│   │   └── footer.html         # Pie de página institucional consolidado
-│   ├── /styles                 # Hojas de estilo estructuradas
-│   │   ├── variables.css       # Definición de tokens de diseño y variables CSS globales
-│   │   └── main.css            # Estilos globales y reglas responsive unificadas
-│   └── /pages                  # Páginas secundarias y vistas específicas
-│       ├── proyectos.html      # Catálogo interactivo de misiones y talleres
-│       ├── ejes.html           # Explicación de los cinco ejes estratégicos de la organización
-│       ├── registro.html       # Manifiesto de vuelo y formulario de postulación
-│       └── /proyectos          # Fichas técnicas detalladas de proyectos específicos
-│           ├── cansat.html
-│           ├── cubesat_avanzado.html
-│           ├── cohete.html
-│           ├── eggdrop.html
-│           ├── impresion3d.html
-│           ├── rover.html
-│           └── rover_avanzado.html
-├── index.html                  # Punto de entrada principal de la aplicación (Página de Inicio)
-├── login.html                  # Portal de acceso y control restringido (fallback)
-├── package.json                # Configuración de dependencias y scripts del proyecto
-└── vite.config.js              # Configuración del servidor de desarrollo y del compilador Rollup
+Usach-Space-Program/
+├── index.html / login.html       # Entradas públicas de la raíz
+├── public/CNAME                  # Dominio de GitHub Pages
+├── fotos_rover/
+│   └── rover_prueba_giro.mp4      # Ruta heredada conservada
+├── src/
+│   ├── assets/images/
+│   │   ├── gallery/              # Recursos y fotografías de proyectos
+│   │   └── rover/                # Fotografías del rover
+│   ├── components/
+│   │   ├── header.html
+│   │   └── footer.html
+│   ├── pages/
+│   │   ├── proyectos.html / ejes.html / registro.html
+│   │   └── proyectos/            # Siete fichas; URLs conservadas
+│   ├── styles/
+│   │   ├── main.css              # Entrada global; mantiene el orden de la cascada
+│   │   ├── base/                 # Variables, reglas globales y responsive
+│   │   ├── components/           # Navegación, pie, tarjetas y bloques de proyectos
+│   │   └── pages/
+│   │       └── proyectos/        # Estilos de fichas; mision.css compartido
+│   └── js/
+│       ├── components/header.js  # Menú compartido
+│       └── pages/
+│           ├── proyectos.js     # Desplazamiento del catálogo
+│           ├── registro.js      # Interfaz y envío existente a Google Forms
+│           └── proyectos/rover_avanzado.js
+├── vite.config.js                # Las 12 entradas multipágina
+├── package.json / package-lock.json
+└── dist/                         # Salida generada, no versionada
 ```
 
 ---
@@ -140,3 +136,13 @@ npm run build
 ```
 
 Esto generará la carpeta de distribución `/dist/` con el sitio optimizado, los recursos renombrados con hashes únicos para evitar problemas de caché, las plantillas inyectadas y los estilos unificados. **Únicamente el contenido de la carpeta `/dist/` debe ser desplegado al servidor de producción o a la rama de distribución de GitHub Pages.**
+
+## 5. Organización del frontend
+
+- Las páginas conservan sus ubicaciones: mover un HTML cambia su URL de salida. Las entradas de Vite permanecen sin cambios.
+- Cada página conserva el enlace global y un bloque `<style>` con un único `@import` hacia su hoja específica. Este punto de entrada mantiene la cascada previa tanto en desarrollo como en producción: Vite inserta el CSS global después del bloque de página al compilar. No sustituir este bloque por un segundo `<link>` sin revisar la prioridad de las reglas. Los `@import` globales mantienen también el orden de las reglas responsive.
+- `components/project-sections.css` contiene reglas idénticas compartidas por cohete, Egg Drop y talleres; `pages/proyectos/mision.css` reúne los estilos idénticos de cohete y Egg Drop. Mantener las excepciones en las hojas de página.
+- Los scripts son módulos nativos cargados con `type="module"`. La cabecera incluye el módulo de menú mediante el parámetro `root`; los demás módulos pertenecen a sus páginas. El registro mantiene su envío y tratamiento de respuestas actuales, sin introducir servicios ni nuevas integraciones.
+- Las rutas `url(...)` de CSS se resuelven respecto de la hoja, mientras que los enlaces de HTML se resuelven respecto de cada página. Vite procesa las imágenes de `src/assets/images`.
+- El video conserva su ubicación y referencia heredadas: actualmente su URL se inserta como texto al hacer clic y no se incluye en la compilación. Corregir su publicación es una tarea funcional separada. No se crean carpetas vacías de videos, utilidades o integraciones.
+- Después de reorganizar recursos, ejecutar `npm run build` y revisar las 12 páginas, las 12 cabeceras y los 11 pies declarados; el catálogo ya carece de pie. Comprobar navegación móvil, formulario y CSS en desarrollo y preview.

@@ -1,0 +1,168 @@
+/* === REGISTRO LAYOUT === */
+.registro-section {
+    padding: 140px 10% 80px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../../assets/images/luna.png') no-repeat center center/cover;
+    position: relative;
+    box-sizing: border-box;
+}
+.registro-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(var(--space-black-rgb), 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+.form-container {
+    background-color: var(--space-card);
+    padding: 50px;
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    width: 100%;
+    max-width: 600px;
+    z-index: 1;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    box-sizing: border-box;
+    position: relative;
+}
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 3px;
+    background: linear-gradient(90deg, transparent, var(--border-highlight), transparent);
+}
+.form-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.form-header h1 {
+    font-family: var(--font-title);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 2.2rem;
+    color: var(--pure-white);
+}
+.form-header p {
+    font-family: var(--font-body);
+    color: var(--text-muted);
+    margin-top: 15px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+.form-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+.form-group label {
+    margin-bottom: 8px;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    color: var(--bone-white);
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+.form-group input, .form-group select, .search-select-container input {
+    width: 100% !important;
+    box-sizing: border-box;
+    padding: 12px 15px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    color: var(--pure-white);
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    transition: var(--transition-smooth);
+    appearance: none;
+    -webkit-appearance: none;
+}
+.form-group select {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='white'><polygon points='0,0 10,0 5,5'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px;
+    cursor: pointer;
+}
+.form-group select option {
+    background-color: #12121a;
+    color: #ffffff;
+}
+.form-group input:focus, .form-group select:focus, .search-select-container input:focus {
+    outline: none;
+    border-color: var(--border-highlight);
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 10px rgba(255,255,255,0.05);
+}
+.form-group .help-text {
+    font-size: 0.8rem;
+    color: var(--text-dark);
+    margin-top: 5px;
+    font-family: var(--font-body);
+}
+.search-select-container {
+    position: relative;
+    width: 100%;
+}
+.options-dropdown {
+    position: absolute;
+    top: 100%; left: 0; width: 100%;
+    max-height: 220px;
+    overflow-y: auto;
+    background-color: var(--space-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 0 0 4px 4px;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+    box-sizing: border-box;
+}
+.option-item {
+    padding: 11px 15px;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    transition: var(--transition-smooth);
+    text-align: left;
+}
+.option-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--pure-white);
+}
+.options-dropdown::-webkit-scrollbar { width: 4px; }
+.options-dropdown::-webkit-scrollbar-thumb { background-color: var(--border-highlight); border-radius: 2px; }
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background-color: transparent;
+    color: var(--bone-white);
+    border: 1px solid var(--border-highlight);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    margin-top: 10px;
+}
+.btn-submit:hover {
+    background-color: var(--bone-white);
+    color: var(--space-black);
+    border-color: var(--bone-white);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+.btn-submit:active { transform: scale(0.98); }
+
+@media (max-width: 1024px) {
+    .registro-section { padding: 100px 20px 40px; }
+    .form-container { padding: 40px 25px; }
+    .form-header h1 { font-size: 1.8rem; }
+}

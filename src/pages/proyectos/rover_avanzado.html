@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rover Perseverance | USACH Space Program</title>
     
-    <link rel="icon" type="image/png" href="../../../src/assets/logo.png">
+    <link rel="icon" type="image/png" href="../../../src/assets/images/logo.png">
     <link rel="stylesheet" href="../../../src/styles/main.css">
     
     <!-- Google Fonts -->
@@ -13,607 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     
-    <style>
-        :root {
-            /* Negro profundo espacial */
-            --bg-dark: #000000; 
-            --bg-card: #0c0c0d;
-            --text-main: #ffffff;
-            --text-muted: #8e8e93;
-            --accent: #38bdf8;
-            --border-color: rgba(255, 255, 255, 0.08);
-        }
-
-        body, html {
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-dark) !important;
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            position: relative;
-            scroll-behavior: smooth;
-        }
-
-        /* Override general background overlays if any */
-        body.tech-grid {
-            background-image: none !important;
-            background-color: var(--bg-dark) !important;
-        }
-
-        /* --- ESTRELLAS DINÁMICAS --- */
-        .stars-container {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            overflow: hidden;
-            pointer-events: none;
-        }
-        
-        .star {
-            position: absolute;
-            background-color: white;
-            border-radius: 50%;
-            animation: twinkle infinite alternate ease-in-out;
-        }
-
-        @keyframes twinkle {
-            0% { opacity: 0.15; }
-            100% { opacity: 0.85; }
-        }
-
-        /* --- NAVIGATION WRAPPER --- */
-        .nav-offset {
-            height: 80px;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            position: relative;
-            min-height: calc(100vh - 80px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 10%;
-            box-sizing: border-box;
-            background-color: transparent;
-            z-index: 10;
-        }
-
-        .hero-bg-text {
-            position: absolute;
-            top: 25%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: 'Syncopate', sans-serif;
-            font-size: 15vw;
-            color: transparent;
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
-            z-index: 0;
-            user-select: none;
-            font-weight: 700;
-            letter-spacing: -2px;
-            white-space: nowrap;
-        }
-
-        /* BARRA DE BÚSQUEDA */
-        .search-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto 40px auto;
-            display: flex;
-            justify-content: flex-end;
-            z-index: 2;
-        }
-
-        .search-bar {
-            display: flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 10px 18px;
-            width: 380px;
-            backdrop-filter: blur(8px);
-        }
-
-        .search-bar input {
-            background: transparent;
-            border: none;
-            outline: none;
-            color: #fff;
-            margin-left: 10px;
-            width: 100%;
-            font-size: 0.9rem;
-        }
-
-        .search-icon {
-            font-size: 0.95rem;
-            opacity: 0.8;
-        }
-
-        .tech-tag {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.65rem;
-            color: var(--accent);
-            letter-spacing: 1px;
-            white-space: nowrap;
-        }
-
-        /* SPLIT HERO */
-        .hero-container-split {
-            max-width: 1280px;
-            width: 100%;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* 50% Izquierda - 50% Derecha */
-            gap: 60px;
-            align-items: center;
-            z-index: 2;
-            text-align: left;
-        }
-
-        .hero-left-visual {
-            width: 100%;
-            position: relative;
-        }
-
-        .hero-left-visual img {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9);
-            border: 1px solid var(--border-color);
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
-        }
-
-        .hero-left-visual img:hover {
-            transform: scale(1.02);
-            filter: brightness(1.05);
-        }
-
-        .hero-right-content {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .tech-badge {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 0.75rem;
-            color: var(--accent);
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .hero-title-main {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 3.2rem;
-            text-transform: uppercase;
-            margin: 10px 0;
-            line-height: 1.1;
-            color: var(--text-main);
-        }
-
-        .hero-subtitle-main {
-            font-family: 'Space Grotesk', sans-serif;
-            color: var(--accent);
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-            margin: 0 0 25px 0;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        .hero-desc {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            line-height: 1.75;
-            margin: 0;
-            font-weight: 300;
-        }
-
-        /* --- INFO BAR (ICONS LIKE DRONE PAGE) --- */
-        .specs-bar {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            padding: 60px 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            width: 80%;
-            margin: 0 auto;
-            background-color: transparent;
-        }
-        
-        .spec-item {
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .spec-item strong {
-            display: block;
-            font-family: 'Syncopate', sans-serif;
-            font-size: 1.1rem;
-            color: var(--text-main);
-            margin-bottom: 6px;
-        }
-
-        /* --- SPLIT SECTIONS (ZIG ZAG) --- */
-        .split-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 100px 10%;
-            gap: 80px;
-            background-color: transparent;
-        }
-        
-        .split-section.reverse {
-            flex-direction: row-reverse;
-        }
-
-        .split-text {
-            flex: 1.1;
-        }
-
-        .split-tag {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 0.75rem;
-            color: var(--accent);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-            display: block;
-        }
-
-        .split-text h2 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 2.2rem;
-            margin: 0 0 20px 0;
-            line-height: 1.25;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .split-text p {
-            color: var(--text-muted);
-            line-height: 1.75;
-            font-size: 1.05rem;
-            margin: 0;
-            font-weight: 300;
-        }
-
-        .split-image {
-            flex: 0.9;
-            position: relative;
-        }
-
-        .split-image img {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s ease;
-        }
-
-        .split-image img:hover {
-            transform: translateY(-4px);
-            opacity: 0.9;
-        }
-
-        /* --- GALLERY / TRAYECTORIA --- */
-        .gallery-header {
-            text-align: center;
-            padding-top: 100px;
-            background-color: transparent;
-        }
-
-        .gallery-header h2 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 2.2rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            padding: 50px 10% 100px;
-            background-color: transparent;
-        }
-
-        .gallery-card {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.85);
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-card img {
-            width: 100%;
-            aspect-ratio: 1.1;
-            object-fit: cover;
-            display: block;
-            transition: all 0.4s ease;
-        }
-
-        .gallery-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .gallery-card:hover img {
-            opacity: 0.9;
-            transform: scale(1.03);
-        }
-
-        .gallery-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 20px;
-            background: linear-gradient(180deg, transparent 0%, rgba(1, 11, 25, 0.95) 80%);
-        }
-
-        .gallery-info h4 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 0.85rem;
-            margin: 0 0 6px 0;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--text-main);
-        }
-
-        .gallery-info p {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            margin: 0;
-            line-height: 1.4;
-        }
-
-        /* --- VIDEO SECTION --- */
-        .video-section {
-            text-align: center;
-            padding: 100px 10%;
-            background-color: transparent;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .video-section h2 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 2.2rem;
-            margin: 0 0 15px 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .video-section p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 50px;
-            letter-spacing: 1px;
-        }
-        
-        .video-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.85);
-            border: 1px solid rgba(255,255,255,0.05);
-            background: #000;
-        }
-
-        #video-cover {
-            position: relative;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            aspect-ratio: 16/9;
-            background: url('../../../fotos_rover/posando_rover_1.jpg') no-repeat center center/cover;
-            transition: all 0.3s ease;
-        }
-
-        #video-cover:hover {
-            filter: brightness(1.05);
-        }
-
-        .play-btn-circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            color: #fff;
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        #video-cover:hover .play-btn-circle {
-            transform: scale(1.1);
-            background: #ffffff;
-            color: var(--bg-dark);
-            box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
-        }
-
-        video {
-            width: 100%;
-            display: block;
-            background: #000;
-        }
-
-        /* --- TIMELINE SECTION --- */
-        .timeline-section {
-            padding: 120px 10% 100px;
-            position: relative;
-            background-color: transparent;
-        }
-        
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding-left: 30px;
-            border-left: 2px solid var(--accent);
-        }
-
-        .timeline-item {
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -37px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            background: var(--bg-dark);
-            border: 2px solid var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent);
-            transition: all 0.3s ease;
-        }
-
-        .timeline-item:hover::before {
-            background: var(--accent);
-            transform: scale(1.2);
-        }
-
-        .timeline-title {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 8px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .timeline-item p {
-            margin: 0;
-            line-height: 1.6;
-            font-weight: 300;
-        }
-
-        /* --- CITA FINAL INSPIRACIONAL --- */
-        .quote-section {
-            padding: 120px 10%;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            background: linear-gradient(to top, #000000 0%, var(--bg-dark) 100%);
-        }
-
-        .quote-text {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 2.5rem;
-            color: var(--text-main);
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin: 0;
-        }
-        
-        .quote-author {
-            color: var(--accent);
-            margin-top: 20px;
-            font-size: 0.95rem;
-            letter-spacing: 3px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        /* --- FOOTER DECORATION --- */
-        .footer-action {
-            text-align: center;
-            padding: 60px 20px 100px;
-            background-color: #000000;
-        }
-
-        .btn-dossier {
-            display: inline-block;
-            background: var(--text-main);
-            color: var(--bg-dark);
-            padding: 18px 45px;
-            border-radius: 30px;
-            font-family: 'Syncopate', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.1);
-        }
-
-        .btn-dossier:hover {
-            background: var(--accent);
-            color: var(--text-main);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(56, 189, 248, 0.3);
-        }
-
-        /* --- EXTRA ASSET ASIDE --- */
-        .extra-aside {
-            display: none;
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 960px) {
-            .hero-bg-text {
-                font-size: 18vw;
-                top: 25%;
-            }
-            .hero-container-split {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
-            .hero-right-content {
-                align-items: center;
-            }
-            .search-container {
-                justify-content: center;
-                margin-bottom: 20px;
-            }
-            .search-bar {
-                width: 100%;
-                max-width: 380px;
-            }
-            .specs-bar {
-                flex-direction: column;
-                gap: 30px;
-                width: 90%;
-            }
-            .split-section, .split-section.reverse {
-                flex-direction: column;
-                padding: 60px 8%;
-                gap: 40px;
-            }
-            .gallery-grid {
-                grid-template-columns: 1fr;
-                padding: 30px 8%;
-            }
-            .quote-text {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+    <style>@import url("../../styles/pages/proyectos/rover_avanzado.css");</style>
 </head>
 <body class="tech-grid">
 
@@ -641,7 +41,7 @@
         <div class="hero-container-split">
             <!-- IZQUIERDA: IMAGEN PRINCIPAL -->
             <div class="hero-left-visual">
-                <img src="../../../fotos_rover/rover_primer_ensamble_completo.jpg" alt="Rover Perseverance USACH Space Program">
+                <img src="../../../src/assets/images/rover/rover_primer_ensamble_completo.jpg" alt="Rover Perseverance USACH Space Program">
             </div>
 
             <!-- DERECHA: TEXTOS -->
@@ -684,7 +84,7 @@
             <p>Nuestra primera herramienta insignia de aprendizaje. Adoptamos y reinterpretamos la arquitectura Perseverance de la NASA para dominar la cinemática en contexto espacial. Un esfuerzo por comprender la robótica física y el comportamiento de suspensiones complejas sobre terrenos irregulares.</p>
         </div>
         <div class="split-image">
-            <img src="../../../fotos_rover/rover_primer plano.jpeg" alt="Primer plano mecatrónico del Rover" loading="lazy">
+            <img src="../../../src/assets/images/rover/rover_primer plano.jpeg" alt="Primer plano mecatrónico del Rover" loading="lazy">
         </div>
     </section>
 
@@ -696,7 +96,7 @@
             <p>Horas de modelado digital, manufactura de piezas y calibración constante. Tuvimos que sobreponernos a fallos en piezas de impresión 3D y problemas de alineación física. Cada contratiempo nos enseñó a refinar el diseño mecatrónico final.</p>
         </div>
         <div class="split-image">
-            <img src="../../../fotos_rover/decenso_a_la_locura.jpg" alt="Proceso de diseño y frustración" loading="lazy">
+            <img src="../../../src/assets/images/rover/decenso_a_la_locura.jpg" alt="Proceso de diseño y frustración" loading="lazy">
         </div>
     </section>
 
@@ -708,7 +108,7 @@
     <div class="gallery-grid">
         <!-- Card 1 -->
         <div class="gallery-card">
-            <img src="../../../fotos_rover/piezas_rover.jpg" alt="Componentes de suspensión" loading="lazy">
+            <img src="../../../src/assets/images/rover/piezas_rover.jpg" alt="Componentes de suspensión" loading="lazy">
             <div class="gallery-info">
                 <h4>Componentes Base</h4>
                 <p>Alineando perfiles de suspensión y motores.</p>
@@ -716,7 +116,7 @@
         </div>
         <!-- Card 2 -->
         <div class="gallery-card">
-            <img src="../../../fotos_rover/primeros_pasos_rover.jpg" alt="Primeros pasos del Rover" loading="lazy">
+            <img src="../../../src/assets/images/rover/primeros_pasos_rover.jpg" alt="Primeros pasos del Rover" loading="lazy">
             <div class="gallery-info">
                 <h4>Primeros Pasos</h4>
                 <p>Fase inicial de ensamblaje del chasis en el taller.</p>
@@ -724,7 +124,7 @@
         </div>
         <!-- Card 3 -->
         <div class="gallery-card">
-            <img src="../../../fotos_rover/primer_cuerpo_rover.jpg" alt="Cuerpo base" loading="lazy">
+            <img src="../../../src/assets/images/rover/primer_cuerpo_rover.jpg" alt="Cuerpo base" loading="lazy">
             <div class="gallery-info">
                 <h4>Estructura Base</h4>
                 <p>Validando la robustez mecánica estructural.</p>
@@ -732,7 +132,7 @@
         </div>
         <!-- Card 4 -->
         <div class="gallery-card">
-            <img src="../../../fotos_rover/rover_armado_foto_grupal.jpg" alt="Foto grupal" loading="lazy">
+            <img src="../../../src/assets/images/rover/rover_armado_foto_grupal.jpg" alt="Foto grupal" loading="lazy">
             <div class="gallery-info">
                 <h4>Esfuerzo Conjunto</h4>
                 <p>El equipo del USACH Space Program y el prototipo.</p>
@@ -740,7 +140,7 @@
         </div>
         <!-- Card 5 -->
         <div class="gallery-card">
-            <img src="../../../fotos_rover/rover_pizza.jpg" alt="Hito y camaradería" loading="lazy">
+            <img src="../../../src/assets/images/rover/rover_pizza.jpg" alt="Hito y camaradería" loading="lazy">
             <div class="gallery-info">
                 <h4>Hitos & Unión</h4>
                 <p>Celebrando el ensamblaje exitoso del Rover.</p>
@@ -748,7 +148,7 @@
         </div>
         <!-- Card 6 -->
         <div class="gallery-card">
-            <img src="../../../fotos_rover/un_pequeno_paso_rover.jpg" alt="Pruebas de tracción" loading="lazy">
+            <img src="../../../src/assets/images/rover/un_pequeno_paso_rover.jpg" alt="Pruebas de tracción" loading="lazy">
             <div class="gallery-info">
                 <h4>Un Pequeño Paso</h4>
                 <p>Primeras pruebas de movimiento exitosas.</p>
@@ -822,39 +222,14 @@
 
     <!-- Extra hidden assets container to keep clean markup -->
     <div class="extra-aside">
-        <img src="../../../fotos_rover/rover_primer ensamblaje.jpeg" alt="Detalle del ensamblaje del Rover" loading="lazy">
-        <img src="../../../fotos_rover/posando_rover_1.jpg" alt="Rover posando" loading="lazy">
+        <img src="../../../src/assets/images/rover/rover_primer ensamblaje.jpeg" alt="Detalle del ensamblaje del Rover" loading="lazy">
+        <img src="../../../src/assets/images/rover/posando_rover_1.jpg" alt="Rover posando" loading="lazy">
     </div>
 
     <footer class="cyber-footer" style="background-color: #000000 !important; border-top: 1px solid rgba(255,255,255,0.05);">
         <load src="src/components/footer.html" root="../../../" />
     </footer>
 
-    <script>
-        // Cargar video diferido al hacer clic en el cover
-        document.getElementById('video-cover').addEventListener('click', function() {
-            const wrapper = document.getElementById('video-wrapper');
-            wrapper.innerHTML = `
-                <video autoplay loop muted controls style="width: 100%; display: block; background: #000;">
-                    <source src="../../../fotos_rover/rover_prueba_giro.mp4" type="video/mp4">
-                    Tu navegador no soporta la reproducción de video HTML5.
-                </video>
-            `;
-        });
-
-        // Generador simple de estrellas dinámicas
-        const starsContainer = document.getElementById('stars');
-        for(let i = 0; i < 45; i++) {
-            let star = document.createElement('div');
-            star.className = 'star';
-            star.style.width = Math.random() * 2.5 + 'px';
-            star.style.height = star.style.width;
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDuration = (Math.random() * 3 + 2.5) + 's';
-            star.style.animationDelay = (Math.random() * 2) + 's';
-            starsContainer.appendChild(star);
-        }
-    </script>
+    <script type="module" src="../../js/pages/proyectos/rover_avanzado.js"></script>
 </body>
 </html>
