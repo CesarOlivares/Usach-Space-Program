@@ -7,118 +7,117 @@
     
     <link rel="icon" type="image/png" href="../../../assets/logo-B9DE3e4g.png">
     
-    <style>
-        .tier-badge { 
-            background-color: rgba(255, 183, 3, 0.1); 
-            color: var(--nasa-gold); 
-            padding: 6px 16px; 
-            font-size: 0.8rem; 
-            font-family: var(--font-mono);
-            font-weight: bold; 
-            border-radius: 20px; 
-            display: inline-block; 
-            margin-bottom: 20px; 
-            border: 1px solid var(--nasa-gold); 
-            letter-spacing: 1px;
-        }
-        .inspiration-section { 
-            padding: 80px 10%; 
-            text-align: center; 
-            background: linear-gradient(var(--space-black), var(--space-dark)); 
-        }
-        .inspiration-container { max-width: 850px; margin: 0 auto; }
-        .inspiration-container h2 { 
-            font-family: var(--font-title);
-            font-size: 2.2rem; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            margin-bottom: 25px; 
-            color: var(--pure-white); 
-        }
-        .inspiration-container p { 
-            font-size: 1.25rem; 
-            line-height: 1.8; 
-            color: var(--bone-white); 
-            font-style: italic; 
-            font-weight: 300; 
-        }
-        .timeline-section { 
-            padding: 100px 10%; 
-            background-color: var(--space-black); 
-            border-top: 1px solid var(--border-subtle);
-            border-bottom: 1px solid var(--border-subtle);
-        }
-        .timeline-section h2 { 
-            font-family: var(--font-title);
-            text-align: center; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            font-size: 2.5rem; 
-            margin-bottom: 60px; 
-            color: var(--pure-white); 
-        }
-        .modalidad-section { padding: 100px 10%; background-color: var(--space-dark); }
-        .modalidad-section h2 { 
-            font-family: var(--font-title);
-            text-align: center; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            margin-bottom: 70px; 
-            font-size: 2.5rem; 
-            color: var(--pure-white);
-        }
-        .mod-row { display: flex; align-items: center; gap: 50px; margin-bottom: 85px; }
-        .mod-row:nth-child(even) { flex-direction: row-reverse; }
-        .mod-text { flex: 1; }
-        .mod-text h3 { 
-            font-family: var(--font-title);
-            font-size: 1.8rem; 
-            color: var(--pure-white); 
-            text-transform: uppercase; 
-            margin-top: 0; 
-            letter-spacing: 1px;
-        }
-        .mod-text p { font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); }
-        .mod-image {
-            flex: 1; height: 350px; border-radius: 8px;
-            background-color: var(--space-card);
-            border: 1px solid var(--border-subtle); 
-            position: relative; 
-            overflow: hidden;
-            background-size: cover; 
-            background-position: center;
-        }
-        .reference-link { display: inline-block; color: var(--nasa-blue-glow); text-decoration: none; font-size: 0.9rem; word-break: break-all; margin-top: 5px; }
-        .reference-link:hover { text-decoration: underline; }
+    <style>.tier-badge {
+    background-color: rgba(255, 183, 3, 0.1);
+    color: var(--nasa-gold);
+    padding: 6px 16px;
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    font-weight: bold;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 20px;
+    border: 1px solid var(--nasa-gold);
+    letter-spacing: 1px;
+}
+.inspiration-section {
+    padding: 80px 10%;
+    text-align: center;
+    background: linear-gradient(var(--space-black), var(--space-dark));
+}
+.inspiration-container { max-width: 850px; margin: 0 auto; }
+.inspiration-container h2 {
+    font-family: var(--font-title);
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    color: var(--pure-white);
+}
+.inspiration-container p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--bone-white);
+    font-style: italic;
+    font-weight: 300;
+}
+.timeline-section {
+    padding: 100px 10%;
+    background-color: var(--space-black);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+}
+.timeline-section h2 {
+    font-family: var(--font-title);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: var(--pure-white);
+}
+.modalidad-section { padding: 100px 10%; background-color: var(--space-dark); }
+.modalidad-section h2 {
+    font-family: var(--font-title);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 70px;
+    font-size: 2.5rem;
+    color: var(--pure-white);
+}
+.mod-row { display: flex; align-items: center; gap: 50px; margin-bottom: 85px; }
+.mod-row:nth-child(even) { flex-direction: row-reverse; }
+.mod-text { flex: 1; }
+.mod-text h3 {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    color: var(--pure-white);
+    text-transform: uppercase;
+    margin-top: 0;
+    letter-spacing: 1px;
+}
+.mod-text p { font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); }
+.mod-image {
+    flex: 1; height: 350px; border-radius: 8px;
+    background-color: var(--space-card);
+    border: 1px solid var(--border-subtle);
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+.reference-link { display: inline-block; color: var(--nasa-blue-glow); text-decoration: none; font-size: 0.9rem; word-break: break-all; margin-top: 5px; }
+.reference-link:hover { text-decoration: underline; }
 
-        .btn-contact { 
-            display: block; 
-            text-align: center; 
-            background-color: var(--nasa-gold); 
-            color: var(--space-black); 
-            text-decoration: none; 
-            padding: 15px; 
-            border-radius: 4px; 
-            text-transform: uppercase; 
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            font-weight: bold; 
-            margin-top: 20px; 
-            transition: var(--transition-smooth); 
-            letter-spacing: 1px;
-        }
-        .btn-contact:hover { 
-            background-color: var(--pure-white); 
-            color: var(--space-black);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-        }
-        @media (max-width: 1024px) {
-            .mod-row, .mod-row:nth-child(even) { flex-direction: column; gap: 30px; }
-            .mod-image { width: 100%; height: 250px; }
-            .timeline-section, .modalidad-section { padding-left: 20px; padding-right: 20px; }
-        }
-    </style>
-  <link rel="stylesheet" crossorigin href="../../../assets/main-Cpsl6W2C.css">
+.btn-contact {
+    display: block;
+    text-align: center;
+    background-color: var(--nasa-gold);
+    color: var(--space-black);
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: var(--transition-smooth);
+    letter-spacing: 1px;
+}
+.btn-contact:hover {
+    background-color: var(--pure-white);
+    color: var(--space-black);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+@media (max-width: 1024px) {
+    .mod-row, .mod-row:nth-child(even) { flex-direction: column; gap: 30px; }
+    .mod-image { width: 100%; height: 250px; }
+    .timeline-section, .modalidad-section { padding-left: 20px; padding-right: 20px; }
+}</style>
+  <script type="module" crossorigin src="../../../assets/header-B2EIyKSy.js"></script>
+  <link rel="stylesheet" crossorigin href="../../../assets/header-Dnc9HXv9.css">
 </head>
 <body class="tech-grid">
 
@@ -141,38 +140,6 @@
     </nav>
 </header>
 
-<script>
-    (function() {
-        const initMenu = () => {
-            const menuToggle = document.getElementById('menuToggle');
-            const navLinks = document.getElementById('navLinks');
-            if (menuToggle && navLinks) {
-                // Remove class on init just in case
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-                
-                // Toggle action
-                menuToggle.addEventListener('click', () => {
-                    menuToggle.classList.toggle('active');
-                    navLinks.classList.toggle('active');
-                });
-                
-                // Close navigation when clicking a link
-                document.querySelectorAll('#navLinks a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        menuToggle.classList.remove('active');
-                        navLinks.classList.remove('active');
-                    });
-                });
-            }
-        };
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initMenu);
-        } else {
-            initMenu();
-        }
-    })();
-</script>
 
 
     <section class="project-hero" style="background-image: url('../../../assets/pngwing.com%20(2)-C-V46Zg2.png');">
@@ -345,7 +312,7 @@
                     aria-label="Centro de Innovación USACH"
                 >
                     <img 
-                        src="data:image/webp;base64,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" 
+                        src="data:image/webp;base64,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"
                         alt="Centro de Innovación USACH"
                     >
                 </a>
@@ -358,7 +325,7 @@
                     aria-label="ACHIDE"
                 >
                     <img 
-                        src="../../../assets/achide-pTJ5xL5y.png" 
+                        src="../../../assets/achide-pTJ5xL5y.png"
                         alt="ACHIDE"
                     >
                 </a>
