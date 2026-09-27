@@ -336,82 +336,21 @@ body, html, body.tech-grid {
     font-weight: 700;
 }
 
-/* === TOP INSTITUTIONAL STATUS BAR === */
+/* === TOP INSTITUTIONAL STATUS BAR (REMOVED - MAINTAINED AS HIDDEN FOR SAFETY) === */
 .rover-top-bar,
 .project-top-bar {
-    background: #020306;
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 9px 40px;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 1.5px;
-    color: var(--text-secondary);
-    position: relative;
-    z-index: 50;
-    margin-top: 60px;
-}
-
-.rover-top-bar-inner,
-.project-top-bar-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.rover-top-left,
-.project-top-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.rover-badge-primary,
-.project-badge-primary {
-    color: var(--accent-amber);
-    font-weight: 600;
-}
-
-.rover-sep,
-.project-sep {
-    color: var(--border-subtle);
-}
-
-.rover-top-right,
-.project-top-right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--status-active);
-    font-weight: 600;
-}
-
-.status-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background-color: var(--status-active);
-    box-shadow: 0 0 8px var(--status-active);
-    animation: pulseActive 2s infinite ease-in-out;
-}
-
-@keyframes pulseActive {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.85); }
+    display: none !important;
 }
 
 /* === 1. HERO VIEWPORT SECTION === */
 .rover-hero-section,
 .project-hero-section {
     position: relative;
-    min-height: calc(100vh - 120px);
+    min-height: calc(100vh - 60px);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 60px 40px 80px;
+    padding: 105px 40px 80px;
     border-bottom: 1px solid var(--border-subtle);
     overflow: hidden;
     z-index: 10;
@@ -1198,7 +1137,7 @@ body, html, body.tech-grid {
     }
     .rover-hero-section,
     .project-hero-section {
-        padding: 40px 20px 60px;
+        padding: 85px 20px 60px;
     }
     .rover-specs-grid,
     .project-specs-grid {

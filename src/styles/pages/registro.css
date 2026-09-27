@@ -3,8 +3,8 @@
    ========================================================================== */
 
 .registro-section {
-    padding: 60px 20px 100px;
-    min-height: calc(100vh - 120px);
+    padding: 120px 20px 100px;
+    min-height: calc(100vh - 60px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -205,7 +205,7 @@
 /* === RESPONSIVE BREAKPOINTS === */
 @media (max-width: 768px) {
     .registro-section {
-        padding: 40px 16px 60px;
+        padding: 85px 16px 60px;
     }
     .form-container {
         padding: 30px 20px;

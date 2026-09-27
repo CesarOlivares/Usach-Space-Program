@@ -6,7 +6,7 @@
 /* === CATALOG HERO === */
 .catalog-hero-section {
     position: relative;
-    padding: 80px 40px 60px;
+    padding: 120px 40px 60px;
     border-bottom: 1px solid var(--border-subtle);
     background: radial-gradient(circle at top center, rgba(229, 169, 88, 0.05) 0%, transparent 60%);
     overflow: hidden;
@@ -272,7 +272,7 @@
 
 @media (max-width: 768px) {
     .catalog-hero-section {
-        padding: 50px 20px 40px;
+        padding: 85px 20px 40px;
     }
     .catalog-grid-section {
         padding: 50px 20px 70px;
