@@ -1,5 +1,10 @@
 <header>
-    <div class="nav-brand">USACH Space Program</div>
+    <div class="nav-brand-container">
+        <a href="{=$root}index.html" class="nav-brand-link">
+            <img src="{=$root}src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="nav-logo">
+            <span class="nav-brand">USACH Space Program</span>
+        </a>
+    </div>
     
     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
         <span></span>
@@ -8,11 +13,12 @@
     </button>
 
     <nav class="nav-links" id="navLinks">
-        <a href="{=$root}index.html">Inicio</a>
-        <a href="{=$root}src/pages/proyectos.html">Proyectos</a>
-        <a href="{=$root}src/pages/ejes.html">Ejes</a>
-        <a href="{=$root}src/pages/registro.html">Registrarse</a>
-        <a href="{=$root}login.html" class="btn-login">Iniciar Sesión</a>
+        <a href="{=$root}index.html#ejes">Ejes</a>
+        <a href="{=$root}index.html#proyectos">Proyectos</a>
+        <a href="{=$root}index.html#manifiesto">Manifiesto</a>
+        <a href="{=$root}index.html#alianzas">Alianzas</a>
+        <a href="{=$root}src/pages/registro.html" class="btn-nav-cta">Postular</a>
+        <a href="{=$root}login.html" class="btn-login">Intranet</a>
     </nav>
 </header>
 

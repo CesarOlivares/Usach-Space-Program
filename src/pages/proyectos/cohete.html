@@ -3,164 +3,380 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cohete de Agua - USACH Space Program</title>
+    <title>Cohetería Experimental &amp; Cohete 3U | USACH Space Program</title>
     
-    <link rel="icon" type="image/png" href="../../../src/assets/images/logo.png">
+    <link rel="icon" type="image/png" href="../../../src/assets/images/logo_noTextBLACK.png">
     <link rel="stylesheet" href="../../../src/styles/main.css">
     
     <style>@import url("../../styles/pages/proyectos/mision.css");</style>
 </head>
-<body class="tech-grid">
+<body>
 
-    <!-- Load Header component -->
-    <load src="src/components/header.html" root="../../../" />
+    <!-- FONDO DE ESTRELLAS DINÁMICO -->
+    <div class="stars-container" id="stars"></div>
 
-    <section class="project-hero" style="background-image: url('../../../src/assets/images/gallery/pngwing.com.png');">
-        <div class="project-hero-content">
-            <span class="tech-star" style="top: -20px; left: -10px;">✦</span>
-            <span class="tech-star" style="top: 30px; right: -40px;">✦</span>
-            <div class="tier-tag">NIVEL 1: ONBOARDING</div>
-            <div class="eje-tag">Eje III: Cohetería de Sondeo</div>
-            <h1>Cohete de Agua</h1>
-            <p>Vehículo aeroespacial de introducción impulsado por la liberación a presión de una mezcla de aire comprimido y agua.</p>
-        </div>
-    </section>
+    <!-- 0. BARRA SUPERIOR DE NAVEGACIÓN RÁPIDA (HUD NAVBAR) -->
+    <header class="rover-navbar">
+        <div class="rover-navbar-inner">
+            <!-- Brand -->
+            <a href="../../../index.html" class="rover-nav-back" title="USACH Space Program">
+                <img src="../../../src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="rover-nav-logo">
+                <span class="brand-title">USACH Space Program</span>
+            </a>
 
-    <section class="inspiration-section">
-        <div class="inspiration-container" style="position: relative;">
-            <span class="tech-star" style="top: -10px; left: 5%;">✦</span>
-            <span class="tech-star" style="bottom: -10px; right: 5%;">✦</span>
-            <h2>El primer paso hacia las estrellas</h2>
-            <p>"La cohetería experimental no es solo física en movimiento; es la transformación de la teoría neumática y la estabilidad aerodinámica en el primer vuelo controlado de tu vida estudiantil."</p>
-        </div>
-    </section>
-
-    <section class="project-container">
-        
-        <div class="main-content">
-            <h2>Descripción de la Misión</h2>
-            <p>Un cohete de agua (o cohete neumático) es un vehículo aeroespacial de introducción impulsado por la liberación a presión de una mezcla de aire comprimido y agua. Se construye utilizando botellas de plástico PET como tanque de presión y fuselaje. Este proyecto sirve como la primera aproximación práctica y segura a los principios fundamentales de la astronáutica: acción y reacción, estabilidad aerodinámica y sistemas de recuperación, operando como una excelente herramienta de reclutamiento y nivelación técnica.</p>
-            
-            <h2>Objetivos y Metas de Aprendizaje</h2>
-            <ul>
-                <li>Comprender los principios básicos de la mecánica de fluidos y experimentar empíricamente con las relaciones de presión y volumen en botellas PET.</li>
-                <li>Dominar el concepto de estabilidad aerodinámica mediante el cálculo y ajuste de la relación entre el Centro de Presión (CP) y el Centro de Gravedad (CG).</li>
-                <li>Diseñar y manufacturar un sistema de recuperación funcional (paracaídas) que garantice un descenso seguro.</li>
-            </ul>
-
-            <h2>Materiales y Hardware</h2>
-            <ul>
-                <li><strong>Fuselaje y Tanque:</strong> 2 a 3 botellas PET de bebidas carbonatadas (imprescindible que sean para gas, ya que resisten alta presión).</li>
-                <li><strong>Superficies aerodinámicas (Aletas):</strong> Cartón corrugado, plástico corrugado (coroplast) o impresión 3D ligera.</li>
-                <li><strong>Lastre:</strong> Arcilla, plastilina o tuercas metálicas para ajustar el Centro de Gravedad en la ojiva.</li>
-                <li><strong>Recuperación:</strong> Bolsas de basura resistentes o tela de nylon, e hilo de volantín o paracord delgado.</li>
-            </ul>
-        </div>
-
-        <div class="side-panel">
-            <div class="spec-item">
-                <h4>Costo Aproximado</h4>
-                <p>Extremadamente bajo, entre $5.000 y $10.000 CLP por equipo.</p>
-            </div>
-            <div class="spec-item">
-                <h4>Tiempo Estimado</h4>
-                <p>1 a 2 semanas (4 a 6 horas totales).</p>
-            </div>
-            <div class="spec-item">
-                <h4>Rol Organizador</h4>
-                <p>Director de Lanzamiento (Range Safety Officer).</p>
-            </div>
-            <div class="spec-item">
-                <h4>Recompensa de Misión</h4>
-                <p>Mission Patch exclusivo de Cohetería y herramientas. Este hito motiva la transición hacia la investigación de propulsantes sólidos de nivel avanzado, preparando a los integrantes para trabajar con combustibles como el KNSU y medir curvas de empuje en bancos de prueba como el Senku DAQ.</p>
-            </div>
-
-            <a href="../proyectos.html" class="btn-back">Volver a Proyectos</a>
-        </div>
-
-    </section>
-
-    <section class="timeline-section">
-        <h2>Ciclo de Lanzamiento de Cohetes</h2>
-        <div class="timeline">
-            
-            <div class="timeline-item">
-                <div class="timeline-icon">01</div>
-                <div class="timeline-content">
-                    <h3>1. Diseño de Fuselaje y Ojiva</h3>
-                    <p>Fase inicial donde los equipos seleccionan las botellas PET adecuadas y configuran la ojiva para minimizar el arrastre aerodinámico.</p>
+            <!-- Enlaces Rápidos (Escritorio) -->
+            <nav class="rover-quick-nav">
+                <div class="nav-group">
+                    <a href="../../../index.html" class="rover-nav-link">Inicio</a>
+                    <a href="../../../index.html#ejes" class="rover-nav-link">Ejes</a>
+                    <a href="../../../index.html#proyectos" class="rover-nav-link">Proyectos</a>
+                    <a href="../../../index.html#alianzas" class="rover-nav-link">Alianzas</a>
                 </div>
-            </div>
 
-            <div class="timeline-item">
-                <div class="timeline-icon">02</div>
-                <div class="timeline-content">
-                    <h3>2. Cálculo Aerodinámico</h3>
-                    <p>Determinación del Centro de Presión (CP) y Centro de Gravedad (CG). Se añade lastre y se diseñan las aletas estabilizadoras en CAD.</p>
+                <span class="nav-divider">|</span>
+
+                <div class="nav-group">
+                    <a href="#emblema" class="rover-nav-pill active-pill">Cohete 3U</a>
+                    <a href="#formativa" class="rover-nav-pill">Cohete de Agua (1U)</a>
+                    <a href="#aerodinamica" class="rover-nav-pill">Aerodinámica</a>
+                    <a href="#recuperacion" class="rover-nav-pill">Recuperación</a>
+                    <a href="#contacto" class="rover-nav-pill">Contacto</a>
                 </div>
+            </nav>
+
+            <!-- Acciones -->
+            <div class="rover-nav-actions">
+                <a href="mailto:spaceprogram@usach.cl?subject=Consulta%20Coheteria%20-%20USACH%20Space%20Program" class="btn-nav-contact">
+                    <span>Contacto</span>
+                    <span>✉</span>
+                </a>
+                <a href="../../../src/pages/registro.html" class="btn-nav-postular">
+                    <span>Postular</span>
+                </a>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-icon">03</div>
-                <div class="timeline-content">
-                    <h3>3. Manufactura del Tanque</h3>
-                    <p>Integración y sellado hermético de los tanques de presión PET. Pruebas hidráulicas para verificar que soporte presiones de hasta 80 PSI.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-icon">04</div>
-                <div class="timeline-content">
-                    <h3>4. Sistema de Recuperación</h3>
-                    <p>Diseño y empaquetado del paracaídas. Implementación de mecanismos de liberación pasivos que actúan en el apogeo del vuelo.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item final-hito">
-                <div class="timeline-icon">🚀</div>
-                <div class="timeline-content">
-                    <h3>Competencia y Lanzamiento</h3>
-                    <p>Lanzamiento balístico en campo abierto. Se mide el apogeo estimado (altura máxima) y el tiempo total de vuelo para evaluar la eficiencia.</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="modalidad-section">
-        <h2>Dificultades Técnicas Previstas</h2>
-        
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Estabilidad Aerodinámica</h3>
-                <p>Lograr que el cohete vuele en línea recta sin dar volteretas, lo cual requiere un cálculo preciso de la distancia entre el Centro de Presión y el Centro de Gravedad mediante el tamaño de las aletas y el lastre delantero.</p>
-            </div>
-            <div class="mod-image" style="background-image: url('../../../src/assets/images/gallery/cohete de agua dibujo.jpg');background-position: 90% 0%;"></div>
+            <!-- Botón Hamburguesa Móvil -->
+            <button class="rover-menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
 
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Integridad Estructural</h3>
-                <p>Garantizar un sellado hermético en las uniones que soporte presiones de entre 60 y 80 PSI sin sufrir despresurización prematura. La cohesión estructural evita fallas mecánicas catastróficas en la rampa de lanzamiento.</p>
+        <!-- Menú Desplegable Móvil -->
+        <div class="rover-mobile-menu" id="mobileMenu">
+            <a href="../../../index.html" class="mobile-link home-link">USACH Space Program (Inicio)</a>
+            <div class="mobile-section-label">SECCIONES PRINCIPALES</div>
+            <a href="../../../index.html#ejes" class="mobile-link">Ejes Estratégicos</a>
+            <a href="../../../index.html#proyectos" class="mobile-link">Proyectos USP</a>
+            <a href="../../../index.html#manifiesto" class="mobile-link">Manifiesto Estudiantil</a>
+            <a href="../../../index.html#alianzas" class="mobile-link">Alianzas Institucionales</a>
+            <div class="mobile-section-label">SECCIONES COHETERÍA</div>
+            <a href="#emblema" class="mobile-link">Plataforma Emblema: Cohete 3U</a>
+            <a href="#formativa" class="mobile-link">Iniciativa Formativa: Cohete de Agua (1U)</a>
+            <a href="#aerodinamica" class="mobile-link">Principios Aerodinámicos (CP vs CG)</a>
+            <a href="#recuperacion" class="mobile-link">Sistemas de Paracaídas y Recuperación</a>
+            <div class="mobile-actions">
+                <a href="mailto:spaceprogram@usach.cl" class="btn-mobile-cta">Contacto: spaceprogram@usach.cl</a>
+                <a href="../../../src/pages/registro.html" class="btn-mobile-postular">Postular al Equipo 2026</a>
             </div>
-            <div class="mod-image" style="background-image: url('../../../src/assets/images/gallery/Sellado cohete de agua.jpg');"></div>
         </div>
+    </header>
 
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Despliegue del Paracaídas</h3>
-                <p>Diseñar un mecanismo pasivo (como la separación por gravedad o fricción aerodinámica) que libere el paracaídas en el apogeo, asegurando una recuperación suave del fuselaje sin dañar la estructura para futuros lanzamientos.</p>
+    <!-- BARRA DE TELEMETRÍA INSTITUCIONAL -->
+    <div class="rover-top-bar">
+        <div class="rover-top-bar-inner">
+            <div class="rover-top-left">
+                <span class="rover-badge-primary">USACH SPACE PROGRAM</span>
+                <span class="rover-sep">|</span>
+                <span>EJE 02 COHETERÍA EXPERIMENTAL</span>
+                <span class="rover-sep">|</span>
+                <span>PROYECTO EMBLEMA COHETE 3U &amp; AGUA 1U</span>
             </div>
-            <div class="mod-image" style="background-image: url('../../../src/assets/images/gallery/cohete de agua paracaidas.jpg');"></div>
+            <div class="rover-top-right">
+                <span class="status-dot"></span>
+                <span>CALIBRACIÓN EN BANCO DE PRUEBAS</span>
+            </div>
         </div>
-    </section>
-
-    <div class="cta-container">
-        <a href="../registro.html" class="btn-join-mission">Anotarse en la Lista de Espera</a>
     </div>
 
-    <!-- Global Footer -->
-    <load src="src/components/footer.html" root="../../../" />
+    <!-- 1. HERO SECTION -->
+    <section class="rover-hero-section">
+        <div class="rover-hero-watermark">COHETERIA</div>
+        <div class="rover-hero-ambient"></div>
 
+        <div class="rover-hero-container">
+            <!-- Columna Izquierda: Viewport Lanzamiento NASA -->
+            <div class="rover-viewport-card">
+                <div class="rover-img-wrapper">
+                    <img src="../../../src/assets/images/nasa/cohete_multietapa.jpg" alt="Lanzamiento monumental de cohete espacial multietapa - NASA">
+                    <div class="rover-img-overlay-telemetry">
+                        <span class="rover-overlay-tag">NASA // PROPULSION SYSTEM</span>
+                        <span class="rover-overlay-badge">INSPIRACIÓN TÉCNICA</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Títulos, Resumen y Métricas Clave -->
+            <div class="rover-hero-content">
+                <div class="rover-section-tag">
+                    <span>✦</span>
+                    <span>PROYECTO EMBLEMA // EJE 02 COHETERÍA</span>
+                </div>
+                <h1 class="rover-hero-title">COHETE EXPERIMENTAL 3U</h1>
+                <h2 class="rover-hero-subtitle">Plataforma de Sondeo y Formación Aerodinámica</h2>
+                
+                <p class="rover-hero-desc">
+                    Desarrollo progresivo de vehículos de sondeo atmosférico. Desde la comprensión empírica de fluidos y estabilidad mediante el <strong>Cohete de Agua (1 Unidad)</strong>, hasta el diseño computacional de fuselaje de fibra, aviónica de altimetría y sistemas de propulsión del <strong>Cohete 3U</strong> (Plataforma Emblema).
+                </p>
+
+                <!-- Grid de Telemetría Rápida -->
+                <div class="rover-pills-grid">
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Proyecto Emblema</span>
+                        <span class="rover-pill-val">Cohete 3U Multietapa</span>
+                    </div>
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Iniciativa Formativa</span>
+                        <span class="rover-pill-val">Cohete de Agua (1 Unidad)</span>
+                    </div>
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Aviónica</span>
+                        <span class="rover-pill-val">Altimetría IMU &amp; Telemetría</span>
+                    </div>
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Recuperación</span>
+                        <span class="rover-pill-val">Despliegue Doble Paracaídas</span>
+                    </div>
+                </div>
+
+                <!-- Botones de Acción -->
+                <div class="rover-hero-actions">
+                    <a href="#emblema" class="btn-project-primary">
+                        <span>Plataforma Cohete 3U</span>
+                        <span>🚀</span>
+                    </a>
+                    <a href="#formativa" class="btn-project-secondary">
+                        <span>Iniciativa Cohete de Agua</span>
+                        <span>💧</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. SPECS BAR (PARÁMETROS TÉCNICOS) -->
+    <section class="rover-specs-section">
+        <div class="rover-specs-grid">
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Eje Técnico</span>
+                <div class="rover-spec-value">Cohetería de Sondeo</div>
+                <p class="rover-spec-sub">Dominio de la propulsión química, dinámica de fluidos y estabilidad de vuelo.</p>
+            </div>
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Líderes de Eje</span>
+                <div class="rover-spec-value">A. Orellano y S. García-Huidobro</div>
+                <p class="rover-spec-sub">Coordinación de 7 estudiantes en aerodinámica, estructura, aviónica y seguridad de campo.</p>
+            </div>
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Presión de Ensayos</span>
+                <div class="rover-spec-value">60 a 80 PSI</div>
+                <p class="rover-spec-sub">Pruebas hidráulicas y neumáticas en banco de taller para asegurar la integridad de tanques.</p>
+            </div>
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Criterio Estabilidad</span>
+                <div class="rover-spec-value">CP &gt; 1.5 Calibres tras CG</div>
+                <p class="rover-spec-sub">Centro de presión ubicado detrás del centro de masa para evitar volteretas en ascenso.</p>
+            </div>
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Aviónica a Bordo</span>
+                <div class="rover-spec-value">Barómetro + MicroSD</div>
+                <p class="rover-spec-sub">Registro de curvas de aceleración, presión atmosférica y cálculo de apogeo real.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SECCIÓN: PROYECTO EMBLEMA (COHETE 3U) -->
+    <section class="rover-split-section" id="emblema">
+        <div class="rover-split-container">
+            <div class="rover-split-text">
+                <span class="rover-section-tag">01 // PLATAFORMA EMBLEMA</span>
+                <h2>Cohete Experimental 3U: Ingeniería de Sondeo</h2>
+                <p>
+                    La plataforma Cohete 3U representa nuestro proyecto insignia en el eje de cohetería. Diseñada como un vehículo modular de tres unidades de volumen para albergar cargas útiles experimentales (CanSat o sensores de radiación). Su desarrollo abarca el cálculo de empuje, simulación de trayectorias en OpenRocket, diseño de aletas con perfil elíptico en fibra compuesta y computadores de vuelo redundantes con pirotecnia de eyección.
+                </p>
+                <div class="rover-split-feature-box">
+                    <h4>Aviónica de Apogeo</h4>
+                    <p>Detección precisa del punto culminante de la trayectoria mediante derivada de presión barométrica para desplegar la carga útil con suavidad.</p>
+                </div>
+            </div>
+            <div class="rover-split-visual">
+                <img src="../../../src/assets/images/nasa/cohete_1u_prep.jpg" alt="Preparación y montaje de cohete de sondeo en rampa de lanzamiento - NASA" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SECCIÓN: INICIATIVA FORMATIVA (COHETE DE AGUA 1 UNIDAD) -->
+    <section class="rover-split-section" id="formativa">
+        <div class="rover-split-container reverse">
+            <div class="rover-split-text">
+                <span class="rover-section-tag">02 // INICIATIVA FORMATIVA</span>
+                <h2>Cohete de Agua (1 Unidad): La Escuela Práctica</h2>
+                <p>
+                    Para aprender cohetería no partimos con explosivos: partimos con agua y aire a presión. Esta iniciativa formativa es nuestra primera puerta de entrada para estudiantes nuevos. Utilizando botellas de plástico PET como fuselaje y tanque de presión, los integrantes calculan la relación óptima de agua (aproximadamente un tercio del volumen), diseñan aletas en impresión 3D y fabrican paracaídas de tela ligera, experimentando en persona las leyes de Newton.
+                </p>
+                <div class="rover-split-feature-box">
+                    <h4>Seguridad y Validación Empírica</h4>
+                    <p>Permite realizar decenas de lanzamientos sucesivos a bajo costo, afinando el método de ensayo, registro de datos y trabajo en equipo.</p>
+                </div>
+            </div>
+            <div class="rover-split-visual">
+                <img src="../../../src/assets/images/gallery/Sellado cohete de agua.jpg" alt="Ensayos de sellado y resistencia de tanques PET en taller" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PRINCIPIOS FÍSICOS & RECUPERACIÓN -->
+    <section class="project-subsystems-section" id="aerodinamica">
+        <div class="section-head-center">
+            <div class="rover-section-tag">
+                <span>03 // PRINCIPIOS DE VUELO</span>
+            </div>
+            <h2>Física Aplicada en el Taller</h2>
+            <p>
+                La diferencia entre un proyectil descontrolado y un vuelo recto radica en el dominio de las fuerzas aerodinámicas y los sistemas de retorno seguro.
+            </p>
+        </div>
+
+        <div class="project-subsystems-grid">
+            <!-- Mod 1: CP vs CG -->
+            <div class="project-module-card">
+                <div class="module-card-img">
+                    <img src="../../../src/assets/images/gallery/cohete de agua dibujo.jpg" alt="Esquema físico de estabilidad aerodinámica y distribución de masas" loading="lazy">
+                </div>
+                <div class="module-card-body">
+                    <span class="module-card-tag">AERODINÁMICA // ESTABILIDAD</span>
+                    <h3>Centro de Presión vs. Centro de Gravedad</h3>
+                    <p>Para asegurar un ascenso vertical estable, el Centro de Presión (CP) debe situarse al menos 1.5 calibres por detrás del Centro de Gravedad (CG). Ajustamos el lastre en la ojiva y el tamaño de las aletas para corregir el comportamiento en vuelo.</p>
+                </div>
+            </div>
+
+            <!-- Mod 2: Paracaídas -->
+            <div class="project-module-card" id="recuperacion">
+                <div class="module-card-img">
+                    <img src="../../../src/assets/images/gallery/cohete de agua paracaidas.jpg" alt="Mecanismo de empaquetado y apertura del paracaídas de tela" loading="lazy">
+                </div>
+                <div class="module-card-body">
+                    <span class="module-card-tag">RECUPERACIÓN // DESACELERACIÓN</span>
+                    <h3>Sistemas de Paracaídas Pasivo</h3>
+                    <p>El paracaídas se pliega meticulosamente dentro de la ojiva frontal. Al alcanzar el apogeo, la desaceleración y el flujo de aire permiten que la tapa se desprenda por gravedad o rozamiento, desplegando las líneas para un aterrizaje suave e íntegro.</p>
+                </div>
+            </div>
+
+            <!-- Mod 3: Sellado y Presión -->
+            <div class="project-module-card">
+                <div class="module-card-img">
+                    <img src="../../../src/assets/images/gallery/IMG-20260605-WA0073.jpg" alt="Pruebas de campo y lanzamiento en terreno abierto" loading="lazy">
+                </div>
+                <div class="module-card-body">
+                    <span class="module-card-tag">TERRENO // OPERACIONES</span>
+                    <h3>Pruebas de Campo y Rampa de Guía</h3>
+                    <p>Utilizamos rampas con rieles de guiado mecánico para asegurar que el cohete adquiera velocidad antes de dejar el apoyo físico. Establecemos protocolos estrictos de distancia de seguridad y presurización remota.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. CICLO DE LANZAMIENTO -->
+    <section class="project-roadmap-section" id="ciclo">
+        <div class="project-roadmap-container">
+            <div class="section-head-center">
+                <div class="rover-section-tag">
+                    <span>04 // METODOLOGÍA</span>
+                </div>
+                <h2>Ciclo de Lanzamiento de Cohetes</h2>
+                <p>
+                    Del cálculo en papel a la rampa de lanzamiento en campo abierto.
+                </p>
+            </div>
+
+            <div class="project-roadmap-timeline">
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">ETAPA 01 // DISEÑO AERODINÁMICO</span>
+                    <h4>Modelado de Fuselaje y Ojiva</h4>
+                    <p>Selección de geometrías de baja resistencia al avance (von Kármán o parabólica) y cálculo dimensional de aletas estabilizadoras en CAD.</p>
+                </div>
+
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">ETAPA 02 // BANCO DE ENSAYOS</span>
+                    <h4>Pruebas Hidrostáticas de Presión</h4>
+                    <p>Validación de sellado hermético entre cámaras a 80 PSI utilizando agua para verificar la resistencia antes de cargar aire comprimido.</p>
+                </div>
+
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">ETAPA 03 // INTEGRACIÓN</span>
+                    <h4>Armado del Sistema de Eyección</h4>
+                    <p>Plegado de líneas de nylon, empaque del paracaídas en la sección frontal y verificación de holguras para evitar bloqueos mecánicos.</p>
+                </div>
+
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">ETAPA 04 // OPERACIÓN DE CAMPO</span>
+                    <h4>Lanzamiento y Análisis Telemétrico</h4>
+                    <p>Operación en terreno con oficial de seguridad (RSO), seguimiento de trayectoria, recuperación del fuselaje y extracción de datos del altímetro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CITA & CTA -->
+    <section class="project-quote-cta-section" id="contacto">
+        <div class="project-quote-box">
+            <div class="project-quote-text">
+                "La cohetería experimental no es solo física en movimiento; es la transformación de la aerodinámica teórica en el primer vuelo controlado de tu vida."
+            </div>
+            <div class="project-quote-sub">— USACH SPACE PROGRAM · EJE DE COHETERÍA EXPERIMENTAL</div>
+        </div>
+
+        <div class="project-cta-card">
+            <h3>¿Interesado en Participar en Cohetería?</h3>
+            <p>
+                Buscamos estudiantes de todas las carreras con curiosidad por la aerodinámica, la manufactura de materiales compuestos o la aviónica de telemetría. ¡No requieres experiencia previa, te formamos desde los conceptos básicos!
+            </p>
+            <a href="mailto:spaceprogram@usach.cl?subject=Interes%20en%20Eje%20Coheteria%20-%20USACH%20Space%20Program" class="btn-project-cta">
+                <span>Ponte en Contacto con Nosotros</span>
+                <span>✉</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER INSTITUCIONAL -->
+    <footer style="background: #000000; border-top: 1px solid var(--border-subtle); padding: 70px 40px 40px;">
+        <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 50px;">
+            <div>
+                <h3 style="font-family: var(--font-now); font-size: 1.15rem; color: #ffffff; margin: 0 0 14px 0; text-transform: uppercase; letter-spacing: 1px;">USACH Space Program</h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
+            </div>
+            <div>
+                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Navegación</h4>
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                    <li><a href="../../../index.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">← Inicio Principal</a></li>
+                    <li><a href="../../../index.html#ejes" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Ejes de Desarrollo</a></li>
+                    <li><a href="../../../index.html#proyectos" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Proyectos Emblema</a></li>
+                    <li><a href="../../../src/pages/registro.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Convocatoria y Postulación</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Contacto Oficial</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 8px 0;">Universidad de Santiago de Chile</p>
+                <p style="margin: 0;"><a href="mailto:spaceprogram@usach.cl" style="color: var(--accent-amber); text-decoration: none; font-size: 0.9rem; font-family: var(--font-mono);">spaceprogram@usach.cl</a></p>
+            </div>
+        </div>
+        <div style="max-width: 1400px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">
+            <span>&copy; 2026 USACH Space Program. Todos los derechos reservados.</span>
+            <span>Diseño y Fabricación con Fines Educativos</span>
+        </div>
+    </footer>
+
+    <script type="module" src="../../js/pages/proyectos/rover_avanzado.js"></script>
 </body>
 </html>

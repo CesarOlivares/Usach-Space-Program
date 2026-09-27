@@ -3,162 +3,380 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Egg Drop - USACH Space Program</title>
+    <title>Salva Usachín (Egg Drop Challenge) | USACH Space Program</title>
     
-    <link rel="icon" type="image/png" href="../../../src/assets/images/logo.png">
+    <link rel="icon" type="image/png" href="../../../src/assets/images/logo_noTextBLACK.png">
     <link rel="stylesheet" href="../../../src/styles/main.css">
     
     <style>@import url("../../styles/pages/proyectos/mision.css");</style>
 </head>
-<body class="tech-grid">
+<body>
 
-    <!-- Load Header component -->
-    <load src="src/components/header.html" root="../../../" />
+    <!-- FONDO DE ESTRELLAS DINÁMICO -->
+    <div class="stars-container" id="stars"></div>
 
-    <section class="project-hero" style="background-image: url('../../../src/assets/images/luna.png'); background-position: center right 15%; background-size: 30% auto;">
-        <div class="project-hero-content">
-            <span class="tech-star" style="top: -20px; left: -10px;">✦</span>
-            <span class="tech-star" style="top: 30px; right: -40px;">✦</span>
-            <div class="tier-tag">NIVEL 1: ONBOARDING</div>
-            <div class="eje-tag">Eje II: Simulación y Dinámica de Vuelo</div>
-            <h1>Proyecto Egg Drop</h1>
-            <p>Estructuras de desaceleración y disipación de impacto para simulación de aterrizaje planetario.</p>
-        </div>
-    </section>
+    <!-- 0. BARRA SUPERIOR DE NAVEGACIÓN RÁPIDA (HUD NAVBAR) -->
+    <header class="rover-navbar">
+        <div class="rover-navbar-inner">
+            <!-- Brand -->
+            <a href="../../../index.html" class="rover-nav-back" title="USACH Space Program">
+                <img src="../../../src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="rover-nav-logo">
+                <span class="brand-title">USACH Space Program</span>
+            </a>
 
-    <section class="inspiration-section">
-        <div class="inspiration-container" style="position: relative;">
-            <span class="tech-star" style="top: -10px; left: 5%;">✦</span>
-            <span class="tech-star" style="bottom: -10px; right: 5%;">✦</span>
-            <h2>Gestión de energía cinética</h2>
-            <p>"Simular un impacto planetario requiere dominar la física del momento: una caída libre donde cada miligramo estructural de tu sonda cuenta para proteger la carga útil."</p>
-        </div>
-    </section>
-
-    <section class="project-container">
-        <div class="main-content">
-            <h2>Descripción de la Misión</h2>
-            <p>El Egg Drop es un desafío clásico de ingeniería aeroespacial que consiste en diseñar y construir un receptáculo o estructura capaz de proteger un huevo crudo de una caída libre desde una altura considerable (ej. 5 a 10 metros). Este proyecto simula el aterrizaje de una sonda o rover en una superficie planetaria, donde la gestión de la energía cinética y la disipación del impacto son críticas para la supervivencia de los instrumentos internos (la carga útil).</p>
-            
-            <h2>Objetivos y Metas de Aprendizaje</h2>
-            <ul>
-                <li>Estudiar y aplicar las leyes de Newton, específicamente el impulso y el cambio en la cantidad de movimiento durante un impacto.</li>
-                <li>Comprender los principios de absorción y disipación de energía mediante el uso de materiales deformables o estructuras de sacrificio.</li>
-                <li>Aplicar conceptos de aerodinámica básica para reducir la velocidad terminal mediante el aumento del arrastre (drag).</li>
-            </ul>
-
-            <h2>Materiales y Hardware</h2>
-            <ul>
-                <li><strong>Estructura:</strong> Palitos de helado, bombillas de plástico/papel, brochetas de madera o cartón.</li>
-                <li><strong>Amortiguación:</strong> Algodón, espuma, globos, elásticos o plástico de burbujas.</li>
-                <li><strong>Recuperación y Unión:</strong> Bolsas de basura o tela ligera para paracaídas, ensamblado con pistola de silicona caliente, cinta adhesiva o pegamento.</li>
-                <li><strong>Carga útil:</strong> Huevos de gallina crudos (proporcionados por la organización en el momento del lanzamiento).</li>
-            </ul>
-        </div>
-
-        <div class="side-panel">
-            <div class="spec-item">
-                <h4>Costo Aproximado</h4>
-                <p>Bajo, entre $3.000 a $7.000 CLP por equipo.</p>
-            </div>
-            <div class="spec-item">
-                <h4>Tiempo Estimado</h4>
-                <p>1 a 2 semanas (3 a 5 horas totales). Ideal para diseño relámpago.</p>
-            </div>
-            <div class="spec-item">
-                <h4>Rol Organizador</h4>
-                <p>Jefe de Operaciones de Vuelo y Seguridad.</p>
-            </div>
-            <div class="spec-item">
-                <h4>Recompensa de Misión</h4>
-                <p>Premio a la Eficiencia Estructural y Parche Oficial de la Misión de Simulación.</p>
-            </div>
-
-            <a href="../proyectos.html" class="btn-back">Volver a Proyectos</a>
-        </div>
-    </section>
-
-    <section class="timeline-section">
-        <h2>Fases del Desafío de Caída</h2>
-        <div class="timeline">
-            
-            <div class="timeline-item">
-                <div class="timeline-icon">01</div>
-                <div class="timeline-content">
-                    <h3>1. Análisis de Impulso y Fuerza</h3>
-                    <p>Fase de física de impacto. Modelado de los choques y estimación del arrastre necesario según la masa del dispositivo.</p>
+            <!-- Enlaces Rápidos (Escritorio) -->
+            <nav class="rover-quick-nav">
+                <div class="nav-group">
+                    <a href="../../../index.html" class="rover-nav-link">Inicio</a>
+                    <a href="../../../index.html#ejes" class="rover-nav-link">Ejes</a>
+                    <a href="../../../index.html#proyectos" class="rover-nav-link">Proyectos</a>
+                    <a href="../../../index.html#alianzas" class="rover-nav-link">Alianzas</a>
                 </div>
-            </div>
 
-            <div class="timeline-item">
-                <div class="timeline-icon">02</div>
-                <div class="timeline-content">
-                    <h3>2. Diseño del Receptáculo</h3>
-                    <p>Creación del boceto y selección de los materiales de amortiguación internos que suspenderán dinámicamente el huevo.</p>
+                <span class="nav-divider">|</span>
+
+                <div class="nav-group">
+                    <a href="#mision" class="rover-nav-pill active-pill">El Desafío</a>
+                    <a href="#fisica" class="rover-nav-pill">Física del Choque</a>
+                    <a href="#materiales" class="rover-nav-pill">Estructura</a>
+                    <a href="#fases" class="rover-nav-pill">Competencia</a>
+                    <a href="#contacto" class="rover-nav-pill">Contacto</a>
                 </div>
+            </nav>
+
+            <!-- Acciones -->
+            <div class="rover-nav-actions">
+                <a href="mailto:spaceprogram@usach.cl?subject=Consulta%20Salva%20Usachin%20-%20USACH%20Space%20Program" class="btn-nav-contact">
+                    <span>Contacto</span>
+                    <span>✉</span>
+                </a>
+                <a href="../../../src/pages/registro.html" class="btn-nav-postular">
+                    <span>Postular</span>
+                </a>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-icon">03</div>
-                <div class="timeline-content">
-                    <h3>3. Ensamblaje y Rigidez</h3>
-                    <p>Fase práctica de pegado de palitos, elásticos y brochetas. Fabricación de estructuras de deformación programada.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-icon">04</div>
-                <div class="timeline-content">
-                    <h3>4. Ajuste del Drag (Paracaídas)</h3>
-                    <p>Construcción e instalación de velas o campanas de nylon que estabilicen el descenso vertical del prototipo.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item final-hito">
-                <div class="timeline-icon">🥚</div>
-                <div class="timeline-content">
-                    <h3>Drop Test y Hito Final</h3>
-                    <p>Lanzamiento a caída libre desde altura de prueba. Se evalúa el éxito binario del huevo: intacto (éxito) o quebrado (falla).</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="modalidad-section">
-        <h2>Dificultades Técnicas Previstas</h2>
-        
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Restricción de Masa</h3>
-                <p>Lograr el equilibrio entre una estructura sumamente robusta y un peso lo suficientemente ligero para no acelerar excesivamente la gravedad en caída libre.</p>
-            </div>
-            <div class="mod-image" style="background-image: url('../../../src/assets/images/gallery/Egg drop representacion.png');"></div>
+            <!-- Botón Hamburguesa Móvil -->
+            <button class="rover-menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
 
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Puntos de Falla</h3>
-                <p>Identificar dónde se concentrará la fuerza mecánica del golpe y reforzar esas áreas de impacto sin transferir la energía reactiva al huevo central.</p>
+        <!-- Menú Desplegable Móvil -->
+        <div class="rover-mobile-menu" id="mobileMenu">
+            <a href="../../../index.html" class="mobile-link home-link">USACH Space Program (Inicio)</a>
+            <div class="mobile-section-label">SECCIONES PRINCIPALES</div>
+            <a href="../../../index.html#ejes" class="mobile-link">Ejes Estratégicos</a>
+            <a href="../../../index.html#proyectos" class="mobile-link">Proyectos USP</a>
+            <a href="../../../index.html#manifiesto" class="mobile-link">Manifiesto Estudiantil</a>
+            <a href="../../../index.html#alianzas" class="mobile-link">Alianzas Institucionales</a>
+            <div class="mobile-section-label">SALVA USACHÍN</div>
+            <a href="#mision" class="mobile-link">Simulación de Aterrizaje Planetario</a>
+            <a href="#fisica" class="mobile-link">Física de Disipación de Energía</a>
+            <a href="#materiales" class="mobile-link">Estructuras de Sacrificio Deformables</a>
+            <a href="#fases" class="mobile-link">Fases de Lanzamiento e Impacto</a>
+            <div class="mobile-actions">
+                <a href="mailto:spaceprogram@usach.cl" class="btn-mobile-cta">Contacto: spaceprogram@usach.cl</a>
+                <a href="../../../src/pages/registro.html" class="btn-mobile-postular">Postular al Equipo 2026</a>
             </div>
-            <div class="mod-image" style="background-image: url('../../../src/assets/images/gallery/huevo roto.jpg');"></div>
         </div>
+    </header>
 
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Fiabilidad de Orientación</h3>
-                <p>Asegurar que el dispositivo aterrice en la posición calculada y que las campanas de arrastre mantengan el prototipo estable durante la trayectoria aérea.</p>
+    <!-- BARRA DE TELEMETRÍA INSTITUCIONAL -->
+    <div class="rover-top-bar">
+        <div class="rover-top-bar-inner">
+            <div class="rover-top-left">
+                <span class="rover-badge-primary">USACH SPACE PROGRAM</span>
+                <span class="rover-sep">|</span>
+                <span>ACTIVIDAD DE ONBOARDING FORMATIVO</span>
+                <span class="rover-sep">|</span>
+                <span>DESAFÍO SALVA USACHÍN</span>
             </div>
-            <div class="mod-image" style="background-image: url('../../../src/assets/images/gallery/orientacion eggdrop.png');"></div>
+            <div class="rover-top-right">
+                <span class="status-dot"></span>
+                <span>SIMULACIÓN DE ENTRADA Y ATERRIZAJE</span>
+            </div>
         </div>
-    </section>
-
-    <div class="cta-container">
-        <a href="../registro.html" class="btn-join-mission">Anotarse en la Lista de Espera</a>
     </div>
 
-    <!-- Global Footer -->
-    <load src="src/components/footer.html" root="../../../" />
+    <!-- 1. HERO SECTION -->
+    <section class="rover-hero-section">
+        <div class="rover-hero-watermark">EGG DROP</div>
+        <div class="rover-hero-ambient"></div>
 
+        <div class="rover-hero-container">
+            <!-- Columna Izquierda: Viewport Descenso Planetario NASA -->
+            <div class="rover-viewport-card">
+                <div class="rover-img-wrapper">
+                    <img src="../../../src/assets/images/nasa/salva_usachin_drop.jpg" alt="Ensayo de cápsula de aterrizaje y paracaídas planetario - NASA">
+                    <div class="rover-img-overlay-telemetry">
+                        <span class="rover-overlay-tag">NASA // PLANETARY DESCENT</span>
+                        <span class="rover-overlay-badge">SIMULACIÓN ANÁLOGA</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Títulos, Resumen y Métricas Clave -->
+            <div class="rover-hero-content">
+                <div class="rover-section-tag">
+                    <span>✦</span>
+                    <span>INICIATIVA FORMATIVA // DINÁMICA DE IMPACTO</span>
+                </div>
+                <h1 class="rover-hero-title">SALVA USACHÍN</h1>
+                <h2 class="rover-hero-subtitle">Desafío Egg Drop &amp; Aterrizaje Planetario</h2>
+                
+                <p class="rover-hero-desc">
+                    El reto clásico de la ingeniería aeroespacial reinterpretado por la USACH. Los equipos deben diseñar y construir una cápsula capaz de proteger una carga útil frágil —el huevo crudo "Usachín"— tras una caída libre desde 10 metros, simulando el aterrizaje de una sonda en la superficie rocosa de la Luna o Marte.
+                </p>
+
+                <!-- Grid de Telemetría Rápida -->
+                <div class="rover-pills-grid">
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Altura de Caída</span>
+                        <span class="rover-pill-val">8 a 10 Metros (Caída Libre)</span>
+                    </div>
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Carga Útil</span>
+                        <span class="rover-pill-val">Huevo Crudo ("Usachín")</span>
+                    </div>
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Física Clave</span>
+                        <span class="rover-pill-val">Impulso (Δp) &amp; Disipación</span>
+                    </div>
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Restricción</span>
+                        <span class="rover-pill-val">Masa Límite &amp; Materiales Base</span>
+                    </div>
+                </div>
+
+                <!-- Botones de Acción -->
+                <div class="rover-hero-actions">
+                    <a href="#fisica" class="btn-project-primary">
+                        <span>Física del Desafío</span>
+                        <span>🪂</span>
+                    </a>
+                    <a href="#materiales" class="btn-project-secondary">
+                        <span>Estructuras de Sacrificio</span>
+                        <span>🛡</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. SPECS BAR (PARÁMETROS TÉCNICOS) -->
+    <section class="rover-specs-section">
+        <div class="rover-specs-grid">
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Tipo de Actividad</span>
+                <div class="rover-spec-value">Competencia Rápida</div>
+                <p class="rover-spec-sub">Dinámica de bienvenida e integración interdisciplinaria para nuevos postulantes.</p>
+            </div>
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Tiempo de Taller</span>
+                <div class="rover-spec-value">3 Horas Intensivas</div>
+                <p class="rover-spec-sub">Diseño, construcción con materiales cotidianos y calibración contra reloj.</p>
+            </div>
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Criterio de Victoria</span>
+                <div class="rover-spec-value">Supervivencia Total</div>
+                <p class="rover-spec-sub">Cero fisuras en el huevo, evaluando además la menor masa estructural utilizada.</p>
+            </div>
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Mecanismo</span>
+                <div class="rover-spec-value">Aerofrenado + Deformación</div>
+                <p class="rover-spec-sub">Combinación de paracaídas y zonas de aplastamiento progresivo para disipar el choque.</p>
+            </div>
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Habilidades</span>
+                <div class="rover-spec-value">Trabajo en Equipo</div>
+                <p class="rover-spec-sub">Resolución práctica de problemas, asignación de roles y tolerancia a la frustración.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. LA MISIÓN Y EL PROBLEMA REAL -->
+    <section class="rover-split-section" id="mision">
+        <div class="rover-split-container">
+            <div class="rover-split-text">
+                <span class="rover-section-tag">01 // INGENIERÍA DE DESCENSO</span>
+                <h2>Simular el Desafío de Aterrizar en Otro Mundo</h2>
+                <p>
+                    Cuando la NASA hace aterrizar un rover como Perseverance o Curiosity en Marte, debe atravesar los conocidos "7 minutos de terror": frenar desde miles de kilómetros por hora hasta cero sin destruir la carga científica. Salva Usachín traslada ese problema real de la astronáutica a una escala universitaria directa: ¿cómo desacelerar una estructura y absorber el impacto final para que la carga biológica sobreviva intacta?
+                </p>
+                <div class="rover-split-feature-box">
+                    <h4>Gestión de la Energía Cinética</h4>
+                    <p>La energía generada por la aceleración de gravedad (Ec = ½mv²) debe transformarse en deformación mecánica controlada o calor sin transmitirse al núcleo del huevo.</p>
+                </div>
+            </div>
+            <div class="rover-split-visual">
+                <img src="../../../src/assets/images/gallery/Egg drop representacion.png" alt="Esquema estructural del receptáculo y zonas de disipación de choque" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FÍSICA APLICADA: IMPULSO Y DEFORMACIÓN -->
+    <section class="rover-split-section" id="fisica">
+        <div class="rover-split-container reverse">
+            <div class="rover-split-text">
+                <span class="rover-section-tag">02 // PRIMEROS PRINCIPIOS</span>
+                <h2>El Teorema del Impulso: Prolongar el Tiempo de Choque</h2>
+                <p>
+                    El principio físico central de la actividad es el teorema del impulso y la cantidad de movimiento: <strong>F × Δt = m × Δv</strong>. Dado que la masa del huevo y la velocidad de llegada son fijas, la única forma de reducir la fuerza letal del impacto (F) es maximizar el tiempo en que ocurre el frenado (Δt). Esto se logra diseñando "zonas de deformación programada" (crumple zones) que absorban la energía colapsando ordenadamente antes de que el choque alcance a Usachín.
+                </p>
+                <div class="rover-split-feature-box">
+                    <h4>Aerodinámica de Orientación</h4>
+                    <p>La cápsula debe conservar su orientación vertical durante la caída para que las zonas de amortiguación toquen el suelo primero.</p>
+                </div>
+            </div>
+            <div class="rover-split-visual">
+                <img src="../../../src/assets/images/gallery/orientacion eggdrop.png" alt="Diagrama de estabilidad vertical durante el descenso de la cápsula" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ESTRUCTURAS Y COMPONENTES -->
+    <section class="project-subsystems-section" id="materiales">
+        <div class="section-head-center">
+            <div class="rover-section-tag">
+                <span>03 // SOLUCIONES TÉCNICAS</span>
+            </div>
+            <h2>Estrategias de Diseño Estructural</h2>
+            <p>
+                Tres enfoques de ingeniería utilizados comúnmente por los equipos para superar la prueba.
+            </p>
+        </div>
+
+        <div class="project-subsystems-grid">
+            <!-- Mod 1: Paracaídas -->
+            <div class="project-module-card">
+                <div class="module-card-img">
+                    <img src="../../../src/assets/images/gallery/cohete de agua paracaidas.jpg" alt="Pruebas de paracaídas y deceleración por arrastre aerodinámico" loading="lazy">
+                </div>
+                <div class="module-card-body">
+                    <span class="module-card-tag">AEROFRENADO // DRAG</span>
+                    <h3>Reducción de Velocidad Terminal</h3>
+                    <p>Diseño de toldos con bolsas de polietileno y cuerdas de suspensión balanceadas para aumentar el coeficiente de arrastre aerodinámico, reduciendo la velocidad al tocar suelo.</p>
+                </div>
+            </div>
+
+            <!-- Mod 2: Células de Sacrificio -->
+            <div class="project-module-card">
+                <div class="module-card-img">
+                    <img src="../../../src/assets/images/gallery/cubesat partes 3d.webp" alt="Estructuras de celosía y celas deformables" loading="lazy">
+                </div>
+                <div class="module-card-body">
+                    <span class="module-card-tag">ABSORCIÓN // CRUMPLE ZONES</span>
+                    <h3>Estructuras de Celosía Deformable</h3>
+                    <p>Conos de papel, pajitas unidas en triángulos o cartón corrugado diseñados para colapsar intencionalmente al tocar tierra, disipando la energía mecánica en el aplastamiento.</p>
+                </div>
+            </div>
+
+            <!-- Mod 3: Suspensión Flotante -->
+            <div class="project-module-card">
+                <div class="module-card-img">
+                    <img src="../../../src/assets/images/gallery/huevo roto.jpg" alt="Inspección post-impacto y validación de la cáscara del huevo" loading="lazy">
+                </div>
+                <div class="module-card-body">
+                    <span class="module-card-tag">AISLAMIENTO // SUSPENSIÓN</span>
+                    <h3>Núcleo en Suspensión Elástica</h3>
+                    <p>El huevo se suspende mediante bandas elásticas en el centro geométrico de un marco rígido externo, evitando el contacto directo con cualquier superficie dura al recibir el golpe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. CICLO DE COMPETENCIA -->
+    <section class="project-roadmap-section" id="fases">
+        <div class="project-roadmap-container">
+            <div class="section-head-center">
+                <div class="rover-section-tag">
+                    <span>04 // CRONOGRAMA</span>
+                </div>
+                <h2>Fases de la Jornada de Lanzamiento</h2>
+                <p>
+                    Una tarde de ingeniería intensiva, camaradería y física experimental.
+                </p>
+            </div>
+
+            <div class="project-roadmap-timeline">
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">HORA 00 // ASIGNACIÓN DE MATERIALES</span>
+                    <h4>Reglas, Límites de Masa y Kit Base</h4>
+                    <p>Entrega de materiales básicos idénticos para cada equipo y explicación de penalizaciones por masa extra.</p>
+                </div>
+
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">HORA 01 // PROTOTIPADO Y ENSAMBLE</span>
+                    <h4>Construcción y Ensayos a Baja Altura</h4>
+                    <p>Cálculo de rigidez, corte de materiales, pruebas de caída desde 1 metro con huevo simulado y calibración final.</p>
+                </div>
+
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">HORA 02 // LANZAMIENTO DESDE ALTURA</span>
+                    <h4>La Gran Caída desde el Edificio</h4>
+                    <p>Lanzamiento vertical individual desde 8 a 10 metros ante los jurados y compañeros del equipo aeroespacial.</p>
+                </div>
+
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">HORA 03 // INSPECCIÓN &amp; PREMIACIÓN</span>
+                    <h4>Apertura del Núcleo y Veredicto</h4>
+                    <p>Inspección rigurosa de la cáscara en busca de microfisuras y reconocimiento al diseño más ligero y eficiente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CITA & CTA -->
+    <section class="project-quote-cta-section" id="contacto">
+        <div class="project-quote-box">
+            <div class="project-quote-text">
+                "Un huevo roto en el taller no es un fracaso; es la lección exacta que te enseñará a proteger los sensores en el próximo lanzamiento."
+            </div>
+            <div class="project-quote-sub">— USACH SPACE PROGRAM · ACTIVIDAD FORMATIVA DE ONBOARDING</div>
+        </div>
+
+        <div class="project-cta-card">
+            <h3>¿Quieres Participar en la Próxima Edición de Salva Usachín?</h3>
+            <p>
+                Es la actividad perfecta para conocer al equipo, hacer amigos de distintas ramas de ingeniería y poner a prueba tu ingenio práctico sin presiones.
+            </p>
+            <a href="mailto:spaceprogram@usach.cl?subject=Inscripcion%20Salva%20Usachin%20-%20USACH%20Space%20Program" class="btn-project-cta">
+                <span>Ponte en Contacto con Nosotros</span>
+                <span>✉</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER INSTITUCIONAL -->
+    <footer style="background: #000000; border-top: 1px solid var(--border-subtle); padding: 70px 40px 40px;">
+        <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 50px;">
+            <div>
+                <h3 style="font-family: var(--font-now); font-size: 1.15rem; color: #ffffff; margin: 0 0 14px 0; text-transform: uppercase; letter-spacing: 1px;">USACH Space Program</h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
+            </div>
+            <div>
+                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Navegación</h4>
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                    <li><a href="../../../index.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">← Inicio Principal</a></li>
+                    <li><a href="../../../index.html#ejes" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Ejes de Desarrollo</a></li>
+                    <li><a href="../../../index.html#proyectos" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Proyectos Emblema</a></li>
+                    <li><a href="../../../src/pages/registro.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Convocatoria y Postulación</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Contacto Oficial</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 8px 0;">Universidad de Santiago de Chile</p>
+                <p style="margin: 0;"><a href="mailto:spaceprogram@usach.cl" style="color: var(--accent-amber); text-decoration: none; font-size: 0.9rem; font-family: var(--font-mono);">spaceprogram@usach.cl</a></p>
+            </div>
+        </div>
+        <div style="max-width: 1400px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">
+            <span>&copy; 2026 USACH Space Program. Todos los derechos reservados.</span>
+            <span>Diseño y Fabricación con Fines Educativos</span>
+        </div>
+    </footer>
+
+    <script type="module" src="../../js/pages/proyectos/rover_avanzado.js"></script>
 </body>
 </html>

@@ -1,148 +1,261 @@
-/* === EJES PAGE LAYOUT === */
+/* ==========================================================================
+   USACH Space Program - Ejes de Desarrollo CSS (Deep Space HUD System)
+   ========================================================================== */
+
 .ejes-section {
-    padding: 140px 10% 80px;
-    min-height: 100vh;
+    padding: 60px 40px 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
     box-sizing: border-box;
-    background: url('../../assets/images/estrellas_azul.png') center/cover fixed;
-    position: relative;
 }
-.ejes-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(3px);
-    z-index: 0;
-}
-.ejes-header, .ejes-grid {
-    position: relative;
-    z-index: 1;
-}
+
 .ejes-header {
     text-align: center;
-    margin-bottom: 70px;
+    max-width: 900px;
+    margin: 0 auto 60px;
 }
+
 .ejes-header h1 {
-    font-family: var(--font-title);
+    font-family: var(--font-horizon);
+    font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+    color: var(--text-primary);
     text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 3rem;
-    color: var(--pure-white);
-    margin: 0 0 20px 0;
+    letter-spacing: 1px;
+    line-height: 1.1;
+    margin: 0 0 16px 0;
 }
+
+.ejes-subtitle {
+    font-family: var(--font-now);
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    color: var(--accent-amber);
+    margin: 0 0 24px 0;
+    font-weight: 500;
+}
+
 .ejes-header p {
     font-family: var(--font-body);
-    color: var(--text-muted);
-    max-width: 800px;
-    margin: 0 auto;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
     line-height: 1.8;
-    font-size: 1.15rem;
+    margin: 0 auto;
 }
+
+.ejes-header p strong {
+    color: var(--text-primary);
+}
+
+/* === GRID DE EJES === */
 .ejes-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
+
 .eje-item.full-width {
-    grid-column: span 2;
+    grid-column: span 3;
 }
+
 .eje-item {
-    background: rgba(18, 18, 26, 0.75);
-    backdrop-filter: blur(12px);
+    background: var(--bg-space-surface);
     border: 1px solid var(--border-subtle);
-    padding: 40px;
-    border-radius: 12px;
+    border-radius: 14px;
+    padding: 36px 30px;
     display: flex;
     flex-direction: column;
     position: relative;
-    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
     transition: var(--transition-smooth);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
 }
+
 .eje-item::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 3px;
-    background: linear-gradient(90deg, transparent, var(--border-highlight), transparent);
-    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent-amber), transparent);
+    opacity: 0.6;
     transition: var(--transition-smooth);
 }
+
 .eje-item:hover {
     transform: translateY(-5px);
-    border-color: var(--nasa-blue-glow);
-    box-shadow: 0 15px 35px rgba(26, 95, 255, 0.15);
-    background: rgba(26, 26, 38, 0.9);
+    border-color: rgba(229, 169, 88, 0.4);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 25px rgba(229, 169, 88, 0.1);
 }
+
 .eje-item:hover::before {
     opacity: 1;
 }
+
 .eje-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
-.eje-content h3 {
-    margin: 0;
-    font-family: var(--font-title);
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--pure-white);
-    transition: var(--transition-smooth);
-}
-.eje-item:hover h3 {
-    color: var(--nasa-blue-glow);
-    text-shadow: 0 0 15px rgba(26, 95, 255, 0.4);
-}
-.eje-number {
-    font-size: 3rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.06);
-    line-height: 1;
+
+.eje-tag-badge {
+    display: inline-block;
+    background: rgba(229, 169, 88, 0.12);
+    border: 1px solid rgba(229, 169, 88, 0.3);
+    color: var(--accent-amber);
     font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 3px 10px;
+    border-radius: 4px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.eje-number {
+    font-family: var(--font-horizon);
+    font-size: 2.2rem;
+    color: rgba(255, 255, 255, 0.1);
+    line-height: 1;
     transition: var(--transition-smooth);
 }
+
 .eje-item:hover .eje-number {
-    color: var(--nasa-blue-glow);
-    transform: scale(1.05);
-    text-shadow: 0 0 20px rgba(26, 95, 255, 0.3);
+    color: var(--accent-amber);
+    text-shadow: 0 0 15px rgba(229, 169, 88, 0.3);
 }
-.eje-body p {
+
+.eje-content h3 {
+    font-family: var(--font-now);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+}
+
+.eje-leaders-hud {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-subtle);
+    flex-wrap: wrap;
+}
+
+.eje-leaders-hud .hud-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
     color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+.eje-leaders-hud .hud-value {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--accent-amber);
+    font-weight: 500;
+}
+
+.eje-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.eje-body p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
     line-height: 1.7;
     margin: 0 0 20px 0;
-    font-size: 1rem;
 }
-.eje-body p:last-child { margin-bottom: 0; }
-.eje-body strong {
-    color: var(--bone-white);
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: inline-block;
-    margin-bottom: 4px;
-}
+
 .objective-box {
     background: rgba(255, 255, 255, 0.02);
-    border: 1px dashed var(--border-subtle);
-    padding: 20px;
-    border-radius: 6px;
-    margin-top: 15px;
+    border: 1px dashed rgba(229, 169, 88, 0.25);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 22px;
 }
-@media (max-width: 1024px) {
-    .ejes-grid { grid-template-columns: 1fr; }
-    .eje-item.full-width { grid-column: span 1; }
-    .ejes-header h1 { font-size: 2.6rem; }
+
+.objective-title {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent-amber);
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+    font-weight: 600;
 }
+
+.objective-box p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.eje-project-link {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+}
+
+.eje-project-link .link-label {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+}
+
+.eje-project-link .link-action {
+    color: var(--accent-amber);
+    text-decoration: none;
+    font-family: var(--font-now);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: var(--transition-smooth);
+}
+
+.eje-project-link .link-action:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(229, 169, 88, 0.6);
+    transform: translateX(3px);
+}
+
+/* === RESPONSIVE BREAKPOINTS === */
+@media (max-width: 1200px) {
+    .ejes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .eje-item.full-width {
+        grid-column: span 2;
+    }
+}
+
 @media (max-width: 768px) {
-    .ejes-section { padding: 100px 20px 40px; }
-    .ejes-header h1 { font-size: 2.2rem; }
-    .ejes-header p { font-size: 1rem; }
-    .eje-item { padding: 25px; }
-    .eje-content h3 { font-size: 1.3rem; }
-    .eje-number { font-size: 2.2rem; }
+    .ejes-section {
+        padding: 40px 20px 70px;
+    }
+    .ejes-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .eje-item.full-width {
+        grid-column: span 1;
+    }
+    .eje-item {
+        padding: 26px 20px;
+    }
 }

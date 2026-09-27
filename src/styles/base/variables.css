@@ -1,38 +1,103 @@
 /* === DESIGN TOKENS === */
 :root {
-    /* Colors */
-    --space-black: #000000;
-    --space-black-rgb: 0, 0, 0;
-    --space-dark: #050507;
-    --space-dark-rgb: 5, 5, 7;
-    --space-card: #08080c;
-    --space-card-hover: #0d0d14;
+    /* Colors - Deep Space Palette */
+    --space-black: #030508;
+    --space-black-rgb: 3, 5, 8;
+    --space-dark: #070B14;
+    --space-dark-rgb: 7, 11, 20;
+    --space-card: #0A0F1D;
+    --space-card-hover: #10172A;
+
+    --bg-space-void: #030508;
+    --bg-space-surface: #070B14;
+    --bg-space-panel: rgba(7, 11, 20, 0.85);
 
     --bone-white: #f5f5f0;
     --bone-white-rgb: 245, 245, 240;
     --pure-white: #ffffff;
-    --text-muted: #8c8c94;
-    --text-dark: #4b4b50;
+    --text-primary: #ffffff;
+    --text-secondary: #8A95A5;
+    --text-muted: #8A95A5;
+    --text-dark: #4B5565;
 
-    /* Aerospace Accents */
+    /* Technical & Deep-Tech Accents */
+    --accent-amber: #E5A958;
+    --accent-cyan: #48CAE4;
+    --status-active: #2DD4BF;
     --nasa-blue: #0b3d91;
-    --nasa-blue-glow: #1a5fff;
+    --nasa-blue-glow: #48CAE4;
     --nasa-red: #fc3d21;
-    --nasa-gold: #ffb703;
+    --nasa-gold: #E5A958;
 
     --mars-rust: #c1440e;
     --earth-blue: #2a6f97;
     --moon-gray: #a2a2a2;
 
     /* Layout Tokens */
-    --border-subtle: rgba(245, 245, 240, 0.06);
-    --border-highlight: rgba(245, 245, 240, 0.15);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.18);
+    --border-hud: rgba(255, 255, 255, 0.22);
+    --border-focus: rgba(229, 169, 88, 0.5);
 
     /* Fonts */
-    --font-title: 'Space Grotesk', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-horizon: 'Horizon', sans-serif;
+    --font-now: 'Now', 'Space Grotesk', sans-serif;
+    --font-title: 'Now', 'Space Grotesk', sans-serif;
+    --font-display: 'Horizon', 'Now', sans-serif;
+    --font-body: 'Now', 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
     /* Transitions */
-    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* === TYPOGRAPHY: HORIZON & NOW === */
+@font-face {
+    font-family: 'Horizon';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Horizon'),
+         url('../../assets/fonts/Horizon.woff') format('woff'),
+         url('https://fonts.cdnfonts.com/s/19372/Horizon-PersonalUse.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Now';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: local('Now Light'), local('Now-Light'),
+         url('../../assets/fonts/Now-Light.woff') format('woff'),
+         url('https://fonts.cdnfonts.com/s/18655/Now-Light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Now';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Now'), local('Now-Regular'),
+         url('../../assets/fonts/Now-Regular.woff') format('woff'),
+         url('https://fonts.cdnfonts.com/s/18655/Now-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Now';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local('Now Medium'), local('Now-Medium'),
+         url('../../assets/fonts/Now-Medium.woff') format('woff'),
+         url('https://fonts.cdnfonts.com/s/18655/Now-Medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Now';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Now Bold'), local('Now-Bold'),
+         url('../../assets/fonts/Now-Bold.woff') format('woff'),
+         url('https://fonts.cdnfonts.com/s/18655/Now-Bold.woff') format('woff');
 }

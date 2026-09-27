@@ -3,141 +3,380 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Talleres de Capacitación - USACH Space Program</title>
+    <title>Talleres de Manufactura &amp; Formación | USACH Space Program</title>
     
-    <link rel="icon" type="image/png" href="../../../src/assets/images/logo.png">
+    <link rel="icon" type="image/png" href="../../../src/assets/images/logo_noTextBLACK.png">
     <link rel="stylesheet" href="../../../src/styles/main.css">
-
+    
     <style>@import url("../../styles/pages/proyectos/impresion3d.css");</style>
 </head>
-<body class="tech-grid">
+<body>
 
-    <!-- Load Header component with backtracking root parameter -->
-    <load src="src/components/header.html" root="../../../" />
+    <!-- FONDO DE ESTRELLAS DINÁMICO -->
+    <div class="stars-container" id="stars"></div>
 
-    <section class="project-hero" style="background-image: url('../../../src/assets/images/gallery/pngwing.com (1).png');">
-        <div class="project-hero-content">
-            <span class="tech-star" style="top: -20px; left: -10px;">✦</span>
-            <span class="tech-star" style="top: 30px; right: -40px;">✦</span>
-            <div class="tier-tag">NIVEL 1: ONBOARDING</div>
-            <div class="eje-tag">Eje V: Formación Técnica</div>
-            <h1>Talleres de Capacitación USP</h1>
-            <p>Programa introductorio práctico para nivelación en impresión 3D, electrónica de soldadura y sistemas embebidos.</p>
-        </div>
-    </section>
+    <!-- 0. BARRA SUPERIOR DE NAVEGACIÓN RÁPIDA (HUD NAVBAR) -->
+    <header class="rover-navbar">
+        <div class="rover-navbar-inner">
+            <!-- Brand -->
+            <a href="../../../index.html" class="rover-nav-back" title="USACH Space Program">
+                <img src="../../../src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="rover-nav-logo">
+                <span class="brand-title">USACH Space Program</span>
+            </a>
 
-    <section class="inspiration-section">
-        <div class="inspiration-container" style="position: relative;">
-            <span class="tech-star" style="top: -10px; left: 5%;">✦</span>
-            <span class="tech-star" style="bottom: -10px; right: 5%;">✦</span>
-            <h2>Tu Primer Paso en el Espacio</h2>
-            <p>"No necesitas experiencia previa para ser un fabricante espacial: nosotros nos encargamos de enseñarte la ingeniería en el camino para que moldees tus propias ideas."</p>
-        </div>
-    </section>
+            <!-- Enlaces Rápidos (Escritorio) -->
+            <nav class="rover-quick-nav">
+                <div class="nav-group">
+                    <a href="../../../index.html" class="rover-nav-link">Inicio</a>
+                    <a href="../../../index.html#ejes" class="rover-nav-link">Ejes</a>
+                    <a href="../../../index.html#proyectos" class="rover-nav-link">Proyectos</a>
+                    <a href="../../../index.html#alianzas" class="rover-nav-link">Alianzas</a>
+                </div>
 
-    <section class="project-container">
-        
-        <div class="main-content">
-            <h2>Contexto del Programa Formativo</h2>
-            <p>Los Talleres de Capacitación USP constituyen un programa de introductivo-práctico diseñado para aplicarse previo a un proyecto y pensados exclusivamente para mitigar la brecha de experiencia en los estudiantes que se integran a nuestra organización aeroespacial. Esta es la etapa formativa ideal para adquirir una base sólida antes de involucrarte de lleno en nuestros macroproyectos. ¡No necesitas experiencia previa, solo motivación!</p>
-            
-            <h2>Metodología "Aprender Haciendo"</h2>
-            <p>La ejecución es de manera complementaria a la par con las necesidades de desarrollo de las misiones institucionales activas (como el Rover Emblema o misiones CanSat). Lo que modeles, sueldes y programes, se acoplará y será de utilidad práctica inmediata en el hardware real de nuestras misiones.</p>
+                <span class="nav-divider">|</span>
 
-            <h2>Objetivos del Programa</h2>
-            <ul>
-                <li><strong>Estandarizar el nivel:</strong> Proveerte las herramientas prácticas indispensables para participar con seguridad en los proyectos.</li>
-                <li><strong>Cultura de seguridad:</strong> Entender el uso correcto de herramientas de soldadura, corte e instrumentación de medida.</li>
-                <li><strong>Aporte inmediato:</strong> Generar un ciclo donde aportes activamente a proyectos reales de la universidad desde tu ingreso.</li>
-            </ul>
-        </div>
+                <div class="nav-group">
+                    <a href="#metodologia" class="rover-nav-pill active-pill">Metodología</a>
+                    <a href="#modulos" class="rover-nav-pill">Módulos</a>
+                    <a href="#alianza-full3d" class="rover-nav-pill">Full 3D</a>
+                    <a href="#ruta" class="rover-nav-pill">Ruta Formativa</a>
+                    <a href="#contacto" class="rover-nav-pill">Contacto</a>
+                </div>
+            </nav>
 
-        <div class="side-panel">
-            <div class="spec-item">
-                <h4>Flexibilidad Temporal</h4>
-                <p>Nuestra planificación es modular. Los talleres se activan de forma dinámica y síncrona según el avance y las necesidades de los macroproyectos vigentes.</p>
+            <!-- Acciones -->
+            <div class="rover-nav-actions">
+                <a href="mailto:spaceprogram@usach.cl?subject=Consulta%20Talleres%20USP%20-%20USACH%20Space%20Program" class="btn-nav-contact">
+                    <span>Contacto</span>
+                    <span>✉</span>
+                </a>
+                <a href="../../../src/pages/registro.html" class="btn-nav-postular">
+                    <span>Postular</span>
+                </a>
             </div>
-           
-            <div class="spec-item">
-                <h4>Instructores Líderes</h4>
-                <p>Simón García-Huidobro (Diseño 3D), Daniel González (Electrónica) y César Olivares (Programación).</p>
-            </div>
-            
-            <a href="../proyectos.html" class="btn-back">Volver a Proyectos</a>
+
+            <!-- Botón Hamburguesa Móvil -->
+            <button class="rover-menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
 
-    </section>
+        <!-- Menú Desplegable Móvil -->
+        <div class="rover-mobile-menu" id="mobileMenu">
+            <a href="../../../index.html" class="mobile-link home-link">USACH Space Program (Inicio)</a>
+            <div class="mobile-section-label">SECCIONES PRINCIPALES</div>
+            <a href="../../../index.html#ejes" class="mobile-link">Ejes Estratégicos</a>
+            <a href="../../../index.html#proyectos" class="mobile-link">Proyectos USP</a>
+            <a href="../../../index.html#manifiesto" class="mobile-link">Manifiesto Estudiantil</a>
+            <a href="../../../index.html#alianzas" class="mobile-link">Alianzas Institucionales</a>
+            <div class="mobile-section-label">TALLERES DE FORMACIÓN</div>
+            <a href="#metodologia" class="mobile-link">Metodología "Aprender Haciendo"</a>
+            <a href="#modulos" class="mobile-link">Módulos Técnicos (CAD, Soldadura, Código)</a>
+            <a href="#alianza-full3d" class="mobile-link">Alianza Estratégica con Full 3D</a>
+            <a href="#ruta" class="mobile-link">Ruta Formativa del Estudiante</a>
+            <div class="mobile-actions">
+                <a href="mailto:spaceprogram@usach.cl" class="btn-mobile-cta">Contacto: spaceprogram@usach.cl</a>
+                <a href="../../../src/pages/registro.html" class="btn-mobile-postular">Postular al Equipo 2026</a>
+            </div>
+        </div>
+    </header>
 
-    <section class="timeline-section">
-        <h2>Módulos del Ciclo de Capacitación</h2>
-        <div class="timeline">
-            
-            <div class="timeline-item">
-                <div class="timeline-icon">01</div>
-                <div class="timeline-content">
-                    <h3>1. Módulo I - Diseño e Impresión 3D</h3>
-                    <p>Aprenderás a transferir una idea desde tu cabeza a un modelo digital usando software CAD (Fusion 360) y a materializarlo en manufactura aditiva.</p>
+    <!-- BARRA DE TELEMETRÍA INSTITUCIONAL -->
+    <div class="rover-top-bar">
+        <div class="rover-top-bar-inner">
+            <div class="rover-top-left">
+                <span class="rover-badge-primary">USACH SPACE PROGRAM</span>
+                <span class="rover-sep">|</span>
+                <span>PROGRAMA TRANSVERSAL DE NIVELACIÓN</span>
+                <span class="rover-sep">|</span>
+                <span>TALLERES INTERDISCIPLINARIOS</span>
+            </div>
+            <div class="rover-top-right">
+                <span class="status-dot"></span>
+                <span>CAPACITACIÓN ACTIVA EN TALLER</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. HERO SECTION -->
+    <section class="rover-hero-section">
+        <div class="rover-hero-watermark">WORKSHOP</div>
+        <div class="rover-hero-ambient"></div>
+
+        <div class="rover-hero-container">
+            <!-- Columna Izquierda: Viewport Manufactura Espacial NASA -->
+            <div class="rover-viewport-card">
+                <div class="rover-img-wrapper">
+                    <img src="../../../src/assets/images/nasa/nasa_space_3d_printer.jpg" alt="Manufactura aditiva espacial y laboratorio en microgravedad - NASA">
+                    <div class="rover-img-overlay-telemetry">
+                        <span class="rover-overlay-tag">NASA // IN-SPACE MANUFACTURING</span>
+                        <span class="rover-overlay-badge">TECNOLOGÍA APLICADA</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-icon">02</div>
-                <div class="timeline-content">
-                    <h3>2. Módulo II - Soldadura y Electrónica</h3>
-                    <p>Te enseñaremos a leer diagramas esquemáticos, identificar componentes e implementar técnicas seguras de soldadura de estaño sobre PCBs.</p>
+            <!-- Columna Derecha: Títulos, Resumen y Métricas Clave -->
+            <div class="rover-hero-content">
+                <div class="rover-section-tag">
+                    <span>✦</span>
+                    <span>FORMACIÓN TRANSVERSAL // CAPACITACIÓN TÉCNICA</span>
+                </div>
+                <h1 class="rover-hero-title">TALLERES DE MANUFACTURA</h1>
+                <h2 class="rover-hero-subtitle">Nivelación Práctica en Impresión 3D, Electrónica y Software</h2>
+                
+                <p class="rover-hero-desc">
+                    El programa de entrenamiento práctico diseñado para mitigar la brecha de experiencia en los estudiantes que ingresan a la organización. Enseña desde el modelado CAD para piezas espaciales en filamento técnico, soldadura de circuitos de aviónica, hasta la programación en C/C++ sobre microcontroladores embebidos.
+                </p>
+
+                <!-- Grid de Telemetría Rápida -->
+                <div class="rover-pills-grid">
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Metodología</span>
+                        <span class="rover-pill-val">Aprender Haciendo en Taller</span>
+                    </div>
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Requisito</span>
+                        <span class="rover-pill-val">Sin Experiencia Previa</span>
+                    </div>
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Alianza Técnica</span>
+                        <span class="rover-pill-val">Full 3D Chile (PETG/ABS)</span>
+                    </div>
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Destino</span>
+                        <span class="rover-pill-val">Hardware Real para Misiones</span>
+                    </div>
+                </div>
+
+                <!-- Botones de Acción -->
+                <div class="rover-hero-actions">
+                    <a href="#modulos" class="btn-project-primary">
+                        <span>Ver Módulos Técnicos</span>
+                        <span>🛠</span>
+                    </a>
+                    <a href="#alianza-full3d" class="btn-project-secondary">
+                        <span>Alianza con Full 3D</span>
+                        <span>✦</span>
+                    </a>
                 </div>
             </div>
-
-            <div class="timeline-item">
-                <div class="timeline-icon">03</div>
-                <div class="timeline-content">
-                    <h3>3. Módulo III - Programación y Embebidos</h3>
-                    <p>Entrarás al mundo de la lógica de control. Configurarás microcontroladores en C/C++, leerás sensores y controlarás servomotores.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item final-hito">
-                <div class="timeline-icon">★</div>
-                <div class="timeline-content">
-                    <h3>Hito de Integración de Sistemas</h3>
-                    <p>Aplicación de las habilidades en prototipos reales de las divisiones de hardware activo del USP (como el Rover o el CanSat).</p>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <section class="modalidad-section">
-        <h2>Detalle de los Módulos</h2>
-        
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Modelado Paramétrico CAD</h3>
-                <p>El primer paso del prototipado consiste en digitalizar las ideas. Te enseñaremos a manejar Fusion 360, proyectar ensambles, tolerancias para manufactura y configurar laminadores (slicers) para impresión 3D en materiales como PLA, PETG y ABS.</p>
+    <!-- 2. SPECS BAR (PARÁMETROS TÉCNICOS) -->
+    <section class="rover-specs-section">
+        <div class="rover-specs-grid">
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Modalidad</span>
+                <div class="rover-spec-value">100% Presencial</div>
+                <p class="rover-spec-sub">Laboratorios de mecánica, soldadura y estaciones de prototipado rápido en la USACH.</p>
             </div>
-            <div class="mod-image" style="background-image: url('../../../src/assets/images/gallery/taller 3d modelado.jpg');"></div>
-
-        </div>
-
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Soldadura y Circuitos Físicos</h3>
-                <p>La aviónica requiere conexiones eléctricas robustas. En este módulo aprenderás a soldar cables y chips con seguridad, usar multímetros para continuidad, identificar capacitores, resistencias e integrar placas a medida.</p>
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Herramientas CAD</span>
+                <div class="rover-spec-value">Fusion 360 &amp; SolidWorks</div>
+                <p class="rover-spec-sub">Modelado paramétrico, tolerancias mecánicas y preparación de código G en slicers.</p>
             </div>
-            <div class="mod-image" style="background-image: url('../../../src/assets/images/gallery/talleres soldadura.webp');"></div>
-        </div>
-
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Lógica de Control y Sensores</h3>
-                <p>Darle inteligencia al sistema. Programaremos en C/C++ usando entornos de desarrollo integrados. Aprenderás a calibrar sensores de temperatura, presión, acelerómetros y a gobernar actuadores para telemetría espacial.</p>
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Materiales Clave</span>
+                <div class="rover-spec-value">PETG, PLA+, ABS</div>
+                <p class="rover-spec-sub">Selección de polímeros según requerimientos de choque térmico y rigidez torsional.</p>
             </div>
-            <div class="mod-image" style="background-image: url('../../../src/assets/images/gallery/taller sensores c++.jpg');"></div>
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Electrónica</span>
+                <div class="rover-spec-value">Soldadura SMD &amp; THT</div>
+                <p class="rover-spec-sub">Técnicas seguras de ensamble de placas, multímetros y osciloscopios digitales.</p>
+            </div>
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Programación</span>
+                <div class="rover-spec-value">C/C++ &amp; FreeRTOS</div>
+                <p class="rover-spec-sub">Control síncrono de actuadores, filtros de sensores y transmisión por radio.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Global Footer -->
-    <load src="src/components/footer.html" root="../../../" />
+    <!-- 3. METODOLOGÍA: APRENDER HACIENDO -->
+    <section class="rover-split-section" id="metodologia">
+        <div class="rover-split-container">
+            <div class="rover-split-text">
+                <span class="rover-section-tag">01 // FILOSOFÍA DE TRABAJO</span>
+                <h2>Lo Que Construyes en el Taller Va al Espacio</h2>
+                <p>
+                    A diferencia de los cursos tradicionales donde los ejercicios terminan en un basurero o en un informe en PDF, en el USACH Space Program lo que modelas, sueldas y programas se acopla inmediatamente al hardware real de nuestras misiones. Una rueda diseñada en la sesión de CAD puede terminar montada en el Rover Perseverance, y un circuito de sensórica puede alimentar la aviónica del Cohete 3U.
+                </p>
+                <div class="rover-split-feature-box">
+                    <h4>Cultura de Seguridad y Taller</h4>
+                    <p>Enseñamos protocolos rigurosos de ventilación, uso de equipo de protección personal y manejo seguro de herramientas térmicas.</p>
+                </div>
+            </div>
+            <div class="rover-split-visual">
+                <img src="../../../src/assets/images/gallery/taller 3d modelado.jpg" alt="Capacitación de estudiantes en modelado CAD para piezas espaciales" loading="lazy">
+            </div>
+        </div>
+    </section>
 
+    <!-- 4. ALIANZA CON FULL 3D -->
+    <section class="rover-split-section" id="alianza-full3d">
+        <div class="rover-split-container reverse">
+            <div class="rover-split-text">
+                <span class="rover-section-tag">02 // ALIANZA ESTRATÉGICA</span>
+                <h2>Respaldo Técnico de Full 3D Chile</h2>
+                <p>
+                    La fabricación de piezas de ingeniería para rover y cohetes exige filamentos que soporten altas temperaturas y fatiga cíclica. Gracias a la alianza con <strong>Full 3D</strong>, nuestros estudiantes acceden a materiales técnicos como PETG de grado mecánico y consumibles de alta precisión. Esta colaboración fue fundamental para obtener el premio nacional a la <em>Mejor Impresión Aplicada</em> en la 3D Printed Party.
+                </p>
+                <div class="rover-split-feature-box">
+                    <h4>Materiales de Alta Densidad</h4>
+                    <p>Dominio de parámetros de extrusión, temperatura de cama y porcentajes de relleno estructural del 40% al 60% para máxima resistencia.</p>
+                </div>
+            </div>
+            <div class="rover-split-visual">
+                <img src="../../../src/assets/images/gallery/full3d_logo.png" alt="Logotipo de Full 3D Chile, aliado estratégico del programa" style="object-fit: contain; padding: 40px; background: #070B14;" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. MÓDULOS DE FORMACIÓN -->
+    <section class="project-subsystems-section" id="modulos">
+        <div class="section-head-center">
+            <div class="rover-section-tag">
+                <span>03 // MALLA PRÁCTICA</span>
+            </div>
+            <h2>Módulos del Programa Formativo</h2>
+            <p>
+                Tres áreas fundamentales para transformar ideas en hardware tangible y funcional.
+            </p>
+        </div>
+
+        <div class="project-subsystems-grid">
+            <!-- Mod 1: CAD & 3D -->
+            <div class="project-module-card">
+                <div class="module-card-img">
+                    <img src="../../../src/assets/images/gallery/ej rover 3d.jpg" alt="Modelado de piezas mecatrónicas para suspensión en 3D" loading="lazy">
+                </div>
+                <div class="module-card-body">
+                    <span class="module-card-tag">MECÁNICA // CAD &amp; MANUFACTURA</span>
+                    <h3>Diseño 3D e Impresión Funcional</h3>
+                    <p>Aprender tolerancias de ensamble, reducción de concentración de esfuerzos, orientación de capas para soportar cargas y calibración de impresoras FDM.</p>
+                </div>
+            </div>
+
+            <!-- Mod 2: Electrónica -->
+            <div class="project-module-card">
+                <div class="module-card-img">
+                    <img src="../../../src/assets/images/gallery/talleres soldadura.webp" alt="Taller de soldadura de estaño e instrumentación eléctrica" loading="lazy">
+                </div>
+                <div class="module-card-body">
+                    <span class="module-card-tag">CIRCUITOS // HARDWARE</span>
+                    <h3>Soldadura e Instrumentación Eléctrica</h3>
+                    <p>Uso correcto de cautín, estaño con alma de flux, desoldador, diagnóstico con multímetro de continuidad y diseño de placas PCB en KiCAD.</p>
+                </div>
+            </div>
+
+            <!-- Mod 3: Firmware -->
+            <div class="project-module-card">
+                <div class="module-card-img">
+                    <img src="../../../src/assets/images/gallery/taller sensores c++.jpg" alt="Programación en C++ sobre placas ESP32 y Arduino" loading="lazy">
+                </div>
+                <div class="module-card-body">
+                    <span class="module-card-tag">SOFTWARE // EMBEBIDOS</span>
+                    <h3>Programación de Sistemas Embebidos</h3>
+                    <p>Estructuración de código sin demoras bloqueantes, lectura de sensores por interrupciones, buses I2C/SPI y comunicación serie para telemetría.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. RUTA DEL ESTUDIANTE -->
+    <section class="project-roadmap-section" id="ruta">
+        <div class="project-roadmap-container">
+            <div class="section-head-center">
+                <div class="rover-section-tag">
+                    <span>04 // CRECIMIENTO</span>
+                </div>
+                <h2>Ruta Formativa de Incorporación</h2>
+                <p>
+                    Cómo un estudiante sin experiencia previa se convierte en desarrollador de hardware.
+                </p>
+            </div>
+
+            <div class="project-roadmap-timeline">
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">PASO 01 // INDUCCIÓN</span>
+                    <h4>Bienvenida y Seguridad en Laboratorio</h4>
+                    <p>Conocer los espacios de trabajo, normas de seguridad y el desafío lúdico Salva Usachín para romper el hielo.</p>
+                </div>
+
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">PASO 02 // TALLERES BASE</span>
+                    <h4>Talleres de Nivelación de 3 Semanas</h4>
+                    <p>Clases prácticas en grupos reducidos donde cada integrante imprime su primera pieza y suelda su propia placa de prueba.</p>
+                </div>
+
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">PASO 03 // ASIGNACIÓN A EJE</span>
+                    <h4>Integración en Robótica, Cohetería u Órbita</h4>
+                    <p>Asignación a un subsistema activo según las habilidades e intereses de cada estudiante, guiado por los líderes de eje.</p>
+                </div>
+
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">PASO 04 // LIDERAZGO</span>
+                    <h4>Transferencia de Conocimiento</h4>
+                    <p>Los miembros veteranos guían a las nuevas generaciones, asegurando la sostenibilidad y memoria técnica del equipo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CITA & CTA -->
+    <section class="project-quote-cta-section" id="contacto">
+        <div class="project-quote-box">
+            <div class="project-quote-text">
+                "No necesitas saber de cohetes para entrar al programa; necesitas las ganas de ensuciarte las manos en el taller para aprender a construirlos."
+            </div>
+            <div class="project-quote-sub">— USACH SPACE PROGRAM · FORMACIÓN INTERDISCIPLINARIA</div>
+        </div>
+
+        <div class="project-cta-card">
+            <h3>¿Quieres Participar en los Próximos Talleres?</h3>
+            <p>
+                Abrimos convocatorias semestrales para estudiantes de todas las carreras y facultades de la Universidad de Santiago de Chile. ¡Súmate a la tripulación!
+            </p>
+            <a href="../../../src/pages/registro.html" class="btn-project-cta">
+                <span>Postular a la Convocatoria 2026</span>
+                <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER INSTITUCIONAL -->
+    <footer style="background: #000000; border-top: 1px solid var(--border-subtle); padding: 70px 40px 40px;">
+        <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 50px;">
+            <div>
+                <h3 style="font-family: var(--font-now); font-size: 1.15rem; color: #ffffff; margin: 0 0 14px 0; text-transform: uppercase; letter-spacing: 1px;">USACH Space Program</h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
+            </div>
+            <div>
+                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Navegación</h4>
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                    <li><a href="../../../index.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">← Inicio Principal</a></li>
+                    <li><a href="../../../index.html#ejes" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Ejes de Desarrollo</a></li>
+                    <li><a href="../../../index.html#proyectos" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Proyectos Emblema</a></li>
+                    <li><a href="../../../src/pages/registro.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Convocatoria y Postulación</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Contacto Oficial</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 8px 0;">Universidad de Santiago de Chile</p>
+                <p style="margin: 0;"><a href="mailto:spaceprogram@usach.cl" style="color: var(--accent-amber); text-decoration: none; font-size: 0.9rem; font-family: var(--font-mono);">spaceprogram@usach.cl</a></p>
+            </div>
+        </div>
+        <div style="max-width: 1400px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">
+            <span>&copy; 2026 USACH Space Program. Todos los derechos reservados.</span>
+            <span>Diseño y Fabricación con Fines Educativos</span>
+        </div>
+    </footer>
+
+    <script type="module" src="../../js/pages/proyectos/rover_avanzado.js"></script>
 </body>
 </html>

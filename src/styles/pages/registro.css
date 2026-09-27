@@ -1,168 +1,216 @@
-/* === REGISTRO LAYOUT === */
+/* ==========================================================================
+   USACH Space Program - Registro CSS (Deep Space HUD System)
+   ========================================================================== */
+
 .registro-section {
-    padding: 140px 10% 80px;
-    min-height: 100vh;
+    padding: 60px 20px 100px;
+    min-height: calc(100vh - 120px);
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('../../assets/images/luna.png') no-repeat center center/cover;
     position: relative;
+    z-index: 10;
     box-sizing: border-box;
 }
-.registro-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(var(--space-black-rgb), 0.8);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-}
+
 .form-container {
-    background-color: var(--space-card);
-    padding: 50px;
-    border-radius: 8px;
+    background: var(--bg-space-surface);
+    padding: 48px 42px;
+    border-radius: 14px;
     border: 1px solid var(--border-subtle);
     width: 100%;
-    max-width: 600px;
-    z-index: 1;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    max-width: 620px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
     box-sizing: border-box;
     position: relative;
+    overflow: hidden;
 }
+
 .form-container::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 3px;
-    background: linear-gradient(90deg, transparent, var(--border-highlight), transparent);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent-amber), transparent);
+    opacity: 0.8;
 }
+
 .form-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
+
 .form-header h1 {
-    font-family: var(--font-title);
-    margin: 0;
+    font-family: var(--font-horizon);
+    margin: 0 0 12px 0;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 2.2rem;
-    color: var(--pure-white);
+    letter-spacing: 1px;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: var(--text-primary);
+    line-height: 1.15;
 }
+
 .form-header p {
     font-family: var(--font-body);
-    color: var(--text-muted);
-    margin-top: 15px;
-    font-size: 1rem;
-    line-height: 1.6;
+    color: var(--text-secondary);
+    font-size: 0.96rem;
+    line-height: 1.7;
+    margin: 0;
 }
+
 .form-group {
-    margin-bottom: 25px;
+    margin-bottom: 24px;
     display: flex;
     flex-direction: column;
 }
+
 .form-group label {
     margin-bottom: 8px;
     font-family: var(--font-mono);
     font-weight: 500;
-    color: var(--bone-white);
+    color: var(--accent-amber);
     letter-spacing: 1px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
 }
-.form-group input, .form-group select, .search-select-container input {
+
+.form-group input, 
+.form-group select, 
+.search-select-container input {
     width: 100% !important;
     box-sizing: border-box;
-    padding: 12px 15px;
-    background-color: rgba(0, 0, 0, 0.4);
+    padding: 13px 16px;
+    background-color: rgba(2, 4, 8, 0.7);
     border: 1px solid var(--border-subtle);
-    border-radius: 4px;
-    color: var(--pure-white);
-    font-size: 0.95rem;
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 0.92rem;
     font-family: var(--font-body);
     transition: var(--transition-smooth);
     appearance: none;
     -webkit-appearance: none;
 }
+
 .form-group select {
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='white'><polygon points='0,0 10,0 5,5'/></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23e5a958'><polygon points='0,0 12,0 6,6'/></svg>");
     background-repeat: no-repeat;
-    background-position: right 15px center;
-    padding-right: 40px;
+    background-position: right 16px center;
+    padding-right: 44px;
     cursor: pointer;
 }
+
 .form-group select option {
-    background-color: #12121a;
+    background-color: #030508;
     color: #ffffff;
+    padding: 10px;
 }
-.form-group input:focus, .form-group select:focus, .search-select-container input:focus {
+
+.form-group input:focus, 
+.form-group select:focus, 
+.search-select-container input:focus {
     outline: none;
-    border-color: var(--border-highlight);
-    background-color: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 0 10px rgba(255,255,255,0.05);
+    border-color: var(--accent-amber);
+    background-color: rgba(229, 169, 88, 0.05);
+    box-shadow: 0 0 15px rgba(229, 169, 88, 0.15);
 }
+
 .form-group .help-text {
-    font-size: 0.8rem;
-    color: var(--text-dark);
-    margin-top: 5px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 6px;
     font-family: var(--font-body);
+    line-height: 1.5;
 }
+
+/* === BUSCADOR AUTOCOMPLETE CARRERA === */
 .search-select-container {
     position: relative;
     width: 100%;
 }
+
 .options-dropdown {
     position: absolute;
-    top: 100%; left: 0; width: 100%;
-    max-height: 220px;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 240px;
     overflow-y: auto;
-    background-color: var(--space-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: 0 0 4px 4px;
+    background-color: #03060a;
+    border: 1px solid rgba(229, 169, 88, 0.3);
+    border-radius: 0 0 6px 6px;
     z-index: 1000;
     display: none;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
     box-sizing: border-box;
 }
+
 .option-item {
-    padding: 11px 15px;
+    padding: 10px 16px;
     cursor: pointer;
-    color: var(--text-muted);
-    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    font-family: var(--font-body);
     transition: var(--transition-smooth);
     text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
-.option-item:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    color: var(--pure-white);
-}
-.options-dropdown::-webkit-scrollbar { width: 4px; }
-.options-dropdown::-webkit-scrollbar-thumb { background-color: var(--border-highlight); border-radius: 2px; }
 
+.option-item:hover {
+    background-color: rgba(229, 169, 88, 0.12);
+    color: var(--accent-amber);
+    padding-left: 20px;
+}
+
+.options-dropdown::-webkit-scrollbar {
+    width: 5px;
+}
+
+.options-dropdown::-webkit-scrollbar-thumb {
+    background-color: var(--accent-amber);
+    border-radius: 2px;
+}
+
+/* === BOTÓN SUBMIT === */
 .btn-submit {
     width: 100%;
-    padding: 15px;
-    background-color: transparent;
-    color: var(--bone-white);
-    border: 1px solid var(--border-highlight);
-    border-radius: 4px;
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    font-weight: 600;
+    padding: 16px;
+    background: var(--text-primary);
+    color: var(--bg-space-void);
+    border: none;
+    border-radius: 30px;
+    font-family: var(--font-now);
+    font-size: 0.92rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     cursor: pointer;
     transition: var(--transition-smooth);
-    margin-top: 10px;
+    margin-top: 15px;
+    box-shadow: 0 10px 25px rgba(229, 169, 88, 0.2);
 }
-.btn-submit:hover {
-    background-color: var(--bone-white);
-    color: var(--space-black);
-    border-color: var(--bone-white);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-}
-.btn-submit:active { transform: scale(0.98); }
 
-@media (max-width: 1024px) {
-    .registro-section { padding: 100px 20px 40px; }
-    .form-container { padding: 40px 25px; }
-    .form-header h1 { font-size: 1.8rem; }
+.btn-submit:hover {
+    background: var(--accent-amber);
+    color: #030508;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(229, 169, 88, 0.4);
+}
+
+.btn-submit:active {
+    transform: scale(0.98);
+}
+
+/* === RESPONSIVE BREAKPOINTS === */
+@media (max-width: 768px) {
+    .registro-section {
+        padding: 40px 16px 60px;
+    }
+    .form-container {
+        padding: 30px 20px;
+    }
+    .form-header h1 {
+        font-size: 1.6rem;
+    }
 }

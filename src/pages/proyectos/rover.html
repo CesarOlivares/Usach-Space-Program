@@ -3,176 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Rover - USACH Space Program</title>
+    <title>Iniciativa Rover Mecatrónico | USACH Space Program</title>
     
-    <link rel="icon" type="image/png" href="../../../src/assets/images/logo.png">
+    <link rel="icon" type="image/png" href="../../../src/assets/images/logo_noTextBLACK.png">
     <link rel="stylesheet" href="../../../src/styles/main.css">
     
     <style>@import url("../../styles/pages/proyectos/rover.css");</style>
 </head>
-<body class="tech-grid">
+<body>
 
-    <!-- Load Header component -->
-    <load src="src/components/header.html" root="../../../" />
+    <!-- FONDO DE ESTRELLAS DINÁMICO -->
+    <div class="stars-container" id="stars"></div>
 
-    <section class="project-hero" style="background-image: url('../../../src/assets/images/gallery/pngwing.com (3).png');">
-        <div class="project-hero-content">
-            <span class="tech-star" style="top: -20px; left: -10px;">✦</span>
-            <span class="tech-star" style="top: 30px; right: -40px;">✦</span>
-            <div class="tier-tag">NIVEL 1: ONBOARDING</div>
-            <div class="eje-tag">Eje I: Exploración Planetaria</div>
-            <h1>Proyecto Rover</h1>
-            <p>Diseño, ensamblaje y programación de un prototipo terrestre mecatrónico a escala.</p>
-            <div style="margin-top: 20px;">
-                <a href="./rover_avanzado.html" style="display: inline-block; padding: 10px 24px; background: rgba(0,240,255,0.15); border: 1px solid #00f0ff; color: #00f0ff; font-family: var(--font-mono); font-size: 0.85rem; font-weight: bold; border-radius: 4px; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 0 15px rgba(0,240,255,0.3);">
-                    🚀 Ver Plataforma Rover Avanzada Flagship (Nivel 2) ↗
+    <!-- 0. BARRA SUPERIOR DE NAVEGACIÓN RÁPIDA (HUD NAVBAR) -->
+    <header class="rover-navbar">
+        <div class="rover-navbar-inner">
+            <!-- Brand -->
+            <a href="../../../index.html" class="rover-nav-back" title="USACH Space Program">
+                <img src="../../../src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="rover-nav-logo">
+                <span class="brand-title">USACH Space Program</span>
+            </a>
+
+            <!-- Enlaces Rápidos (Escritorio) -->
+            <nav class="rover-quick-nav">
+                <div class="nav-group">
+                    <a href="../../../index.html" class="rover-nav-link">Inicio</a>
+                    <a href="../../../index.html#ejes" class="rover-nav-link">Ejes</a>
+                    <a href="../../../index.html#proyectos" class="rover-nav-link">Proyectos</a>
+                    <a href="../../../index.html#alianzas" class="rover-nav-link">Alianzas</a>
+                </div>
+
+                <span class="nav-divider">|</span>
+
+                <div class="nav-group">
+                    <a href="./rover_avanzado.html" class="rover-nav-pill active-pill">★ Rover Perseverance (Flagship)</a>
+                    <a href="#onboarding" class="rover-nav-pill">Iniciación N1</a>
+                    <a href="#etapas" class="rover-nav-pill">Etapas</a>
+                    <a href="#contacto" class="rover-nav-pill">Contacto</a>
+                </div>
+            </nav>
+
+            <!-- Acciones -->
+            <div class="rover-nav-actions">
+                <a href="mailto:spaceprogram@usach.cl?subject=Consulta%20Rover%20-%20USACH%20Space%20Program" class="btn-nav-contact">
+                    <span>Contacto</span>
+                    <span>✉</span>
+                </a>
+                <a href="../../../src/pages/registro.html" class="btn-nav-postular">
+                    <span>Postular</span>
                 </a>
             </div>
-        </div>
-    </section>
 
-    <section class="inspiration-section">
-        <div class="inspiration-container" style="position: relative;">
-            <span class="tech-star" style="top: -10px; left: 5%;">✦</span>
-            <span class="tech-star" style="bottom: -10px; right: 5%;">✦</span>
-            <h2>No vienes a sentarte a escuchar una clase</h2>
-            <p>"En el USACH Space Program no estudiamos la exploración planetaria en libros de texto; la construimos. El Proyecto Rover es un laboratorio vivo de innovación, un espacio de alta intensidad mecánica, electrónica y de control donde transformamos planos digitales en hardware real capaz de rodar sobre otros mundos."</p>
-        </div>
-    </section>
-
-    <section class="timeline-section">
-        <h2>El Camino hacia el Lanzamiento</h2>
-        <div class="timeline">
-            
-            <div class="timeline-item">
-                <div class="timeline-icon">01</div>
-                <div class="timeline-content">
-                    <h3>1. Formación de Escuadrones</h3>
-                    <p>Integración de equipos interdisciplinarios. Conocerás a tus ingenieros de sistemas, programadores y mecánicos. Se hace entrega del Kit de Suministros USP inicial.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-icon">02</div>
-                <div class="timeline-content">
-                    <h3>2. Diseño Conceptual y CAD</h3>
-                    <p>Fase de tablero de dibujo. Determinarán la geometría del rover, el sistema de suspensión y modelarán en software 3D las piezas personalizadas que necesitarán imprimir.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-icon">03</div>
-                <div class="timeline-content">
-                    <h3>3. Manufactura y Ensamblaje</h3>
-                    <p>Las impresoras 3D echan humo. Se integran los chasis, se montan los motores, ruedas y se estructura la base física del vehículo de exploración.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-icon">04</div>
-                <div class="timeline-content">
-                    <h3>4. Aviónica y Subsistemas</h3>
-                    <p>Es la hora de los cables. Se sueldan las placas, se conectan los controladores de motores, sistemas de telemetría y sensores ambientales al cerebro principal (Arduino/ESP32).</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-icon">05</div>
-                <div class="timeline-content">
-                    <h3>5. Programación y Control</h3>
-                    <p>Darle vida al monstruo. Se programa la lógica de movimiento, evasión de obstáculos o control remoto por radiofrecuencia. Fase intensiva de prueba y error en el taller.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item final-hito">
-                <div class="timeline-icon">★</div>
-                <div class="timeline-content">
-                    <h3>Hito Final: Simulación Análoga</h3>
-                    <p>El día del juicio. Los rovers se despliegan en las <strong>Canchas de Tenis del Departamento de Deportes USACH</strong>, especialmente ambientadas para simular la superficie hostil de Marte. Tu vehículo tendrá que sortear terreno, cumplir objetivos de navegación y recolectar datos bajo presión en un evento abierto al público.</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="modalidad-section">
-        <h2>Modalidad Operativa: Libertad Total</h2>
-        
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Escuadrones de Trabajo</h3>
-                <p>Te integrarás en equipos compactos donde cada miembro asume un rol crítico: sistemas de potencia, telecomunicaciones, estructura mecánica o software de control. Aprenderás a trabajar bajo el marco real de la ingeniería de sistemas.</p>
-            </div>
-            <div class="mod-image" style="background-image: url('../../../src/assets/images/gallery/IMG-20260607-WA0030.jpg');background-position: 100% 80%;;"></div>
+            <!-- Botón Hamburguesa Móvil -->
+            <button class="rover-menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
 
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>El Kit de Suministros USP</h3>
-                <p>El programa proveerá a cada equipo los componentes e insumos electrónicos básicos (motores, controladores, microcontroladores y sensores). Las bases estructurales están cubiertas, lo demás depende de tu ingenio.</p>
-            </div>
-            <div class="mod-image" style="background-image: url('../../../src/assets/images/gallery/componentes e insumos electrónicos básicos.jpg');"></div>
-        </div>
-
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Espacio de Co-Working & Tips</h3>
-                <p>Tendrás acceso a sesiones presenciales de trabajo. No dictamos cátedras aburridas; abrimos espacios de desarrollo donde los directores y mentores te darán tips flash, análisis de buenas prácticas aeroespaciales y resolución de problemas en caliente.</p>
-            </div>
-            <div class="mod-image" style="background-image: url('../../../src/assets/images/gallery/IMG-20260607-WA0039.jpg');background-position: 100% 100%;"></div>
-        </div>
-
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Adaptación del Rover a la Misión</h3>
-                <p>Tienes carta blanca absoluta. Tu equipo tiene la total libertad creativa y técnica para rediseñar la geometría, añadir piezas impresas en 3D personalizadas, y tunear el rover para cumplir la misión de la forma que ustedes decidan.</p>
-            </div>
-            <div class="mod-image" style="background-image: url('../../../src/assets/images/gallery/ej rover 3d.jpg');"></div>
-        </div>
-    </section>
-
-    <section class="gallery-section">
-        <h2>Nuestros Pilares de Inspiración</h2>
-        <div class="rover-grid">
-            <div class="rover-pic-card">
-                <div class="rover-img-placeholder" style="background-image: url('../../../src/assets/images/marte.png');"></div>
-                <h3>Sojourner Base</h3>
-                <p>El pionero de la movilidad. Compacto, robusto y eficiente en distribución espacial.</p>
-            </div>
-            <div class="rover-pic-card">
-                <div class="rover-img-placeholder" style="background-image: url('../../../src/assets/images/luna.png');"></div>
-                <h3>Curiosity Class</h3>
-                <p>Sistemas de suspensión avanzados y cinemática compleja para sortear cualquier duna.</p>
-            </div>
-            <div class="rover-pic-card">
-                <div class="rover-img-placeholder" style="background-image: url('../../../src/assets/images/gallery/IMG-20260607-WA0030.jpg');"></div>
-                <h3>Prototipos USP</h3>
-                <p>Nuestros desarrollos modulares, hechos con manufactura local e impresión 3D.</p>
+        <!-- Menú Desplegable Móvil -->
+        <div class="rover-mobile-menu" id="mobileMenu">
+            <a href="../../../index.html" class="mobile-link home-link">USACH Space Program (Inicio)</a>
+            <div class="mobile-section-label">SECCIONES PRINCIPALES</div>
+            <a href="../../../index.html#ejes" class="mobile-link">Ejes Estratégicos</a>
+            <a href="../../../index.html#proyectos" class="mobile-link">Proyectos USP</a>
+            <a href="./rover_avanzado.html" class="mobile-link" style="color: var(--accent-amber); font-weight: bold;">★ Rover Perseverance (Flagship) ↗</a>
+            <a href="#onboarding" class="mobile-link">Iniciación y Prototipado N1</a>
+            <a href="#etapas" class="mobile-link">Ruta de Formación Mecatrónica</a>
+            <div class="mobile-actions">
+                <a href="mailto:spaceprogram@usach.cl" class="btn-mobile-cta">Contacto: spaceprogram@usach.cl</a>
+                <a href="../../../src/pages/registro.html" class="btn-mobile-postular">Postular al Equipo 2026</a>
             </div>
         </div>
-    </section>
+    </header>
 
-    <section class="skills-section">
-        <div class="skills-container">
-            <h2>¿Se requieren conocimientos previos?</h2>
-            <p><strong>La respuesta corta es: No.</strong> Puedes unirte completamente desde cero. Si tienes la motivación, nosotros nos encargamos de enseñarte la ingeniería en el camino. Sin embargo, para nivelar los sistemas de toda la tripulación, recomendamos fuertemente tomar los <strong>Mini-Talleres USP de Nivelación</strong> que estaremos dictando al inicio de la temporada.</p>
+    <!-- BARRA DE TELEMETRÍA INSTITUCIONAL -->
+    <div class="rover-top-bar">
+        <div class="rover-top-bar-inner">
+            <div class="rover-top-left">
+                <span class="rover-badge-primary">USACH SPACE PROGRAM</span>
+                <span class="rover-sep">|</span>
+                <span>EJE 01 ROBÓTICA AEROESPACIAL</span>
+                <span class="rover-sep">|</span>
+                <span>RUTA DE EXPLORACIÓN PLANETARIA</span>
+            </div>
+            <div class="rover-top-right">
+                <span class="status-dot"></span>
+                <span>VINCULACIÓN N1 ONBOARDING &amp; N2 FLAGSHIP</span>
+            </div>
         </div>
-    </section>
-
-    <section class="reward-section">
-        <div class="reward-box">
-            <h3>Comunidad y Gloria 🎖️</h3>
-            <p>La participación en el Proyecto Rover está abierta a cualquier estudiante de la USACH, sin importar si eres miembro activo de la organización o no. <br><br>
-            Sin embargo, aquellos que sean <span class="reward-highlight">Miembros Oficiales del USP</span> y logren completar con éxito la Misión de Simulación Análoga, serán condecorados con un <strong>Parche de Misión Temático y Original</strong>, validando su estatus y sus horas de vuelo operativo dentro del programa.</p>
-        </div>
-    </section>
-
-    <div class="cta-container">
-        <a href="../registro.html" class="btn-join-mission">Anotarse en la Lista de Espera</a>
     </div>
 
-    <!-- Global Footer -->
-    <load src="src/components/footer.html" root="../../../" />
+    <!-- 1. HERO SECTION -->
+    <section class="rover-hero-section">
+        <div class="rover-hero-watermark">ROBOTICS</div>
+        <div class="rover-hero-ambient"></div>
 
+        <div class="rover-hero-container">
+            <!-- Columna Izquierda: Viewport Rover Marte NASA -->
+            <div class="rover-viewport-card">
+                <div class="rover-img-wrapper">
+                    <img src="../../../src/assets/images/nasa/rover_perseverance.jpg" alt="Rover Perseverance de la NASA explorando el cráter Jezero en Marte">
+                    <div class="rover-img-overlay-telemetry">
+                        <span class="rover-overlay-tag">NASA // MARS 2020 INSPIRATION</span>
+                        <span class="rover-overlay-badge">REFERENCIA CINEMÁTICA</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Títulos, Resumen y Métricas Clave -->
+            <div class="rover-hero-content">
+                <div class="rover-section-tag">
+                    <span>✦</span>
+                    <span>EJE 01 ROBÓTICA // PROGRAMA DE DESARROLLO</span>
+                </div>
+                <h1 class="rover-hero-title">EXPLORACIÓN PLANETARIA</h1>
+                <h2 class="rover-hero-subtitle">De la Cinemática Básica al Rover Perseverance</h2>
+                
+                <p class="rover-hero-desc">
+                    El Eje de Robótica Aeroespacial integra a estudiantes de diversas carreras en el diseño, manufactura aditiva y control de vehículos terrestres no tripulados para superficies planetarias análogas. Nuestro trabajo converge en el desarrollo de la plataforma <strong>Rover Perseverance</strong>, galardonada en eventos nacionales.
+                </p>
+
+                <!-- Banner Destacado Flagship -->
+                <div style="background: rgba(229, 169, 88, 0.08); border: 1px solid var(--accent-amber); border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; width: 100%; box-sizing: border-box;">
+                    <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-amber); letter-spacing: 1px; display: block; margin-bottom: 4px; font-weight: bold;">✦ PROYECTO EMBLEMA DISPONIBLE:</span>
+                    <p style="margin: 0 0 10px 0; font-size: 0.92rem; color: #ffffff;">Descubre la ficha técnica completa, videos de ensayos de giro y los 2 hitos principales del prototipo físico.</p>
+                    <a href="./rover_avanzado.html" class="btn-project-primary" style="padding: 9px 18px; font-size: 0.8rem;">
+                        <span>Ver Rover Perseverance (Plataforma Completa)</span>
+                        <span>→</span>
+                    </a>
+                </div>
+
+                <!-- Grid de Telemetría Rápida -->
+                <div class="rover-pills-grid">
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Líderes de Eje</span>
+                        <span class="rover-pill-val">C. Olivares y A. Orellano</span>
+                    </div>
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Integrantes</span>
+                        <span class="rover-pill-val">2 Estudiantes Activos</span>
+                    </div>
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Reconocimiento</span>
+                        <span class="rover-pill-val">Premio Impresión Aplicada</span>
+                    </div>
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Aliado</span>
+                        <span class="rover-pill-val">Full 3D Chile (PETG)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. FILOSOFÍA DE TRABAJO -->
+    <section class="rover-split-section" id="onboarding">
+        <div class="rover-split-container">
+            <div class="rover-split-text">
+                <span class="rover-section-tag">01 // METODOLOGÍA PRÁCTICA</span>
+                <h2>No Vienes a Escuchar una Clase: Vienes a Construir</h2>
+                <p>
+                    En el USACH Space Program no estudiamos la exploración planetaria en diapositivas teóricas; la construimos en el taller con planos digitales, impresoras 3D y componentes electrónicos reales. Cada integrante que ingresa al eje aprende a calibrar motores con reductora, diseñar geometrías de tracción que no derrapen en arena y ensamblar circuitos con distribución de potencia segura.
+                </p>
+                <div class="rover-split-feature-box">
+                    <h4>Aprender de los Errores en Taller</h4>
+                    <p>Las piezas rotas o los ejes desalineados son la base del aprendizaje práctico de cualquier ingeniero mecatrónico.</p>
+                </div>
+            </div>
+            <div class="rover-split-visual">
+                <img src="../../../src/assets/images/rover/rover_primer plano.jpeg" alt="Primer plano de la suspensión y electrónica del rover en taller" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. RUTA DE FORMACIÓN -->
+    <section class="project-roadmap-section" id="etapas">
+        <div class="project-roadmap-container">
+            <div class="section-head-center">
+                <div class="rover-section-tag">
+                    <span>02 // CURVA DE APRENDIZAJE</span>
+                </div>
+                <h2>El Camino del Estudiante en Robótica</h2>
+                <p>
+                    Fases de formación para pasar del prototipo de nivelación al desarrollo de la plataforma avanzada.
+                </p>
+            </div>
+
+            <div class="project-roadmap-timeline">
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">NIVEL 01 // INDUCCIÓN</span>
+                    <h4>Fundamentos de Tracción y Cinemática</h4>
+                    <p>Comprender cómo funcionan los diferenciales pasivos, cálculo de torque en ruedas y nociones de adherencia en pendientes.</p>
+                </div>
+
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">NIVEL 02 // HARDWARE</span>
+                    <h4>Diseño Paramétrico e Impresión de Piezas</h4>
+                    <p>Modelado de brazos basculantes en Fusion 360, orientación adecuada de capas FDM y pruebas de resistencia a la torsión.</p>
+                </div>
+
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">NIVEL 03 // ELECTRÓNICA</span>
+                    <h4>Potencia, Baterías y Radioenlace</h4>
+                    <p>Integración de controladores de motor en puente H, dimensionamiento de packs Li-Ion con BMS y control remoto por radiofrecuencia.</p>
+                </div>
+
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">NIVEL 04 // PLATAFORMA EMBLEMA</span>
+                    <h4>Integración en Rover Perseverance Flagship</h4>
+                    <p>Participación activa en el mantenimiento, pruebas dinámicas y expansión sensórica de la plataforma oficial del programa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CITA & CTA -->
+    <section class="project-quote-cta-section" id="contacto">
+        <div class="project-quote-box">
+            <div class="project-quote-text">
+                "La ingeniería aeroespacial comienza en el instante en que decides convertir un concepto abstracto en un mecanismo que rueda por sí mismo."
+            </div>
+            <div class="project-quote-sub">— USACH SPACE PROGRAM · EJE DE ROBÓTICA</div>
+        </div>
+
+        <div class="project-cta-card">
+            <h3>¿Quieres Aprender Robótica Aeroespacial?</h3>
+            <p>
+                Si tienes curiosidad por la mecánica, la electrónica o la programación de robots móviles, súmate a nuestro equipo. Te enseñamos paso a paso desde el primer día.
+            </p>
+            <a href="mailto:spaceprogram@usach.cl?subject=Interes%20en%20Robotica%20Rover%20-%20USACH%20Space%20Program" class="btn-project-cta">
+                <span>Ponte en Contacto con Nosotros</span>
+                <span>✉</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER INSTITUCIONAL -->
+    <footer style="background: #000000; border-top: 1px solid var(--border-subtle); padding: 70px 40px 40px;">
+        <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 50px;">
+            <div>
+                <h3 style="font-family: var(--font-now); font-size: 1.15rem; color: #ffffff; margin: 0 0 14px 0; text-transform: uppercase; letter-spacing: 1px;">USACH Space Program</h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
+            </div>
+            <div>
+                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Navegación</h4>
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                    <li><a href="../../../index.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">← Inicio Principal</a></li>
+                    <li><a href="../../../index.html#ejes" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Ejes de Desarrollo</a></li>
+                    <li><a href="./rover_avanzado.html" style="color: var(--accent-amber); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Rover Perseverance</a></li>
+                    <li><a href="../../../src/pages/registro.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Convocatoria y Postulación</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Contacto Oficial</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 8px 0;">Universidad de Santiago de Chile</p>
+                <p style="margin: 0;"><a href="mailto:spaceprogram@usach.cl" style="color: var(--accent-amber); text-decoration: none; font-size: 0.9rem; font-family: var(--font-mono);">spaceprogram@usach.cl</a></p>
+            </div>
+        </div>
+        <div style="max-width: 1400px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">
+            <span>&copy; 2026 USACH Space Program. Todos los derechos reservados.</span>
+            <span>Diseño y Fabricación con Fines Educativos</span>
+        </div>
+    </footer>
+
+    <script type="module" src="../../js/pages/proyectos/rover_avanzado.js"></script>
 </body>
 </html>

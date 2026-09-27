@@ -3,97 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejes de Desarrollo - USACH Space Program</title>
+    <title>Ejes Estratégicos de Desarrollo - USACH Space Program</title>
     
-    <link rel="icon" type="image/png" href="../../src/assets/images/logo_noTextBLACK.png">
-    <link rel="stylesheet" href="../../src/styles/main.css">
-
-    <style>@import url("../styles/pages/ejes.css");</style>
+    <link rel="icon" type="image/png" href="../assets/images/logo_noTextBLACK.png">
+    
+    <!-- Hojas de Estilo Base y HUD Componentes -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components/project-template.css">
+    <link rel="stylesheet" href="../styles/pages/ejes.css">
 </head>
 <body class="tech-grid">
 
-    <!-- Load Header component -->
-    <load src="src/components/header.html" root="../../" />
+    <!-- Fondo de Estrellas HUD -->
+    <div id="stars"></div>
 
-    <section class="ejes-section">
-        <div class="ejes-header">
-            <img src="../../src/assets/images/icono_planeta.png" alt="Planeta" style="width: 70px; height: auto; opacity: 0.75; margin-bottom: 20px; filter: invert(1); filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));">
-            <h1>Ejes Estratégicos</h1>
-            <p>Para estructurar nuestro crecimiento y marcar la dirección de las investigaciones presentes y futuras, definimos 5 dominios fundamentales de conocimiento. Bajo la filosofía <strong>Piensa - Crea - Aprende</strong>, estos ejes marcan nuestro norte operativo y validan hitos técnicos mediante prototipos rápidos (MVP).</p>
+    <!-- 0. NAVBAR SUPERIOR UNIFICADA HUD -->
+    <header class="rover-navbar">
+        <div class="rover-nav-container">
+            <!-- Brand Oficial -->
+            <a href="../../index.html" class="rover-nav-brand">
+                <img src="../assets/images/logo_noTextBLACK.png" alt="USACH Space Program Logo" class="rover-nav-logo">
+                <span class="rover-brand-text">USACH SPACE PROGRAM</span>
+            </a>
+
+            <!-- Navegación Rápida -->
+            <nav class="rover-quick-nav">
+                <a href="../../index.html#ejes" class="rover-nav-link active">Ejes</a>
+                <a href="./proyectos.html" class="rover-nav-link">Catálogo Proyectos</a>
+                <div class="rover-nav-pill-group">
+                    <a href="./proyectos/rover_avanzado.html" class="rover-nav-pill">Rover</a>
+                    <a href="./proyectos/cubesat_avanzado.html" class="rover-nav-pill">CubeSat</a>
+                    <a href="./proyectos/cohete.html" class="rover-nav-pill">Cohete</a>
+                    <a href="./proyectos/impresion3d.html" class="rover-nav-pill">Talleres</a>
+                </div>
+            </nav>
+
+            <!-- Acciones -->
+            <div class="rover-nav-actions">
+                <a href="mailto:spaceprogram@usach.cl?subject=Consulta%20Ejes%20-%20USACH%20Space%20Program" class="btn-nav-contact">
+                    <span>Contacto</span>
+                    <span>✉</span>
+                </a>
+                <a href="./registro.html" class="btn-nav-postular">
+                    <span>Postular</span>
+                </a>
+            </div>
+
+            <!-- Botón Hamburguesa Móvil -->
+            <button class="rover-menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
 
+        <!-- Menú Desplegable Móvil -->
+        <div class="rover-mobile-menu" id="mobileMenu">
+            <a href="../../index.html" class="mobile-link home-link">USACH Space Program (Inicio)</a>
+            <div class="mobile-section-label">SECCIONES PRINCIPALES</div>
+            <a href="../../index.html#ejes" class="mobile-link">Ejes Estratégicos</a>
+            <a href="./proyectos.html" class="mobile-link">Catálogo de Proyectos</a>
+            <a href="../../index.html#manifiesto" class="mobile-link">Manifiesto Estudiantil</a>
+            <a href="../../index.html#alianzas" class="mobile-link">Alianzas Institucionales</a>
+            <div class="mobile-section-label">PROYECTOS Y HARDWARE</div>
+            <a href="./proyectos/rover_avanzado.html" class="mobile-link">Rover Perseverance (Flagship)</a>
+            <a href="./proyectos/cubesat_avanzado.html" class="mobile-link">Bus Satelital CubeSat 3U</a>
+            <a href="./proyectos/cohete.html" class="mobile-link">Cohetería Experimental &amp; Agua</a>
+            <a href="./proyectos/cansat.html" class="mobile-link">Mini-CubeSat 1U &amp; CanSat</a>
+            <a href="./proyectos/eggdrop.html" class="mobile-link">Salva Usachín (Egg Drop)</a>
+            <a href="./proyectos/impresion3d.html" class="mobile-link">Talleres de Manufactura</a>
+            <div class="mobile-actions">
+                <a href="mailto:spaceprogram@usach.cl" class="btn-mobile-cta">Contacto: spaceprogram@usach.cl</a>
+                <a href="./registro.html" class="btn-mobile-postular">Postular al Equipo 2026</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- BARRA DE TELEMETRÍA INSTITUCIONAL -->
+    <div class="rover-top-bar">
+        <div class="rover-top-bar-inner">
+            <div class="rover-top-left">
+                <span class="rover-badge-primary">USACH SPACE PROGRAM</span>
+                <span class="rover-sep">|</span>
+                <span>ESTRUCTURA DE APRENDIZAJE &amp; DESARROLLO</span>
+                <span class="rover-sep">|</span>
+                <span>3 EJES TÉCNICOS + 1 EJE TRANSVERSAL</span>
+            </div>
+            <div class="rover-top-right">
+                <span class="status-dot"></span>
+                <span>METODOLOGÍA PIENSA - CREA - APRENDE</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. HEADER SECTION -->
+    <section class="ejes-section">
+        <div class="ejes-header">
+            <div class="rover-section-tag">
+                <span>✦</span>
+                <span>DOMINIOS DE INGENIERÍA // USACH SPACE PROGRAM</span>
+            </div>
+            <h1>EJES ESTRATÉGICOS</h1>
+            <h2 class="ejes-subtitle">Estructura Interdisciplinaria de Investigación y Prototipado Rápido</h2>
+            <p>
+                Para ordenar el trabajo técnico sin burocracia, articulamos nuestras actividades en <strong>tres dominios de ingeniería</strong> y un <strong>eje formativo transversal</strong>. Cada división está liderada por estudiantes de pregrado enfocados en validar hardware paso a paso mediante prototipos funcionales (MVP).
+            </p>
+        </div>
+
+        <!-- GRID DE EJES -->
         <div class="ejes-grid">
             
-            <div class="eje-item">
+            <!-- EJE 01 -->
+            <article class="eje-item">
                 <div class="eje-top">
-                    <div class="eje-content"><h3>Exploración Planetaria</h3></div>
+                    <div class="eje-tag-badge">EJE TÉCNICO 01</div>
                     <div class="eje-number">01</div>
                 </div>
-                <div class="eje-body">
-                    <p><strong>¿Qué implica?:</strong> Está enfocado en el diseño, prototipado y validación de robótica móvil (Rovers) y estructuras mecánicas espaciales. Aquí la ingeniería mecánica, la cinemática y el control se unen para resolver problemas de movilidad en terrenos irregulares y optimización de volumen en el espacio.</p>
-                    <div class="objective-box">
-                        <p><strong>Objetivo:</strong> Desarrollar plataformas robóticas terrestres y mecanismos desplegables viables, utilizando componentes de bajo costo y manufactura local (impresión 3D, corte láser).</p>
+                <div class="eje-content">
+                    <h3>Robótica y Mecánica Espacial</h3>
+                    <div class="eje-leaders-hud">
+                        <span class="hud-label">LÍDERES DE EJE:</span>
+                        <span class="hud-value">César Olivares y Alessandro Orellano</span>
                     </div>
                 </div>
-            </div>
+                <div class="eje-body">
+                    <p>
+                        Diseñamos, calculamos y fabricamos plataformas robóticas de movilidad planetaria. Abordamos cinemática de sistemas Rocker-Bogie, distribución de torque diferencial, disipación pasiva de temperatura en actuadores y navegación asistida por sensores LiDAR.
+                    </p>
+                    <div class="objective-box">
+                        <span class="objective-title">OBJETIVO TÉCNICO</span>
+                        <p>Desarrollar plataformas terrestres de alta adaptabilidad a terrenos irregulares utilizando componentes mecatrónicos accesibles y piezas estructurales en PETG/ABS.</p>
+                    </div>
+                    <div class="eje-project-link">
+                        <span class="link-label">Proyecto Emblema:</span>
+                        <a href="./proyectos/rover_avanzado.html" class="link-action">Rover Perseverance Flagship <span>→</span></a>
+                    </div>
+                </div>
+            </article>
 
-            <div class="eje-item">
+            <!-- EJE 02 -->
+            <article class="eje-item">
                 <div class="eje-top">
-                    <div class="eje-content"><h3>Simulación y Operaciones</h3></div>
+                    <div class="eje-tag-badge">EJE TÉCNICO 02</div>
                     <div class="eje-number">02</div>
                 </div>
-                <div class="eje-body">
-                    <p><strong>¿Qué implica?:</strong> Este eje es el filtro analítico del programa. Su objetivo es crear el "Gemelo Digital" de cualquier sistema antes de que pase a manufactura, reduciendo costos y riesgos operativos. Se encarga del estudio de la aerodinámica, la predicción de trayectorias, el diseño de misiones y la logística de campo para garantizar un despliegue seguro.</p>
-                    <div class="objective-box">
-                        <p><strong>Objetivo:</strong> Validar virtualmente la estabilidad y el rendimiento de los diseños aeroespaciales (cohetes, sondas o rovers) y planificar operaciones seguras de lanzamiento y recuperación.</p>
+                <div class="eje-content">
+                    <h3>Cohetería y Propulsión</h3>
+                    <div class="eje-leaders-hud">
+                        <span class="hud-label">LÍDERES DE EJE:</span>
+                        <span class="hud-value">Alessandro Orellano y Simón García-Huidobro</span>
                     </div>
                 </div>
-            </div>
+                <div class="eje-body">
+                    <p>
+                        Transformamos la física teórica y la dinámica de fluidos en vehículos que vuelan. Estudiamos centros de presión (CP) y gravedad (CG), estabilidad estática, integridad de fuselajes presurizados a 80 PSI y mecanismos de recuperación por paracaídas.
+                    </p>
+                    <div class="objective-box">
+                        <span class="objective-title">OBJETIVO TÉCNICO</span>
+                        <p>Dominar la aerodinámica experimental y los protocolos seguros de lanzamiento hidroneumático para sentar las bases de la cohetería de sondeo a baja altitud.</p>
+                    </div>
+                    <div class="eje-project-link">
+                        <span class="link-label">Proyecto Emblema:</span>
+                        <a href="./proyectos/cohete.html" class="link-action">Cohetería Experimental &amp; Agua <span>→</span></a>
+                    </div>
+                </div>
+            </article>
 
-            <div class="eje-item">
+            <!-- EJE 03 -->
+            <article class="eje-item">
                 <div class="eje-top">
-                    <div class="eje-content"><h3>Cohetería de Sondeo</h3></div>
+                    <div class="eje-tag-badge">EJE TÉCNICO 03</div>
                     <div class="eje-number">03</div>
                 </div>
-                <div class="eje-body">
-                    <p><strong>¿Qué implica?:</strong> Este eje es el encargado de convertir la física teórica en hardware que vuela. Se centra en el diseño estructural (fuselajes, aletas, sistemas de acople) y en la propulsión experimental, dominando el análisis y la manufactura de motores.</p>
-                    <div class="objective-box">
-                        <p><strong>Objetivo:</strong> Desarrollar vehículos de lanzamiento seguros y eficientes, dominando la manufactura de fuselajes y la caracterización de sistemas de propulsión.</p>
+                <div class="eje-content">
+                    <h3>Sistemas Orbitales y Telecomunicaciones</h3>
+                    <div class="eje-leaders-hud">
+                        <span class="hud-label">LÍDERES DE EJE:</span>
+                        <span class="hud-value">Daniel González y Martín Castillo</span>
                     </div>
                 </div>
-            </div>
+                <div class="eje-body">
+                    <p>
+                        Representa la electrónica de a bordo, la distribución de potencia y el enlace de radio de las cargas útiles. Diseñamos buses satelitales CubeSat 1U y 3U basados en el estándar CDS, enlaces de telemetría de largo alcance con tecnología LoRa y sensores de actitud.
+                    </p>
+                    <div class="objective-box">
+                        <span class="objective-title">OBJETIVO TÉCNICO</span>
+                        <p>Construir arquitecturas FlatSat modulares capaces de adquirir datos físicos en condiciones análogas y transmitirlos de forma confiable a estaciones terrestres.</p>
+                    </div>
+                    <div class="eje-project-link">
+                        <span class="link-label">Proyecto Emblema:</span>
+                        <a href="./proyectos/cubesat_avanzado.html" class="link-action">Bus Satelital CubeSat 3U <span>→</span></a>
+                    </div>
+                </div>
+            </article>
 
-            <div class="eje-item">
+            <!-- EJE 04 TRANSVERSAL -->
+            <article class="eje-item full-width">
                 <div class="eje-top">
-                    <div class="eje-content"><h3>Sistemas y Energía</h3></div>
+                    <div class="eje-tag-badge">EJE FORMATIVO TRANSVERSAL</div>
                     <div class="eje-number">04</div>
                 </div>
-                <div class="eje-body">
-                    <p><strong>¿Qué implica?:</strong> Representa el cerebro y el sistema nervioso de nuestros proyectos aeroespaciales. Se centra en el desarrollo de aviónica (electrónica de vuelo), sistemas de telemetría para la transmisión de datos en tiempo real y la gestión eficiente de la energía.</p>
-                    <div class="objective-box">
-                        <p><strong>Objetivo:</strong> Desarrollar sistemas electrónicos robustos y autónomos, capaces de capturar, procesar y transmitir datos críticos de misión bajo condiciones de alta exigencia.</p>
+                <div class="eje-content">
+                    <h3>Educación, Manufactura 3D y Vinculación</h3>
+                    <div class="eje-leaders-hud">
+                        <span class="hud-label">EQUIPO DE TRABAJO:</span>
+                        <span class="hud-value">Coordinación de Formación USACH Space Program</span>
                     </div>
                 </div>
-            </div>
-
-            <div class="eje-item full-width">
-                <div class="eje-top">
-                    <div class="eje-content"><h3>Educación y Experiencia</h3></div>
-                    <div class="eje-number">05</div>
-                </div>
                 <div class="eje-body">
-                    <p><strong>¿Qué implica?:</strong> Este eje es el puente entre la ingeniería profunda y la comunidad universitaria. Su propósito es la alfabetización aeroespacial, la difusión científica y la integración de talentos de todas las facultades. Se encarga del onboarding de los nuevos miembros, de traducir los conceptos técnicos a un lenguaje accesible y de construir la narrativa pública de la organización.</p>
+                    <p>
+                        El puente de nivelación para todo estudiante que ingresa al equipo. Facilitamos el traspaso de conocimientos en software CAD (SolidWorks, Fusion 360), manufactura aditiva FDM con el respaldo técnico de <strong>Full 3D</strong>, soldadura de circuitos impresos y programación embebida. Además, lideramos la divulgación en ferias vocacionales y colegios.
+                    </p>
                     <div class="objective-box">
-                        <p><strong>Objetivo:</strong> Democratizar el conocimiento espacial dentro de la USACH, garantizando que cualquier estudiante con curiosidad tenga las herramientas básicas para integrarse activamente a los proyectos técnicos.</p>
+                        <span class="objective-title">OBJETIVO EDUCATIVO</span>
+                        <p>Nivelar de forma práctica e inclusiva las competencias técnicas de nuevos tripulantes, promoviendo la vocación aeroespacial tanto dentro del campus como hacia la comunidad escolar.</p>
+                    </div>
+                    <div class="eje-project-link">
+                        <span class="link-label">Iniciativas Relacionadas:</span>
+                        <a href="./proyectos/impresion3d.html" class="link-action">Talleres de Manufactura 3D <span>→</span></a>
+                        <span style="color: var(--text-muted); margin: 0 8px;">|</span>
+                        <a href="./proyectos/eggdrop.html" class="link-action">Desafío Salva Usachín <span>→</span></a>
                     </div>
                 </div>
-            </div>
+            </article>
 
         </div>
     </section>
 
-    <!-- Load Dynamic Footer -->
-    <load src="src/components/footer.html" root="../../" />
+    <!-- FOOTER INSTITUCIONAL -->
+    <footer style="background: #000000; border-top: 1px solid var(--border-subtle); padding: 70px 40px 40px;">
+        <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 50px;">
+            <div>
+                <h3 style="font-family: var(--font-now); font-size: 1.15rem; color: #ffffff; margin: 0 0 14px 0; text-transform: uppercase; letter-spacing: 1px;">USACH Space Program</h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
+            </div>
+            <div>
+                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Navegación</h4>
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                    <li><a href="../../index.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">← Inicio Principal</a></li>
+                    <li><a href="./proyectos.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Catálogo de Proyectos</a></li>
+                    <li><a href="./registro.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Convocatoria y Postulación</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Contacto Oficial</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 8px 0;">Universidad de Santiago de Chile</p>
+                <p style="margin: 0;"><a href="mailto:spaceprogram@usach.cl" style="color: var(--accent-amber); text-decoration: none; font-size: 0.9rem; font-family: var(--font-mono);">spaceprogram@usach.cl</a></p>
+            </div>
+        </div>
+        <div style="max-width: 1400px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">
+            <span>&copy; 2026 USACH Space Program. Todos los derechos reservados.</span>
+            <span>Diseño y Fabricación con Fines Educativos</span>
+        </div>
+    </footer>
 
+    <!-- Script de navegación e interactividad -->
+    <script type="module">
+        document.addEventListener('DOMContentLoaded', () => {
+            // Menú móvil
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('is-active');
+                    menuToggle.classList.toggle('is-open');
+                });
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('is-active');
+                        menuToggle.classList.remove('is-open');
+                    });
+                });
+            }
+
+            // Generador de estrellas
+            const starsContainer = document.getElementById('stars');
+            if (starsContainer) {
+                const fragment = document.createDocumentFragment();
+                for (let i = 0; i < 40; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    const size = Math.random() * 2 + 0.8;
+                    star.style.width = `${size}px`;
+                    star.style.height = `${size}px`;
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.top = `${Math.random() * 100}%`;
+                    star.style.animationDuration = `${(Math.random() * 3 + 2.5).toFixed(1)}s`;
+                    star.style.animationDelay = `${(Math.random() * 3).toFixed(1)}s`;
+                    star.style.opacity = (Math.random() * 0.5 + 0.2).toFixed(2);
+                    fragment.appendChild(star);
+                }
+                starsContainer.appendChild(fragment);
+            }
+        });
+    </script>
 </body>
 </html>

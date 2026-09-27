@@ -1,163 +1,284 @@
-/* === CONFIGURACIÓN DEL SLIDER HORIZONTAL === */
-@media (min-width: 1025px) {
-    body, html {
-        overflow-y: hidden;
-    }
-}
-.projects-slider {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    height: 100vh;
-    align-items: center;
-    padding: 0 8vw;
-    gap: 5vw;
-    box-sizing: border-box;
-    scrollbar-width: none; /* Firefox */
-}
-.projects-slider::-webkit-scrollbar {
-    display: none; /* Chrome/Edge/Safari */
-}
-.slider-card {
-    scroll-snap-align: center;
-    flex: 0 0 75vw;
-    height: 65vh;
-    background-color: var(--space-card);
-    border-radius: 12px;
-    border: 1px solid var(--border-subtle);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.8);
-    margin-top: 50px;
-    transition: var(--transition-smooth);
-}
-.slider-card:hover {
-    border-color: var(--border-highlight);
-    box-shadow: 0 25px 60px rgba(255,255,255,0.02);
-}
-.slider-image {
-    height: 50%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+/* ==========================================================================
+   USACH SPACE PROGRAM - PROYECTOS CATALOG STYLESHEET
+   Deep Space HUD & Editorial Engineering Grid
+   ========================================================================== */
+
+/* === CATALOG HERO === */
+.catalog-hero-section {
     position: relative;
-    margin-top: 30px;
+    padding: 80px 40px 60px;
+    border-bottom: 1px solid var(--border-subtle);
+    background: radial-gradient(circle at top center, rgba(229, 169, 88, 0.05) 0%, transparent 60%);
+    overflow: hidden;
+    text-align: center;
 }
-.slider-image::after {
-    display: none;
+
+.catalog-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-horizon);
+    font-size: 15vw;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.03);
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
 }
-.slider-info {
-    height: 50%;
-    padding: 40px 50px;
+
+.catalog-hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.catalog-hero-title {
+    font-family: var(--font-horizon);
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    color: var(--text-primary);
+    margin: 10px 0 16px 0;
+    letter-spacing: 1px;
+}
+
+.catalog-hero-subtitle {
+    font-family: var(--font-now);
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    color: var(--accent-amber);
+    margin: 0 0 20px 0;
+    font-weight: 500;
+}
+
+.catalog-hero-desc {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 0 0 36px 0;
+    font-weight: 300;
+}
+
+/* Filter Pills Bar */
+.catalog-filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.filter-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: rgba(229, 169, 88, 0.12);
+    border-color: var(--accent-amber);
+    color: var(--accent-amber);
+}
+
+/* === PROJECTS GRID === */
+.catalog-grid-section {
+    padding: 80px 40px 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.catalog-card {
+    background: var(--bg-space-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    box-sizing: border-box;
-}
-.slider-info h2 {
-    font-family: var(--font-title);
-    font-size: 2.4rem;
-    margin: 5px 0 10px 0;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--pure-white);
-}
-.slider-info .eje-tag {
-    font-family: var(--font-mono);
-    color: var(--nasa-blue-glow);
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    display: inline-block;
-}
-.slider-info p {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: var(--text-muted);
-    margin: 0;
-}
-.btn-details {
-    align-self: flex-start;
-    background-color: transparent;
-    border: 1px solid var(--border-highlight);
-    color: var(--bone-white);
-    text-decoration: none;
-    padding: 12px 35px;
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    border-radius: 4px;
-    letter-spacing: 1.5px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
     transition: var(--transition-smooth);
 }
-.btn-details:hover {
-    background-color: var(--bone-white);
-    color: var(--space-black);
-    border-color: var(--bone-white);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+
+.catalog-card:hover {
+    border-color: rgba(229, 169, 88, 0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), 0 0 25px rgba(229, 169, 88, 0.08);
 }
-.slider-controls {
-    position: fixed;
-    bottom: 40px;
+
+/* Visual Frame */
+.catalog-card-visual {
+    position: relative;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    z-index: 100;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    background: #000;
 }
-.btn-scroll {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-highlight);
-    color: var(--pure-white);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+
+.catalog-card-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+.catalog-card:hover .catalog-card-visual img {
+    transform: scale(1.05);
+}
+
+.catalog-badge-floating {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(3, 5, 8, 0.88);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border-subtle);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--accent-amber);
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+.catalog-badge-floating.cyan {
+    color: var(--accent-cyan);
+}
+
+/* Card Body */
+.catalog-card-body {
+    padding: 26px 24px;
     display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.catalog-card-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent-amber);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.catalog-card-tag.cyan {
+    color: var(--accent-cyan);
+}
+
+.catalog-card-title {
+    font-family: var(--font-now);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 12px 0;
+    line-height: 1.25;
+}
+
+.catalog-card-desc {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+    margin: 0 0 20px 0;
+    flex: 1;
+}
+
+/* Card Footer with Specs & Link */
+.catalog-card-footer {
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 1.5rem;
-    backdrop-filter: blur(10px);
+    gap: 12px;
+}
+
+.catalog-card-telemetry {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.catalog-btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-family: var(--font-now);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
     transition: var(--transition-smooth);
+    white-space: nowrap;
 }
-.btn-scroll:hover {
-    background: var(--bone-white);
-    color: var(--space-black);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-    transform: scale(1.1);
+
+.catalog-btn-link:hover {
+    background: var(--accent-amber);
+    border-color: var(--accent-amber);
+    color: #030508;
+    box-shadow: 0 0 15px rgba(229, 169, 88, 0.4);
 }
-@media (max-width: 1024px) and (min-width: 769px) {
-    .slider-card { flex: 0 0 75vw; height: 65vh; }
-    .slider-info h2 { font-size: 2.2rem; }
+
+.catalog-card.is-hidden {
+    display: none !important;
 }
+
+@keyframes fadeInCard {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === RESPONSIVE BREAKPOINTS === */
+@media (max-width: 1200px) {
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
-    html, body {
-        overflow-x: hidden;
-        width: 100%;
-        overflow-y: auto;
+    .catalog-hero-section {
+        padding: 50px 20px 40px;
     }
-    .projects-slider {
-        height: auto;
-        min-height: calc(100vh - 80px);
-        padding: 100px 5vw 40px !important;
-        gap: 40px;
-        flex-direction: column;
-        overflow-x: hidden;
+    .catalog-grid-section {
+        padding: 50px 20px 70px;
     }
-    .slider-controls { display: none; }
-    .slider-card {
-        flex: 0 0 auto !important;
-        width: 90vw !important;
-        height: auto !important;
-        margin-top: 0;
+    .catalog-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
     }
-    .slider-image { height: 200px !important; }
-    .slider-info { height: auto !important; padding: 25px 20px !important; gap: 15px; }
-    .slider-info h2 { font-size: 1.8rem !important; }
-    .slider-info p { font-size: 0.95rem !important; }
-    .btn-details { align-self: stretch !important; text-align: center; padding: 14px !important; }
-    .scroll-indicator { display: none; }
 }

@@ -2,13 +2,9 @@ body, html {
     margin: 0; padding: 0;
     font-family: var(--font-body);
     background-color: var(--space-black);
-    background-image:
-        radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1.5px),
-        url('../../assets/images/gallery/pngwing.com (12).png');
-    background-size: 250px 250px, cover;
-    background-repeat: repeat, no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1.5px);
+    background-size: 250px 250px;
+    background-repeat: repeat;
     color: var(--bone-white);
     scroll-behavior: smooth;
     overflow-x: hidden;
