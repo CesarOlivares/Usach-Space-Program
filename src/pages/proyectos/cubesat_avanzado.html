@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plataforma CubeSat 3U - USACH Space Program</title>
+    <title>Bus Satelital CubeSat 3U | USACH Space Program</title>
     
-    <link rel="icon" type="image/png" href="../../../assets/logo-B9DE3e4g.png">
+    <link rel="icon" type="image/png" href="../../../assets/logo_noTextBLACK-ged7tvfL.png">
     
     <style>.tier-badge {
     background-color: rgba(255, 183, 3, 0.1);
@@ -116,228 +116,388 @@
     .mod-image { width: 100%; height: 250px; }
     .timeline-section, .modalidad-section { padding-left: 20px; padding-right: 20px; }
 }</style>
-  <script type="module" crossorigin src="../../../assets/header-B2EIyKSy.js"></script>
-  <link rel="stylesheet" crossorigin href="../../../assets/header-Dnc9HXv9.css">
+  <script type="module" crossorigin src="../../../assets/main-CLtxhMDE.js"></script>
+  <script type="module" crossorigin src="../../../assets/rover_avanzado-CxStbXyY.js"></script>
+  <link rel="stylesheet" crossorigin href="../../../assets/main-BrB0X9fX.css">
 </head>
-<body class="tech-grid">
+<body>
 
-    <!-- Load Header component -->
-    <header>
-    <div class="nav-brand">USACH Space Program</div>
-    
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+    <!-- FONDO DE ESTRELLAS DINÁMICO -->
+    <div class="stars-container" id="stars"></div>
 
-    <nav class="nav-links" id="navLinks">
-        <a href="../../../index.html">Inicio</a>
-        <a href="../../../src/pages/proyectos.html">Proyectos</a>
-        <a href="../../../src/pages/ejes.html">Ejes</a>
-        <a href="../../../src/pages/registro.html">Registrarse</a>
-        <a href="../../../login.html" class="btn-login">Iniciar Sesión</a>
-    </nav>
-</header>
+    <!-- 0. BARRA SUPERIOR DE NAVEGACIÓN RÁPIDA (HUD NAVBAR) -->
+    <header class="rover-navbar">
+        <div class="rover-navbar-inner">
+            <!-- Brand -->
+            <a href="../../../index.html" class="rover-nav-back" title="USACH Space Program">
+                <img src="../../../assets/logo_noTextBLACK-ged7tvfL.png" alt="Logo USP" class="rover-nav-logo">
+                <span class="brand-title">USACH Space Program</span>
+            </a>
 
-
-
-    <section class="project-hero" style="background-image: url('../../../assets/pngwing.com%20(2)-C-V46Zg2.png');">
-        <div class="project-hero-content">
-            <span class="tech-star" style="top: -20px; left: -10px;">✦</span>
-            <span class="tech-star" style="top: 30px; right: -40px;">✦</span>
-            <span class="tier-badge">NIVEL 2: PLATAFORMA DE I+D (FLAGSHIP)</span>
-            <h1>Bus Satelital CubeSat 3U</h1>
-            <p>Ingeniería de sistemas aeroespaciales en volumen restringido orientada a la validación de aviónica, comunicaciones en banda S y control de actitud.</p>
-        </div>
-    </section>
-
-    <section class="inspiration-section">
-        <div class="inspiration-container" style="position: relative;">
-            <span class="tech-star" style="top: -10px; left: 5%;">✦</span>
-            <span class="tech-star" style="bottom: -10px; right: 5%;">✦</span>
-            <h2>El estándar de oro para validación orbital</h2>
-            <p>"El desarrollo de un satélite de este calibre exige la división del trabajo en módulos altamente especializados, siguiendo rigurosamente las normas internacionales para operar en órbitas terrestres bajas (LEO)."</p>
-        </div>
-    </section>
-
-    <section class="project-container">
-        
-        <div class="main-content">
-            <h2>Contexto y Marco Normativo</h2>
-            <p>El estándar CubeSat revolucionó el acceso al espacio al proporcionar especificaciones volumétricas y de masa claras (1U = 10x10x10 cm, aprox. 1.33 kg) compatibles con despliegues orbitales comerciales. Nuestro estandarte técnico institucional se acoge rigurosamente a la <strong>Especificación de Diseño CubeSat (CDS)</strong> redactada por Cal Poly y la Universidad de Stanford. Operar bajo este estándar asegura que nuestra plataforma de 3 Unidades (10x10x30 cm) cumpla con los requerimientos de la industria, garantizando viabilidad técnica para futuras misiones suborbitales u orbitales (LEO).</p>
-
-            <h2>Arquitectura del Bus Satelital</h2>
-            <p>El desarrollo de un satélite de este calibre exige la división del trabajo en módulos altamente especializados. Actualmente nos encontramos en la fase de FlatSat (prototipado de aviónica en mesa) desarrollando los subsistemas de potencia, aviónica y comunicaciones.</p>
-        </div>
-
-        <div class="side-panel">
-            <div class="spec-item">
-                <h4>Volumen de Diseño</h4>
-                <p>Clase 3U (100.0 x 100.0 x 340.5 mm). Estimación de masa &lt; 4.0 kg.</p>
-            </div>
-            <div class="spec-item">
-                <h4>Estándar de Referencia Oficial</h4>
-                <p>Nuestra ingeniería estructural respeta los márgenes del CubeSat Design Specification (Rev. 14):</p>
-                <a href="https://www.cubesat.org/cubesatinfo" class="reference-link" target="_blank">Documentación CubeSat.org ↗</a>
-            </div>
-            <div class="spec-item">
-                <h4>Fase de Proyecto</h4>
-                <p>Diseño de misión conceptual (Fase A) y prototipado temprano de placa base (FlatSat).</p>
-            </div>
-
-            <a href="mailto:contacto@usachspace.cl?subject=Solicitud de Dossier Técnico - CubeSat 3U" class="btn-contact">Solicitar Dossier Técnico</a>
-            
-            <a href="../proyectos.html" class="btn-back">Volver a Proyectos</a>
-        </div>
-
-    </section>
-
-    <section class="timeline-section">
-        <h2>Ciclo de Desarrollo Satelital</h2>
-        <div class="timeline">
-            
-            <div class="timeline-item">
-                <div class="timeline-icon">01</div>
-                <div class="timeline-content">
-                    <h3>1. Arquitectura de Misión y CDS</h3>
-                    <p>Fase de diseño conceptual e investigación de los requerimientos estructurales y funcionales del estándar 3U.</p>
+            <!-- Enlaces Rápidos (Escritorio) -->
+            <nav class="rover-quick-nav">
+                <div class="nav-group">
+                    <a href="../../../index.html" class="rover-nav-link">Inicio</a>
+                    <a href="../../../index.html#ejes" class="rover-nav-link">Ejes</a>
+                    <a href="../../../index.html#proyectos" class="rover-nav-link">Proyectos</a>
+                    <a href="../../../index.html#alianzas" class="rover-nav-link">Alianzas</a>
                 </div>
-            </div>
 
-            <div class="timeline-item">
-                <div class="timeline-icon">02</div>
-                <div class="timeline-content">
-                    <h3>2. Prototipado FlatSat en Mesa</h3>
-                    <p>Integración en banco de pruebas de laboratorio de los primeros circuitos base y microcontroladores sin restricciones de espacio.</p>
+                <span class="nav-divider">|</span>
+
+                <div class="nav-group">
+                    <a href="#arquitectura" class="rover-nav-pill active-pill">Arquitectura</a>
+                    <a href="#subsistemas" class="rover-nav-pill">Subsistemas</a>
+                    <a href="#flatsat" class="rover-nav-pill">FlatSat</a>
+                    <a href="#ciclo" class="rover-nav-pill">Ciclo de Vuelo</a>
+                    <a href="#contacto" class="rover-nav-pill">Contacto</a>
                 </div>
-            </div>
+            </nav>
 
-            <div class="timeline-item">
-                <div class="timeline-icon">03</div>
-                <div class="timeline-content">
-                    <h3>3. Integración de EPS y COMMS</h3>
-                    <p>Desarrollo de las tarjetas de potencia, administración máxima del punto de potencia (MPPT) y módulos transceptores de RF.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-icon">04</div>
-                <div class="timeline-content">
-                    <h3>4. Control de Actitud (ADCS)</h3>
-                    <p>Pruebas dinámicas de sensores solares, magnetómetros, y programación de la estabilización mediante ruedas de reacción y bobinas magnéticas.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item final-hito">
-                <div class="timeline-icon">🛰️</div>
-                <div class="timeline-content">
-                    <h3>Integración Estructural y Enlace</h3>
-                    <p>Montaje final de todas las placas dentro de la estructura metálica 3U y pruebas de telemetría de largo alcance con estación terrena.</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="modalidad-section">
-        <h2>Descripción de Subsistemas</h2>
-        
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Computador de A Bordo (OBC & C&DH)</h3>
-                <p>El cerebro del satélite. Implementación de una arquitectura tolerante a fallos basada en microcontroladores de grado industrial para la recolección, empaquetado de telemetría y ejecución de rutinas de seguridad ante anomalías térmicas o de voltaje.</p>
-            </div>
-            <div class="mod-image" style="background-image: url('../../../assets/IMG-20260607-WA0039-DYQQ2NnM.jpg');"></div>
-        </div>
-
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Comunicaciones y Telemetría (COMMS)</h3>
-                <p>Establecimiento de un enlace bidireccional fiable. Diseño de antenas desplegables y transceptores para operar balizas UHF/VHF y transmisión de datos de carga útil mediante enlaces de mayor ancho de banda (Banda S).</p>
-            </div>
-            <div class="mod-image" style="background-image: url('../../../assets/IMG-20260607-WA0022-CSaDWZKk.jpg');"></div>
-        </div>
-
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Subsistema de Potencia Eléctrica (EPS)</h3>
-                <p>La columna vertebral energética. Desarrollo de matrices solares montadas en el chasis y sistemas de gestión máxima del punto de potencia (MPPT) para alimentar eficientemente los componentes mientras se orbita en fases de eclipse.</p>
-            </div>
-            <div class="mod-image" style="background-image: url('../../../assets/IMG-20260607-WA0039-DYQQ2NnM.jpg');"></div>
-        </div>
-
-        <div class="mod-row">
-            <div class="mod-text">
-                <h3>Determinación y Control de Actitud (ADCS)</h3>
-                <p>El desafío mecánico en el vacío. Desarrollo de algoritmos de fusión sensorial (magnetómetros, giroscopios, sensores solares) y actuadores físicos (ruedas de reacción y magnetorquers) para orientar el satélite y apuntar antenas/cargas útiles con precisión.</p>
-            </div>
-            <div class="mod-image" style="background-image: url('../../../assets/IMG-20260607-WA0030-W4BQB12q.jpg');"></div>
-        </div>
-    </section>
-
-    <!-- Global Footer -->
-    <footer>
-    <div class="footer-grid">
-        <div class="footer-info">
-            <h3>USACH Space Program</h3>
-            <p>Iniciativa estudiantil interdisciplinaria dedicada al desarrollo científico y tecnológico en el sector aeroespacial.</p>
-        </div>
-
-        <div class="footer-links">
-            <h4>Navegación</h4>
-            <ul>
-                <li><a href="../../../index.html">Inicio</a></li>
-                <li><a href="../../../src/pages/proyectos.html">Proyectos</a></li>
-                <li><a href="../../../src/pages/ejes.html">Ejes</a></li>
-                <li><a href="../../../src/pages/registro.html">Registrarse</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-contact">
-            <h4>Contacto</h4>
-            <p>Universidad de Santiago de Chile</p>
-            <p><a href="mailto:spaceprogram@usach.cl">spaceprogram@usach.cl</a></p>
-        </div>
-
-        <div class="footer-institutions">
-            <h4>Vínculos</h4>
-
-            <div class="footer-institution-logos">
-                <a 
-                    href="https://centroinnovacion.cl/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    class="footer-institution-logo"
-                    aria-label="Centro de Innovación USACH"
-                >
-                    <img 
-                        src="data:image/webp;base64,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"
-                        alt="Centro de Innovación USACH"
-                    >
+            <!-- Acciones -->
+            <div class="rover-nav-actions">
+                <a href="mailto:spaceprogram@usach.cl?subject=Consulta%20CubeSat%203U%20-%20USACH%20Space%20Program" class="btn-nav-contact">
+                    <span>Contacto</span>
+                    <span>✉</span>
                 </a>
-
-                <a 
-                    href="https://www.achide.org/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    class="footer-institution-logo"
-                    aria-label="ACHIDE"
-                >
-                    <img 
-                        src="../../../assets/achide-pTJ5xL5y.png"
-                        alt="ACHIDE"
-                    >
+                <a href="../../../src/pages/registro.html" class="btn-nav-postular">
+                    <span>Postular</span>
                 </a>
+            </div>
+
+            <!-- Botón Hamburguesa Móvil -->
+            <button class="rover-menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div class="rover-mobile-menu" id="mobileMenu">
+            <a href="../../../index.html" class="mobile-link home-link">USACH Space Program (Inicio)</a>
+            <div class="mobile-section-label">SECCIONES PRINCIPALES</div>
+            <a href="../../../index.html#ejes" class="mobile-link">Ejes Estratégicos</a>
+            <a href="../../../index.html#proyectos" class="mobile-link">Proyectos USP</a>
+            <a href="../../../index.html#manifiesto" class="mobile-link">Manifiesto Estudiantil</a>
+            <a href="../../../index.html#alianzas" class="mobile-link">Alianzas Institucionales</a>
+            <div class="mobile-section-label">SECCIONES CUBESAT 3U</div>
+            <a href="#arquitectura" class="mobile-link">Arquitectura y Estándar CDS</a>
+            <a href="#subsistemas" class="mobile-link">Subsistemas de A Bordo</a>
+            <a href="#flatsat" class="mobile-link">Prototipado FlatSat en Mesa</a>
+            <a href="#ciclo" class="mobile-link">Ciclo de Desarrollo Orbital</a>
+            <div class="mobile-actions">
+                <a href="mailto:spaceprogram@usach.cl" class="btn-mobile-cta">Contacto: spaceprogram@usach.cl</a>
+                <a href="../../../src/pages/registro.html" class="btn-mobile-postular">Postular al Equipo 2026</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- BARRA DE TELEMETRÍA INSTITUCIONAL -->
+    <div class="rover-top-bar">
+        <div class="rover-top-bar-inner">
+            <div class="rover-top-left">
+                <span class="rover-badge-primary">USACH SPACE PROGRAM</span>
+                <span class="rover-sep">|</span>
+                <span>EJE 03 SISTEMAS ORBITALES</span>
+                <span class="rover-sep">|</span>
+                <span>PROYECTO EMBLEMA CUBESAT 3U</span>
+            </div>
+            <div class="rover-top-right">
+                <span class="status-dot"></span>
+                <span>FASE FLATSAT // AVIONICA EN BANCO</span>
             </div>
         </div>
     </div>
 
-    <div class="footer-bottom">
-        <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
-        <p>Diseño y Tecnología con Fines Educativos</p>
-    </div>
-</footer>
+    <!-- 1. HERO SECTION -->
+    <section class="rover-hero-section">
+        <div class="rover-hero-watermark">CUBESAT 3U</div>
+        <div class="rover-hero-ambient"></div>
+
+        <div class="rover-hero-container">
+            <!-- Columna Izquierda: Viewport Despliegue Orbital NASA -->
+            <div class="rover-viewport-card">
+                <div class="rover-img-wrapper">
+                    <img src="../../../assets/cubesat_deployment-DcF168DJ.jpg" alt="Despliegue de CubeSat en órbita LEO desde la ISS - NASA">
+                    <div class="rover-img-overlay-telemetry">
+                        <span class="rover-overlay-tag">NASA SVS // LEO DEPLOYMENT</span>
+                        <span class="rover-overlay-badge">REFERENCIA ORBITAL</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Títulos, Resumen y Métricas Clave -->
+            <div class="rover-hero-content">
+                <div class="rover-section-tag">
+                    <span>✦</span>
+                    <span>PROYECTO EMBLEMA // EJE 03 SISTEMAS ORBITALES</span>
+                </div>
+                <h1 class="rover-hero-title">BUS SATELITAL CUBESAT 3U</h1>
+                <h2 class="rover-hero-subtitle">Plataforma Modular para Validación en Órbita Baja (LEO)</h2>
+                
+                <p class="rover-hero-desc">
+                    Diseño, integración y validación de una plataforma satelital de 3 Unidades (10×10×34 cm) bajo el estándar internacional CubeSat Design Specification (CDS). Desarrollada por estudiantes de la USACH para experimentar con arquitectura FlatSat en banco de laboratorio, aviónica tolerante a fallos, telemetría bidireccional y balance térmico-energético.
+                </p>
+
+                <!-- Grid de Telemetría Rápida -->
+                <div class="rover-pills-grid">
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Estándar</span>
+                        <span class="rover-pill-val">CubeSat 3U (CDS Rev. 14)</span>
+                    </div>
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Masa Estimada</span>
+                        <span class="rover-pill-val">&lt; 4.0 kg (Estructura Al-7075)</span>
+                    </div>
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Aviónica</span>
+                        <span class="rover-pill-val">OBC Dual-Core &amp; Bus CAN/I2C</span>
+                    </div>
+                    <div class="rover-pill-item">
+                        <span class="rover-pill-label">Comunicaciones</span>
+                        <span class="rover-pill-val">UHF/VHF Beacon + Banda S</span>
+                    </div>
+                </div>
+
+                <!-- Botones de Acción -->
+                <div class="rover-hero-actions">
+                    <a href="#subsistemas" class="btn-project-primary">
+                        <span>Ver Subsistemas de A Bordo</span>
+                        <span>✦</span>
+                    </a>
+                    <a href="#flatsat" class="btn-project-secondary">
+                        <span>Fase FlatSat en Mesa</span>
+                        <span>⚙</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. SPECS BAR (PARÁMETROS TÉCNICOS) -->
+    <section class="rover-specs-section">
+        <div class="rover-specs-grid">
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Volumen Físico</span>
+                <div class="rover-spec-value">100 × 100 × 340 mm</div>
+                <p class="rover-spec-sub">Form factor 3U para compatibilidad con dispensadores P-POD y NanoRacks orbitales.</p>
+            </div>
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Líderes de Eje</span>
+                <div class="rover-spec-value">D. González y M. Castillo</div>
+                <p class="rover-spec-sub">Coordinación de 7 estudiantes en aviónica, potencia, radio y simulación estructural.</p>
+            </div>
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Energía &amp; MPPT</span>
+                <div class="rover-spec-value">Celdas GaAs + LiFePO4</div>
+                <p class="rover-spec-sub">Gestión inteligente de carga y regulación multinivel 3.3V / 5V / 12V con protección de eclipse.</p>
+            </div>
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Actitud (ADCS)</span>
+                <div class="rover-spec-value">Magnetorquers + IMU</div>
+                <p class="rover-spec-sub">Bobinas magnéticas para detumbling pasivo tras desacople y ruedas de inercia miniatura.</p>
+            </div>
+            <div class="rover-spec-card">
+                <span class="rover-spec-key">Enlace Terreno</span>
+                <div class="rover-spec-value">AX.25 &amp; Telemetría</div>
+                <p class="rover-spec-sub">Estación terrena universitaria con antenas Yagi y transceptores SDR de código abierto.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. MARCO NORMATIVO Y ARQUITECTURA -->
+    <section class="rover-split-section" id="arquitectura">
+        <div class="rover-split-container">
+            <div class="rover-split-text">
+                <span class="rover-section-tag">01 // MARCO NORMATIVO</span>
+                <h2>Ingeniería Rigurosa Bajo el Estándar CDS</h2>
+                <p>
+                    El estándar CubeSat, impulsado por la Universidad de Stanford y Cal Poly, democratizó el acceso al espacio al fijar dimensiones volumétricas y restricciones de seguridad precisas. Operar bajo esta especificación exige un compromiso técnico absoluto: tolerancias milimétricas en los rieles de despliegue, switch de inhibición de potencia redundante y materiales aptos para no desgasificar en el vacío espacial (baja tasa de outgassing).
+                </p>
+                <div class="rover-split-feature-box">
+                    <h4>Criterio de Vuelo Real</h4>
+                    <p>Cada componente y placa PCB se diseña contemplando las vibraciones de lanzamiento en cohete y las variaciones térmicas extremas entre sol directo y eclipse terrestre.</p>
+                </div>
+            </div>
+            <div class="rover-split-visual">
+                <img src="../../../assets/Cubesat%20orbitando-CNQ54F9Y.png" alt="Render conceptual del CubeSat 3U en órbita terrestre" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FLATSAT: APRENDIZAJE EN MESA DE LABORATORIO -->
+    <section class="rover-split-section" id="flatsat">
+        <div class="rover-split-container reverse">
+            <div class="rover-split-text">
+                <span class="rover-section-tag">02 // PROTOTIPADO FLATSAT</span>
+                <h2>El Satélite Desplegado en la Mesa de Trabajo</h2>
+                <p>
+                    Antes de empaquetar los circuitos en el chasis de aluminio, construimos un <strong>FlatSat</strong>: el satélite completamente desplegado sobre mesas de ensayo, interconectado mediante cables de instrumentación y sondas lógicas. Esto permite a los estudiantes validar la tolerancia a fallos del software de vuelo, inducir errores de voltaje controlados y comprobar el bus de comunicación CAN sin riesgo de dañar la estructura final.
+                </p>
+                <div class="rover-split-feature-box">
+                    <h4>Aprender del Ensayo y la Medición</h4>
+                    <p>Las pruebas en mesa nos enseñan a depurar cuellos de botella en buses de datos y medir el consumo real en miliwatts antes de la integración.</p>
+                </div>
+            </div>
+            <div class="rover-split-visual">
+                <img src="../../../assets/minicubesat_lab-DbefhVxw.jpg" alt="Integración y ensayos de laboratorio para satélites pequeños - NASA" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. DESGLOSE DE SUBSISTEMAS MODULARES -->
+    <section class="project-subsystems-section" id="subsistemas">
+        <div class="section-head-center">
+            <div class="rover-section-tag">
+                <span>03 // ARQUITECTURA DE A BORDO</span>
+            </div>
+            <h2>Subsistemas Especializados</h2>
+            <p>
+                El satélite se divide en módulos funcionales independientes coordinados por protocolos de comunicación industrial.
+            </p>
+        </div>
+
+        <div class="project-subsystems-grid">
+            <!-- Mod 1: OBC -->
+            <div class="project-module-card">
+                <div class="module-card-img">
+                    <img src="../../../assets/taller%20sensores%20c__-9epWvPTo.jpg" alt="Laboratorio de microcontroladores y sensores C++" loading="lazy">
+                </div>
+                <div class="module-card-body">
+                    <span class="module-card-tag">OBC &amp; C&amp;DH // COMPUTADOR DE A BORDO</span>
+                    <h3>Gestión y Procesamiento Central</h3>
+                    <p>Microcontrolador tolerante a perturbaciones que coordina las rutinas de vuelo, monitorea el estado térmico de los nodos y gestiona el almacenamiento redundante de telemetría.</p>
+                </div>
+            </div>
+
+            <!-- Mod 2: EPS -->
+            <div class="project-module-card">
+                <div class="module-card-img">
+                    <img src="../../../assets/IMG-20260607-WA0039-DYQQ2NnM.jpg" alt="Medición de placas electrónicas y fuentes de poder en taller" loading="lazy">
+                </div>
+                <div class="module-card-body">
+                    <span class="module-card-tag">EPS // POTENCIA ELÉCTRICA</span>
+                    <h3>Generación Solar y Gestión MPPT</h3>
+                    <p>Controladores con algoritmo de seguimiento de punto de máxima potencia solar (MPPT), celdas fotovoltaicas eficientes y pack de baterías con protección contra sobrecorriente.</p>
+                </div>
+            </div>
+
+            <!-- Mod 3: COMMS -->
+            <div class="project-module-card">
+                <div class="module-card-img">
+                    <img src="../../../assets/IMG-20260607-WA0022-CSaDWZKk.jpg" alt="Pruebas de radioenlace y transceptores de telecomunicaciones" loading="lazy">
+                </div>
+                <div class="module-card-body">
+                    <span class="module-card-tag">COMMS // TELECOMUNICACIONES</span>
+                    <h3>Transceptores y Enlace Terreno</h3>
+                    <p>Baliza periódica en UHF/VHF con paquete AX.25 para radioaficionados y canal de datos de alta velocidad en Banda S hacia la estación terrena universitaria.</p>
+                </div>
+            </div>
+
+            <!-- Mod 4: ADCS -->
+            <div class="project-module-card">
+                <div class="module-card-img">
+                    <img src="../../../assets/IMG-20260607-WA0030-W4BQB12q.jpg" alt="Instrumentación de actitud y sensórica inercial" loading="lazy">
+                </div>
+                <div class="module-card-body">
+                    <span class="module-card-tag">ADCS // CONTROL DE ACTITUD</span>
+                    <h3>Orientación y Estabilización</h3>
+                    <p>Fusión sensorial mediante magnetómetros y giroscopios para activar bobinas magnéticas (magnetorquers) y contrarrestar el giro residual tras el desacople del cohete.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. CICLO DE DESARROLLO (TIMELINE) -->
+    <section class="project-roadmap-section" id="ciclo">
+        <div class="project-roadmap-container">
+            <div class="section-head-center">
+                <div class="rover-section-tag">
+                    <span>04 // CICLO DE MISIÓN</span>
+                </div>
+                <h2>Fases de Desarrollo Satelital</h2>
+                <p>
+                    Planificación estructurada para avanzar desde la ingeniería conceptual hasta la calificación funcional.
+                </p>
+            </div>
+
+            <div class="project-roadmap-timeline">
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">FASE 01 // ESPECIFICACIÓN</span>
+                    <h4>Diseño Conceptual y Requisitos CDS</h4>
+                    <p>Definición del balance de masa, presupuesto energético (Power Budget) y análisis de compatibilidad mecánica con dispensadores orbitales comerciales.</p>
+                </div>
+
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">FASE 02 // BANCO DE PRUEBAS (ACTUAL)</span>
+                    <h4>Prototipado FlatSat en Mesa</h4>
+                    <p>Integración y calibración en laboratorio de las placas base de cada subsistema, verificando comunicación fluida entre microcontroladores sin restricciones de espacio.</p>
+                </div>
+
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">FASE 03 // INTEGRACIÓN COMPACTA</span>
+                    <h4>Fabricación del Chasis y Placas de Vuelo</h4>
+                    <p>Maquinado de la estructura de aluminio aeroespacial, ensamble de las tarjetas apilables estándar PC/104 y tendido del bus de potencia interno.</p>
+                </div>
+
+                <div class="project-roadmap-item">
+                    <span class="roadmap-phase-tag">FASE 04 // ENSAYOS AMBIENTALES</span>
+                    <h4>Pruebas de Vacío Térmico y Vibración</h4>
+                    <p>Ensayos en cámara análoga para simular los ciclos térmicos orbitales (+80°C a -40°C) y pruebas de choque dinámico para validar la robustez estructural.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CITA & CTA -->
+    <section class="project-quote-cta-section" id="contacto">
+        <div class="project-quote-box">
+            <div class="project-quote-text">
+                "El espacio no perdona errores de diseño; cada línea de código y cada soldadura en el satélite son un compromiso con la excelencia de nuestro equipo."
+            </div>
+            <div class="project-quote-sub">— USACH SPACE PROGRAM · EJE DE SISTEMAS ORBITALES</div>
+        </div>
+
+        <div class="project-cta-card">
+            <h3>¿Interesado en Colaborar con el CubeSat 3U?</h3>
+            <p>
+                Buscamos estudiantes con ganas de programar microcontroladores, diseñar circuitos de radiofrecuencia o modelar estructuras térmicas, así como instituciones interesadas en alianzas tecnológicas para futuras oportunidades de vuelo.
+            </p>
+            <a href="mailto:spaceprogram@usach.cl?subject=Alianza%20o%20Colaboraci%C3%B3n%20CubeSat%203U%20-%20USACH%20Space%20Program" class="btn-project-cta">
+                <span>Ponte en Contacto con Nosotros</span>
+                <span>✉</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER INSTITUCIONAL -->
+    <footer style="background: #000000; border-top: 1px solid var(--border-subtle); padding: 70px 40px 40px;">
+        <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 50px;">
+            <div>
+                <h3 style="font-family: var(--font-now); font-size: 1.15rem; color: #ffffff; margin: 0 0 14px 0; text-transform: uppercase; letter-spacing: 1px;">USACH Space Program</h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
+            </div>
+            <div>
+                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Navegación</h4>
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                    <li><a href="../../../index.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">← Inicio Principal</a></li>
+                    <li><a href="../../../index.html#ejes" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Ejes de Desarrollo</a></li>
+                    <li><a href="../../../index.html#proyectos" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Proyectos Emblema</a></li>
+                    <li><a href="../../../src/pages/registro.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Convocatoria y Postulación</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Contacto Oficial</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 8px 0;">Universidad de Santiago de Chile</p>
+                <p style="margin: 0;"><a href="mailto:spaceprogram@usach.cl" style="color: var(--accent-amber); text-decoration: none; font-size: 0.9rem; font-family: var(--font-mono);">spaceprogram@usach.cl</a></p>
+            </div>
+        </div>
+        <div style="max-width: 1400px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">
+            <span>&copy; 2026 USACH Space Program. Todos los derechos reservados.</span>
+            <span>Diseño y Fabricación con Fines Educativos</span>
+        </div>
+    </footer>
 
 </body>
 </html>

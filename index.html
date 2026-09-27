@@ -3,781 +3,1992 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USACH Space Program - Innovación Aeroespacial Estudiantil</title>
+    <title>USACH Space Program | Innovación Aeroespacial Estudiantil</title>
     
     <link rel="icon" type="image/png" href="./assets/logo_noTextBLACK-ged7tvfL.png">
+    <style>/* ==========================================================================
+   USACH SPACE PROGRAM - HOME STYLESHEET (DEEP SPACE HUD & EDITORIAL)
+   ========================================================================== */
 
-    <style>/* === PAGE-SPECIFIC HERO === */
-.hero {
-    height: 100vh;
+/* === TOP INSTITUTIONAL BAR === */
+.top-institutional-bar {
+    background: #020306;
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 8px 40px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    color: var(--text-secondary);
+    position: relative;
+    z-index: 2005;
+}
+
+.top-bar-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.inst-tag {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.inst-sep {
+    color: var(--border-subtle);
+    opacity: 0.6;
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--status-active);
+    font-weight: 600;
+}
+
+.status-pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--status-active);
+    box-shadow: 0 0 8px var(--status-active);
+    animation: statusPulse 2s infinite ease-in-out;
+}
+
+@keyframes statusPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* === 1. HERO SECTION (DEEP SPACE MONUMENTAL & PLANET VIDEO) === */
+.hero-deepspace {
+    position: relative;
+    min-height: 94vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-space-void);
+    padding: 130px 40px 70px 40px;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--border-subtle);
+    overflow: hidden;
+}
+
+/* Planet Video Wrapper (Inspiración: Proxima B UI) */
+.hero-planet-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 65%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.hero-planet-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center right;
+    filter: contrast(1.15) brightness(0.95);
+    opacity: 0.9;
+}
+
+/* Gradient Vignette so the planet fades smoothly into pure space-black on the left */
+.hero-planet-vignette {
+    position: absolute;
+    inset: 0;
+    background: 
+        linear-gradient(to right, #030508 0%, rgba(3, 5, 8, 0.95) 15%, rgba(3, 5, 8, 0.5) 45%, transparent 80%),
+        linear-gradient(to top, #030508 0%, transparent 20%),
+        linear-gradient(to bottom, #030508 0%, transparent 15%);
+    pointer-events: none;
+}
+
+/* Capa HUD Retículas Técnicas (Proxima B Style) */
+.hero-hud-grid-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hud-line-h {
+    position: absolute;
+    top: 36%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.hud-line-v {
+    position: absolute;
+    top: 0;
+    left: 28%;
+    width: 1px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.hud-crosshair {
+    position: absolute;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.25);
+    user-select: none;
+}
+
+.hud-ch-1 {
+    top: calc(36% - 8px);
+    left: calc(28% - 5px);
+    color: var(--accent-cyan);
+}
+
+.hud-ch-2 {
+    top: 18%;
+    right: 8%;
+}
+
+.hud-ch-3 {
+    bottom: 12%;
+    left: 8%;
+}
+
+/* Dial Circular HUD en la esquina izquierda como en Proxima B */
+.hud-tech-dial {
+    position: absolute;
+    left: 4%;
+    top: 48%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 8px;
+    opacity: 0.7;
+}
+
+.dial-circle {
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-top-color: var(--accent-amber);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    background: url('./assets/pngwing.com%20(2)-C-V46Zg2.png') no-repeat center center/contain;
-    position: relative;
-    box-sizing: border-box;
+    animation: dialSpin 30s linear infinite;
 }
-@media (min-width: 1025px) {
-    .hero {
-        background-size: 850px auto;
-    }
-}
-@media (max-width: 1024px) {
-    .hero {
-        background-size: 90% auto;
-    }
-}
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(var(--space-black-rgb), 0.7);
-    z-index: 1;
-}
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image:
-        radial-gradient(1.5px 1.5px at 20px 30px, var(--bone-white), rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 40px 70px, rgba(245, 245, 240, 0.5), rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 50px 160px, var(--pure-white), rgba(0,0,0,0));
-    background-repeat: repeat;
-    background-size: 250px 250px;
-    opacity: 0.15;
-    z-index: 2;
-}
-.hero-content {
-    z-index: 3;
-    text-align: center;
-    position: relative;
-    padding: 0 20px;
-    max-width: 800px;
-}
-.hero img {
-    width: 140px;
-    margin-bottom: 25px;
-    filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
-}
-.hero h1 {
-    font-family: var(--font-title);
-    font-size: 4rem;
-    margin: 0;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--pure-white);
-    text-shadow: 0 0 20px rgba(255,255,255,0.1);
-}
-.hero p {
-    font-family: var(--font-body);
-    color: var(--text-muted);
-    font-size: 1.15rem;
-    max-width: 600px;
-    margin: 15px auto 0 auto;
-}
-.btn-cta {
-    display: inline-block;
-    margin-top: 35px;
-    padding: 14px 35px;
-    background-color: transparent;
-    color: var(--bone-white);
-    border: 1px solid var(--border-highlight);
-    text-decoration: none;
+
+.dial-num {
     font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    color: var(--pure-white);
     font-weight: 600;
-    text-transform: uppercase;
-    border-radius: 4px;
+}
+
+.dial-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
+    color: var(--text-dark);
+}
+
+@keyframes dialSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.hero-container {
+    position: relative;
+    z-index: 3;
+    max-width: 860px;
+    margin: 0 auto 0 calc(max(0px, (100% - 1400px) / 2));
+}
+
+.hero-brand-header {
+    margin-bottom: 20px;
+}
+
+.hero-white-logo {
+    width: 105px;
+    height: auto;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-highlight);
+    border-radius: 2px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
     letter-spacing: 2px;
+    color: var(--accent-amber);
+    margin-bottom: 24px;
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent-amber);
+    border-radius: 50%;
+}
+
+.hero-title {
+    font-family: var(--font-horizon), 'Horizon', sans-serif;
+    font-size: clamp(2.2rem, 4.8vw, 4.2rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: 2px;
+    color: var(--pure-white);
+    margin: 0 0 24px 0;
+    text-transform: uppercase;
+}
+
+.hero-manifesto {
+    font-family: var(--font-title);
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--bone-white);
+    border-left: 2px solid var(--accent-amber);
+    padding-left: 20px;
+    margin: 0 0 24px 0;
+    max-width: 760px;
+}
+
+.hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    max-width: 720px;
+    margin: 0 0 40px 0;
+}
+
+.hero-cta-group {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.btn-primary-tech {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 28px;
+    background: var(--accent-amber);
+    color: #030508;
+    border: 1px solid var(--accent-amber);
+    border-radius: 2px;
+    font-family: var(--font-title);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-decoration: none;
     transition: var(--transition-smooth);
 }
-.btn-cta:hover {
-    background-color: var(--bone-white);
-    color: var(--space-black);
-    border-color: var(--bone-white);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+
+.btn-primary-tech:hover {
+    filter: brightness(1.15);
+    box-shadow: 0 0 25px rgba(229, 169, 88, 0.4);
     transform: translateY(-2px);
 }
 
-/* === QUOTE === */
-.quote-section {
-    padding: 120px 20px;
-    text-align: center;
-    background-color: var(--space-dark);
-    border-bottom: 1px solid var(--border-subtle);
-    position: relative;
-}
-.quote {
+.btn-secondary-tech {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 28px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--pure-white);
+    border: 1px solid var(--border-highlight);
+    border-radius: 2px;
     font-family: var(--font-title);
-    font-size: 2.2rem;
-    font-weight: 300;
-    max-width: 900px;
-    margin: auto;
-    color: var(--bone-white);
-    line-height: 1.5;
-}
-.quote-author {
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin-top: 25px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: var(--transition-smooth);
 }
 
-/* === ABOUT === */
-.about-section {
-    padding: 120px 10%;
-    background-color: var(--space-black);
+.btn-secondary-tech:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--pure-white);
+    transform: translateY(-2px);
 }
-.about-desc {
-    text-align: center;
-    margin-bottom: 80px;
-    font-size: 1.25rem;
-    line-height: 1.8;
-    max-width: 850px;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--text-muted);
-}
-.mission-vision-container {
+
+.hero-footer-meta {
     display: flex;
     gap: 40px;
     flex-wrap: wrap;
+    padding-top: 25px;
+    border-top: 1px solid var(--border-subtle);
 }
-.mission-vision-container .hud-card {
-    flex: 1;
-    min-width: 300px;
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
-.hud-card-header {
+
+.meta-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 1.5px;
+    color: var(--text-dark);
+}
+
+.meta-value {
     font-family: var(--font-mono);
     font-size: 0.8rem;
-    color: var(--nasa-blue-glow);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: space-between;
-}
-.mission-vision-container h3 {
-    font-family: var(--font-title);
-    font-size: 1.8rem;
-    text-transform: uppercase;
-    margin: 0 0 20px 0;
-    letter-spacing: 1.5px;
-    color: var(--pure-white);
-}
-.mission-vision-container p {
-    line-height: 1.7;
-    color: var(--text-muted);
-    margin: 0;
-    font-size: 1.05rem;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    font-weight: 500;
 }
 
-/* === PROJECTS === */
-.projects-section {
-    padding: 120px 10%;
-    background-color: var(--space-dark);
-    border-top: 1px solid var(--border-subtle);
+/* === 2. REAL METRICS STRIP === */
+.metrics-section {
+    background: var(--bg-space-surface);
     border-bottom: 1px solid var(--border-subtle);
+    padding: 40px 40px;
 }
-.projects-section h2 {
-    font-family: var(--font-title);
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin: 0 0 20px 0;
-    font-size: 2.8rem;
-    color: var(--pure-white);
-}
-.projects-desc {
-    text-align: center;
-    color: var(--text-muted);
-    max-width: 800px;
-    margin: 0 auto 80px auto;
-    font-size: 1.15rem;
-    line-height: 1.7;
-}
-.tier-title {
-    font-family: var(--font-title);
-    font-size: 1.6rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 60px 0 20px 0;
-    padding-bottom: 15px;
-    border-bottom: 1px solid var(--border-subtle);
-    color: var(--pure-white);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.tier-badge {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    border: 1px solid var(--border-highlight);
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--bone-white);
-}
-.projects-grid {
+
+.metrics-grid {
+    max-width: 1400px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.metric-card {
+    position: relative;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: 2px;
+    transition: var(--transition-smooth);
+}
+
+.metric-card:hover {
+    border-color: var(--border-highlight);
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.metric-value {
+    font-family: var(--font-mono);
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--pure-white);
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.metric-label {
+    font-family: var(--font-title);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--bone-white);
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.metric-sub {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* === SECTION HEADERS (COMMON) === */
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+}
+
+.section-tag {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--accent-cyan);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.section-header h2 {
+    font-family: var(--font-title);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--pure-white);
+    margin: 0 0 16px 0;
+}
+
+.section-header p {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* === 3. LOS 3 EJES ESTRATÉGICOS === */
+.ejes-section {
+    padding: 100px 40px;
+    background: var(--bg-space-void);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.ejes-grid-tech {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     gap: 30px;
 }
-.project-card {
-    background-color: var(--space-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: var(--transition-smooth);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-.project-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--border-highlight);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-}
-.project-image {
-    width: 100%;
-    height: 220px;
-    background-size: cover;
-    background-position: center;
+
+.eje-card-tech {
     position: relative;
-}
-.project-image::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; width: 100%; height: 60%;
-    background: linear-gradient(to bottom, transparent, var(--space-card));
-}
-.project-content {
-    padding: 30px;
-    flex-grow: 1;
+    background: var(--bg-space-surface);
+    border: 1px solid var(--border-subtle);
+    padding: 35px 28px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-.project-header-info {
-    margin-bottom: 20px;
-}
-.project-content h4 {
-    margin: 0 0 12px 0;
-    font-family: var(--font-title);
-    font-size: 1.3rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--pure-white);
-}
-.project-content p {
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin: 0;
-    font-size: 0.95rem;
-}
-.btn-project {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: transparent;
-    border: 1px solid var(--border-highlight);
-    color: var(--bone-white);
-    text-decoration: none;
-    font-family: var(--font-mono);
-    font-weight: 500;
-    text-transform: uppercase;
-    border-radius: 4px;
-    font-size: 0.75rem;
     text-align: center;
-    letter-spacing: 1px;
     transition: var(--transition-smooth);
-    width: 100%;
-    box-sizing: border-box;
-}
-.project-card:hover .btn-project {
-    background-color: var(--bone-white);
-    color: var(--space-black);
-    border-color: var(--bone-white);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
-/* === PILLARES / EJES === */
-.ejes-summary-section {
-    padding: 120px 10%;
-    background-color: var(--space-black);
+.eje-card-tech::before,
+.eje-card-tech::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-color: rgba(255, 255, 255, 0.2);
+    transition: var(--transition-smooth);
+}
+
+.eje-card-tech::before {
+    top: -1px; left: -1px;
+    border-top: 2px solid;
+    border-left: 2px solid;
+}
+
+.eje-card-tech::after {
+    bottom: -1px; right: -1px;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+}
+
+/* === HOVERS ESPECÍFICOS POR EJE (UNIFICADO EN NARANJA SUAVE) === */
+.eje-card-tech:hover,
+.eje-card-tech.eje-robotica:hover,
+.eje-card-tech.eje-cohete:hover,
+.eje-card-tech.eje-satelital:hover {
+    border-color: var(--accent-amber);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(229, 169, 88, 0.22);
+}
+.eje-card-tech:hover::before,
+.eje-card-tech:hover::after,
+.eje-card-tech.eje-robotica:hover::before,
+.eje-card-tech.eje-robotica:hover::after,
+.eje-card-tech.eje-cohete:hover::before,
+.eje-card-tech.eje-cohete:hover::after,
+.eje-card-tech.eje-satelital:hover::before,
+.eje-card-tech.eje-satelital:hover::after {
+    border-color: var(--accent-amber);
+    width: 14px;
+    height: 14px;
+}
+
+.eje-header-clean {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.eje-tag-clean {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    letter-spacing: 2px;
+}
+
+.eje-header-clean h3 {
+    font-family: var(--font-title);
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--pure-white);
+    margin: 0;
+    letter-spacing: 0.5px;
+    line-height: 1.25;
+}
+
+.eje-data-block {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    padding: 18px 20px;
+    margin-bottom: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     text-align: center;
 }
-.ejes-summary-section h2 {
-    font-family: var(--font-title);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 2.8rem;
-    margin: 0 0 20px 0;
-    color: var(--pure-white);
-}
-.ejes-lead {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    max-width: 800px;
-    margin: 0 auto 80px auto;
-    line-height: 1.7;
-}
-.ejes-summary-grid {
+
+.data-group {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.data-group .lbl {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 1.5px;
+    color: var(--text-dark);
+    text-transform: uppercase;
+}
+
+.data-group .val {
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    color: var(--bone-white);
+    font-weight: 500;
+}
+
+.data-group .highlight-amber,
+.data-group .highlight-orange,
+.data-group .highlight-red,
+.data-group .highlight-white {
+    color: var(--accent-amber);
+    font-weight: 600;
+}
+
+.eje-desc {
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    line-height: 1.68;
+    color: var(--text-secondary);
+    margin: 0 0 25px 0;
+    text-align: center;
+}
+
+.eje-footer {
+    padding-top: 18px;
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
     justify-content: center;
-    gap: 20px;
+}
+
+.link-tech {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition-smooth);
+}
+
+.link-amber,
+.link-orange,
+.link-red,
+.link-white {
+    color: var(--accent-amber);
+}
+
+.link-tech:hover {
+    gap: 12px;
+    filter: brightness(1.2);
+}
+
+/* === 4. CATÁLOGO DE PROYECTOS TÉCNICOS === */
+.projects-section-tech {
+    padding: 100px 40px;
+    background: var(--bg-space-surface);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.project-filter-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
     margin-bottom: 50px;
 }
-.ejes-summary-card {
-    background-color: var(--space-card);
-    padding: 30px;
-    border-radius: 8px;
-    border: 1px solid var(--border-subtle);
-    flex: 1 1 220px;
-    text-align: left;
-    transition: var(--transition-smooth);
-    position: relative;
-    overflow: hidden;
-}
-.ejes-summary-card:hover {
-    border-color: var(--border-highlight);
-    transform: translateY(-3px);
-}
-.ejes-summary-card .eje-num {
-    font-family: var(--font-mono);
-    color: rgba(255, 255, 255, 0.08);
-    font-size: 3.5rem;
-    font-weight: 700;
-    position: absolute;
-    right: 20px;
-    bottom: -5px;
-    line-height: 1;
-    transition: var(--transition-smooth);
-}
-.ejes-summary-card:hover .eje-num {
-    color: rgba(255, 255, 255, 0.2);
-}
-.ejes-summary-card h4 {
-    font-family: var(--font-title);
-    font-size: 1.15rem;
-    text-transform: uppercase;
-    margin: 0;
-    letter-spacing: 1px;
-    color: var(--pure-white);
-    max-width: 80%;
-}
-.btn-view-ejes {
-    display: inline-block;
-    padding: 12px 35px;
-    background-color: transparent;
-    border: 1px solid var(--border-highlight);
-    color: var(--bone-white);
-    text-decoration: none;
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    border-radius: 4px;
-    letter-spacing: 1.5px;
-    transition: var(--transition-smooth);
-}
-.btn-view-ejes:hover {
-    background-color: var(--bone-white);
-    color: var(--space-black);
-    border-color: var(--bone-white);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-}
 
-/* === INTERACTIVE GALLERY GRID === */
-.gallery-section {
-    padding: 120px 10%;
-    background-color: var(--space-dark);
-    text-align: center;
-    border-top: 1px solid var(--border-subtle);
-}
-.gallery-section h2 {
-    font-family: var(--font-title);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin: 0 0 60px 0;
-    font-size: 2.8rem;
-    color: var(--pure-white);
-}
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-.gallery-card {
-    height: 300px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-    position: relative;
-    overflow: hidden;
+.filter-btn {
+    background: transparent;
     border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+    padding: 10px 22px;
+    border-radius: 2px;
     cursor: pointer;
     transition: var(--transition-smooth);
 }
-.gallery-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, transparent, rgba(var(--space-black-rgb), 0.85));
-    z-index: 1;
-    transition: var(--transition-smooth);
-}
-.gallery-card:hover {
-    transform: scale(1.02);
+
+.filter-btn:hover {
     border-color: var(--border-highlight);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-}
-.gallery-card:hover::before {
-    background: linear-gradient(to bottom, rgba(var(--space-black-rgb), 0.2), rgba(var(--space-black-rgb), 0.95));
-}
-.gallery-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 25px;
-    box-sizing: border-box;
-    text-align: left;
-    z-index: 2;
-    transform: translateY(10px);
-    transition: var(--transition-smooth);
-}
-.gallery-card:hover .gallery-overlay {
-    transform: translateY(0);
-}
-.gallery-tag {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--nasa-blue-glow);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: block;
-    margin-bottom: 8px;
-}
-.gallery-overlay h3 {
-    font-family: var(--font-title);
-    font-size: 1.25rem;
-    text-transform: uppercase;
-    margin: 0;
-    letter-spacing: 1px;
     color: var(--pure-white);
 }
 
-@media (max-width: 1024px) {
-    .hero h1 { font-size: 2.8rem; }
-    .projects-section, .ejes-summary-section, .about-section, .gallery-section { padding-left: 20px; padding-right: 20px; }
-    .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.filter-btn.active {
+    background: rgba(229, 169, 88, 0.1);
+    border-color: var(--accent-amber);
+    color: var(--accent-amber);
+}
+
+.projects-grid-catalog {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 30px;
+}
+
+.project-tech-card {
+    background: var(--space-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-smooth);
+}
+
+.project-tech-card:hover {
+    border-color: var(--border-hud);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+.project-img-wrapper {
+    height: 220px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.project-img-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(3, 5, 8, 0.2), rgba(3, 5, 8, 0.85));
+}
+
+.project-tier-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    padding: 4px 10px;
+    border-radius: 2px;
+}
+
+.project-tier-tag.emblema {
+    background: rgba(229, 169, 88, 0.2);
+    border: 1px solid var(--accent-amber);
+    color: var(--accent-amber);
+}
+
+.project-tier-tag.formativo {
+    background: rgba(72, 202, 228, 0.15);
+    border: 1px solid var(--accent-cyan);
+    color: var(--accent-cyan);
+}
+
+.project-eje-tag {
+    position: absolute;
+    bottom: 12px;
+    left: 14px;
+    z-index: 2;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: var(--bone-white);
+}
+
+.project-tech-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.project-tech-body h4 {
+    font-family: var(--font-title);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--pure-white);
+    margin: 0 0 12px 0;
+}
+
+.project-tech-summary {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0 0 18px 0;
+    flex-grow: 1;
+}
+
+.project-tech-specs {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    padding: 10px 0;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 18px;
+}
+
+.btn-card-link {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: var(--pure-white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+}
+
+.btn-card-link:hover {
+    color: var(--accent-amber);
+}
+
+/* === 5. MANIFIESTO Y GOBERNANZA === */
+.governance-section {
+    padding: 100px 40px;
+    background: var(--bg-space-void);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.governance-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.quote-editorial-box {
+    text-align: center;
+    position: relative;
+    padding: 40px 20px;
+    margin-bottom: 60px;
+}
+
+/* === MANIFIESTO CINEMA BOX CON VIDEO ISS DE FONDO === */
+.manifesto-cinema-box {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border-highlight);
+    padding: 75px 40px;
+    text-align: center;
+    background: var(--bg-space-surface);
+    margin-top: 50px;
+}
+
+.manifesto-cinema-box::before,
+.manifesto-cinema-box::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: var(--accent-amber);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.manifesto-cinema-box::before {
+    top: -1px; left: -1px;
+    border-top: 2px solid;
+    border-left: 2px solid;
+}
+
+.manifesto-cinema-box::after {
+    bottom: -1px; right: -1px;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+}
+
+.manifesto-video-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.manifesto-video-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.38;
+    filter: saturate(1.2) contrast(1.15);
+}
+
+.manifesto-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(3, 5, 8, 0.5) 0%, rgba(3, 5, 8, 0.9) 100%),
+                linear-gradient(180deg, rgba(3, 5, 8, 0.75) 0%, rgba(3, 5, 8, 0.45) 50%, rgba(3, 5, 8, 0.92) 100%);
+}
+
+.manifesto-content-inner {
+    position: relative;
+    z-index: 3;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.quote-mark {
+    font-family: var(--font-title);
+    font-size: 5rem;
+    line-height: 1;
+    color: rgba(229, 169, 88, 0.35);
+    margin-bottom: -20px;
+}
+
+.manifesto-text {
+    font-family: var(--font-title);
+    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--pure-white);
+    max-width: 950px;
+    margin: 0 auto 25px auto;
+}
+
+.quote-author-line {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: var(--font-mono);
+}
+
+.author-name {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--accent-amber);
+    font-weight: 600;
+}
+
+.author-role {
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    color: var(--text-dark);
+}
+
+.filosofia-heading {
+    font-family: var(--font-title);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 1.25;
+    color: var(--pure-white);
+    margin: 0 0 16px 0;
+    text-align: center;
+}
+
+.filosofia-pipeline {
+    position: relative;
+    margin-bottom: 70px;
+}
+
+.filosofia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.filosofia-card {
+    background: var(--bg-space-surface);
+    border: 1px solid var(--border-subtle);
+    padding: 38px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    border-radius: 2px;
+    transition: var(--transition-smooth);
+}
+
+.filosofia-card::before,
+.filosofia-card::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-color: rgba(255, 255, 255, 0.15);
+    transition: var(--transition-smooth);
+}
+
+.filosofia-card::before {
+    top: -1px; left: -1px;
+    border-top: 2px solid;
+    border-left: 2px solid;
+}
+
+.filosofia-card::after {
+    bottom: -1px; right: -1px;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+}
+
+.filosofia-card:hover {
+    border-color: var(--accent-amber);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(229, 169, 88, 0.18);
+}
+
+.filosofia-card:hover::before,
+.filosofia-card:hover::after {
+    border-color: var(--accent-amber);
+    width: 14px;
+    height: 14px;
+}
+
+.filosofia-step-badge {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--accent-amber);
+    background: rgba(229, 169, 88, 0.08);
+    border: 1px solid rgba(229, 169, 88, 0.3);
+    padding: 4px 12px;
+    border-radius: 2px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.filosofia-icon-wrapper {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-highlight);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    transition: var(--transition-smooth);
+}
+
+.filosofia-card:hover .filosofia-icon-wrapper {
+    border-color: var(--accent-amber);
+    background: rgba(229, 169, 88, 0.08);
+    transform: scale(1.08);
+}
+
+.filosofia-icon {
+    width: 38px;
+    height: 38px;
+    color: var(--pure-white);
+}
+
+.filosofia-card h3 {
+    font-family: var(--font-title);
+    font-size: 1.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--pure-white);
+    margin: 0 0 6px 0;
+}
+
+.filosofia-subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent-cyan);
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+}
+
+.filosofia-card p {
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    line-height: 1.68;
+    color: var(--text-secondary);
+    margin: 0 0 22px 0;
+}
+
+.filosofia-specs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.filosofia-specs span {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    padding: 3px 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    border-radius: 2px;
+    letter-spacing: 1px;
+}
+
+/* === 6. GALERÍA REAL DE OPERACIONES === */
+.gallery-tech-section {
+    padding: 100px 40px;
+    background: var(--bg-space-surface);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.gallery-tech-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    height: 260px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border: 1px solid var(--border-subtle);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.gallery-item:hover {
+    border-color: var(--border-hud);
+    transform: scale(1.02);
+    z-index: 2;
+}
+
+.gallery-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(3, 5, 8, 0.9) 0%, rgba(3, 5, 8, 0.2) 60%, transparent 100%);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.gallery-item-overlay .tag {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 1.5px;
+    color: var(--accent-amber);
+    margin-bottom: 6px;
+}
+
+.gallery-item-overlay h5 {
+    font-family: var(--font-title);
+    font-size: 1.05rem;
+    color: var(--pure-white);
+    margin: 0;
+    font-weight: 600;
+}
+
+/* === 7. TERMINAL DUAL DE CONVERSIÓN === */
+.conversion-terminal-section {
+    padding: 100px 40px;
+    background: var(--bg-space-void);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.conversion-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 35px;
+}
+
+.conversion-card {
+    padding: 45px 35px;
+    background: var(--bg-space-surface);
+    border: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.conversion-card.students {
+    border-top: 3px solid var(--accent-amber);
+}
+
+.conversion-card.institutions {
+    border-top: 3px solid var(--accent-cyan);
+}
+
+.card-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--text-dark);
+    margin-bottom: 18px;
+}
+
+.conversion-card h3 {
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--pure-white);
+    margin: 0 0 16px 0;
+    line-height: 1.3;
+}
+
+.conversion-card p {
+    font-family: var(--font-body);
+    font-size: 0.96rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin: 0 0 35px 0;
+}
+
+/* === 8. RED DE ALIANZAS === */
+.alliances-section {
+    padding: 80px 40px;
+    background: #020306;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.alliances-logos {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.alliance-item {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+}
+
+.alliance-name {
+    font-family: var(--font-title);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--pure-white);
+    letter-spacing: 1px;
+}
+
+.alliance-role {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+.alliance-link-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 22px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    text-decoration: none;
+    color: var(--bone-white);
+    font-family: var(--font-title);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.alliance-link-card img {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+}
+
+.alliance-link-card:hover {
+    border-color: var(--border-highlight);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--accent-cyan);
+}
+
+/* === RESPONSIVE FIXES === */
+@media (max-width: 768px) {
+    .top-institutional-bar {
+        padding: 8px 16px;
+        font-size: 0.65rem;
+    }
+
+    .top-bar-left {
+        gap: 6px;
+    }
+
+    .inst-sep {
+        display: none;
+    }
+
+    .top-bar-right {
+        display: none; /* Dejar limpio en móviles pequeños */
+    }
+
+    .hero-deepspace {
+        padding: 100px 20px 50px 20px;
+        min-height: auto;
+    }
+
+    .hero-planet-wrapper {
+        width: 100%;
+        opacity: 0.5;
+    }
+
+    .hero-planet-vignette {
+        background: linear-gradient(to bottom, rgba(3, 5, 8, 0.6) 0%, rgba(3, 5, 8, 0.95) 80%);
+    }
+
+    .hud-line-v,
+    .hud-tech-dial {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-manifesto {
+        font-size: 1.05rem;
+        padding-left: 14px;
+    }
+
+    .btn-primary-tech,
+    .btn-secondary-tech {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .metrics-section,
+    .ejes-section,
+    .projects-section-tech,
+    .governance-section,
+    .gallery-tech-section,
+    .conversion-terminal-section,
+    .alliances-section {
+        padding: 60px 20px;
+    }
+
+    .ejes-grid-tech,
+    .projects-grid-catalog,
+    .conversion-grid {
+        grid-template-columns: 1fr;
+    }
 }</style>
-  <script type="module" crossorigin src="./assets/header-B2EIyKSy.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/header-Dnc9HXv9.css">
+  <script type="module" crossorigin src="./assets/main-CJ3K_3Ls.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/main-CLtxhMDE.js">
+  <link rel="stylesheet" crossorigin href="./assets/main-BrB0X9fX.css">
 </head>
 <body class="tech-grid">
 
-    <!-- Load Dynamic Header component -->
+    <!-- Top Bar Institucional -->
+    <div class="top-institutional-bar">
+        <div class="top-bar-inner">
+            <div class="top-bar-left">
+                <span class="inst-tag">UNIVERSIDAD DE SANTIAGO DE CHILE</span>
+                <span class="inst-sep">|</span>
+                <span class="inst-tag">CENTRO DE INNOVACIÓN</span>
+                <span class="inst-sep">|</span>
+                <span class="inst-tag">ACHIDE</span>
+                <span class="inst-sep">|</span>
+                <span class="inst-tag">VRAE</span>
+                <span class="inst-sep">|</span>
+                <span class="inst-tag">FULL 3D</span>
+            </div>
+            <div class="top-bar-right">
+                <span class="status-pulse-dot"></span>
+                <span class="status-text">CONVOCATORIA 2026 ABIERTA</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Component -->
     <header>
-    <div class="nav-brand">USACH Space Program</div>
-    
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <nav class="nav-links" id="navLinks">
-        <a href="./index.html">Inicio</a>
-        <a href="./src/pages/proyectos.html">Proyectos</a>
-        <a href="./src/pages/ejes.html">Ejes</a>
-        <a href="./src/pages/registro.html">Registrarse</a>
-        <a href="./login.html" class="btn-login">Iniciar Sesión</a>
-    </nav>
-</header>
-
-
-
-    <section class="hero">
-        <div class="hero-content">
-            <span class="tech-star" style="top: -20px; left: 10%;">✦</span>
-            <span class="tech-star" style="top: 40px; right: 5%;">✦</span>
-            <span class="tech-star" style="bottom: -35px; left: 45%;">✦</span>
-            <img src="./assets/logo-B9DE3e4g.png" alt="Logo USP" style="width: 140px; margin-bottom: 25px; filter: drop-shadow(0 0 25px rgba(255,255,255,0.15));">
-            <h1>USACH Space Program</h1>
-            <p>Impulsando la innovación aeroespacial estudiantil en Chile hacia el infinito.</p>
-            <a href="#proyectos" class="btn-cta">Explorar Operaciones</a>
+        <div class="nav-brand-container">
+            <a href="index.html" class="nav-brand-link">
+                <img src="./assets/logo_noTextBLACK-ged7tvfL.png" alt="Logo USP" class="nav-logo">
+                <span class="nav-brand">USACH Space Program</span>
+            </a>
         </div>
-    </section>
-
-    <section class="quote-section">
-        <div class="quote">
-            "La ciencia no pertenece a un solo hombre ni a una sola época; pertenece a cualquiera que esté dispuesto a sacrificar su presente por el progreso del mañana"
-        </div>
-        <div class="quote-author">Manifiesto Institucional USP</div>
-    </section>
-
-    <section class="about-section">
-        <div class="about-desc">
-            <p>Usach Space Program es una iniciativa estudiantil autogestionada que nace con el objetivo de ser el primer acercamiento extracurricular de los estudiantes hacia el sector aeroespacial, proyectándose como un espacio interdisciplinario y una incubadora de ideas.</p>
-        </div>
-        <div class="mission-vision-container">
-            <div class="hud-card">
-                <div class="hud-card-header">
-                    <span>[ MISION CORE ]</span>
-                    <span style="color: var(--nasa-blue-glow);">&bull; ONLINE</span>
-                </div>
-                <h3>Nuestra Misión</h3>
-                <p>Consolidarnos como el principal núcleo de colaboración interdisciplinaria de la USACH, posicionando el talento de nuestra universidad dentro de la industria aeroespacial nacional e internacional.</p>
-            </div>
-            <div class="hud-card">
-                <div class="hud-card-header">
-                    <span>[ VISION CORE ]</span>
-                    <span style="color: var(--nasa-blue-glow);">&bull; ONLINE</span>
-                </div>
-                <h3>Nuestra Visión</h3>
-                <p>Impulsar el desarrollo científico-tecnológico en el ámbito aeroespacial dentro de la comunidad universitaria mediante la ejecución autogestionada de proyectos tangibles.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="projects-section" id="proyectos">
-        <h2>Un Ecosistema de Innovación</h2>
-        <p class="projects-desc">Nuestra estructura operativa está diseñada para abarcar desde la alfabetización técnica de nuevos estudiantes hasta el prototipado de hardware aeroespacial avanzado de nuestra directiva técnica.</p>
-
-        <!-- NIVEL 1: COMUNIDAD -->
-        <div class="tier-title">
-            Iniciativas de Comunidad
-            <span class="tier-badge">NIVEL 1: ONBOARDING</span>
-        </div>
-        <p style="color: var(--text-muted); margin-top: -10px; margin-bottom: 40px; font-size: 1.05rem;">Proyectos ágiles y accesibles diseñados para permeabilizar el conocimiento aeroespacial a estudiantes con o sin experiencia previa.</p>
         
-        <div class="projects-grid">
-            <div class="project-card">
-                <span class="tech-star" style="top: 15px; right: 15px;">✦</span>
-                <div class="project-image" style="background-image: url('./assets/pngwing.com%20(2)-C-V46Zg2.png'); background-size: 55% auto; background-repeat: no-repeat; background-position: center; margin-top: 15px;"></div>
-                <div class="project-content">
-                    <div class="project-header-info">
-                        <h4>CubeSat 1U (Educativo)</h4>
-                        <p>Misión de introducción a la aviónica y telemetría. Empaquetado de sensores y comunicación dentro del estándar de 10x10x10 cm.</p>
-                    </div>
-                    <a href="src/pages/proyectos/cansat.html" class="btn-project">Explorar Misión</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#ejes">Ejes</a>
+            <a href="./src/pages/proyectos.html">Proyectos</a>
+            <a href="#manifiesto">Manifiesto</a>
+            <a href="#alianzas">Alianzas</a>
+            <a href="./src/pages/registro.html" class="btn-nav-cta">Postular</a>
+            <a href="mailto:spaceprogram@usach.cl" style="color: var(--accent-amber); margin-left: 20px; text-decoration: none; font-size: 0.8rem; font-family: var(--font-mono); letter-spacing: 1px;">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- 1. Hero Section con Video del Planeta en Rotación (Inspiración Proxima B UI) -->
+    <section class="hero-deepspace">
+        <!-- Video del Planeta en Rotación -->
+        <div class="hero-planet-wrapper">
+            <video class="hero-planet-video" autoplay muted loop playsinline poster="./assets/planeta_earth_still-BfQYB8ch.jpg">
+                <source src="./assets/planeta_loop-5ukQZ2qQ.mp4" type="video/mp4">
+            </video>
+            <div class="hero-planet-vignette"></div>
+        </div>
+
+        <!-- Capa HUD Editorial: Retículas y Miras Técnicas de 1px -->
+        <div class="hero-hud-grid-overlay" aria-hidden="true">
+            <div class="hud-line-h"></div>
+            <div class="hud-line-v"></div>
+            <div class="hud-crosshair hud-ch-1">+</div>
+            <div class="hud-crosshair hud-ch-2">+</div>
+            <div class="hud-crosshair hud-ch-3">+</div>
+            <div class="hud-tech-dial">
+                <div class="dial-circle">
+                    <span class="dial-num">01</span>
                 </div>
-            </div>
-            <div class="project-card">
-                <span class="tech-star" style="top: 15px; right: 15px;">✦</span>
-                <div class="project-image" style="background-image: url('./assets/pngwing.com%20(3)-Cs6ZOwF_.png'); background-size: 55% auto; background-repeat: no-repeat; background-position: center; margin-top: 15px;"></div>
-                <div class="project-content">
-                    <div class="project-header-info">
-                        <h4>Mini-Rover Explorador</h4>
-                        <p>Diseño y construcción de vehículos a escala para sortear obstáculos. Introducción práctica a la robótica y el diseño 3D.</p>
-                    </div>
-                    <a href="src/pages/proyectos/rover.html" class="btn-project">Explorar Misión</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <span class="tech-star" style="top: 15px; right: 15px;">✦</span>
-                <div class="project-image" style="background-image: url('./assets/pngwing.com-BBJbivOw.png'); background-size: 55% auto; background-repeat: no-repeat; background-position: center; margin-top: 15px;"></div>
-                <div class="project-content">
-                    <div class="project-header-info">
-                        <h4>Cohetería de Sondeo (Agua)</h4>
-                        <p>Aplicación de las leyes de Newton, cálculo del centro de presión y gravedad mediante vehículos de introducción a presión.</p>
-                    </div>
-                    <a href="src/pages/proyectos/cohete.html" class="btn-project">Explorar Misión</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <span class="tech-star" style="top: 15px; right: 15px;">✦</span>
-                <div class="project-image" style="background-image: url('./assets/luna-DrWTCES_.png'); background-size: 45% auto; background-repeat: no-repeat; background-position: center; margin-top: 15px;"></div>
-                <div class="project-content">
-                    <div class="project-header-info">
-                        <h4>Simulación Egg Drop</h4>
-                        <p>Desafío de gestión de energía e impacto. Diseño de estructuras de sacrificio para proteger una carga útil durante una caída libre.</p>
-                    </div>
-                    <a href="src/pages/proyectos/eggdrop.html" class="btn-project">Explorar Misión</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <span class="tech-star" style="top: 15px; right: 15px;">✦</span>
-                <div class="project-image" style="background-image: url('./assets/pngwing.com%20(1)-D6H3HI-M.png'); background-size: 55% auto; background-repeat: no-repeat; background-position: center; margin-top: 15px;"></div>
-                <div class="project-content">
-                    <div class="project-header-info">
-                        <h4>Taller de Impresión 3D</h4>
-                        <p>Nivelación técnica en modelado CAD paramétrico y manufactura aditiva, herramientas vitales para la organización.</p>
-                    </div>
-                    <a href="src/pages/proyectos/impresion3d.html" class="btn-project">Explorar Taller</a>
-                </div>
+                <span class="dial-label">SYS // ORBITAL</span>
             </div>
         </div>
 
-        <!-- NIVEL 2: FLAGSHIP / DESARROLLO AVANZADO -->
-        <div class="tier-title" style="margin-top: 100px;">
-            Proyectos Insignia (Desarrollo Avanzado)
-            <span class="tier-badge" style="border-color: var(--nasa-gold); color: var(--nasa-gold);">NIVEL 2: ESTANDARTE USP</span>
-        </div>
-        <p style="color: var(--text-muted); margin-top: -10px; margin-bottom: 40px; font-size: 1.05rem;">Plataformas de experimentación y prototipado complejo desarrolladas por los miembros experimentados y la dirección técnica del equipo.</p>
-        
-        <div class="projects-grid" style="grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));">
-            <div class="project-card">
-                <span class="tech-star" style="top: 15px; right: 15px;">✦</span>
-                <div class="project-image" style="background-image: url('./assets/pngwing.com%20(3)-Cs6ZOwF_.png'); background-size: 45% auto; background-repeat: no-repeat; background-position: center; margin-top: 15px;"></div>
-                <div class="project-content" style="height: 200px;">
-                    <div class="project-header-info">
-                        <h4>Rover Plataforma "Mascota"</h4>
-                        <p>Vehículo de exploración de escala mayor y complejidad avanzada. Integra cinemática de suspensión Rocker-Bogie, telemetría de largo alcance, diseño mecatrónico robusto y visión computacional.</p>
-                    </div>
-                    <a href="src/pages/proyectos/rover_avanzado.html" class="btn-project">Desarrollo Interno</a>
-                </div>
+        <div class="hero-container">
+            <div class="hero-brand-header">
+                <img src="./assets/logo-B9DE3e4g.png" alt="Logo USACH Space Program" class="hero-white-logo">
             </div>
-            <div class="project-card">
-                <span class="tech-star" style="top: 15px; right: 15px;">✦</span>
-                <div class="project-image" style="background-image: url('./assets/pngwing.com%20(2)-C-V46Zg2.png'); background-size: 45% auto; background-repeat: no-repeat; background-position: center; margin-top: 15px;"></div>
-                <div class="project-content" style="height: 200px;">
-                    <div class="project-header-info">
-                        <h4>CubeSat 3U Avanzado</h4>
-                        <p>Desarrollo del hardware estandarte del programa. Un satélite de 3 unidades (10x10x30 cm) orientado a la prueba rigurosa de control de altitud, paneles de potencia y enlaces con estación terrena.</p>
-                    </div>
-                    <a href="src/pages/proyectos/cubesat_avanzado.html" class="btn-project">Desarrollo Interno</a>
+
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span>PROGRAMA AEROESPACIAL ESTUDIANTIL // USACH</span>
+            </div>
+            
+            <h1 class="hero-title">Usach Space Program</h1>
+            
+            <p class="hero-manifesto">
+                «La ciencia no pertenece a un solo hombre ni a una sola época; pertenece a cualquiera que esté dispuesto a sacrificar su presente por el progreso del mañana.»
+            </p>
+
+            <p class="hero-subtitle">
+                Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, la divulgacion y el prototipado de iniciativas de caracter aeroespacial, permitiendo avanzar en el desarrollo de proyectos de alto impacto practicando con conceptos basicos
+            </p>
+
+            <div class="hero-cta-group">
+                <a href="./src/pages/registro.html" class="btn-primary-tech">
+                    <span>Postular a la Convocatoria 2026</span>
+                    <span class="btn-arrow">→</span>
+                </a>
+                <a href="mailto:spaceprogram@usach.cl" class="btn-secondary-tech">
+                    <span>Ponte en contacto con nosotros</span>
+                </a>
+            </div>
+
+            <div class="hero-footer-meta">
+                <div class="meta-item">
+                    <span class="meta-label">SEDE CENTRAL</span>
+                    <span class="meta-value">SANTIAGO, CHILE (USACH)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">ENFOQUE</span>
+                    <span class="meta-value">APRENDIZAJE & PROTOTIPADO REAL</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">CORREO INSTITUCIONAL</span>
+                    <span class="meta-value">spaceprogram@usach.cl</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="ejes-summary-section">
-        <h2>Pilares de Desarrollo</h2>
-        <p class="ejes-lead">Nuestra estructura de crecimiento metodológico se divide en 5 dominios conceptuales coordinados.</p>
-        <div class="ejes-summary-grid">
-            <div class="ejes-summary-card">
-                <span class="eje-num">01</span>
-                <h4>Exploración Planetaria</h4>
+    <!-- 2. Métricas Reales de Impacto -->
+    <section class="metrics-section">
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">03</div>
+                <div class="metric-label">Ejes de Desarrollo</div>
+                <div class="metric-sub">Robótica, Cohetería y Sistemas Orbitales</div>
             </div>
-            <div class="ejes-summary-card">
-                <span class="eje-num">02</span>
-                <h4>Simulación y Operaciones</h4>
+            <div class="metric-card">
+                <div class="metric-value">16+</div>
+                <div class="metric-label">Estudiantes Activos</div>
+                <div class="metric-sub">Ingeniería Mecánica, Eléctrica, Informática y Ciencias</div>
             </div>
-            <div class="ejes-summary-card">
-                <span class="eje-num">03</span>
-                <h4>Cohetería de Sondeo</h4>
+            <div class="metric-card">
+                <div class="metric-value">03</div>
+                <div class="metric-label">Proyectos Emblema</div>
+                <div class="metric-sub">Rover Perseverance, Cohete 3U y CubeSat 1U</div>
             </div>
-            <div class="ejes-summary-card">
-                <span class="eje-num">04</span>
-                <h4>Sistemas y Energía</h4>
-            </div>
-            <div class="ejes-summary-card">
-                <span class="eje-num">05</span>
-                <h4>Educación y Experiencia</h4>
-            </div>
-        </div>
-        <a href="src/pages/ejes.html" class="btn-view-ejes">Ver Ejes Completos</a>
-    </section>
-
-    <section class="gallery-section">
-        <h2>Registro de Operaciones</h2>
-        <div class="gallery-grid">
-            <div class="gallery-card" style="background-image: url('./assets/IMG-20260607-WA0030-W4BQB12q.jpg');">
-                <div class="gallery-overlay">
-                    <span class="gallery-tag">EJE I: ROVER</span>
-                    <h3>Simulación Mascota</h3>
-                </div>
-            </div>
-            <div class="gallery-card" style="background-image: url('./assets/IMG-20260607-WA0039-DYQQ2NnM.jpg');">
-                <div class="gallery-overlay">
-                    <span class="gallery-tag">EJE IV: AVIONICA</span>
-                    <h3>CubeSat FlatSat</h3>
-                </div>
-            </div>
-            <div class="gallery-card" style="background-image: url('./assets/IMG-20260605-WA0073-DMIh01A4.jpg');">
-                <div class="gallery-overlay">
-                    <span class="gallery-tag">OPERACIONES</span>
-                    <h3>Pruebas de Campo</h3>
-                </div>
-            </div>
-            <div class="gallery-card" style="background-image: url('./assets/IMG-20260607-WA0022-CSaDWZKk.jpg');">
-                <div class="gallery-overlay">
-                    <span class="gallery-tag">EJE III: COHETERIA</span>
-                    <h3>Lanzamiento de Sondeo</h3>
-                </div>
-            </div>
-            <div class="gallery-card" style="background-image: url('./assets/IMG-20260611-WA0050-Bp3PgY24.jpg');">
-                <div class="gallery-overlay">
-                    <span class="gallery-tag">EJE V: EDUCACION</span>
-                    <h3>Taller de Aviónica</h3>
-                </div>
+            <div class="metric-card">
+                <div class="metric-value">05</div>
+                <div class="metric-label">Alianzas y Apoyos</div>
+                <div class="metric-sub">USACH, Centro de Innovación, ACHIDE, VRAE y Full 3D</div>
             </div>
         </div>
     </section>
 
-    <!-- Load Dynamic Footer -->
+    <!-- 3. Los 3 Ejes Estratégicos de Desarrollo (Estatus Vigente) -->
+    <section class="ejes-section" id="ejes">
+        <div class="section-header">
+            <div class="section-tag">[ ESTRUCTURA DE APRENDIZAJE ]</div>
+            <h2>Ejes de Desarrollo Técnico</h2>
+            <p>Somos estudiantes inquietos con ganas de hacer proyectos prácticos para afinar nuestras habilidades, aprender de lo que la industria ha hecho e integrar tecnologías reales paso a paso.</p>
+        </div>
+
+        <div class="ejes-grid-tech">
+            <!-- Eje 1: Robótica -->
+            <div class="eje-card-tech">
+                <div class="eje-header-clean">
+                    <span class="eje-tag-clean">EJE 01</span>
+                    <h3>Robótica y Mecánica Espacial</h3>
+                </div>
+                <div class="eje-data-block">
+                    <div class="data-group">
+                        <span class="lbl">Líderes</span>
+                        <span class="val">César Olivares y Alessandro Orellano</span>
+                    </div>
+                    <div class="data-group">
+                        <span class="lbl">Integrantes</span>
+                        <span class="val">2 Estudiantes Activos</span>
+                    </div>
+                    <div class="data-group">
+                        <span class="lbl">Proyecto Emblema</span>
+                        <span class="val highlight-amber">Rover Perseverance</span>
+                    </div>
+                </div>
+                <p class="eje-desc">
+                    Desarrollamos prototipos robóticos para aprender de la industria aeroespacial y afinar nuestras habilidades mecatrónicas. Experimentamos con disipación térmica, integración de baterías BMS y sensores LiDAR para navegación y autonomía en tierra.
+                </p>
+                <div class="eje-footer">
+                    <a href="./src/pages/proyectos/rover_avanzado.html" class="link-tech link-amber">Más detalles del Rover <span>→</span></a>
+                </div>
+            </div>
+
+            <!-- Eje 2: Cohetería -->
+            <div class="eje-card-tech">
+                <div class="eje-header-clean">
+                    <span class="eje-tag-clean">EJE 02</span>
+                    <h3>Cohetería y Propulsión</h3>
+                </div>
+                <div class="eje-data-block">
+                    <div class="data-group">
+                        <span class="lbl">Líderes</span>
+                        <span class="val">Alessandro Orellano y Simón García-Huidobro</span>
+                    </div>
+                    <div class="data-group">
+                        <span class="lbl">Integrantes</span>
+                        <span class="val">7 Estudiantes Activos</span>
+                    </div>
+                    <div class="data-group">
+                        <span class="lbl">Proyecto Emblema</span>
+                        <span class="val highlight-amber">Cohete de Agua (3 Unidades)</span>
+                    </div>
+                </div>
+                <p class="eje-desc">
+                    Utilizamos cohetes hidroneumáticos como plataforma segura de bajo costo para entender en la práctica las leyes de Newton, aerodinámica, centrado de masas y paracaídas. Este aprendizaje experimental nos permite dominar la técnica paso a paso con miras a la cohetería experimental.
+                </p>
+                <div class="eje-footer">
+                    <a href="./src/pages/proyectos/cohete.html" class="link-tech link-amber">Más detalles de Cohetería <span>→</span></a>
+                </div>
+            </div>
+
+            <!-- Eje 3: Sistemas Orbitales -->
+            <div class="eje-card-tech">
+                <div class="eje-header-clean">
+                    <span class="eje-tag-clean">EJE 03</span>
+                    <h3>Sistemas Orbitales y Telecomunicaciones</h3>
+                </div>
+                <div class="eje-data-block">
+                    <div class="data-group">
+                        <span class="lbl">Líderes</span>
+                        <span class="val">Daniel González y Martín Castillo</span>
+                    </div>
+                    <div class="data-group">
+                        <span class="lbl">Integrantes</span>
+                        <span class="val">7 Estudiantes Activos</span>
+                    </div>
+                    <div class="data-group">
+                        <span class="lbl">Proyecto Emblema</span>
+                        <span class="val highlight-amber">CubeSat 1U</span>
+                    </div>
+                </div>
+                <p class="eje-desc">
+                    Diseñamos e integramos en banco de laboratorio (FlatSat) la arquitectura de satélites 1U: computadores de a bordo (OBC), electrónica de potencia (BMS/EPS) y enlaces de radiofrecuencia (COMMS), probando cada subsistema en tierra para aprender cómo se operan misiones satelitales reales.
+                </p>
+                <div class="eje-footer">
+                    <a href="./src/pages/proyectos/cubesat_avanzado.html" class="link-tech link-amber">Más detalles del CubeSat <span>→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Catálogo de Proyectos Técnicos -->
+    <section class="projects-section-tech" id="proyectos">
+        <div class="section-header">
+            <div class="section-tag">[ PORTAFOLIO TÉCNICO ]</div>
+            <h2>Catálogo de Proyectos e Iniciativas</h2>
+            <p>Estructura modular dividida en proyectos de desarrollo avanzado (emblemas) y programas formativos diseñados para el onboarding acelerado de nuevos talentos.</p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="project-filter-controls">
+            <button class="filter-btn active" data-filter="all">Todos los Proyectos (06)</button>
+            <button class="filter-btn" data-filter="emblema">Proyectos Emblema (03)</button>
+            <button class="filter-btn" data-filter="formativo">Iniciativas Formativas (03)</button>
+        </div>
+
+        <div class="projects-grid-catalog">
+            
+            <!-- Emblema 1: Rover -->
+            <div class="project-tech-card" data-category="emblema">
+                <div class="project-img-wrapper" style="background-image: url('./assets/rover_perseverance-Doqfjrml.jpg');">
+                    <span class="project-tier-tag emblema">PROYECTO EMBLEMA</span>
+                    <span class="project-eje-tag">EJE ROBÓTICA</span>
+                </div>
+                <div class="project-tech-body">
+                    <h4>Rover Perseverance</h4>
+                    <p class="project-tech-summary">
+                        Vehículo robótico de exploración terrestre con suspensión Rocker-Bogie a escala real, tracción diferencial independiente y suite para autonomía y sensórica LiDAR.
+                    </p>
+                    <div class="project-tech-specs">
+                        <span>ESTADO: OPTIMIZACIÓN 2026</span>
+                        <span>MECATRÓNICA / AUTONOMÍA</span>
+                    </div>
+                    <a href="./src/pages/proyectos/rover_avanzado.html" class="btn-card-link">Ver Ficha Técnica →</a>
+                </div>
+            </div>
+
+            <!-- Emblema 2: Cohete 3 Unidades -->
+            <div class="project-tech-card" data-category="emblema">
+                <div class="project-img-wrapper" style="background-image: url('./assets/cohete_multietapa-DJLZen9r.jpg');">
+                    <span class="project-tier-tag emblema">PROYECTO EMBLEMA</span>
+                    <span class="project-eje-tag">EJE PROPULSIÓN</span>
+                </div>
+                <div class="project-tech-body">
+                    <h4>Cohete de Agua (3 Unidades)</h4>
+                    <p class="project-tech-summary">
+                        Vector hidroneumático modular de 3 cámaras acopladas para incremento de apogeo, telemetría a bordo, caracterización de empuje y sistema activo de recuperación.
+                    </p>
+                    <div class="project-tech-specs">
+                        <span>ESTADO: BANCO DE ENSAYO</span>
+                        <span>AERODINÁMICA / AVIÓNICA</span>
+                    </div>
+                    <a href="./src/pages/proyectos/cohete.html" class="btn-card-link">Ver Ficha Técnica →</a>
+                </div>
+            </div>
+
+            <!-- Emblema 3: CubeSat 1U -->
+            <div class="project-tech-card" data-category="emblema">
+                <div class="project-img-wrapper" style="background-image: url('./assets/cubesat_deployment-DcF168DJ.jpg');">
+                    <span class="project-tier-tag emblema">PROYECTO EMBLEMA</span>
+                    <span class="project-eje-tag">EJE SISTEMAS ORBITALES</span>
+                </div>
+                <div class="project-tech-body">
+                    <h4>CubeSat 1U</h4>
+                    <p class="project-tech-summary">
+                        Desarrollo del bus satelital estándar (10x10x10 cm), integración en banco FlatSat de computadora de a bordo (OBC), transceptores COMMS y enlace con estación terrena.
+                    </p>
+                    <div class="project-tech-specs">
+                        <span>ESTADO: INTEGRACIÓN LAB</span>
+                        <span>TELECOMUNICACIONES / OBC</span>
+                    </div>
+                    <a href="./src/pages/proyectos/cubesat_avanzado.html" class="btn-card-link">Ver Ficha Técnica →</a>
+                </div>
+            </div>
+
+            <!-- Formativo 1: Mini-CubeSat -->
+            <div class="project-tech-card" data-category="formativo">
+                <div class="project-img-wrapper" style="background-image: url('./assets/minicubesat_lab-DbefhVxw.jpg');">
+                    <span class="project-tier-tag formativo">INICIATIVA FORMATIVA</span>
+                    <span class="project-eje-tag">ONBOARDING TÉCNICO</span>
+                </div>
+                <div class="project-tech-body">
+                    <h4>Mini-CubeSat</h4>
+                    <p class="project-tech-summary">
+                        Iniciativa de introducción práctica a la ingeniería de sistemas espaciales. Empaquetamiento de microcontrolador, sensórica ambiental básica y protocolo de transmisión.
+                    </p>
+                    <div class="project-tech-specs">
+                        <span>FORMATO: TALLER / INTRO</span>
+                        <span>ELECTRÓNICA & FIRMWARE</span>
+                    </div>
+                    <a href="./src/pages/proyectos/cansat.html" class="btn-card-link">Ver Iniciativa →</a>
+                </div>
+            </div>
+
+            <!-- Formativo 2: Salva Usachin -->
+            <div class="project-tech-card" data-category="formativo">
+                <div class="project-img-wrapper" style="background-image: url('./assets/salva_usachin_drop-BZJ5SHPa.jpg');">
+                    <span class="project-tier-tag formativo">INICIATIVA FORMATIVA</span>
+                    <span class="project-eje-tag">ONBOARDING TÉCNICO</span>
+                </div>
+                <div class="project-tech-body">
+                    <h4>Salva Usachin</h4>
+                    <p class="project-tech-summary">
+                        Desafío práctico de diseño estructural y disipación de energía de impacto cinético. Creación de cápsulas de sacrificio para proteger una carga biológica en caída libre.
+                    </p>
+                    <div class="project-tech-specs">
+                        <span>FORMATO: COMPETENCIA</span>
+                        <span>ESTRUCTURAS & IMPACTO</span>
+                    </div>
+                    <a href="./src/pages/proyectos/eggdrop.html" class="btn-card-link">Ver Actividad →</a>
+                </div>
+            </div>
+
+            <!-- Formativo 3: Cohete de Agua 1 Unidad -->
+            <div class="project-tech-card" data-category="formativo">
+                <div class="project-img-wrapper" style="background-image: url('./assets/cohete_1u_prep-DgzsFi7M.jpg');">
+                    <span class="project-tier-tag formativo">INICIATIVA FORMATIVA</span>
+                    <span class="project-eje-tag">ONBOARDING TÉCNICO</span>
+                </div>
+                <div class="project-tech-body">
+                    <h4>Cohete de Agua (1 Unidad)</h4>
+                    <p class="project-tech-summary">
+                        Vector hidroneumático elemental para aprender la física de propulsión por cantidad de movimiento, centrado de masas (CG vs CP), manufactura de toberas y paracaídas básico.
+                    </p>
+                    <div class="project-tech-specs">
+                        <span>FORMATO: INTRODUCCIÓN</span>
+                        <span>FÍSICA & AERODINÁMICA</span>
+                    </div>
+                    <a href="./src/pages/proyectos/cohete.html" class="btn-card-link">Ver Iniciativa →</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. Manifiesto, Metodología y Gobernanza -->
+    <section class="governance-section" id="manifiesto">
+        <div class="governance-container">
+            
+            <div class="section-header" style="margin-bottom: 50px;">
+                <div class="section-tag">[ METODOLOGÍA & GOBERNANZA ]</div>
+                <h2 class="filosofia-heading">Nuestra Filosofía<br><span class="highlight-amber">Piensa — Crea — Aprende</span></h2>
+                <p>Conectamos la formulación de hipótesis con la manufactura física y el aprendizaje intergeneracional en proyectos aeroespaciales reales.</p>
+            </div>
+
+            <!-- Pipeline Gráfico de 3 Fases: Piensa - Crea - Aprende -->
+            <div class="filosofia-pipeline">
+                <div class="filosofia-grid">
+                    
+                    <!-- Fase 1: PIENSA -->
+                    <div class="filosofia-card">
+                        <div class="filosofia-step-badge">FASE 01</div>
+                        <div class="filosofia-icon-wrapper">
+                            <svg class="filosofia-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="24" cy="24" r="21" stroke="rgba(229,169,88,0.3)" stroke-dasharray="3 3" />
+                                <circle cx="24" cy="24" r="9" stroke="var(--accent-amber)" />
+                                <path d="M24 3v8M24 37v8M3 24h8M37 24h8" stroke="var(--accent-amber)" />
+                                <circle cx="24" cy="24" r="2.5" fill="var(--accent-amber)" />
+                            </svg>
+                        </div>
+                        <h3>Piensa</h3>
+                        <span class="filosofia-subtitle">Identificación & Planificación</span>
+                        <p>
+                            Identificamos una oportunidad o problema técnico para desarrollar. Investigamos antecedentes, modelamos piezas en CAD y planificamos cada etapa antes de empezar a fabricar.
+                        </p>
+                        <div class="filosofia-specs">
+                            <span>OPORTUNIDAD TÉCNICA</span>
+                            <span>MODELADO CAD</span>
+                        </div>
+                    </div>
+
+                    <!-- Fase 2: CREA -->
+                    <div class="filosofia-card">
+                        <div class="filosofia-step-badge">FASE 02</div>
+                        <div class="filosofia-icon-wrapper">
+                            <svg class="filosofia-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="24" cy="24" r="21" stroke="rgba(229,169,88,0.3)" stroke-dasharray="3 3" />
+                                <rect x="13" y="13" width="22" height="22" rx="3" stroke="var(--accent-amber)" />
+                                <path d="M13 24h22M24 13v22" stroke="rgba(229,169,88,0.4)" />
+                                <circle cx="13" cy="13" r="2" fill="var(--accent-amber)" />
+                                <circle cx="35" cy="13" r="2" fill="var(--accent-amber)" />
+                                <circle cx="35" cy="35" r="2" fill="var(--accent-amber)" />
+                                <circle cx="13" cy="35" r="2" fill="var(--accent-amber)" />
+                            </svg>
+                        </div>
+                        <h3>Crea</h3>
+                        <span class="filosofia-subtitle">Construcción & Taller</span>
+                        <p>
+                            Aplicamos nuestros conocimientos y habilidades para construir prototipos funcionales con las herramientas del taller: impresión 3D junto a Full 3D, circuitos electrónicos y ensamble manual.
+                        </p>
+                        <div class="filosofia-specs">
+                            <span>IMPRESIÓN 3D</span>
+                            <span>TRABAJO EN TALLER</span>
+                        </div>
+                    </div>
+
+                    <!-- Fase 3: APRENDE -->
+                    <div class="filosofia-card">
+                        <div class="filosofia-step-badge">FASE 03</div>
+                        <div class="filosofia-icon-wrapper">
+                            <svg class="filosofia-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="24" cy="24" r="21" stroke="rgba(229,169,88,0.3)" stroke-dasharray="3 3" />
+                                <path d="M11 29l8-11 8 6 9-13" stroke="var(--accent-amber)" stroke-linecap="round" stroke-linejoin="round" />
+                                <circle cx="36" cy="11" r="3" fill="var(--accent-amber)" />
+                                <path d="M9 39h30" stroke="rgba(255,255,255,0.2)" />
+                            </svg>
+                        </div>
+                        <h3>Aprende</h3>
+                        <span class="filosofia-subtitle">Pruebas & Documentación</span>
+                        <p>
+                            Medimos y documentamos nuestros avances, aciertos y fallas en banco de pruebas. Compartimos la experiencia y dejamos código y guías abiertas para seguir mejorando entre todos.
+                        </p>
+                        <div class="filosofia-specs">
+                            <span>MEDICIÓN REAL</span>
+                            <span>CÓDIGO ABIERTO</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Manifiesto Fundacional con Video de Fondo de la Estación Espacial Internacional (NASA) -->
+            <div class="manifesto-cinema-box">
+                <div class="manifesto-video-bg">
+                    <video autoplay muted loop playsinline poster="./assets/iss_still-BJg4PivK.jpg">
+                        <source src="./assets/iss_loop-Dw3E17te.mp4" type="video/mp4">
+                    </video>
+                    <div class="manifesto-video-overlay"></div>
+                </div>
+
+                <div class="manifesto-content-inner">
+                    <div class="quote-mark">“</div>
+                    <blockquote class="manifesto-text">
+                        La ciencia no pertenece a un solo hombre ni a una sola época; pertenece a cualquiera que esté dispuesto a sacrificar su presente por el progreso del mañana.
+                    </blockquote>
+                    <div class="quote-author-line">
+                        <span class="author-name">MANIFIESTO FUNDACIONAL</span>
+                        <span class="author-role">USACH SPACE PROGRAM</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. Galería Real de Operaciones -->
+    <section class="gallery-tech-section">
+        <div class="section-header">
+            <div class="section-tag">[ BITÁCORA GRÁFICA ]</div>
+            <h2>Registro de Operaciones en Terreno</h2>
+            <p>Evidencia fotográfica real de jornadas de taller, manufactura aditiva, montaje electromecánico y pruebas de campo en la universidad.</p>
+        </div>
+
+        <div class="gallery-tech-grid">
+            <div class="gallery-item" style="background-image: url('./assets/IMG-20260607-WA0030-W4BQB12q.jpg');">
+                <div class="gallery-item-overlay">
+                    <span class="tag">ROBÓTICA</span>
+                    <h5>Ensayos de Movilidad Rover Mascota</h5>
+                </div>
+            </div>
+            <div class="gallery-item" style="background-image: url('./assets/IMG-20260607-WA0039-DYQQ2NnM.jpg');">
+                <div class="gallery-item-overlay">
+                    <span class="tag">AVIÓNICA</span>
+                    <h5>Banco de Integración FlatSat</h5>
+                </div>
+            </div>
+            <div class="gallery-item" style="background-image: url('./assets/IMG-20260607-WA0022-CSaDWZKk.jpg');">
+                <div class="gallery-item-overlay">
+                    <span class="tag">COHETERÍA</span>
+                    <h5>Plataforma de Lanzamiento Hidroneumática</h5>
+                </div>
+            </div>
+            <div class="gallery-item" style="background-image: url('./assets/IMG-20260611-WA0050-Bp3PgY24.jpg');">
+                <div class="gallery-item-overlay">
+                    <span class="tag">VINCULACIÓN CON EL MEDIO</span>
+                    <h5>Presencia en evento de la UAI</h5>
+                </div>
+            </div>
+            <div class="gallery-item" style="background-image: url('./assets/IMG-20260605-WA0073-DMIh01A4.jpg');">
+                <div class="gallery-item-overlay">
+                    <span class="tag">CAMPO</span>
+                    <h5>Pruebas de Despliegue en Terreno</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Terminal Dual de Conversión -->
+    <section class="conversion-terminal-section" id="contacto-alianzas">
+        <div class="conversion-grid">
+            
+            <!-- Panel Estudiantes -->
+            <div class="conversion-card students">
+                <div class="card-tag">// TRIPULACIÓN TÉCNICA</div>
+                <h3>¿Eres estudiante y buscas construir proyectos reales?</h3>
+                <p>
+                    Buscamos estudiantes con ganas de aprender en taller, desarrollar prototipos físicos, software o gestión. No se requiere experiencia previa en todas las áreas: valoramos el compromiso, la honestidad técnica y la curiosidad por aprender.
+                </p>
+                <div class="conversion-action">
+                    <a href="./src/pages/registro.html" class="btn-primary-tech">
+                        <span>Postular a la Convocatoria 2026</span>
+                        <span class="btn-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Panel Institucional -->
+            <div class="conversion-card institutions">
+                <div class="card-tag">// ALIANZAS & PATROCINIO</div>
+                <h3>¿Eres profesional u empresa?</h3>
+                <p>
+                    Si gustan en apoyar los distintos proyectos que estamos realizando pueden ponerse en contacto con nosotros por medio de nuestro correo institucional, cualquier aporte u apoyo tanto economico como en conocimiento u espacio son un paso para que el desarrollo aeroespacial en chile llegue aun mas lejos!
+                </p>
+                <div class="conversion-action">
+                    <a href="mailto:spaceprogram@usach.cl?subject=Apoyo%20o%20Colaboraci%C3%B3n%20-%20USACH%20Space%20Program" class="btn-secondary-tech">
+                        <span>Ponte en contacto con nosotros</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 8. Red de Alianzas y Respaldo Institucional -->
+    <section class="alliances-section" id="alianzas">
+        <div class="section-header">
+            <div class="section-tag">[ ECOSISTEMA ]</div>
+            <h2>Respaldo y Vinculación Institucional</h2>
+            <p>Iniciativa apoyada por entidades clave dentro de la innovacion y desarrollo universitario nacional.</p>
+        </div>
+
+        <div class="alliances-logos">
+            <a href="https://www.usach.cl/" target="_blank" rel="noopener noreferrer" class="alliance-link-card">
+                <img src="./assets/usach_logo-aywEwZWD.png" alt="Universidad de Santiago de Chile">
+                <span>Universidad de Santiago de Chile</span>
+            </a>
+            <a href="https://centroinnovacion.cl/" target="_blank" rel="noopener noreferrer" class="alliance-link-card">
+                <img src="data:image/webp;base64,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" alt="Centro de Innovación USACH">
+                <span>Centro de Innovación USACH</span>
+            </a>
+            <a href="https://www.achide.org/" target="_blank" rel="noopener noreferrer" class="alliance-link-card">
+                <img src="./assets/achide-pTJ5xL5y.png" alt="ACHIDE - Asociación Chilena del Espacio">
+                <span>ACHIDE (Asoc. Chilena del Espacio)</span>
+            </a>
+            <a href="https://vrae.usach.cl/" target="_blank" rel="noopener noreferrer" class="alliance-link-card">
+                <img src="./assets/vrae_logo-DvxSrCCy.svg" alt="VRAE USACH">
+                <span>VRAE (Apoyo Estudiantil)</span>
+            </a>
+            <a href="https://full3d.cl/" target="_blank" rel="noopener noreferrer" class="alliance-link-card">
+                <img src="./assets/full3d_logo-Bo1umgFz.png" alt="Full 3D Chile">
+                <span>Full 3D</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
     <footer>
-    <div class="footer-grid">
-        <div class="footer-info">
-            <h3>USACH Space Program</h3>
-            <p>Iniciativa estudiantil interdisciplinaria dedicada al desarrollo científico y tecnológico en el sector aeroespacial.</p>
-        </div>
+        <div class="footer-grid">
+            <div class="footer-info">
+                <h3>USACH Space Program</h3>
+                <p>Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
+            </div>
 
-        <div class="footer-links">
-            <h4>Navegación</h4>
-            <ul>
-                <li><a href="./index.html">Inicio</a></li>
-                <li><a href="./src/pages/proyectos.html">Proyectos</a></li>
-                <li><a href="./src/pages/ejes.html">Ejes</a></li>
-                <li><a href="./src/pages/registro.html">Registrarse</a></li>
-            </ul>
-        </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="./src/pages/proyectos.html">Proyectos</a></li>
+                    <li><a href="./src/pages/ejes.html">Ejes</a></li>
+                    <li><a href="./src/pages/registro.html">Postular</a></li>
+                </ul>
+            </div>
 
-        <div class="footer-contact">
-            <h4>Contacto</h4>
-            <p>Universidad de Santiago de Chile</p>
-            <p><a href="mailto:spaceprogram@usach.cl">spaceprogram@usach.cl</a></p>
-        </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p>Universidad de Santiago de Chile</p>
+                <p><a href="mailto:spaceprogram@usach.cl">spaceprogram@usach.cl</a></p>
+            </div>
 
-        <div class="footer-institutions">
-            <h4>Vínculos</h4>
-
-            <div class="footer-institution-logos">
-                <a 
-                    href="https://centroinnovacion.cl/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    class="footer-institution-logo"
-                    aria-label="Centro de Innovación USACH"
-                >
-                    <img 
-                        src="data:image/webp;base64,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"
-                        alt="Centro de Innovación USACH"
-                    >
-                </a>
-
-                <a 
-                    href="https://www.achide.org/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    class="footer-institution-logo"
-                    aria-label="ACHIDE"
-                >
-                    <img 
-                        src="./assets/achide-pTJ5xL5y.png"
-                        alt="ACHIDE"
-                    >
-                </a>
+            <div class="footer-institutions">
+                <h4>Vínculos</h4>
+                <div class="footer-institution-logos">
+                    <a href="https://centroinnovacion.cl/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="Centro de Innovación USACH">
+                        <img src="data:image/webp;base64,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" alt="Centro de Innovación USACH">
+                    </a>
+                    <a href="https://www.achide.org/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="ACHIDE">
+                        <img src="./assets/achide-pTJ5xL5y.png" alt="ACHIDE">
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="footer-bottom">
-        <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
-        <p>Diseño y Tecnología con Fines Educativos</p>
-    </div>
-</footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
+            <p>Diseño y Fabricación con Fines Educativos</p>
+        </div>
+    </footer>
 
+
+    <!-- Script interactivo para filtro de proyectos -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.project-filter-controls .filter-btn');
+            const projectCards = document.querySelectorAll('.projects-grid-catalog .project-tech-card');
+
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    projectCards.forEach(card => {
+                        const category = card.getAttribute('data-category');
+                        if (filter === 'all' || category === filter) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
