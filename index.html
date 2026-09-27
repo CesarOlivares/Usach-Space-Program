@@ -10,63 +10,9 @@
    USACH SPACE PROGRAM - HOME STYLESHEET (DEEP SPACE HUD & EDITORIAL)
    ========================================================================== */
 
-/* === TOP INSTITUTIONAL BAR === */
+/* === TOP INSTITUTIONAL BAR (REMOVED) === */
 .top-institutional-bar {
-    background: #020306;
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 8px 40px;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 1.5px;
-    color: var(--text-secondary);
-    position: relative;
-    z-index: 2005;
-}
-
-.top-bar-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.top-bar-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.inst-tag {
-    color: var(--text-secondary);
-    font-weight: 500;
-}
-
-.inst-sep {
-    color: var(--border-subtle);
-    opacity: 0.6;
-}
-
-.top-bar-right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--status-active);
-    font-weight: 600;
-}
-
-.status-pulse-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background-color: var(--status-active);
-    box-shadow: 0 0 8px var(--status-active);
-    animation: statusPulse 2s infinite ease-in-out;
-}
-
-@keyframes statusPulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.85); }
+    display: none !important;
 }
 
 /* === 1. HERO SECTION (DEEP SPACE MONUMENTAL & PLANET VIDEO) === */
@@ -1322,32 +1268,11 @@
         grid-template-columns: 1fr;
     }
 }</style>
-  <script type="module" crossorigin src="./assets/main-CJ3K_3Ls.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/main-CLtxhMDE.js">
-  <link rel="stylesheet" crossorigin href="./assets/main-BrB0X9fX.css">
+  <script type="module" crossorigin src="./assets/main-DDU9z6DP.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/main-DOebCCAQ.js">
+  <link rel="stylesheet" crossorigin href="./assets/main-CivRjynS.css">
 </head>
 <body class="tech-grid">
-
-    <!-- Top Bar Institucional -->
-    <div class="top-institutional-bar">
-        <div class="top-bar-inner">
-            <div class="top-bar-left">
-                <span class="inst-tag">UNIVERSIDAD DE SANTIAGO DE CHILE</span>
-                <span class="inst-sep">|</span>
-                <span class="inst-tag">CENTRO DE INNOVACIÓN</span>
-                <span class="inst-sep">|</span>
-                <span class="inst-tag">ACHIDE</span>
-                <span class="inst-sep">|</span>
-                <span class="inst-tag">VRAE</span>
-                <span class="inst-sep">|</span>
-                <span class="inst-tag">FULL 3D</span>
-            </div>
-            <div class="top-bar-right">
-                <span class="status-pulse-dot"></span>
-                <span class="status-text">CONVOCATORIA 2026 ABIERTA</span>
-            </div>
-        </div>
-    </div>
 
     <!-- Header Component -->
     <header>
