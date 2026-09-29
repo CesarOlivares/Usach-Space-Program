@@ -1,4 +1,4 @@
-const l=""+new URL("rover_prueba_giro-Cev_lw_g.mp4",import.meta.url).href;document.addEventListener("DOMContentLoaded",()=>{const i=document.getElementById("video-cover-hud"),s=document.getElementById("video-wrapper");i&&s&&i.addEventListener("click",()=>{s.innerHTML=`
+const l="/assets/rover_prueba_giro-Cev_lw_g.mp4";document.addEventListener("DOMContentLoaded",()=>{const i=document.getElementById("video-cover-hud"),s=document.getElementById("video-wrapper");i&&s&&i.addEventListener("click",()=>{s.innerHTML=`
                 <video autoplay loop controls playsinline style="width: 100%; height: 100%; object-fit: contain; display: block; background: #000;">
                     <source src="${l}" type="video/mp4">
                     Tu navegador no soporta reproducción de video HTML5.

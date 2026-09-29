@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admisión a Talleres &amp; Iniciativas Formativas | USACH Space Program</title>
+    
+    <link rel="icon" type="image/png" href="/assets/logo_noTextBLACK-ged7tvfL.png">
+    
+    <!-- Hojas de Estilo Base y HUD Componentes -->
+  <script type="module" crossorigin src="/assets/admision_talleres-DS5h6lUm.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/main-H8N1Pnis.js">
+  <link rel="stylesheet" crossorigin href="/assets/main-Dw5DkHwh.css">
+  <link rel="stylesheet" crossorigin href="/assets/admision_talleres-BnGD0sMq.css">
+  <link rel="stylesheet" crossorigin href="/assets/project-template-D3atRXb4.css">
+</head>
+<body class="tech-grid">
+
+    <!-- Fondo de Estrellas HUD -->
+    <div id="stars"></div>
+
+    <!-- 0. NAVBAR SUPERIOR UNIFICADA HUD -->
+    <header class="rover-navbar">
+        <div class="rover-nav-container">
+            <!-- Brand Oficial -->
+            <a href="/" class="rover-nav-brand">
+                <img src="/assets/logo_noTextBLACK-ged7tvfL.png" alt="USACH Space Program Logo" class="rover-nav-logo">
+                <span class="rover-brand-text">USACH SPACE PROGRAM</span>
+            </a>
+
+            <!-- Navegación Rápida -->
+            <nav class="rover-quick-nav">
+                <a href="/ejes/" class="rover-nav-link">Ejes</a>
+                <a href="/proyectos/" class="rover-nav-link">Catálogo Proyectos</a>
+                <div class="rover-nav-pill-group">
+                    <a href="/proyectos/eggdrop/" class="rover-nav-pill">Salva a Usachín</a>
+                    <a href="/proyectos/cansat/" class="rover-nav-pill">Mini Cube-Sat</a>
+                </div>
+            </nav>
+
+            <!-- Acciones -->
+            <div class="rover-nav-actions">
+                <a href="mailto:spaceprogram@usach.cl" class="btn-nav-contact">
+                    <span>Contacto</span>
+                    <span>✉</span>
+                </a>
+                <a href="/registro/" class="btn-nav-postular">
+                    <span>Convocatoria Anual</span>
+                </a>
+            </div>
+
+            <!-- Botón Hamburguesa Móvil -->
+            <button class="rover-menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div class="rover-mobile-menu" id="mobileMenu">
+            <a href="/" class="mobile-link home-link">USACH Space Program (Inicio)</a>
+            <div class="mobile-section-label">SECCIONES PRINCIPALES</div>
+            <a href="/ejes/" class="mobile-link">Ejes Estratégicos</a>
+            <a href="/proyectos/" class="mobile-link">Catálogo de Proyectos</a>
+            <a href="/#manifiesto" class="mobile-link">Manifiesto Estudiantil</a>
+            <a href="/#alianzas" class="mobile-link">Alianzas Institucionales</a>
+            <div class="mobile-section-label">DESAFÍOS FORMATIVOS</div>
+            <a href="/proyectos/eggdrop/" class="mobile-link">Misión: Salva a Usachín</a>
+            <a href="/proyectos/cansat/" class="mobile-link">Misión: Mini Cube-Sat</a>
+            <div class="mobile-actions">
+                <a href="mailto:spaceprogram@usach.cl" class="btn-mobile-cta">Contacto: spaceprogram@usach.cl</a>
+                <a href="/registro/" class="btn-mobile-postular">Convocatoria General 2026</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECCIÓN FORMULARIO DE ADMISIÓN -->
+    <section class="admision-section">
+        <div class="admision-container">
+            
+            <!-- Encabezado del Formulario -->
+            <div class="admision-header">
+                <div class="rover-section-tag" style="justify-content: center; margin-bottom: 8px;">
+                    <span>✦</span>
+                    <span>USACH SPACE PROGRAM · CONVOCATORIA A DESAFÍOS FORMATIVOS</span>
+                </div>
+                <h1>POSTULACIÓN A DESAFÍOS</h1>
+                <p>
+                    Postulación abierta a estudiantes de todas las carreras y facultades de la USACH para integrarse a las misiones formativas del ciclo: <strong>Misión Salva a Usachín</strong> y <strong>Misión Mini Cube-Sat</strong>.
+                </p>
+            </div>
+
+            <!-- Formulario Interactivo -->
+            <form id="admisionTalleresForm">
+                
+                <!-- FIELDSET 1: IDENTIFICACIÓN Y CONTACTO -->
+                <fieldset class="form-fieldset">
+                    <legend class="form-legend"><span>01</span> Datos del Postulante</legend>
+                    
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo <span class="req-badge">*</span></label>
+                            <input type="text" id="nombre" name="nombre" placeholder="ej: Valentina González Rojas" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="correo">Correo Electrónico <span class="req-badge">*</span></label>
+                            <input type="email" id="correo" name="correo" placeholder="ej: nombre.apellido@usach.cl" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="telefono">Teléfono / WhatsApp de Contacto</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="ej: +56 9 1234 5678">
+                            <span class="help-text">Para sumarte al grupo de coordinación del desafío si quedas seleccionado.</span>
+                        </div>
+
+                        <!-- Selector Inteligente de Carrera -->
+                        <div class="form-group">
+                            <label for="carrera">¿Qué carrera estudias? <span class="req-badge">*</span></label>
+                            <div class="search-select-container">
+                                <input type="text" id="carrera" name="carrera" placeholder="Escribe para buscar tu carrera..." autocomplete="off" required>
+                                
+                                <div class="options-dropdown" id="carreraDropdown">
+                                    <div class="option-item">Ingeniería Civil Mecatrónica</div>
+                                    <div class="option-item">Ingeniería Civil Mecánica</div>
+                                    <div class="option-item">Ingeniería Civil en Electricidad</div>
+                                    <div class="option-item">Ingeniería Civil Informática</div>
+                                    <div class="option-item">Ingeniería Civil Industrial</div>
+                                    <div class="option-item">Ingeniería Civil Química</div>
+                                    <div class="option-item">Ingeniería Civil en Biotecnología</div>
+                                    <div class="option-item">Ingeniería Civil en Metalurgia</div>
+                                    <div class="option-item">Ingeniería Civil en Minas</div>
+                                    <div class="option-item">Ingeniería Civil en Obras Civiles</div>
+                                    <div class="option-item">Ingeniería Civil en Geomensura</div>
+                                    <div class="option-item">Ingeniería Civil en Ambiente</div>
+                                    <div class="option-item">Ingeniería de Ejecución en Mecánica</div>
+                                    <div class="option-item">Ingeniería de Ejecución en Electricidad</div>
+                                    <div class="option-item">Ingeniería de Ejecución en Electrónica</div>
+                                    <div class="option-item">Ingeniería de Ejecución en Computación e Informática</div>
+                                    <div class="option-item">Ingeniería de Ejecución en Metalurgia</div>
+                                    <div class="option-item">Ingeniería de Ejecución en Minas</div>
+                                    <div class="option-item">Ingeniería de Ejecución en Geomensura</div>
+                                    <div class="option-item">Ingeniería de Ejecución en Climatización</div>
+                                    <div class="option-item">Ingeniería de Ejecución en Química</div>
+                                    
+                                    <div class="option-item">Licenciatura en Ciencia de la Computación</div>
+                                    <div class="option-item">Licenciatura en Física Aplicada</div>
+                                    <div class="option-item">Licenciatura en Matemática</div>
+                                    <div class="option-item">Analista en Computación Científica</div>
+                                    <div class="option-item">Ingeniería Estadística</div>
+                                    <div class="option-item">Pedagogía en Física y Matemática</div>
+                                    <div class="option-item">Pedagogía en Matemática y Computación</div>
+                                    
+                                    <div class="option-item">Química y Farmacia</div>
+                                    <div class="option-item">Bioquímica</div>
+                                    <div class="option-item">Química (Químico)</div>
+                                    <div class="option-item">Pedagogía en Química y Biología</div>
+                                    
+                                    <div class="option-item">Ingeniería Comercial</div>
+                                    <div class="option-item">Contador Público y Auditor</div>
+                                    <div class="option-item">Administración Pública</div>
+                                    
+                                    <div class="option-item">Medicina</div>
+                                    <div class="option-item">Enfermería</div>
+                                    <div class="option-item">Kinesiología</div>
+                                    <div class="option-item">Obstetricia y Puericultura</div>
+                                    <div class="option-item">Terapia Ocupacional</div>
+                                    
+                                    <div class="option-item">Psicología</div>
+                                    <div class="option-item">Periodismo</div>
+                                    <div class="option-item">Publicidad</div>
+                                    <div class="option-item">Sociología</div>
+                                    <div class="option-item">Licenciatura en Estudios Internacionales</div>
+                                    <div class="option-item">Licenciatura en Historia</div>
+                                    <div class="option-item">Licenciatura en Lingüística Aplicada a la Traducción</div>
+                                    <div class="option-item">Pedagogía en Educación Física</div>
+                                    <div class="option-item">Pedagogía en Inglés</div>
+                                    <div class="option-item">Pedagogía en Castellano</div>
+                                    <div class="option-item">Pedagogía en Historia y Ciencias Sociales</div>
+                                    
+                                    <div class="option-item">Arquitectura</div>
+                                    <div class="option-item">Diseño Industrial</div>
+                                    <div class="option-item">Diseño en Comunicación Visual</div>
+                                    
+                                    <div class="option-item">Derecho</div>
+                                    
+                                    <div class="option-item">Tecnología en Alimentos</div>
+                                    <div class="option-item">Tecnología en Automatización Industrial</div>
+                                    <div class="option-item">Tecnología en Construcciones Civiles</div>
+                                    <div class="option-item">Tecnología en Gestión de la Producción</div>
+                                    <div class="option-item">Tecnología en Mantenimiento Industrial</div>
+                                    <div class="option-item">Tecnología en Telecomunicaciones</div>
+                                    <div class="option-item">Técnico Universitario (Múltiples Menciones)</div>
+                                    
+                                    <div class="option-item">Programa de Bachillerato en Ciencias y Humanidades</div>
+                                    <div class="option-item">Otra Carrera / Postgrado USACH</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- FIELDSET 2: DISPONIBILIDAD HORARIA W3 -->
+                <fieldset class="form-fieldset">
+                    <legend class="form-legend"><span>02</span> Disponibilidad de Horario</legend>
+                    
+                    <div class="form-group">
+                        <label>¿Dispones del bloque protegido disponible? (W3 - Miércoles) <span class="req-badge">*</span></label>
+                        <div class="radio-cards-grid">
+                            <div class="radio-card-item">
+                                <input type="radio" id="w3_si" name="bloque_w3" value="Si - Totalmente Disponible" required checked>
+                                <label for="w3_si" class="radio-card-label">
+                                    <span class="radio-card-badge">W3 DISPONIBLE</span>
+                                    <span class="radio-card-text">Sí, dispongo del bloque protegido W3 completamente libre para sesiones y ensayos.</span>
+                                </label>
+                            </div>
+
+                            <div class="radio-card-item">
+                                <input type="radio" id="w3_parcial" name="bloque_w3" value="Parcial - Con Topes">
+                                <label for="w3_parcial" class="radio-card-label">
+                                    <span class="radio-card-badge">DISPONIBILIDAD PARCIAL</span>
+                                    <span class="radio-card-text">Parcialmente (tengo tope en algún módulo o semana por medio).</span>
+                                </label>
+                            </div>
+
+                            <div class="radio-card-item">
+                                <input type="radio" id="w3_no" name="bloque_w3" value="No - Requiere Horario Flexible">
+                                <label for="w3_no" class="radio-card-label">
+                                    <span class="radio-card-badge">HORARIO FLEXIBLE</span>
+                                    <span class="radio-card-text">No tengo W3 disponible (prefiero coordinar trabajo flexible y en taller con mi equipo).</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- FIELDSET 3: AUTOEVALUACIÓN DE HABILIDADES (NO EXCLUYENTE) -->
+                <fieldset class="form-fieldset">
+                    <legend class="form-legend"><span>03</span> Autoevaluación de Habilidades</legend>
+                    
+                    <p style="color: var(--text-secondary); font-size: 0.86rem; line-height: 1.6; margin: 0 0 16px 0;">
+                        <strong style="color: var(--accent-amber);">Nota importante:</strong> Esta autoevaluación <strong>NO es excluyente</strong> ni define tu aceptación. Nos sirve para balancear los grupos de trabajo y preparar las sesiones de inducción técnica según las necesidades del equipo.
+                    </p>
+
+                    <div class="skills-evaluation-box">
+                        <!-- Habilidad 1: Electrónica / Microcontroladores -->
+                        <div class="skill-eval-item">
+                            <div class="skill-info">
+                                <div class="skill-name">Electrónica / Microcontroladores</div>
+                                <div class="skill-desc">Circuitos, Arduino, ESP32, sensores, fuentes de poder o cableado.</div>
+                            </div>
+                            <div class="skill-select-wrapper">
+                                <select id="skill_electronica" name="skill_electronica" required>
+                                    <option value="1 - Sin experiencia previa (Mucho interés en aprender)">1 · Sin experiencia previa (Muchas ganas de aprender)</option>
+                                    <option value="2 - Nivel Básico (Conceptos iniciales / asignaturas)">2 · Nivel Básico (Conceptos teóricos o cursos iniciales)</option>
+                                    <option value="3 - Nivel Intermedio (He armado proyectos funcionales)">3 · Nivel Intermedio (He armado proyectos propios)</option>
+                                    <option value="4 - Nivel Avanzado (Dominio de esquemas y microcontroladores)">4 · Nivel Avanzado (Dominio de circuitos y hardware)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Habilidad 2: Programación -->
+                        <div class="skill-eval-item">
+                            <div class="skill-info">
+                                <div class="skill-name">Programación y Software</div>
+                                <div class="skill-desc">C/C++, Python, lógica de control, algoritmos o captura de datos.</div>
+                            </div>
+                            <div class="skill-select-wrapper">
+                                <select id="skill_programacion" name="skill_programacion" required>
+                                    <option value="1 - Sin experiencia previa (Mucho interés en aprender)">1 · Sin experiencia previa (Muchas ganas de aprender)</option>
+                                    <option value="2 - Nivel Básico (Sintaxis básica / cursos iniciales)">2 · Nivel Básico (Sintaxis elemental en algún lenguaje)</option>
+                                    <option value="3 - Nivel Intermedio (Desarrollo scripts o firmware funcional)">3 · Nivel Intermedio (Desarrollo código o firmware funcional)</option>
+                                    <option value="4 - Nivel Avanzado (Arquitecturas complejas y optimización)">4 · Nivel Avanzado (Estructuras de software y depuración)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Habilidad 3: Diseño 3D -->
+                        <div class="skill-eval-item">
+                            <div class="skill-info">
+                                <div class="skill-name">Diseño y Modelado 3D (CAD)</div>
+                                <div class="skill-desc">SolidWorks, Fusion 360, Blender o preparación para impresión FDM.</div>
+                            </div>
+                            <div class="skill-select-wrapper">
+                                <select id="skill_diseno3d" name="skill_diseno3d" required>
+                                    <option value="1 - Sin experiencia previa (Mucho interés en aprender)">1 · Sin experiencia previa (Muchas ganas de aprender)</option>
+                                    <option value="2 - Nivel Básico (Bocetos y piezas simples)">2 · Nivel Básico (Bocetos y piezas sencillas)</option>
+                                    <option value="3 - Nivel Intermedio (Modelado paramétrico y ensambles)">3 · Nivel Intermedio (Modelado paramétrico y ensambles)</option>
+                                    <option value="4 - Nivel Avanzado (Diseño para manufactura e iteración compleja)">4 · Nivel Avanzado (Diseño industrial y manufactura aditiva)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Habilidad 4: Construcción manual / Prototipado -->
+                        <div class="skill-eval-item">
+                            <div class="skill-info">
+                                <div class="skill-name">Construcción Manual / Prototipado</div>
+                                <div class="skill-desc">Corte de materiales, costura, soldadura con estaño, armado y ajuste físico.</div>
+                            </div>
+                            <div class="skill-select-wrapper">
+                                <select id="skill_prototipado" name="skill_prototipado" required>
+                                    <option value="1 - Sin experiencia previa (Mucho interés en aprender)">1 · Sin experiencia previa (Muchas ganas de aprender)</option>
+                                    <option value="2 - Nivel Básico (Manejo de herramientas elementales)">2 · Nivel Básico (Uso de herramientas elementales)</option>
+                                    <option value="3 - Nivel Intermedio (Habilidad manual para soldar y cortar)">3 · Nivel Intermedio (Habilidad en corte, ensamble y soldadura)</option>
+                                    <option value="4 - Nivel Avanzado (Gran destreza en taller y manufactura rápida)">4 · Nivel Avanzado (Gran destreza en banco y resolución manual)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- FIELDSET 4: ELECCIÓN DE EQUIPO O ACTIVIDAD FORMATIVA -->
+                <fieldset class="form-fieldset">
+                    <legend class="form-legend"><span>04</span> Preferencia de Desafío</legend>
+                    
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="equipo_primario">¿Qué desafío te interesa? (Primera Opción) <span class="req-badge">*</span></label>
+                            <select id="equipo_primario" name="equipo_primario" required>
+                                <option value="" disabled selected>Selecciona tu primera prioridad</option>
+                                <option value="Misión: Salva a Usachín (Paracaídas y Mecánica Pasiva)">🪂 Misión: Salva a Usachín (Paracaídas y Descenso con Dron)</option>
+                                <option value="Misión: Mini Cube-Sat (Electrónica y Telemetría Aérea)">🛰️ Misión: Mini Cube-Sat (Electrónica y Enlace Aéreo con Dron)</option>
+                                <option value="Cualquier equipo donde se requiera apoyo">🤝 Abierto a cualquiera de los desafíos formativos</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="equipo_secundario">Segunda Opción de Interés (Opcional)</label>
+                            <select id="equipo_secundario" name="equipo_secundario">
+                                <option value="" selected>Sin segunda opción (prioridad única)</option>
+                                <option value="Misión: Salva a Usachín (Paracaídas y Mecánica Pasiva)">🪂 Misión: Salva a Usachín</option>
+                                <option value="Misión: Mini Cube-Sat (Electrónica y Telemetría Aérea)">🛰️ Misión: Mini Cube-Sat</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Modalidad Individual o Equipo Formado -->
+                    <div class="form-group" style="margin-top: 10px;">
+                        <label>¿Postulas de forma individual o ya cuentas con equipo formado? <span class="req-badge">*</span></label>
+                        <div class="radio-cards-grid" style="grid-template-columns: repeat(2, 1fr);">
+                            <div class="radio-card-item">
+                                <input type="radio" id="mod_individual" name="modalidad_postulacion" value="Individual" required checked>
+                                <label for="mod_individual" class="radio-card-label">
+                                    <span class="radio-card-badge">INDIVIDUAL</span>
+                                    <span class="radio-card-text">Postulo solo/a para que USP me asigne a un escuadrón interdisciplinario.</span>
+                                </label>
+                            </div>
+
+                            <div class="radio-card-item">
+                                <input type="radio" id="mod_equipo" name="modalidad_postulacion" value="Equipo Formado">
+                                <label for="mod_equipo" class="radio-card-label">
+                                    <span class="radio-card-badge">EQUIPO FORMADO (2 A 4)</span>
+                                    <span class="radio-card-text">Ya tengo un grupo con compañeras/os de la USACH para participar juntos.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="campoIntegrantesGroup" style="display: none; margin-top: 12px;">
+                        <label for="integrantes_equipo">Nombres y Correos de tus Compañeros de Equipo (2 a 4 personas)</label>
+                        <input type="text" id="integrantes_equipo" name="integrantes_equipo" placeholder="ej: Juan Pérez (juan.perez@usach.cl), Andrea Silva (andrea.silva@usach.cl)">
+                        <span class="help-text">Cada integrante adicional debe también llenar individualmente su formulario para registrar sus datos y firma del manifiesto.</span>
+                    </div>
+                </fieldset>
+
+                <!-- FIELDSET 5: EXPECTATIVAS Y APORTE -->
+                <fieldset class="form-fieldset">
+                    <legend class="form-legend"><span>05</span> Motivación y Compromiso</legend>
+                    
+                    <div class="form-group">
+                        <label for="expectativas_aporte">¿Qué esperas aprender o aportar concretamente al equipo durante el semestre? <span class="req-badge">*</span></label>
+                        <textarea id="expectativas_aporte" name="expectativas_aporte" placeholder="Cuéntanos brevemente qué te motivó a postular, qué te gustaría aprender en las sesiones y con qué actitud o conocimientos esperas sumar al equipo..." required></textarea>
+                    </div>
+                </fieldset>
+
+                <!-- Botón de Envío -->
+                <button type="submit" class="btn-admision-submit" id="btnSubmitAdmision">
+                    <span>Enviar Formulario de Postulación al Desafío</span>
+                    <span>→</span>
+                </button>
+            </form>
+
+            <!-- Tarjeta de Confirmación de Éxito HUD (Aparece tras enviar) -->
+            <div class="submission-success-card" id="submissionSuccessCard">
+                <div class="success-icon-badge">✓</div>
+                <h2>¡POSTULACIÓN RECIBIDA CON ÉXITO!</h2>
+                <p>
+                    Tus respuestas han sido ingresadas correctamente en el registro de postulaciones del <strong>USACH Space Program</strong>. La coordinación de formación y admisión revisará tu postulación y te notificará por correo electrónico con los detalles del taller de bienvenida y la confirmación de tu equipo.
+                </p>
+                <div class="success-actions">
+                    <a href="/proyectos/" class="btn-project-primary" style="text-decoration: none;">
+                        <span>Ver Catálogo de Proyectos</span>
+                        <span>→</span>
+                    </a>
+                    <a href="/" class="btn-project-secondary" style="text-decoration: none;">
+                        <span>Volver al Inicio</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER INSTITUCIONAL -->
+    <footer style="background: #000000; border-top: 1px solid var(--border-subtle); padding: 70px 40px 40px;">
+        <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 50px;">
+            <div>
+                <h3 style="font-family: var(--font-now); font-size: 1.15rem; color: #ffffff; margin: 0 0 14px 0; text-transform: uppercase; letter-spacing: 1px;">USACH Space Program</h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
+            </div>
+            <div>
+                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Navegación</h4>
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                    <li><a href="/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">← Inicio Principal</a></li>
+                    <li><a href="/proyectos/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Catálogo de Proyectos</a></li>
+                    <li><a href="/registro/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Convocatoria General</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Contacto Oficial</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 8px 0;">Universidad de Santiago de Chile</p>
+                <p style="margin: 0;"><a href="mailto:spaceprogram@usach.cl" style="color: var(--accent-amber); text-decoration: none; font-size: 0.9rem; font-family: var(--font-mono);">spaceprogram@usach.cl</a></p>
+            </div>
+        </div>
+        <div style="max-width: 1400px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">
+            <span>&copy; 2026 USACH Space Program. Todos los derechos reservados.</span>
+            <span>Sistema de Admisión a Iniciativas Formativas</span>
+        </div>
+    </footer>
+
+    <!-- Script del Formulario -->
+</body>
+</html>
