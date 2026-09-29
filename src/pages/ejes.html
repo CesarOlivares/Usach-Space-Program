@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejes Estratégicos de Desarrollo - USACH Space Program</title>
+    <title>Ejes Estratégicos de Desarrollo | USACH Space Program</title>
     
     <link rel="icon" type="image/png" href="../assets/images/logo_noTextBLACK.png">
     
@@ -14,27 +14,26 @@
 </head>
 <body class="tech-grid">
 
-    <!-- Fondo de Estrellas HUD -->
+    <!-- Fondo Dinámico de Estrellas HUD -->
     <div id="stars"></div>
 
     <!-- 0. NAVBAR SUPERIOR UNIFICADA HUD -->
     <header class="rover-navbar">
         <div class="rover-nav-container">
             <!-- Brand Oficial -->
-            <a href="../../index.html" class="rover-nav-brand">
+            <a href="/" class="rover-nav-brand">
                 <img src="../assets/images/logo_noTextBLACK.png" alt="USACH Space Program Logo" class="rover-nav-logo">
                 <span class="rover-brand-text">USACH SPACE PROGRAM</span>
             </a>
 
             <!-- Navegación Rápida -->
             <nav class="rover-quick-nav">
-                <a href="../../index.html#ejes" class="rover-nav-link active">Ejes</a>
-                <a href="./proyectos.html" class="rover-nav-link">Catálogo Proyectos</a>
+                <a href="/ejes/" class="rover-nav-link active">Ejes</a>
+                <a href="/proyectos/" class="rover-nav-link">Catálogo Proyectos</a>
                 <div class="rover-nav-pill-group">
-                    <a href="./proyectos/rover_avanzado.html" class="rover-nav-pill">Rover</a>
-                    <a href="./proyectos/cubesat_avanzado.html" class="rover-nav-pill">CubeSat</a>
-                    <a href="./proyectos/cohete.html" class="rover-nav-pill">Cohete</a>
-                    <a href="./proyectos/impresion3d.html" class="rover-nav-pill">Talleres</a>
+                    <a href="/proyectos/rover/" class="rover-nav-pill">Rover</a>
+                    <a href="/proyectos/cubesat/" class="rover-nav-pill">CubeSat</a>
+                    <a href="/proyectos/cohete/" class="rover-nav-pill">Cohete</a>
                 </div>
             </nav>
 
@@ -44,7 +43,7 @@
                     <span>Contacto</span>
                     <span>✉</span>
                 </a>
-                <a href="./registro.html" class="btn-nav-postular">
+                <a href="/registro/" class="btn-nav-postular">
                     <span>Postular</span>
                 </a>
             </div>
@@ -59,159 +58,687 @@
 
         <!-- Menú Desplegable Móvil -->
         <div class="rover-mobile-menu" id="mobileMenu">
-            <a href="../../index.html" class="mobile-link home-link">USACH Space Program (Inicio)</a>
+            <a href="/" class="mobile-link home-link">USACH Space Program (Inicio)</a>
             <div class="mobile-section-label">SECCIONES PRINCIPALES</div>
-            <a href="../../index.html#ejes" class="mobile-link">Ejes Estratégicos</a>
-            <a href="./proyectos.html" class="mobile-link">Catálogo de Proyectos</a>
-            <a href="../../index.html#manifiesto" class="mobile-link">Manifiesto Estudiantil</a>
-            <a href="../../index.html#alianzas" class="mobile-link">Alianzas Institucionales</a>
+            <a href="/ejes/" class="mobile-link active-link">Ejes Estratégicos</a>
+            <a href="/proyectos/" class="mobile-link">Catálogo de Proyectos</a>
+            <a href="/#manifiesto" class="mobile-link">Manifiesto Estudiantil</a>
+            <a href="/#alianzas" class="mobile-link">Alianzas Institucionales</a>
             <div class="mobile-section-label">PROYECTOS Y HARDWARE</div>
-            <a href="./proyectos/rover_avanzado.html" class="mobile-link">Rover Perseverance (Flagship)</a>
-            <a href="./proyectos/cubesat_avanzado.html" class="mobile-link">Bus Satelital CubeSat 3U</a>
-            <a href="./proyectos/cohete.html" class="mobile-link">Cohetería Experimental &amp; Agua</a>
-            <a href="./proyectos/cansat.html" class="mobile-link">Mini-CubeSat 1U &amp; CanSat</a>
-            <a href="./proyectos/eggdrop.html" class="mobile-link">Salva Usachín (Egg Drop)</a>
-            <a href="./proyectos/impresion3d.html" class="mobile-link">Talleres de Manufactura</a>
+            <a href="/proyectos/rover/" class="mobile-link">Rover Perseverance (Flagship)</a>
+            <a href="/proyectos/cubesat/" class="mobile-link">Bus Satelital CubeSat 3U</a>
+            <a href="/proyectos/cohete/" class="mobile-link">Cohetería Experimental &amp; Agua</a>
+            <a href="/proyectos/cansat/" class="mobile-link">Misión: Mini Cube-Sat</a>
+            <a href="/proyectos/eggdrop/" class="mobile-link">Misión: Salva a Usachín</a>
             <div class="mobile-actions">
                 <a href="mailto:spaceprogram@usach.cl" class="btn-mobile-cta">Contacto: spaceprogram@usach.cl</a>
-                <a href="./registro.html" class="btn-mobile-postular">Postular al Equipo 2026</a>
+                <a href="/registro/" class="btn-mobile-postular">Postular al Equipo 2026</a>
             </div>
         </div>
     </header>
 
-    <!-- 1. HEADER SECTION -->
-    <section class="ejes-section">
-        <div class="ejes-header">
-            <div class="rover-section-tag">
+    <!-- WRAPPER PRINCIPAL DE LA PÁGINA -->
+    <main class="ejes-section-wrapper">
+        
+        <!-- ENCABEZADO CENTRAL DEL HUB -->
+        <div class="ejes-hub-header">
+            <div class="rover-section-tag" style="justify-content: center; margin-bottom: 12px;">
                 <span>✦</span>
-                <span>DOMINIOS DE INGENIERÍA // USACH SPACE PROGRAM</span>
+                <span>APRENDIZAJE Y EXPERIMENTACIÓN // USACH SPACE PROGRAM</span>
             </div>
-            <h1>EJES ESTRATÉGICOS</h1>
-            <h2 class="ejes-subtitle">Estructura Interdisciplinaria de Investigación y Prototipado Rápido</h2>
-            <p>
-                Para ordenar el trabajo técnico sin burocracia, articulamos nuestras actividades en <strong>tres dominios de ingeniería</strong> y un <strong>eje formativo transversal</strong>. Cada división está liderada por estudiantes de pregrado enfocados en validar hardware paso a paso mediante prototipos funcionales (MVP).
+            <h1>EJES DE DESARROLLO</h1>
+            <div class="ejes-hub-subtitle">Aprender Haciendo: Prototipado, Pruebas en Terreno y Mejora Continua</div>
+            <p class="ejes-hub-desc">
+                Somos estudiantes de pregrado de la USACH apasionados por el espacio y la ingeniería práctica. Organizamos nuestro aprendizaje en tres áreas de trabajo donde nos reunimos a idear prototipos, probarlos en el campus, equivocarnos y aprender de los errores para mejorar cada proyecto.
             </p>
         </div>
 
-        <!-- GRID DE EJES -->
-        <div class="ejes-grid">
+        <!-- ====================================================================
+             1. VISTA INICIAL: 3 PILARES CENTRALES (EXPANDEN AL HOVER Y ABREN AL CLICK)
+             ==================================================================== -->
+        <section class="ejes-pillars-container" id="ejesPillarsContainer">
             
-            <!-- EJE 01 -->
-            <article class="eje-item">
-                <div class="eje-top">
-                    <div class="eje-tag-badge">EJE TÉCNICO 01</div>
-                    <div class="eje-number">01</div>
+            <!-- PILAR 01: ROBÓTICA Y MECÁNICA ESPACIAL -->
+            <article class="eje-pillar-card robotica" data-eje="robotica" tabindex="0" role="button" aria-label="Abrir Eje 01 Robótica y Mecánica Espacial">
+                <div class="pillar-top-meta">
+                    <span class="pillar-index">// EJE 01</span>
+                    <span class="pillar-badge">SUPERFICIE</span>
                 </div>
-                <div class="eje-content">
-                    <h3>Robótica y Mecánica Espacial</h3>
-                    <div class="eje-leaders-hud">
-                        <span class="hud-label">LÍDERES DE EJE:</span>
-                        <span class="hud-value">César Olivares y Alessandro Orellano</span>
-                    </div>
+
+                <!-- Ícono Técnico SVG (Rocker-Bogie / Rueda Planetaria) -->
+                <div class="pillar-icon-orb">
+                    <svg viewBox="0 0 48 48" aria-hidden="true">
+                        <circle cx="24" cy="24" r="20" stroke-dasharray="4 3" opacity="0.4"/>
+                        <circle cx="24" cy="24" r="8"/>
+                        <circle cx="24" cy="24" r="3" fill="#e5a958"/>
+                        <path d="M14 24h-6M40 24h-6M24 14v-6M24 40v-6"/>
+                        <path d="M12 14l20 20M36 14L16 34" stroke-dasharray="2 2" opacity="0.3"/>
+                        <circle cx="10" cy="34" r="4"/>
+                        <circle cx="38" cy="34" r="4"/>
+                        <path d="M14 34h20M24 24l-14 10M24 24l14 10"/>
+                    </svg>
                 </div>
-                <div class="eje-body">
-                    <p>
-                        Diseñamos, calculamos y fabricamos plataformas robóticas de movilidad planetaria. Abordamos cinemática de sistemas Rocker-Bogie, distribución de torque diferencial, disipación pasiva de temperatura en actuadores y navegación asistida por sensores LiDAR.
-                    </p>
-                    <div class="objective-box">
-                        <span class="objective-title">OBJETIVO TÉCNICO</span>
-                        <p>Desarrollar plataformas terrestres de alta adaptabilidad a terrenos irregulares utilizando componentes mecatrónicos accesibles y piezas estructurales en PETG/ABS.</p>
+
+                <h2 class="pillar-title">Robótica y Rovers</h2>
+                <div class="pillar-tagline">Mecánica Práctica &amp; Movilidad 6WD</div>
+                
+                <p class="pillar-brief">
+                    Diseño, modelado y manufactura 3D de pequeños rovers para aprender cinemática y superar obstáculos en terreno irregular.
+                </p>
+
+                <!-- Drawer visible al acercar el cursor -->
+                <div class="pillar-hover-drawer">
+                    <div class="pillar-tech-chips">
+                        <span class="tech-chip">Suspensión Rocker-Bogie</span>
+                        <span class="tech-chip">Impresión 3D en PETG</span>
+                        <span class="tech-chip">Control de Motores</span>
+                        <span class="tech-chip">Aspiración Lunabotics</span>
                     </div>
-                    <div class="eje-project-link">
-                        <span class="link-label">Proyecto Emblema:</span>
-                        <a href="./proyectos/rover_avanzado.html" class="link-action">Rover Perseverance Flagship <span>→</span></a>
+                    <div class="pillar-cta-hint">
+                        <span>Ver Expediente del Eje</span>
+                        <span>→</span>
                     </div>
                 </div>
             </article>
 
-            <!-- EJE 02 -->
-            <article class="eje-item">
-                <div class="eje-top">
-                    <div class="eje-tag-badge">EJE TÉCNICO 02</div>
-                    <div class="eje-number">02</div>
+            <!-- PILAR 02: SISTEMAS ORBITALES Y TELECOMUNICACIONES -->
+            <article class="eje-pillar-card satelital" data-eje="satelital" tabindex="0" role="button" aria-label="Abrir Eje 02 Sistemas Orbitales y Satélites">
+                <div class="pillar-top-meta">
+                    <span class="pillar-index">// EJE 02</span>
+                    <span class="pillar-badge">ÓRBITA</span>
                 </div>
-                <div class="eje-content">
-                    <h3>Cohetería y Propulsión</h3>
-                    <div class="eje-leaders-hud">
-                        <span class="hud-label">LÍDERES DE EJE:</span>
-                        <span class="hud-value">Alessandro Orellano y Simón García-Huidobro</span>
-                    </div>
+
+                <!-- Ícono Técnico SVG (CubeSat en Órbita con Ondas RF) -->
+                <div class="pillar-icon-orb">
+                    <svg viewBox="0 0 48 48" aria-hidden="true">
+                        <circle cx="24" cy="24" r="21" stroke-dasharray="2 4" opacity="0.35"/>
+                        <rect x="16" y="16" width="16" height="16" rx="2"/>
+                        <line x1="24" y1="16" x2="24" y2="32" stroke-dasharray="2 2"/>
+                        <line x1="16" y1="24" x2="32" y2="24" stroke-dasharray="2 2"/>
+                        <!-- Paneles solares -->
+                        <rect x="6" y="19" width="10" height="10" rx="1" fill="rgba(0,229,255,0.1)"/>
+                        <rect x="32" y="19" width="10" height="10" rx="1" fill="rgba(0,229,255,0.1)"/>
+                        <!-- Antenas y ondas -->
+                        <line x1="24" y1="16" x2="24" y2="9"/>
+                        <circle cx="24" cy="9" r="2" fill="#00e5ff"/>
+                        <path d="M19 6c3-2 7-2 10 0" opacity="0.6"/>
+                        <path d="M16 3c5-3 11-3 16 0" opacity="0.3"/>
+                    </svg>
                 </div>
-                <div class="eje-body">
-                    <p>
-                        Transformamos la física teórica y la dinámica de fluidos en vehículos que vuelan. Estudiamos centros de presión (CP) y gravedad (CG), estabilidad estática, integridad de fuselajes presurizados a 80 PSI y mecanismos de recuperación por paracaídas.
-                    </p>
-                    <div class="objective-box">
-                        <span class="objective-title">OBJETIVO TÉCNICO</span>
-                        <p>Dominar la aerodinámica experimental y los protocolos seguros de lanzamiento hidroneumático para sentar las bases de la cohetería de sondeo a baja altitud.</p>
+
+                <h2 class="pillar-title">Sistemas Orbitales</h2>
+                <div class="pillar-tagline">Electrónica Satelital &amp; Enlaces RF</div>
+                
+                <p class="pillar-brief">
+                    Aprendizaje de arquitectura CubeSat, telemetría inalámbrica y pruebas de módulos de comunicación en mesa de laboratorio.
+                </p>
+
+                <!-- Drawer visible al acercar el cursor -->
+                <div class="pillar-hover-drawer">
+                    <div class="pillar-tech-chips">
+                        <span class="tech-chip">Mesa FlatSat de Prueba</span>
+                        <span class="tech-chip">Enlace LoRa 433 MHz</span>
+                        <span class="tech-chip">Misión Dron en Campus</span>
+                        <span class="tech-chip">Proyección Globo HAB</span>
                     </div>
-                    <div class="eje-project-link">
-                        <span class="link-label">Proyecto Emblema:</span>
-                        <a href="./proyectos/cohete.html" class="link-action">Cohetería Experimental &amp; Agua <span>→</span></a>
+                    <div class="pillar-cta-hint">
+                        <span>Ver Expediente del Eje</span>
+                        <span>→</span>
                     </div>
                 </div>
             </article>
 
-            <!-- EJE 03 -->
-            <article class="eje-item">
-                <div class="eje-top">
-                    <div class="eje-tag-badge">EJE TÉCNICO 03</div>
-                    <div class="eje-number">03</div>
+            <!-- PILAR 03: COHETERÍA Y PROPULSIÓN -->
+            <article class="eje-pillar-card coheteria" data-eje="coheteria" tabindex="0" role="button" aria-label="Abrir Eje 03 Cohetería y Propulsión">
+                <div class="pillar-top-meta">
+                    <span class="pillar-index">// EJE 03</span>
+                    <span class="pillar-badge">PROPULSIÓN</span>
                 </div>
-                <div class="eje-content">
-                    <h3>Sistemas Orbitales y Telecomunicaciones</h3>
-                    <div class="eje-leaders-hud">
-                        <span class="hud-label">LÍDERES DE EJE:</span>
-                        <span class="hud-value">Daniel González y Martín Castillo</span>
-                    </div>
+
+                <!-- Ícono Técnico SVG (Vector Cohete y Empuje) -->
+                <div class="pillar-icon-orb">
+                    <svg viewBox="0 0 48 48" aria-hidden="true">
+                        <!-- Fuselaje Aerodinámico -->
+                        <path d="M24 6c-4 5-6 15-6 24h12c0-9-2-19-6-24z"/>
+                        <!-- Aletas estabilizadoras -->
+                        <path d="M18 24l-7 8v4h7M30 24l7 8v4h-7"/>
+                        <!-- Tobera de escape y plumas de empuje -->
+                        <path d="M21 30l-2 5h10l-2-5"/>
+                        <path d="M24 35v7M20 37l-2 4M28 37l2 4" stroke-dasharray="2 2"/>
+                        <!-- Centro de gravedad / presión retícula -->
+                        <circle cx="24" cy="20" r="2" fill="#ff7043"/>
+                        <circle cx="24" cy="24" r="1.5" stroke="#ffffff"/>
+                    </svg>
                 </div>
-                <div class="eje-body">
-                    <p>
-                        Representa la electrónica de a bordo, la distribución de potencia y el enlace de radio de las cargas útiles. Diseñamos buses satelitales CubeSat 1U y 3U basados en el estándar CDS, enlaces de telemetría de largo alcance con tecnología LoRa y sensores de actitud.
-                    </p>
-                    <div class="objective-box">
-                        <span class="objective-title">OBJETIVO TÉCNICO</span>
-                        <p>Construir arquitecturas FlatSat modulares capaces de adquirir datos físicos en condiciones análogas y transmitirlos de forma confiable a estaciones terrestres.</p>
+
+                <h2 class="pillar-title">Cohetería &amp; Propulsión</h2>
+                <div class="pillar-tagline">Vectores de Vuelo &amp; Recuperación</div>
+                
+                <p class="pillar-brief">
+                    Pruebas prácticas con cohetes de agua a presión, cálculo básico de estabilidad y diseño de paracaídas para aprender física de vuelo.
+                </p>
+
+                <!-- Drawer visible al acercar el cursor -->
+                <div class="pillar-hover-drawer">
+                    <div class="pillar-tech-chips">
+                        <span class="tech-chip">Estabilidad con Aletas</span>
+                        <span class="tech-chip">Presurización 80 PSI</span>
+                        <span class="tech-chip">Misión Salva a Usachín</span>
+                        <span class="tech-chip">Proyección Aviónica IMU</span>
                     </div>
-                    <div class="eje-project-link">
-                        <span class="link-label">Proyecto Emblema:</span>
-                        <a href="./proyectos/cubesat_avanzado.html" class="link-action">Bus Satelital CubeSat 3U <span>→</span></a>
+                    <div class="pillar-cta-hint">
+                        <span>Ver Expediente del Eje</span>
+                        <span>→</span>
                     </div>
                 </div>
             </article>
 
-            <!-- EJE 04 TRANSVERSAL -->
-            <article class="eje-item full-width">
-                <div class="eje-top">
-                    <div class="eje-tag-badge">EJE FORMATIVO TRANSVERSAL</div>
-                    <div class="eje-number">04</div>
-                </div>
-                <div class="eje-content">
-                    <h3>Educación, Manufactura 3D y Vinculación</h3>
-                    <div class="eje-leaders-hud">
-                        <span class="hud-label">EQUIPO DE TRABAJO:</span>
-                        <span class="hud-value">Coordinación de Formación USACH Space Program</span>
-                    </div>
-                </div>
-                <div class="eje-body">
-                    <p>
-                        El puente de nivelación para todo estudiante que ingresa al equipo. Facilitamos el traspaso de conocimientos en software CAD (SolidWorks, Fusion 360), manufactura aditiva FDM con el respaldo técnico de <strong>Full 3D</strong>, soldadura de circuitos impresos y programación embebida. Además, lideramos la divulgación en ferias vocacionales y colegios.
-                    </p>
-                    <div class="objective-box">
-                        <span class="objective-title">OBJETIVO EDUCATIVO</span>
-                        <p>Nivelar de forma práctica e inclusiva las competencias técnicas de nuevos tripulantes, promoviendo la vocación aeroespacial tanto dentro del campus como hacia la comunidad escolar.</p>
-                    </div>
-                    <div class="eje-project-link">
-                        <span class="link-label">Iniciativas Relacionadas:</span>
-                        <a href="./proyectos/impresion3d.html" class="link-action">Talleres de Manufactura 3D <span>→</span></a>
-                        <span style="color: var(--text-muted); margin: 0 8px;">|</span>
-                        <a href="./proyectos/eggdrop.html" class="link-action">Desafío Salva Usachín <span>→</span></a>
-                    </div>
-                </div>
-            </article>
+        </section>
 
-        </div>
-    </section>
+        <!-- ====================================================================
+             2. VISTA EXPANDIDA EN TODA LA PESTAÑA (DOSSIER TÉCNICO INTERACTIVO)
+             ==================================================================== -->
+        <section class="ejes-detail-container" id="ejesDetailContainer">
+            
+            <!-- Barra Superior de Control y Switcher entre Ejes -->
+            <nav class="eje-dossier-bar">
+                <button class="btn-back-hub" id="btnBackToHub" aria-label="Volver a la selección de los 3 ejes">
+                    <span>←</span>
+                    <span>Volver a la Selección de Ejes</span>
+                </button>
+
+                <div class="eje-tabs-group" role="tablist">
+                    <button class="tab-eje-btn" data-target="robotica" role="tab" style="--active-tab-color: #e5a958;">
+                        01 · Robótica y Rovers
+                    </button>
+                    <button class="tab-eje-btn" data-target="satelital" role="tab" style="--active-tab-color: #00e5ff;">
+                        02 · Sistemas Orbitales
+                    </button>
+                    <button class="tab-eje-btn" data-target="coheteria" role="tab" style="--active-tab-color: #ff7043;">
+                        03 · Cohetería y Propulsión
+                    </button>
+                </div>
+            </nav>
+
+            <!-- ================================================================
+                 EXPEDIENTE 01: ROBÓTICA Y MECÁNICA ESPACIAL
+                 ================================================================ -->
+            <div class="eje-full-dossier" id="dossier-robotica" style="--eje-color: #e5a958; --eje-glow: rgba(229, 169, 88, 0.25);">
+                
+                <!-- Fondo Atmosférico Espacial -->
+                <div class="dossier-ambient-bg" style="background-image: url('../assets/images/nasa/artemis_orion_lunar.jpg');"></div>
+
+                <!-- Encabezado Principal del Expediente -->
+                <div class="dossier-main-hero">
+                    <div class="dossier-category-tag">
+                        <span>✦</span>
+                        <span>EJE 01 // ROBÓTICA Y VEHÍCULOS DE SUPERFICIE</span>
+                    </div>
+                    <h2 class="dossier-main-title">Robótica y Mecánica Espacial</h2>
+                    <p class="dossier-meta-lead">
+                        Aprendiendo cinemática, modelado 3D y control de motores construyendo rovers para entender cómo sortear terrenos difíciles.
+                    </p>
+                    <div class="dossier-specs-strip">
+                        <span>Coordinación Estudiantil: <strong>César Olivares · Alessandro Orellano</strong></span>
+                        <span class="sep">/</span>
+                        <span>Prototipo en Desarrollo: <strong>Rover Perseverance (Escala Taller)</strong></span>
+                        <span class="sep">/</span>
+                        <span>Estatus: <strong style="color: #e5a958;">Prototipo Funcional en Pruebas</strong></span>
+                    </div>
+                </div>
+
+                <!-- Arquitectura Editorial Abierta: Línea de Tiempo Dinámica + Showcase Visual -->
+                <div class="dossier-narrative-layout">
+                    
+                    <!-- Columna Izquierda: Línea de Tiempo con Puntos Dinámicos -->
+                    <div class="dossier-timeline-column">
+                        <h2 class="narrative-section-title">Nuestra Ruta de Aprendizaje</h2>
+                        <span class="narrative-section-sub">De la Idea en Papel a las Pruebas de Taller y Terreno</span>
+
+                        <div class="dynamic-timeline-track">
+                            
+                            <!-- Paso 1: Origen y Motivación -->
+                            <div class="dynamic-timeline-step">
+                                <div class="timeline-pulse-node">
+                                    <div class="pulse-dot"></div>
+                                    <div class="pulse-ring"></div>
+                                </div>
+                                <span class="step-phase-tag">// PASO 01 · GÉNESIS &amp; MOTIVACIÓN</span>
+                                <h3>Ganas de Construir un Robot que Supere Terrenos Reales</h3>
+                                <p>
+                                    El eje partió de una inquietud común entre nosotros: queríamos ir más allá de los diagramas de clases y armar un robot físico capaz de moverse sobre tierra, piedras y pasto irregular. Al ver cómo resuelven la locomoción los vehículos que van a otros planetas, aprendimos que la tracción rígida convencional se atasca con facilidad, por lo que decidimos estudiar y construir un mecanismo de suspensión que mantenga siempre las ruedas apoyadas.
+                                </p>
+                            </div>
+
+                            <!-- Paso 2: Metas y Arquitectura Técnica -->
+                            <div class="dynamic-timeline-step">
+                                <div class="timeline-pulse-node">
+                                    <div class="pulse-dot"></div>
+                                    <div class="pulse-ring"></div>
+                                </div>
+                                <span class="step-phase-tag">// PASO 02 · OBJETIVOS DE APRENDIZAJE</span>
+                                <h3>Lo que Nos Propusimos Probar y Mejorar</h3>
+                                <ul class="clean-feature-list">
+                                    <li><span class="kw-white">Geometría Rocker-Bogie:</span> Probar un mecanismo pasivo sin resortes complejos que distribuya el peso para mantener las <span class="kw-gold">seis ruedas en contacto continuo</span> con el suelo al trepar desniveles.</li>
+                                    <li><span class="kw-white">Impresión Técnica en <span class="kw-code">PETG</span>:</span> Ensayar piezas en nuestras propias impresoras 3D, probando densidades de relleno giroidal para que los brazos aguanten golpes y torsión sin quebrarse.</li>
+                                    <li><span class="kw-white">Control de Tracción Independiente:</span> Aprender a conectar y programar motores individuales en cada rueda para lograr maniobras diferenciales (<span class="kw-code">skid-steer</span>) y giros sobre su propio eje.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Paso 3: Ciclo Vigente 2026-2027 -->
+                            <div class="dynamic-timeline-step">
+                                <div class="timeline-pulse-node">
+                                    <div class="pulse-dot"></div>
+                                    <div class="pulse-ring"></div>
+                                </div>
+                                <span class="step-phase-tag">// PASO 03 · CICLO ACTUAL (2026 - 2027)</span>
+                                <h3>Nuestro Primer Prototipo Completo: El Rover</h3>
+                                <p>
+                                    Durante este periodo logramos ensamblar nuestro primer modelo funcional completo a escala, probando pieza por pieza en el taller con el apoyo de materiales de <span class="kw-gold">Full 3D</span>.
+                                </p>
+                                <ul class="clean-feature-list">
+                                    <li><span class="kw-white">Premio al Esfuerzo en Impresión:</span> Recibimos el <span class="kw-gold">Premio a Mejor Impresión Aplicada</span> en la <em>3D Printed Party 2026</em>, lo que nos demostró que con dedicación se pueden lograr tolerancias mecánicas confiables hechas por estudiantes.</li>
+                                    <li><span class="kw-white">Vinculación con Escuelas:</span> Llevamos el rover a colegios y ferias vocacionales de la USACH para mostrarle a escolares que en la universidad es posible juntarse entre compañeros a crear proyectos prácticos.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Paso 4: Impacto Formativo -->
+                            <div class="dynamic-timeline-step">
+                                <div class="timeline-pulse-node">
+                                    <div class="pulse-dot"></div>
+                                    <div class="pulse-ring"></div>
+                                </div>
+                                <span class="step-phase-tag">// PASO 04 · IMPACTO FORMATIVO</span>
+                                <h3>¿Por Qué Este Tema es Clave para Nuestra Formación?</h3>
+                                <p>
+                                    Construir un rover nos obliga a cruzar disciplinas: mecánica para el chasis, electrónica para alimentar los motores y programación para los controles. Es una escuela práctica donde aprendemos a tolerar la frustración cuando una pieza no calza, iterar diseños y trabajar en equipo como futuros ingenieros.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Proyección Inmediata y Showcase Visual -->
+                    <div class="dossier-showcase-column">
+                        
+                        <!-- Horizonte Tecnológico 2027-2028 -->
+                        <div class="projections-focus-area">
+                            <span class="step-phase-tag" style="color: #e5a958;">// SIGUIENTE META DE APRENDIZAJE (2027 - 2028)</span>
+                            <h3>Hacia Dónde Queremos Avanzar: Mecanismos de Carga y Regolito</h3>
+                            <p>
+                                Inspirándonos en competencias universitarias como el <span class="kw-gold">NASA Lunabotics Challenge</span>, nuestra meta a mediano plazo no es quedarnos en hacer andar el rover, sino intentar agregarle mecanismos para excavar y mover arena o regolito simulado.
+                            </p>
+                            <p>
+                                Sabemos que es un salto grande de complejidad técnica, pero queremos ir probando tambores excavadores, protecciones contra el polvo abrasivo y sistemas de teleoperación más estables. Aprender sobre aprovechamiento de recursos (<span class="kw-code">ISRU</span>) nos mantiene curiosos y enfocados en mejorar lo que ya construimos.
+                            </p>
+                        </div>
+
+                        <!-- Galería Fotográfica Atmosférica (Sin Marcos Rígidos) -->
+                        <div class="atmospheric-photo-cluster">
+                            <div class="panoramic-photo-hero">
+                                <img src="../assets/images/nasa/nasa_viper_regolith_test.jpg" alt="Rover de prueba de la NASA en simulador de suelo lunar" loading="lazy">
+                                <div class="photo-overlay-caption">
+                                    <strong>Inspiración en Ensayos de NASA</strong>
+                                    Pruebas de tracción en arena del laboratorio SLOPE de NASA, que tomamos de referencia para pensar nuevas ruedas y orugas en nuestro taller.
+                                </div>
+                            </div>
+
+                            <div class="secondary-photo-pair">
+                                <div class="mini-photo-item">
+                                    <img src="../assets/images/nasa/artemis_orion_lunar.jpg" alt="Nave Orion del programa NASA Artemis en órbita lunar" loading="lazy">
+                                    <div class="mini-photo-caption">Programa Artemis // Contexto lunar</div>
+                                </div>
+                                <div class="mini-photo-item">
+                                    <img src="../assets/images/rover/rover_primer_ensamble_completo.jpg" alt="Rover Perseverance USACH Space Program" loading="lazy">
+                                    <div class="mini-photo-caption">Rover Perseverance // Taller USP</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botones de Acción Directa -->
+                        <div class="dossier-action-strip">
+                            <a href="/proyectos/rover/" class="btn-dossier-primary">
+                                <span>Ver Proyecto Rover Perseverance</span>
+                                <span>→</span>
+                            </a>
+                            <a href="/registro/" class="btn-dossier-secondary">
+                                <span>Sumarse al Equipo del Rover</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ================================================================
+                 EXPEDIENTE 02: SISTEMAS ORBITALES Y TELECOMUNICACIONES
+                 ================================================================ -->
+            <div class="eje-full-dossier" id="dossier-satelital" style="--eje-color: #00e5ff; --eje-glow: rgba(0, 229, 255, 0.25);">
+                
+                <!-- Fondo Atmosférico Espacial -->
+                <div class="dossier-ambient-bg" style="background-image: url('../assets/images/nasa/cubesat_deployment.jpg');"></div>
+
+                <!-- Encabezado Principal del Expediente -->
+                <div class="dossier-main-hero">
+                    <div class="dossier-category-tag">
+                        <span>✦</span>
+                        <span>EJE 02 // ELECTRÓNICA SATELITAL &amp; TELEMETRÍA</span>
+                    </div>
+                    <h2 class="dossier-main-title">Sistemas Orbitales y Satélites</h2>
+                    <p class="dossier-meta-lead">
+                        Aprendiendo a diseñar aviónica básica, comunicar sensores por radiofrecuencia y armar bancos de prueba paso a paso con componentes accesibles.
+                    </p>
+                    <div class="dossier-specs-strip">
+                        <span>Coordinación Estudiantil: <strong>Daniel González · Martín Castillo</strong></span>
+                        <span class="sep">/</span>
+                        <span>Proyectos en Curso: <strong>Mesa FlatSat 3U &amp; Desafío Mini Cube-Sat</strong></span>
+                        <span class="sep">/</span>
+                        <span>Estatus: <strong style="color: #00e5ff;">Primeros Módulos en Laboratorio</strong></span>
+                    </div>
+                </div>
+
+                <!-- Arquitectura Editorial Abierta: Línea de Tiempo Dinámica + Showcase Visual -->
+                <div class="dossier-narrative-layout">
+                    
+                    <!-- Columna Izquierda: Línea de Tiempo con Puntos Dinámicos -->
+                    <div class="dossier-timeline-column">
+                        <h2 class="narrative-section-title">Nuestra Ruta de Aprendizaje</h2>
+                        <span class="narrative-section-sub">De Componentes en Mesa a Ensayos de Altura</span>
+
+                        <div class="dynamic-timeline-track">
+                            
+                            <!-- Paso 1: Origen y Motivación -->
+                            <div class="dynamic-timeline-step">
+                                <div class="timeline-pulse-node">
+                                    <div class="pulse-dot"></div>
+                                    <div class="pulse-ring"></div>
+                                </div>
+                                <span class="step-phase-tag">// PASO 01 · GÉNESIS &amp; MOTIVACIÓN</span>
+                                <h3>Entender Cómo Funciona un Satélite por Dentro</h3>
+                                <p>
+                                    Muchos crecimos viendo los satélites como tecnología inalcanzable para un grupo de pregrado. El estándar internacional <span class="kw-cyan">CubeSat</span> nos abrió los ojos: nos enseñó que estudiantes universitarios en Chile podemos entender y construir circuitos satelitales usando componentes comerciales (<span class="kw-code">COTS</span>), aprendiendo cómo se comunica un microcontrolador y cómo resolver las fallas electrónicas más comunes.
+                                </p>
+                            </div>
+
+                            <!-- Paso 2: Metas y Arquitectura Técnica -->
+                            <div class="dynamic-timeline-step">
+                                <div class="timeline-pulse-node">
+                                    <div class="pulse-dot"></div>
+                                    <div class="pulse-ring"></div>
+                                </div>
+                                <span class="step-phase-tag">// PASO 02 · OBJETIVOS DE APRENDIZAJE</span>
+                                <h3>Módulos que Estamos Aprendiendo a Integrar</h3>
+                                <ul class="clean-feature-list">
+                                    <li><span class="kw-white">Computadora de A Bordo (<span class="kw-code">OBC</span>):</span> Programar microcontroladores para leer sensores, guardar registros y aprender a configurar rutinas de reinicio automático cuando el código se traba.</li>
+                                    <li><span class="kw-white">Alimentación y Baterías (<span class="kw-code">EPS</span>):</span> Armar reguladores de voltaje, probar celdas solares pequeñas y aprender a cargar baterías de litio protegiéndolas de sobrecorrientes.</li>
+                                    <li><span class="kw-white">Radioenlace Básico (<span class="kw-code">TTC</span>):</span> Ensayar módulos de radio <span class="kw-cyan">LoRa a 433 MHz</span> y antenas sencillas para enviar paquetes de datos desde el patio o azotea hacia nuestras laptops.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Paso 3: Ciclo Vigente 2026-2027 -->
+                            <div class="dynamic-timeline-step">
+                                <div class="timeline-pulse-node">
+                                    <div class="pulse-dot"></div>
+                                    <div class="pulse-ring"></div>
+                                </div>
+                                <span class="step-phase-tag">// PASO 03 · CICLO ACTUAL (2026 - 2027)</span>
+                                <h3>Lo que Estamos Probando Este Periodo</h3>
+                                <p>
+                                    Para no abarcarnos con metas irreales, dividimos el aprendizaje en dos proyectos concretos:
+                                </p>
+                                <ul class="clean-feature-list">
+                                    <li><span class="kw-white">Mesa FlatSat 3U:</span> Conectar todas las tarjetas sobre la mesa del laboratorio con cables directos, midiendo voltajes y depurando la comunicación <span class="kw-code">I2C / SPI</span> antes de encerrar todo en una estructura.</li>
+                                    <li><span class="kw-white">Desafío Mini Cube-Sat:</span> Una cajita de prueba con sensores suspendida a 30 metros de altura mediante un dron en campus para aprender a recibir telemetría ambiental en vivo en el suelo.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Paso 4: Impacto Formativo -->
+                            <div class="dynamic-timeline-step">
+                                <div class="timeline-pulse-node">
+                                    <div class="pulse-dot"></div>
+                                    <div class="pulse-ring"></div>
+                                </div>
+                                <span class="step-phase-tag">// PASO 04 · IMPACTO FORMATIVO</span>
+                                <h3>¿Por Qué Este Tema es Valioso para Formarnos?</h3>
+                                <p>
+                                    Aprender a diseñar una placa electrónica, soldar conectores prolijos y programar radioenlaces nos da herramientas prácticas que van mucho más allá de un ramo teórico. Nos prepara para entender la tecnología satelital actual y abre puertas vocacionales en telecomunicaciones y sistemas espaciales.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Proyección Inmediata y Showcase Visual -->
+                    <div class="dossier-showcase-column">
+                        
+                        <!-- Horizonte Tecnológico 2027-2028 -->
+                        <div class="projections-focus-area">
+                            <span class="step-phase-tag" style="color: #00e5ff;">// SIGUIENTE META DE APRENDIZAJE (2027 - 2028)</span>
+                            <h3>Nuestra Próxima Meta: Ensayar un Módulo 1U en Globo Estratosférico</h3>
+                            <p>
+                                El próximo paso que queremos dar es ensamblar un módulo <span class="kw-cyan">CubeSat 1U estándar (10x10x10 cm)</span> y elevarlo a bordo de un <strong>Globo Estratosférico (<span class="kw-cyan">HAB</span>)</strong> a más de <span class="kw-white">25.000 metros de altura</span>.
+                            </p>
+                            <p>
+                                Es una prueba análoga excelente para estudiantes: nos permitirá experimentar con frío intenso (<span class="kw-code">-50 °C</span>), baja presión de aire y medir si nuestro enlace de radio resiste transmitir datos continuos a más de <span class="kw-cyan">50 kilómetros</span> de distancia hacia el campus de la USACH.
+                            </p>
+                        </div>
+
+                        <!-- Galería Fotográfica Atmosférica (Sin Marcos Rígidos) -->
+                        <div class="atmospheric-photo-cluster">
+                            <div class="panoramic-photo-hero">
+                                <img src="../assets/images/nasa/cubesat_deployment.jpg" alt="Despliegue de CubeSat en órbita LEO desde la Estación Espacial Internacional" loading="lazy">
+                                <div class="photo-overlay-caption">
+                                    <strong>El Formato CubeSat</strong>
+                                    El estándar modular de 10 cm que nos guía en dimensiones y arquitectura de placas.
+                                </div>
+                            </div>
+
+                            <div class="secondary-photo-pair">
+                                <div class="mini-photo-item">
+                                    <img src="../assets/images/nasa/nasa_balloon_payload.jpg" alt="Lanzamiento de carga útil estratosférica NASA con globo HAB" loading="lazy">
+                                    <div class="mini-photo-caption">Vuelo en Globo HAB // +25 km</div>
+                                </div>
+                                <div class="mini-photo-item">
+                                    <img src="../assets/images/nasa/minicubesat_lab.jpg" alt="Banco de instrumentación electrónica satelital" loading="lazy">
+                                    <div class="mini-photo-caption">Banco FlatSat // Mesa de Pruebas</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botones de Acción Directa -->
+                        <div class="dossier-action-strip">
+                            <a href="/proyectos/cubesat/" class="btn-dossier-primary" style="background: #00e5ff;">
+                                <span>Ver Proyecto Bus CubeSat 3U</span>
+                                <span>→</span>
+                            </a>
+                            <a href="/proyectos/cansat/" class="btn-dossier-secondary">
+                                <span>Ver Desafío Mini Cube-Sat</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ================================================================
+                 EXPEDIENTE 03: COHETERÍA Y PROPULSIÓN
+                 ================================================================ -->
+            <div class="eje-full-dossier" id="dossier-coheteria" style="--eje-color: #ff7043; --eje-glow: rgba(255, 112, 67, 0.25);">
+                
+                <!-- Fondo Atmosférico Espacial -->
+                <div class="dossier-ambient-bg" style="background-image: url('../assets/images/nasa/cohete_multietapa.jpg');"></div>
+
+                <!-- Encabezado Principal del Expediente -->
+                <div class="dossier-main-hero">
+                    <div class="dossier-category-tag">
+                        <span>✦</span>
+                        <span>EJE 03 // PROPULSIÓN BÁSICA &amp; AERODINÁMICA</span>
+                    </div>
+                    <h2 class="dossier-main-title">Cohetería y Propulsión</h2>
+                    <p class="dossier-meta-lead">
+                        Aprendiendo física de empuje reactivo, estabilidad de aletas en vuelo y paracaídas con cohetes de agua a presión para ir paso a paso.
+                    </p>
+                    <div class="dossier-specs-strip">
+                        <span>Coordinación Estudiantil: <strong>Alessandro Orellano · Simón García-Huidobro</strong></span>
+                        <span class="sep">/</span>
+                        <span>Proyectos en Curso: <strong>Cohetes de Agua &amp; Desafío Salva a Usachín</strong></span>
+                        <span class="sep">/</span>
+                        <span>Estatus: <strong style="color: #ff7043;">Lanzamientos y Pruebas en Terreno</strong></span>
+                    </div>
+                </div>
+
+                <!-- Arquitectura Editorial Abierta: Línea de Tiempo Dinámica + Showcase Visual -->
+                <div class="dossier-narrative-layout">
+                    
+                    <!-- Columna Izquierda: Línea de Tiempo con Puntos Dinámicos -->
+                    <div class="dossier-timeline-column">
+                        <h2 class="narrative-section-title">Nuestra Ruta de Aprendizaje</h2>
+                        <span class="narrative-section-sub">De la Presión de Agua al Diseño de Paracaídas</span>
+
+                        <div class="dynamic-timeline-track">
+                            
+                            <!-- Paso 1: Origen y Motivación -->
+                            <div class="dynamic-timeline-step">
+                                <div class="timeline-pulse-node">
+                                    <div class="pulse-dot"></div>
+                                    <div class="pulse-ring"></div>
+                                </div>
+                                <span class="step-phase-tag">// PASO 01 · GÉNESIS &amp; MOTIVACIÓN</span>
+                                <h3>Aprender Física de Vuelo sin Quemar Etapas</h3>
+                                <p>
+                                    Lanzarse a fabricar motores de combustible sólido sin experiencia en un campus universitario sería imprudente e inseguro. Por eso partimos experimentando con cohetes de agua y aire a presión: nos permiten entender la <span class="kw-orange">tercera ley de Newton</span>, medir empujes y ver cómo vuela un fuselaje de forma segura, barata y repetible.
+                                </p>
+                            </div>
+
+                            <!-- Paso 2: Metas y Arquitectura Técnica -->
+                            <div class="dynamic-timeline-step">
+                                <div class="timeline-pulse-node">
+                                    <div class="pulse-dot"></div>
+                                    <div class="pulse-ring"></div>
+                                </div>
+                                <span class="step-phase-tag">// PASO 02 · OBJETIVOS DE APRENDIZAJE</span>
+                                <h3>Los Desafíos que Nos Toca Resolver en Taller</h3>
+                                <ul class="clean-feature-list">
+                                    <li><span class="kw-white">Estabilidad con Aletas:</span> Calcular y ajustar la posición de las aletas para asegurar que el <span class="kw-orange">Centro de Presión (CP)</span> quede detrás del <span class="kw-white">Centro de Gravedad (CG)</span>, evitando que el cohete baile o gire descontrolado en el aire.</li>
+                                    <li><span class="kw-white">Presurización Segura (<span class="kw-code">80 PSI</span>):</span> Aprender a sellar cámaras, usar válvulas de inflado estándar y construir bases de lanzamiento con seguros mecánicos para lanzar con calma y distancia preventiva.</li>
+                                    <li><span class="kw-white">Apertura de Paracaídas:</span> Diseñar mecanismos pasivos sencillos para que la cofia se desplace en el apogeo y libere un paracaídas casero, devolviendo el cohete entero al suelo.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Paso 3: Ciclo Vigente 2026-2027 -->
+                            <div class="dynamic-timeline-step">
+                                <div class="timeline-pulse-node">
+                                    <div class="pulse-dot"></div>
+                                    <div class="pulse-ring"></div>
+                                </div>
+                                <span class="step-phase-tag">// PASO 03 · CICLO ACTUAL (2026 - 2027)</span>
+                                <h3>Proyectos en los que Estamos Trabajando Ahora</h3>
+                                <p>
+                                    Actualmente nos concentramos en dos actividades formativas de taller y vuelo:
+                                </p>
+                                <ul class="clean-feature-list">
+                                    <li><span class="kw-white">Cohetería de Agua Multietapa:</span> Probar sistemas de acople entre dos botellas para aprender cómo transferir presión y lograr mayor tiempo de empuje en subida.</li>
+                                    <li><span class="kw-white">Desafío Salva a Usachín:</span> Una competencia interna donde armamos cápsulas de menos de 1 litro con paracaídas y amortiguadores caseros para evitar que un sensor se dañe al caer desde 30 metros soltado por un dron.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Paso 4: Impacto Formativo -->
+                            <div class="dynamic-timeline-step">
+                                <div class="timeline-pulse-node">
+                                    <div class="pulse-dot"></div>
+                                    <div class="pulse-ring"></div>
+                                </div>
+                                <span class="step-phase-tag">// PASO 04 · IMPACTO FORMATIVO</span>
+                                <h3>Lo que Nos Enseña Experimentar con Cohetería</h3>
+                                <p>
+                                    Dimensionar aletas, armar toberas de escape e ingeniar un paracaídas que abra a tiempo nos enseña física práctica y respeto por las tolerancias mecánicas. Es una forma divertida y muy formativa de aplicar fluidos, dinámica y seguridad operativa en equipo.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Proyección Inmediata y Showcase Visual -->
+                    <div class="dossier-showcase-column">
+                        
+                        <!-- Horizonte Tecnológico 2027-2028 -->
+                        <div class="projections-focus-area">
+                            <span class="step-phase-tag" style="color: #ff7043;">// SIGUIENTE META DE APRENDIZAJE (2027 - 2028)</span>
+                            <h3>Hacia Dónde Queremos Avanzar: Aviónica con Sensores y Primeros Pasos Responsables</h3>
+                            <p>
+                                Para el próximo ciclo queremos sumar electrónica a los cohetes: pequeñas placas con sensores barométricos de altitud y acelerómetros (<span class="kw-code">IMU</span>) para registrar la curva de vuelo en una tarjeta SD y abrir el paracaídas electrónicamente en el punto más alto.
+                            </p>
+                            <p>
+                                A futuro nos gustaría estudiar la transición hacia cohetería experimental de propulsión sólida, pero entendemos que eso requiere muchísima responsabilidad, permisos de la <span class="kw-white">DGAC</span>, protocolos de seguridad estrictos y asesoría académica que iremos construyendo paso a paso.
+                            </p>
+                        </div>
+
+                        <!-- Galería Fotográfica Atmosférica (Sin Marcos Rígidos) -->
+                        <div class="atmospheric-photo-cluster">
+                            <div class="panoramic-photo-hero">
+                                <img src="../assets/images/nasa/cohete_multietapa.jpg" alt="Vehículo de lanzamiento y sondeo multietapa" loading="lazy">
+                                <div class="photo-overlay-caption">
+                                    <strong>Vectores de Lanzamiento</strong>
+                                    El principio de empuje y estabilidad que buscamos comprender a escala en nuestros ensayos de taller.
+                                </div>
+                            </div>
+
+                            <div class="secondary-photo-pair">
+                                <div class="mini-photo-item">
+                                    <img src="../assets/images/nasa/cohete_1u_prep.jpg" alt="Bahía de instrumentación y aviónica de cohete" loading="lazy">
+                                    <div class="mini-photo-caption">Bahía de Aviónica // Sensores IMU</div>
+                                </div>
+                                <div class="mini-photo-item">
+                                    <img src="../assets/images/nasa/salva_usachin_drop.jpg" alt="Ensayo de paracaídas y recuperación aerodinámica" loading="lazy">
+                                    <div class="mini-photo-caption">Recuperación // Ensayando Paracaídas</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botones de Acción Directa -->
+                        <div class="dossier-action-strip">
+                            <a href="/proyectos/cohete/" class="btn-dossier-primary" style="background: #ff7043;">
+                                <span>Ver Proyecto Cohetería</span>
+                                <span>→</span>
+                            </a>
+                            <a href="/proyectos/eggdrop/" class="btn-dossier-secondary">
+                                <span>Ver Desafío Salva a Usachín</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- BANNER DE POSTULACIÓN INFERIOR -->
+        <section class="ejes-bottom-cta">
+            <div class="rover-section-tag" style="justify-content: center; margin-bottom: 12px;">
+                <span>✦</span>
+                <span>ÚNETE AL EQUIPO // USACH SPACE PROGRAM</span>
+            </div>
+            <h3>¿EN CUÁL DE ESTOS EJES TE GUSTARÍA APRENDER?</h3>
+            <p>
+                Las puertas están abiertas para estudiantes de cualquier carrera de la USACH. No necesitas experiencia previa ni ser un experto: solo ganas de aprender, meter las manos al taller y trabajar en equipo para ir mejorando nuestros proyectos juntos.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+                <a href="/registro/" class="btn-nav-postular" style="padding: 12px 28px; font-size: 0.95rem;">
+                    <span>Postular al Equipo de Trabajo</span>
+                </a>
+                <a href="/talleres/" class="btn-nav-contact" style="padding: 12px 24px; font-size: 0.95rem;">
+                    <span>Participar en Desafíos Formativos</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
 
     <!-- FOOTER INSTITUCIONAL -->
     <footer style="background: #000000; border-top: 1px solid var(--border-subtle); padding: 70px 40px 40px;">
@@ -223,9 +750,10 @@
             <div>
                 <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Navegación</h4>
                 <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
-                    <li><a href="../../index.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">← Inicio Principal</a></li>
-                    <li><a href="./proyectos.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Catálogo de Proyectos</a></li>
-                    <li><a href="./registro.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Convocatoria y Postulación</a></li>
+                    <li><a href="/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">← Inicio Principal</a></li>
+                    <li><a href="/proyectos/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Catálogo de Proyectos</a></li>
+                    <li><a href="/registro/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Convocatoria de Estudiantes</a></li>
+                    <li><a href="/talleres/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Desafíos Formativos</a></li>
                 </ul>
             </div>
             <div>
@@ -236,13 +764,99 @@
         </div>
         <div style="max-width: 1400px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">
             <span>&copy; 2026 USACH Space Program. Todos los derechos reservados.</span>
-            <span>Diseño y Fabricación con Fines Educativos</span>
+            <span>Dominios de Investigación y Prototipado Aeroespacial</span>
         </div>
     </footer>
 
-    <!-- Script de navegación e interactividad -->
+    <!-- LÓGICA INTERACTIVA: PILARES Y DOSSIERS -->
     <script type="module">
         document.addEventListener('DOMContentLoaded', () => {
+            const pillarsContainer = document.getElementById('ejesPillarsContainer');
+            const detailContainer = document.getElementById('ejesDetailContainer');
+            const btnBackToHub = document.getElementById('btnBackToHub');
+            const pillarCards = document.querySelectorAll('.eje-pillar-card');
+            const tabButtons = document.querySelectorAll('.tab-eje-btn');
+            const dossiers = document.querySelectorAll('.eje-full-dossier');
+
+            // Función para abrir un eje específico en el expediente completo
+            function openDossier(ejeKey) {
+                // Ocultar pilares y mostrar detalle
+                pillarsContainer.classList.add('is-hidden');
+                detailContainer.classList.add('is-active');
+
+                // Activar pestaña correspondiente
+                tabButtons.forEach(btn => {
+                    if (btn.dataset.target === ejeKey) {
+                        btn.classList.add('active-tab');
+                    } else {
+                        btn.classList.remove('active-tab');
+                    }
+                });
+
+                // Mostrar el panel de contenido correspondiente
+                dossiers.forEach(panel => {
+                    if (panel.id === `dossier-${ejeKey}`) {
+                        panel.classList.add('is-active-panel');
+                    } else {
+                        panel.classList.remove('is-active-panel');
+                    }
+                });
+
+                // Desplazar suavemente a la parte superior del dossier
+                const dossierTop = detailContainer.getBoundingClientRect().top + window.scrollY - 90;
+                window.scrollTo({ top: dossierTop, behavior: 'smooth' });
+
+                // Actualizar hash en la URL sin recargar
+                history.replaceState(null, '', `#${ejeKey}`);
+            }
+
+            // Función para volver a la vista inicial de los 3 pilares
+            function returnToHub() {
+                detailContainer.classList.remove('is-active');
+                pillarsContainer.classList.remove('is-hidden');
+                history.replaceState(null, '', window.location.pathname);
+                const hubTop = pillarsContainer.getBoundingClientRect().top + window.scrollY - 100;
+                window.scrollTo({ top: hubTop, behavior: 'smooth' });
+            }
+
+            // Listeners en las tarjetas de pilares
+            pillarCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const ejeKey = card.dataset.eje;
+                    openDossier(ejeKey);
+                });
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const ejeKey = card.dataset.eje;
+                        openDossier(ejeKey);
+                    }
+                });
+            });
+
+            // Listeners en las pestañas del switcher
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const target = btn.dataset.target;
+                    openDossier(target);
+                });
+            });
+
+            // Listener en el botón de regreso al Hub
+            if (btnBackToHub) {
+                btnBackToHub.addEventListener('click', returnToHub);
+            }
+
+            // Detección automática por URL hash al cargar (ej: #robotica, #satelital, #coheteria)
+            const initialHash = window.location.hash.replace('#', '').toLowerCase();
+            if (initialHash === 'robotica' || initialHash === 'eje-robotica' || initialHash === 'eje-01') {
+                openDossier('robotica');
+            } else if (initialHash === 'satelital' || initialHash === 'eje-satelital' || initialHash === 'eje-02') {
+                openDossier('satelital');
+            } else if (initialHash === 'coheteria' || initialHash === 'eje-coheteria' || initialHash === 'eje-03') {
+                openDossier('coheteria');
+            }
+
             // Menú móvil
             const menuToggle = document.getElementById('menuToggle');
             const mobileMenu = document.getElementById('mobileMenu');
@@ -259,11 +873,11 @@
                 });
             }
 
-            // Generador de estrellas
+            // Generador de estrellas de fondo
             const starsContainer = document.getElementById('stars');
             if (starsContainer) {
                 const fragment = document.createDocumentFragment();
-                for (let i = 0; i < 40; i++) {
+                for (let i = 0; i < 45; i++) {
                     const star = document.createElement('div');
                     star.className = 'star';
                     const size = Math.random() * 2 + 0.8;

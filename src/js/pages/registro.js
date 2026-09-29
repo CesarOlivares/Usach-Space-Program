@@ -42,7 +42,7 @@
 
             const btn = document.querySelector('.btn-submit');
             const textoOriginal = btn.innerHTML;
-            btn.innerHTML = 'REGISTRANDO TRIPULANTE...';
+            btn.innerHTML = 'ENVIANDO REGISTRO...';
             btn.disabled = true;
 
             const correo = document.getElementById('correo').value;

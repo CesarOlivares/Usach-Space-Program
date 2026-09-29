@@ -14,7 +14,7 @@
     <!-- Header Component -->
     <header>
         <div class="nav-brand-container">
-            <a href="index.html" class="nav-brand-link">
+            <a href="/" class="nav-brand-link">
                 <img src="./src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="nav-logo">
                 <span class="nav-brand">USACH Space Program</span>
             </a>
@@ -27,11 +27,11 @@
         </button>
 
         <nav class="nav-links" id="navLinks">
-            <a href="#ejes">Ejes</a>
-            <a href="./src/pages/proyectos.html">Proyectos</a>
+            <a href="/ejes/">Ejes</a>
+            <a href="/proyectos/">Proyectos</a>
             <a href="#manifiesto">Manifiesto</a>
             <a href="#alianzas">Alianzas</a>
-            <a href="./src/pages/registro.html" class="btn-nav-cta">Postular</a>
+            <a href="/registro/" class="btn-nav-cta">Postular</a>
             <a href="mailto:spaceprogram@usach.cl" style="color: var(--accent-amber); margin-left: 20px; text-decoration: none; font-size: 0.8rem; font-family: var(--font-mono); letter-spacing: 1px;">Contacto</a>
         </nav>
     </header>
@@ -82,7 +82,7 @@
             </p>
 
             <div class="hero-cta-group">
-                <a href="./src/pages/registro.html" class="btn-primary-tech">
+                <a href="/registro/" class="btn-primary-tech">
                     <span>Postular a la Convocatoria 2026</span>
                     <span class="btn-arrow">→</span>
                 </a>
@@ -167,7 +167,7 @@
                     Desarrollamos prototipos robóticos para aprender de la industria aeroespacial y afinar nuestras habilidades mecatrónicas. Experimentamos con disipación térmica, integración de baterías BMS y sensores LiDAR para navegación y autonomía en tierra.
                 </p>
                 <div class="eje-footer">
-                    <a href="./src/pages/proyectos/rover_avanzado.html" class="link-tech link-amber">Más detalles del Rover <span>→</span></a>
+                    <a href="/proyectos/rover/" class="link-tech link-amber">Más detalles del Rover <span>→</span></a>
                 </div>
             </div>
 
@@ -195,7 +195,7 @@
                     Utilizamos cohetes hidroneumáticos como plataforma segura de bajo costo para entender en la práctica las leyes de Newton, aerodinámica, centrado de masas y paracaídas. Este aprendizaje experimental nos permite dominar la técnica paso a paso con miras a la cohetería experimental.
                 </p>
                 <div class="eje-footer">
-                    <a href="./src/pages/proyectos/cohete.html" class="link-tech link-amber">Más detalles de Cohetería <span>→</span></a>
+                    <a href="/proyectos/cohete/" class="link-tech link-amber">Más detalles de Cohetería <span>→</span></a>
                 </div>
             </div>
 
@@ -223,9 +223,17 @@
                     Diseñamos e integramos en banco de laboratorio (FlatSat) la arquitectura de satélites 1U: computadores de a bordo (OBC), electrónica de potencia (BMS/EPS) y enlaces de radiofrecuencia (COMMS), probando cada subsistema en tierra para aprender cómo se operan misiones satelitales reales.
                 </p>
                 <div class="eje-footer">
-                    <a href="./src/pages/proyectos/cubesat_avanzado.html" class="link-tech link-amber">Más detalles del CubeSat <span>→</span></a>
+                    <a href="/proyectos/cubesat/" class="link-tech link-amber">Más detalles del CubeSat <span>→</span></a>
                 </div>
             </div>
+        </div>
+
+        <!-- Botón de Acceso a Proyecciones y Detalle de Ejes -->
+        <div class="ejes-action-wrap" style="text-align: center; margin-top: 48px;">
+            <a href="/ejes/" class="btn-primary-tech">
+                <span>Más información de las proyecciones de los ejes, aquí</span>
+                <span class="btn-arrow">→</span>
+            </a>
         </div>
     </section>
 
@@ -261,7 +269,7 @@
                         <span>ESTADO: OPTIMIZACIÓN 2026</span>
                         <span>MECATRÓNICA / AUTONOMÍA</span>
                     </div>
-                    <a href="./src/pages/proyectos/rover_avanzado.html" class="btn-card-link">Ver Ficha Técnica →</a>
+                    <a href="/proyectos/rover/" class="btn-card-link">Ver Ficha Técnica →</a>
                 </div>
             </div>
 
@@ -280,7 +288,7 @@
                         <span>ESTADO: BANCO DE ENSAYO</span>
                         <span>AERODINÁMICA / AVIÓNICA</span>
                     </div>
-                    <a href="./src/pages/proyectos/cohete.html" class="btn-card-link">Ver Ficha Técnica →</a>
+                    <a href="/proyectos/cohete/" class="btn-card-link">Ver Ficha Técnica →</a>
                 </div>
             </div>
 
@@ -299,7 +307,7 @@
                         <span>ESTADO: INTEGRACIÓN LAB</span>
                         <span>TELECOMUNICACIONES / OBC</span>
                     </div>
-                    <a href="./src/pages/proyectos/cubesat_avanzado.html" class="btn-card-link">Ver Ficha Técnica →</a>
+                    <a href="/proyectos/cubesat/" class="btn-card-link">Ver Ficha Técnica →</a>
                 </div>
             </div>
 
@@ -310,15 +318,15 @@
                     <span class="project-eje-tag">ONBOARDING TÉCNICO</span>
                 </div>
                 <div class="project-tech-body">
-                    <h4>Mini-CubeSat</h4>
+                    <h4>Misión: Mini Cube-Sat</h4>
                     <p class="project-tech-summary">
-                        Iniciativa de introducción práctica a la ingeniería de sistemas espaciales. Empaquetamiento de microcontrolador, sensórica ambiental básica y protocolo de transmisión.
+                        Desafío de electrónica y telemetría inalámbrica en 4 semanas. Integra sensores, controlador y antena en un cubo cerrado para registrar anomalías ambientales con dron a 30m.
                     </p>
                     <div class="project-tech-specs">
-                        <span>FORMATO: TALLER / INTRO</span>
-                        <span>ELECTRÓNICA & FIRMWARE</span>
+                        <span>FORMATO: DESAFÍO 4 SEM</span>
+                        <span>ELECTRÓNICA & TELEMETRÍA</span>
                     </div>
-                    <a href="./src/pages/proyectos/cansat.html" class="btn-card-link">Ver Iniciativa →</a>
+                    <a href="/proyectos/cansat/" class="btn-card-link">Ver Iniciativa →</a>
                 </div>
             </div>
 
@@ -329,15 +337,15 @@
                     <span class="project-eje-tag">ONBOARDING TÉCNICO</span>
                 </div>
                 <div class="project-tech-body">
-                    <h4>Salva Usachin</h4>
+                    <h4>Misión: Salva a Usachín</h4>
                     <p class="project-tech-summary">
-                        Desafío práctico de diseño estructural y disipación de energía de impacto cinético. Creación de cápsulas de sacrificio para proteger una carga biológica en caída libre.
+                        Desafío de paracaídas y descenso pasivo en 4 semanas. Diseña una cápsula en molde de 1L que amortigüe el impacto del módulo sensor OLED lanzado desde un dron.
                     </p>
                     <div class="project-tech-specs">
-                        <span>FORMATO: COMPETENCIA</span>
-                        <span>ESTRUCTURAS & IMPACTO</span>
+                        <span>FORMATO: COMPETENCIA 4 SEM</span>
+                        <span>PARACAÍDAS & AMORTIGUACIÓN</span>
                     </div>
-                    <a href="./src/pages/proyectos/eggdrop.html" class="btn-card-link">Ver Actividad →</a>
+                    <a href="/proyectos/eggdrop/" class="btn-card-link">Ver Actividad →</a>
                 </div>
             </div>
 
@@ -356,7 +364,7 @@
                         <span>FORMATO: INTRODUCCIÓN</span>
                         <span>FÍSICA & AERODINÁMICA</span>
                     </div>
-                    <a href="./src/pages/proyectos/cohete.html" class="btn-card-link">Ver Iniciativa →</a>
+                    <a href="/proyectos/cohete/" class="btn-card-link">Ver Iniciativa →</a>
                 </div>
             </div>
 
@@ -521,13 +529,13 @@
             
             <!-- Panel Estudiantes -->
             <div class="conversion-card students">
-                <div class="card-tag">// TRIPULACIÓN TÉCNICA</div>
+                <div class="card-tag">// POSTULACIÓN DE ESTUDIANTES</div>
                 <h3>¿Eres estudiante y buscas construir proyectos reales?</h3>
                 <p>
                     Buscamos estudiantes con ganas de aprender en taller, desarrollar prototipos físicos, software o gestión. No se requiere experiencia previa en todas las áreas: valoramos el compromiso, la honestidad técnica y la curiosidad por aprender.
                 </p>
                 <div class="conversion-action">
-                    <a href="./src/pages/registro.html" class="btn-primary-tech">
+                    <a href="/registro/" class="btn-primary-tech">
                         <span>Postular a la Convocatoria 2026</span>
                         <span class="btn-arrow">→</span>
                     </a>
@@ -594,10 +602,10 @@
             <div class="footer-links">
                 <h4>Navegación</h4>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="./src/pages/proyectos.html">Proyectos</a></li>
-                    <li><a href="./src/pages/ejes.html">Ejes</a></li>
-                    <li><a href="./src/pages/registro.html">Postular</a></li>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/proyectos/">Proyectos</a></li>
+                    <li><a href="/ejes/">Ejes</a></li>
+                    <li><a href="/registro/">Postular</a></li>
                 </ul>
             </div>
 

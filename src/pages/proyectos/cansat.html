@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini-CubeSat 1U &amp; CanSat | USACH Space Program</title>
+    <title>Misión: Mini Cube-Sat | USACH Space Program</title>
     
     <link rel="icon" type="image/png" href="../../../src/assets/images/logo_noTextBLACK.png">
     <link rel="stylesheet" href="../../../src/styles/main.css">
+    <link rel="stylesheet" href="../../../src/styles/components/project-template.css">
     
-    <style>@import url("../../styles/pages/proyectos/cansat.css");</style>
+    <style>@import url("../../styles/pages/proyectos/rover_avanzado.css");</style>
 </head>
 <body>
 
@@ -18,40 +19,36 @@
     <!-- 0. BARRA SUPERIOR DE NAVEGACIÓN RÁPIDA (HUD NAVBAR) -->
     <header class="rover-navbar">
         <div class="rover-navbar-inner">
-            <!-- Brand -->
-            <a href="../../../index.html" class="rover-nav-back" title="USACH Space Program">
+            <!-- Brand Oficial -->
+            <a href="/" class="rover-nav-back" title="USACH Space Program">
                 <img src="../../../src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="rover-nav-logo">
-                <span class="brand-title">USACH Space Program</span>
+                <span class="brand-title">USACH SPACE PROGRAM</span>
             </a>
 
             <!-- Enlaces Rápidos (Escritorio) -->
             <nav class="rover-quick-nav">
                 <div class="nav-group">
-                    <a href="../../../index.html" class="rover-nav-link">Inicio</a>
-                    <a href="../../../index.html#ejes" class="rover-nav-link">Ejes</a>
-                    <a href="../../../index.html#proyectos" class="rover-nav-link">Proyectos</a>
-                    <a href="../../../index.html#alianzas" class="rover-nav-link">Alianzas</a>
+                    <a href="/" class="rover-nav-link">Inicio</a>
+                    <a href="/ejes/" class="rover-nav-link">Ejes</a>
+                    <a href="/proyectos/" class="rover-nav-link">Proyectos</a>
+                    <a href="/#alianzas" class="rover-nav-link">Alianzas</a>
                 </div>
 
                 <span class="nav-divider">|</span>
 
                 <div class="nav-group">
-                    <a href="#mision" class="rover-nav-pill active-pill">Misión 1U</a>
-                    <a href="#sensores" class="rover-nav-pill">Sensores</a>
-                    <a href="#estratosfera" class="rover-nav-pill">Estratosfera</a>
-                    <a href="#metodologia" class="rover-nav-pill">Metodología</a>
-                    <a href="#contacto" class="rover-nav-pill">Contacto</a>
+                    <a href="#mision" class="rover-nav-pill">La Misión</a>
+                    <a href="#objetivos" class="rover-nav-pill">Objetivos</a>
+                    <a href="#sesiones" class="rover-nav-pill">Línea de Tiempo</a>
+                    <a href="#final" class="rover-nav-pill">Prueba en Vuelo</a>
+                    <a href="#premios" class="rover-nav-pill">Premios</a>
                 </div>
             </nav>
 
             <!-- Acciones -->
             <div class="rover-nav-actions">
-                <a href="mailto:spaceprogram@usach.cl?subject=Consulta%20Mini-CubeSat%201U%20-%20USACH%20Space%20Program" class="btn-nav-contact">
-                    <span>Contacto</span>
-                    <span>✉</span>
-                </a>
-                <a href="../../../src/pages/registro.html" class="btn-nav-postular">
-                    <span>Postular</span>
+                <a href="/talleres/?mision=mini_cubesat" class="btn-nav-postular">
+                    <span>Inscribir Equipo</span>
                 </a>
             </div>
 
@@ -65,37 +62,37 @@
 
         <!-- Menú Desplegable Móvil -->
         <div class="rover-mobile-menu" id="mobileMenu">
-            <a href="../../../index.html" class="mobile-link home-link">USACH Space Program (Inicio)</a>
+            <a href="/" class="mobile-link home-link">USACH Space Program (Inicio)</a>
             <div class="mobile-section-label">SECCIONES PRINCIPALES</div>
-            <a href="../../../index.html#ejes" class="mobile-link">Ejes Estratégicos</a>
-            <a href="../../../index.html#proyectos" class="mobile-link">Proyectos USP</a>
-            <a href="../../../index.html#manifiesto" class="mobile-link">Manifiesto Estudiantil</a>
-            <a href="../../../index.html#alianzas" class="mobile-link">Alianzas Institucionales</a>
-            <div class="mobile-section-label">SECCIONES MINI-CUBESAT 1U</div>
-            <a href="#mision" class="mobile-link">Misión CubeSat 1U y CanSat</a>
-            <a href="#sensores" class="mobile-link">Aviónica y Telemetría en Vuelo</a>
-            <a href="#estratosfera" class="mobile-link">Validación en Vuelo Estratosférico</a>
-            <a href="#metodologia" class="mobile-link">Ciclo de Aprendizaje FlatSat</a>
+            <a href="/ejes/" class="mobile-link">Ejes Estratégicos</a>
+            <a href="/proyectos/" class="mobile-link">Catálogo de Proyectos</a>
+            <a href="/#manifiesto" class="mobile-link">Manifiesto Estudiantil</a>
+            <a href="/#alianzas" class="mobile-link">Alianzas Institucionales</a>
+            <div class="mobile-section-label">PROYECTOS Y HARDWARE</div>
+            <a href="/proyectos/rover/" class="mobile-link">Rover Perseverance (Flagship)</a>
+            <a href="/proyectos/cubesat/" class="mobile-link">Bus Satelital CubeSat 3U</a>
+            <a href="/proyectos/cohete/" class="mobile-link">Cohetería Experimental &amp; Agua</a>
+            <a href="/proyectos/cansat/" class="mobile-link active-link">Misión: Mini Cube-Sat</a>
+            <a href="/proyectos/eggdrop/" class="mobile-link">Misión: Salva a Usachín</a>
             <div class="mobile-actions">
-                <a href="mailto:spaceprogram@usach.cl" class="btn-mobile-cta">Contacto: spaceprogram@usach.cl</a>
-                <a href="../../../src/pages/registro.html" class="btn-mobile-postular">Postular al Equipo 2026</a>
+                <a href="/talleres/?mision=mini_cubesat" class="btn-mobile-postular">Inscribir Equipo al Desafío</a>
             </div>
         </div>
     </header>
 
     <!-- 1. HERO SECTION -->
     <section class="rover-hero-section">
-        <div class="rover-hero-watermark">MINI-CUBESAT</div>
+        <div class="rover-hero-watermark">CUBESAT</div>
         <div class="rover-hero-ambient"></div>
 
         <div class="rover-hero-container">
-            <!-- Columna Izquierda: Viewport Carga Útil NASA Balloon -->
+            <!-- Columna Izquierda: Viewport Carga Útil Satélite -->
             <div class="rover-viewport-card">
                 <div class="rover-img-wrapper">
-                    <img src="../../../src/assets/images/nasa/nasa_balloon_payload.jpg" alt="Ensayo de carga útil aeroespacial y globo estratosférico - NASA">
+                    <img src="../../../src/assets/images/nasa/nasa_balloon_payload.jpg" alt="Misión Mini Cube-Sat - Desafío abierto de electrónica y comunicación inalámbrica">
                     <div class="rover-img-overlay-telemetry">
-                        <span class="rover-overlay-tag">NASA // HIGH ALTITUDE PAYLOAD</span>
-                        <span class="rover-overlay-badge">VALIDACIÓN ANÁLOGA</span>
+                        <span class="rover-overlay-tag">EJE SISTEMAS ORBITALES // TELEMETRÍA</span>
+                        <span class="rover-overlay-badge">ENSAYO CON DRON (30 METROS)</span>
                     </div>
                 </div>
             </div>
@@ -104,230 +101,262 @@
             <div class="rover-hero-content">
                 <div class="rover-section-tag">
                     <span>✦</span>
-                    <span>INICIATIVA FORMATIVA // EJE 03 SISTEMAS ORBITALES</span>
+                    <span>USACH SPACE PROGRAM · EJE DE SISTEMAS ORBITALES Y TELECOMUNICACIONES</span>
                 </div>
-                <h1 class="rover-hero-title">MINI-CUBESAT 1U &amp; CANSAT</h1>
-                <h2 class="rover-hero-subtitle">Ingeniería Espacial Compacta y Validación Estratosférica</h2>
+                <h1 class="rover-hero-title">MISIÓN: MINI CUBE-SAT</h1>
+                <h2 class="rover-hero-subtitle">Desafío Abierto de Electrónica y Comunicación Inalámbrica</h2>
                 
                 <p class="rover-hero-desc">
-                    El primer paso práctico en el diseño de satélites. En un volumen estandarizado de 1 Unidad (10×10×10 cm) o formato CanSat, los estudiantes aprenden a condensar computadores de a bordo, sensores ambientales, sistemas de energía por batería y radioenlace de telemetría hacia nuestra estación terrena.
+                    <strong>¿Alguna vez has deseado poder hacer un satélite? ¡En esta actividad podrás integrarlo y ponerlo a prueba en el aire!</strong> ¡Se han detectado anomalías en el aire de nuestro campus! Debemos realizar mediciones en las alturas de la USACH para identificar a los responsables. Cada equipo integrará su propio Mini satélite capaz de comunicarse con nosotros desde el aire y transmitir datos en vivo mientras es elevado por un dron.
                 </p>
 
                 <!-- Grid de Telemetría Rápida -->
                 <div class="rover-pills-grid">
                     <div class="rover-pill-item">
-                        <span class="rover-pill-label">Form Factor</span>
-                        <span class="rover-pill-val">1U Estándar (100×100×100 mm)</span>
+                        <span class="rover-pill-label">Modalidad</span>
+                        <span class="rover-pill-val">Equipos de 2 a 4 Integrantes</span>
                     </div>
                     <div class="rover-pill-item">
-                        <span class="rover-pill-label">Masa Máxima</span>
-                        <span class="rover-pill-val">&lt; 1.0 kg (Estructura Liviana)</span>
+                        <span class="rover-pill-label">Estructura</span>
+                        <span class="rover-pill-val">Carcasa Cúbica Compacta</span>
                     </div>
                     <div class="rover-pill-item">
-                        <span class="rover-pill-label">Sensores</span>
-                        <span class="rover-pill-val">Barómetro, IMU 9-DOF, UV, Temp</span>
+                        <span class="rover-pill-label">Componentes Base</span>
+                        <span class="rover-pill-val">Batería + Controlador + Antena + Sensor</span>
                     </div>
                     <div class="rover-pill-item">
-                        <span class="rover-pill-label">Transmisión</span>
-                        <span class="rover-pill-val">LoRa / 433 MHz Telemetría</span>
+                        <span class="rover-pill-label">Altitud de Prueba</span>
+                        <span class="rover-pill-val">Hasta 30 Metros con Dron</span>
                     </div>
                 </div>
 
                 <!-- Botones de Acción -->
                 <div class="rover-hero-actions">
-                    <a href="#sensores" class="btn-project-primary">
-                        <span>Ver Paquete de Sensores</span>
-                        <span>📡</span>
+                    <a href="../admision_talleres.html?mision=mini_cubesat" class="btn-project-primary">
+                        <span>Inscribir a mi Equipo</span>
+                        <span>🛰️</span>
                     </a>
-                    <a href="#estratosfera" class="btn-project-secondary">
-                        <span>Misión Estratosférica</span>
-                        <span>🎈</span>
+                    <a href="#sesiones" class="btn-project-secondary">
+                        <span>Cronograma (4 Semanas)</span>
+                        <span>⏱</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. SPECS BAR (PARÁMETROS TÉCNICOS) -->
+    <!-- 2. SPECS BAR (PARÁMETROS DEL DESAFÍO) -->
     <section class="rover-specs-section">
         <div class="rover-specs-grid">
             <div class="rover-spec-card">
-                <span class="rover-spec-key">Propósito</span>
-                <div class="rover-spec-value">Onboarding Satelital</div>
-                <p class="rover-spec-sub">Mitigar la curva de aprendizaje para nuevos miembros antes de entrar al CubeSat 3U.</p>
+                <span class="rover-spec-key">Convocatoria</span>
+                <div class="rover-spec-value">Abierta a Toda la USACH</div>
+                <p class="rover-spec-sub">Para estudiantes de cualquier carrera y año de ingreso. No se requiere experiencia previa en electrónica ni programación.</p>
             </div>
             <div class="rover-spec-card">
-                <span class="rover-spec-key">Computador de Vuelo</span>
-                <div class="rover-spec-value">ESP32 / STM32</div>
-                <p class="rover-spec-sub">Microcontrolador con lectura síncrona en bus I2C/SPI y almacenamiento en tarjeta SD.</p>
+                <span class="rover-spec-key">Duración</span>
+                <div class="rover-spec-value">Ciclo de 4 Semanas</div>
+                <p class="rover-spec-sub">Sesiones semanales con talleres introductorios de circuitos y soporte técnico directo en taller.</p>
             </div>
             <div class="rover-spec-card">
-                <span class="rover-spec-key">Tasa de Muestreo</span>
-                <div class="rover-spec-value">10 Hz a 50 Hz</div>
-                <p class="rover-spec-sub">Frecuencia continua para registrar aceleraciones dinámicas y perfiles barométricos.</p>
+                <span class="rover-spec-key">Materiales Incluidos</span>
+                <div class="rover-spec-value">Kit Completo + Espacio USP</div>
+                <p class="rover-spec-sub">USP entrega los componentes (batería, microcontrolador, radio/antena, sensores) y la carcasa cúbica para el montaje.</p>
             </div>
             <div class="rover-spec-card">
-                <span class="rover-spec-key">Estructura Interna</span>
-                <div class="rover-spec-value">Impresión 3D PETG</div>
-                <p class="rover-spec-sub">Chasis modular con soporte de tarjetas apilables y rieles de acople rápido.</p>
+                <span class="rover-spec-key">Restricción de Diseño</span>
+                <div class="rover-spec-value">Cero Elementos Sueltos</div>
+                <p class="rover-spec-sub">Toda la electrónica, batería y cables deben quedar encapsulados dentro de la carcasa cúbica compacta.</p>
             </div>
             <div class="rover-spec-card">
-                <span class="rover-spec-key">Alcance Enlace</span>
-                <div class="rover-spec-value">Línea de Vista &gt; 15 km</div>
-                <p class="rover-spec-sub">Enlace de radiofrecuencia de bajo consumo para seguimiento en vivo desde tierra.</p>
+                <span class="rover-spec-key">Herencia Tecnológica</span>
+                <div class="rover-spec-value">Aporte al CubeSat Emblema</div>
+                <p class="rover-spec-sub">Los protocolos de telemetría y arquitecturas validadas se transfieren directamente a nuestro bus satelital 1U y 3U.</p>
             </div>
         </div>
     </section>
 
-    <!-- 3. OBJETIVO DE LA MISIÓN -->
+    <!-- 3. DESCRIPCIÓN DE LA MISIÓN & ANOMALÍAS EN EL CAMPUS -->
     <section class="rover-split-section" id="mision">
         <div class="rover-split-container">
             <div class="rover-split-text">
-                <span class="rover-section-tag">01 // INGENIERÍA COMPACTA</span>
-                <h2>Dominar el Sistema Nervioso de una Misión Espacial</h2>
+                <span class="rover-section-tag">01 // DESCRIPCIÓN OPERATIVA</span>
+                <h2>Midiendo las Alturas del Campus USACH</h2>
                 <p>
-                    Mientras otros ven un satélite como una caja metálica, en el USACH Space Program aprendemos a diseñar su sistema nervioso. El proyecto Mini-CubeSat 1U desafía a los estudiantes a integrar electrónica compleja en un espacio similar al de una lata o cubo de 10 cm. Aprender a resolver interferencias electromagnéticas, optimizar cables y distribuir el consumo energético es la mejor escuela para la ingeniería satelital real.
+                    ¡Se han detectado anomalías en el aire de nuestro campus! Debemos realizar pruebas en las alturas de la USACH para identificar a los responsables. Cada equipo debe integrar su propio Mini satélite capaz de comunicarse con nosotros desde el aire y enviarnos datos de telemetría.
+                </p>
+                <p>
+                    Los componentes del satélite consisten en una <strong>batería recargable</strong>, un <strong>controlador inteligente</strong>, una <strong>antena de enlace inalámbrico</strong> y un <strong>paquete de sensores</strong>. Todos estos elementos deben ser encapsulados en una estructura cúbica compacta sin componentes saliendo de la carcasa.
                 </p>
                 <div class="rover-split-feature-box">
-                    <h4>Metodología Incremental</h4>
-                    <p>Cada subsistema se valida primero de manera aislada antes de conectarse al bus común de alimentación y datos.</p>
+                    <h4>La Pregunta Central: ¿Qué tan alto llegarán?</h4>
+                    <p>Estos satélites serán elevados con un dron aumentando la altitud progresivamente hasta que la comunicación falle o se alcance el techo de prueba de 30 metros.</p>
                 </div>
             </div>
             <div class="rover-split-visual">
-                <img src="../../../src/assets/images/gallery/cubesat partes 3d.webp" alt="Estructura interna y soportes modulares para satélites 1U" loading="lazy">
+                <img src="../../../src/assets/images/gallery/minicubesat_lab.jpg" alt="Módulo Mini Cube-Sat en banco de pruebas de laboratorio" loading="lazy">
             </div>
         </div>
     </section>
 
-    <!-- 4. ENSAYOS EN GLOBO ESTRATOSFÉRICO -->
-    <section class="rover-split-section" id="estratosfera">
+    <!-- 4. LOS 4 OBJETIVOS FUNDAMENTALES -->
+    <section class="rover-split-section" id="objetivos">
         <div class="rover-split-container reverse">
             <div class="rover-split-text">
-                <span class="rover-section-tag">02 // ENSAYOS ANÁLOGOS</span>
-                <h2>Vuelo a la Frontera del Espacio Cercano</h2>
+                <span class="rover-section-tag">02 // PROPÓSITO FORMATIVO</span>
+                <h2>Ingeniería Aeroespacial Accesible para Todos</h2>
                 <p>
-                    Para poner a prueba la resistencia de nuestros circuitos sin el costo prohibitivo de un cohete orbital, proyectamos misiones en globos sonda estratosféricos. A más de 20.000 metros de altitud, el Mini-CubeSat se expone a temperaturas inferiores a -50°C, presiones atmosféricas residuales de menos del 1% y radiación solar directa, condiciones muy similares a la superficie de Marte o la órbita baja.
+                    Construir un satélite no es un privilegio exclusivo de grandes agencias espaciales. La Misión Mini Cube-Sat democratiza los conceptos fundamentales de la astronáutica mediante cuatro pilares:
                 </p>
-                <div class="rover-split-feature-box">
-                    <h4>Validación Térmica Real</h4>
-                    <p>Las pruebas en frío extremo nos enseñan a seleccionar químicas de batería tolerantes y a aislar componentes críticos.</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 20px;">
+                    <div class="rover-split-feature-box">
+                        <h4>1. Acercar la Ciencia a Toda la USACH</h4>
+                        <p>Demostrar de forma práctica y colectiva que no se necesitan conocimientos avanzados previos para construir un satélite funcional.</p>
+                    </div>
+                    <div class="rover-split-feature-box">
+                        <h4>2. Diseñar bajo Restricciones Reales</h4>
+                        <p>El dispositivo debe cumplir con límites estrictos de volumen cúbico y mantenerse 100% operativo en vuelo, resolviendo problemas de balance y conexión.</p>
+                    </div>
+                    <div class="rover-split-feature-box">
+                        <h4>3. Trabajo Multidisciplinario en Equipo</h4>
+                        <p>Grupos de 2 a 4 integrantes de cualquier carrera y año. USP provee todos los materiales, herramientas de taller y espacio de trabajo.</p>
+                    </div>
+                    <div class="rover-split-feature-box">
+                        <h4>4. Aporte Directo al Proyecto Emblema CubeSat</h4>
+                        <p>Los aprendizajes, esquemas de telemetría y estrategias de bajo consumo serán aplicados a las misiones satelitales avanzadas del programa.</p>
+                    </div>
                 </div>
             </div>
             <div class="rover-split-visual">
-                <img src="../../../src/assets/images/gallery/IMG-20260607-WA0039.jpg" alt="Ensayos de instrumentación y aislamiento térmico en banco de pruebas" loading="lazy">
+                <img src="../../../src/assets/images/gallery/Cubesat orbitando.png" alt="Representación de arquitectura de enlace satelital en órbita" loading="lazy">
             </div>
         </div>
     </section>
 
-    <!-- 5. PAQUETE DE SENSORES Y TELEMETRÍA -->
-    <section class="project-subsystems-section" id="sensores">
-        <div class="section-head-center">
-            <div class="rover-section-tag">
-                <span>03 // CARGA ÚTIL</span>
-            </div>
-            <h2>Instrumentación y Aviónica</h2>
-            <p>
-                Los instrumentos científicos que viajan a bordo de la plataforma 1U.
-            </p>
-        </div>
-
-        <div class="project-subsystems-grid">
-            <!-- Mod 1: Sensores Ambientales -->
-            <div class="project-module-card">
-                <div class="module-card-img">
-                    <img src="../../../src/assets/images/gallery/taller sensores c++.jpg" alt="Programación y calibración de sensores de altitud y temperatura" loading="lazy">
-                </div>
-                <div class="module-card-body">
-                    <span class="module-card-tag">SENSORES // ATMÓSFERA</span>
-                    <h3>Barometría y Perfil Térmico</h3>
-                    <p>Sensor BMP280 de alta resolución para calcular altitud barométrica instantánea y sensores de temperatura interna para monitorear el calentamiento del procesador.</p>
-                </div>
-            </div>
-
-            <!-- Mod 2: IMU Inercial -->
-            <div class="project-module-card">
-                <div class="module-card-img">
-                    <img src="../../../src/assets/images/gallery/componentes e insumos electrónicos básicos.jpg" alt="Componentes electrónicos, acelerómetros y microcontroladores" loading="lazy">
-                </div>
-                <div class="module-card-body">
-                    <span class="module-card-tag">DINÁMICA // ACTITUD</span>
-                    <h3>Unidad de Medición Inercial (IMU 9-DOF)</h3>
-                    <p>Acelerómetro, giroscopio y magnetómetro integrados para registrar las rotaciones del satélite, oscilaciones en caída y el campo magnético circundante.</p>
-                </div>
-            </div>
-
-            <!-- Mod 3: Transmisión LoRa -->
-            <div class="project-module-card">
-                <div class="module-card-img">
-                    <img src="../../../src/assets/images/gallery/IMG-20260607-WA0022.jpg" alt="Módulo de comunicaciones por radiofrecuencia y antenas" loading="lazy">
-                </div>
-                <div class="module-card-body">
-                    <span class="module-card-tag">RADIOENLACE // ESTACIÓN TERRENA</span>
-                    <h3>Telemetría en Vivo de Largo Alcance</h3>
-                    <p>Módem digital LoRa que transmite paquetes de datos con comprobación de errores (CRC) hacia la computadora de seguimiento en tierra cada 1 segundo.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. METODOLOGÍA FORMATIVA -->
-    <section class="project-roadmap-section" id="metodologia">
+    <!-- 5. LÍNEA DE TIEMPO DE SESIONES (4 SEMANAS) -->
+    <section class="project-roadmap-section" id="sesiones">
         <div class="project-roadmap-container">
             <div class="section-head-center">
                 <div class="rover-section-tag">
-                    <span>04 // ESCUELA PRÁCTICA</span>
+                    <span>03 // CRONOGRAMA OFICIAL</span>
                 </div>
-                <h2>El Ciclo Formativo del Estudiante</h2>
+                <h2>Línea de Tiempo de Sesiones</h2>
                 <p>
-                    Ruta de aprendizaje guiada para integrarse al desarrollo de hardware espacial.
+                    La misión se desarrollará a lo largo de cuatro semanas con acompañamiento formativo paso a paso.
                 </p>
             </div>
 
             <div class="project-roadmap-timeline">
                 <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">NIVEL 01 // SOLDADURA &amp; PROTOBOARD</span>
-                    <h4>Armado de Circuitos Base</h4>
-                    <p>Aprender el uso del cautín, lectura de esquemáticos electrónicos y cableado limpio de microcontroladores sin cortocircuitos.</p>
+                    <span class="roadmap-phase-tag">SEMANA 1 // CONVOCATORIA Y ENTREGA DE KITS</span>
+                    <h4>Reglamento, Kits de Trabajo &amp; Selección de Misión</h4>
+                    <p>
+                        Se entrega el reglamento oficial y el kit de trabajo a cada equipo. Los participantes seleccionan su objetivo de misión científica y comienzan a organizar y preparar los componentes.
+                    </p>
                 </div>
 
                 <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">NIVEL 02 // CÓDIGO EMBEBIDO</span>
-                    <h4>Lectura de Sensores y Buses I2C</h4>
-                    <p>Programación de librerías para extraer mediciones, calibrar offsets y empaquetar variables en tramas de bytes eficientes.</p>
+                    <span class="roadmap-phase-tag">SEMANA 2 // PROTOTIPADO Y ELECTRÓNICA</span>
+                    <h4>Conexiones, Programación &amp; Talleres Básicos</h4>
+                    <p>
+                        Los equipos de trabajo elaboran sus primeros prototipos electrónicos y realizan pruebas de componentes con el apoyo de los mentores de USP. Durante esta semana se impartirán talleres básicos de electrónica y cableado para los grupos que lo soliciten.
+                    </p>
                 </div>
 
                 <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">NIVEL 03 // EMPAQUETAMIENTO 3D</span>
-                    <h4>Diseño de Chasis y Tolerancias</h4>
-                    <p>Modelado del marco 1U en CAD y manufactura aditiva con materiales resistentes a vibraciones mecánicas.</p>
+                    <span class="roadmap-phase-tag">SEMANA 3 // MONTAJE ESTRUCTURAL Y ENSAYOS</span>
+                    <h4>Integración en Carcasa &amp; Taller Abierto</h4>
+                    <p>
+                        Los equipos realizan el montaje de su electrónica dentro de la carcasa cúbica provista, comprobando el funcionamiento y estabilidad estructural del Mini Cube-Sat. Se generan instancias de taller abierto donde los equipos resuelven dudas técnicas directamente con el equipo de USP.
+                    </p>
                 </div>
 
                 <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">NIVEL 04 // OPERACIÓN DE CAMPO</span>
-                    <h4>Ensayo en Vivo y Recuperación</h4>
-                    <p>Despliegue con paracaídas, recepción de la baliza de radio en tierra y análisis de los datos gráficos recopilados.</p>
+                    <span class="roadmap-phase-tag">SEMANA 4 // OPTIMIZACIÓN Y PREPARACIÓN</span>
+                    <h4>Pruebas de Radio, Calibración &amp; Listo para Vuelo</h4>
+                    <p>
+                        Los equipos corrigen cualquier inconsistencia en su satélite y realizan pruebas de comunicación inalámbrica previas a la demostración final. Se repite el taller abierto para apoyar a los equipos resolviendo cualquier imprevisto de última hora.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. CITA & CTA -->
-    <section class="project-quote-cta-section" id="contacto">
+    <!-- 6. LA JORNADA FINAL & PREMIOS -->
+    <section class="project-subsystems-section" id="final">
+        <div class="section-head-center">
+            <div class="rover-section-tag">
+                <span>04 // EL EVENTO Y RECONOCIMIENTOS</span>
+            </div>
+            <h2>La Gran Prueba de Vuelo &amp; Premios</h2>
+            <p>
+                Una prueba en vivo donde cada satélite se monta en el dron de USP y se eleva verticalmente mientras se monitorea la recepción de telemetría en tierra.
+            </p>
+        </div>
+
+        <div class="project-subsystems-grid">
+            <!-- Card 1: Evaluación -->
+            <div class="project-module-card">
+                <div class="module-card-img">
+                    <img src="../../../src/assets/images/gallery/taller sensores c++.jpg" alt="Estación terrena monitoreando enlace de telemetría" loading="lazy">
+                </div>
+                <div class="module-card-body">
+                    <span class="module-card-tag">EVALUACIÓN // JURADO USP</span>
+                    <h3>Criterios de Evaluación en Vuelo</h3>
+                    <p>
+                        Se aumentará la distancia progresivamente hasta que la comunicación falle o se alcancen los <strong>30 metros de altura</strong>. Los jueces decidirán al equipo ganador basándose en: <strong>Estabilidad de la comunicación</strong>, <strong>Aplicabilidad de la misión</strong> y <strong>Cumplimiento de las normativas</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 2: Trofeo -->
+            <div class="project-module-card">
+                <div class="module-card-img">
+                    <img src="../../../src/assets/images/gallery/cubesat partes 3d.webp" alt="Trofeo conmemorativo y prototipo final del Mini Cube-Sat" loading="lazy">
+                </div>
+                <div class="module-card-body">
+                    <span class="module-card-tag">RECONOCIMIENTO // 1ER LUGAR</span>
+                    <h3>Trofeo Conmemorativo</h3>
+                    <p>
+                        Todos los miembros del equipo ganador se llevarán un trofeo conmemorativo oficial por el éxito técnico de su misión y la solidez de su enlace de datos.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 3: Puerta a USP -->
+            <div class="project-module-card">
+                <div class="module-card-img">
+                    <img src="../../../src/assets/images/gallery/rover_armado_foto_grupal.jpg" alt="Integración oficial a los proyectos aeroespaciales del USP" loading="lazy">
+                </div>
+                <div class="module-card-body">
+                    <span class="module-card-tag">MEMBRESÍA // ACCESO DIRECTO</span>
+                    <h3>Puerta al Usach Space Program</h3>
+                    <p>
+                        Todos los equipos conservan su Mini CubeSat tras la prueba final. Además, quienes destaquen por compromiso, proactividad y rigor técnico reciben una <strong>invitación preferente</strong> para sumarse como miembros oficiales a los proyectos satelitales avanzados del ciclo anual.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CITA & CTA DIRECCIONADO AL FORMULARIO -->
+    <section class="project-quote-cta-section" id="inscripcion">
         <div class="project-quote-box">
             <div class="project-quote-text">
-                "No necesitas ser un experto para entrar al espacio; solo necesitas la curiosidad para soldar tu primera resistencia y entender cómo habla con las estrellas."
+                "No hay mayor emoción para un futuro ingeniero que ver los datos de su propio satélite aparecer en pantalla mientras vuela por primera vez."
             </div>
-            <div class="project-quote-sub">— USACH SPACE PROGRAM · FORMACIÓN EN SISTEMAS ORBITALES</div>
+            <div class="project-quote-sub">— USACH SPACE PROGRAM · MISIÓN MINI CUBE-SAT</div>
         </div>
 
         <div class="project-cta-card">
-            <h3>¿Quieres Construir tu Primer Satélite en Miniatura?</h3>
+            <h3>¿Listo para Construir tu Propio Satélite?</h3>
             <p>
-                La iniciativa Mini-CubeSat 1U es el espacio formativo ideal para estudiantes que se inician en la ingeniería aeroespacial. Te acompañamos en cada etapa de diseño y programación.
+                Convocatoria abierta para estudiantes de todas las facultades de la USACH. Puedes inscribirte con tu equipo ya formado (2 a 4 personas) o postular individualmente para que te conectemos con otros participantes interesados.
             </p>
-            <a href="mailto:spaceprogram@usach.cl?subject=Postulacion%20Mini-CubeSat%201U%20-%20USACH%20Space%20Program" class="btn-project-cta">
-                <span>Ponte en Contacto con Nosotros</span>
-                <span>✉</span>
+            <a href="/talleres/?mision=mini_cubesat" class="btn-project-cta">
+                <span>Completar Formulario de Inscripción al Desafío</span>
+                <span>→</span>
             </a>
         </div>
     </section>
@@ -342,10 +371,9 @@
             <div>
                 <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Navegación</h4>
                 <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
-                    <li><a href="../../../index.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">← Inicio Principal</a></li>
-                    <li><a href="../../../index.html#ejes" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Ejes de Desarrollo</a></li>
-                    <li><a href="../../../index.html#proyectos" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Proyectos Emblema</a></li>
-                    <li><a href="../../../src/pages/registro.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Convocatoria y Postulación</a></li>
+                    <li><a href="/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">← Inicio Principal</a></li>
+                    <li><a href="/proyectos/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Catálogo de Proyectos</a></li>
+                    <li><a href="/talleres/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Admisión Desafíos Formativos</a></li>
                 </ul>
             </div>
             <div>
@@ -356,7 +384,7 @@
         </div>
         <div style="max-width: 1400px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">
             <span>&copy; 2026 USACH Space Program. Todos los derechos reservados.</span>
-            <span>Diseño y Fabricación con Fines Educativos</span>
+            <span>Misión: Mini Cube-Sat · Convocatoria Abierta</span>
         </div>
     </footer>
 

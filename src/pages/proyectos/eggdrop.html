@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salva Usachín (Egg Drop Challenge) | USACH Space Program</title>
+    <title>Misión: Salva a Usachín | USACH Space Program</title>
     
     <link rel="icon" type="image/png" href="../../../src/assets/images/logo_noTextBLACK.png">
     <link rel="stylesheet" href="../../../src/styles/main.css">
+    <link rel="stylesheet" href="../../../src/styles/components/project-template.css">
     
-    <style>@import url("../../styles/pages/proyectos/mision.css");</style>
+    <style>@import url("../../styles/pages/proyectos/rover_avanzado.css");</style>
 </head>
 <body>
 
@@ -18,40 +19,36 @@
     <!-- 0. BARRA SUPERIOR DE NAVEGACIÓN RÁPIDA (HUD NAVBAR) -->
     <header class="rover-navbar">
         <div class="rover-navbar-inner">
-            <!-- Brand -->
-            <a href="../../../index.html" class="rover-nav-back" title="USACH Space Program">
+            <!-- Brand Oficial -->
+            <a href="/" class="rover-nav-back" title="USACH Space Program">
                 <img src="../../../src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="rover-nav-logo">
-                <span class="brand-title">USACH Space Program</span>
+                <span class="brand-title">USACH SPACE PROGRAM</span>
             </a>
 
             <!-- Enlaces Rápidos (Escritorio) -->
             <nav class="rover-quick-nav">
                 <div class="nav-group">
-                    <a href="../../../index.html" class="rover-nav-link">Inicio</a>
-                    <a href="../../../index.html#ejes" class="rover-nav-link">Ejes</a>
-                    <a href="../../../index.html#proyectos" class="rover-nav-link">Proyectos</a>
-                    <a href="../../../index.html#alianzas" class="rover-nav-link">Alianzas</a>
+                    <a href="/" class="rover-nav-link">Inicio</a>
+                    <a href="/ejes/" class="rover-nav-link">Ejes</a>
+                    <a href="/proyectos/" class="rover-nav-link">Proyectos</a>
+                    <a href="/#alianzas" class="rover-nav-link">Alianzas</a>
                 </div>
 
                 <span class="nav-divider">|</span>
 
                 <div class="nav-group">
-                    <a href="#mision" class="rover-nav-pill active-pill">El Desafío</a>
-                    <a href="#fisica" class="rover-nav-pill">Física del Choque</a>
-                    <a href="#materiales" class="rover-nav-pill">Estructura</a>
-                    <a href="#fases" class="rover-nav-pill">Competencia</a>
-                    <a href="#contacto" class="rover-nav-pill">Contacto</a>
+                    <a href="#mision" class="rover-nav-pill">El Desafío</a>
+                    <a href="#objetivos" class="rover-nav-pill">Objetivos</a>
+                    <a href="#sesiones" class="rover-nav-pill">Línea de Tiempo</a>
+                    <a href="#final" class="rover-nav-pill">Lanzamiento</a>
+                    <a href="#premios" class="rover-nav-pill">Premios</a>
                 </div>
             </nav>
 
             <!-- Acciones -->
             <div class="rover-nav-actions">
-                <a href="mailto:spaceprogram@usach.cl?subject=Consulta%20Salva%20Usachin%20-%20USACH%20Space%20Program" class="btn-nav-contact">
-                    <span>Contacto</span>
-                    <span>✉</span>
-                </a>
-                <a href="../../../src/pages/registro.html" class="btn-nav-postular">
-                    <span>Postular</span>
+                <a href="/talleres/?mision=salva_usachin" class="btn-nav-postular">
+                    <span>Inscribir Equipo</span>
                 </a>
             </div>
 
@@ -65,37 +62,37 @@
 
         <!-- Menú Desplegable Móvil -->
         <div class="rover-mobile-menu" id="mobileMenu">
-            <a href="../../../index.html" class="mobile-link home-link">USACH Space Program (Inicio)</a>
+            <a href="/" class="mobile-link home-link">USACH Space Program (Inicio)</a>
             <div class="mobile-section-label">SECCIONES PRINCIPALES</div>
-            <a href="../../../index.html#ejes" class="mobile-link">Ejes Estratégicos</a>
-            <a href="../../../index.html#proyectos" class="mobile-link">Proyectos USP</a>
-            <a href="../../../index.html#manifiesto" class="mobile-link">Manifiesto Estudiantil</a>
-            <a href="../../../index.html#alianzas" class="mobile-link">Alianzas Institucionales</a>
-            <div class="mobile-section-label">SALVA USACHÍN</div>
-            <a href="#mision" class="mobile-link">Simulación de Aterrizaje Planetario</a>
-            <a href="#fisica" class="mobile-link">Física de Disipación de Energía</a>
-            <a href="#materiales" class="mobile-link">Estructuras de Sacrificio Deformables</a>
-            <a href="#fases" class="mobile-link">Fases de Lanzamiento e Impacto</a>
+            <a href="/ejes/" class="mobile-link">Ejes Estratégicos</a>
+            <a href="/proyectos/" class="mobile-link">Catálogo de Proyectos</a>
+            <a href="/#manifiesto" class="mobile-link">Manifiesto Estudiantil</a>
+            <a href="/#alianzas" class="mobile-link">Alianzas Institucionales</a>
+            <div class="mobile-section-label">PROYECTOS Y HARDWARE</div>
+            <a href="/proyectos/rover/" class="mobile-link">Rover Perseverance (Flagship)</a>
+            <a href="/proyectos/cubesat/" class="mobile-link">Bus Satelital CubeSat 3U</a>
+            <a href="/proyectos/cohete/" class="mobile-link">Cohetería Experimental &amp; Agua</a>
+            <a href="/proyectos/cansat/" class="mobile-link">Misión: Mini Cube-Sat</a>
+            <a href="/proyectos/eggdrop/" class="mobile-link active-link">Misión: Salva a Usachín</a>
             <div class="mobile-actions">
-                <a href="mailto:spaceprogram@usach.cl" class="btn-mobile-cta">Contacto: spaceprogram@usach.cl</a>
-                <a href="../../../src/pages/registro.html" class="btn-mobile-postular">Postular al Equipo 2026</a>
+                <a href="/talleres/?mision=salva_usachin" class="btn-mobile-postular">Inscribir Equipo al Desafío</a>
             </div>
         </div>
     </header>
 
     <!-- 1. HERO SECTION -->
     <section class="rover-hero-section">
-        <div class="rover-hero-watermark">EGG DROP</div>
+        <div class="rover-hero-watermark">USACHÍN</div>
         <div class="rover-hero-ambient"></div>
 
         <div class="rover-hero-container">
-            <!-- Columna Izquierda: Viewport Descenso Planetario NASA -->
+            <!-- Columna Izquierda: Viewport Paracaídas / Descenso -->
             <div class="rover-viewport-card">
                 <div class="rover-img-wrapper">
-                    <img src="../../../src/assets/images/nasa/salva_usachin_drop.jpg" alt="Ensayo de cápsula de aterrizaje y paracaídas planetario - NASA">
+                    <img src="../../../src/assets/images/nasa/salva_usachin_drop.jpg" alt="Misión Salva a Usachín - Desafío de paracaídas y recuperación aeroespacial">
                     <div class="rover-img-overlay-telemetry">
-                        <span class="rover-overlay-tag">NASA // PLANETARY DESCENT</span>
-                        <span class="rover-overlay-badge">SIMULACIÓN ANÁLOGA</span>
+                        <span class="rover-overlay-tag">EJE COHETERÍA // RECUPERACIÓN</span>
+                        <span class="rover-overlay-badge">CAÍDA LIBRE CON DRON</span>
                     </div>
                 </div>
             </div>
@@ -104,113 +101,131 @@
             <div class="rover-hero-content">
                 <div class="rover-section-tag">
                     <span>✦</span>
-                    <span>INICIATIVA FORMATIVA // DINÁMICA DE IMPACTO</span>
+                    <span>USACH SPACE PROGRAM · EJE DE COHETERÍA Y PROPULSIÓN</span>
                 </div>
-                <h1 class="rover-hero-title">SALVA USACHÍN</h1>
-                <h2 class="rover-hero-subtitle">Desafío Egg Drop &amp; Aterrizaje Planetario</h2>
+                <h1 class="rover-hero-title">MISIÓN: SALVA A USACHÍN</h1>
+                <h2 class="rover-hero-subtitle">Desafío Abierto de Paracaídas y Recuperación Aeroespacial</h2>
                 
                 <p class="rover-hero-desc">
-                    El reto clásico de la ingeniería aeroespacial reinterpretado por la USACH. Los equipos deben diseñar y construir una cápsula capaz de proteger una carga útil frágil —el huevo crudo "Usachín"— tras una caída libre desde 10 metros, simulando el aterrizaje de una sonda en la superficie rocosa de la Luna o Marte.
+                    <strong>¿Alguna vez soñaste con diseñar un sistema de reentrada y frenado aerodinámico? ¡En esta misión podrás poner a prueba tu ingenio!</strong> Usachín viene cayendo desde muy alto: será elevado y liberado en caída libre mediante un dron en el campus. Tu equipo deberá diseñar y fabricar un sistema que despliegue un paracaídas, estabilice el descenso y amortigüe el impacto final de forma 100% mecánica y pasiva.
                 </p>
 
                 <!-- Grid de Telemetría Rápida -->
                 <div class="rover-pills-grid">
                     <div class="rover-pill-item">
-                        <span class="rover-pill-label">Altura de Caída</span>
-                        <span class="rover-pill-val">8 a 10 Metros (Caída Libre)</span>
+                        <span class="rover-pill-label">Modalidad</span>
+                        <span class="rover-pill-val">Equipos de 2 a 4 Integrantes</span>
                     </div>
                     <div class="rover-pill-item">
-                        <span class="rover-pill-label">Carga Útil</span>
-                        <span class="rover-pill-val">Huevo Crudo ("Usachín")</span>
+                        <span class="rover-pill-label">Restricción Geométrica</span>
+                        <span class="rover-pill-val">Volumen Botella de 1 Litro</span>
                     </div>
                     <div class="rover-pill-item">
-                        <span class="rover-pill-label">Física Clave</span>
-                        <span class="rover-pill-val">Impulso (Δp) &amp; Disipación</span>
+                        <span class="rover-pill-label">Sistema de Frenado</span>
+                        <span class="rover-pill-val">Mecánico &amp; Pasivo (Sin Motores)</span>
                     </div>
                     <div class="rover-pill-item">
-                        <span class="rover-pill-label">Restricción</span>
-                        <span class="rover-pill-val">Masa Límite &amp; Materiales Base</span>
+                        <span class="rover-pill-label">Veredicto en Tierra</span>
+                        <span class="rover-pill-val">Acelerómetro + Pantalla OLED</span>
                     </div>
                 </div>
 
                 <!-- Botones de Acción -->
                 <div class="rover-hero-actions">
-                    <a href="#fisica" class="btn-project-primary">
-                        <span>Física del Desafío</span>
+                    <a href="../admision_talleres.html?mision=salva_usachin" class="btn-project-primary">
+                        <span>Inscribir a mi Equipo</span>
                         <span>🪂</span>
                     </a>
-                    <a href="#materiales" class="btn-project-secondary">
-                        <span>Estructuras de Sacrificio</span>
-                        <span>🛡</span>
+                    <a href="#sesiones" class="btn-project-secondary">
+                        <span>Cronograma (4 Semanas)</span>
+                        <span>⏱</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. SPECS BAR (PARÁMETROS TÉCNICOS) -->
+    <!-- 2. SPECS BAR (PARÁMETROS DEL DESAFÍO) -->
     <section class="rover-specs-section">
         <div class="rover-specs-grid">
             <div class="rover-spec-card">
-                <span class="rover-spec-key">Tipo de Actividad</span>
-                <div class="rover-spec-value">Competencia Rápida</div>
-                <p class="rover-spec-sub">Dinámica de bienvenida e integración interdisciplinaria para nuevos postulantes.</p>
+                <span class="rover-spec-key">Convocatoria</span>
+                <div class="rover-spec-value">Abierta a Toda la USACH</div>
+                <p class="rover-spec-sub">Para estudiantes de cualquier carrera, facultad y año de ingreso. No se requieren conocimientos avanzados previos.</p>
             </div>
             <div class="rover-spec-card">
-                <span class="rover-spec-key">Tiempo de Taller</span>
-                <div class="rover-spec-value">3 Horas Intensivas</div>
-                <p class="rover-spec-sub">Diseño, construcción con materiales cotidianos y calibración contra reloj.</p>
+                <span class="rover-spec-key">Duración</span>
+                <div class="rover-spec-value">Ciclo de 4 Semanas</div>
+                <p class="rover-spec-sub">Ritmo flexible para compatibilizar el diseño, la manufactura y los ensayos con tus horarios académicos.</p>
             </div>
             <div class="rover-spec-card">
-                <span class="rover-spec-key">Criterio de Victoria</span>
-                <div class="rover-spec-value">Supervivencia Total</div>
-                <p class="rover-spec-sub">Cero fisuras en el huevo, evaluando además la menor masa estructural utilizada.</p>
+                <span class="rover-spec-key">Insumos Provistos</span>
+                <div class="rover-spec-value">Kit USP + Impresión 3D</div>
+                <p class="rover-spec-sub">USP entrega tela técnica para canopias, hilos de suspensión, módulo sensor y horas de impresión 3D asistida.</p>
             </div>
             <div class="rover-spec-card">
-                <span class="rover-spec-key">Mecanismo</span>
-                <div class="rover-spec-value">Aerofrenado + Deformación</div>
-                <p class="rover-spec-sub">Combinación de paracaídas y zonas de aplastamiento progresivo para disipar el choque.</p>
+                <span class="rover-spec-key">Regla de Oro</span>
+                <div class="rover-spec-value">Frenado Mecánico Puro</div>
+                <p class="rover-spec-sub">Sin circuitos ni servomotores: todo depende de la aerodinámica de la tela, materiales de absorción y líneas ordenadas.</p>
             </div>
             <div class="rover-spec-card">
-                <span class="rover-spec-key">Habilidades</span>
-                <div class="rover-spec-value">Trabajo en Equipo</div>
-                <p class="rover-spec-sub">Resolución práctica de problemas, asignación de roles y tolerancia a la frustración.</p>
+                <span class="rover-spec-key">Impacto Técnico</span>
+                <div class="rover-spec-value">Aporte al Cohete de Agua</div>
+                <p class="rover-spec-sub">Las mejores técnicas de plegado y amortiguación servirán de base para el sistema de recuperación del Cohete Emblema.</p>
             </div>
         </div>
     </section>
 
-    <!-- 3. LA MISIÓN Y EL PROBLEMA REAL -->
+    <!-- 3. DESCRIPCIÓN DE LA MISIÓN & SENSOR OLED -->
     <section class="rover-split-section" id="mision">
         <div class="rover-split-container">
             <div class="rover-split-text">
-                <span class="rover-section-tag">01 // INGENIERÍA DE DESCENSO</span>
-                <h2>Simular el Desafío de Aterrizar en Otro Mundo</h2>
+                <span class="rover-section-tag">01 // DESCRIPCIÓN OPERATIVA</span>
+                <h2>¿Pudo Sobrevivir Usachín al Impacto?</h2>
                 <p>
-                    Cuando la NASA hace aterrizar un rover como Perseverance o Curiosity en Marte, debe atravesar los conocidos "7 minutos de terror": frenar desde miles de kilómetros por hora hasta cero sin destruir la carga científica. Salva Usachín traslada ese problema real de la astronáutica a una escala universitaria directa: ¿cómo desacelerar una estructura y absorber el impacto final para que la carga biológica sobreviva intacta?
+                    Usachín viene cayendo desde muy alto. Junto con unos cuantos sensores será elevado y liberado en caída libre con un dron en las áreas verdes de la USACH. Cada equipo debe diseñar y fabricar un receptáculo que despliegue un paracaídas, estabilice el descenso y amortigüe el impacto final.
+                </p>
+                <p>
+                    El sistema de frenado y absorción debe ser <strong>estrictamente mecánico y pasivo</strong>: nada de motores eléctricos ni electrónica de despliegue. Dentro de la cápsula viaja el módulo instrumental oficial de USP, equipado con un <strong>acelerómetro calibrado y una pantalla OLED</strong> que dará el veredicto en tiempo real al tocar tierra: <em>¿Sobrevivió Usachín o la deceleración superó el límite crítico?</em>
                 </p>
                 <div class="rover-split-feature-box">
-                    <h4>Gestión de la Energía Cinética</h4>
-                    <p>La energía generada por la aceleración de gravedad (Ec = ½mv²) debe transformarse en deformación mecánica controlada o calor sin transmitirse al núcleo del huevo.</p>
+                    <h4>Elegancia Mecánica sobre Complejidad</h4>
+                    <p>Todo el sistema plegado debe caber holgadamente en el espacio de una botella de un litro. La simplicidad funcional y la fiabilidad de despliegue valen más que cualquier diseño recargado.</p>
                 </div>
             </div>
             <div class="rover-split-visual">
-                <img src="../../../src/assets/images/gallery/Egg drop representacion.png" alt="Esquema estructural del receptáculo y zonas de disipación de choque" loading="lazy">
+                <img src="../../../src/assets/images/gallery/Egg drop representacion.png" alt="Esquema estructural del receptáculo y botella de 1 litro" loading="lazy">
             </div>
         </div>
     </section>
 
-    <!-- 4. FÍSICA APLICADA: IMPULSO Y DEFORMACIÓN -->
-    <section class="rover-split-section" id="fisica">
+    <!-- 4. LOS 4 OBJETIVOS FUNDAMENTALES -->
+    <section class="rover-split-section" id="objetivos">
         <div class="rover-split-container reverse">
             <div class="rover-split-text">
-                <span class="rover-section-tag">02 // PRIMEROS PRINCIPIOS</span>
-                <h2>El Teorema del Impulso: Prolongar el Tiempo de Choque</h2>
+                <span class="rover-section-tag">02 // PROPÓSITO FORMATIVO</span>
+                <h2>Aprender Haciendo bajo Restricciones Reales</h2>
                 <p>
-                    El principio físico central de la actividad es el teorema del impulso y la cantidad de movimiento: <strong>F × Δt = m × Δv</strong>. Dado que la masa del huevo y la velocidad de llegada son fijas, la única forma de reducir la fuerza letal del impacto (F) es maximizar el tiempo en que ocurre el frenado (Δt). Esto se logra diseñando "zonas de deformación programada" (crumple zones) que absorban la energía colapsando ordenadamente antes de que el choque alcance a Usachín.
+                    La misión Salva a Usachín está concebida para acercar la ingeniería aeroespacial a cualquier estudiante curioso con ganas de crear hardware real con sus propias manos:
                 </p>
-                <div class="rover-split-feature-box">
-                    <h4>Aerodinámica de Orientación</h4>
-                    <p>La cápsula debe conservar su orientación vertical durante la caída para que las zonas de amortiguación toquen el suelo primero.</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 20px;">
+                    <div class="rover-split-feature-box">
+                        <h4>1. Acercar la Ciencia a Toda la USACH</h4>
+                        <p>Demostrar de forma práctica y colectiva que no se necesitan conocimientos avanzados previos para construir un dispositivo funcional de calidad.</p>
+                    </div>
+                    <div class="rover-split-feature-box">
+                        <h4>2. Diseñar bajo Restricciones Reales</h4>
+                        <p>El empaque total debe caber en el volumen de 1 litro. Aprendes a optimizar espacio, peso y doblado de líneas sin enredos.</p>
+                    </div>
+                    <div class="rover-split-feature-box">
+                        <h4>3. Trabajo Multidisciplinario Horizontal</h4>
+                        <p>Equipos de 2 a 4 integrantes que combinan habilidades de diseño, cálculo físico, manufactura manual y estrategia de prueba.</p>
+                    </div>
+                    <div class="rover-split-feature-box">
+                        <h4>4. Aporte Directo al Cohete de Agua Emblema</h4>
+                        <p>Los datos y mecanismos validados por los equipos nutrirán el diseño del sistema de recuperación de los futuros cohetes hidroneumáticos del programa.</p>
+                    </div>
                 </div>
             </div>
             <div class="rover-split-visual">
@@ -219,115 +234,129 @@
         </div>
     </section>
 
-    <!-- 5. ESTRUCTURAS Y COMPONENTES -->
-    <section class="project-subsystems-section" id="materiales">
-        <div class="section-head-center">
-            <div class="rover-section-tag">
-                <span>03 // SOLUCIONES TÉCNICAS</span>
-            </div>
-            <h2>Estrategias de Diseño Estructural</h2>
-            <p>
-                Tres enfoques de ingeniería utilizados comúnmente por los equipos para superar la prueba.
-            </p>
-        </div>
-
-        <div class="project-subsystems-grid">
-            <!-- Mod 1: Paracaídas -->
-            <div class="project-module-card">
-                <div class="module-card-img">
-                    <img src="../../../src/assets/images/gallery/cohete de agua paracaidas.jpg" alt="Pruebas de paracaídas y deceleración por arrastre aerodinámico" loading="lazy">
-                </div>
-                <div class="module-card-body">
-                    <span class="module-card-tag">AEROFRENADO // DRAG</span>
-                    <h3>Reducción de Velocidad Terminal</h3>
-                    <p>Diseño de toldos con bolsas de polietileno y cuerdas de suspensión balanceadas para aumentar el coeficiente de arrastre aerodinámico, reduciendo la velocidad al tocar suelo.</p>
-                </div>
-            </div>
-
-            <!-- Mod 2: Células de Sacrificio -->
-            <div class="project-module-card">
-                <div class="module-card-img">
-                    <img src="../../../src/assets/images/gallery/cubesat partes 3d.webp" alt="Estructuras de celosía y celas deformables" loading="lazy">
-                </div>
-                <div class="module-card-body">
-                    <span class="module-card-tag">ABSORCIÓN // CRUMPLE ZONES</span>
-                    <h3>Estructuras de Celosía Deformable</h3>
-                    <p>Conos de papel, pajitas unidas en triángulos o cartón corrugado diseñados para colapsar intencionalmente al tocar tierra, disipando la energía mecánica en el aplastamiento.</p>
-                </div>
-            </div>
-
-            <!-- Mod 3: Suspensión Flotante -->
-            <div class="project-module-card">
-                <div class="module-card-img">
-                    <img src="../../../src/assets/images/gallery/huevo roto.jpg" alt="Inspección post-impacto y validación de la cáscara del huevo" loading="lazy">
-                </div>
-                <div class="module-card-body">
-                    <span class="module-card-tag">AISLAMIENTO // SUSPENSIÓN</span>
-                    <h3>Núcleo en Suspensión Elástica</h3>
-                    <p>El huevo se suspende mediante bandas elásticas en el centro geométrico de un marco rígido externo, evitando el contacto directo con cualquier superficie dura al recibir el golpe.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. CICLO DE COMPETENCIA -->
-    <section class="project-roadmap-section" id="fases">
+    <!-- 5. LÍNEA DE TIEMPO DE SESIONES (4 SEMANAS) -->
+    <section class="project-roadmap-section" id="sesiones">
         <div class="project-roadmap-container">
             <div class="section-head-center">
                 <div class="rover-section-tag">
-                    <span>04 // CRONOGRAMA</span>
+                    <span>03 // CRONOGRAMA OFICIAL</span>
                 </div>
-                <h2>Fases de la Jornada de Lanzamiento</h2>
+                <h2>Línea de Tiempo de Sesiones</h2>
                 <p>
-                    Una tarde de ingeniería intensiva, camaradería y física experimental.
+                    Cuatro semanas estructuradas con acompañamiento técnico continuo para llevar tu idea del boceto al vuelo real.
                 </p>
             </div>
 
             <div class="project-roadmap-timeline">
                 <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">HORA 00 // ASIGNACIÓN DE MATERIALES</span>
-                    <h4>Reglas, Límites de Masa y Kit Base</h4>
-                    <p>Entrega de materiales básicos idénticos para cada equipo y explicación de penalizaciones por masa extra.</p>
+                    <span class="roadmap-phase-tag">SEMANA 1 // LANZAMIENTO E IDEAS</span>
+                    <h4>Entrega de Reglamento &amp; Taller de Paracaídas</h4>
+                    <p>
+                        Se entrega el reglamento oficial, se muestra en vivo el funcionamiento de la pantalla y sensor de Usachín, y se realiza un taller guiado para calcular las proporciones aerodinámicas del paracaídas y aprender a doblarlo sin que se enreden las líneas.
+                    </p>
                 </div>
 
                 <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">HORA 01 // PROTOTIPADO Y ENSAMBLE</span>
-                    <h4>Construcción y Ensayos a Baja Altura</h4>
-                    <p>Cálculo de rigidez, corte de materiales, pruebas de caída desde 1 metro con huevo simulado y calibración final.</p>
+                    <span class="roadmap-phase-tag">SEMANA 2 // MANUFACTURA Y PROTOTIPADO</span>
+                    <h4>Corte de Tela, Anclajes &amp; Construcción de Cápsula</h4>
+                    <p>
+                        Los grupos cortan la tela técnica provista por USP, fijan las cuerdas de suspensión y dan forma al receptáculo, ya sea mediante modelado e impresión 3D o con materiales ligeros amortiguantes. Se realiza un punto de control y asesoría técnica con mentores de USP.
+                    </p>
                 </div>
 
                 <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">HORA 02 // LANZAMIENTO DESDE ALTURA</span>
-                    <h4>La Gran Caída desde el Edificio</h4>
-                    <p>Lanzamiento vertical individual desde 8 a 10 metros ante los jurados y compañeros del equipo aeroespacial.</p>
+                    <span class="roadmap-phase-tag">SEMANA 3 // VALIDACIÓN EN TERRENO</span>
+                    <h4>Prueba de Volumen (1L) &amp; Ensayos de Caída</h4>
+                    <p>
+                        Se comprueba que el sistema plegado quepa con holgura en el molde de un litro. Los equipos realizan ensayos de lanzamiento a baja altura con pesos de prueba (desde gradas o escaleras del campus), probando el módulo electrónico real para verificar la señal de supervivencia.
+                    </p>
                 </div>
 
                 <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">HORA 03 // INSPECCIÓN &amp; PREMIACIÓN</span>
-                    <h4>Apertura del Núcleo y Veredicto</h4>
-                    <p>Inspección rigurosa de la cáscara en busca de microfisuras y reconocimiento al diseño más ligero y eficiente.</p>
+                    <span class="roadmap-phase-tag">SEMANA 4 // OPTIMIZACIÓN Y CIERRE TÉCNICO</span>
+                    <h4>Ajustes Finales, Inspección Pre-Vuelo &amp; Certificación</h4>
+                    <p>
+                        Últimos detalles de costura, refuerzo de anclajes estructurales y síntesis de ficha técnica. Inspección rigurosa de seguridad previa al vuelo: revisión del enganche con el dron y entrega de la certificación oficial para subir a pista.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. CITA & CTA -->
-    <section class="project-quote-cta-section" id="contacto">
+    <!-- 6. LA JORNADA FINAL & PREMIOS -->
+    <section class="project-subsystems-section" id="final">
+        <div class="section-head-center">
+            <div class="rover-section-tag">
+                <span>04 // EL EVENTO Y RECONOCIMIENTOS</span>
+            </div>
+            <h2>La Gran Actividad Final &amp; Premios</h2>
+            <p>
+                Una jornada al aire libre en un área verde del campus donde cada cápsula se engancha al dron, se eleva a la altitud de prueba y se suelta en caída libre.
+            </p>
+        </div>
+
+        <div class="project-subsystems-grid">
+            <!-- Card 1: Evaluación -->
+            <div class="project-module-card">
+                <div class="module-card-img">
+                    <img src="../../../src/assets/images/gallery/Sellado cohete de agua.jpg" alt="Evaluación del jurado y lectura de sensor OLED" loading="lazy">
+                </div>
+                <div class="module-card-body">
+                    <span class="module-card-tag">CRITERIOS // JURADO USP</span>
+                    <h3>Evaluación Técnica de Supervivencia</h3>
+                    <p>
+                        Los dispositivos cuya pantalla OLED confirme la supervivencia de Usachín clasifican a la evaluación final del jurado según: <strong>Ligereza</strong>, <strong>Compacidad del empaque</strong> y <strong>Originalidad del diseño estructural</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 2: Trofeo y Peluche -->
+            <div class="project-module-card">
+                <div class="module-card-img">
+                    <img src="../../../src/assets/images/gallery/cubesat partes 3d.webp" alt="Trofeo conmemorativo y peluche oficial de Usachín" loading="lazy">
+                </div>
+                <div class="module-card-body">
+                    <span class="module-card-tag">RECONOCIMIENTO // 1ER LUGAR</span>
+                    <h3>Trofeo &amp; Peluche Oficial de Usachín</h3>
+                    <p>
+                        El equipo con el aterrizaje más eficiente, seguro y ligero recibe el trofeo conmemorativo diseñado por el programa y se queda con el cotizado peluche oficial de Usachín.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 3: Puerta a USP -->
+            <div class="project-module-card">
+                <div class="module-card-img">
+                    <img src="../../../src/assets/images/gallery/rover_armado_foto_grupal.jpg" alt="Integración oficial a los proyectos aeroespaciales del USP" loading="lazy">
+                </div>
+                <div class="module-card-body">
+                    <span class="module-card-tag">MEMBRESÍA // ACCESO DIRECTO</span>
+                    <h3>Puerta al Usach Space Program</h3>
+                    <p>
+                        Además de conservar íntegramente sus prototipos y piezas, quienes destaquen por compromiso, proactividad y rigor técnico reciben una <strong>invitación preferente</strong> para sumarse como miembros oficiales a los proyectos aeroespaciales del ciclo anual.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CITA & CTA DIRECCIONADO AL FORMULARIO -->
+    <section class="project-quote-cta-section" id="inscripcion">
         <div class="project-quote-box">
             <div class="project-quote-text">
-                "Un huevo roto en el taller no es un fracaso; es la lección exacta que te enseñará a proteger los sensores en el próximo lanzamiento."
+                "Un paracaídas bien doblado y una estructura ligera no son fruto de la suerte, sino del trabajo colectivo y la atención a los detalles."
             </div>
-            <div class="project-quote-sub">— USACH SPACE PROGRAM · ACTIVIDAD FORMATIVA DE ONBOARDING</div>
+            <div class="project-quote-sub">— USACH SPACE PROGRAM · MISIÓN SALVA A USACHÍN</div>
         </div>
 
         <div class="project-cta-card">
-            <h3>¿Quieres Participar en la Próxima Edición de Salva Usachín?</h3>
+            <h3>¿Aceptas el Desafío de Salvar a Usachín?</h3>
             <p>
-                Es la actividad perfecta para conocer al equipo, hacer amigos de distintas ramas de ingeniería y poner a prueba tu ingenio práctico sin presiones.
+                Las inscripciones para la edición de este ciclo están abiertas a todas las carreras de la USACH. Puedes inscribirte con tu equipo ya formado (2 a 4 personas) o postular individualmente para que te conectemos con otros participantes interesados.
             </p>
-            <a href="mailto:spaceprogram@usach.cl?subject=Inscripcion%20Salva%20Usachin%20-%20USACH%20Space%20Program" class="btn-project-cta">
-                <span>Ponte en Contacto con Nosotros</span>
-                <span>✉</span>
+            <a href="/talleres/?mision=salva_usachin" class="btn-project-cta">
+                <span>Completar Formulario de Inscripción al Desafío</span>
+                <span>→</span>
             </a>
         </div>
     </section>
@@ -342,10 +371,9 @@
             <div>
                 <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Navegación</h4>
                 <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
-                    <li><a href="../../../index.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">← Inicio Principal</a></li>
-                    <li><a href="../../../index.html#ejes" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Ejes de Desarrollo</a></li>
-                    <li><a href="../../../index.html#proyectos" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Proyectos Emblema</a></li>
-                    <li><a href="../../../src/pages/registro.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Convocatoria y Postulación</a></li>
+                    <li><a href="/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">← Inicio Principal</a></li>
+                    <li><a href="/proyectos/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Catálogo de Proyectos</a></li>
+                    <li><a href="/talleres/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Admisión Desafíos Formativos</a></li>
                 </ul>
             </div>
             <div>
@@ -356,7 +384,7 @@
         </div>
         <div style="max-width: 1400px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">
             <span>&copy; 2026 USACH Space Program. Todos los derechos reservados.</span>
-            <span>Diseño y Fabricación con Fines Educativos</span>
+            <span>Misión: Salva a Usachín · Convocatoria Abierta</span>
         </div>
     </footer>
 

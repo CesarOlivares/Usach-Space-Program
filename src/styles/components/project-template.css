@@ -59,6 +59,7 @@ body, html, body.tech-grid {
 }
 
 .rover-navbar-inner,
+.rover-nav-container,
 .project-navbar-inner {
     max-width: 1400px;
     margin: 0 auto;
@@ -66,10 +67,12 @@ body, html, body.tech-grid {
     justify-content: space-between;
     align-items: center;
     gap: 16px;
+    width: 100%;
 }
 
 /* Brand Link */
 .rover-nav-back,
+.rover-nav-brand,
 .project-nav-back {
     display: flex;
     align-items: center;
@@ -79,9 +82,11 @@ body, html, body.tech-grid {
     padding: 6px 12px;
     border-radius: 8px;
     border: 1px solid transparent;
+    color: #ffffff !important;
 }
 
 .rover-nav-back:hover,
+.rover-nav-brand:hover,
 .project-nav-back:hover {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(229, 169, 88, 0.3);
@@ -91,14 +96,15 @@ body, html, body.tech-grid {
 .project-nav-logo {
     height: 32px;
     width: auto;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.25));
+    filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.35));
 }
 
-.brand-title {
+.brand-title,
+.rover-brand-text {
     font-family: var(--font-now);
     font-size: 1.02rem;
     font-weight: 700;
-    color: #ffffff;
+    color: #ffffff !important;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     white-space: nowrap;
@@ -110,12 +116,15 @@ body, html, body.tech-grid {
     display: flex;
     align-items: center;
     gap: 14px;
+    flex-wrap: nowrap;
 }
 
-.nav-group {
+.nav-group,
+.rover-nav-pill-group {
     display: flex;
     align-items: center;
     gap: 6px;
+    flex-wrap: nowrap;
 }
 
 .rover-nav-link,
@@ -129,10 +138,12 @@ body, html, body.tech-grid {
     padding: 6px 10px;
     border-radius: 6px;
     transition: var(--transition-smooth);
+    white-space: nowrap;
 }
 
 .rover-nav-link:hover,
-.project-nav-link:hover {
+.project-nav-link:hover,
+.rover-nav-link.active {
     color: #ffffff;
     background: rgba(255, 255, 255, 0.06);
 }
