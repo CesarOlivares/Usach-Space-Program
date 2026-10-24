@@ -58,6 +58,14 @@ body.site {
     max-width: 100%;
 }
 
+/* Los <button> no heredan la fuente por defecto (el navegador usa Arial) */
+.site button,
+.site input,
+.site select,
+.site textarea {
+    font-family: var(--font-body);
+}
+
 .site section[id] {
     scroll-margin-top: 60px;
 }
@@ -75,7 +83,7 @@ body.site {
     padding: 14px 24px;
     border-radius: 4px;
     font-family: var(--font-title);
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.3px;
     text-decoration: none;
@@ -131,7 +139,7 @@ body.site {
     align-items: center;
     gap: 8px;
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -189,9 +197,11 @@ body.site {
 .section h2 {
     font-family: var(--font-horizon);
     font-weight: 400;
-    font-size: clamp(1.9rem, 4vw, 3.2rem);
+    /* Horizon es muy ancha (~0,7em por letra): este rango mantiene los
+       títulos de sección en 2 líneas como máximo en todas las pantallas */
+    font-size: clamp(1.5rem, 3.4vw + 0.5rem, 2.6rem);
     line-height: 1.08;
-    letter-spacing: 0.5px;
+    letter-spacing: 0;
     text-transform: uppercase;
     margin: 0;
 }
@@ -200,7 +210,7 @@ body.site {
 .section-dark h2 { color: var(--pure-white); }
 
 .section-intro {
-    font-size: 1.08rem;
+    font-size: 1.125rem;
     line-height: 1.6;
     margin: 16px 0 0;
     max-width: 30rem;
@@ -215,7 +225,7 @@ body.site {
 
 .eyebrow {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 2.5px;
     text-transform: uppercase;
@@ -233,11 +243,11 @@ body.site {
 }
 
 .muted {
-    color: var(--text-dark);
+    color: #7A8496;
 }
 
 .prose p {
-    font-size: 1.05rem;
+    font-size: 1.0625rem;
     line-height: 1.7;
     margin: 0 0 18px;
 }
@@ -321,7 +331,7 @@ body.site {
     padding: 0;
     list-style: none;
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--text-secondary);
@@ -353,7 +363,7 @@ body.site {
 
 .filter-label {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.8125rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--ink-faint);
@@ -369,7 +379,7 @@ body.site {
     border: 1px solid var(--paper-line);
     background: transparent;
     font-family: var(--font-title);
-    font-size: 0.92rem;
+    font-size: 1rem;
     font-weight: 500;
     color: var(--ink);
     cursor: pointer;
@@ -378,7 +388,7 @@ body.site {
 
 .filter-chip span {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     color: var(--ink-faint);
 }
 
@@ -480,7 +490,7 @@ body.site {
 .project-meta {
     margin: 0;
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 1.2px;
     text-transform: uppercase;
@@ -500,7 +510,7 @@ body.site {
 }
 
 .project-body > p:not([class]) {
-    font-size: 0.93rem;
+    font-size: 1rem;
     line-height: 1.55;
     color: var(--ink-soft);
     margin: 0;
@@ -513,7 +523,7 @@ body.site {
     margin: auto 0 0;
     padding-top: 10px;
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.8125rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--ink);
@@ -578,7 +588,7 @@ body.site {
 .timeline-when {
     display: block;
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -602,7 +612,7 @@ body.site {
 .section-dark .timeline h3 { color: var(--pure-white); }
 
 .timeline p {
-    font-size: 0.93rem;
+    font-size: 1rem;
     line-height: 1.55;
     margin: 0;
 }
@@ -652,7 +662,7 @@ body.site {
 
 .expand-num {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     color: var(--eje, var(--accent-amber));
 }
@@ -669,7 +679,7 @@ body.site {
 
 .expand-title strong {
     font-family: var(--font-title);
-    font-size: 1.08rem;
+    font-size: 1.125rem;
     font-weight: 700;
 }
 
@@ -678,7 +688,7 @@ body.site {
 
 .expand-title small {
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.8125rem;
     letter-spacing: 1.2px;
     text-transform: uppercase;
     color: var(--text-secondary);
@@ -728,7 +738,7 @@ body.site {
 
 .expand-body p {
     margin: 0;
-    font-size: 0.97rem;
+    font-size: 1rem;
     line-height: 1.6;
 }
 
@@ -779,7 +789,7 @@ body.site {
     padding: 40px 16px 14px;
     background: linear-gradient(to top, rgba(8, 12, 22, 0.85), transparent);
     font-family: var(--font-title);
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 600;
     text-align: left;
     color: var(--pure-white);
@@ -787,7 +797,7 @@ body.site {
 
 .gallery-tag {
     font-family: var(--font-mono);
-    font-size: 0.66rem;
+    font-size: 0.8125rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--eje, var(--accent-amber));
@@ -892,7 +902,7 @@ body.site {
 }
 
 .cta-panel p {
-    font-size: 1.02rem;
+    font-size: 1.0625rem;
     line-height: 1.65;
     color: rgba(245, 245, 240, 0.78);
     margin: 0;
@@ -917,6 +927,16 @@ body.site {
 .tone-bridge {
     height: clamp(48px, 7vw, 90px);
     pointer-events: none;
+}
+
+/* El puente ya separa las secciones: se acortan los márgenes que lo rodean
+   para que margen + puente + margen no formen una franja vacía */
+.section:has(+ .tone-bridge) {
+    padding-bottom: clamp(40px, 5vw, 64px);
+}
+
+.tone-bridge + .section {
+    padding-top: clamp(40px, 5vw, 64px);
 }
 
 .tone-bridge--to-light {
@@ -1044,7 +1064,7 @@ body.site {
     border-radius: 3px;
     background: rgba(5, 8, 15, 0.7);
     font-family: var(--font-mono);
-    font-size: 0.62rem;
+    font-size: 0.8125rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: rgba(245, 245, 240, 0.85);
@@ -1106,6 +1126,176 @@ body.site {
 
 .float-soft {
     animation: floatY 9s ease-in-out infinite;
+}
+
+/* === ETIQUETAS EN TEXTO NORMAL ===
+   Las etiquetas, menús y pies de foto dejan la letra monoespaciada en
+   mayúsculas: se leen en la tipografía del sitio, en minúsculas y a tamaño
+   legible. La monoespaciada queda solo para datos (fases, pasos, siglas).
+   body.site da la especificidad para ganar a los estilos de cada página. */
+body.site :is(
+    .eyebrow, .metric-label, .news-meta, .project-meta, .project-status,
+    .filter-label, .ficha-tag, .breadcrumb, .gallery-tag, .feature-card-tag,
+    .roadmap-title, .text-link, .eje-facts dt, .ficha-facts dt, .expand-title small,
+    .ficha-subnav a, .ejes-bar-tab, .kind-label, .vision-label, .news-cta,
+    .eje-select-num, .block-title, .related-title, .hero-stats dt, .error-links a,
+    .nav-links a, .footer-links h4, .footer-contact h4, .footer-institutions h4,
+    .timeline-when
+) {
+    font-family: var(--font-body);
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.9375rem;
+    font-weight: 500;
+}
+
+body.site :is(.eyebrow, .roadmap-title, .block-title, .related-title, .kind-label, .vision-label) {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+body.site :is(
+    .manifesto figcaption, .split-figure figcaption, .eje-figure figcaption,
+    .ficha-quote figcaption, .reference-credit
+) {
+    font-family: var(--font-body);
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.875rem;
+}
+
+body.site .timeline-when {
+    font-weight: 600;
+}
+
+body.site :is(.news-card .news-cta, .filter-chip span, .expand-num) {
+    font-family: var(--font-body);
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+body.site .expand-num {
+    font-weight: 700;
+}
+
+/* Listas de ruta sin etiqueta de fecha: el texto ocupa toda la fila */
+.roadmap li:not(:has(.roadmap-step)) {
+    grid-template-columns: 1fr;
+}
+
+/* Tarjetas expandibles sin sigla: título y signo +, en dos columnas */
+.expand-card summary:not(:has(.expand-num)) {
+    grid-template-columns: 1fr auto;
+}
+
+/* === TONO EN VEZ DE LÍNEAS ===
+   Las superficies se separan por un paso de tono, no por bordes de 1 px,
+   líneas divisorias, sombras en reposo ni desenfoque. Solo el menú fijo
+   conserva el desenfoque. */
+body.site :is(
+    .project-card, .news-card, .feature-card, .expand-card, .goal-card, .partner,
+    .kind, .steps li, .video-frame, .cta-panel, .eje-select, .filter-chip
+) {
+    border: 0;
+}
+
+body.site .section-dark :is(.expand-card, .feature-card, .steps li) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+body.site .filter-chip {
+    background: rgba(14, 20, 36, 0.06);
+}
+
+body.site .filter-chip:hover {
+    background: rgba(14, 20, 36, 0.12);
+}
+
+body.site .filter-chip.is-active {
+    background: var(--ink);
+}
+
+/* Botón secundario: relleno suave en vez de contorno */
+body.site .btn-ghost {
+    border-color: transparent;
+    background: rgba(14, 20, 36, 0.07);
+}
+
+body.site .btn-ghost:hover {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+body.site :is(.section-dark, .on-dark, .hero, .page-hero, .ficha-hero, .join-card, .kind, .cta-panel) .btn-ghost {
+    border-color: transparent;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--pure-white);
+}
+
+body.site :is(.section-dark, .on-dark, .hero, .page-hero, .ficha-hero, .join-card, .kind, .cta-panel) .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.18);
+    color: var(--pure-white);
+}
+
+/* Líneas divisorias fuera: el espacio y el tono separan */
+body.site header,
+body.site footer,
+body.site .footer-bottom,
+body.site .ejes-tabs,
+body.site .ficha-facts,
+body.site .ficha-facts div,
+body.site .hero-stats,
+body.site .hero-stats div,
+body.site .error-links,
+body.site .metric {
+    border-top: 0;
+    border-bottom: 0;
+    border-left: 0;
+}
+
+body.site .eje-facts {
+    border: 0;
+    padding: 0;
+}
+
+body.site .metrics-grid {
+    column-gap: 24px;
+}
+
+body.site .metric {
+    padding-left: 0;
+}
+
+body.site :is(.ficha-subnav, .ejes-bar) {
+    border-top: 0;
+    border-bottom: 0;
+    background: rgba(11, 17, 32, 0.97);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+body.site [data-adaptive-bar].over-light {
+    background: rgba(243, 240, 232, 0.97);
+}
+
+body.site :is(.eje-figure figcaption, .ficha-tag) {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+body.site .ficha-tag {
+    border: 0;
+    background: rgba(5, 8, 15, 0.78);
+}
+
+body.site .error-links a {
+    border: 0;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* Sin sombras en reposo: solo al pasar el cursor */
+body.site .join-card {
+    box-shadow: none;
 }
 
 /* === RESPONSIVE === */
@@ -1179,7 +1369,7 @@ body.site {
     }
 
     .gallery-cap {
-        font-size: 0.82rem;
+        font-size: 0.875rem;
         padding: 32px 10px 10px;
     }
 
@@ -1298,7 +1488,7 @@ body.site {
 
 .eje-select-num {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 1.8px;
     text-transform: uppercase;
@@ -1313,7 +1503,7 @@ body.site {
 }
 
 .eje-select-meta {
-    font-size: 0.88rem;
+    font-size: 1rem;
     color: rgba(245, 245, 240, 0.75);
 }
 
@@ -1353,7 +1543,7 @@ body.site {
     border: 0;
     border-bottom: 2px solid transparent;
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.8125rem;
     font-weight: 500;
     letter-spacing: 1.2px;
     text-transform: uppercase;
@@ -1441,7 +1631,7 @@ body.site {
 
 .eje-facts dt {
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.8125rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--ink-faint);
@@ -1451,7 +1641,7 @@ body.site {
 .eje-facts dd {
     margin: 0;
     font-family: var(--font-title);
-    font-size: 0.98rem;
+    font-size: 1rem;
     font-weight: 600;
     line-height: 1.4;
     color: var(--ink);
@@ -1469,7 +1659,7 @@ body.site {
 .block-title {
     margin: clamp(56px, 7vw, 88px) 0 24px;
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -1527,7 +1717,7 @@ body.site {
 
 .goal-card p {
     margin: 0;
-    font-size: 0.93rem;
+    font-size: 1rem;
     line-height: 1.55;
     color: var(--ink-soft);
 }
@@ -1553,7 +1743,7 @@ body.site {
     display: block;
     margin-bottom: 14px;
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -1577,14 +1767,14 @@ body.site {
 .callout-box strong {
     display: block;
     font-family: var(--font-title);
-    font-size: 1.02rem;
+    font-size: 1.0625rem;
     color: var(--pure-white);
     margin-bottom: 6px;
 }
 
 .callout-box p {
     margin: 0;
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.6;
     color: rgba(245, 245, 240, 0.75);
 }
@@ -1658,11 +1848,11 @@ body.site {
         padding: 0 12px;
     }
 }</style>
-  <script type="module" crossorigin src="/assets/ejes-CaLi2230.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/main-CJjJ4RO2.js">
+  <script type="module" crossorigin src="/assets/ejes-mRbOFNsC.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/main-uMHmB8Kc.js">
   <link rel="modulepreload" crossorigin href="/assets/header-BHafkzy6.js">
-  <link rel="modulepreload" crossorigin href="/assets/motion-BQLF6M6p.js">
-  <link rel="stylesheet" crossorigin href="/assets/main-C2hFK1Xc.css">
+  <link rel="modulepreload" crossorigin href="/assets/motion-CsrLMIp-.js">
+  <link rel="stylesheet" crossorigin href="/assets/main-BhfFX2aH.css">
 </head>
 <body class="site ejes-page">
 
@@ -1758,8 +1948,8 @@ body.site {
 
                 <h3 class="block-title">Objetivos y ambiciones</h3>
                 <div class="goal-cards">
-                    <article class="goal-card"><span class="goal-num">01</span><h4>Crear robots de carácter aeroespacial</h4><p>Prototipos que repliquen y adapten tecnologías de exploración.</p></article>
-                    <article class="goal-card"><span class="goal-num">02</span><h4>Probar mecanismos para condiciones hostiles</h4><p>Ensayar cómo responden ante calor, polvo, impactos y uso prolongado.</p></article>
+                    <article class="goal-card"><h4>Crear robots de carácter aeroespacial</h4><p>Prototipos que repliquen y adapten tecnologías de exploración.</p></article>
+                    <article class="goal-card"><h4>Probar mecanismos para condiciones hostiles</h4><p>Ensayar cómo responden ante calor, polvo, impactos y uso prolongado.</p></article>
                 </div>
             </div>
         </section>
@@ -1832,10 +2022,10 @@ body.site {
 
                 <h3 class="block-title">Objetivos y ambiciones</h3>
                 <div class="goal-cards">
-                    <article class="goal-card"><span class="goal-num">01</span><h4>Un vector hidroneumático modular y recuperable</h4><p>Plataformas de lanzamiento con despliegue activo y telemetría en tiempo real.</p></article>
-                    <article class="goal-card"><span class="goal-num">02</span><h4>Validar subsistemas escalables</h4><p>Aviónica, aletas, materiales y paracaídas transferibles a vectores con propelente químico.</p></article>
-                    <article class="goal-card"><span class="goal-num">03</span><h4>Transición a propulsión sólida</h4><p>Marco regulatorio, manejo de propelentes y bancos de pruebas estáticas (High-Power Rocketry).</p></article>
-                    <article class="goal-card"><span class="goal-num">04</span><h4>Seguridad y documentación abierta</h4><p>Protocolos de lanzamiento normalizados e ingeniería compartida como <em>open source</em>.</p></article>
+                    <article class="goal-card"><h4>Un vector hidroneumático modular y recuperable</h4><p>Plataformas de lanzamiento con despliegue activo y telemetría en tiempo real.</p></article>
+                    <article class="goal-card"><h4>Validar subsistemas escalables</h4><p>Aviónica, aletas, materiales y paracaídas transferibles a vectores con propelente químico.</p></article>
+                    <article class="goal-card"><h4>Transición a propulsión sólida</h4><p>Marco regulatorio, manejo de propelentes y bancos de pruebas estáticas (High-Power Rocketry).</p></article>
+                    <article class="goal-card"><h4>Seguridad y documentación abierta</h4><p>Protocolos de lanzamiento normalizados e ingeniería compartida como <em>open source</em>.</p></article>
                 </div>
             </div>
         </section>
@@ -1908,9 +2098,9 @@ body.site {
 
                 <h3 class="block-title">Objetivos y ambiciones</h3>
                 <div class="goal-cards">
-                    <article class="goal-card"><span class="goal-num">01</span><h4>Diseñar y operar plataformas orbitales y suborbitales</h4><p>Partiendo por un CubeSat 1U de bajo costo y alta iteración, y proyectando ese aprendizaje a futuras plataformas.</p></article>
-                    <article class="goal-card"><span class="goal-num">02</span><h4>Desarrollar capacidad tecnológica</h4><p>Electrónica, software de tiempo real, radiofrecuencia, datos de misión y estaciones terrestres.</p></article>
-                    <article class="goal-card"><span class="goal-num">03</span><h4>Desarrollar habilidades técnicas</h4><p>Protocolos de telemetría, comando y control, e integración de hardware, software y potencia.</p></article>
+                    <article class="goal-card"><h4>Diseñar y operar plataformas orbitales y suborbitales</h4><p>Partiendo por un CubeSat 1U de bajo costo y alta iteración, y proyectando ese aprendizaje a futuras plataformas.</p></article>
+                    <article class="goal-card"><h4>Desarrollar capacidad tecnológica</h4><p>Electrónica, software de tiempo real, radiofrecuencia, datos de misión y estaciones terrestres.</p></article>
+                    <article class="goal-card"><h4>Desarrollar habilidades técnicas</h4><p>Protocolos de telemetría, comando y control, e integración de hardware, software y potencia.</p></article>
                 </div>
             </div>
         </section>
@@ -1962,7 +2152,7 @@ body.site {
         <div class="section-inner">
             <div class="cta-panel">
                 <div>
-                    <h2>¿En cuál de estos ejes te gustaría aprender?</h2>
+                    <h2>¿En qué eje te gustaría aprender?</h2>
                     <p>Las puertas están abiertas para estudiantes de cualquier carrera de la USACH. No necesitas experiencia previa: solo ganas de aprender en taller y trabajar en equipo.</p>
                 </div>
                 <div class="cta-actions on-dark">

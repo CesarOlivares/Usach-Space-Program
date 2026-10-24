@@ -96,6 +96,14 @@ body.site {
     max-width: 100%;
 }
 
+/* Los <button> no heredan la fuente por defecto (el navegador usa Arial) */
+.site button,
+.site input,
+.site select,
+.site textarea {
+    font-family: var(--font-body);
+}
+
 .site section[id] {
     scroll-margin-top: 60px;
 }
@@ -113,7 +121,7 @@ body.site {
     padding: 14px 24px;
     border-radius: 4px;
     font-family: var(--font-title);
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.3px;
     text-decoration: none;
@@ -169,7 +177,7 @@ body.site {
     align-items: center;
     gap: 8px;
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -227,9 +235,11 @@ body.site {
 .section h2 {
     font-family: var(--font-horizon);
     font-weight: 400;
-    font-size: clamp(1.9rem, 4vw, 3.2rem);
+    /* Horizon es muy ancha (~0,7em por letra): este rango mantiene los
+       títulos de sección en 2 líneas como máximo en todas las pantallas */
+    font-size: clamp(1.5rem, 3.4vw + 0.5rem, 2.6rem);
     line-height: 1.08;
-    letter-spacing: 0.5px;
+    letter-spacing: 0;
     text-transform: uppercase;
     margin: 0;
 }
@@ -238,7 +248,7 @@ body.site {
 .section-dark h2 { color: var(--pure-white); }
 
 .section-intro {
-    font-size: 1.08rem;
+    font-size: 1.125rem;
     line-height: 1.6;
     margin: 16px 0 0;
     max-width: 30rem;
@@ -253,7 +263,7 @@ body.site {
 
 .eyebrow {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 2.5px;
     text-transform: uppercase;
@@ -271,11 +281,11 @@ body.site {
 }
 
 .muted {
-    color: var(--text-dark);
+    color: #7A8496;
 }
 
 .prose p {
-    font-size: 1.05rem;
+    font-size: 1.0625rem;
     line-height: 1.7;
     margin: 0 0 18px;
 }
@@ -359,7 +369,7 @@ body.site {
     padding: 0;
     list-style: none;
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--text-secondary);
@@ -391,7 +401,7 @@ body.site {
 
 .filter-label {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.8125rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--ink-faint);
@@ -407,7 +417,7 @@ body.site {
     border: 1px solid var(--paper-line);
     background: transparent;
     font-family: var(--font-title);
-    font-size: 0.92rem;
+    font-size: 1rem;
     font-weight: 500;
     color: var(--ink);
     cursor: pointer;
@@ -416,7 +426,7 @@ body.site {
 
 .filter-chip span {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     color: var(--ink-faint);
 }
 
@@ -518,7 +528,7 @@ body.site {
 .project-meta {
     margin: 0;
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 1.2px;
     text-transform: uppercase;
@@ -538,7 +548,7 @@ body.site {
 }
 
 .project-body > p:not([class]) {
-    font-size: 0.93rem;
+    font-size: 1rem;
     line-height: 1.55;
     color: var(--ink-soft);
     margin: 0;
@@ -551,7 +561,7 @@ body.site {
     margin: auto 0 0;
     padding-top: 10px;
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.8125rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--ink);
@@ -616,7 +626,7 @@ body.site {
 .timeline-when {
     display: block;
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -640,7 +650,7 @@ body.site {
 .section-dark .timeline h3 { color: var(--pure-white); }
 
 .timeline p {
-    font-size: 0.93rem;
+    font-size: 1rem;
     line-height: 1.55;
     margin: 0;
 }
@@ -690,7 +700,7 @@ body.site {
 
 .expand-num {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     color: var(--eje, var(--accent-amber));
 }
@@ -707,7 +717,7 @@ body.site {
 
 .expand-title strong {
     font-family: var(--font-title);
-    font-size: 1.08rem;
+    font-size: 1.125rem;
     font-weight: 700;
 }
 
@@ -716,7 +726,7 @@ body.site {
 
 .expand-title small {
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.8125rem;
     letter-spacing: 1.2px;
     text-transform: uppercase;
     color: var(--text-secondary);
@@ -766,7 +776,7 @@ body.site {
 
 .expand-body p {
     margin: 0;
-    font-size: 0.97rem;
+    font-size: 1rem;
     line-height: 1.6;
 }
 
@@ -817,7 +827,7 @@ body.site {
     padding: 40px 16px 14px;
     background: linear-gradient(to top, rgba(8, 12, 22, 0.85), transparent);
     font-family: var(--font-title);
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 600;
     text-align: left;
     color: var(--pure-white);
@@ -825,7 +835,7 @@ body.site {
 
 .gallery-tag {
     font-family: var(--font-mono);
-    font-size: 0.66rem;
+    font-size: 0.8125rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--eje, var(--accent-amber));
@@ -930,7 +940,7 @@ body.site {
 }
 
 .cta-panel p {
-    font-size: 1.02rem;
+    font-size: 1.0625rem;
     line-height: 1.65;
     color: rgba(245, 245, 240, 0.78);
     margin: 0;
@@ -955,6 +965,16 @@ body.site {
 .tone-bridge {
     height: clamp(48px, 7vw, 90px);
     pointer-events: none;
+}
+
+/* El puente ya separa las secciones: se acortan los márgenes que lo rodean
+   para que margen + puente + margen no formen una franja vacía */
+.section:has(+ .tone-bridge) {
+    padding-bottom: clamp(40px, 5vw, 64px);
+}
+
+.tone-bridge + .section {
+    padding-top: clamp(40px, 5vw, 64px);
 }
 
 .tone-bridge--to-light {
@@ -1082,7 +1102,7 @@ body.site {
     border-radius: 3px;
     background: rgba(5, 8, 15, 0.7);
     font-family: var(--font-mono);
-    font-size: 0.62rem;
+    font-size: 0.8125rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: rgba(245, 245, 240, 0.85);
@@ -1144,6 +1164,176 @@ body.site {
 
 .float-soft {
     animation: floatY 9s ease-in-out infinite;
+}
+
+/* === ETIQUETAS EN TEXTO NORMAL ===
+   Las etiquetas, menús y pies de foto dejan la letra monoespaciada en
+   mayúsculas: se leen en la tipografía del sitio, en minúsculas y a tamaño
+   legible. La monoespaciada queda solo para datos (fases, pasos, siglas).
+   body.site da la especificidad para ganar a los estilos de cada página. */
+body.site :is(
+    .eyebrow, .metric-label, .news-meta, .project-meta, .project-status,
+    .filter-label, .ficha-tag, .breadcrumb, .gallery-tag, .feature-card-tag,
+    .roadmap-title, .text-link, .eje-facts dt, .ficha-facts dt, .expand-title small,
+    .ficha-subnav a, .ejes-bar-tab, .kind-label, .vision-label, .news-cta,
+    .eje-select-num, .block-title, .related-title, .hero-stats dt, .error-links a,
+    .nav-links a, .footer-links h4, .footer-contact h4, .footer-institutions h4,
+    .timeline-when
+) {
+    font-family: var(--font-body);
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.9375rem;
+    font-weight: 500;
+}
+
+body.site :is(.eyebrow, .roadmap-title, .block-title, .related-title, .kind-label, .vision-label) {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+body.site :is(
+    .manifesto figcaption, .split-figure figcaption, .eje-figure figcaption,
+    .ficha-quote figcaption, .reference-credit
+) {
+    font-family: var(--font-body);
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.875rem;
+}
+
+body.site .timeline-when {
+    font-weight: 600;
+}
+
+body.site :is(.news-card .news-cta, .filter-chip span, .expand-num) {
+    font-family: var(--font-body);
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+body.site .expand-num {
+    font-weight: 700;
+}
+
+/* Listas de ruta sin etiqueta de fecha: el texto ocupa toda la fila */
+.roadmap li:not(:has(.roadmap-step)) {
+    grid-template-columns: 1fr;
+}
+
+/* Tarjetas expandibles sin sigla: título y signo +, en dos columnas */
+.expand-card summary:not(:has(.expand-num)) {
+    grid-template-columns: 1fr auto;
+}
+
+/* === TONO EN VEZ DE LÍNEAS ===
+   Las superficies se separan por un paso de tono, no por bordes de 1 px,
+   líneas divisorias, sombras en reposo ni desenfoque. Solo el menú fijo
+   conserva el desenfoque. */
+body.site :is(
+    .project-card, .news-card, .feature-card, .expand-card, .goal-card, .partner,
+    .kind, .steps li, .video-frame, .cta-panel, .eje-select, .filter-chip
+) {
+    border: 0;
+}
+
+body.site .section-dark :is(.expand-card, .feature-card, .steps li) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+body.site .filter-chip {
+    background: rgba(14, 20, 36, 0.06);
+}
+
+body.site .filter-chip:hover {
+    background: rgba(14, 20, 36, 0.12);
+}
+
+body.site .filter-chip.is-active {
+    background: var(--ink);
+}
+
+/* Botón secundario: relleno suave en vez de contorno */
+body.site .btn-ghost {
+    border-color: transparent;
+    background: rgba(14, 20, 36, 0.07);
+}
+
+body.site .btn-ghost:hover {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+body.site :is(.section-dark, .on-dark, .hero, .page-hero, .ficha-hero, .join-card, .kind, .cta-panel) .btn-ghost {
+    border-color: transparent;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--pure-white);
+}
+
+body.site :is(.section-dark, .on-dark, .hero, .page-hero, .ficha-hero, .join-card, .kind, .cta-panel) .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.18);
+    color: var(--pure-white);
+}
+
+/* Líneas divisorias fuera: el espacio y el tono separan */
+body.site header,
+body.site footer,
+body.site .footer-bottom,
+body.site .ejes-tabs,
+body.site .ficha-facts,
+body.site .ficha-facts div,
+body.site .hero-stats,
+body.site .hero-stats div,
+body.site .error-links,
+body.site .metric {
+    border-top: 0;
+    border-bottom: 0;
+    border-left: 0;
+}
+
+body.site .eje-facts {
+    border: 0;
+    padding: 0;
+}
+
+body.site .metrics-grid {
+    column-gap: 24px;
+}
+
+body.site .metric {
+    padding-left: 0;
+}
+
+body.site :is(.ficha-subnav, .ejes-bar) {
+    border-top: 0;
+    border-bottom: 0;
+    background: rgba(11, 17, 32, 0.97);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+body.site [data-adaptive-bar].over-light {
+    background: rgba(243, 240, 232, 0.97);
+}
+
+body.site :is(.eje-figure figcaption, .ficha-tag) {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+body.site .ficha-tag {
+    border: 0;
+    background: rgba(5, 8, 15, 0.78);
+}
+
+body.site .error-links a {
+    border: 0;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* Sin sombras en reposo: solo al pasar el cursor */
+body.site .join-card {
+    box-shadow: none;
 }
 
 /* === RESPONSIVE === */
@@ -1217,7 +1407,7 @@ body.site {
     }
 
     .gallery-cap {
-        font-size: 0.82rem;
+        font-size: 0.875rem;
         padding: 32px 10px 10px;
     }
 
@@ -1245,87 +1435,48 @@ body.site {
     }
 }
 
-.hero .btn-ghost {
-    border-color: rgba(255, 255, 255, 0.35);
-}
-
-.hero .btn-ghost:hover {
-    border-color: var(--pure-white);
-    background: rgba(255, 255, 255, 0.06);
-}
-
-/* === 1. HERO === */
+/* === 1. HERO ===
+   Texto a la izquierda y, a la derecha, material propio: la prueba de giro
+   del rover en el taller (video vertical, recortado a 4:5) */
 .hero {
     position: relative;
     min-height: 100vh;
     min-height: 100svh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 120px 24px 48px;
+    align-items: center;
+    padding: 112px 24px 72px;
     box-sizing: border-box;
     overflow: hidden;
     background: linear-gradient(to bottom, var(--void) 0%, var(--void) 72%, var(--dusk) 100%);
 }
 
-.hero-media {
-    position: absolute;
-    inset: 0 0 0 auto;
-    width: 62%;
-    pointer-events: none;
-    will-change: transform;
-    /* Bordes inferior e izquierdo desvanecidos: el video se funde con el fondo
-       en vez de terminar en un rectángulo, aunque el parallax lo desplace */
-    -webkit-mask-image:
-        linear-gradient(to bottom, #000 0%, #000 50%, transparent 92%),
-        linear-gradient(to right, transparent 0%, #000 28%);
-    -webkit-mask-composite: source-in;
-    mask-image:
-        linear-gradient(to bottom, #000 0%, #000 50%, transparent 92%),
-        linear-gradient(to right, transparent 0%, #000 28%);
-    mask-composite: intersect;
-}
-
-.hero-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center right;
-}
-
-.hero-shade {
-    position: absolute;
-    inset: 0;
-    background:
-        linear-gradient(to right, rgba(5, 8, 15, 0.55) 0%, transparent 60%);
-}
-
-.hero-inner {
+.hero-grid {
     position: relative;
     z-index: 2;
     width: 100%;
     max-width: 1240px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+    gap: clamp(32px, 5vw, 80px);
+    align-items: center;
 }
 
-.hero-badge {
+.hero-status {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    margin: 0 0 28px;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    margin: 0 0 24px;
+    font-size: 1rem;
+    font-weight: 600;
     color: var(--accent-amber);
 }
 
 .badge-dot {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     background: var(--accent-amber);
-    box-shadow: 0 0 0 0 rgba(229, 169, 88, 0.6);
     animation: pulse 2.4s infinite;
 }
 
@@ -1338,21 +1489,22 @@ body.site {
 .hero-title {
     font-family: var(--font-horizon);
     font-weight: 400;
-    font-size: clamp(2.6rem, 7vw, 6rem);
+    /* "USACH SPACE" mide ~8,4em en Horizon: este tamaño lo deja en 2 líneas
+       en la columna de texto, desde 390 px hasta escritorio */
+    font-size: clamp(2.3rem, 6vw, 5.2rem);
     line-height: 1.02;
-    letter-spacing: 1px;
+    letter-spacing: 0;
     text-transform: uppercase;
     color: var(--pure-white);
     margin: 0 0 28px;
-    max-width: 9ch;
 }
 
 .hero-lede {
-    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+    font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
     line-height: 1.6;
-    color: rgba(245, 245, 240, 0.82);
+    color: rgba(245, 245, 240, 0.88);
     max-width: 34rem;
-    margin: 0 0 40px;
+    margin: 0 0 36px;
 }
 
 .hero-actions {
@@ -1362,28 +1514,31 @@ body.site {
 }
 
 .hero-axes {
-    position: relative;
-    z-index: 2;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px 28px;
-    width: 100%;
-    max-width: 1240px;
-    margin: 72px auto 0;
-    padding: 24px 0 0;
-    border-top: 1px solid var(--border-subtle);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-secondary);
+    gap: 10px 12px;
+    margin: 40px 0 0;
+    padding: 0;
 }
 
-.hero-axes li {
+.hero-axes a {
     display: inline-flex;
     align-items: center;
     gap: 10px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--bone-white);
+    text-decoration: none;
+    transition: background-color 0.25s, color 0.25s;
+}
+
+.hero-axes a:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--pure-white);
 }
 
 .axis-dot {
@@ -1393,6 +1548,29 @@ body.site {
     background: var(--eje);
 }
 
+.hero-feature {
+    margin: 0;
+    justify-self: end;
+    width: 100%;
+    max-width: 420px;
+}
+
+.hero-feature video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 50% 45%;
+    border-radius: 6px;
+    background: var(--night);
+}
+
+.hero-feature figcaption {
+    margin-top: 14px;
+    font-size: 0.9375rem;
+    line-height: 1.45;
+    color: var(--text-secondary);
+}
 /* === 2. MÉTRICAS === */
 .metrics {
     background: var(--dusk);
@@ -1433,7 +1611,7 @@ body.site {
 
 .metric-label {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--text-secondary);
@@ -1499,7 +1677,7 @@ body.site {
     align-items: center;
     gap: 10px;
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 1.2px;
     text-transform: uppercase;
@@ -1523,7 +1701,7 @@ body.site {
 
 .news-card h3 {
     font-family: var(--font-title);
-    font-size: 1.08rem;
+    font-size: 1.125rem;
     font-weight: 700;
     line-height: 1.3;
     margin: 0;
@@ -1531,7 +1709,7 @@ body.site {
 }
 
 .news-card p {
-    font-size: 0.92rem;
+    font-size: 1rem;
     line-height: 1.55;
     color: var(--ink-soft);
     margin: 0;
@@ -1596,7 +1774,7 @@ body.site {
 
 .news-card.is-featured p {
     color: rgba(245, 245, 240, 0.85);
-    font-size: 1.02rem;
+    font-size: 1.0625rem;
     max-width: 32rem;
 }
 
@@ -1611,7 +1789,7 @@ body.site {
 .news-card.is-featured .news-cta {
     margin-top: 8px;
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -1667,7 +1845,7 @@ body.site {
 
 .eje-tab-num {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     color: var(--eje);
 }
 
@@ -1718,7 +1896,7 @@ body.site {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.8125rem;
     letter-spacing: 1.2px;
     text-transform: uppercase;
     color: var(--pure-white);
@@ -1734,7 +1912,7 @@ body.site {
 }
 
 .eje-body > p {
-    font-size: 1.02rem;
+    font-size: 1.0625rem;
     line-height: 1.65;
     color: rgba(245, 245, 240, 0.78);
     margin: 0 0 28px;
@@ -1752,23 +1930,23 @@ body.site {
 
 .eje-facts dt {
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.8125rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--text-dark);
+    color: var(--text-secondary);
     margin-bottom: 6px;
 }
 
 .eje-facts dd {
     margin: 0;
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.4;
     color: var(--pure-white);
 }
 
 .roadmap-title {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -1799,7 +1977,7 @@ body.site {
     grid-template-columns: 76px 1fr;
     gap: 12px;
     padding: 0 0 14px 28px;
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.45;
     color: rgba(245, 245, 240, 0.85);
 }
@@ -1822,7 +2000,7 @@ body.site {
 
 .roadmap-step {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     letter-spacing: 1px;
     color: var(--eje);
     padding-top: 2px;
@@ -1837,7 +2015,11 @@ body.site {
 }
 
 .cycle-copy h2 {
-    margin-bottom: 36px;
+    margin-bottom: 16px;
+}
+
+.cycle-intro {
+    margin: 0 0 32px !important;
 }
 
 .cycle-phases {
@@ -1848,7 +2030,7 @@ body.site {
 
 .cycle-phase {
     display: grid;
-    grid-template-columns: 44px 1fr;
+    grid-template-columns: 1fr;
     align-items: baseline;
     gap: 0 12px;
     padding: 18px 20px;
@@ -1874,7 +2056,7 @@ body.site {
 
 .cycle-phase-num {
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.8125rem;
     color: var(--accent-amber);
 }
 
@@ -1885,8 +2067,8 @@ body.site {
 }
 
 .cycle-phase-text {
-    grid-column: 2;
-    font-size: 0.98rem;
+    grid-column: 1;
+    font-size: 1rem;
     line-height: 1.6;
     color: rgba(245, 245, 240, 0.78);
     overflow: hidden;
@@ -1956,7 +2138,7 @@ body.site {
 
 .cycle-node text {
     font-family: var(--font-mono);
-    font-size: 9px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 1px;
     text-anchor: middle;
@@ -2031,7 +2213,7 @@ body.site {
 
 .manifesto figcaption {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--accent-amber);
@@ -2133,7 +2315,7 @@ body.site {
     text-decoration: none;
     color: var(--ink);
     font-family: var(--font-title);
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 600;
     transition: border-color 0.2s, transform 0.25s;
 }
@@ -2158,6 +2340,22 @@ body.site {
 }
 
 /* === RESPONSIVE === */
+@media (max-width: 900px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-feature {
+        justify-self: stretch;
+        max-width: none;
+    }
+
+    .hero-feature video {
+        aspect-ratio: 16 / 10;
+        object-position: 50% 55%;
+    }
+}
+
 @media (max-width: 1080px) {
     .news-grid {
         grid-template-columns: 1fr;
@@ -2188,30 +2386,11 @@ body.site {
 
 @media (max-width: 760px) {
     .hero {
-        padding-top: 104px;
-        justify-content: flex-end;
+        padding-top: 96px;
+        min-height: 0;
     }
 
-    .hero-media {
-        width: 100%;
-        height: 62%;
-        inset: 0 0 auto 0;
-        opacity: 0.75;
-        -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
-        mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
-    }
 
-    .hero-video {
-        object-position: 70% center;
-    }
-
-    .hero-shade {
-        background: rgba(5, 8, 15, 0.25);
-    }
-
-    .hero-axes {
-        margin-top: 48px;
-    }
 
     .hero-actions .btn {
         width: 100%;
@@ -2258,7 +2437,7 @@ body.site {
     }
 
     .news-card:not(.is-featured) h3 {
-        font-size: 0.98rem;
+        font-size: 1rem;
     }
 
     .news-card:not(.is-featured) p:not(.news-meta) {
@@ -2266,7 +2445,7 @@ body.site {
     }
 
     .eje-tab {
-        font-size: 0.92rem;
+        font-size: 1rem;
         padding: 14px 14px;
     }
 
@@ -2297,13 +2476,13 @@ body.site {
         padding: 0 24px;
     }
 }</style>
-  <script type="module" crossorigin src="/assets/main-BAcHB6as.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/main-CJjJ4RO2.js">
+  <script type="module" crossorigin src="/assets/main-Ji8XuW1N.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/main-uMHmB8Kc.js">
   <link rel="modulepreload" crossorigin href="/assets/header-BHafkzy6.js">
   <link rel="modulepreload" crossorigin href="/assets/lightbox-EWt6vRE6.js">
   <link rel="modulepreload" crossorigin href="/assets/project-filter-CJP3rVyW.js">
-  <link rel="modulepreload" crossorigin href="/assets/motion-BQLF6M6p.js">
-  <link rel="stylesheet" crossorigin href="/assets/main-C2hFK1Xc.css">
+  <link rel="modulepreload" crossorigin href="/assets/motion-CsrLMIp-.js">
+  <link rel="stylesheet" crossorigin href="/assets/main-BhfFX2aH.css">
 </head>
 <body class="site home">
 
@@ -2334,39 +2513,40 @@ body.site {
 
     <main>
 
-    <!-- 1. Hero -->
+    <!-- 1. Hero: material propio (prueba de giro del rover en el taller) -->
     <section class="hero starfield" data-tone="dark" aria-labelledby="hero-title">
-        <div class="hero-media" aria-hidden="true" data-parallax="0.12">
-            <video class="hero-video" autoplay muted loop playsinline poster="/assets/planeta_earth_still-BfQYB8ch.jpg">
-                <source src="/assets/planeta_loop-5ukQZ2qQ.mp4" type="video/mp4">
-            </video>
-            <div class="hero-shade"></div>
-        </div>
-
-        <div class="hero-inner">
-            <p class="hero-badge"><span class="badge-dot"></span>Programa aeroespacial estudiantil · USACH</p>
-            <h1 class="hero-title" id="hero-title">Usach Space Program</h1>
-            <p class="hero-lede">
-                Estudiantes de la Universidad de Santiago construyendo rovers, cohetes y satélites para aprender, en la práctica, cómo se hace la ingeniería aeroespacial.
-            </p>
-            <div class="hero-actions">
-                <a href="/registro/" class="btn btn-primary">Postular a la Convocatoria 2026 <span aria-hidden="true">→</span></a>
-                <a href="#novedades" class="btn btn-ghost">Ver novedades</a>
+        <div class="hero-grid">
+            <div class="hero-inner">
+                <p class="hero-status"><span class="badge-dot"></span>Convocatoria 2026 abierta</p>
+                <h1 class="hero-title" id="hero-title">Usach Space Program</h1>
+                <p class="hero-lede">
+                    Estudiantes de la Universidad de Santiago de Chile que construyen rovers, cohetes y satélites para aprender, en la práctica, cómo se hace la ingeniería aeroespacial.
+                </p>
+                <div class="hero-actions">
+                    <a href="/registro/" class="btn btn-primary">Postular a la Convocatoria 2026 <span aria-hidden="true">→</span></a>
+                    <a href="#novedades" class="btn btn-ghost">Ver novedades</a>
+                </div>
+                <ul class="hero-axes" aria-label="Ejes de desarrollo">
+                    <li style="--eje: var(--eje-robotica)"><a href="/ejes/#robotica"><span class="axis-dot"></span>Robótica</a></li>
+                    <li style="--eje: var(--eje-coheteria)"><a href="/ejes/#coheteria"><span class="axis-dot"></span>Cohetería</a></li>
+                    <li style="--eje: var(--eje-orbital)"><a href="/ejes/#orbital"><span class="axis-dot"></span>Sistemas Orbitales</a></li>
+                </ul>
             </div>
-        </div>
 
-        <ul class="hero-axes" aria-label="Ejes de desarrollo">
-            <li style="--eje: var(--eje-robotica)"><span class="axis-dot"></span>Robótica</li>
-            <li style="--eje: var(--eje-coheteria)"><span class="axis-dot"></span>Cohetería</li>
-            <li style="--eje: var(--eje-orbital)"><span class="axis-dot"></span>Sistemas Orbitales</li>
-        </ul>
+            <figure class="hero-feature">
+                <video autoplay muted loop playsinline preload="metadata" poster="/assets/rover_prueba_giro_poster-CoKLE25v.jpg" aria-label="Video: el Rover Perseverance del equipo girando en el taller">
+                    <source src="/assets/rover_prueba_giro-Cev_lw_g.mp4" type="video/mp4">
+                </video>
+                <figcaption>Nuestro Rover Perseverance en prueba de giro, en el taller del programa</figcaption>
+            </figure>
+        </div>
     </section>
 
     <!-- 2. Métricas -->
     <section class="metrics" data-tone="dark" aria-label="El programa en números">
         <div class="metrics-grid">
             <div class="metric">
-                <span class="metric-value" data-count="3" data-pad="2">03</span>
+                <span class="metric-value" data-count="3">3</span>
                 <span class="metric-label">Ejes de desarrollo</span>
             </div>
             <div class="metric">
@@ -2374,11 +2554,11 @@ body.site {
                 <span class="metric-label">Estudiantes activos</span>
             </div>
             <div class="metric">
-                <span class="metric-value" data-count="6" data-pad="2">06</span>
+                <span class="metric-value" data-count="6">6</span>
                 <span class="metric-label">Proyectos e iniciativas</span>
             </div>
             <div class="metric">
-                <span class="metric-value" data-count="5" data-pad="2">05</span>
+                <span class="metric-value" data-count="5">5</span>
                 <span class="metric-label">Alianzas y apoyos</span>
             </div>
         </div>
@@ -2491,14 +2671,11 @@ body.site {
             </div>
 
             <div class="ejes-tabs" role="tablist" aria-label="Ejes de desarrollo">
-                <button class="eje-tab is-active" role="tab" id="tab-robotica" aria-controls="panel-robotica" aria-selected="true" style="--eje: var(--eje-robotica)">
-                    <span class="eje-tab-num">01</span> Robótica y Mecánica Espacial
+                <button class="eje-tab is-active" role="tab" id="tab-robotica" aria-controls="panel-robotica" aria-selected="true" style="--eje: var(--eje-robotica)"> Robótica y Mecánica Espacial
                 </button>
-                <button class="eje-tab" role="tab" id="tab-coheteria" aria-controls="panel-coheteria" aria-selected="false" tabindex="-1" style="--eje: var(--eje-coheteria)">
-                    <span class="eje-tab-num">02</span> Cohetería y Propulsión
+                <button class="eje-tab" role="tab" id="tab-coheteria" aria-controls="panel-coheteria" aria-selected="false" tabindex="-1" style="--eje: var(--eje-coheteria)"> Cohetería y Propulsión
                 </button>
-                <button class="eje-tab" role="tab" id="tab-orbital" aria-controls="panel-orbital" aria-selected="false" tabindex="-1" style="--eje: var(--eje-orbital)">
-                    <span class="eje-tab-num">03</span> Sistemas Orbitales y Telecomunicaciones
+                <button class="eje-tab" role="tab" id="tab-orbital" aria-controls="panel-orbital" aria-selected="false" tabindex="-1" style="--eje: var(--eje-orbital)"> Sistemas Orbitales y Telecomunicaciones
                 </button>
             </div>
 
@@ -2518,10 +2695,10 @@ body.site {
                     </dl>
                     <h4 class="roadmap-title">Ruta 2026–2027</h4>
                     <ol class="roadmap">
-                        <li><span class="roadmap-step">01</span>Optimizar la navegación autónoma</li>
-                        <li><span class="roadmap-step">02</span>Integrar baterías con BMS</li>
-                        <li><span class="roadmap-step">03</span>Cámara con espectrógrafo</li>
-                        <li><span class="roadmap-step">04</span>Sistema LiDAR</li>
+                        <li>Optimizar la navegación autónoma</li>
+                        <li>Integrar baterías con BMS</li>
+                        <li>Cámara con espectrógrafo</li>
+                        <li>Sistema LiDAR</li>
                     </ol>
                     <a href="/proyectos/rover/" class="text-link">Ver el Rover <span aria-hidden="true">→</span></a>
                 </div>
@@ -2587,21 +2764,19 @@ body.site {
             <div class="cycle-layout">
                 <div class="cycle-copy">
                     <p class="eyebrow eyebrow-dark">Cómo trabajamos</p>
-                    <h2 id="filosofia-title">Piensa. Crea. Aprende.<br><span class="muted">Y vuelve a empezar.</span></h2>
+                    <h2 id="filosofia-title">Piensa. Crea. Aprende.</h2>
+                    <p class="section-intro cycle-intro">Y vuelve a empezar: cada proyecto termina documentado para que el siguiente parta más lejos.</p>
 
                     <div class="cycle-phases" role="tablist" aria-label="Fases del ciclo">
                         <button class="cycle-phase is-active" role="tab" aria-selected="true" data-phase="0">
-                            <span class="cycle-phase-num">01</span>
                             <span class="cycle-phase-name">Piensa</span>
                             <span class="cycle-phase-text">Identificamos un problema técnico, investigamos antecedentes, modelamos en CAD y planificamos cada etapa antes de fabricar.</span>
                         </button>
                         <button class="cycle-phase" role="tab" aria-selected="false" data-phase="1">
-                            <span class="cycle-phase-num">02</span>
                             <span class="cycle-phase-name">Crea</span>
                             <span class="cycle-phase-text">Construimos prototipos en el taller: impresión 3D junto a Full 3D, circuitos electrónicos y ensamble manual.</span>
                         </button>
                         <button class="cycle-phase" role="tab" aria-selected="false" data-phase="2">
-                            <span class="cycle-phase-num">03</span>
                             <span class="cycle-phase-name">Aprende</span>
                             <span class="cycle-phase-text">Medimos y documentamos aciertos y fallas en banco de pruebas, y dejamos código y guías abiertas para quien venga después.</span>
                         </button>
