@@ -77,7 +77,9 @@ export function initReveal(root = document) {
             setTimeout(() => settle(el), 900);
             observer.unobserve(el);
         });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    // Se activa apenas el bloque asoma (y un poco antes), para que ninguna zona
+    // quede vacía mientras se hace scroll rápido o al llegar al final de la página
+    }, { rootMargin: '0px 0px 10% 0px', threshold: 0 });
 
     items.forEach((el) => observer.observe(el));
 }

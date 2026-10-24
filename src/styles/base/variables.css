@@ -52,15 +52,15 @@
     --paper-line: rgba(14, 20, 36, 0.12);
     --ink: #0E1424;
     --ink-soft: #4A5368;
-    --ink-faint: #737B8C;
+    --ink-faint: #5F6778;
 
     /* Color de identidad por eje */
     --eje-robotica: #E2622F;
     --eje-coheteria: #E5A958;
     --eje-orbital: #3FB8D9;
     --eje-robotica-ink: #B4461A;
-    --eje-coheteria-ink: #9A6418;
-    --eje-orbital-ink: #157A99;
+    --eje-coheteria-ink: #85550F;
+    --eje-orbital-ink: #11657F;
 
     /* Layout Tokens */
     --border-subtle: rgba(255, 255, 255, 0.08);

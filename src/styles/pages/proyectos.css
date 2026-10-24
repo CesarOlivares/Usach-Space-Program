@@ -39,7 +39,7 @@
 
 .hero-stats dt {
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.8125rem;
     letter-spacing: 1.4px;
     text-transform: uppercase;
     color: var(--text-secondary);
@@ -109,7 +109,7 @@
 
 .kind-label {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;

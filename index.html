@@ -98,39 +98,40 @@
 
     <main>
 
-    <!-- 1. Hero -->
+    <!-- 1. Hero: material propio (prueba de giro del rover en el taller) -->
     <section class="hero starfield" data-tone="dark" aria-labelledby="hero-title">
-        <div class="hero-media" aria-hidden="true" data-parallax="0.12">
-            <video class="hero-video" autoplay muted loop playsinline poster="./src/assets/images/planeta_earth_still.jpg">
-                <source src="./src/assets/videos/planeta_loop.mp4" type="video/mp4">
-            </video>
-            <div class="hero-shade"></div>
-        </div>
-
-        <div class="hero-inner">
-            <p class="hero-badge"><span class="badge-dot"></span>Programa aeroespacial estudiantil · USACH</p>
-            <h1 class="hero-title" id="hero-title">Usach Space Program</h1>
-            <p class="hero-lede">
-                Estudiantes de la Universidad de Santiago construyendo rovers, cohetes y satélites para aprender, en la práctica, cómo se hace la ingeniería aeroespacial.
-            </p>
-            <div class="hero-actions">
-                <a href="/registro/" class="btn btn-primary">Postular a la Convocatoria 2026 <span aria-hidden="true">→</span></a>
-                <a href="#novedades" class="btn btn-ghost">Ver novedades</a>
+        <div class="hero-grid">
+            <div class="hero-inner">
+                <p class="hero-status"><span class="badge-dot"></span>Convocatoria 2026 abierta</p>
+                <h1 class="hero-title" id="hero-title">Usach Space Program</h1>
+                <p class="hero-lede">
+                    Estudiantes de la Universidad de Santiago de Chile que construyen rovers, cohetes y satélites para aprender, en la práctica, cómo se hace la ingeniería aeroespacial.
+                </p>
+                <div class="hero-actions">
+                    <a href="/registro/" class="btn btn-primary">Postular a la Convocatoria 2026 <span aria-hidden="true">→</span></a>
+                    <a href="#novedades" class="btn btn-ghost">Ver novedades</a>
+                </div>
+                <ul class="hero-axes" aria-label="Ejes de desarrollo">
+                    <li style="--eje: var(--eje-robotica)"><a href="/ejes/#robotica"><span class="axis-dot"></span>Robótica</a></li>
+                    <li style="--eje: var(--eje-coheteria)"><a href="/ejes/#coheteria"><span class="axis-dot"></span>Cohetería</a></li>
+                    <li style="--eje: var(--eje-orbital)"><a href="/ejes/#orbital"><span class="axis-dot"></span>Sistemas Orbitales</a></li>
+                </ul>
             </div>
-        </div>
 
-        <ul class="hero-axes" aria-label="Ejes de desarrollo">
-            <li style="--eje: var(--eje-robotica)"><span class="axis-dot"></span>Robótica</li>
-            <li style="--eje: var(--eje-coheteria)"><span class="axis-dot"></span>Cohetería</li>
-            <li style="--eje: var(--eje-orbital)"><span class="axis-dot"></span>Sistemas Orbitales</li>
-        </ul>
+            <figure class="hero-feature">
+                <video autoplay muted loop playsinline preload="metadata" poster="./src/assets/images/rover/rover_prueba_giro_poster.jpg" aria-label="Video: el Rover Perseverance del equipo girando en el taller">
+                    <source src="./src/assets/videos/rover_prueba_giro.mp4" type="video/mp4">
+                </video>
+                <figcaption>Nuestro Rover Perseverance en prueba de giro, en el taller del programa</figcaption>
+            </figure>
+        </div>
     </section>
 
     <!-- 2. Métricas -->
     <section class="metrics" data-tone="dark" aria-label="El programa en números">
         <div class="metrics-grid">
             <div class="metric">
-                <span class="metric-value" data-count="3" data-pad="2">03</span>
+                <span class="metric-value" data-count="3">3</span>
                 <span class="metric-label">Ejes de desarrollo</span>
             </div>
             <div class="metric">
@@ -138,11 +139,11 @@
                 <span class="metric-label">Estudiantes activos</span>
             </div>
             <div class="metric">
-                <span class="metric-value" data-count="6" data-pad="2">06</span>
+                <span class="metric-value" data-count="6">6</span>
                 <span class="metric-label">Proyectos e iniciativas</span>
             </div>
             <div class="metric">
-                <span class="metric-value" data-count="5" data-pad="2">05</span>
+                <span class="metric-value" data-count="5">5</span>
                 <span class="metric-label">Alianzas y apoyos</span>
             </div>
         </div>
@@ -255,14 +256,11 @@
             </div>
 
             <div class="ejes-tabs" role="tablist" aria-label="Ejes de desarrollo">
-                <button class="eje-tab is-active" role="tab" id="tab-robotica" aria-controls="panel-robotica" aria-selected="true" style="--eje: var(--eje-robotica)">
-                    <span class="eje-tab-num">01</span> Robótica y Mecánica Espacial
+                <button class="eje-tab is-active" role="tab" id="tab-robotica" aria-controls="panel-robotica" aria-selected="true" style="--eje: var(--eje-robotica)"> Robótica y Mecánica Espacial
                 </button>
-                <button class="eje-tab" role="tab" id="tab-coheteria" aria-controls="panel-coheteria" aria-selected="false" tabindex="-1" style="--eje: var(--eje-coheteria)">
-                    <span class="eje-tab-num">02</span> Cohetería y Propulsión
+                <button class="eje-tab" role="tab" id="tab-coheteria" aria-controls="panel-coheteria" aria-selected="false" tabindex="-1" style="--eje: var(--eje-coheteria)"> Cohetería y Propulsión
                 </button>
-                <button class="eje-tab" role="tab" id="tab-orbital" aria-controls="panel-orbital" aria-selected="false" tabindex="-1" style="--eje: var(--eje-orbital)">
-                    <span class="eje-tab-num">03</span> Sistemas Orbitales y Telecomunicaciones
+                <button class="eje-tab" role="tab" id="tab-orbital" aria-controls="panel-orbital" aria-selected="false" tabindex="-1" style="--eje: var(--eje-orbital)"> Sistemas Orbitales y Telecomunicaciones
                 </button>
             </div>
 
@@ -282,10 +280,10 @@
                     </dl>
                     <h4 class="roadmap-title">Ruta 2026–2027</h4>
                     <ol class="roadmap">
-                        <li><span class="roadmap-step">01</span>Optimizar la navegación autónoma</li>
-                        <li><span class="roadmap-step">02</span>Integrar baterías con BMS</li>
-                        <li><span class="roadmap-step">03</span>Cámara con espectrógrafo</li>
-                        <li><span class="roadmap-step">04</span>Sistema LiDAR</li>
+                        <li>Optimizar la navegación autónoma</li>
+                        <li>Integrar baterías con BMS</li>
+                        <li>Cámara con espectrógrafo</li>
+                        <li>Sistema LiDAR</li>
                     </ol>
                     <a href="/proyectos/rover/" class="text-link">Ver el Rover <span aria-hidden="true">→</span></a>
                 </div>
@@ -351,21 +349,19 @@
             <div class="cycle-layout">
                 <div class="cycle-copy">
                     <p class="eyebrow eyebrow-dark">Cómo trabajamos</p>
-                    <h2 id="filosofia-title">Piensa. Crea. Aprende.<br><span class="muted">Y vuelve a empezar.</span></h2>
+                    <h2 id="filosofia-title">Piensa. Crea. Aprende.</h2>
+                    <p class="section-intro cycle-intro">Y vuelve a empezar: cada proyecto termina documentado para que el siguiente parta más lejos.</p>
 
                     <div class="cycle-phases" role="tablist" aria-label="Fases del ciclo">
                         <button class="cycle-phase is-active" role="tab" aria-selected="true" data-phase="0">
-                            <span class="cycle-phase-num">01</span>
                             <span class="cycle-phase-name">Piensa</span>
                             <span class="cycle-phase-text">Identificamos un problema técnico, investigamos antecedentes, modelamos en CAD y planificamos cada etapa antes de fabricar.</span>
                         </button>
                         <button class="cycle-phase" role="tab" aria-selected="false" data-phase="1">
-                            <span class="cycle-phase-num">02</span>
                             <span class="cycle-phase-name">Crea</span>
                             <span class="cycle-phase-text">Construimos prototipos en el taller: impresión 3D junto a Full 3D, circuitos electrónicos y ensamble manual.</span>
                         </button>
                         <button class="cycle-phase" role="tab" aria-selected="false" data-phase="2">
-                            <span class="cycle-phase-num">03</span>
                             <span class="cycle-phase-name">Aprende</span>
                             <span class="cycle-phase-text">Medimos y documentamos aciertos y fallas en banco de pruebas, y dejamos código y guías abiertas para quien venga después.</span>
                         </button>

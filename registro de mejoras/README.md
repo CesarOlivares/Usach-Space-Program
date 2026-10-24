@@ -11,6 +11,8 @@ Bitácora de los cambios hechos a la página del USACH Space Program: qué se ca
 | [05-pendientes.md](05-pendientes.md) | Lo que falta hacer, decidir o confirmar |
 | [06-seo-y-produccion.md](06-seo-y-produccion.md) | Auditoría de SEO técnico: metadatos, Open Graph, sitemap, robots, llms.txt, 404 y build |
 | [07-transiciones-y-movimiento.md](07-transiciones-y-movimiento.md) | Pauta de diseño, transiciones de color suaves, animaciones ambientales y tratamiento de fotos en el inicio |
+| [08-revision-taste-skill.md](08-revision-taste-skill.md) | Revisión con taste-skill: fuente, contraste, tamaño de texto, títulos de 2 líneas y franjas vacías |
+| [09-mejoras-sugeridas.md](09-mejoras-sugeridas.md) | Hero con video propio del rover, menos etiquetas monoespaciadas y tono en vez de bordes |
 
 ## Resumen en una línea por etapa
 
