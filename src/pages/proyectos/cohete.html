@@ -3,483 +3,1844 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cohetería Experimental &amp; Cohete 3U | USACH Space Program</title>
-    
+    <title>Cohete de agua | USACH Space Program</title>
+    <meta name="description" content="Cohetería hidroneumática del USACH Space Program: del cohete de una unidad al multietapa, con la propulsión sólida experimental como meta para 2028.">
+
     <link rel="icon" type="image/png" href="/assets/logo_noTextBLACK-ged7tvfL.png">
-    
-    <style>.eje-tag {
-    background-color: var(--nasa-blue);
-    color: var(--pure-white);
-    padding: 6px 16px;
-    font-size: 0.8rem;
-    font-family: var(--font-mono);
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 4px;
-    display: inline-block;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
+    <style>/* ==========================================================================
+   USACH SPACE PROGRAM - PLANTILLA DE FICHA DE PROYECTO
+   Usada por Rover, CubeSat, Cohete, Mini CubeSat y Salva a Usachín.
+   Cada página define en <body> su color: --eje (claro) y --eje-ink (sobre papel).
+   ========================================================================== */
+/* ==========================================================================
+   USACH SPACE PROGRAM - COMPONENTES COMPARTIDOS
+   Botones, secciones claras/oscuras, tarjetas de proyecto, filtros,
+   línea de tiempo, galería con visor. Lo usan inicio, ejes, proyectos y fichas.
+   ========================================================================== */
+
+.site {
+    background: var(--space-black);
 }
-.tier-tag {
-    background-color: transparent;
-    border: 1px solid var(--border-highlight);
+
+/* project-template.css pone overflow-x: hidden en html y body, lo que
+   convierte a body en contenedor de scroll y rompe position: sticky */
+html:has(> body.site),
+body.site {
+    overflow-x: clip;
+}
+
+.site main {
+    display: block;
+}
+
+.site img {
+    max-width: 100%;
+}
+
+.site section[id] {
+    scroll-margin-top: 60px;
+}
+
+/* Página actual en el menú */
+.nav-links a[aria-current="page"] {
+    color: var(--pure-white);
+}
+
+/* === BOTONES === */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border-radius: 4px;
+    font-family: var(--font-title);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.site :focus-visible {
+    outline: 2px solid var(--eje-orbital);
+    outline-offset: 3px;
+}
+
+.btn-primary {
+    background: var(--accent-amber);
+    color: var(--ink);
+}
+
+.btn-primary:hover {
+    background: #F0B96C;
+    box-shadow: 0 10px 30px -10px rgba(229, 169, 88, 0.7);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: inherit;
+    border-color: currentColor;
+}
+
+.section-dark .btn-ghost,
+.on-dark .btn-ghost {
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.section-dark .btn-ghost:hover,
+.on-dark .btn-ghost:hover {
+    border-color: var(--pure-white);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.section-light .btn-ghost:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+}
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--eje, var(--accent-amber));
+    text-decoration: none;
+}
+
+.text-link span {
+    transition: transform 0.25s;
+}
+
+.text-link:hover span {
+    transform: translateX(4px);
+}
+
+/* === SECCIONES === */
+.section {
+    padding: clamp(72px, 10vw, 128px) 24px;
+}
+
+.section-tight {
+    padding-top: clamp(56px, 7vw, 88px);
+    padding-bottom: clamp(56px, 7vw, 88px);
+}
+
+.section-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.section-light {
+    background: var(--paper);
+    color: var(--ink);
+}
+
+.section-dark {
+    background: var(--space-black);
     color: var(--bone-white);
-    padding: 6px 16px;
+}
+
+.section-head {
+    max-width: 720px;
+    margin: 0 0 48px;
+}
+
+.section-head-split {
+    max-width: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px 48px;
+    flex-wrap: wrap;
+}
+
+.section h2 {
+    font-family: var(--font-horizon);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 4vw, 3.2rem);
+    line-height: 1.08;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.section-light h2 { color: var(--ink); }
+.section-dark h2 { color: var(--pure-white); }
+
+.section-intro {
+    font-size: 1.08rem;
+    line-height: 1.6;
+    margin: 16px 0 0;
+    max-width: 30rem;
+}
+
+.section-light .section-intro { color: var(--ink-soft); }
+.section-dark .section-intro { color: var(--text-secondary); }
+
+.section-head-split .section-intro {
+    margin: 0;
+}
+
+.eyebrow {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    font-weight: 500;
-    border-radius: 20px;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-    display: inline-block;
-}
-.inspiration-section {
-    padding: 80px 10%;
-    text-align: center;
-    background: linear-gradient(var(--space-black), var(--space-dark));
-}
-.inspiration-container { max-width: 850px; margin: 0 auto; }
-.inspiration-container h2 {
-    font-family: var(--font-title);
-    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 25px;
+    color: var(--eje-ink, var(--eje-orbital-ink));
+    margin: 0 0 14px;
+}
+
+.section-dark .eyebrow,
+.eyebrow-dark {
+    color: var(--eje, var(--eje-orbital));
+}
+
+.section-cta {
+    margin-top: 48px;
+}
+
+.muted {
+    color: var(--text-dark);
+}
+
+.prose p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 0 0 18px;
+}
+
+.section-light .prose p { color: var(--ink-soft); }
+.section-dark .prose p { color: rgba(245, 245, 240, 0.78); }
+
+.prose strong {
+    font-weight: 700;
+}
+
+.section-light .prose strong { color: var(--ink); }
+.section-dark .prose strong { color: var(--pure-white); }
+
+/* Lista con viñeta de color de eje */
+.check-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+}
+
+.check-list li {
+    position: relative;
+    padding-left: 26px;
+    font-size: 1rem;
+    line-height: 1.55;
+}
+
+.check-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    background: var(--eje, var(--accent-amber));
+    transform: rotate(45deg);
+}
+
+.section-light .check-list li { color: var(--ink-soft); }
+.section-dark .check-list li { color: rgba(245, 245, 240, 0.82); }
+
+/* === HERO COMPACTO DE PÁGINA === */
+.page-hero {
+    position: relative;
+    padding: 148px 24px clamp(56px, 7vw, 88px);
+    background:
+        radial-gradient(80% 120% at 85% 0%, rgba(63, 184, 217, 0.12), transparent 60%),
+        radial-gradient(60% 100% at 10% 100%, rgba(229, 169, 88, 0.10), transparent 60%),
+        var(--space-black);
+    color: var(--bone-white);
+    overflow: hidden;
+}
+
+.page-hero h1 {
+    font-family: var(--font-horizon);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 6vw, 4.8rem);
+    line-height: 1.04;
+    text-transform: uppercase;
+    color: var(--pure-white);
+    margin: 0 0 20px;
+}
+
+.page-hero-lede {
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    line-height: 1.6;
+    color: rgba(245, 245, 240, 0.8);
+    max-width: 40rem;
+    margin: 0;
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 24px;
+    padding: 0;
+    list-style: none;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.breadcrumb li + li::before {
+    content: "/";
+    margin-right: 8px;
+    color: var(--text-dark);
+}
+
+.breadcrumb a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
     color: var(--pure-white);
 }
-.inspiration-container p {
-    font-size: 1.25rem;
-    line-height: 1.8;
-    color: var(--bone-white);
-    font-style: italic;
-    font-weight: 300;
+
+/* === CHIPS DE FILTRO === */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 32px;
 }
-.timeline-section {
-    padding: 100px 10%;
-    background-color: var(--space-black);
+
+.filter-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-right: 4px;
+}
+
+.filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--paper-line);
+    background: transparent;
+    font-family: var(--font-title);
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.filter-chip span {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+}
+
+.filter-chip .chip-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--eje);
+}
+
+.filter-chip:hover {
+    border-color: var(--ink);
+}
+
+.filter-chip.is-active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+}
+
+.filter-chip.is-active span {
+    color: var(--accent-amber);
+}
+
+.filter-empty {
+    grid-column: 1 / -1;
+    color: var(--ink-soft);
+    margin: 0;
+}
+
+/* === TARJETAS DE PROYECTO === */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--paper-raised);
+    border: 1px solid var(--paper-line);
+    border-radius: 8px;
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s, opacity 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px -20px rgba(14, 20, 36, 0.35);
+}
+
+.project-card.is-leaving {
+    opacity: 0;
+    transform: scale(0.97);
+}
+
+.project-card[hidden] {
+    display: none;
+}
+
+.project-card.is-entering {
+    animation: riseIn 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes riseIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: none; }
+}
+
+.project-media {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-bottom: 3px solid var(--eje);
+}
+
+.project-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover .project-media img {
+    transform: scale(1.05);
+}
+
+.project-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 22px 24px;
+    flex: 1;
+}
+
+.project-meta {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+}
+
+.project-axis {
+    color: var(--eje);
+}
+
+.project-card h3 {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--ink);
+}
+
+.project-body > p:not([class]) {
+    font-size: 0.93rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0;
+}
+
+.project-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: auto 0 0;
+    padding-top: 10px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--eje);
+}
+
+/* === LÍNEA DE TIEMPO (fases) === */
+.timeline {
+    --cols: 4;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(var(--cols), 1fr);
+    gap: 0 24px;
+    position: relative;
+    counter-reset: fase;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--eje, var(--accent-amber)), rgba(127, 127, 127, 0.25));
+}
+
+.timeline li {
+    position: relative;
+    padding-top: 40px;
+}
+
+.timeline li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--eje, var(--accent-amber));
+    background: var(--tl-bg, var(--space-black));
+    box-sizing: border-box;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.timeline li:hover::before {
+    background: var(--eje, var(--accent-amber));
+    transform: scale(1.15);
+}
+
+.section-light .timeline { --tl-bg: var(--paper); }
+
+.timeline-when {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--eje, var(--accent-amber));
+    margin-bottom: 8px;
+}
+
+.section-light .timeline-when {
+    color: var(--eje-ink, var(--ink));
+}
+
+.timeline h3 {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 8px;
+}
+
+.section-light .timeline h3 { color: var(--ink); }
+.section-dark .timeline h3 { color: var(--pure-white); }
+
+.timeline p {
+    font-size: 0.93rem;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.section-light .timeline p { color: var(--ink-soft); }
+.section-dark .timeline p { color: rgba(245, 245, 240, 0.72); }
+
+/* === TARJETAS EXPANDIBLES (details) === */
+.expand-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    align-items: start;
+}
+
+.expand-card {
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    background: var(--space-dark);
+    overflow: hidden;
+    transition: border-color 0.25s;
+}
+
+.section-light .expand-card {
+    background: var(--paper-raised);
+    border-color: var(--paper-line);
+}
+
+.expand-card[open],
+.expand-card:hover {
+    border-color: var(--eje, var(--accent-amber));
+}
+
+.expand-card summary {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 22px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.expand-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.expand-num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--eje, var(--accent-amber));
+}
+
+.section-light .expand-num {
+    color: var(--eje-ink, var(--ink));
+}
+
+.expand-title {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.expand-title strong {
+    font-family: var(--font-title);
+    font-size: 1.08rem;
+    font-weight: 700;
+}
+
+.section-dark .expand-title strong { color: var(--pure-white); }
+.section-light .expand-title strong { color: var(--ink); }
+
+.expand-title small {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.section-light .expand-title small { color: var(--ink-faint); }
+
+.expand-icon {
+    position: relative;
+    width: 14px;
+    height: 14px;
+}
+
+.expand-icon::before,
+.expand-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 14px;
+    height: 2px;
+    background: currentColor;
+    transition: transform 0.3s;
+}
+
+.expand-icon::after {
+    transform: rotate(90deg);
+}
+
+.expand-card[open] .expand-icon::after {
+    transform: rotate(0deg);
+}
+
+.expand-body {
+    padding: 0 22px 22px;
+    display: grid;
+    gap: 14px;
+    animation: riseIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.expand-body img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.expand-body p {
+    margin: 0;
+    font-size: 0.97rem;
+    line-height: 1.6;
+}
+
+.section-dark .expand-body p { color: rgba(245, 245, 240, 0.78); }
+.section-light .expand-body p { color: var(--ink-soft); }
+
+/* === GALERÍA + VISOR === */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 240px;
+    grid-auto-flow: dense;
+    gap: 16px;
+}
+
+.gallery-item {
+    position: relative;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: zoom-in;
+    background: #d9d5cb;
+}
+
+.gallery-item-wide { grid-column: span 2; }
+.gallery-item-tall { grid-row: span 2; }
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.06);
+}
+
+.gallery-cap {
+    position: absolute;
+    inset: auto 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 40px 16px 14px;
+    background: linear-gradient(to top, rgba(8, 12, 22, 0.85), transparent);
+    font-family: var(--font-title);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: left;
+    color: var(--pure-white);
+}
+
+.gallery-tag {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--eje, var(--accent-amber));
+}
+
+.lightbox {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: rgba(3, 5, 8, 0.94);
+    color: var(--pure-white);
+}
+
+.lightbox[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.25s ease;
+}
+
+.lightbox::backdrop {
+    background: transparent;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+}
+
+.lightbox figure {
+    margin: 0;
+    max-width: min(1100px, 86vw);
+    text-align: center;
+}
+
+.lightbox img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+}
+
+.lightbox figcaption {
+    margin-top: 14px;
+    font-family: var(--font-title);
+    font-size: 1rem;
+    color: rgba(245, 245, 240, 0.85);
+}
+
+.lightbox-close,
+.lightbox-nav {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--pure-white);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.lightbox-close:hover,
+.lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.lightbox-close { top: 20px; right: 20px; }
+.lightbox-prev { left: 20px; top: 50%; transform: translateY(-50%); }
+.lightbox-next { right: 20px; top: 50%; transform: translateY(-50%); }
+
+/* === BLOQUE CTA FINAL === */
+.cta-panel {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 32px 64px;
+    align-items: center;
+    padding: clamp(32px, 5vw, 64px);
+    border-radius: 12px;
+    border: 1px solid rgba(229, 169, 88, 0.3);
+    background:
+        radial-gradient(120% 140% at 0% 0%, rgba(229, 169, 88, 0.2), transparent 60%),
+        var(--space-dark);
+}
+
+.cta-panel h2 {
+    font-family: var(--font-title);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: 0;
+    line-height: 1.15;
+    margin: 0 0 14px;
+}
+
+.cta-panel p {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: rgba(245, 245, 240, 0.78);
+    margin: 0;
+}
+
+.cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1080px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 200px;
+    }
+
+    .timeline {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 24px;
+    }
+
+    .timeline::before {
+        display: none;
+    }
+
+    .cta-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-actions {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 760px) {
+    .page-hero {
+        padding-top: 112px;
+    }
+
+    .projects-grid,
+    .expand-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding-left: 6px;
+    }
+
+    .timeline::before {
+        display: block;
+        top: 0;
+        bottom: 0;
+        left: 15px;
+        right: auto;
+        width: 2px;
+        height: auto;
+        background: linear-gradient(to bottom, var(--eje, var(--accent-amber)), rgba(127, 127, 127, 0.25));
+    }
+
+    .timeline li {
+        padding: 0 0 28px 40px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 160px;
+        gap: 10px;
+    }
+
+    .gallery-item-wide {
+        grid-column: 1 / -1;
+    }
+
+    .gallery-cap {
+        font-size: 0.82rem;
+        padding: 32px 10px 10px;
+    }
+
+    .lightbox-nav {
+        top: auto;
+        bottom: 24px;
+        transform: none;
+    }
+
+    .cta-actions .btn {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site *,
+    .site *::before,
+    .site *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* === HERO === */
+.ficha-hero {
+    position: relative;
+    min-height: 88vh;
+    min-height: 88svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 120px 24px 0;
+    box-sizing: border-box;
+    color: var(--bone-white);
+    background: var(--space-black);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.ficha-hero-media {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.ficha-hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    animation: heroZoom 18s ease-out both;
+}
+
+@keyframes heroZoom {
+    from { transform: scale(1.08); }
+    to { transform: scale(1); }
+}
+
+.ficha-hero-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(to top, var(--space-black) 0%, rgba(3, 5, 8, 0.75) 35%, rgba(3, 5, 8, 0.25) 75%, rgba(3, 5, 8, 0.45) 100%),
+        linear-gradient(to right, rgba(3, 5, 8, 0.7) 0%, transparent 60%);
+}
+
+.ficha-hero-inner {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.ficha-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 20px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(3, 5, 8, 0.55);
+    border: 1px solid var(--eje);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--pure-white);
+}
+
+.ficha-tag::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--eje);
+}
+
+.ficha-hero h1 {
+    font-family: var(--font-horizon);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 6.4vw, 5.4rem);
+    line-height: 1.02;
+    text-transform: uppercase;
+    color: var(--pure-white);
+    margin: 0 0 14px;
+    max-width: 14ch;
+}
+
+.ficha-subtitle {
+    font-family: var(--font-title);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 500;
+    color: var(--eje);
+    margin: 0 0 18px;
+}
+
+.ficha-lede {
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    line-height: 1.65;
+    color: rgba(245, 245, 240, 0.85);
+    max-width: 42rem;
+    margin: 0 0 32px;
+}
+
+.ficha-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.ficha-facts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 56px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.ficha-facts div {
+    padding: 22px 20px 26px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ficha-facts div:first-child {
+    border-left: 0;
+    padding-left: 0;
+}
+
+.ficha-facts dt {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--eje);
+    margin-bottom: 8px;
+}
+
+.ficha-facts dd {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 1.02rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--pure-white);
+}
+
+/* === SUBNAVEGACIÓN FIJA === */
+.ficha-subnav {
+    position: sticky;
+    top: 58px;
+    z-index: 1500;
+    background: rgba(7, 11, 20, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-top: 1px solid var(--border-subtle);
     border-bottom: 1px solid var(--border-subtle);
 }
-.timeline-section h2 {
-    font-family: var(--font-title);
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 2.5rem;
-    margin-bottom: 60px;
-    color: var(--pure-white);
-}
-.modalidad-section { padding: 100px 10%; background-color: var(--space-dark); }
-.modalidad-section h2 {
-    font-family: var(--font-title);
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 70px;
-    font-size: 2.5rem;
-    color: var(--pure-white);
-}
-.mod-row { display: flex; align-items: center; gap: 50px; margin-bottom: 85px; }
-.mod-row:nth-child(even) { flex-direction: row-reverse; }
-.mod-text { flex: 1; }
-.mod-text h3 {
-    font-family: var(--font-title);
-    font-size: 1.8rem;
-    color: var(--pure-white);
-    text-transform: uppercase;
-    margin-top: 0;
-    letter-spacing: 1px;
-}
-.mod-text p { font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); }
-.mod-image {
-    flex: 1; height: 350px; border-radius: 8px;
-    background-color: var(--space-card);
-    border: 1px solid var(--border-subtle);
-    position: relative;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
+
+.ficha-subnav ul {
+    list-style: none;
+    display: flex;
+    gap: 4px;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
+    overflow-x: auto;
+    scrollbar-width: none;
 }
 
-.cta-container { text-align: center; padding: 60px 0 100px; background-color: var(--space-dark); }
-.btn-join-mission {
-    display: inline-block;
-    background-color: transparent;
-    color: var(--bone-white);
-    border: 1px solid var(--border-highlight);
-    text-decoration: none;
-    padding: 16px 45px;
+.ficha-subnav ul::-webkit-scrollbar {
+    display: none;
+}
+
+.ficha-subnav a {
+    display: block;
+    padding: 15px 14px 13px;
+    border-bottom: 2px solid transparent;
     font-family: var(--font-mono);
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    border-radius: 4px;
-    transition: var(--transition-smooth);
+    white-space: nowrap;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s, border-color 0.2s;
 }
-.btn-join-mission:hover {
-    background-color: var(--bone-white);
-    color: var(--space-black);
-    border-color: var(--bone-white);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
-    transform: translateY(-2px);
+
+.ficha-subnav a:hover {
+    color: var(--pure-white);
 }
-@media (max-width: 1024px) {
-    .mod-row, .mod-row:nth-child(even) { flex-direction: column; gap: 30px; }
-    .mod-image { width: 100%; height: 250px; }
-    .timeline-section, .modalidad-section { padding-left: 20px; padding-right: 20px; }
+
+.ficha-subnav a.is-active {
+    color: var(--pure-white);
+    border-bottom-color: var(--eje);
+}
+
+.ficha .section[id] {
+    scroll-margin-top: 108px;
+}
+
+/* === BLOQUE TEXTO + IMAGEN === */
+.split {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(32px, 6vw, 88px);
+    align-items: center;
+}
+
+.split-reverse > :first-child {
+    order: 2;
+}
+
+.split h2 {
+    margin-bottom: 24px !important;
+}
+
+.split-figure {
+    position: relative;
+    margin: 0;
+}
+
+.split-figure img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+.split-figure::after {
+    content: "";
+    position: absolute;
+    left: -12px;
+    bottom: -12px;
+    width: 40%;
+    height: 40%;
+    border-left: 3px solid var(--eje);
+    border-bottom: 3px solid var(--eje);
+    border-bottom-left-radius: 12px;
+    pointer-events: none;
+}
+
+.split-figure figcaption {
+    margin-top: 16px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+}
+
+.section-dark .split-figure figcaption {
+    color: var(--text-secondary);
+}
+
+.callout {
+    margin-top: 28px;
+    padding: 20px 22px;
+    border-radius: 8px;
+    border-left: 3px solid var(--eje);
+    background: rgba(14, 20, 36, 0.05);
+}
+
+.section-dark .callout {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.callout strong {
+    display: block;
+    font-family: var(--font-title);
+    font-size: 1.02rem;
+    margin-bottom: 6px;
+}
+
+.section-light .callout strong { color: var(--ink); }
+.section-dark .callout strong { color: var(--pure-white); }
+
+.callout p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.section-light .callout p { color: var(--ink-soft); }
+.section-dark .callout p { color: rgba(245, 245, 240, 0.75); }
+
+/* === TARJETAS DESTACADAS (hitos, premios, pilares) === */
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 3), 1fr);
+    gap: 24px;
+}
+
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--paper-raised);
+    border: 1px solid var(--paper-line);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s;
+}
+
+.section-dark .feature-card {
+    background: var(--space-dark);
+    border-color: var(--border-subtle);
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px -22px rgba(14, 20, 36, 0.45);
+}
+
+.feature-card-media {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-bottom: 3px solid var(--eje);
+}
+
+.feature-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.feature-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 22px 24px 26px;
+}
+
+.feature-card-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--eje-ink);
+}
+
+.section-dark .feature-card-tag {
+    color: var(--eje);
+}
+
+.feature-card h3 {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.section-light .feature-card h3 { color: var(--ink); }
+.section-dark .feature-card h3 { color: var(--pure-white); }
+
+.feature-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.section-light .feature-card p { color: var(--ink-soft); }
+.section-dark .feature-card p { color: rgba(245, 245, 240, 0.75); }
+
+.feature-card-num {
+    font-family: var(--font-horizon);
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--eje);
+}
+
+/* === VIDEO === */
+.video-frame {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid var(--border-subtle);
+}
+
+.video-frame video {
+    width: 100%;
+    max-height: 72vh;
+    display: block;
+    background: #000;
+}
+
+/* === PASOS NUMERADOS (ciclo de lanzamiento, etc.) === */
+.steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 4), 1fr);
+    gap: 16px;
+    counter-reset: paso;
+}
+
+.steps li {
+    counter-increment: paso;
+    padding: 22px;
+    border-radius: 8px;
+    background: var(--paper-raised);
+    border: 1px solid var(--paper-line);
+}
+
+.section-dark .steps li {
+    background: var(--space-dark);
+    border-color: var(--border-subtle);
+}
+
+.steps li::before {
+    content: counter(paso, decimal-leading-zero);
+    display: block;
+    margin-bottom: 14px;
+    font-family: var(--font-horizon);
+    font-size: 1.6rem;
+    color: var(--eje-ink);
+}
+
+.section-dark .steps li::before {
+    color: var(--eje);
+}
+
+.steps strong {
+    display: block;
+    font-family: var(--font-title);
+    font-size: 1.02rem;
+    margin-bottom: 6px;
+}
+
+.section-light .steps strong { color: var(--ink); }
+.section-dark .steps strong { color: var(--pure-white); }
+
+.steps p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+.section-light .steps p { color: var(--ink-soft); }
+.section-dark .steps p { color: rgba(245, 245, 240, 0.72); }
+
+/* === CITA === */
+.ficha-quote {
+    margin: 0 0 56px;
+    padding: 0 0 0 28px;
+    border-left: 3px solid var(--eje);
+}
+
+.ficha-quote blockquote {
+    margin: 0 0 12px;
+    font-family: var(--font-title);
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--pure-white);
+}
+
+.ficha-quote figcaption {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--eje);
+}
+
+.related-title {
+    font-family: var(--font-mono) !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase;
+    color: var(--text-secondary) !important;
+    margin: 72px 0 24px !important;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1080px) {
+    .ficha-facts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ficha-facts div:nth-child(3) {
+        border-left: 0;
+        padding-left: 0;
+    }
+
+    .ficha-facts div:nth-child(n+3) {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .split {
+        grid-template-columns: 1fr;
+    }
+
+    .split-reverse > :first-child {
+        order: 0;
+    }
+
+    .feature-cards,
+    .steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 760px) {
+    .ficha-hero {
+        min-height: 0;
+        padding-top: 280px;
+    }
+
+    .ficha-hero-media::after {
+        background: linear-gradient(to top, var(--space-black) 0%, rgba(3, 5, 8, 0.85) 45%, rgba(3, 5, 8, 0.2) 100%);
+    }
+
+    /* Horizon es muy ancha: "PERSEVERANCE" no cabe a 375px con el tamaño base */
+    .ficha-hero h1 {
+        font-size: clamp(1.7rem, 7.4vw, 2.4rem);
+    }
+
+    .ficha-actions .btn {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .ficha-facts {
+        margin-top: 40px;
+    }
+
+    .ficha-facts div {
+        padding: 16px 12px 18px;
+    }
+
+    .ficha-facts dd {
+        font-size: 0.92rem;
+    }
+
+    .ficha-subnav ul {
+        padding: 0 12px;
+    }
+
+    .feature-cards,
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .split-figure::after {
+        left: -8px;
+        bottom: -8px;
+    }
 }</style>
-  <script type="module" crossorigin src="/assets/main-H8N1Pnis.js"></script>
-  <script type="module" crossorigin src="/assets/rover_avanzado-D7fItIFc.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-Dw5DkHwh.css">
+  <script type="module" crossorigin src="/assets/main-CS0-8tIx.js"></script>
+  <script type="module" crossorigin src="/assets/header-BHafkzy6.js"></script>
+  <script type="module" crossorigin src="/assets/lightbox-EWt6vRE6.js"></script>
+  <script type="module" crossorigin src="/assets/ficha-BzjTcp3e.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-UeEJRPuF.css">
 </head>
-<body>
+<body class="site ficha" style="--eje: var(--eje-coheteria); --eje-ink: var(--eje-coheteria-ink);">
 
-    <!-- FONDO DE ESTRELLAS DINÁMICO -->
-    <div class="stars-container" id="stars"></div>
-
-    <!-- 0. BARRA SUPERIOR DE NAVEGACIÓN RÁPIDA (HUD NAVBAR) -->
-    <header class="rover-navbar">
-        <div class="rover-navbar-inner">
-            <!-- Brand -->
-            <a href="/" class="rover-nav-back" title="USACH Space Program">
-                <img src="/assets/logo_noTextBLACK-ged7tvfL.png" alt="Logo USP" class="rover-nav-logo">
-                <span class="brand-title">USACH Space Program</span>
+    <header>
+        <div class="nav-brand-container">
+            <a href="/" class="nav-brand-link">
+                <img src="/assets/logo_noTextBLACK-ged7tvfL.png" alt="Logo USP" class="nav-logo">
+                <span class="nav-brand">USACH Space Program</span>
             </a>
-
-            <!-- Enlaces Rápidos (Escritorio) -->
-            <nav class="rover-quick-nav">
-                <div class="nav-group">
-                    <a href="/" class="rover-nav-link">Inicio</a>
-                    <a href="/ejes/" class="rover-nav-link">Ejes</a>
-                    <a href="/proyectos/" class="rover-nav-link">Proyectos</a>
-                    <a href="/#alianzas" class="rover-nav-link">Alianzas</a>
-                </div>
-
-                <span class="nav-divider">|</span>
-
-                <div class="nav-group">
-                    <a href="#emblema" class="rover-nav-pill active-pill">Cohete 3U</a>
-                    <a href="#formativa" class="rover-nav-pill">Cohete de Agua (1U)</a>
-                    <a href="#aerodinamica" class="rover-nav-pill">Aerodinámica</a>
-                    <a href="#recuperacion" class="rover-nav-pill">Recuperación</a>
-                    <a href="#contacto" class="rover-nav-pill">Contacto</a>
-                </div>
-            </nav>
-
-            <!-- Acciones -->
-            <div class="rover-nav-actions">
-                <a href="mailto:spaceprogram@usach.cl?subject=Consulta%20Coheteria%20-%20USACH%20Space%20Program" class="btn-nav-contact">
-                    <span>Contacto</span>
-                    <span>✉</span>
-                </a>
-                <a href="/registro/" class="btn-nav-postular">
-                    <span>Postular</span>
-                </a>
-            </div>
-
-            <!-- Botón Hamburguesa Móvil -->
-            <button class="rover-menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
-
-        <!-- Menú Desplegable Móvil -->
-        <div class="rover-mobile-menu" id="mobileMenu">
-            <a href="/" class="mobile-link home-link">USACH Space Program (Inicio)</a>
-            <div class="mobile-section-label">SECCIONES PRINCIPALES</div>
-            <a href="/ejes/" class="mobile-link">Ejes Estratégicos</a>
-            <a href="/proyectos/" class="mobile-link">Proyectos USP</a>
-            <a href="/#manifiesto" class="mobile-link">Manifiesto Estudiantil</a>
-            <a href="/#alianzas" class="mobile-link">Alianzas Institucionales</a>
-            <div class="mobile-section-label">SECCIONES COHETERÍA</div>
-            <a href="#emblema" class="mobile-link">Plataforma Emblema: Cohete 3U</a>
-            <a href="#formativa" class="mobile-link">Iniciativa Formativa: Cohete de Agua (1U)</a>
-            <a href="#aerodinamica" class="mobile-link">Principios Aerodinámicos (CP vs CG)</a>
-            <a href="#recuperacion" class="mobile-link">Sistemas de Paracaídas y Recuperación</a>
-            <div class="mobile-actions">
-                <a href="mailto:spaceprogram@usach.cl" class="btn-mobile-cta">Contacto: spaceprogram@usach.cl</a>
-                <a href="/registro/" class="btn-mobile-postular">Postular al Equipo 2026</a>
-            </div>
-        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+        <nav class="nav-links" id="navLinks">
+            <a href="/#novedades">Novedades</a>
+            <a href="/ejes/">Ejes</a>
+            <a href="/proyectos/" aria-current="page">Proyectos</a>
+            <a href="/#alianzas">Alianzas</a>
+            <a href="mailto:spaceprogram@usach.cl" class="nav-contact">Contacto</a>
+            <a href="/registro/" class="btn-nav-cta">Postular</a>
+        </nav>
     </header>
 
-    <!-- 1. HERO SECTION -->
-    <section class="rover-hero-section">
-        <div class="rover-hero-watermark">COHETERIA</div>
-        <div class="rover-hero-ambient"></div>
+    <main>
 
-        <div class="rover-hero-container">
-            <!-- Columna Izquierda: Viewport Lanzamiento NASA -->
-            <div class="rover-viewport-card">
-                <div class="rover-img-wrapper">
-                    <img src="/assets/cohete_multietapa-DJLZen9r.jpg" alt="Lanzamiento monumental de cohete espacial multietapa - NASA">
-                    <div class="rover-img-overlay-telemetry">
-                        <span class="rover-overlay-tag">NASA // PROPULSION SYSTEM</span>
-                        <span class="rover-overlay-badge">INSPIRACIÓN TÉCNICA</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Columna Derecha: Títulos, Resumen y Métricas Clave -->
-            <div class="rover-hero-content">
-                <div class="rover-section-tag">
-                    <span>✦</span>
-                    <span>PROYECTO EMBLEMA // EJE 02 COHETERÍA</span>
-                </div>
-                <h1 class="rover-hero-title">COHETE EXPERIMENTAL 3U</h1>
-                <h2 class="rover-hero-subtitle">Plataforma de Sondeo y Formación Aerodinámica</h2>
-                
-                <p class="rover-hero-desc">
-                    Desarrollo progresivo de vehículos de sondeo atmosférico. Desde la comprensión empírica de fluidos y estabilidad mediante el <strong>Cohete de Agua (1 Unidad)</strong>, hasta el diseño computacional de fuselaje de fibra, aviónica de altimetría y sistemas de propulsión del <strong>Cohete 3U</strong> (Plataforma Emblema).
-                </p>
-
-                <!-- Grid de Telemetría Rápida -->
-                <div class="rover-pills-grid">
-                    <div class="rover-pill-item">
-                        <span class="rover-pill-label">Proyecto Emblema</span>
-                        <span class="rover-pill-val">Cohete 3U Multietapa</span>
-                    </div>
-                    <div class="rover-pill-item">
-                        <span class="rover-pill-label">Iniciativa Formativa</span>
-                        <span class="rover-pill-val">Cohete de Agua (1 Unidad)</span>
-                    </div>
-                    <div class="rover-pill-item">
-                        <span class="rover-pill-label">Aviónica</span>
-                        <span class="rover-pill-val">Altimetría IMU &amp; Telemetría</span>
-                    </div>
-                    <div class="rover-pill-item">
-                        <span class="rover-pill-label">Recuperación</span>
-                        <span class="rover-pill-val">Despliegue Doble Paracaídas</span>
-                    </div>
-                </div>
-
-                <!-- Botones de Acción -->
-                <div class="rover-hero-actions">
-                    <a href="#emblema" class="btn-project-primary">
-                        <span>Plataforma Cohete 3U</span>
-                        <span>🚀</span>
-                    </a>
-                    <a href="#formativa" class="btn-project-secondary">
-                        <span>Iniciativa Cohete de Agua</span>
-                        <span>💧</span>
-                    </a>
-                </div>
-            </div>
+    <section class="ficha-hero">
+        <div class="ficha-hero-media">
+            <img src="/assets/IMG-20260607-WA0022-CSaDWZKk.jpg" alt="">
         </div>
-    </section>
-
-    <!-- 2. SPECS BAR (PARÁMETROS TÉCNICOS) -->
-    <section class="rover-specs-section">
-        <div class="rover-specs-grid">
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Eje Técnico</span>
-                <div class="rover-spec-value">Cohetería de Sondeo</div>
-                <p class="rover-spec-sub">Dominio de la propulsión química, dinámica de fluidos y estabilidad de vuelo.</p>
-            </div>
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Líderes de Eje</span>
-                <div class="rover-spec-value">A. Orellano y S. García-Huidobro</div>
-                <p class="rover-spec-sub">Coordinación de 7 estudiantes en aerodinámica, estructura, aviónica y seguridad de campo.</p>
-            </div>
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Presión de Ensayos</span>
-                <div class="rover-spec-value">60 a 80 PSI</div>
-                <p class="rover-spec-sub">Pruebas hidráulicas y neumáticas en banco de taller para asegurar la integridad de tanques.</p>
-            </div>
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Criterio Estabilidad</span>
-                <div class="rover-spec-value">CP &gt; 1.5 Calibres tras CG</div>
-                <p class="rover-spec-sub">Centro de presión ubicado detrás del centro de masa para evitar volteretas en ascenso.</p>
-            </div>
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Aviónica a Bordo</span>
-                <div class="rover-spec-value">Barómetro + MicroSD</div>
-                <p class="rover-spec-sub">Registro de curvas de aceleración, presión atmosférica y cálculo de apogeo real.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. SECCIÓN: PROYECTO EMBLEMA (COHETE 3U) -->
-    <section class="rover-split-section" id="emblema">
-        <div class="rover-split-container">
-            <div class="rover-split-text">
-                <span class="rover-section-tag">01 // PLATAFORMA EMBLEMA</span>
-                <h2>Cohete Experimental 3U: Ingeniería de Sondeo</h2>
-                <p>
-                    La plataforma Cohete 3U representa nuestro proyecto insignia en el eje de cohetería. Diseñada como un vehículo modular de tres unidades de volumen para albergar cargas útiles experimentales (CanSat o sensores de radiación). Su desarrollo abarca el cálculo de empuje, simulación de trayectorias en OpenRocket, diseño de aletas con perfil elíptico en fibra compuesta y computadores de vuelo redundantes con pirotecnia de eyección.
-                </p>
-                <div class="rover-split-feature-box">
-                    <h4>Aviónica de Apogeo</h4>
-                    <p>Detección precisa del punto culminante de la trayectoria mediante derivada de presión barométrica para desplegar la carga útil con suavidad.</p>
-                </div>
-            </div>
-            <div class="rover-split-visual">
-                <img src="/assets/cohete_1u_prep-DgzsFi7M.jpg" alt="Preparación y montaje de cohete de sondeo en rampa de lanzamiento - NASA" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. SECCIÓN: INICIATIVA FORMATIVA (COHETE DE AGUA 1 UNIDAD) -->
-    <section class="rover-split-section" id="formativa">
-        <div class="rover-split-container reverse">
-            <div class="rover-split-text">
-                <span class="rover-section-tag">02 // INICIATIVA FORMATIVA</span>
-                <h2>Cohete de Agua (1 Unidad): La Escuela Práctica</h2>
-                <p>
-                    Para aprender cohetería no partimos con explosivos: partimos con agua y aire a presión. Esta iniciativa formativa es nuestra primera puerta de entrada para estudiantes nuevos. Utilizando botellas de plástico PET como fuselaje y tanque de presión, los integrantes calculan la relación óptima de agua (aproximadamente un tercio del volumen), diseñan aletas en impresión 3D y fabrican paracaídas de tela ligera, experimentando en persona las leyes de Newton.
-                </p>
-                <div class="rover-split-feature-box">
-                    <h4>Seguridad y Validación Empírica</h4>
-                    <p>Permite realizar decenas de lanzamientos sucesivos a bajo costo, afinando el método de ensayo, registro de datos y trabajo en equipo.</p>
-                </div>
-            </div>
-            <div class="rover-split-visual">
-                <img src="/assets/Sellado%20cohete%20de%20agua-CxIxOrfs.jpg" alt="Ensayos de sellado y resistencia de tanques PET en taller" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. PRINCIPIOS FÍSICOS & RECUPERACIÓN -->
-    <section class="project-subsystems-section" id="aerodinamica">
-        <div class="section-head-center">
-            <div class="rover-section-tag">
-                <span>03 // PRINCIPIOS DE VUELO</span>
-            </div>
-            <h2>Física Aplicada en el Taller</h2>
-            <p>
-                La diferencia entre un proyectil descontrolado y un vuelo recto radica en el dominio de las fuerzas aerodinámicas y los sistemas de retorno seguro.
+        <div class="ficha-hero-inner">
+            <ol class="breadcrumb">
+                <li><a href="/proyectos/">Proyectos</a></li>
+                <li><a href="/ejes/#coheteria">Eje Cohetería</a></li>
+            </ol>
+            <p class="ficha-tag">Proyecto emblema · Eje 02</p>
+            <h1>Cohete de agua</h1>
+            <p class="ficha-subtitle">De una etapa a multietapa, con la mira en 2028</p>
+            <p class="ficha-lede">
+                Usamos la propulsión hidroneumática como banco de pruebas real y de bajo riesgo para validar aerodinámica, telemetría, estructuras y recuperación. Es la base técnica para dar el salto a la propulsión sólida experimental.
             </p>
-        </div>
-
-        <div class="project-subsystems-grid">
-            <!-- Mod 1: CP vs CG -->
-            <div class="project-module-card">
-                <div class="module-card-img">
-                    <img src="/assets/cohete%20de%20agua%20dibujo-CRYFeeoE.jpg" alt="Esquema físico de estabilidad aerodinámica y distribución de masas" loading="lazy">
-                </div>
-                <div class="module-card-body">
-                    <span class="module-card-tag">AERODINÁMICA // ESTABILIDAD</span>
-                    <h3>Centro de Presión vs. Centro de Gravedad</h3>
-                    <p>Para asegurar un ascenso vertical estable, el Centro de Presión (CP) debe situarse al menos 1.5 calibres por detrás del Centro de Gravedad (CG). Ajustamos el lastre en la ojiva y el tamaño de las aletas para corregir el comportamiento en vuelo.</p>
-                </div>
+            <div class="ficha-actions on-dark">
+                <a href="#ruta" class="btn btn-primary">Ver la ruta hacia 2028 <span aria-hidden="true">→</span></a>
+                <a href="#fisica" class="btn btn-ghost">Cómo vuela</a>
             </div>
-
-            <!-- Mod 2: Paracaídas -->
-            <div class="project-module-card" id="recuperacion">
-                <div class="module-card-img">
-                    <img src="/assets/cohete%20de%20agua%20paracaidas-Bi5-gxkD.jpg" alt="Mecanismo de empaquetado y apertura del paracaídas de tela" loading="lazy">
-                </div>
-                <div class="module-card-body">
-                    <span class="module-card-tag">RECUPERACIÓN // DESACELERACIÓN</span>
-                    <h3>Sistemas de Paracaídas Pasivo</h3>
-                    <p>El paracaídas se pliega meticulosamente dentro de la ojiva frontal. Al alcanzar el apogeo, la desaceleración y el flujo de aire permiten que la tapa se desprenda por gravedad o rozamiento, desplegando las líneas para un aterrizaje suave e íntegro.</p>
-                </div>
-            </div>
-
-            <!-- Mod 3: Sellado y Presión -->
-            <div class="project-module-card">
-                <div class="module-card-img">
-                    <img src="/assets/IMG-20260605-WA0073-DMIh01A4.jpg" alt="Pruebas de campo y lanzamiento en terreno abierto" loading="lazy">
-                </div>
-                <div class="module-card-body">
-                    <span class="module-card-tag">TERRENO // OPERACIONES</span>
-                    <h3>Pruebas de Campo y Rampa de Guía</h3>
-                    <p>Utilizamos rampas con rieles de guiado mecánico para asegurar que el cohete adquiera velocidad antes de dejar el apoyo físico. Establecemos protocolos estrictos de distancia de seguridad y presurización remota.</p>
-                </div>
-            </div>
+            <dl class="ficha-facts">
+                <div><dt>Propulsión</dt><dd>Hidroneumática (agua y aire a presión)</dd></div>
+                <div><dt>Presión de ensayo</dt><dd>60 a 80 PSI</dd></div>
+                <div><dt>Equipo</dt><dd>Alessandro Orellano y Simón García-Huidobro · 7 integrantes</dd></div>
+                <div><dt>Meta</dt><dd>Propulsión sólida experimental en 2028</dd></div>
+            </dl>
         </div>
     </section>
 
-    <!-- 6. CICLO DE LANZAMIENTO -->
-    <section class="project-roadmap-section" id="ciclo">
-        <div class="project-roadmap-container">
-            <div class="section-head-center">
-                <div class="rover-section-tag">
-                    <span>04 // METODOLOGÍA</span>
-                </div>
-                <h2>Ciclo de Lanzamiento de Cohetes</h2>
-                <p>
-                    Del cálculo en papel a la rampa de lanzamiento en campo abierto.
-                </p>
-            </div>
+    <nav class="ficha-subnav" aria-label="Secciones del proyecto">
+        <ul>
+            <li><a href="#resumen">Resumen</a></li>
+            <li><a href="#formativo">Cohete de 1 unidad</a></li>
+            <li><a href="#fisica">Cómo vuela</a></li>
+            <li><a href="#lanzamiento">Lanzamiento</a></li>
+            <li><a href="#ruta">Ruta hacia 2028</a></li>
+            <li><a href="#galeria">Galería</a></li>
+        </ul>
+    </nav>
 
-            <div class="project-roadmap-timeline">
-                <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">ETAPA 01 // DISEÑO AERODINÁMICO</span>
-                    <h4>Modelado de Fuselaje y Ojiva</h4>
-                    <p>Selección de geometrías de baja resistencia al avance (von Kármán o parabólica) y cálculo dimensional de aletas estabilizadoras en CAD.</p>
-                </div>
-
-                <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">ETAPA 02 // BANCO DE ENSAYOS</span>
-                    <h4>Pruebas Hidrostáticas de Presión</h4>
-                    <p>Validación de sellado hermético entre cámaras a 80 PSI utilizando agua para verificar la resistencia antes de cargar aire comprimido.</p>
-                </div>
-
-                <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">ETAPA 03 // INTEGRACIÓN</span>
-                    <h4>Armado del Sistema de Eyección</h4>
-                    <p>Plegado de líneas de nylon, empaque del paracaídas en la sección frontal y verificación de holguras para evitar bloqueos mecánicos.</p>
-                </div>
-
-                <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">ETAPA 04 // OPERACIÓN DE CAMPO</span>
-                    <h4>Lanzamiento y Análisis Telemétrico</h4>
-                    <p>Operación en terreno con oficial de seguridad (RSO), seguimiento de trayectoria, recuperación del fuselaje y extracción de datos del altímetro.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. CITA & CTA -->
-    <section class="project-quote-cta-section" id="contacto">
-        <div class="project-quote-box">
-            <div class="project-quote-text">
-                "La cohetería experimental no es solo física en movimiento; es la transformación de la aerodinámica teórica en el primer vuelo controlado de tu vida."
-            </div>
-            <div class="project-quote-sub">— USACH SPACE PROGRAM · EJE DE COHETERÍA EXPERIMENTAL</div>
-        </div>
-
-        <div class="project-cta-card">
-            <h3>¿Interesado en Participar en Cohetería?</h3>
-            <p>
-                Buscamos estudiantes de todas las carreras con curiosidad por la aerodinámica, la manufactura de materiales compuestos o la aviónica de telemetría. ¡No requieres experiencia previa, te formamos desde los conceptos básicos!
-            </p>
-            <a href="mailto:spaceprogram@usach.cl?subject=Interes%20en%20Eje%20Coheteria%20-%20USACH%20Space%20Program" class="btn-project-cta">
-                <span>Ponte en Contacto con Nosotros</span>
-                <span>✉</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- FOOTER INSTITUCIONAL -->
-    <footer style="background: #000000; border-top: 1px solid var(--border-subtle); padding: 70px 40px 40px;">
-        <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 50px;">
+    <!-- Resumen -->
+    <section class="section section-light" id="resumen">
+        <div class="section-inner split">
             <div>
-                <h3 style="font-family: var(--font-now); font-size: 1.15rem; color: #ffffff; margin: 0 0 14px 0; text-transform: uppercase; letter-spacing: 1px;">USACH Space Program</h3>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
-            </div>
-            <div>
-                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Navegación</h4>
-                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
-                    <li><a href="/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">← Inicio Principal</a></li>
-                    <li><a href="/ejes/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Ejes de Desarrollo</a></li>
-                    <li><a href="/proyectos/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Catálogo de Proyectos</a></li>
-                    <li><a href="/registro/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Convocatoria y Postulación</a></li>
+                <p class="eyebrow">Resumen</p>
+                <h2>¿Cómo llevamos una carga a altura?</h2>
+                <div class="prose">
+                    <p>El acceso al espacio plantea un desafío de transporte y energía: colocar una carga útil en altitud de forma controlada y segura. El eje nace para investigar, diseñar e implementar sistemas de lanzamiento a escala amateur y formativa.</p>
+                    <p>Todo se rige por <strong>estándares de seguridad</strong>, modelación físico-matemática y documentación abierta, para que otros puedan reproducir lo que hacemos.</p>
+                </div>
+                <ul class="check-list">
+                    <li>Un vector hidroneumático modular, recuperable y con telemetría</li>
+                    <li>Subsistemas (aviónica, aletas, paracaídas) transferibles a propelente químico</li>
+                    <li>Protocolos y permisos para pasar a la propulsión sólida</li>
+                    <li>Cultura de seguridad y diseños <em>open source</em></li>
                 </ul>
             </div>
+            <figure class="split-figure">
+                <img src="/assets/cohete%20de%20agua%20dibujo-CRYFeeoE.jpg" alt="Esquema de un cohete de agua con sus partes" loading="lazy">
+                <figcaption>Esquema de estabilidad y distribución de masas</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Formativo -->
+    <section class="section section-dark" id="formativo">
+        <div class="section-inner split split-reverse">
             <div>
-                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Contacto Oficial</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 8px 0;">Universidad de Santiago de Chile</p>
-                <p style="margin: 0;"><a href="mailto:spaceprogram@usach.cl" style="color: var(--accent-amber); text-decoration: none; font-size: 0.9rem; font-family: var(--font-mono);">spaceprogram@usach.cl</a></p>
+                <p class="eyebrow">Iniciativa formativa</p>
+                <h2>El cohete de una unidad</h2>
+                <div class="prose">
+                    <p>Para aprender cohetería no partimos con explosivos: partimos con agua y aire a presión. Es la puerta de entrada para quienes recién llegan.</p>
+                    <p>Con botellas PET como fuselaje y tanque, se calcula la proporción óptima de agua (cerca de un tercio del volumen), se diseñan aletas en impresión 3D y se fabrican paracaídas de tela liviana, viviendo en persona las leyes de Newton.</p>
+                </div>
+                <div class="callout">
+                    <strong>Seguro y repetible</strong>
+                    <p>Permite decenas de lanzamientos a bajo costo, afinando el método de ensayo, el registro de datos y el trabajo en equipo.</p>
+                </div>
+            </div>
+            <figure class="split-figure">
+                <img src="/assets/Sellado%20cohete%20de%20agua-CxIxOrfs.jpg" alt="Ensayos de sellado de tanques PET en taller" loading="lazy">
+                <figcaption>Ensayos de sellado en taller</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Física -->
+    <section class="section section-light" id="fisica">
+        <div class="section-inner">
+            <div class="section-head section-head-split">
+                <div>
+                    <p class="eyebrow">Principios de vuelo</p>
+                    <h2>Cómo vuela</h2>
+                </div>
+                <p class="section-intro">La diferencia entre un proyectil sin control y un vuelo recto. Toca cada tema para ver el detalle.</p>
+            </div>
+            <div class="expand-grid">
+                <details class="expand-card" open>
+                    <summary><span class="expand-num">01</span><span class="expand-title"><strong>Centro de presión vs. centro de gravedad</strong><small>Estabilidad</small></span><span class="expand-icon"></span></summary>
+                    <div class="expand-body">
+                        <p>Para un ascenso estable, el centro de presión (CP) debe quedar al menos 1,5 calibres detrás del centro de gravedad (CG). Ajustamos el lastre en la ojiva y el tamaño de las aletas para corregir el vuelo.</p>
+                    </div>
+                </details>
+                <details class="expand-card">
+                    <summary><span class="expand-num">02</span><span class="expand-title"><strong>Recuperación y paracaídas</strong><small>Detección de apogeo</small></span><span class="expand-icon"></span></summary>
+                    <div class="expand-body">
+                        <img src="/assets/cohete%20de%20agua%20paracaidas-Bi5-gxkD.jpg" alt="Paracaídas plegado en la ojiva del cohete" loading="lazy">
+                        <p>El paracaídas va plegado en la ojiva. Al llegar al apogeo se despliega para un aterrizaje suave. El siguiente paso es detectar el apogeo y eyectar el paracaídas con un servomotor.</p>
+                    </div>
+                </details>
+                <details class="expand-card">
+                    <summary><span class="expand-num">03</span><span class="expand-title"><strong>Aviónica y datos</strong><small>Barómetro · IMU · telemetría</small></span><span class="expand-icon"></span></summary>
+                    <div class="expand-body">
+                        <p>Registro barométrico e inercial a bordo, y transmisión de datos a una estación en tierra, para comparar el empuje teórico con el real y analizar la estabilidad de cada vuelo.</p>
+                    </div>
+                </details>
+                <details class="expand-card">
+                    <summary><span class="expand-num">04</span><span class="expand-title"><strong>Rampa y operación de campo</strong><small>Seguridad</small></span><span class="expand-icon"></span></summary>
+                    <div class="expand-body">
+                        <img src="/assets/IMG-20260605-WA0073-DMIh01A4.jpg" alt="Pruebas de campo en terreno abierto" loading="lazy">
+                        <p>Una rampa con riel guía al cohete hasta que gana velocidad. Presurizamos a distancia, con mecanismos de liberación rápida y distancias de seguridad estrictas.</p>
+                    </div>
+                </details>
             </div>
         </div>
-        <div style="max-width: 1400px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">
-            <span>&copy; 2026 USACH Space Program. Todos los derechos reservados.</span>
-            <span>Diseño y Fabricación con Fines Educativos</span>
+    </section>
+
+    <!-- Ciclo de lanzamiento -->
+    <section class="section section-dark" id="lanzamiento">
+        <div class="section-inner">
+            <div class="section-head">
+                <p class="eyebrow">Metodología</p>
+                <h2>Ciclo de lanzamiento</h2>
+                <p class="section-intro">Del cálculo en papel a la rampa en campo abierto.</p>
+            </div>
+            <ol class="steps">
+                <li><strong>Diseño aerodinámico</strong><p>Geometría de ojiva y fuselaje, y cálculo de aletas en CAD.</p></li>
+                <li><strong>Pruebas de presión</strong><p>Sellado entre cámaras validado con agua antes de cargar aire comprimido.</p></li>
+                <li><strong>Integración</strong><p>Plegado del paracaídas y revisión de holguras para evitar bloqueos.</p></li>
+                <li><strong>Lanzamiento y análisis</strong><p>Operación con oficial de seguridad, recuperación y lectura de datos.</p></li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Ruta -->
+    <section class="section section-light" id="ruta">
+        <div class="section-inner">
+            <div class="section-head">
+                <p class="eyebrow">Proyecciones 2026–2027</p>
+                <h2>La ruta hacia 2028</h2>
+                <p class="section-intro">Desarrollar, iterar y caracterizar una plataforma hidroneumática de alto rendimiento, preparando el camino técnico y de acreditación para la cohetería sólida.</p>
+            </div>
+            <ol class="timeline" style="--cols: 4">
+                <li><span class="timeline-when">Fase 1 · Sep–Ene</span><h3>Cohete de agua</h3><p>Probar uniones, resistencia a la presión, sistema de paracaídas y recolección de datos.</p></li>
+                <li><span class="timeline-when">Fase 2 · Mar–Jul</span><h3>Cohete multietapa</h3><p>Más de una fase de propulsión para mejorar considerablemente la altura de vuelo.</p></li>
+                <li><span class="timeline-when">Fase 3 · Ago–Dic</span><h3>Competencias y permisos</h3><p>Optimizar lo aprendido para competir en cohetería de agua y tramitar permisos para propelente.</p></li>
+                <li><span class="timeline-when">2028</span><h3>Propulsión sólida</h3><p>Banco de pruebas estático para motores sólidos y diseño preliminar del primer cohete sonda.</p></li>
+            </ol>
+            <div class="callout">
+                <strong>Resultado esperado al cierre del periodo</strong>
+                <p>Un repositorio técnico abierto (planos CAD, esquemas de aviónica, código y manual de operación segura), un informe con perfiles de vuelo y una jornada de demostración frente a la comunidad universitaria.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="section section-dark" id="galeria">
+        <div class="section-inner">
+            <div class="section-head section-head-split">
+                <div>
+                    <p class="eyebrow">Registro</p>
+                    <h2>En taller y en terreno</h2>
+                </div>
+                <p class="section-intro">Toca una foto para verla en grande.</p>
+            </div>
+            <div class="gallery">
+                <button class="gallery-item gallery-item-wide" data-full="/src/assets/images/gallery/IMG-20260607-WA0022.jpg" data-caption="Plataforma de lanzamiento hidroneumática">
+                    <img src="/assets/IMG-20260607-WA0022-CSaDWZKk.jpg" alt="Plataforma de lanzamiento hidroneumática" loading="lazy">
+                    <span class="gallery-cap"><span class="gallery-tag">Taller</span>Plataforma de lanzamiento</span>
+                </button>
+                <button class="gallery-item gallery-item-tall" data-full="/src/assets/images/gallery/IMG-20260605-WA0073.jpg" data-caption="Pruebas en terreno">
+                    <img src="/assets/IMG-20260605-WA0073-DMIh01A4.jpg" alt="Pruebas en terreno" loading="lazy">
+                    <span class="gallery-cap"><span class="gallery-tag">Campo</span>Pruebas en terreno</span>
+                </button>
+                <button class="gallery-item" data-full="/src/assets/images/gallery/Sellado cohete de agua.jpg" data-caption="Sellado de tanques">
+                    <img src="/assets/Sellado%20cohete%20de%20agua-CxIxOrfs.jpg" alt="Sellado de tanques" loading="lazy">
+                    <span class="gallery-cap"><span class="gallery-tag">Taller</span>Sellado</span>
+                </button>
+                <button class="gallery-item" data-full="/src/assets/images/gallery/cohete de agua paracaidas.jpg" data-caption="Paracaídas de recuperación">
+                    <img src="/assets/cohete%20de%20agua%20paracaidas-Bi5-gxkD.jpg" alt="Paracaídas de recuperación" loading="lazy">
+                    <span class="gallery-cap"><span class="gallery-tag">Recuperación</span>Paracaídas</span>
+                </button>
+                <button class="gallery-item gallery-item-wide" data-full="/src/assets/images/gallery/cohete de agua dibujo.jpg" data-caption="Esquema del cohete de agua">
+                    <img src="/assets/cohete%20de%20agua%20dibujo-CRYFeeoE.jpg" alt="Esquema del cohete de agua" loading="lazy">
+                    <span class="gallery-cap"><span class="gallery-tag">Diseño</span>Esquema</span>
+                </button>
+            </div>
+        </div>
+        <dialog class="lightbox" id="lightbox" aria-label="Foto ampliada">
+            <button class="lightbox-close" aria-label="Cerrar">×</button>
+            <button class="lightbox-nav lightbox-prev" aria-label="Foto anterior">‹</button>
+            <figure><img alt=""><figcaption></figcaption></figure>
+            <button class="lightbox-nav lightbox-next" aria-label="Foto siguiente">›</button>
+        </dialog>
+    </section>
+
+    <!-- Cierre -->
+    <section class="section section-dark section-tight" aria-label="Súmate">
+        <div class="section-inner">
+            <figure class="ficha-quote">
+                <blockquote>«La cohetería no es solo física en movimiento; es convertir la aerodinámica teórica en el primer vuelo controlado de tu vida.»</blockquote>
+                <figcaption>Eje de Cohetería · USACH Space Program</figcaption>
+            </figure>
+            <div class="cta-panel">
+                <div>
+                    <h2>¿Te interesa la cohetería?</h2>
+                    <p>Buscamos estudiantes de cualquier carrera con curiosidad por la aerodinámica, los materiales o la aviónica, y con compromiso con los protocolos de seguridad y el registro de datos. No necesitas experiencia previa.</p>
+                </div>
+                <div class="cta-actions on-dark">
+                    <a href="/registro/" class="btn btn-primary">Postular <span aria-hidden="true">→</span></a>
+                    <a href="mailto:spaceprogram@usach.cl?subject=Interes%20en%20Eje%20Coheteria%20-%20USACH%20Space%20Program" class="btn btn-ghost">Escríbenos</a>
+                </div>
+            </div>
+
+            <h2 class="related-title">Otros proyectos</h2>
+            <div class="projects-grid">
+                <a class="project-card" href="/proyectos/eggdrop/" style="--eje: var(--eje-coheteria-ink)">
+                    <div class="project-media"><img src="/assets/salva_usachin_drop-BZJ5SHPa.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body"><p class="project-meta"><span class="project-axis">Cohetería</span> · Formativo</p><h3>Misión: Salva a Usachín</h3></div>
+                </a>
+                <a class="project-card" href="/proyectos/cubesat/" style="--eje: var(--eje-orbital-ink)">
+                    <div class="project-media"><img src="/assets/IMG-20260607-WA0039-DYQQ2NnM.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body"><p class="project-meta"><span class="project-axis">Sistemas Orbitales</span> · Emblema</p><h3>CubeSat 1U</h3></div>
+                </a>
+                <a class="project-card" href="/ejes/#coheteria" style="--eje: var(--eje-coheteria-ink)">
+                    <div class="project-media"><img src="/assets/cohete_multietapa-DJLZen9r.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body"><p class="project-meta"><span class="project-axis">Eje 02</span> · Cohetería</p><h3>Conoce el eje completo</h3></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-info">
+                <h3>USACH Space Program</h3>
+                <p>Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/proyectos/">Proyectos</a></li>
+                    <li><a href="/ejes/">Ejes</a></li>
+                    <li><a href="/registro/">Postular</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p>Universidad de Santiago de Chile</p>
+                <p><a href="mailto:spaceprogram@usach.cl">spaceprogram@usach.cl</a></p>
+            </div>
+            <div class="footer-institutions">
+                <h4>Vínculos</h4>
+                <div class="footer-institution-logos">
+                    <a href="https://centroinnovacion.cl/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="Centro de Innovación USACH"><img src="data:image/webp;base64,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" alt="Centro de Innovación USACH"></a>
+                    <a href="https://www.achide.org/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="ACHIDE"><img src="/assets/achide-pTJ5xL5y.png" alt="ACHIDE"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
+            <p>Diseño y fabricación con fines educativos</p>
         </div>
     </footer>
 

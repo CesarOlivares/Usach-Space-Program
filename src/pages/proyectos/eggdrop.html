@@ -4,1819 +4,1769 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Misión: Salva a Usachín | USACH Space Program</title>
-    
+    <meta name="description" content="Desafío formativo de 4 semanas: diseña una cápsula con paracaídas que proteja a Usachín en una caída libre desde un dron.">
+
     <link rel="icon" type="image/png" href="/assets/logo_noTextBLACK-ged7tvfL.png">
-    
     <style>/* ==========================================================================
-   USACH SPACE PROGRAM - ROVER AVANZADO (PERSEVERANCE)
-   Deep Space HUD & Editorial Engineering Design System
+   USACH SPACE PROGRAM - PLANTILLA DE FICHA DE PROYECTO
+   Usada por Rover, CubeSat, Cohete, Mini CubeSat y Salva a Usachín.
+   Cada página define en <body> su color: --eje (claro) y --eje-ink (sobre papel).
+   ========================================================================== */
+/* ==========================================================================
+   USACH SPACE PROGRAM - COMPONENTES COMPARTIDOS
+   Botones, secciones claras/oscuras, tarjetas de proyecto, filtros,
+   línea de tiempo, galería con visor. Lo usan inicio, ejes, proyectos y fichas.
    ========================================================================== */
 
-/* === ROOT OVERRIDES & BASE PAGE STYLING === */
-body, html, body.tech-grid {
-    background-color: var(--bg-space-void) !important;
-    background-image: none !important;
-    color: var(--text-primary);
-    font-family: var(--font-body);
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    position: relative;
-    line-height: 1.6;
+.site {
+    background: var(--space-black);
 }
 
-/* Background Stars Canvas / Particles */
-.stars-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
+/* project-template.css pone overflow-x: hidden en html y body, lo que
+   convierte a body en contenedor de scroll y rompe position: sticky */
+html:has(> body.site),
+body.site {
+    overflow-x: clip;
 }
 
-.star {
-    position: absolute;
-    background-color: #ffffff;
-    border-radius: 50%;
-    opacity: 0.3;
-    animation: twinkleStar infinite alternate ease-in-out;
+.site main {
+    display: block;
 }
 
-@keyframes twinkleStar {
-    0% { opacity: 0.15; transform: scale(0.8); }
-    100% { opacity: 0.85; transform: scale(1.2); }
+.site img {
+    max-width: 100%;
 }
 
-/* === ROVER TOP HUD NAVBAR (FAST NAVIGATION) === */
-.rover-navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 2200;
-    background: rgba(3, 5, 8, 0.94);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 10px 40px;
-    box-sizing: border-box;
-    transition: var(--transition-smooth);
+.site section[id] {
+    scroll-margin-top: 60px;
 }
 
-.rover-navbar-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
+/* Página actual en el menú */
+.nav-links a[aria-current="page"] {
+    color: var(--pure-white);
+}
+
+/* === BOTONES === */
+.btn {
+    display: inline-flex;
     align-items: center;
-    gap: 16px;
-}
-
-/* Back to Home Brand Link */
-.rover-nav-back {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    transition: var(--transition-smooth);
-    padding: 6px 12px;
-    border-radius: 8px;
-    border: 1px solid transparent;
-}
-
-.rover-nav-back:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(229, 169, 88, 0.3);
-}
-
-
-
-.rover-nav-logo {
-    height: 32px;
-    width: auto;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.25));
-}
-
-.brand-title {
-    font-family: var(--font-now);
-    font-size: 1.02rem;
-    font-weight: 700;
-    color: #ffffff;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    white-space: nowrap;
-}
-
-/* Quick Jump Nav Center */
-.rover-quick-nav {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.nav-group {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.rover-nav-link {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-family: var(--font-now);
-    font-size: 0.82rem;
+    gap: 10px;
+    padding: 14px 24px;
+    border-radius: 4px;
+    font-family: var(--font-title);
+    font-size: 0.95rem;
     font-weight: 600;
-    letter-spacing: 0.5px;
-    padding: 6px 10px;
-    border-radius: 6px;
-    transition: var(--transition-smooth);
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s;
 }
 
-.rover-nav-link:hover {
-    color: #ffffff;
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.site :focus-visible {
+    outline: 2px solid var(--eje-orbital);
+    outline-offset: 3px;
+}
+
+.btn-primary {
+    background: var(--accent-amber);
+    color: var(--ink);
+}
+
+.btn-primary:hover {
+    background: #F0B96C;
+    box-shadow: 0 10px 30px -10px rgba(229, 169, 88, 0.7);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: inherit;
+    border-color: currentColor;
+}
+
+.section-dark .btn-ghost,
+.on-dark .btn-ghost {
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.section-dark .btn-ghost:hover,
+.on-dark .btn-ghost:hover {
+    border-color: var(--pure-white);
     background: rgba(255, 255, 255, 0.06);
 }
 
-.nav-divider {
-    color: var(--border-subtle);
-    opacity: 0.6;
-    font-size: 0.85rem;
+.section-light .btn-ghost:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
 }
 
-.rover-nav-pill {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 1px;
-    padding: 5px 11px;
-    border-radius: 20px;
-    border: 1px solid var(--border-subtle);
-    background: rgba(255, 255, 255, 0.02);
-    transition: var(--transition-smooth);
-}
-
-.rover-nav-pill:hover {
-    color: var(--accent-amber);
-    border-color: rgba(229, 169, 88, 0.4);
-    background: rgba(229, 169, 88, 0.08);
-}
-
-.rover-nav-pill.active-pill {
-    color: var(--accent-amber);
-    border-color: var(--accent-amber);
-    background: rgba(229, 169, 88, 0.12);
-}
-
-/* Nav Actions Right */
-.rover-nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.btn-nav-contact {
+.text-link {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    color: var(--text-primary);
-    text-decoration: none;
-    font-family: var(--font-now);
-    font-size: 0.82rem;
-    font-weight: 600;
-    padding: 7px 14px;
-    border-radius: 6px;
-    border: 1px solid var(--border-subtle);
-    background: rgba(255, 255, 255, 0.03);
-    transition: var(--transition-smooth);
-}
-
-.btn-nav-contact:hover {
-    border-color: var(--accent-amber);
-    color: var(--accent-amber);
-    background: rgba(229, 169, 88, 0.06);
-}
-
-.btn-nav-postular {
-    display: inline-flex;
-    align-items: center;
-    color: #030508;
-    background: var(--accent-amber);
-    text-decoration: none;
-    font-family: var(--font-now);
-    font-size: 0.82rem;
-    font-weight: 700;
-    padding: 7px 16px;
-    border-radius: 6px;
-    letter-spacing: 0.5px;
-    transition: var(--transition-smooth);
-}
-
-.btn-nav-postular:hover {
-    background: #ffffff;
-    box-shadow: 0 0 15px rgba(229, 169, 88, 0.5);
-    transform: translateY(-1px);
-}
-
-/* Mobile Hamburger */
-.rover-menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 28px;
-    height: 20px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 2202;
-}
-
-.rover-menu-toggle span {
-    width: 100%;
-    height: 2px;
-    background: #ffffff;
-    border-radius: 2px;
-    transition: var(--transition-smooth);
-}
-
-.rover-mobile-menu {
-    display: none;
-    position: fixed;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    max-height: calc(100vh - 60px);
-    overflow-y: auto;
-    background: rgba(3, 5, 8, 0.98);
-    backdrop-filter: blur(25px);
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 24px 20px 40px;
-    box-sizing: border-box;
-    flex-direction: column;
     gap: 8px;
-    z-index: 2199;
-}
-
-.rover-mobile-menu.is-active {
-    display: flex;
-}
-
-.mobile-link {
-    color: var(--text-primary);
-    text-decoration: none;
-    font-family: var(--font-now);
-    font-size: 0.95rem;
-    padding: 10px 14px;
-    border-radius: 6px;
-    transition: var(--transition-smooth);
-}
-
-.mobile-link:hover {
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--accent-amber);
-}
-
-.mobile-link.home-link {
-    font-weight: 700;
-    color: var(--accent-amber);
-    background: rgba(229, 169, 88, 0.08);
-    border: 1px solid rgba(229, 169, 88, 0.25);
-    margin-bottom: 4px;
-}
-
-.mobile-section-label {
     font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
     letter-spacing: 1.5px;
-    margin-top: 10px;
-    padding-left: 14px;
-}
-
-.mobile-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 14px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border-subtle);
-}
-
-.btn-mobile-cta {
-    text-align: center;
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid var(--border-subtle);
-    color: var(--text-primary);
+    text-transform: uppercase;
+    color: var(--eje, var(--accent-amber));
     text-decoration: none;
-    font-family: var(--font-now);
-    font-weight: 600;
 }
 
-.btn-mobile-postular {
-    text-align: center;
-    padding: 12px;
-    border-radius: 6px;
-    background: var(--accent-amber);
-    color: #030508;
-    text-decoration: none;
-    font-family: var(--font-now);
-    font-weight: 700;
+.text-link span {
+    transition: transform 0.25s;
 }
 
-/* Top Project Status Bar (Pushed down by Navbar) */
-.rover-top-bar {
-    background: #020306;
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 9px 40px;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 1.5px;
-    color: var(--text-secondary);
-    position: relative;
-    z-index: 50;
-    margin-top: 60px;
+.text-link:hover span {
+    transform: translateX(4px);
 }
 
-.rover-top-bar-inner {
-    max-width: 1400px;
+/* === SECCIONES === */
+.section {
+    padding: clamp(72px, 10vw, 128px) 24px;
+}
+
+.section-tight {
+    padding-top: clamp(56px, 7vw, 88px);
+    padding-bottom: clamp(56px, 7vw, 88px);
+}
+
+.section-inner {
+    max-width: 1240px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
 }
 
-.rover-top-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.section-light {
+    background: var(--paper);
+    color: var(--ink);
 }
 
-.rover-badge-primary {
-    color: var(--accent-amber);
-    font-weight: 600;
+.section-dark {
+    background: var(--space-black);
+    color: var(--bone-white);
 }
 
-.rover-sep {
-    color: var(--border-subtle);
+.section-head {
+    max-width: 720px;
+    margin: 0 0 48px;
 }
 
-.rover-top-right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--status-active);
-    font-weight: 600;
-}
-
-.status-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background-color: var(--status-active);
-    box-shadow: 0 0 8px var(--status-active);
-    animation: pulseActive 2s infinite ease-in-out;
-}
-
-@keyframes pulseActive {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.85); }
-}
-
-/* === 1. HERO SECTION (DEEP SPACE ROVER HERO) === */
-.rover-hero-section {
-    position: relative;
-    min-height: calc(100vh - 120px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 40px 80px;
-    border-bottom: 1px solid var(--border-subtle);
-    overflow: hidden;
-    z-index: 10;
-}
-
-/* Background HUD Graphic Watermark */
-.rover-hero-watermark {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: var(--font-horizon);
-    font-size: 16vw;
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.03);
-    z-index: 1;
-    pointer-events: none;
-    user-select: none;
-    letter-spacing: -2px;
-    white-space: nowrap;
-}
-
-/* Cosmic Ambient Glow Behind Hero */
-.rover-hero-ambient {
-    position: absolute;
-    top: 20%;
-    right: 10%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(229, 169, 88, 0.08) 0%, rgba(72, 202, 228, 0.04) 40%, transparent 70%);
-    filter: blur(80px);
-    z-index: 1;
-    pointer-events: none;
-}
-
-.rover-hero-container {
-    max-width: 1400px;
-    width: 100%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.05fr 1.15fr;
-    gap: 60px;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-}
-
-/* Left Column: Visual Chassis Viewport with HUD Brackets */
-.rover-viewport-card {
-    position: relative;
-    border-radius: 14px;
-    background: var(--bg-space-surface);
-    border: 1px solid var(--border-subtle);
-    padding: 12px;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
-    transition: var(--transition-smooth);
-}
-
-.rover-viewport-card:hover {
-    border-color: rgba(229, 169, 88, 0.4);
-    box-shadow: 0 40px 90px rgba(0, 0, 0, 0.95), 0 0 30px rgba(229, 169, 88, 0.1);
-}
-
-/* Corner Reticles */
-.rover-viewport-card::before,
-.rover-viewport-card::after {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    border-color: var(--accent-amber);
-    pointer-events: none;
-}
-
-.rover-viewport-card::before {
-    top: -1px;
-    left: -1px;
-    border-top: 2px solid var(--accent-amber);
-    border-left: 2px solid var(--accent-amber);
-}
-
-.rover-viewport-card::after {
-    bottom: -1px;
-    right: -1px;
-    border-bottom: 2px solid var(--accent-amber);
-    border-right: 2px solid var(--accent-amber);
-}
-
-.rover-img-wrapper {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    aspect-ratio: 4/3;
-    background: #000000;
-}
-
-.rover-img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: contrast(1.05);
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
-}
-
-.rover-viewport-card:hover .rover-img-wrapper img {
-    transform: scale(1.03);
-    filter: contrast(1.1) brightness(1.04);
-}
-
-.rover-img-overlay-telemetry {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 16px 20px;
-    background: linear-gradient(180deg, transparent 0%, rgba(3, 5, 8, 0.92) 80%);
+.section-head-split {
+    max-width: none;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    font-family: var(--font-mono);
-}
-
-.rover-overlay-tag {
-    font-size: 0.72rem;
-    color: var(--accent-amber);
-    letter-spacing: 1px;
-}
-
-.rover-overlay-badge {
-    font-size: 0.65rem;
-    color: var(--text-secondary);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-subtle);
-    padding: 3px 8px;
-    border-radius: 4px;
-}
-
-/* Right Column: Hero Content */
-.rover-hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.rover-section-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--accent-amber);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-}
-
-.rover-hero-title {
-    font-family: var(--font-horizon);
-    font-size: clamp(2.4rem, 4.2vw, 3.8rem);
-    line-height: 1.1;
-    color: var(--text-primary);
-    margin: 0 0 12px 0;
-    letter-spacing: 1px;
-}
-
-.rover-hero-subtitle {
-    font-family: var(--font-now);
-    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-    color: var(--accent-amber);
-    margin: 0 0 24px 0;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-}
-
-.rover-hero-desc {
-    color: var(--text-secondary);
-    font-size: 1.05rem;
-    line-height: 1.8;
-    margin: 0 0 28px 0;
-    font-weight: 300;
-}
-
-/* Telemetry Pills */
-.rover-pills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    width: 100%;
-    margin-bottom: 32px;
-}
-
-.rover-pill-item {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border-subtle);
-    border-radius: 6px;
-    padding: 10px 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    transition: var(--transition-smooth);
-}
-
-.rover-pill-item:hover {
-    border-color: rgba(229, 169, 88, 0.3);
-    background: rgba(229, 169, 88, 0.04);
-}
-
-.rover-pill-label {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    color: var(--text-muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.rover-pill-val {
-    font-family: var(--font-now);
-    font-size: 0.88rem;
-    color: var(--text-primary);
-    font-weight: 600;
-}
-
-/* Action Buttons */
-.rover-hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    gap: 24px 48px;
     flex-wrap: wrap;
 }
 
-.btn-rover-primary {
-    background: var(--accent-amber);
-    color: #030508;
-    padding: 14px 28px;
-    border-radius: 6px;
-    font-family: var(--font-now);
-    font-size: 0.88rem;
-    font-weight: 700;
+.section h2 {
+    font-family: var(--font-horizon);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 4vw, 3.2rem);
+    line-height: 1.08;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    text-decoration: none;
-    transition: var(--transition-smooth);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid transparent;
+    margin: 0;
 }
 
-.btn-rover-primary:hover {
-    background: #ffffff;
-    box-shadow: 0 0 25px rgba(229, 169, 88, 0.4);
-    transform: translateY(-2px);
+.section-light h2 { color: var(--ink); }
+.section-dark h2 { color: var(--pure-white); }
+
+.section-intro {
+    font-size: 1.08rem;
+    line-height: 1.6;
+    margin: 16px 0 0;
+    max-width: 30rem;
 }
 
-.btn-rover-secondary {
-    background: transparent;
-    color: var(--text-primary);
-    padding: 14px 28px;
-    border-radius: 6px;
-    font-family: var(--font-now);
-    font-size: 0.88rem;
+.section-light .section-intro { color: var(--ink-soft); }
+.section-dark .section-intro { color: var(--text-secondary); }
+
+.section-head-split .section-intro {
+    margin: 0;
+}
+
+.eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
     font-weight: 600;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    color: var(--eje-ink, var(--eje-orbital-ink));
+    margin: 0 0 14px;
+}
+
+.section-dark .eyebrow,
+.eyebrow-dark {
+    color: var(--eje, var(--eje-orbital));
+}
+
+.section-cta {
+    margin-top: 48px;
+}
+
+.muted {
+    color: var(--text-dark);
+}
+
+.prose p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 0 0 18px;
+}
+
+.section-light .prose p { color: var(--ink-soft); }
+.section-dark .prose p { color: rgba(245, 245, 240, 0.78); }
+
+.prose strong {
+    font-weight: 700;
+}
+
+.section-light .prose strong { color: var(--ink); }
+.section-dark .prose strong { color: var(--pure-white); }
+
+/* Lista con viñeta de color de eje */
+.check-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+}
+
+.check-list li {
+    position: relative;
+    padding-left: 26px;
+    font-size: 1rem;
+    line-height: 1.55;
+}
+
+.check-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    background: var(--eje, var(--accent-amber));
+    transform: rotate(45deg);
+}
+
+.section-light .check-list li { color: var(--ink-soft); }
+.section-dark .check-list li { color: rgba(245, 245, 240, 0.82); }
+
+/* === HERO COMPACTO DE PÁGINA === */
+.page-hero {
+    position: relative;
+    padding: 148px 24px clamp(56px, 7vw, 88px);
+    background:
+        radial-gradient(80% 120% at 85% 0%, rgba(63, 184, 217, 0.12), transparent 60%),
+        radial-gradient(60% 100% at 10% 100%, rgba(229, 169, 88, 0.10), transparent 60%),
+        var(--space-black);
+    color: var(--bone-white);
+    overflow: hidden;
+}
+
+.page-hero h1 {
+    font-family: var(--font-horizon);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 6vw, 4.8rem);
+    line-height: 1.04;
+    text-transform: uppercase;
+    color: var(--pure-white);
+    margin: 0 0 20px;
+}
+
+.page-hero-lede {
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    line-height: 1.6;
+    color: rgba(245, 245, 240, 0.8);
+    max-width: 40rem;
+    margin: 0;
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 24px;
+    padding: 0;
+    list-style: none;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.breadcrumb li + li::before {
+    content: "/";
+    margin-right: 8px;
+    color: var(--text-dark);
+}
+
+.breadcrumb a {
+    color: inherit;
     text-decoration: none;
-    transition: var(--transition-smooth);
-    border: 1px solid var(--border-subtle);
+}
+
+.breadcrumb a:hover {
+    color: var(--pure-white);
+}
+
+/* === CHIPS DE FILTRO === */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 32px;
+}
+
+.filter-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-right: 4px;
+}
+
+.filter-chip {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--paper-line);
+    background: transparent;
+    font-family: var(--font-title);
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
 
-.btn-rover-secondary:hover {
-    border-color: var(--accent-amber);
+.filter-chip span {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+}
+
+.filter-chip .chip-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--eje);
+}
+
+.filter-chip:hover {
+    border-color: var(--ink);
+}
+
+.filter-chip.is-active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+}
+
+.filter-chip.is-active span {
     color: var(--accent-amber);
-    background: rgba(229, 169, 88, 0.05);
-    transform: translateY(-2px);
 }
 
-/* === 2. SPECS BAR (HUD PRECISION METRICS) === */
-.rover-specs-section {
-    position: relative;
-    z-index: 10;
-    background: var(--bg-space-surface);
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 40px 40px;
+.filter-empty {
+    grid-column: 1 / -1;
+    color: var(--ink-soft);
+    margin: 0;
 }
 
-.rover-specs-grid {
-    max-width: 1400px;
-    margin: 0 auto;
+/* === TARJETAS DE PROYECTO === */
+.projects-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
-.rover-spec-card {
-    border-left: 1px solid var(--border-subtle);
-    padding-left: 20px;
-    transition: var(--transition-smooth);
-}
-
-.rover-spec-card:hover {
-    border-left-color: var(--accent-amber);
-}
-
-.rover-spec-key {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--accent-amber);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-    display: block;
-}
-
-.rover-spec-value {
-    font-family: var(--font-now);
-    font-size: 1.15rem;
-    color: var(--text-primary);
-    font-weight: 700;
-    margin: 0 0 6px 0;
-    line-height: 1.2;
-}
-
-.rover-spec-sub {
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-    margin: 0;
-}
-
-/* === 3. SECCIÓN DESTACADA: HITOS Y RECONOCIMIENTOS (2 HITOS PRINCIPALES) === */
-.rover-milestones-section {
-    position: relative;
-    z-index: 10;
-    padding: 100px 40px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.section-head-center {
-    text-align: center;
-    max-width: 780px;
-    margin: 0 auto 60px;
-}
-
-.section-head-center h2 {
-    font-family: var(--font-now);
-    font-size: clamp(1.8rem, 2.8vw, 2.5rem);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-primary);
-    margin: 12px 0 16px 0;
-}
-
-.section-head-center p {
-    color: var(--text-secondary);
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin: 0;
-}
-
-/* Two-column Monumental Milestones Grid */
-.milestones-duo-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 36px;
-}
-
-.milestone-card {
-    background: var(--bg-space-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 14px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+.project-card {
     display: flex;
     flex-direction: column;
-    transition: var(--transition-smooth);
+    background: var(--paper-raised);
+    border: 1px solid var(--paper-line);
+    border-radius: 8px;
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s, opacity 0.3s;
 }
 
-.milestone-card:hover {
-    border-color: rgba(229, 169, 88, 0.4);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 35px rgba(229, 169, 88, 0.08);
+.project-card:hover {
     transform: translateY(-4px);
+    box-shadow: 0 18px 40px -20px rgba(14, 20, 36, 0.35);
 }
 
-/* Visual frame */
-.milestone-visual {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16/10;
+.project-card.is-leaving {
+    opacity: 0;
+    transform: scale(0.97);
+}
+
+.project-card[hidden] {
+    display: none;
+}
+
+.project-card.is-entering {
+    animation: riseIn 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes riseIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: none; }
+}
+
+.project-media {
+    aspect-ratio: 16 / 10;
     overflow: hidden;
-    background: #000000;
+    border-bottom: 3px solid var(--eje);
 }
 
-.milestone-visual img {
+.project-media img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
-}
-
-.milestone-card:hover .milestone-visual img {
-    transform: scale(1.04);
-}
-
-.milestone-badge-floating {
-    position: absolute;
-    top: 18px;
-    left: 18px;
-    background: rgba(3, 5, 8, 0.88);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--border-subtle);
-    padding: 6px 14px;
-    border-radius: 30px;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--accent-amber);
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    z-index: 2;
-}
-
-.milestone-badge-floating.cyan {
-    color: var(--accent-cyan);
-}
-
-.milestone-tag-temp {
-    position: absolute;
-    bottom: 12px;
-    left: 18px;
-    right: 18px;
-    background: rgba(3, 5, 8, 0.85);
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    padding: 5px 10px;
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--text-secondary);
-    letter-spacing: 0.5px;
-    text-align: center;
-    z-index: 2;
-}
-
-.milestone-body {
-    padding: 32px 30px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.milestone-event-tag {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--accent-amber);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-}
-
-.milestone-event-tag.cyan {
-    color: var(--accent-cyan);
-}
-
-.milestone-title {
-    font-family: var(--font-now);
-    font-size: 1.45rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin: 0 0 16px 0;
-    line-height: 1.3;
-}
-
-.milestone-desc {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin: 0 0 24px 0;
-    flex: 1;
-}
-
-.milestone-points {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    border-top: 1px solid var(--border-subtle);
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.milestone-points li {
-    font-size: 0.85rem;
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--font-now);
-}
-
-.milestone-points li span.icon {
-    color: var(--accent-amber);
-    font-size: 0.9rem;
-}
-
-.milestone-points.cyan li span.icon {
-    color: var(--accent-cyan);
-}
-
-/* === 4. ARQUITECTURA MECATRÓNICA & SPLIT DE INGENIERÍA === */
-.rover-split-section {
-    position: relative;
-    z-index: 10;
-    padding: 90px 40px;
-    border-top: 1px solid var(--border-subtle);
-}
-
-.rover-split-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 70px;
-    align-items: center;
-}
-
-.rover-split-container.reverse {
-    grid-template-columns: 1fr 1fr;
-}
-
-.rover-split-container.reverse .rover-split-text {
-    order: 2;
-}
-
-.rover-split-container.reverse .rover-split-visual {
-    order: 1;
-}
-
-.rover-split-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.rover-split-text h2 {
-    font-family: var(--font-now);
-    font-size: clamp(1.8rem, 2.6vw, 2.3rem);
-    text-transform: uppercase;
-    color: var(--text-primary);
-    margin: 10px 0 20px 0;
-    line-height: 1.25;
-}
-
-.rover-split-text p {
-    color: var(--text-secondary);
-    font-size: 1.05rem;
-    line-height: 1.8;
-    margin: 0 0 24px 0;
-    font-weight: 300;
-}
-
-.rover-split-feature-box {
-    background: rgba(255, 255, 255, 0.02);
-    border-left: 2px solid var(--accent-amber);
-    padding: 16px 20px;
-    border-radius: 0 6px 6px 0;
-    margin-top: 10px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.rover-split-feature-box h4 {
-    font-family: var(--font-now);
-    font-size: 0.95rem;
-    color: var(--text-primary);
-    margin: 0 0 6px 0;
-}
-
-.rover-split-feature-box p {
-    font-size: 0.88rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin: 0;
-}
-
-.rover-split-visual {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    background: var(--bg-space-surface);
-    border: 1px solid var(--border-subtle);
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8);
-}
-
-.rover-split-visual img {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 4/3;
     object-fit: cover;
     display: block;
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.rover-split-visual:hover img {
-    transform: scale(1.03);
+.project-card:hover .project-media img {
+    transform: scale(1.05);
 }
 
-/* === 5. VIDEO SECTION: PRUEBAS DINÁMICAS 360° === */
-.rover-video-section {
-    position: relative;
-    z-index: 10;
-    padding: 100px 40px;
-    background: #020306;
-    border-top: 1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
-    text-align: center;
-}
-
-.rover-video-wrapper {
-    max-width: 1060px;
-    margin: 0 auto;
-    position: relative;
-    border-radius: 14px;
-    overflow: hidden;
-    border: 1px solid var(--border-subtle);
-    background: #000000;
-    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95), 0 0 40px rgba(229, 169, 88, 0.05);
-}
-
-/* Video Header Bar */
-.rover-video-header-bar {
-    background: rgba(7, 11, 20, 0.95);
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 12px 20px;
+.project-body {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 22px 24px;
+    flex: 1;
+}
+
+.project-meta {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+}
+
+.project-axis {
+    color: var(--eje);
+}
+
+.project-card h3 {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--ink);
+}
+
+.project-body > p:not([class]) {
+    font-size: 0.93rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0;
+}
+
+.project-status {
+    display: inline-flex;
     align-items: center;
+    gap: 8px;
+    margin: auto 0 0;
+    padding-top: 10px;
     font-family: var(--font-mono);
     font-size: 0.72rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--eje);
+}
+
+/* === LÍNEA DE TIEMPO (fases) === */
+.timeline {
+    --cols: 4;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(var(--cols), 1fr);
+    gap: 0 24px;
+    position: relative;
+    counter-reset: fase;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--eje, var(--accent-amber)), rgba(127, 127, 127, 0.25));
+}
+
+.timeline li {
+    position: relative;
+    padding-top: 40px;
+}
+
+.timeline li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--eje, var(--accent-amber));
+    background: var(--tl-bg, var(--space-black));
+    box-sizing: border-box;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.timeline li:hover::before {
+    background: var(--eje, var(--accent-amber));
+    transform: scale(1.15);
+}
+
+.section-light .timeline { --tl-bg: var(--paper); }
+
+.timeline-when {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--eje, var(--accent-amber));
+    margin-bottom: 8px;
+}
+
+.section-light .timeline-when {
+    color: var(--eje-ink, var(--ink));
+}
+
+.timeline h3 {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 8px;
+}
+
+.section-light .timeline h3 { color: var(--ink); }
+.section-dark .timeline h3 { color: var(--pure-white); }
+
+.timeline p {
+    font-size: 0.93rem;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.section-light .timeline p { color: var(--ink-soft); }
+.section-dark .timeline p { color: rgba(245, 245, 240, 0.72); }
+
+/* === TARJETAS EXPANDIBLES (details) === */
+.expand-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    align-items: start;
+}
+
+.expand-card {
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    background: var(--space-dark);
+    overflow: hidden;
+    transition: border-color 0.25s;
+}
+
+.section-light .expand-card {
+    background: var(--paper-raised);
+    border-color: var(--paper-line);
+}
+
+.expand-card[open],
+.expand-card:hover {
+    border-color: var(--eje, var(--accent-amber));
+}
+
+.expand-card summary {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 22px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.expand-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.expand-num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--eje, var(--accent-amber));
+}
+
+.section-light .expand-num {
+    color: var(--eje-ink, var(--ink));
+}
+
+.expand-title {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.expand-title strong {
+    font-family: var(--font-title);
+    font-size: 1.08rem;
+    font-weight: 700;
+}
+
+.section-dark .expand-title strong { color: var(--pure-white); }
+.section-light .expand-title strong { color: var(--ink); }
+
+.expand-title small {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
     color: var(--text-secondary);
 }
 
-.video-status-tag {
-    color: var(--accent-amber);
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+.section-light .expand-title small { color: var(--ink-faint); }
 
-.rover-video-element-container {
+.expand-icon {
     position: relative;
-    width: 100%;
-    aspect-ratio: 16/9;
-    background: #000;
+    width: 14px;
+    height: 14px;
 }
 
-.rover-video-element-container video {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-    background: #000;
-}
-
-/* Cover poster before clicking */
-#video-cover-hud {
+.expand-icon::before,
+.expand-icon::after {
+    content: "";
     position: absolute;
-    inset: 0;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: url('/assets/posando_rover_1-C0kCezaa.jpg') no-repeat center center/cover;
-    transition: var(--transition-smooth);
-    z-index: 5;
+    left: 0;
+    top: 6px;
+    width: 14px;
+    height: 2px;
+    background: currentColor;
+    transition: transform 0.3s;
 }
 
-#video-cover-hud::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(3, 5, 8, 0.65);
-    transition: background 0.3s ease;
+.expand-icon::after {
+    transform: rotate(90deg);
 }
 
-#video-cover-hud:hover::before {
-    background: rgba(3, 5, 8, 0.45);
+.expand-card[open] .expand-icon::after {
+    transform: rotate(0deg);
 }
 
-.video-play-btn {
-    position: relative;
-    z-index: 6;
-    width: 84px;
-    height: 84px;
-    border-radius: 50%;
-    background: var(--accent-amber);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #030508;
-    font-size: 2rem;
-    padding-left: 5px;
-    box-shadow: 0 0 35px rgba(229, 169, 88, 0.45);
-    transition: var(--transition-smooth);
-}
-
-#video-cover-hud:hover .video-play-btn {
-    transform: scale(1.12);
-    background: #ffffff;
-    box-shadow: 0 0 45px rgba(255, 255, 255, 0.7);
-}
-
-.video-play-label {
-    position: relative;
-    z-index: 6;
-    margin-top: 20px;
-    font-family: var(--font-now);
-    font-size: 0.88rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #ffffff;
-    text-transform: uppercase;
-}
-
-/* === 6. TRAYECTORIA Y REGISTRO FOTOGRÁFICO DE TALLER === */
-.rover-gallery-section {
-    position: relative;
-    z-index: 10;
-    padding: 100px 40px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.rover-gallery-grid {
+.expand-body {
+    padding: 0 22px 22px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    margin-top: 50px;
+    gap: 14px;
+    animation: riseIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.rover-gallery-card {
-    background: var(--bg-space-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-    transition: var(--transition-smooth);
-}
-
-.rover-gallery-card:hover {
-    border-color: rgba(229, 169, 88, 0.4);
-    transform: translateY(-6px);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
-}
-
-.rover-gallery-card-img {
+.expand-body img {
     width: 100%;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-    background: #000;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 6px;
 }
 
-.rover-gallery-card-img img {
+.expand-body p {
+    margin: 0;
+    font-size: 0.97rem;
+    line-height: 1.6;
+}
+
+.section-dark .expand-body p { color: rgba(245, 245, 240, 0.78); }
+.section-light .expand-body p { color: var(--ink-soft); }
+
+/* === GALERÍA + VISOR === */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 240px;
+    grid-auto-flow: dense;
+    gap: 16px;
+}
+
+.gallery-item {
+    position: relative;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: zoom-in;
+    background: #d9d5cb;
+}
+
+.gallery-item-wide { grid-column: span 2; }
+.gallery-item-tall { grid-row: span 2; }
+
+.gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.rover-gallery-card:hover .rover-gallery-card-img img {
-    transform: scale(1.05);
+.gallery-item:hover img {
+    transform: scale(1.06);
 }
 
-.rover-gallery-card-body {
-    padding: 22px 20px;
-    background: var(--bg-space-surface);
+.gallery-cap {
+    position: absolute;
+    inset: auto 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 40px 16px 14px;
+    background: linear-gradient(to top, rgba(8, 12, 22, 0.85), transparent);
+    font-family: var(--font-title);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: left;
+    color: var(--pure-white);
 }
 
-.rover-card-step {
+.gallery-tag {
     font-family: var(--font-mono);
-    font-size: 0.68rem;
-    color: var(--accent-amber);
+    font-size: 0.66rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    margin-bottom: 6px;
-    display: block;
+    color: var(--eje, var(--accent-amber));
 }
 
-.rover-gallery-card-body h4 {
-    font-family: var(--font-now);
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin: 0 0 8px 0;
-}
-
-.rover-gallery-card-body p {
-    font-size: 0.88rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
+.lightbox {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
     margin: 0;
+    padding: 0;
+    border: 0;
+    background: rgba(3, 5, 8, 0.94);
+    color: var(--pure-white);
 }
 
-/* === 7. HOJA DE RUTA (ROADMAP TÉCNICO) === */
-.rover-roadmap-section {
-    position: relative;
-    z-index: 10;
-    padding: 100px 40px;
-    background: #020306;
-    border-top: 1px solid var(--border-subtle);
+.lightbox[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.25s ease;
 }
 
-.rover-roadmap-container {
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
+.lightbox::backdrop {
+    background: transparent;
 }
 
-.rover-roadmap-timeline {
-    position: relative;
-    padding-left: 40px;
-    border-left: 2px solid rgba(229, 169, 88, 0.25);
-    margin-top: 50px;
+@keyframes fadeIn {
+    from { opacity: 0; }
 }
 
-.rover-roadmap-item {
-    position: relative;
-    margin-bottom: 45px;
-}
-
-.rover-roadmap-item:last-child {
-    margin-bottom: 0;
-}
-
-.rover-roadmap-item::before {
-    content: '';
-    position: absolute;
-    left: -48px;
-    top: 4px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: var(--bg-space-void);
-    border: 2px solid var(--accent-amber);
-    box-shadow: 0 0 10px rgba(229, 169, 88, 0.5);
-    transition: var(--transition-smooth);
-}
-
-.rover-roadmap-item:hover::before {
-    background: var(--accent-amber);
-    transform: scale(1.25);
-}
-
-.roadmap-phase-tag {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--accent-amber);
-    letter-spacing: 1px;
-    margin-bottom: 4px;
-    display: block;
-}
-
-.rover-roadmap-item h4 {
-    font-family: var(--font-now);
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin: 0 0 8px 0;
-}
-
-.rover-roadmap-item p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.6;
+.lightbox figure {
     margin: 0;
-}
-
-/* === 8. INSPIRATIONAL QUOTE & CALL TO ACTION === */
-.rover-quote-cta-section {
-    position: relative;
-    z-index: 10;
-    padding: 100px 40px 120px;
+    max-width: min(1100px, 86vw);
     text-align: center;
-    background: linear-gradient(180deg, #020306 0%, #030508 100%);
-    border-top: 1px solid var(--border-subtle);
 }
 
-.rover-quote-box {
-    max-width: 800px;
-    margin: 0 auto 60px;
-}
-
-.rover-quote-text {
-    font-family: var(--font-now);
-    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-    color: var(--text-primary);
-    line-height: 1.4;
-    font-weight: 600;
-    margin: 0 0 18px 0;
-}
-
-.rover-quote-sub {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--accent-amber);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.rover-cta-card {
-    max-width: 780px;
+.lightbox img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 6px;
+    display: block;
     margin: 0 auto;
-    background: var(--bg-space-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    padding: 40px;
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8);
 }
 
-.rover-cta-card h3 {
-    font-family: var(--font-now);
-    font-size: 1.6rem;
-    color: var(--text-primary);
-    margin: 0 0 12px 0;
-}
-
-.rover-cta-card p {
-    color: var(--text-secondary);
+.lightbox figcaption {
+    margin-top: 14px;
+    font-family: var(--font-title);
     font-size: 1rem;
-    line-height: 1.7;
-    margin: 0 0 28px 0;
+    color: rgba(245, 245, 240, 0.85);
 }
 
-.btn-rover-cta {
+.lightbox-close,
+.lightbox-nav {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--pure-white);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.lightbox-close:hover,
+.lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.lightbox-close { top: 20px; right: 20px; }
+.lightbox-prev { left: 20px; top: 50%; transform: translateY(-50%); }
+.lightbox-next { right: 20px; top: 50%; transform: translateY(-50%); }
+
+/* === BLOQUE CTA FINAL === */
+.cta-panel {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 32px 64px;
+    align-items: center;
+    padding: clamp(32px, 5vw, 64px);
+    border-radius: 12px;
+    border: 1px solid rgba(229, 169, 88, 0.3);
+    background:
+        radial-gradient(120% 140% at 0% 0%, rgba(229, 169, 88, 0.2), transparent 60%),
+        var(--space-dark);
+}
+
+.cta-panel h2 {
+    font-family: var(--font-title);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: 0;
+    line-height: 1.15;
+    margin: 0 0 14px;
+}
+
+.cta-panel p {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: rgba(245, 245, 240, 0.78);
+    margin: 0;
+}
+
+.cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1080px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 200px;
+    }
+
+    .timeline {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 24px;
+    }
+
+    .timeline::before {
+        display: none;
+    }
+
+    .cta-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-actions {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 760px) {
+    .page-hero {
+        padding-top: 112px;
+    }
+
+    .projects-grid,
+    .expand-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding-left: 6px;
+    }
+
+    .timeline::before {
+        display: block;
+        top: 0;
+        bottom: 0;
+        left: 15px;
+        right: auto;
+        width: 2px;
+        height: auto;
+        background: linear-gradient(to bottom, var(--eje, var(--accent-amber)), rgba(127, 127, 127, 0.25));
+    }
+
+    .timeline li {
+        padding: 0 0 28px 40px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 160px;
+        gap: 10px;
+    }
+
+    .gallery-item-wide {
+        grid-column: 1 / -1;
+    }
+
+    .gallery-cap {
+        font-size: 0.82rem;
+        padding: 32px 10px 10px;
+    }
+
+    .lightbox-nav {
+        top: auto;
+        bottom: 24px;
+        transform: none;
+    }
+
+    .cta-actions .btn {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site *,
+    .site *::before,
+    .site *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* === HERO === */
+.ficha-hero {
+    position: relative;
+    min-height: 88vh;
+    min-height: 88svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 120px 24px 0;
+    box-sizing: border-box;
+    color: var(--bone-white);
+    background: var(--space-black);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.ficha-hero-media {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.ficha-hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    animation: heroZoom 18s ease-out both;
+}
+
+@keyframes heroZoom {
+    from { transform: scale(1.08); }
+    to { transform: scale(1); }
+}
+
+.ficha-hero-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(to top, var(--space-black) 0%, rgba(3, 5, 8, 0.75) 35%, rgba(3, 5, 8, 0.25) 75%, rgba(3, 5, 8, 0.45) 100%),
+        linear-gradient(to right, rgba(3, 5, 8, 0.7) 0%, transparent 60%);
+}
+
+.ficha-hero-inner {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.ficha-tag {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: var(--text-primary);
-    color: var(--bg-space-void);
-    padding: 16px 36px;
-    border-radius: 30px;
-    font-family: var(--font-now);
-    font-size: 0.92rem;
-    font-weight: 700;
+    margin: 0 0 20px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(3, 5, 8, 0.55);
+    border: 1px solid var(--eje);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 1.8px;
     text-transform: uppercase;
+    color: var(--pure-white);
+}
+
+.ficha-tag::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--eje);
+}
+
+.ficha-hero h1 {
+    font-family: var(--font-horizon);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 6.4vw, 5.4rem);
+    line-height: 1.02;
+    text-transform: uppercase;
+    color: var(--pure-white);
+    margin: 0 0 14px;
+    max-width: 14ch;
+}
+
+.ficha-subtitle {
+    font-family: var(--font-title);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 500;
+    color: var(--eje);
+    margin: 0 0 18px;
+}
+
+.ficha-lede {
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    line-height: 1.65;
+    color: rgba(245, 245, 240, 0.85);
+    max-width: 42rem;
+    margin: 0 0 32px;
+}
+
+.ficha-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.ficha-facts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 56px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.ficha-facts div {
+    padding: 22px 20px 26px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ficha-facts div:first-child {
+    border-left: 0;
+    padding-left: 0;
+}
+
+.ficha-facts dt {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
     letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--eje);
+    margin-bottom: 8px;
+}
+
+.ficha-facts dd {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 1.02rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--pure-white);
+}
+
+/* === SUBNAVEGACIÓN FIJA === */
+.ficha-subnav {
+    position: sticky;
+    top: 58px;
+    z-index: 1500;
+    background: rgba(7, 11, 20, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.ficha-subnav ul {
+    list-style: none;
+    display: flex;
+    gap: 4px;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.ficha-subnav ul::-webkit-scrollbar {
+    display: none;
+}
+
+.ficha-subnav a {
+    display: block;
+    padding: 15px 14px 13px;
+    border-bottom: 2px solid transparent;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--text-secondary);
     text-decoration: none;
-    transition: var(--transition-smooth);
-    box-shadow: 0 10px 30px rgba(229, 169, 88, 0.15);
+    transition: color 0.2s, border-color 0.2s;
 }
 
-.btn-rover-cta:hover {
-    background: var(--accent-amber);
-    color: #030508;
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(229, 169, 88, 0.4);
+.ficha-subnav a:hover {
+    color: var(--pure-white);
 }
 
-/* === RESPONSIVE BREAKPOINTS === */
-@media (max-width: 1100px) {
-    .rover-navbar {
-        padding: 10px 20px;
+.ficha-subnav a.is-active {
+    color: var(--pure-white);
+    border-bottom-color: var(--eje);
+}
+
+.ficha .section[id] {
+    scroll-margin-top: 108px;
+}
+
+/* === BLOQUE TEXTO + IMAGEN === */
+.split {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(32px, 6vw, 88px);
+    align-items: center;
+}
+
+.split-reverse > :first-child {
+    order: 2;
+}
+
+.split h2 {
+    margin-bottom: 24px !important;
+}
+
+.split-figure {
+    position: relative;
+    margin: 0;
+}
+
+.split-figure img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+.split-figure::after {
+    content: "";
+    position: absolute;
+    left: -12px;
+    bottom: -12px;
+    width: 40%;
+    height: 40%;
+    border-left: 3px solid var(--eje);
+    border-bottom: 3px solid var(--eje);
+    border-bottom-left-radius: 12px;
+    pointer-events: none;
+}
+
+.split-figure figcaption {
+    margin-top: 16px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+}
+
+.section-dark .split-figure figcaption {
+    color: var(--text-secondary);
+}
+
+.callout {
+    margin-top: 28px;
+    padding: 20px 22px;
+    border-radius: 8px;
+    border-left: 3px solid var(--eje);
+    background: rgba(14, 20, 36, 0.05);
+}
+
+.section-dark .callout {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.callout strong {
+    display: block;
+    font-family: var(--font-title);
+    font-size: 1.02rem;
+    margin-bottom: 6px;
+}
+
+.section-light .callout strong { color: var(--ink); }
+.section-dark .callout strong { color: var(--pure-white); }
+
+.callout p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.section-light .callout p { color: var(--ink-soft); }
+.section-dark .callout p { color: rgba(245, 245, 240, 0.75); }
+
+/* === TARJETAS DESTACADAS (hitos, premios, pilares) === */
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 3), 1fr);
+    gap: 24px;
+}
+
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--paper-raised);
+    border: 1px solid var(--paper-line);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s;
+}
+
+.section-dark .feature-card {
+    background: var(--space-dark);
+    border-color: var(--border-subtle);
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px -22px rgba(14, 20, 36, 0.45);
+}
+
+.feature-card-media {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-bottom: 3px solid var(--eje);
+}
+
+.feature-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.feature-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 22px 24px 26px;
+}
+
+.feature-card-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--eje-ink);
+}
+
+.section-dark .feature-card-tag {
+    color: var(--eje);
+}
+
+.feature-card h3 {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.section-light .feature-card h3 { color: var(--ink); }
+.section-dark .feature-card h3 { color: var(--pure-white); }
+
+.feature-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.section-light .feature-card p { color: var(--ink-soft); }
+.section-dark .feature-card p { color: rgba(245, 245, 240, 0.75); }
+
+.feature-card-num {
+    font-family: var(--font-horizon);
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--eje);
+}
+
+/* === VIDEO === */
+.video-frame {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid var(--border-subtle);
+}
+
+.video-frame video {
+    width: 100%;
+    max-height: 72vh;
+    display: block;
+    background: #000;
+}
+
+/* === PASOS NUMERADOS (ciclo de lanzamiento, etc.) === */
+.steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 4), 1fr);
+    gap: 16px;
+    counter-reset: paso;
+}
+
+.steps li {
+    counter-increment: paso;
+    padding: 22px;
+    border-radius: 8px;
+    background: var(--paper-raised);
+    border: 1px solid var(--paper-line);
+}
+
+.section-dark .steps li {
+    background: var(--space-dark);
+    border-color: var(--border-subtle);
+}
+
+.steps li::before {
+    content: counter(paso, decimal-leading-zero);
+    display: block;
+    margin-bottom: 14px;
+    font-family: var(--font-horizon);
+    font-size: 1.6rem;
+    color: var(--eje-ink);
+}
+
+.section-dark .steps li::before {
+    color: var(--eje);
+}
+
+.steps strong {
+    display: block;
+    font-family: var(--font-title);
+    font-size: 1.02rem;
+    margin-bottom: 6px;
+}
+
+.section-light .steps strong { color: var(--ink); }
+.section-dark .steps strong { color: var(--pure-white); }
+
+.steps p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+.section-light .steps p { color: var(--ink-soft); }
+.section-dark .steps p { color: rgba(245, 245, 240, 0.72); }
+
+/* === CITA === */
+.ficha-quote {
+    margin: 0 0 56px;
+    padding: 0 0 0 28px;
+    border-left: 3px solid var(--eje);
+}
+
+.ficha-quote blockquote {
+    margin: 0 0 12px;
+    font-family: var(--font-title);
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--pure-white);
+}
+
+.ficha-quote figcaption {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--eje);
+}
+
+.related-title {
+    font-family: var(--font-mono) !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase;
+    color: var(--text-secondary) !important;
+    margin: 72px 0 24px !important;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1080px) {
+    .ficha-facts {
+        grid-template-columns: repeat(2, 1fr);
     }
-    .rover-quick-nav,
-    .rover-nav-actions {
-        display: none;
+
+    .ficha-facts div:nth-child(3) {
+        border-left: 0;
+        padding-left: 0;
     }
-    .rover-menu-toggle {
-        display: flex;
+
+    .ficha-facts div:nth-child(n+3) {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .rover-hero-container {
+
+    .split {
         grid-template-columns: 1fr;
-        gap: 50px;
     }
-    .rover-specs-grid {
-        grid-template-columns: repeat(3, 1fr);
+
+    .split-reverse > :first-child {
+        order: 0;
     }
-    .milestones-duo-grid {
-        grid-template-columns: 1fr;
-    }
-    .rover-split-container,
-    .rover-split-container.reverse {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    .rover-split-container.reverse .rover-split-text {
-        order: 1;
-    }
-    .rover-split-container.reverse .rover-split-visual {
-        order: 2;
-    }
-    .rover-gallery-grid {
+
+    .feature-cards,
+    .steps {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 768px) {
-    .rover-top-bar {
-        padding: 10px 20px;
+@media (max-width: 760px) {
+    .ficha-hero {
+        min-height: 0;
+        padding-top: 280px;
     }
-    .rover-hero-section {
-        padding: 40px 20px 60px;
+
+    .ficha-hero-media::after {
+        background: linear-gradient(to top, var(--space-black) 0%, rgba(3, 5, 8, 0.85) 45%, rgba(3, 5, 8, 0.2) 100%);
     }
-    .rover-specs-grid {
+
+    /* Horizon es muy ancha: "PERSEVERANCE" no cabe a 375px con el tamaño base */
+    .ficha-hero h1 {
+        font-size: clamp(1.7rem, 7.4vw, 2.4rem);
+    }
+
+    .ficha-actions .btn {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .ficha-facts {
+        margin-top: 40px;
+    }
+
+    .ficha-facts div {
+        padding: 16px 12px 18px;
+    }
+
+    .ficha-facts dd {
+        font-size: 0.92rem;
+    }
+
+    .ficha-subnav ul {
+        padding: 0 12px;
+    }
+
+    .feature-cards,
+    .steps {
         grid-template-columns: 1fr;
-        gap: 20px;
     }
-    .rover-spec-card {
-        padding-left: 14px;
-    }
-    .rover-pills-grid {
-        grid-template-columns: 1fr;
-    }
-    .rover-milestones-section,
-    .rover-split-section,
-    .rover-video-section,
-    .rover-gallery-section,
-    .rover-roadmap-section,
-    .rover-quote-cta-section {
-        padding: 60px 20px;
-    }
-    .rover-gallery-grid {
-        grid-template-columns: 1fr;
-    }
-    .rover-cta-card {
-        padding: 24px 18px;
+
+    .split-figure::after {
+        left: -8px;
+        bottom: -8px;
     }
 }</style>
-  <script type="module" crossorigin src="/assets/main-H8N1Pnis.js"></script>
-  <script type="module" crossorigin src="/assets/rover_avanzado-D7fItIFc.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-Dw5DkHwh.css">
-  <link rel="stylesheet" crossorigin href="/assets/project-template-D3atRXb4.css">
+  <script type="module" crossorigin src="/assets/main-CS0-8tIx.js"></script>
+  <script type="module" crossorigin src="/assets/header-BHafkzy6.js"></script>
+  <script type="module" crossorigin src="/assets/lightbox-EWt6vRE6.js"></script>
+  <script type="module" crossorigin src="/assets/ficha-BzjTcp3e.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-UeEJRPuF.css">
 </head>
-<body>
+<body class="site ficha" style="--eje: var(--eje-coheteria); --eje-ink: var(--eje-coheteria-ink);">
 
-    <!-- FONDO DE ESTRELLAS DINÁMICO -->
-    <div class="stars-container" id="stars"></div>
-
-    <!-- 0. BARRA SUPERIOR DE NAVEGACIÓN RÁPIDA (HUD NAVBAR) -->
-    <header class="rover-navbar">
-        <div class="rover-navbar-inner">
-            <!-- Brand Oficial -->
-            <a href="/" class="rover-nav-back" title="USACH Space Program">
-                <img src="/assets/logo_noTextBLACK-ged7tvfL.png" alt="Logo USP" class="rover-nav-logo">
-                <span class="brand-title">USACH SPACE PROGRAM</span>
+    <header>
+        <div class="nav-brand-container">
+            <a href="/" class="nav-brand-link">
+                <img src="/assets/logo_noTextBLACK-ged7tvfL.png" alt="Logo USP" class="nav-logo">
+                <span class="nav-brand">USACH Space Program</span>
             </a>
-
-            <!-- Enlaces Rápidos (Escritorio) -->
-            <nav class="rover-quick-nav">
-                <div class="nav-group">
-                    <a href="/" class="rover-nav-link">Inicio</a>
-                    <a href="/ejes/" class="rover-nav-link">Ejes</a>
-                    <a href="/proyectos/" class="rover-nav-link">Proyectos</a>
-                    <a href="/#alianzas" class="rover-nav-link">Alianzas</a>
-                </div>
-
-                <span class="nav-divider">|</span>
-
-                <div class="nav-group">
-                    <a href="#mision" class="rover-nav-pill">El Desafío</a>
-                    <a href="#objetivos" class="rover-nav-pill">Objetivos</a>
-                    <a href="#sesiones" class="rover-nav-pill">Línea de Tiempo</a>
-                    <a href="#final" class="rover-nav-pill">Lanzamiento</a>
-                    <a href="#premios" class="rover-nav-pill">Premios</a>
-                </div>
-            </nav>
-
-            <!-- Acciones -->
-            <div class="rover-nav-actions">
-                <a href="/talleres/?mision=salva_usachin" class="btn-nav-postular">
-                    <span>Inscribir Equipo</span>
-                </a>
-            </div>
-
-            <!-- Botón Hamburguesa Móvil -->
-            <button class="rover-menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
-
-        <!-- Menú Desplegable Móvil -->
-        <div class="rover-mobile-menu" id="mobileMenu">
-            <a href="/" class="mobile-link home-link">USACH Space Program (Inicio)</a>
-            <div class="mobile-section-label">SECCIONES PRINCIPALES</div>
-            <a href="/ejes/" class="mobile-link">Ejes Estratégicos</a>
-            <a href="/proyectos/" class="mobile-link">Catálogo de Proyectos</a>
-            <a href="/#manifiesto" class="mobile-link">Manifiesto Estudiantil</a>
-            <a href="/#alianzas" class="mobile-link">Alianzas Institucionales</a>
-            <div class="mobile-section-label">PROYECTOS Y HARDWARE</div>
-            <a href="/proyectos/rover/" class="mobile-link">Rover Perseverance (Flagship)</a>
-            <a href="/proyectos/cubesat/" class="mobile-link">Bus Satelital CubeSat 3U</a>
-            <a href="/proyectos/cohete/" class="mobile-link">Cohetería Experimental &amp; Agua</a>
-            <a href="/proyectos/cansat/" class="mobile-link">Misión: Mini Cube-Sat</a>
-            <a href="/proyectos/eggdrop/" class="mobile-link active-link">Misión: Salva a Usachín</a>
-            <div class="mobile-actions">
-                <a href="/talleres/?mision=salva_usachin" class="btn-mobile-postular">Inscribir Equipo al Desafío</a>
-            </div>
-        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+        <nav class="nav-links" id="navLinks">
+            <a href="/#novedades">Novedades</a>
+            <a href="/ejes/">Ejes</a>
+            <a href="/proyectos/" aria-current="page">Proyectos</a>
+            <a href="/#alianzas">Alianzas</a>
+            <a href="mailto:spaceprogram@usach.cl" class="nav-contact">Contacto</a>
+            <a href="/registro/" class="btn-nav-cta">Postular</a>
+        </nav>
     </header>
 
-    <!-- 1. HERO SECTION -->
-    <section class="rover-hero-section">
-        <div class="rover-hero-watermark">USACHÍN</div>
-        <div class="rover-hero-ambient"></div>
+    <main>
 
-        <div class="rover-hero-container">
-            <!-- Columna Izquierda: Viewport Paracaídas / Descenso -->
-            <div class="rover-viewport-card">
-                <div class="rover-img-wrapper">
-                    <img src="/assets/salva_usachin_drop-BZJ5SHPa.jpg" alt="Misión Salva a Usachín - Desafío de paracaídas y recuperación aeroespacial">
-                    <div class="rover-img-overlay-telemetry">
-                        <span class="rover-overlay-tag">EJE COHETERÍA // RECUPERACIÓN</span>
-                        <span class="rover-overlay-badge">CAÍDA LIBRE CON DRON</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Columna Derecha: Títulos, Resumen y Métricas Clave -->
-            <div class="rover-hero-content">
-                <div class="rover-section-tag">
-                    <span>✦</span>
-                    <span>USACH SPACE PROGRAM · EJE DE COHETERÍA Y PROPULSIÓN</span>
-                </div>
-                <h1 class="rover-hero-title">MISIÓN: SALVA A USACHÍN</h1>
-                <h2 class="rover-hero-subtitle">Desafío Abierto de Paracaídas y Recuperación Aeroespacial</h2>
-                
-                <p class="rover-hero-desc">
-                    <strong>¿Alguna vez soñaste con diseñar un sistema de reentrada y frenado aerodinámico? ¡En esta misión podrás poner a prueba tu ingenio!</strong> Usachín viene cayendo desde muy alto: será elevado y liberado en caída libre mediante un dron en el campus. Tu equipo deberá diseñar y fabricar un sistema que despliegue un paracaídas, estabilice el descenso y amortigüe el impacto final de forma 100% mecánica y pasiva.
-                </p>
-
-                <!-- Grid de Telemetría Rápida -->
-                <div class="rover-pills-grid">
-                    <div class="rover-pill-item">
-                        <span class="rover-pill-label">Modalidad</span>
-                        <span class="rover-pill-val">Equipos de 2 a 4 Integrantes</span>
-                    </div>
-                    <div class="rover-pill-item">
-                        <span class="rover-pill-label">Restricción Geométrica</span>
-                        <span class="rover-pill-val">Volumen Botella de 1 Litro</span>
-                    </div>
-                    <div class="rover-pill-item">
-                        <span class="rover-pill-label">Sistema de Frenado</span>
-                        <span class="rover-pill-val">Mecánico &amp; Pasivo (Sin Motores)</span>
-                    </div>
-                    <div class="rover-pill-item">
-                        <span class="rover-pill-label">Veredicto en Tierra</span>
-                        <span class="rover-pill-val">Acelerómetro + Pantalla OLED</span>
-                    </div>
-                </div>
-
-                <!-- Botones de Acción -->
-                <div class="rover-hero-actions">
-                    <a href="../admision_talleres.html?mision=salva_usachin" class="btn-project-primary">
-                        <span>Inscribir a mi Equipo</span>
-                        <span>🪂</span>
-                    </a>
-                    <a href="#sesiones" class="btn-project-secondary">
-                        <span>Cronograma (4 Semanas)</span>
-                        <span>⏱</span>
-                    </a>
-                </div>
-            </div>
+    <section class="ficha-hero">
+        <div class="ficha-hero-media">
+            <img src="/assets/salva_usachin_drop-BZJ5SHPa.jpg" alt="">
         </div>
-    </section>
-
-    <!-- 2. SPECS BAR (PARÁMETROS DEL DESAFÍO) -->
-    <section class="rover-specs-section">
-        <div class="rover-specs-grid">
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Convocatoria</span>
-                <div class="rover-spec-value">Abierta a Toda la USACH</div>
-                <p class="rover-spec-sub">Para estudiantes de cualquier carrera, facultad y año de ingreso. No se requieren conocimientos avanzados previos.</p>
-            </div>
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Duración</span>
-                <div class="rover-spec-value">Ciclo de 4 Semanas</div>
-                <p class="rover-spec-sub">Ritmo flexible para compatibilizar el diseño, la manufactura y los ensayos con tus horarios académicos.</p>
-            </div>
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Insumos Provistos</span>
-                <div class="rover-spec-value">Kit USP + Impresión 3D</div>
-                <p class="rover-spec-sub">USP entrega tela técnica para canopias, hilos de suspensión, módulo sensor y horas de impresión 3D asistida.</p>
-            </div>
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Regla de Oro</span>
-                <div class="rover-spec-value">Frenado Mecánico Puro</div>
-                <p class="rover-spec-sub">Sin circuitos ni servomotores: todo depende de la aerodinámica de la tela, materiales de absorción y líneas ordenadas.</p>
-            </div>
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Impacto Técnico</span>
-                <div class="rover-spec-value">Aporte al Cohete de Agua</div>
-                <p class="rover-spec-sub">Las mejores técnicas de plegado y amortiguación servirán de base para el sistema de recuperación del Cohete Emblema.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. DESCRIPCIÓN DE LA MISIÓN & SENSOR OLED -->
-    <section class="rover-split-section" id="mision">
-        <div class="rover-split-container">
-            <div class="rover-split-text">
-                <span class="rover-section-tag">01 // DESCRIPCIÓN OPERATIVA</span>
-                <h2>¿Pudo Sobrevivir Usachín al Impacto?</h2>
-                <p>
-                    Usachín viene cayendo desde muy alto. Junto con unos cuantos sensores será elevado y liberado en caída libre con un dron en las áreas verdes de la USACH. Cada equipo debe diseñar y fabricar un receptáculo que despliegue un paracaídas, estabilice el descenso y amortigüe el impacto final.
-                </p>
-                <p>
-                    El sistema de frenado y absorción debe ser <strong>estrictamente mecánico y pasivo</strong>: nada de motores eléctricos ni electrónica de despliegue. Dentro de la cápsula viaja el módulo instrumental oficial de USP, equipado con un <strong>acelerómetro calibrado y una pantalla OLED</strong> que dará el veredicto en tiempo real al tocar tierra: <em>¿Sobrevivió Usachín o la deceleración superó el límite crítico?</em>
-                </p>
-                <div class="rover-split-feature-box">
-                    <h4>Elegancia Mecánica sobre Complejidad</h4>
-                    <p>Todo el sistema plegado debe caber holgadamente en el espacio de una botella de un litro. La simplicidad funcional y la fiabilidad de despliegue valen más que cualquier diseño recargado.</p>
-                </div>
-            </div>
-            <div class="rover-split-visual">
-                <img src="/assets/Egg%20drop%20representacion-BqGBCLp0.png" alt="Esquema estructural del receptáculo y botella de 1 litro" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. LOS 4 OBJETIVOS FUNDAMENTALES -->
-    <section class="rover-split-section" id="objetivos">
-        <div class="rover-split-container reverse">
-            <div class="rover-split-text">
-                <span class="rover-section-tag">02 // PROPÓSITO FORMATIVO</span>
-                <h2>Aprender Haciendo bajo Restricciones Reales</h2>
-                <p>
-                    La misión Salva a Usachín está concebida para acercar la ingeniería aeroespacial a cualquier estudiante curioso con ganas de crear hardware real con sus propias manos:
-                </p>
-                
-                <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 20px;">
-                    <div class="rover-split-feature-box">
-                        <h4>1. Acercar la Ciencia a Toda la USACH</h4>
-                        <p>Demostrar de forma práctica y colectiva que no se necesitan conocimientos avanzados previos para construir un dispositivo funcional de calidad.</p>
-                    </div>
-                    <div class="rover-split-feature-box">
-                        <h4>2. Diseñar bajo Restricciones Reales</h4>
-                        <p>El empaque total debe caber en el volumen de 1 litro. Aprendes a optimizar espacio, peso y doblado de líneas sin enredos.</p>
-                    </div>
-                    <div class="rover-split-feature-box">
-                        <h4>3. Trabajo Multidisciplinario Horizontal</h4>
-                        <p>Equipos de 2 a 4 integrantes que combinan habilidades de diseño, cálculo físico, manufactura manual y estrategia de prueba.</p>
-                    </div>
-                    <div class="rover-split-feature-box">
-                        <h4>4. Aporte Directo al Cohete de Agua Emblema</h4>
-                        <p>Los datos y mecanismos validados por los equipos nutrirán el diseño del sistema de recuperación de los futuros cohetes hidroneumáticos del programa.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="rover-split-visual">
-                <img src="/assets/orientacion%20eggdrop-mXo72Rzd.png" alt="Diagrama de estabilidad vertical durante el descenso de la cápsula" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. LÍNEA DE TIEMPO DE SESIONES (4 SEMANAS) -->
-    <section class="project-roadmap-section" id="sesiones">
-        <div class="project-roadmap-container">
-            <div class="section-head-center">
-                <div class="rover-section-tag">
-                    <span>03 // CRONOGRAMA OFICIAL</span>
-                </div>
-                <h2>Línea de Tiempo de Sesiones</h2>
-                <p>
-                    Cuatro semanas estructuradas con acompañamiento técnico continuo para llevar tu idea del boceto al vuelo real.
-                </p>
-            </div>
-
-            <div class="project-roadmap-timeline">
-                <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">SEMANA 1 // LANZAMIENTO E IDEAS</span>
-                    <h4>Entrega de Reglamento &amp; Taller de Paracaídas</h4>
-                    <p>
-                        Se entrega el reglamento oficial, se muestra en vivo el funcionamiento de la pantalla y sensor de Usachín, y se realiza un taller guiado para calcular las proporciones aerodinámicas del paracaídas y aprender a doblarlo sin que se enreden las líneas.
-                    </p>
-                </div>
-
-                <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">SEMANA 2 // MANUFACTURA Y PROTOTIPADO</span>
-                    <h4>Corte de Tela, Anclajes &amp; Construcción de Cápsula</h4>
-                    <p>
-                        Los grupos cortan la tela técnica provista por USP, fijan las cuerdas de suspensión y dan forma al receptáculo, ya sea mediante modelado e impresión 3D o con materiales ligeros amortiguantes. Se realiza un punto de control y asesoría técnica con mentores de USP.
-                    </p>
-                </div>
-
-                <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">SEMANA 3 // VALIDACIÓN EN TERRENO</span>
-                    <h4>Prueba de Volumen (1L) &amp; Ensayos de Caída</h4>
-                    <p>
-                        Se comprueba que el sistema plegado quepa con holgura en el molde de un litro. Los equipos realizan ensayos de lanzamiento a baja altura con pesos de prueba (desde gradas o escaleras del campus), probando el módulo electrónico real para verificar la señal de supervivencia.
-                    </p>
-                </div>
-
-                <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">SEMANA 4 // OPTIMIZACIÓN Y CIERRE TÉCNICO</span>
-                    <h4>Ajustes Finales, Inspección Pre-Vuelo &amp; Certificación</h4>
-                    <p>
-                        Últimos detalles de costura, refuerzo de anclajes estructurales y síntesis de ficha técnica. Inspección rigurosa de seguridad previa al vuelo: revisión del enganche con el dron y entrega de la certificación oficial para subir a pista.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. LA JORNADA FINAL & PREMIOS -->
-    <section class="project-subsystems-section" id="final">
-        <div class="section-head-center">
-            <div class="rover-section-tag">
-                <span>04 // EL EVENTO Y RECONOCIMIENTOS</span>
-            </div>
-            <h2>La Gran Actividad Final &amp; Premios</h2>
-            <p>
-                Una jornada al aire libre en un área verde del campus donde cada cápsula se engancha al dron, se eleva a la altitud de prueba y se suelta en caída libre.
+        <div class="ficha-hero-inner">
+            <ol class="breadcrumb">
+                <li><a href="/proyectos/">Proyectos</a></li>
+                <li><a href="/ejes/#coheteria">Eje Cohetería</a></li>
+            </ol>
+            <p class="ficha-tag">Desafío formativo · 4 semanas</p>
+            <h1>Misión: Salva a Usachín</h1>
+            <p class="ficha-subtitle">Paracaídas y recuperación, sin motores</p>
+            <p class="ficha-lede">
+                Usachín viene cayendo desde muy alto: un dron lo eleva y lo suelta en caída libre sobre el campus. Tu equipo diseña una cápsula que despliegue un paracaídas, estabilice el descenso y amortigüe el impacto, todo de forma mecánica y pasiva.
             </p>
+            <div class="ficha-actions on-dark">
+                <a href="/talleres/?mision=salva_usachin" class="btn btn-primary">Inscribir a mi equipo <span aria-hidden="true">→</span></a>
+                <a href="#cronograma" class="btn btn-ghost">Ver cronograma</a>
+            </div>
+            <dl class="ficha-facts">
+                <div><dt>Equipos</dt><dd>2 a 4 integrantes</dd></div>
+                <div><dt>Restricción</dt><dd>Todo cabe en 1 litro</dd></div>
+                <div><dt>Frenado</dt><dd>Mecánico y pasivo</dd></div>
+                <div><dt>Veredicto</dt><dd>Acelerómetro + pantalla OLED</dd></div>
+            </dl>
         </div>
+    </section>
 
-        <div class="project-subsystems-grid">
-            <!-- Card 1: Evaluación -->
-            <div class="project-module-card">
-                <div class="module-card-img">
-                    <img src="/assets/Sellado%20cohete%20de%20agua-CxIxOrfs.jpg" alt="Evaluación del jurado y lectura de sensor OLED" loading="lazy">
+    <nav class="ficha-subnav" aria-label="Secciones del desafío">
+        <ul>
+            <li><a href="#mision">La misión</a></li>
+            <li><a href="#objetivos">Objetivos</a></li>
+            <li><a href="#cronograma">Cronograma</a></li>
+            <li><a href="#final">Jornada final</a></li>
+            <li><a href="#inscripcion">Inscripción</a></li>
+        </ul>
+    </nav>
+
+    <!-- Misión -->
+    <section class="section section-light" id="mision">
+        <div class="section-inner split">
+            <div>
+                <p class="eyebrow">La misión</p>
+                <h2>¿Sobrevivirá Usachín?</h2>
+                <div class="prose">
+                    <p>El sistema de frenado debe ser <strong>estrictamente mecánico y pasivo</strong>: nada de motores ni electrónica de despliegue.</p>
+                    <p>Dentro de la cápsula viaja el módulo oficial de USP, con un <strong>acelerómetro calibrado y una pantalla OLED</strong> que da el veredicto al tocar tierra: ¿sobrevivió Usachín o la desaceleración superó el límite?</p>
+                    <p>Abierto a estudiantes de cualquier carrera y año. USP entrega tela para el paracaídas, hilos, el módulo sensor y horas de impresión 3D.</p>
                 </div>
-                <div class="module-card-body">
-                    <span class="module-card-tag">CRITERIOS // JURADO USP</span>
-                    <h3>Evaluación Técnica de Supervivencia</h3>
-                    <p>
-                        Los dispositivos cuya pantalla OLED confirme la supervivencia de Usachín clasifican a la evaluación final del jurado según: <strong>Ligereza</strong>, <strong>Compacidad del empaque</strong> y <strong>Originalidad del diseño estructural</strong>.
-                    </p>
+                <div class="callout">
+                    <strong>Elegancia antes que complejidad</strong>
+                    <p>Todo el sistema plegado debe caber con holgura en el volumen de una botella de un litro. La simplicidad y la confiabilidad valen más que un diseño recargado.</p>
                 </div>
             </div>
+            <figure class="split-figure">
+                <img src="/assets/Egg%20drop%20representacion-BqGBCLp0.png" alt="Esquema de la cápsula y el molde de un litro" loading="lazy">
+                <figcaption>Esquema de la cápsula</figcaption>
+            </figure>
+        </div>
+    </section>
 
-            <!-- Card 2: Trofeo y Peluche -->
-            <div class="project-module-card">
-                <div class="module-card-img">
-                    <img src="/assets/cubesat%20partes%203d-Db9bvBRr.webp" alt="Trofeo conmemorativo y peluche oficial de Usachín" loading="lazy">
-                </div>
-                <div class="module-card-body">
-                    <span class="module-card-tag">RECONOCIMIENTO // 1ER LUGAR</span>
-                    <h3>Trofeo &amp; Peluche Oficial de Usachín</h3>
-                    <p>
-                        El equipo con el aterrizaje más eficiente, seguro y ligero recibe el trofeo conmemorativo diseñado por el programa y se queda con el cotizado peluche oficial de Usachín.
-                    </p>
-                </div>
+    <!-- Objetivos -->
+    <section class="section section-dark" id="objetivos">
+        <div class="section-inner">
+            <div class="section-head">
+                <p class="eyebrow">Propósito formativo</p>
+                <h2>Aprender haciendo</h2>
+                <p class="section-intro">Para cualquier estudiante curioso con ganas de crear hardware real con sus manos.</p>
             </div>
-
-            <!-- Card 3: Puerta a USP -->
-            <div class="project-module-card">
-                <div class="module-card-img">
-                    <img src="../../../src/assets/images/gallery/rover_armado_foto_grupal.jpg" alt="Integración oficial a los proyectos aeroespaciales del USP" loading="lazy">
-                </div>
-                <div class="module-card-body">
-                    <span class="module-card-tag">MEMBRESÍA // ACCESO DIRECTO</span>
-                    <h3>Puerta al Usach Space Program</h3>
-                    <p>
-                        Además de conservar íntegramente sus prototipos y piezas, quienes destaquen por compromiso, proactividad y rigor técnico reciben una <strong>invitación preferente</strong> para sumarse como miembros oficiales a los proyectos aeroespaciales del ciclo anual.
-                    </p>
-                </div>
+            <div class="feature-cards" style="--cols: 4">
+                <article class="feature-card"><div class="feature-card-body"><span class="feature-card-num">01</span><h3>Acercar la ciencia a toda la USACH</h3><p>No se necesitan conocimientos avanzados para construir un dispositivo de calidad.</p></div></article>
+                <article class="feature-card"><div class="feature-card-body"><span class="feature-card-num">02</span><h3>Diseñar con restricciones reales</h3><p>Optimizar espacio, peso y plegado de líneas para que todo quepa en un litro.</p></div></article>
+                <article class="feature-card"><div class="feature-card-body"><span class="feature-card-num">03</span><h3>Trabajo en equipo horizontal</h3><p>Diseño, cálculo, manufactura y estrategia de prueba en equipos de 2 a 4.</p></div></article>
+                <article class="feature-card"><div class="feature-card-body"><span class="feature-card-num">04</span><h3>Aporte al cohete de agua</h3><p>Los mejores mecanismos alimentan el sistema de recuperación del proyecto emblema.</p></div></article>
             </div>
         </div>
     </section>
 
-    <!-- 7. CITA & CTA DIRECCIONADO AL FORMULARIO -->
-    <section class="project-quote-cta-section" id="inscripcion">
-        <div class="project-quote-box">
-            <div class="project-quote-text">
-                "Un paracaídas bien doblado y una estructura ligera no son fruto de la suerte, sino del trabajo colectivo y la atención a los detalles."
+    <!-- Cronograma -->
+    <section class="section section-light" id="cronograma">
+        <div class="section-inner">
+            <div class="section-head">
+                <p class="eyebrow">Cronograma</p>
+                <h2>Cuatro semanas</h2>
+                <p class="section-intro">Del boceto al vuelo real, con acompañamiento técnico continuo.</p>
             </div>
-            <div class="project-quote-sub">— USACH SPACE PROGRAM · MISIÓN SALVA A USACHÍN</div>
-        </div>
-
-        <div class="project-cta-card">
-            <h3>¿Aceptas el Desafío de Salvar a Usachín?</h3>
-            <p>
-                Las inscripciones para la edición de este ciclo están abiertas a todas las carreras de la USACH. Puedes inscribirte con tu equipo ya formado (2 a 4 personas) o postular individualmente para que te conectemos con otros participantes interesados.
-            </p>
-            <a href="/talleres/?mision=salva_usachin" class="btn-project-cta">
-                <span>Completar Formulario de Inscripción al Desafío</span>
-                <span>→</span>
-            </a>
+            <ol class="timeline" style="--cols: 4">
+                <li><span class="timeline-when">Semana 1</span><h3>Reglamento y taller de paracaídas</h3><p>Demostración del sensor de Usachín y taller para calcular y plegar el paracaídas sin enredos.</p></li>
+                <li><span class="timeline-when">Semana 2</span><h3>Manufactura</h3><p>Corte de tela, anclajes y construcción de la cápsula, con revisión de mentores.</p></li>
+                <li><span class="timeline-when">Semana 3</span><h3>Prueba de 1 litro y caídas</h3><p>Comprobar que todo cabe en el molde y ensayar caídas a baja altura con el módulo real.</p></li>
+                <li><span class="timeline-when">Semana 4</span><h3>Inspección pre-vuelo</h3><p>Ajustes finales, revisión del enganche al dron y certificación para subir a pista.</p></li>
+            </ol>
         </div>
     </section>
 
-    <!-- FOOTER INSTITUCIONAL -->
-    <footer style="background: #000000; border-top: 1px solid var(--border-subtle); padding: 70px 40px 40px;">
-        <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 50px;">
-            <div>
-                <h3 style="font-family: var(--font-now); font-size: 1.15rem; color: #ffffff; margin: 0 0 14px 0; text-transform: uppercase; letter-spacing: 1px;">USACH Space Program</h3>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
+    <!-- Final -->
+    <section class="section section-dark" id="final">
+        <div class="section-inner">
+            <div class="section-head">
+                <p class="eyebrow">El evento</p>
+                <h2>La gran caída</h2>
+                <p class="section-intro">Una jornada al aire libre: cada cápsula se engancha al dron, sube a la altura de prueba y se suelta.</p>
             </div>
-            <div>
-                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Navegación</h4>
-                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
-                    <li><a href="/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">← Inicio Principal</a></li>
-                    <li><a href="/proyectos/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Catálogo de Proyectos</a></li>
-                    <li><a href="/talleres/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Admisión Desafíos Formativos</a></li>
+            <div class="feature-cards">
+                <article class="feature-card">
+                    <div class="feature-card-media"><img src="/assets/huevo%20roto-OGh8iU5R.jpg" alt="Prueba de impacto" loading="lazy"></div>
+                    <div class="feature-card-body">
+                        <span class="feature-card-tag">Evaluación</span>
+                        <h3>Supervivencia primero</h3>
+                        <p>Las cápsulas cuya pantalla confirma que Usachín sobrevivió pasan a la evaluación del jurado: ligereza, compacidad del empaque y originalidad del diseño.</p>
+                    </div>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-card-media"><img src="/assets/orientacion%20eggdrop-mXo72Rzd.png" alt="Diagrama de estabilidad durante el descenso" loading="lazy"></div>
+                    <div class="feature-card-body">
+                        <span class="feature-card-tag">Primer lugar</span>
+                        <h3>Trofeo y peluche de Usachín</h3>
+                        <p>El aterrizaje más eficiente, seguro y liviano se lleva el trofeo del programa y el peluche oficial de Usachín.</p>
+                    </div>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-card-media"><img src="/assets/rover_armado_foto_grupal-D3MWIR8w.jpg" alt="Integrantes del USACH Space Program" loading="lazy"></div>
+                    <div class="feature-card-body">
+                        <span class="feature-card-tag">Membresía</span>
+                        <h3>Puerta al USACH Space Program</h3>
+                        <p>Todos conservan sus prototipos. Quienes destaquen por compromiso y rigor reciben una invitación preferente para sumarse al programa.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cierre -->
+    <section class="section section-dark section-tight" id="inscripcion" aria-label="Inscripción">
+        <div class="section-inner">
+            <figure class="ficha-quote">
+                <blockquote>«Un paracaídas bien doblado y una estructura liviana no son suerte: son trabajo en equipo y atención al detalle.»</blockquote>
+                <figcaption>Misión Salva a Usachín · USACH Space Program</figcaption>
+            </figure>
+            <div class="cta-panel">
+                <div>
+                    <h2>¿Aceptas el desafío?</h2>
+                    <p>Inscríbete con tu equipo ya formado (2 a 4 personas) o postula de forma individual y te conectamos con otros participantes.</p>
+                </div>
+                <div class="cta-actions on-dark">
+                    <a href="/talleres/?mision=salva_usachin" class="btn btn-primary">Inscribirme al desafío <span aria-hidden="true">→</span></a>
+                </div>
+            </div>
+
+            <h2 class="related-title">Otros proyectos</h2>
+            <div class="projects-grid">
+                <a class="project-card" href="/proyectos/cohete/" style="--eje: var(--eje-coheteria-ink)">
+                    <div class="project-media"><img src="/assets/IMG-20260607-WA0022-CSaDWZKk.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body"><p class="project-meta"><span class="project-axis">Cohetería</span> · Emblema</p><h3>Cohete de agua</h3></div>
+                </a>
+                <a class="project-card" href="/proyectos/cansat/" style="--eje: var(--eje-orbital-ink)">
+                    <div class="project-media"><img src="/assets/minicubesat_lab-DbefhVxw.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body"><p class="project-meta"><span class="project-axis">Sistemas Orbitales</span> · Formativo</p><h3>Misión: Mini CubeSat</h3></div>
+                </a>
+                <a class="project-card" href="/ejes/#coheteria" style="--eje: var(--eje-coheteria-ink)">
+                    <div class="project-media"><img src="/assets/cohete_multietapa-DJLZen9r.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body"><p class="project-meta"><span class="project-axis">Eje 02</span> · Cohetería</p><h3>Conoce el eje completo</h3></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-info">
+                <h3>USACH Space Program</h3>
+                <p>Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/proyectos/">Proyectos</a></li>
+                    <li><a href="/ejes/">Ejes</a></li>
+                    <li><a href="/talleres/">Desafíos formativos</a></li>
                 </ul>
             </div>
-            <div>
-                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Contacto Oficial</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 8px 0;">Universidad de Santiago de Chile</p>
-                <p style="margin: 0;"><a href="mailto:spaceprogram@usach.cl" style="color: var(--accent-amber); text-decoration: none; font-size: 0.9rem; font-family: var(--font-mono);">spaceprogram@usach.cl</a></p>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p>Universidad de Santiago de Chile</p>
+                <p><a href="mailto:spaceprogram@usach.cl">spaceprogram@usach.cl</a></p>
+            </div>
+            <div class="footer-institutions">
+                <h4>Vínculos</h4>
+                <div class="footer-institution-logos">
+                    <a href="https://centroinnovacion.cl/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="Centro de Innovación USACH"><img src="data:image/webp;base64,UklGRtoJAABXRUJQVlA4WAoAAAAQAAAAAgEA+AAAQUxQSKgHAAAB8FZbbx5p27ZtEAzBEATBEAJBEAzBDALBEALBEAzBEARBx3GevXfFluU6P8eIiAnA/wlPKZfytNba0H8erbVWS+FEXxBd5Wk6WVotKX4pke+mC0srV/wuKD+iFkfl+B2Eqw61PO7r9AI/ukGpVzi2wI9uU+p1ZKmK7lXueFghD91x44OKVXTXUsIZpUf3XuP5pKb7r/FsUlMfazyX2NTPGs8kVHVVSjiQLOrt4NNIXT1u8STCrV6Xc7hE/e50BuFR38sJpKHed3Kv6AFK9i12PcMnOJZET7GTW1kPUtinUPUsb49C19N8gjskep49OEOiJzrIFdZDFXKE9ViF3GA9WGEnWM+WXWA9WyEPWM9WCA6ynq0QHGQ9WyE4SHI2QnCQRI9WCA6GrkcrBA+7Hq0QPKx6tELwkPVoheAh6dEKwcMwjkYILj56skJwMevJCsFF0pMVgo/9ZITgY9GDFYKPpAcrBCf7wQjByaLnKgQno56rELxs5yIELy89ViG4OfbV211K+vEqpbaxmhDcLLrlfjPhzcS1ryMEN4PsZ9QrYGbkKksIwc+im5VKWPGq84TgZ5S9NMayIY85QnC06k6fhLWvNkEIjkbd6BOxfmpvCWHBxKXU9pTCKRir+2gJNq/xihBmx9z09/0mQ0F2IQy75QUhTOaub44SrBTd5BNgObZPhDA3i74tJdiQPcgF6+V3Qpiahs6UbIF1iz3CPo1fCGFmuHV2i+v1LVRsMbQ/CGFm7Dpf0mpJd8jYZf1BCDNJdElerG5AGPtkVRXCTBJdlJcKal8IO2UVwkwSXZZXYntC2CsTZgbRhdNC3ZwQPO26ssRloponeFp07bZMNsfwlHT1vEq3VuBqW07CGlGNP3A16fpljWysB1+aAQlLdGMEV5NazCsEtZ3hazUxVmBbDc6KCaUFqq3ozKU27wXEVIGzt5E+j9TyCN40Izovm2J4q1bTtGppwNtohqcNS+xOMlNmBTU88C1clvhrKIYk+FN29Ri64W/a1TBE34Pa7fgakqHsUTCTJrGh6BHECk0qdgZcbkYEk6ud26di5JnV7Fw+kZE8a9gJPmHYiLPUbIfTxUTDrqpX0QTPSnaKV6gGBraV3IoGeF/RLdzLdUzPduB3kNXSvGJGHMO12I19Nc9wL9XxpaAtJOFrCX0ZIezs8Q2hLyKErRXnENoSg/DVAPcCLWBz1T9cMitjWTvtABDuKS3iKwJifa0lrHx4QCzjBamEte2MUwBA+ZFfSCsJy2czehA/pp8DTCY78TBsG0r/CshfRLBTvwjY6d+EmFGfmlpNk5qd9EU8dm6XZFPFTndJN8V2NH4PyVB2KOwqGOoOpV1B7Gj057ITZjVDxZ9iB7OLoeFP3dZlSNmdbmZMi5aaO2q2TYMY0uRM2thjqTlT7JR52ZImX9rGyNRwJajdNA9iSbMnlyFa4DElwZFqCAuyKX0cETtjhWhLLzdY7bYV0G1J9KIZKkvctrQ7EdXwtQQZ09uH21JcAsOYsgdBDAnWvK0pOVDU8LMImRPaXhBLZREMayq0u6KW0yrZnPawGaIPopjCqtGeCm2FROh3j1puy+Cxp0IbYVEV+k1S03mdawMq1zZY/1noT2HYonUwNqCaN1H1Z6E/3GpasHDegj5hA7Hrn4V+SGq7rhRkCzrI3CX6WyEAQYxdK6HuQbXYClU/FAK62hYsHXehPRm6RD8Wqmq8roW6C9UajVDTN4davxaL+1ApwUCs+qoQGxOsXvehKiUsFqu+TADbqsvFnahqpYXSo28zALCptBzqXlR7jkvEMvRtYfzIhgbWj7tR1Z5pEpWu7wvhj2ynGEDZj6qOmtNLKT+iM4XwSzYTLQTZ0Y+9lXKllCJiSukqdxs6uwf8mo1UmORtGbzxKdtINtAPQS58zhY6jKYzaBFvsgG2gvsAJONlXm7AbBju1YDXeTW2g8u5RpjJaw1YfjxrCZN5KTYVhls1Yj4vNGA7+dRzwJK8DhvD7U/PEcvyKgPmuyv9vgKW5kWSvSguSGuFEwzyEg0bvHZXYJtXoB2gHA143o09PkcDniVhE6EfDXjShV2SHA14SsM+6WzAEyRuBHw24PcytspnA36rYbPlbMDvSNgN6tmAX7mw33o24Bdu7LieDclHPWwJ9WRI9FOJ2HQ9FxL9+MK2+VSS6McFG+czYf28YuuXHEjWz3vYG0iOo+rnErD70M8idP1cCA7Wk6ChnwvBRT4HFn2R4SSNMwhV32S4GZ4ToK5vMjzN4l4WfZPha+y+xaavMtwtnmXRVxkOx+ZVbPqqXPCZxaWi7wrB61D9uYa+2wmOU/OFmr7cA3y/hh+x6tsV/vPwIdz6esYR8thfvEXfloRT5LG3WPX9FnCQqe0rPTqx4DBjlR2FPHTiSDjPwH03qerUGnCm8R77oHvoVLlwsHSPHdA9dPIdcLiUm6lw1aGze8IJh+vuJsJ1d50vGeccrtJkpZRr1yVrwGnHVGqbFRKXp+uqLeLUQ0ql1Nb6755SytO6Lt0Svsymy7eEr3O5lvCFLlYjvtKVRgn4Utd5Lnyvi3QO+GZX6Dniy50lD0d8v1NaSfiO3xpPSfieP5N25xTwXf80Wmt3yYnwf0ABVlA4ILYBAAAwIgCdASoDAfkAAAAAJaW7hbl4A/gH4AfXboB+AH6AfwBP7SqTwB/APwA/QD+Afv73+JHGrI2yaSjnsGbJfS96DWgzEEH1YlEojKFpjHsODMjGr7SvUdoMnY5/xNc2nouhM7EYlTMdnzYpZqjfBmsA9RusTNY+/UOD8ldGxpQwgto7lrEaqPADLgWUEaMhFH7IhWPyWf2HYXnE6agc8m+UTB518iSxzp/x9Uo8lpsdE6kjMQeCXj4pql+OAz9wqtelS/ZFrQ3HIbTf5hsL9/UOeeePK7QQ0/Oa02g0yVweJ0LOALKPIgFgNf0WyCZkRNkUc7jFebyJ9++r4DYP+1B97Fa7RaVqpfi7Z7LQ9ewcGTwWqi+XIk2eFgAA/u9uqe5UH4p83jvC16p/FPhC775t93/2vn/v39Mf7XWFf9r5/jtln2xs+12P/a7l/tiX9rkc+2Nn2w1+1qH2p1/7Y2fa8V+1Vv/sq4wmP///imw1ftcSv7XKf9qrf/ZVx4YKG/auP9qam/2qI/2uK19sS/tctv2uQ77XSf7XEo+1l/UJmfbGz7XHWZgf+2Jf2uH8n5J5bCAAAABQU0FJTgAAADhCSU0D7QAAAAAAEABIAAAAAQACAEgAAAABAAI4QklNBCgAAAAAAAwAAAACP/AAAAAAAAA4QklNBEMAAAAAAA5QYmVXARAABgBkAAAAAA==" alt="Centro de Innovación USACH"></a>
+                    <a href="https://www.achide.org/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="ACHIDE"><img src="/assets/achide-pTJ5xL5y.png" alt="ACHIDE"></a>
+                </div>
             </div>
         </div>
-        <div style="max-width: 1400px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">
-            <span>&copy; 2026 USACH Space Program. Todos los derechos reservados.</span>
-            <span>Misión: Salva a Usachín · Convocatoria Abierta</span>
+        <div class="footer-bottom">
+            <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
+            <p>Diseño y fabricación con fines educativos</p>
         </div>
     </footer>
 
