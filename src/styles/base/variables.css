@@ -33,6 +33,22 @@
     --earth-blue: #2a6f97;
     --moon-gray: #a2a2a2;
 
+    /* Light surfaces (secciones claras) */
+    --paper: #F3F0E8;
+    --paper-raised: #FBFAF6;
+    --paper-line: rgba(14, 20, 36, 0.12);
+    --ink: #0E1424;
+    --ink-soft: #4A5368;
+    --ink-faint: #737B8C;
+
+    /* Color de identidad por eje */
+    --eje-robotica: #E2622F;
+    --eje-coheteria: #E5A958;
+    --eje-orbital: #3FB8D9;
+    --eje-robotica-ink: #B4461A;
+    --eje-coheteria-ink: #9A6418;
+    --eje-orbital-ink: #157A99;
+
     /* Layout Tokens */
     --border-subtle: rgba(255, 255, 255, 0.08);
     --border-highlight: rgba(255, 255, 255, 0.18);

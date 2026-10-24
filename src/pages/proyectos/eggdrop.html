@@ -4,390 +4,238 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Misión: Salva a Usachín | USACH Space Program</title>
-    
-    <link rel="icon" type="image/png" href="../../../src/assets/images/logo_noTextBLACK.png">
-    <link rel="stylesheet" href="../../../src/styles/main.css">
-    <link rel="stylesheet" href="../../../src/styles/components/project-template.css">
-    
-    <style>@import url("../../styles/pages/proyectos/rover_avanzado.css");</style>
+    <meta name="description" content="Desafío formativo de 4 semanas: diseña una cápsula con paracaídas que proteja a Usachín en una caída libre desde un dron.">
+
+    <link rel="icon" type="image/png" href="/src/assets/images/logo_noTextBLACK.png">
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <style>@import url("/src/styles/pages/ficha.css");</style>
 </head>
-<body>
+<body class="site ficha" style="--eje: var(--eje-coheteria); --eje-ink: var(--eje-coheteria-ink);">
 
-    <!-- FONDO DE ESTRELLAS DINÁMICO -->
-    <div class="stars-container" id="stars"></div>
-
-    <!-- 0. BARRA SUPERIOR DE NAVEGACIÓN RÁPIDA (HUD NAVBAR) -->
-    <header class="rover-navbar">
-        <div class="rover-navbar-inner">
-            <!-- Brand Oficial -->
-            <a href="/" class="rover-nav-back" title="USACH Space Program">
-                <img src="../../../src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="rover-nav-logo">
-                <span class="brand-title">USACH SPACE PROGRAM</span>
+    <header>
+        <div class="nav-brand-container">
+            <a href="/" class="nav-brand-link">
+                <img src="/src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="nav-logo">
+                <span class="nav-brand">USACH Space Program</span>
             </a>
-
-            <!-- Enlaces Rápidos (Escritorio) -->
-            <nav class="rover-quick-nav">
-                <div class="nav-group">
-                    <a href="/" class="rover-nav-link">Inicio</a>
-                    <a href="/ejes/" class="rover-nav-link">Ejes</a>
-                    <a href="/proyectos/" class="rover-nav-link">Proyectos</a>
-                    <a href="/#alianzas" class="rover-nav-link">Alianzas</a>
-                </div>
-
-                <span class="nav-divider">|</span>
-
-                <div class="nav-group">
-                    <a href="#mision" class="rover-nav-pill">El Desafío</a>
-                    <a href="#objetivos" class="rover-nav-pill">Objetivos</a>
-                    <a href="#sesiones" class="rover-nav-pill">Línea de Tiempo</a>
-                    <a href="#final" class="rover-nav-pill">Lanzamiento</a>
-                    <a href="#premios" class="rover-nav-pill">Premios</a>
-                </div>
-            </nav>
-
-            <!-- Acciones -->
-            <div class="rover-nav-actions">
-                <a href="/talleres/?mision=salva_usachin" class="btn-nav-postular">
-                    <span>Inscribir Equipo</span>
-                </a>
-            </div>
-
-            <!-- Botón Hamburguesa Móvil -->
-            <button class="rover-menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
-
-        <!-- Menú Desplegable Móvil -->
-        <div class="rover-mobile-menu" id="mobileMenu">
-            <a href="/" class="mobile-link home-link">USACH Space Program (Inicio)</a>
-            <div class="mobile-section-label">SECCIONES PRINCIPALES</div>
-            <a href="/ejes/" class="mobile-link">Ejes Estratégicos</a>
-            <a href="/proyectos/" class="mobile-link">Catálogo de Proyectos</a>
-            <a href="/#manifiesto" class="mobile-link">Manifiesto Estudiantil</a>
-            <a href="/#alianzas" class="mobile-link">Alianzas Institucionales</a>
-            <div class="mobile-section-label">PROYECTOS Y HARDWARE</div>
-            <a href="/proyectos/rover/" class="mobile-link">Rover Perseverance (Flagship)</a>
-            <a href="/proyectos/cubesat/" class="mobile-link">Bus Satelital CubeSat 3U</a>
-            <a href="/proyectos/cohete/" class="mobile-link">Cohetería Experimental &amp; Agua</a>
-            <a href="/proyectos/cansat/" class="mobile-link">Misión: Mini Cube-Sat</a>
-            <a href="/proyectos/eggdrop/" class="mobile-link active-link">Misión: Salva a Usachín</a>
-            <div class="mobile-actions">
-                <a href="/talleres/?mision=salva_usachin" class="btn-mobile-postular">Inscribir Equipo al Desafío</a>
-            </div>
-        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+        <nav class="nav-links" id="navLinks">
+            <a href="/#novedades">Novedades</a>
+            <a href="/ejes/">Ejes</a>
+            <a href="/proyectos/" aria-current="page">Proyectos</a>
+            <a href="/#alianzas">Alianzas</a>
+            <a href="mailto:spaceprogram@usach.cl" class="nav-contact">Contacto</a>
+            <a href="/registro/" class="btn-nav-cta">Postular</a>
+        </nav>
     </header>
 
-    <!-- 1. HERO SECTION -->
-    <section class="rover-hero-section">
-        <div class="rover-hero-watermark">USACHÍN</div>
-        <div class="rover-hero-ambient"></div>
+    <main>
 
-        <div class="rover-hero-container">
-            <!-- Columna Izquierda: Viewport Paracaídas / Descenso -->
-            <div class="rover-viewport-card">
-                <div class="rover-img-wrapper">
-                    <img src="../../../src/assets/images/nasa/salva_usachin_drop.jpg" alt="Misión Salva a Usachín - Desafío de paracaídas y recuperación aeroespacial">
-                    <div class="rover-img-overlay-telemetry">
-                        <span class="rover-overlay-tag">EJE COHETERÍA // RECUPERACIÓN</span>
-                        <span class="rover-overlay-badge">CAÍDA LIBRE CON DRON</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Columna Derecha: Títulos, Resumen y Métricas Clave -->
-            <div class="rover-hero-content">
-                <div class="rover-section-tag">
-                    <span>✦</span>
-                    <span>USACH SPACE PROGRAM · EJE DE COHETERÍA Y PROPULSIÓN</span>
-                </div>
-                <h1 class="rover-hero-title">MISIÓN: SALVA A USACHÍN</h1>
-                <h2 class="rover-hero-subtitle">Desafío Abierto de Paracaídas y Recuperación Aeroespacial</h2>
-                
-                <p class="rover-hero-desc">
-                    <strong>¿Alguna vez soñaste con diseñar un sistema de reentrada y frenado aerodinámico? ¡En esta misión podrás poner a prueba tu ingenio!</strong> Usachín viene cayendo desde muy alto: será elevado y liberado en caída libre mediante un dron en el campus. Tu equipo deberá diseñar y fabricar un sistema que despliegue un paracaídas, estabilice el descenso y amortigüe el impacto final de forma 100% mecánica y pasiva.
-                </p>
-
-                <!-- Grid de Telemetría Rápida -->
-                <div class="rover-pills-grid">
-                    <div class="rover-pill-item">
-                        <span class="rover-pill-label">Modalidad</span>
-                        <span class="rover-pill-val">Equipos de 2 a 4 Integrantes</span>
-                    </div>
-                    <div class="rover-pill-item">
-                        <span class="rover-pill-label">Restricción Geométrica</span>
-                        <span class="rover-pill-val">Volumen Botella de 1 Litro</span>
-                    </div>
-                    <div class="rover-pill-item">
-                        <span class="rover-pill-label">Sistema de Frenado</span>
-                        <span class="rover-pill-val">Mecánico &amp; Pasivo (Sin Motores)</span>
-                    </div>
-                    <div class="rover-pill-item">
-                        <span class="rover-pill-label">Veredicto en Tierra</span>
-                        <span class="rover-pill-val">Acelerómetro + Pantalla OLED</span>
-                    </div>
-                </div>
-
-                <!-- Botones de Acción -->
-                <div class="rover-hero-actions">
-                    <a href="../admision_talleres.html?mision=salva_usachin" class="btn-project-primary">
-                        <span>Inscribir a mi Equipo</span>
-                        <span>🪂</span>
-                    </a>
-                    <a href="#sesiones" class="btn-project-secondary">
-                        <span>Cronograma (4 Semanas)</span>
-                        <span>⏱</span>
-                    </a>
-                </div>
-            </div>
+    <section class="ficha-hero">
+        <div class="ficha-hero-media">
+            <img src="/src/assets/images/nasa/salva_usachin_drop.jpg" alt="">
         </div>
-    </section>
-
-    <!-- 2. SPECS BAR (PARÁMETROS DEL DESAFÍO) -->
-    <section class="rover-specs-section">
-        <div class="rover-specs-grid">
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Convocatoria</span>
-                <div class="rover-spec-value">Abierta a Toda la USACH</div>
-                <p class="rover-spec-sub">Para estudiantes de cualquier carrera, facultad y año de ingreso. No se requieren conocimientos avanzados previos.</p>
-            </div>
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Duración</span>
-                <div class="rover-spec-value">Ciclo de 4 Semanas</div>
-                <p class="rover-spec-sub">Ritmo flexible para compatibilizar el diseño, la manufactura y los ensayos con tus horarios académicos.</p>
-            </div>
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Insumos Provistos</span>
-                <div class="rover-spec-value">Kit USP + Impresión 3D</div>
-                <p class="rover-spec-sub">USP entrega tela técnica para canopias, hilos de suspensión, módulo sensor y horas de impresión 3D asistida.</p>
-            </div>
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Regla de Oro</span>
-                <div class="rover-spec-value">Frenado Mecánico Puro</div>
-                <p class="rover-spec-sub">Sin circuitos ni servomotores: todo depende de la aerodinámica de la tela, materiales de absorción y líneas ordenadas.</p>
-            </div>
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Impacto Técnico</span>
-                <div class="rover-spec-value">Aporte al Cohete de Agua</div>
-                <p class="rover-spec-sub">Las mejores técnicas de plegado y amortiguación servirán de base para el sistema de recuperación del Cohete Emblema.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. DESCRIPCIÓN DE LA MISIÓN & SENSOR OLED -->
-    <section class="rover-split-section" id="mision">
-        <div class="rover-split-container">
-            <div class="rover-split-text">
-                <span class="rover-section-tag">01 // DESCRIPCIÓN OPERATIVA</span>
-                <h2>¿Pudo Sobrevivir Usachín al Impacto?</h2>
-                <p>
-                    Usachín viene cayendo desde muy alto. Junto con unos cuantos sensores será elevado y liberado en caída libre con un dron en las áreas verdes de la USACH. Cada equipo debe diseñar y fabricar un receptáculo que despliegue un paracaídas, estabilice el descenso y amortigüe el impacto final.
-                </p>
-                <p>
-                    El sistema de frenado y absorción debe ser <strong>estrictamente mecánico y pasivo</strong>: nada de motores eléctricos ni electrónica de despliegue. Dentro de la cápsula viaja el módulo instrumental oficial de USP, equipado con un <strong>acelerómetro calibrado y una pantalla OLED</strong> que dará el veredicto en tiempo real al tocar tierra: <em>¿Sobrevivió Usachín o la deceleración superó el límite crítico?</em>
-                </p>
-                <div class="rover-split-feature-box">
-                    <h4>Elegancia Mecánica sobre Complejidad</h4>
-                    <p>Todo el sistema plegado debe caber holgadamente en el espacio de una botella de un litro. La simplicidad funcional y la fiabilidad de despliegue valen más que cualquier diseño recargado.</p>
-                </div>
-            </div>
-            <div class="rover-split-visual">
-                <img src="../../../src/assets/images/gallery/Egg drop representacion.png" alt="Esquema estructural del receptáculo y botella de 1 litro" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. LOS 4 OBJETIVOS FUNDAMENTALES -->
-    <section class="rover-split-section" id="objetivos">
-        <div class="rover-split-container reverse">
-            <div class="rover-split-text">
-                <span class="rover-section-tag">02 // PROPÓSITO FORMATIVO</span>
-                <h2>Aprender Haciendo bajo Restricciones Reales</h2>
-                <p>
-                    La misión Salva a Usachín está concebida para acercar la ingeniería aeroespacial a cualquier estudiante curioso con ganas de crear hardware real con sus propias manos:
-                </p>
-                
-                <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 20px;">
-                    <div class="rover-split-feature-box">
-                        <h4>1. Acercar la Ciencia a Toda la USACH</h4>
-                        <p>Demostrar de forma práctica y colectiva que no se necesitan conocimientos avanzados previos para construir un dispositivo funcional de calidad.</p>
-                    </div>
-                    <div class="rover-split-feature-box">
-                        <h4>2. Diseñar bajo Restricciones Reales</h4>
-                        <p>El empaque total debe caber en el volumen de 1 litro. Aprendes a optimizar espacio, peso y doblado de líneas sin enredos.</p>
-                    </div>
-                    <div class="rover-split-feature-box">
-                        <h4>3. Trabajo Multidisciplinario Horizontal</h4>
-                        <p>Equipos de 2 a 4 integrantes que combinan habilidades de diseño, cálculo físico, manufactura manual y estrategia de prueba.</p>
-                    </div>
-                    <div class="rover-split-feature-box">
-                        <h4>4. Aporte Directo al Cohete de Agua Emblema</h4>
-                        <p>Los datos y mecanismos validados por los equipos nutrirán el diseño del sistema de recuperación de los futuros cohetes hidroneumáticos del programa.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="rover-split-visual">
-                <img src="../../../src/assets/images/gallery/orientacion eggdrop.png" alt="Diagrama de estabilidad vertical durante el descenso de la cápsula" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. LÍNEA DE TIEMPO DE SESIONES (4 SEMANAS) -->
-    <section class="project-roadmap-section" id="sesiones">
-        <div class="project-roadmap-container">
-            <div class="section-head-center">
-                <div class="rover-section-tag">
-                    <span>03 // CRONOGRAMA OFICIAL</span>
-                </div>
-                <h2>Línea de Tiempo de Sesiones</h2>
-                <p>
-                    Cuatro semanas estructuradas con acompañamiento técnico continuo para llevar tu idea del boceto al vuelo real.
-                </p>
-            </div>
-
-            <div class="project-roadmap-timeline">
-                <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">SEMANA 1 // LANZAMIENTO E IDEAS</span>
-                    <h4>Entrega de Reglamento &amp; Taller de Paracaídas</h4>
-                    <p>
-                        Se entrega el reglamento oficial, se muestra en vivo el funcionamiento de la pantalla y sensor de Usachín, y se realiza un taller guiado para calcular las proporciones aerodinámicas del paracaídas y aprender a doblarlo sin que se enreden las líneas.
-                    </p>
-                </div>
-
-                <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">SEMANA 2 // MANUFACTURA Y PROTOTIPADO</span>
-                    <h4>Corte de Tela, Anclajes &amp; Construcción de Cápsula</h4>
-                    <p>
-                        Los grupos cortan la tela técnica provista por USP, fijan las cuerdas de suspensión y dan forma al receptáculo, ya sea mediante modelado e impresión 3D o con materiales ligeros amortiguantes. Se realiza un punto de control y asesoría técnica con mentores de USP.
-                    </p>
-                </div>
-
-                <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">SEMANA 3 // VALIDACIÓN EN TERRENO</span>
-                    <h4>Prueba de Volumen (1L) &amp; Ensayos de Caída</h4>
-                    <p>
-                        Se comprueba que el sistema plegado quepa con holgura en el molde de un litro. Los equipos realizan ensayos de lanzamiento a baja altura con pesos de prueba (desde gradas o escaleras del campus), probando el módulo electrónico real para verificar la señal de supervivencia.
-                    </p>
-                </div>
-
-                <div class="project-roadmap-item">
-                    <span class="roadmap-phase-tag">SEMANA 4 // OPTIMIZACIÓN Y CIERRE TÉCNICO</span>
-                    <h4>Ajustes Finales, Inspección Pre-Vuelo &amp; Certificación</h4>
-                    <p>
-                        Últimos detalles de costura, refuerzo de anclajes estructurales y síntesis de ficha técnica. Inspección rigurosa de seguridad previa al vuelo: revisión del enganche con el dron y entrega de la certificación oficial para subir a pista.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. LA JORNADA FINAL & PREMIOS -->
-    <section class="project-subsystems-section" id="final">
-        <div class="section-head-center">
-            <div class="rover-section-tag">
-                <span>04 // EL EVENTO Y RECONOCIMIENTOS</span>
-            </div>
-            <h2>La Gran Actividad Final &amp; Premios</h2>
-            <p>
-                Una jornada al aire libre en un área verde del campus donde cada cápsula se engancha al dron, se eleva a la altitud de prueba y se suelta en caída libre.
+        <div class="ficha-hero-inner">
+            <ol class="breadcrumb">
+                <li><a href="/proyectos/">Proyectos</a></li>
+                <li><a href="/ejes/#coheteria">Eje Cohetería</a></li>
+            </ol>
+            <p class="ficha-tag">Desafío formativo · 4 semanas</p>
+            <h1>Misión: Salva a Usachín</h1>
+            <p class="ficha-subtitle">Paracaídas y recuperación, sin motores</p>
+            <p class="ficha-lede">
+                Usachín viene cayendo desde muy alto: un dron lo eleva y lo suelta en caída libre sobre el campus. Tu equipo diseña una cápsula que despliegue un paracaídas, estabilice el descenso y amortigüe el impacto, todo de forma mecánica y pasiva.
             </p>
+            <div class="ficha-actions on-dark">
+                <a href="/talleres/?mision=salva_usachin" class="btn btn-primary">Inscribir a mi equipo <span aria-hidden="true">→</span></a>
+                <a href="#cronograma" class="btn btn-ghost">Ver cronograma</a>
+            </div>
+            <dl class="ficha-facts">
+                <div><dt>Equipos</dt><dd>2 a 4 integrantes</dd></div>
+                <div><dt>Restricción</dt><dd>Todo cabe en 1 litro</dd></div>
+                <div><dt>Frenado</dt><dd>Mecánico y pasivo</dd></div>
+                <div><dt>Veredicto</dt><dd>Acelerómetro + pantalla OLED</dd></div>
+            </dl>
         </div>
+    </section>
 
-        <div class="project-subsystems-grid">
-            <!-- Card 1: Evaluación -->
-            <div class="project-module-card">
-                <div class="module-card-img">
-                    <img src="../../../src/assets/images/gallery/Sellado cohete de agua.jpg" alt="Evaluación del jurado y lectura de sensor OLED" loading="lazy">
+    <nav class="ficha-subnav" aria-label="Secciones del desafío">
+        <ul>
+            <li><a href="#mision">La misión</a></li>
+            <li><a href="#objetivos">Objetivos</a></li>
+            <li><a href="#cronograma">Cronograma</a></li>
+            <li><a href="#final">Jornada final</a></li>
+            <li><a href="#inscripcion">Inscripción</a></li>
+        </ul>
+    </nav>
+
+    <!-- Misión -->
+    <section class="section section-light" id="mision">
+        <div class="section-inner split">
+            <div>
+                <p class="eyebrow">La misión</p>
+                <h2>¿Sobrevivirá Usachín?</h2>
+                <div class="prose">
+                    <p>El sistema de frenado debe ser <strong>estrictamente mecánico y pasivo</strong>: nada de motores ni electrónica de despliegue.</p>
+                    <p>Dentro de la cápsula viaja el módulo oficial de USP, con un <strong>acelerómetro calibrado y una pantalla OLED</strong> que da el veredicto al tocar tierra: ¿sobrevivió Usachín o la desaceleración superó el límite?</p>
+                    <p>Abierto a estudiantes de cualquier carrera y año. USP entrega tela para el paracaídas, hilos, el módulo sensor y horas de impresión 3D.</p>
                 </div>
-                <div class="module-card-body">
-                    <span class="module-card-tag">CRITERIOS // JURADO USP</span>
-                    <h3>Evaluación Técnica de Supervivencia</h3>
-                    <p>
-                        Los dispositivos cuya pantalla OLED confirme la supervivencia de Usachín clasifican a la evaluación final del jurado según: <strong>Ligereza</strong>, <strong>Compacidad del empaque</strong> y <strong>Originalidad del diseño estructural</strong>.
-                    </p>
+                <div class="callout">
+                    <strong>Elegancia antes que complejidad</strong>
+                    <p>Todo el sistema plegado debe caber con holgura en el volumen de una botella de un litro. La simplicidad y la confiabilidad valen más que un diseño recargado.</p>
                 </div>
             </div>
+            <figure class="split-figure">
+                <img src="/src/assets/images/gallery/Egg drop representacion.png" alt="Esquema de la cápsula y el molde de un litro" loading="lazy">
+                <figcaption>Esquema de la cápsula</figcaption>
+            </figure>
+        </div>
+    </section>
 
-            <!-- Card 2: Trofeo y Peluche -->
-            <div class="project-module-card">
-                <div class="module-card-img">
-                    <img src="../../../src/assets/images/gallery/cubesat partes 3d.webp" alt="Trofeo conmemorativo y peluche oficial de Usachín" loading="lazy">
-                </div>
-                <div class="module-card-body">
-                    <span class="module-card-tag">RECONOCIMIENTO // 1ER LUGAR</span>
-                    <h3>Trofeo &amp; Peluche Oficial de Usachín</h3>
-                    <p>
-                        El equipo con el aterrizaje más eficiente, seguro y ligero recibe el trofeo conmemorativo diseñado por el programa y se queda con el cotizado peluche oficial de Usachín.
-                    </p>
-                </div>
+    <!-- Objetivos -->
+    <section class="section section-dark" id="objetivos">
+        <div class="section-inner">
+            <div class="section-head">
+                <p class="eyebrow">Propósito formativo</p>
+                <h2>Aprender haciendo</h2>
+                <p class="section-intro">Para cualquier estudiante curioso con ganas de crear hardware real con sus manos.</p>
             </div>
-
-            <!-- Card 3: Puerta a USP -->
-            <div class="project-module-card">
-                <div class="module-card-img">
-                    <img src="../../../src/assets/images/gallery/rover_armado_foto_grupal.jpg" alt="Integración oficial a los proyectos aeroespaciales del USP" loading="lazy">
-                </div>
-                <div class="module-card-body">
-                    <span class="module-card-tag">MEMBRESÍA // ACCESO DIRECTO</span>
-                    <h3>Puerta al Usach Space Program</h3>
-                    <p>
-                        Además de conservar íntegramente sus prototipos y piezas, quienes destaquen por compromiso, proactividad y rigor técnico reciben una <strong>invitación preferente</strong> para sumarse como miembros oficiales a los proyectos aeroespaciales del ciclo anual.
-                    </p>
-                </div>
+            <div class="feature-cards" style="--cols: 4">
+                <article class="feature-card"><div class="feature-card-body"><span class="feature-card-num">01</span><h3>Acercar la ciencia a toda la USACH</h3><p>No se necesitan conocimientos avanzados para construir un dispositivo de calidad.</p></div></article>
+                <article class="feature-card"><div class="feature-card-body"><span class="feature-card-num">02</span><h3>Diseñar con restricciones reales</h3><p>Optimizar espacio, peso y plegado de líneas para que todo quepa en un litro.</p></div></article>
+                <article class="feature-card"><div class="feature-card-body"><span class="feature-card-num">03</span><h3>Trabajo en equipo horizontal</h3><p>Diseño, cálculo, manufactura y estrategia de prueba en equipos de 2 a 4.</p></div></article>
+                <article class="feature-card"><div class="feature-card-body"><span class="feature-card-num">04</span><h3>Aporte al cohete de agua</h3><p>Los mejores mecanismos alimentan el sistema de recuperación del proyecto emblema.</p></div></article>
             </div>
         </div>
     </section>
 
-    <!-- 7. CITA & CTA DIRECCIONADO AL FORMULARIO -->
-    <section class="project-quote-cta-section" id="inscripcion">
-        <div class="project-quote-box">
-            <div class="project-quote-text">
-                "Un paracaídas bien doblado y una estructura ligera no son fruto de la suerte, sino del trabajo colectivo y la atención a los detalles."
+    <!-- Cronograma -->
+    <section class="section section-light" id="cronograma">
+        <div class="section-inner">
+            <div class="section-head">
+                <p class="eyebrow">Cronograma</p>
+                <h2>Cuatro semanas</h2>
+                <p class="section-intro">Del boceto al vuelo real, con acompañamiento técnico continuo.</p>
             </div>
-            <div class="project-quote-sub">— USACH SPACE PROGRAM · MISIÓN SALVA A USACHÍN</div>
-        </div>
-
-        <div class="project-cta-card">
-            <h3>¿Aceptas el Desafío de Salvar a Usachín?</h3>
-            <p>
-                Las inscripciones para la edición de este ciclo están abiertas a todas las carreras de la USACH. Puedes inscribirte con tu equipo ya formado (2 a 4 personas) o postular individualmente para que te conectemos con otros participantes interesados.
-            </p>
-            <a href="/talleres/?mision=salva_usachin" class="btn-project-cta">
-                <span>Completar Formulario de Inscripción al Desafío</span>
-                <span>→</span>
-            </a>
+            <ol class="timeline" style="--cols: 4">
+                <li><span class="timeline-when">Semana 1</span><h3>Reglamento y taller de paracaídas</h3><p>Demostración del sensor de Usachín y taller para calcular y plegar el paracaídas sin enredos.</p></li>
+                <li><span class="timeline-when">Semana 2</span><h3>Manufactura</h3><p>Corte de tela, anclajes y construcción de la cápsula, con revisión de mentores.</p></li>
+                <li><span class="timeline-when">Semana 3</span><h3>Prueba de 1 litro y caídas</h3><p>Comprobar que todo cabe en el molde y ensayar caídas a baja altura con el módulo real.</p></li>
+                <li><span class="timeline-when">Semana 4</span><h3>Inspección pre-vuelo</h3><p>Ajustes finales, revisión del enganche al dron y certificación para subir a pista.</p></li>
+            </ol>
         </div>
     </section>
 
-    <!-- FOOTER INSTITUCIONAL -->
-    <footer style="background: #000000; border-top: 1px solid var(--border-subtle); padding: 70px 40px 40px;">
-        <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 50px;">
-            <div>
-                <h3 style="font-family: var(--font-now); font-size: 1.15rem; color: #ffffff; margin: 0 0 14px 0; text-transform: uppercase; letter-spacing: 1px;">USACH Space Program</h3>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
+    <!-- Final -->
+    <section class="section section-dark" id="final">
+        <div class="section-inner">
+            <div class="section-head">
+                <p class="eyebrow">El evento</p>
+                <h2>La gran caída</h2>
+                <p class="section-intro">Una jornada al aire libre: cada cápsula se engancha al dron, sube a la altura de prueba y se suelta.</p>
             </div>
-            <div>
-                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Navegación</h4>
-                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
-                    <li><a href="/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">← Inicio Principal</a></li>
-                    <li><a href="/proyectos/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Catálogo de Proyectos</a></li>
-                    <li><a href="/talleres/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Admisión Desafíos Formativos</a></li>
+            <div class="feature-cards">
+                <article class="feature-card">
+                    <div class="feature-card-media"><img src="/src/assets/images/gallery/huevo roto.jpg" alt="Prueba de impacto" loading="lazy"></div>
+                    <div class="feature-card-body">
+                        <span class="feature-card-tag">Evaluación</span>
+                        <h3>Supervivencia primero</h3>
+                        <p>Las cápsulas cuya pantalla confirma que Usachín sobrevivió pasan a la evaluación del jurado: ligereza, compacidad del empaque y originalidad del diseño.</p>
+                    </div>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-card-media"><img src="/src/assets/images/gallery/orientacion eggdrop.png" alt="Diagrama de estabilidad durante el descenso" loading="lazy"></div>
+                    <div class="feature-card-body">
+                        <span class="feature-card-tag">Primer lugar</span>
+                        <h3>Trofeo y peluche de Usachín</h3>
+                        <p>El aterrizaje más eficiente, seguro y liviano se lleva el trofeo del programa y el peluche oficial de Usachín.</p>
+                    </div>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-card-media"><img src="/src/assets/images/rover/rover_armado_foto_grupal.jpg" alt="Integrantes del USACH Space Program" loading="lazy"></div>
+                    <div class="feature-card-body">
+                        <span class="feature-card-tag">Membresía</span>
+                        <h3>Puerta al USACH Space Program</h3>
+                        <p>Todos conservan sus prototipos. Quienes destaquen por compromiso y rigor reciben una invitación preferente para sumarse al programa.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cierre -->
+    <section class="section section-dark section-tight" id="inscripcion" aria-label="Inscripción">
+        <div class="section-inner">
+            <figure class="ficha-quote">
+                <blockquote>«Un paracaídas bien doblado y una estructura liviana no son suerte: son trabajo en equipo y atención al detalle.»</blockquote>
+                <figcaption>Misión Salva a Usachín · USACH Space Program</figcaption>
+            </figure>
+            <div class="cta-panel">
+                <div>
+                    <h2>¿Aceptas el desafío?</h2>
+                    <p>Inscríbete con tu equipo ya formado (2 a 4 personas) o postula de forma individual y te conectamos con otros participantes.</p>
+                </div>
+                <div class="cta-actions on-dark">
+                    <a href="/talleres/?mision=salva_usachin" class="btn btn-primary">Inscribirme al desafío <span aria-hidden="true">→</span></a>
+                </div>
+            </div>
+
+            <h2 class="related-title">Otros proyectos</h2>
+            <div class="projects-grid">
+                <a class="project-card" href="/proyectos/cohete/" style="--eje: var(--eje-coheteria-ink)">
+                    <div class="project-media"><img src="/src/assets/images/gallery/IMG-20260607-WA0022.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body"><p class="project-meta"><span class="project-axis">Cohetería</span> · Emblema</p><h3>Cohete de agua</h3></div>
+                </a>
+                <a class="project-card" href="/proyectos/cansat/" style="--eje: var(--eje-orbital-ink)">
+                    <div class="project-media"><img src="/src/assets/images/nasa/minicubesat_lab.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body"><p class="project-meta"><span class="project-axis">Sistemas Orbitales</span> · Formativo</p><h3>Misión: Mini CubeSat</h3></div>
+                </a>
+                <a class="project-card" href="/ejes/#coheteria" style="--eje: var(--eje-coheteria-ink)">
+                    <div class="project-media"><img src="/src/assets/images/nasa/cohete_multietapa.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body"><p class="project-meta"><span class="project-axis">Eje 02</span> · Cohetería</p><h3>Conoce el eje completo</h3></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-info">
+                <h3>USACH Space Program</h3>
+                <p>Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/proyectos/">Proyectos</a></li>
+                    <li><a href="/ejes/">Ejes</a></li>
+                    <li><a href="/talleres/">Desafíos formativos</a></li>
                 </ul>
             </div>
-            <div>
-                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Contacto Oficial</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 8px 0;">Universidad de Santiago de Chile</p>
-                <p style="margin: 0;"><a href="mailto:spaceprogram@usach.cl" style="color: var(--accent-amber); text-decoration: none; font-size: 0.9rem; font-family: var(--font-mono);">spaceprogram@usach.cl</a></p>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p>Universidad de Santiago de Chile</p>
+                <p><a href="mailto:spaceprogram@usach.cl">spaceprogram@usach.cl</a></p>
+            </div>
+            <div class="footer-institutions">
+                <h4>Vínculos</h4>
+                <div class="footer-institution-logos">
+                    <a href="https://centroinnovacion.cl/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="Centro de Innovación USACH"><img src="/src/assets/images/gallery/centro de innovacion.webp" alt="Centro de Innovación USACH"></a>
+                    <a href="https://www.achide.org/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="ACHIDE"><img src="/src/assets/images/gallery/achide.png" alt="ACHIDE"></a>
+                </div>
             </div>
         </div>
-        <div style="max-width: 1400px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">
-            <span>&copy; 2026 USACH Space Program. Todos los derechos reservados.</span>
-            <span>Misión: Salva a Usachín · Convocatoria Abierta</span>
+        <div class="footer-bottom">
+            <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
+            <p>Diseño y fabricación con fines educativos</p>
         </div>
     </footer>
 
-    <script type="module" src="../../js/pages/proyectos/rover_avanzado.js"></script>
+    <script type="module" src="/src/js/components/header.js"></script>
+    <script type="module" src="/src/js/pages/ficha.js"></script>
 </body>
 </html>

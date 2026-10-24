@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>USACH Space Program | Innovación Aeroespacial Estudiantil</title>
-    
+    <meta name="description" content="Iniciativa estudiantil de la Universidad de Santiago de Chile dedicada al aprendizaje, la divulgación y el prototipado aeroespacial.">
+
     <link rel="icon" type="image/png" href="./src/assets/images/logo_noTextBLACK.png">
     <link rel="stylesheet" href="./src/styles/main.css">
-    <style>@import url("src/styles/pages/index.css");</style>
+    <style>@import url("src/styles/pages/home.css");</style>
 </head>
-<body class="tech-grid">
+<body class="site home">
 
     <!-- Header Component -->
     <header>
@@ -19,7 +20,7 @@
                 <span class="nav-brand">USACH Space Program</span>
             </a>
         </div>
-        
+
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
             <span></span>
             <span></span>
@@ -27,569 +28,402 @@
         </button>
 
         <nav class="nav-links" id="navLinks">
+            <a href="#novedades">Novedades</a>
             <a href="/ejes/">Ejes</a>
             <a href="/proyectos/">Proyectos</a>
-            <a href="#manifiesto">Manifiesto</a>
             <a href="#alianzas">Alianzas</a>
+            <a href="mailto:spaceprogram@usach.cl" class="nav-contact">Contacto</a>
             <a href="/registro/" class="btn-nav-cta">Postular</a>
-            <a href="mailto:spaceprogram@usach.cl" style="color: var(--accent-amber); margin-left: 20px; text-decoration: none; font-size: 0.8rem; font-family: var(--font-mono); letter-spacing: 1px;">Contacto</a>
         </nav>
     </header>
 
-    <!-- 1. Hero Section con Video del Planeta en Rotación (Inspiración Proxima B UI) -->
-    <section class="hero-deepspace">
-        <!-- Video del Planeta en Rotación -->
-        <div class="hero-planet-wrapper">
-            <video class="hero-planet-video" autoplay muted loop playsinline poster="./src/assets/images/planeta_earth_still.jpg">
+    <main>
+
+    <!-- 1. Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-media" aria-hidden="true">
+            <video class="hero-video" autoplay muted loop playsinline poster="./src/assets/images/planeta_earth_still.jpg">
                 <source src="./src/assets/videos/planeta_loop.mp4" type="video/mp4">
             </video>
-            <div class="hero-planet-vignette"></div>
+            <div class="hero-shade"></div>
         </div>
 
-        <!-- Capa HUD Editorial: Retículas y Miras Técnicas de 1px -->
-        <div class="hero-hud-grid-overlay" aria-hidden="true">
-            <div class="hud-line-h"></div>
-            <div class="hud-line-v"></div>
-            <div class="hud-crosshair hud-ch-1">+</div>
-            <div class="hud-crosshair hud-ch-2">+</div>
-            <div class="hud-crosshair hud-ch-3">+</div>
-            <div class="hud-tech-dial">
-                <div class="dial-circle">
-                    <span class="dial-num">01</span>
-                </div>
-                <span class="dial-label">SYS // ORBITAL</span>
-            </div>
-        </div>
-
-        <div class="hero-container">
-            <div class="hero-brand-header">
-                <img src="./src/assets/images/logo.png" alt="Logo USACH Space Program" class="hero-white-logo">
-            </div>
-
-            <div class="hero-badge">
-                <span class="badge-dot"></span>
-                <span>PROGRAMA AEROESPACIAL ESTUDIANTIL // USACH</span>
-            </div>
-            
-            <h1 class="hero-title">Usach Space Program</h1>
-            
-            <p class="hero-manifesto">
-                «La ciencia no pertenece a un solo hombre ni a una sola época; pertenece a cualquiera que esté dispuesto a sacrificar su presente por el progreso del mañana.»
+        <div class="hero-inner">
+            <p class="hero-badge"><span class="badge-dot"></span>Programa aeroespacial estudiantil · USACH</p>
+            <h1 class="hero-title" id="hero-title">Usach Space Program</h1>
+            <p class="hero-lede">
+                Estudiantes de la Universidad de Santiago construyendo rovers, cohetes y satélites para aprender, en la práctica, cómo se hace la ingeniería aeroespacial.
             </p>
-
-            <p class="hero-subtitle">
-                Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, la divulgacion y el prototipado de iniciativas de caracter aeroespacial, permitiendo avanzar en el desarrollo de proyectos de alto impacto practicando con conceptos basicos
-            </p>
-
-            <div class="hero-cta-group">
-                <a href="/registro/" class="btn-primary-tech">
-                    <span>Postular a la Convocatoria 2026</span>
-                    <span class="btn-arrow">→</span>
-                </a>
-                <a href="mailto:spaceprogram@usach.cl" class="btn-secondary-tech">
-                    <span>Ponte en contacto con nosotros</span>
-                </a>
-            </div>
-
-            <div class="hero-footer-meta">
-                <div class="meta-item">
-                    <span class="meta-label">SEDE CENTRAL</span>
-                    <span class="meta-value">SANTIAGO, CHILE (USACH)</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">ENFOQUE</span>
-                    <span class="meta-value">APRENDIZAJE & PROTOTIPADO REAL</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">CORREO INSTITUCIONAL</span>
-                    <span class="meta-value">spaceprogram@usach.cl</span>
-                </div>
+            <div class="hero-actions">
+                <a href="/registro/" class="btn btn-primary">Postular a la Convocatoria 2026 <span aria-hidden="true">→</span></a>
+                <a href="#novedades" class="btn btn-ghost">Ver novedades</a>
             </div>
         </div>
+
+        <ul class="hero-axes" aria-label="Ejes de desarrollo">
+            <li style="--eje: var(--eje-robotica)"><span class="axis-dot"></span>Robótica</li>
+            <li style="--eje: var(--eje-coheteria)"><span class="axis-dot"></span>Cohetería</li>
+            <li style="--eje: var(--eje-orbital)"><span class="axis-dot"></span>Sistemas Orbitales</li>
+        </ul>
     </section>
 
-    <!-- 2. Métricas Reales de Impacto -->
-    <section class="metrics-section">
+    <!-- 2. Métricas -->
+    <section class="metrics" aria-label="El programa en números">
         <div class="metrics-grid">
-            <div class="metric-card">
-                <div class="metric-value">03</div>
-                <div class="metric-label">Ejes de Desarrollo</div>
-                <div class="metric-sub">Robótica, Cohetería y Sistemas Orbitales</div>
+            <div class="metric">
+                <span class="metric-value" data-count="3" data-pad="2">03</span>
+                <span class="metric-label">Ejes de desarrollo</span>
             </div>
-            <div class="metric-card">
-                <div class="metric-value">16+</div>
-                <div class="metric-label">Estudiantes Activos</div>
-                <div class="metric-sub">Ingeniería Mecánica, Eléctrica, Informática y Ciencias</div>
+            <div class="metric">
+                <span class="metric-value" data-count="16" data-suffix="+">16+</span>
+                <span class="metric-label">Estudiantes activos</span>
             </div>
-            <div class="metric-card">
-                <div class="metric-value">03</div>
-                <div class="metric-label">Proyectos Emblema</div>
-                <div class="metric-sub">Rover Perseverance, Cohete 3U y CubeSat 1U</div>
+            <div class="metric">
+                <span class="metric-value" data-count="6" data-pad="2">06</span>
+                <span class="metric-label">Proyectos e iniciativas</span>
             </div>
-            <div class="metric-card">
-                <div class="metric-value">05</div>
-                <div class="metric-label">Alianzas y Apoyos</div>
-                <div class="metric-sub">USACH, Centro de Innovación, ACHIDE, VRAE y Full 3D</div>
+            <div class="metric">
+                <span class="metric-value" data-count="5" data-pad="2">05</span>
+                <span class="metric-label">Alianzas y apoyos</span>
             </div>
         </div>
     </section>
 
-    <!-- 3. Los 3 Ejes Estratégicos de Desarrollo (Estatus Vigente) -->
-    <section class="ejes-section" id="ejes">
-        <div class="section-header">
-            <div class="section-tag">[ ESTRUCTURA DE APRENDIZAJE ]</div>
-            <h2>Ejes de Desarrollo Técnico</h2>
-            <p>Somos estudiantes inquietos con ganas de hacer proyectos prácticos para afinar nuestras habilidades, aprender de lo que la industria ha hecho e integrar tecnologías reales paso a paso.</p>
-        </div>
+    <!-- 3. Novedades (se rellena desde src/js/data/noticias.js) -->
+    <section class="section section-light" id="novedades" aria-labelledby="novedades-title">
+        <div class="section-inner">
+            <div class="section-head section-head-split">
+                <div>
+                    <p class="eyebrow">Bitácora</p>
+                    <h2 id="novedades-title">Novedades</h2>
+                </div>
+                <p class="section-intro">Lo último que hemos construido, probado y presentado.</p>
+            </div>
 
-        <div class="ejes-grid-tech">
-            <!-- Eje 1: Robótica -->
-            <div class="eje-card-tech">
-                <div class="eje-header-clean">
-                    <span class="eje-tag-clean">EJE 01</span>
+            <div class="news-grid" id="newsGrid" aria-live="polite"></div>
+        </div>
+    </section>
+
+    <!-- 4. Ejes (pestañas) -->
+    <section class="section section-dark" id="ejes" aria-labelledby="ejes-title">
+        <div class="section-inner">
+            <div class="section-head">
+                <p class="eyebrow eyebrow-dark">Estructura de aprendizaje</p>
+                <h2 id="ejes-title">Tres ejes, una misión</h2>
+                <p class="section-intro">Cada eje sigue un tema que hoy mueve a la industria aeroespacial, y avanza por fases con un proyecto emblema.</p>
+            </div>
+
+            <div class="ejes-tabs" role="tablist" aria-label="Ejes de desarrollo">
+                <button class="eje-tab is-active" role="tab" id="tab-robotica" aria-controls="panel-robotica" aria-selected="true" style="--eje: var(--eje-robotica)">
+                    <span class="eje-tab-num">01</span> Robótica y Mecánica Espacial
+                </button>
+                <button class="eje-tab" role="tab" id="tab-coheteria" aria-controls="panel-coheteria" aria-selected="false" tabindex="-1" style="--eje: var(--eje-coheteria)">
+                    <span class="eje-tab-num">02</span> Cohetería y Propulsión
+                </button>
+                <button class="eje-tab" role="tab" id="tab-orbital" aria-controls="panel-orbital" aria-selected="false" tabindex="-1" style="--eje: var(--eje-orbital)">
+                    <span class="eje-tab-num">03</span> Sistemas Orbitales y Telecomunicaciones
+                </button>
+            </div>
+
+            <!-- Robótica -->
+            <article class="eje-panel" role="tabpanel" id="panel-robotica" aria-labelledby="tab-robotica" style="--eje: var(--eje-robotica)">
+                <figure class="eje-figure">
+                    <img src="./src/assets/images/rover/primeros_pasos_rover.jpg" alt="Réplica del rover Perseverance construida por el equipo" loading="lazy">
+                    <figcaption>Proyecto emblema · Rover Perseverance</figcaption>
+                </figure>
+                <div class="eje-body">
                     <h3>Robótica y Mecánica Espacial</h3>
+                    <p>Creamos prototipos funcionales que replican tecnologías usadas en exploración, y los probamos frente a condiciones hostiles: calor, autonomía prolongada y terreno irregular.</p>
+                    <dl class="eje-facts">
+                        <div><dt>Líder</dt><dd>César Olivares</dd></div>
+                        <div><dt>Integrantes</dt><dd>2</dd></div>
+                        <div><dt>Emblema</dt><dd>Rover Perseverance</dd></div>
+                    </dl>
+                    <h4 class="roadmap-title">Ruta 2026–2027</h4>
+                    <ol class="roadmap">
+                        <li><span class="roadmap-step">01</span>Optimizar la navegación autónoma</li>
+                        <li><span class="roadmap-step">02</span>Integrar baterías con BMS</li>
+                        <li><span class="roadmap-step">03</span>Cámara con espectrógrafo</li>
+                        <li><span class="roadmap-step">04</span>Sistema LiDAR</li>
+                    </ol>
+                    <a href="/proyectos/rover/" class="text-link">Ver el Rover <span aria-hidden="true">→</span></a>
                 </div>
-                <div class="eje-data-block">
-                    <div class="data-group">
-                        <span class="lbl">Líderes</span>
-                        <span class="val">César Olivares y Alessandro Orellano</span>
-                    </div>
-                    <div class="data-group">
-                        <span class="lbl">Integrantes</span>
-                        <span class="val">2 Estudiantes Activos</span>
-                    </div>
-                    <div class="data-group">
-                        <span class="lbl">Proyecto Emblema</span>
-                        <span class="val highlight-amber">Rover Perseverance</span>
-                    </div>
-                </div>
-                <p class="eje-desc">
-                    Desarrollamos prototipos robóticos para aprender de la industria aeroespacial y afinar nuestras habilidades mecatrónicas. Experimentamos con disipación térmica, integración de baterías BMS y sensores LiDAR para navegación y autonomía en tierra.
-                </p>
-                <div class="eje-footer">
-                    <a href="/proyectos/rover/" class="link-tech link-amber">Más detalles del Rover <span>→</span></a>
-                </div>
-            </div>
+            </article>
 
-            <!-- Eje 2: Cohetería -->
-            <div class="eje-card-tech">
-                <div class="eje-header-clean">
-                    <span class="eje-tag-clean">EJE 02</span>
+            <!-- Cohetería -->
+            <article class="eje-panel" role="tabpanel" id="panel-coheteria" aria-labelledby="tab-coheteria" style="--eje: var(--eje-coheteria)" hidden>
+                <figure class="eje-figure">
+                    <img src="./src/assets/images/gallery/IMG-20260607-WA0022.jpg" alt="Plataforma de lanzamiento hidroneumática del equipo" loading="lazy">
+                    <figcaption>Proyecto emblema · Cohete de agua</figcaption>
+                </figure>
+                <div class="eje-body">
                     <h3>Cohetería y Propulsión</h3>
+                    <p>Usamos la propulsión hidroneumática como banco de pruebas seguro para validar aerodinámica, telemetría, estructuras y recuperación, y preparar el salto a la propulsión sólida experimental.</p>
+                    <dl class="eje-facts">
+                        <div><dt>Líderes</dt><dd>Alessandro Orellano y Simón García-Huidobro</dd></div>
+                        <div><dt>Integrantes</dt><dd>7</dd></div>
+                        <div><dt>Emblema</dt><dd>Cohete de agua</dd></div>
+                    </dl>
+                    <h4 class="roadmap-title">Ruta 2026–2027</h4>
+                    <ol class="roadmap">
+                        <li><span class="roadmap-step">Sep–Ene</span>Cohete de agua: uniones, presión, paracaídas y datos</li>
+                        <li><span class="roadmap-step">Mar–Jul</span>Cohete multietapa para ganar altura</li>
+                        <li><span class="roadmap-step">Ago–Dic</span>Competencias y permisos para propelente sólido (2028)</li>
+                    </ol>
+                    <a href="/proyectos/cohete/" class="text-link">Ver Cohetería <span aria-hidden="true">→</span></a>
                 </div>
-                <div class="eje-data-block">
-                    <div class="data-group">
-                        <span class="lbl">Líderes</span>
-                        <span class="val">Alessandro Orellano y Simón García-Huidobro</span>
-                    </div>
-                    <div class="data-group">
-                        <span class="lbl">Integrantes</span>
-                        <span class="val">7 Estudiantes Activos</span>
-                    </div>
-                    <div class="data-group">
-                        <span class="lbl">Proyecto Emblema</span>
-                        <span class="val highlight-amber">Cohete de Agua (3 Unidades)</span>
-                    </div>
-                </div>
-                <p class="eje-desc">
-                    Utilizamos cohetes hidroneumáticos como plataforma segura de bajo costo para entender en la práctica las leyes de Newton, aerodinámica, centrado de masas y paracaídas. Este aprendizaje experimental nos permite dominar la técnica paso a paso con miras a la cohetería experimental.
-                </p>
-                <div class="eje-footer">
-                    <a href="/proyectos/cohete/" class="link-tech link-amber">Más detalles de Cohetería <span>→</span></a>
-                </div>
-            </div>
+            </article>
 
-            <!-- Eje 3: Sistemas Orbitales -->
-            <div class="eje-card-tech">
-                <div class="eje-header-clean">
-                    <span class="eje-tag-clean">EJE 03</span>
+            <!-- Sistemas Orbitales -->
+            <article class="eje-panel" role="tabpanel" id="panel-orbital" aria-labelledby="tab-orbital" style="--eje: var(--eje-orbital)" hidden>
+                <figure class="eje-figure">
+                    <img src="./src/assets/images/gallery/IMG-20260607-WA0039.jpg" alt="Banco de integración FlatSat del CubeSat" loading="lazy">
+                    <figcaption>Proyecto emblema · CubeSat 1U</figcaption>
+                </figure>
+                <div class="eje-body">
                     <h3>Sistemas Orbitales y Telecomunicaciones</h3>
+                    <p>Diseñamos e integramos en banco de laboratorio (FlatSat) la arquitectura de un satélite 1U: computador de a bordo, potencia y comunicaciones, validando cada subsistema en tierra.</p>
+                    <dl class="eje-facts">
+                        <div><dt>Líderes</dt><dd>Daniel González y Martín Castillo</dd></div>
+                        <div><dt>Integrantes</dt><dd>7</dd></div>
+                        <div><dt>Emblema</dt><dd>CubeSat 1U</dd></div>
+                    </dl>
+                    <h4 class="roadmap-title">Ruta 2026–2027</h4>
+                    <ol class="roadmap">
+                        <li><span class="roadmap-step">Fase 1</span>Investigación y arquitectura OBC/COMMS</li>
+                        <li><span class="roadmap-step">Fase 2</span>FlatSat: adquirir, guardar y transmitir telemetría</li>
+                        <li><span class="roadmap-step">Fase 3</span>Integración completa en el CubeSat (Ene–Mar)</li>
+                    </ol>
+                    <a href="/proyectos/cubesat/" class="text-link">Ver el CubeSat <span aria-hidden="true">→</span></a>
                 </div>
-                <div class="eje-data-block">
-                    <div class="data-group">
-                        <span class="lbl">Líderes</span>
-                        <span class="val">Daniel González y Martín Castillo</span>
-                    </div>
-                    <div class="data-group">
-                        <span class="lbl">Integrantes</span>
-                        <span class="val">7 Estudiantes Activos</span>
-                    </div>
-                    <div class="data-group">
-                        <span class="lbl">Proyecto Emblema</span>
-                        <span class="val highlight-amber">CubeSat 1U</span>
-                    </div>
-                </div>
-                <p class="eje-desc">
-                    Diseñamos e integramos en banco de laboratorio (FlatSat) la arquitectura de satélites 1U: computadores de a bordo (OBC), electrónica de potencia (BMS/EPS) y enlaces de radiofrecuencia (COMMS), probando cada subsistema en tierra para aprender cómo se operan misiones satelitales reales.
-                </p>
-                <div class="eje-footer">
-                    <a href="/proyectos/cubesat/" class="link-tech link-amber">Más detalles del CubeSat <span>→</span></a>
-                </div>
-            </div>
-        </div>
+            </article>
 
-        <!-- Botón de Acceso a Proyecciones y Detalle de Ejes -->
-        <div class="ejes-action-wrap" style="text-align: center; margin-top: 48px;">
-            <a href="/ejes/" class="btn-primary-tech">
-                <span>Más información de las proyecciones de los ejes, aquí</span>
-                <span class="btn-arrow">→</span>
-            </a>
+            <div class="section-cta">
+                <a href="/ejes/" class="btn btn-ghost">Proyecciones completas de los ejes <span aria-hidden="true">→</span></a>
+            </div>
         </div>
     </section>
 
-    <!-- 4. Catálogo de Proyectos Técnicos -->
-    <section class="projects-section-tech" id="proyectos">
-        <div class="section-header">
-            <div class="section-tag">[ PORTAFOLIO TÉCNICO ]</div>
-            <h2>Catálogo de Proyectos e Iniciativas</h2>
-            <p>Estructura modular dividida en proyectos de desarrollo avanzado (emblemas) y programas formativos diseñados para el onboarding acelerado de nuevos talentos.</p>
-        </div>
-
-        <!-- Filter Controls -->
-        <div class="project-filter-controls">
-            <button class="filter-btn active" data-filter="all">Todos los Proyectos (06)</button>
-            <button class="filter-btn" data-filter="emblema">Proyectos Emblema (03)</button>
-            <button class="filter-btn" data-filter="formativo">Iniciativas Formativas (03)</button>
-        </div>
-
-        <div class="projects-grid-catalog">
-            
-            <!-- Emblema 1: Rover -->
-            <div class="project-tech-card" data-category="emblema">
-                <div class="project-img-wrapper" style="background-image: url('./src/assets/images/nasa/rover_perseverance.jpg');">
-                    <span class="project-tier-tag emblema">PROYECTO EMBLEMA</span>
-                    <span class="project-eje-tag">EJE ROBÓTICA</span>
+    <!-- 5. Proyectos -->
+    <section class="section section-light" id="proyectos" aria-labelledby="proyectos-title">
+        <div class="section-inner">
+            <div class="section-head section-head-split">
+                <div>
+                    <p class="eyebrow">Portafolio</p>
+                    <h2 id="proyectos-title">Proyectos e iniciativas</h2>
                 </div>
-                <div class="project-tech-body">
-                    <h4>Rover Perseverance</h4>
-                    <p class="project-tech-summary">
-                        Vehículo robótico de exploración terrestre con suspensión Rocker-Bogie a escala real, tracción diferencial independiente y suite para autonomía y sensórica LiDAR.
-                    </p>
-                    <div class="project-tech-specs">
-                        <span>ESTADO: OPTIMIZACIÓN 2026</span>
-                        <span>MECATRÓNICA / AUTONOMÍA</span>
-                    </div>
-                    <a href="/proyectos/rover/" class="btn-card-link">Ver Ficha Técnica →</a>
-                </div>
+                <p class="section-intro">Proyectos emblema de largo aliento y desafíos formativos de 4 semanas para quienes recién llegan.</p>
             </div>
 
-            <!-- Emblema 2: Cohete 3 Unidades -->
-            <div class="project-tech-card" data-category="emblema">
-                <div class="project-img-wrapper" style="background-image: url('./src/assets/images/nasa/cohete_multietapa.jpg');">
-                    <span class="project-tier-tag emblema">PROYECTO EMBLEMA</span>
-                    <span class="project-eje-tag">EJE PROPULSIÓN</span>
-                </div>
-                <div class="project-tech-body">
-                    <h4>Cohete de Agua (3 Unidades)</h4>
-                    <p class="project-tech-summary">
-                        Vector hidroneumático modular de 3 cámaras acopladas para incremento de apogeo, telemetría a bordo, caracterización de empuje y sistema activo de recuperación.
-                    </p>
-                    <div class="project-tech-specs">
-                        <span>ESTADO: BANCO DE ENSAYO</span>
-                        <span>AERODINÁMICA / AVIÓNICA</span>
-                    </div>
-                    <a href="/proyectos/cohete/" class="btn-card-link">Ver Ficha Técnica →</a>
-                </div>
+            <div class="filter-bar" role="group" aria-label="Filtrar proyectos">
+                <button class="filter-chip is-active" data-group="tipo" data-filter="all" aria-pressed="true">Todos <span>6</span></button>
+                <button class="filter-chip" data-group="tipo" data-filter="emblema" aria-pressed="false">Emblema <span>3</span></button>
+                <button class="filter-chip" data-group="tipo" data-filter="formativo" aria-pressed="false">Formativos <span>3</span></button>
             </div>
 
-            <!-- Emblema 3: CubeSat 1U -->
-            <div class="project-tech-card" data-category="emblema">
-                <div class="project-img-wrapper" style="background-image: url('./src/assets/images/nasa/cubesat_deployment.jpg');">
-                    <span class="project-tier-tag emblema">PROYECTO EMBLEMA</span>
-                    <span class="project-eje-tag">EJE SISTEMAS ORBITALES</span>
-                </div>
-                <div class="project-tech-body">
-                    <h4>CubeSat 1U</h4>
-                    <p class="project-tech-summary">
-                        Desarrollo del bus satelital estándar (10x10x10 cm), integración en banco FlatSat de computadora de a bordo (OBC), transceptores COMMS y enlace con estación terrena.
-                    </p>
-                    <div class="project-tech-specs">
-                        <span>ESTADO: INTEGRACIÓN LAB</span>
-                        <span>TELECOMUNICACIONES / OBC</span>
+            <div class="projects-grid">
+                <a class="project-card" href="/proyectos/rover/" data-tipo="emblema" style="--eje: var(--eje-robotica-ink)">
+                    <div class="project-media"><img src="./src/assets/images/nasa/rover_perseverance.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body">
+                        <p class="project-meta"><span class="project-axis">Robótica</span> · Emblema</p>
+                        <h3>Rover Perseverance</h3>
+                        <p>Suspensión Rocker-Bogie, tracción independiente y sensórica LiDAR para navegación autónoma.</p>
+                        <p class="project-status"><span class="status-dot"></span>Optimización 2026</p>
                     </div>
-                    <a href="/proyectos/cubesat/" class="btn-card-link">Ver Ficha Técnica →</a>
-                </div>
-            </div>
-
-            <!-- Formativo 1: Mini-CubeSat -->
-            <div class="project-tech-card" data-category="formativo">
-                <div class="project-img-wrapper" style="background-image: url('./src/assets/images/nasa/minicubesat_lab.jpg');">
-                    <span class="project-tier-tag formativo">INICIATIVA FORMATIVA</span>
-                    <span class="project-eje-tag">ONBOARDING TÉCNICO</span>
-                </div>
-                <div class="project-tech-body">
-                    <h4>Misión: Mini Cube-Sat</h4>
-                    <p class="project-tech-summary">
-                        Desafío de electrónica y telemetría inalámbrica en 4 semanas. Integra sensores, controlador y antena en un cubo cerrado para registrar anomalías ambientales con dron a 30m.
-                    </p>
-                    <div class="project-tech-specs">
-                        <span>FORMATO: DESAFÍO 4 SEM</span>
-                        <span>ELECTRÓNICA & TELEMETRÍA</span>
+                </a>
+                <a class="project-card" href="/proyectos/cohete/" data-tipo="emblema" style="--eje: var(--eje-coheteria-ink)">
+                    <div class="project-media"><img src="./src/assets/images/nasa/cohete_multietapa.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body">
+                        <p class="project-meta"><span class="project-axis">Cohetería</span> · Emblema</p>
+                        <h3>Cohete de agua</h3>
+                        <p>Plataforma hidroneumática que pasa de una etapa a multietapa, con telemetría y paracaídas. Meta: propulsión sólida en 2028.</p>
+                        <p class="project-status"><span class="status-dot"></span>Fase 1 · Cohete de agua</p>
                     </div>
-                    <a href="/proyectos/cansat/" class="btn-card-link">Ver Iniciativa →</a>
-                </div>
-            </div>
-
-            <!-- Formativo 2: Salva Usachin -->
-            <div class="project-tech-card" data-category="formativo">
-                <div class="project-img-wrapper" style="background-image: url('./src/assets/images/nasa/salva_usachin_drop.jpg');">
-                    <span class="project-tier-tag formativo">INICIATIVA FORMATIVA</span>
-                    <span class="project-eje-tag">ONBOARDING TÉCNICO</span>
-                </div>
-                <div class="project-tech-body">
-                    <h4>Misión: Salva a Usachín</h4>
-                    <p class="project-tech-summary">
-                        Desafío de paracaídas y descenso pasivo en 4 semanas. Diseña una cápsula en molde de 1L que amortigüe el impacto del módulo sensor OLED lanzado desde un dron.
-                    </p>
-                    <div class="project-tech-specs">
-                        <span>FORMATO: COMPETENCIA 4 SEM</span>
-                        <span>PARACAÍDAS & AMORTIGUACIÓN</span>
+                </a>
+                <a class="project-card" href="/proyectos/cubesat/" data-tipo="emblema" style="--eje: var(--eje-orbital-ink)">
+                    <div class="project-media"><img src="./src/assets/images/nasa/cubesat_deployment.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body">
+                        <p class="project-meta"><span class="project-axis">Sistemas Orbitales</span> · Emblema</p>
+                        <h3>CubeSat 1U</h3>
+                        <p>Bus satelital de 10×10×10 cm integrado en FlatSat: OBC, comunicaciones y estación terrena.</p>
+                        <p class="project-status"><span class="status-dot"></span>Integración en laboratorio</p>
                     </div>
-                    <a href="/proyectos/eggdrop/" class="btn-card-link">Ver Actividad →</a>
-                </div>
-            </div>
-
-            <!-- Formativo 3: Cohete de Agua 1 Unidad -->
-            <div class="project-tech-card" data-category="formativo">
-                <div class="project-img-wrapper" style="background-image: url('./src/assets/images/nasa/cohete_1u_prep.jpg');">
-                    <span class="project-tier-tag formativo">INICIATIVA FORMATIVA</span>
-                    <span class="project-eje-tag">ONBOARDING TÉCNICO</span>
-                </div>
-                <div class="project-tech-body">
-                    <h4>Cohete de Agua (1 Unidad)</h4>
-                    <p class="project-tech-summary">
-                        Vector hidroneumático elemental para aprender la física de propulsión por cantidad de movimiento, centrado de masas (CG vs CP), manufactura de toberas y paracaídas básico.
-                    </p>
-                    <div class="project-tech-specs">
-                        <span>FORMATO: INTRODUCCIÓN</span>
-                        <span>FÍSICA & AERODINÁMICA</span>
+                </a>
+                <a class="project-card" href="/proyectos/cansat/" data-tipo="formativo" style="--eje: var(--ink-soft)">
+                    <div class="project-media"><img src="./src/assets/images/nasa/minicubesat_lab.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body">
+                        <p class="project-meta"><span class="project-axis">Formativo</span> · 4 semanas</p>
+                        <h3>Misión: Mini CubeSat</h3>
+                        <p>Sensores, controlador y antena en un cubo cerrado que registra datos desde un dron a 30 m.</p>
+                        <p class="project-status"><span class="status-dot"></span>Electrónica y telemetría</p>
                     </div>
-                    <a href="/proyectos/cohete/" class="btn-card-link">Ver Iniciativa →</a>
-                </div>
+                </a>
+                <a class="project-card" href="/proyectos/eggdrop/" data-tipo="formativo" style="--eje: var(--ink-soft)">
+                    <div class="project-media"><img src="./src/assets/images/nasa/salva_usachin_drop.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body">
+                        <p class="project-meta"><span class="project-axis">Formativo</span> · 4 semanas</p>
+                        <h3>Misión: Salva a Usachín</h3>
+                        <p>Diseña una cápsula de 1 L que amortigüe el impacto de un módulo sensor lanzado desde un dron.</p>
+                        <p class="project-status"><span class="status-dot"></span>Paracaídas y amortiguación</p>
+                    </div>
+                </a>
+                <a class="project-card" href="/proyectos/cohete/#formativo" data-tipo="formativo" style="--eje: var(--ink-soft)">
+                    <div class="project-media"><img src="./src/assets/images/nasa/cohete_1u_prep.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body">
+                        <p class="project-meta"><span class="project-axis">Formativo</span> · Introducción</p>
+                        <h3>Cohete de agua (1 unidad)</h3>
+                        <p>La física de la propulsión, el centrado de masas (CG vs. CP), toberas y un paracaídas básico.</p>
+                        <p class="project-status"><span class="status-dot"></span>Física y aerodinámica</p>
+                    </div>
+                </a>
             </div>
-
         </div>
     </section>
 
-    <!-- 5. Manifiesto, Metodología y Gobernanza -->
-    <section class="governance-section" id="manifiesto">
-        <div class="governance-container">
-            
-            <div class="section-header" style="margin-bottom: 50px;">
-                <div class="section-tag">[ METODOLOGÍA & GOBERNANZA ]</div>
-                <h2 class="filosofia-heading">Nuestra Filosofía<br><span class="highlight-amber">Piensa — Crea — Aprende</span></h2>
-                <p>Conectamos la formulación de hipótesis con la manufactura física y el aprendizaje intergeneracional en proyectos aeroespaciales reales.</p>
-            </div>
+    <!-- 6. Filosofía: ciclo Piensa — Crea — Aprende -->
+    <section class="section section-dark" id="manifiesto" aria-labelledby="filosofia-title">
+        <div class="section-inner">
+            <div class="cycle-layout">
+                <div class="cycle-copy">
+                    <p class="eyebrow eyebrow-dark">Cómo trabajamos</p>
+                    <h2 id="filosofia-title">Piensa. Crea. Aprende.<br><span class="muted">Y vuelve a empezar.</span></h2>
 
-            <!-- Pipeline Gráfico de 3 Fases: Piensa - Crea - Aprende -->
-            <div class="filosofia-pipeline">
-                <div class="filosofia-grid">
-                    
-                    <!-- Fase 1: PIENSA -->
-                    <div class="filosofia-card">
-                        <div class="filosofia-step-badge">FASE 01</div>
-                        <div class="filosofia-icon-wrapper">
-                            <svg class="filosofia-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="24" cy="24" r="21" stroke="rgba(229,169,88,0.3)" stroke-dasharray="3 3" />
-                                <circle cx="24" cy="24" r="9" stroke="var(--accent-amber)" />
-                                <path d="M24 3v8M24 37v8M3 24h8M37 24h8" stroke="var(--accent-amber)" />
-                                <circle cx="24" cy="24" r="2.5" fill="var(--accent-amber)" />
-                            </svg>
-                        </div>
-                        <h3>Piensa</h3>
-                        <span class="filosofia-subtitle">Identificación & Planificación</span>
-                        <p>
-                            Identificamos una oportunidad o problema técnico para desarrollar. Investigamos antecedentes, modelamos piezas en CAD y planificamos cada etapa antes de empezar a fabricar.
-                        </p>
-                        <div class="filosofia-specs">
-                            <span>OPORTUNIDAD TÉCNICA</span>
-                            <span>MODELADO CAD</span>
-                        </div>
+                    <div class="cycle-phases" role="tablist" aria-label="Fases del ciclo">
+                        <button class="cycle-phase is-active" role="tab" aria-selected="true" data-phase="0">
+                            <span class="cycle-phase-num">01</span>
+                            <span class="cycle-phase-name">Piensa</span>
+                            <span class="cycle-phase-text">Identificamos un problema técnico, investigamos antecedentes, modelamos en CAD y planificamos cada etapa antes de fabricar.</span>
+                        </button>
+                        <button class="cycle-phase" role="tab" aria-selected="false" data-phase="1">
+                            <span class="cycle-phase-num">02</span>
+                            <span class="cycle-phase-name">Crea</span>
+                            <span class="cycle-phase-text">Construimos prototipos en el taller: impresión 3D junto a Full 3D, circuitos electrónicos y ensamble manual.</span>
+                        </button>
+                        <button class="cycle-phase" role="tab" aria-selected="false" data-phase="2">
+                            <span class="cycle-phase-num">03</span>
+                            <span class="cycle-phase-name">Aprende</span>
+                            <span class="cycle-phase-text">Medimos y documentamos aciertos y fallas en banco de pruebas, y dejamos código y guías abiertas para quien venga después.</span>
+                        </button>
                     </div>
+                </div>
 
-                    <!-- Fase 2: CREA -->
-                    <div class="filosofia-card">
-                        <div class="filosofia-step-badge">FASE 02</div>
-                        <div class="filosofia-icon-wrapper">
-                            <svg class="filosofia-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="24" cy="24" r="21" stroke="rgba(229,169,88,0.3)" stroke-dasharray="3 3" />
-                                <rect x="13" y="13" width="22" height="22" rx="3" stroke="var(--accent-amber)" />
-                                <path d="M13 24h22M24 13v22" stroke="rgba(229,169,88,0.4)" />
-                                <circle cx="13" cy="13" r="2" fill="var(--accent-amber)" />
-                                <circle cx="35" cy="13" r="2" fill="var(--accent-amber)" />
-                                <circle cx="35" cy="35" r="2" fill="var(--accent-amber)" />
-                                <circle cx="13" cy="35" r="2" fill="var(--accent-amber)" />
-                            </svg>
-                        </div>
-                        <h3>Crea</h3>
-                        <span class="filosofia-subtitle">Construcción & Taller</span>
-                        <p>
-                            Aplicamos nuestros conocimientos y habilidades para construir prototipos funcionales con las herramientas del taller: impresión 3D junto a Full 3D, circuitos electrónicos y ensamble manual.
-                        </p>
-                        <div class="filosofia-specs">
-                            <span>IMPRESIÓN 3D</span>
-                            <span>TRABAJO EN TALLER</span>
-                        </div>
-                    </div>
-
-                    <!-- Fase 3: APRENDE -->
-                    <div class="filosofia-card">
-                        <div class="filosofia-step-badge">FASE 03</div>
-                        <div class="filosofia-icon-wrapper">
-                            <svg class="filosofia-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="24" cy="24" r="21" stroke="rgba(229,169,88,0.3)" stroke-dasharray="3 3" />
-                                <path d="M11 29l8-11 8 6 9-13" stroke="var(--accent-amber)" stroke-linecap="round" stroke-linejoin="round" />
-                                <circle cx="36" cy="11" r="3" fill="var(--accent-amber)" />
-                                <path d="M9 39h30" stroke="rgba(255,255,255,0.2)" />
-                            </svg>
-                        </div>
-                        <h3>Aprende</h3>
-                        <span class="filosofia-subtitle">Pruebas & Documentación</span>
-                        <p>
-                            Medimos y documentamos nuestros avances, aciertos y fallas en banco de pruebas. Compartimos la experiencia y dejamos código y guías abiertas para seguir mejorando entre todos.
-                        </p>
-                        <div class="filosofia-specs">
-                            <span>MEDICIÓN REAL</span>
-                            <span>CÓDIGO ABIERTO</span>
-                        </div>
-                    </div>
-
+                <div class="cycle-diagram" aria-hidden="true">
+                    <svg viewBox="0 0 400 400" class="cycle-svg">
+                        <circle cx="200" cy="200" r="150" class="cycle-track"/>
+                        <circle cx="200" cy="200" r="150" class="cycle-progress" pathLength="300"/>
+                        <circle cx="200" cy="200" r="104" class="cycle-inner"/>
+                        <g class="cycle-node" data-node="0" transform="translate(200 50)">
+                            <circle r="30"/><text y="5">PIENSA</text>
+                        </g>
+                        <g class="cycle-node" data-node="1" transform="translate(330 275)">
+                            <circle r="30"/><text y="5">CREA</text>
+                        </g>
+                        <g class="cycle-node" data-node="2" transform="translate(70 275)">
+                            <circle r="30"/><text y="5">APRENDE</text>
+                        </g>
+                    </svg>
+                    <img src="./src/assets/images/logo.png" alt="" class="cycle-logo">
                 </div>
             </div>
 
-            <!-- Manifiesto Fundacional con Video de Fondo de la Estación Espacial Internacional (NASA) -->
-            <div class="manifesto-cinema-box">
-                <div class="manifesto-video-bg">
+            <figure class="manifesto">
+                <div class="manifesto-media">
                     <video autoplay muted loop playsinline poster="./src/assets/images/iss_still.jpg">
                         <source src="./src/assets/videos/iss_loop.mp4" type="video/mp4">
                     </video>
-                    <div class="manifesto-video-overlay"></div>
                 </div>
-
-                <div class="manifesto-content-inner">
-                    <div class="quote-mark">“</div>
-                    <blockquote class="manifesto-text">
-                        La ciencia no pertenece a un solo hombre ni a una sola época; pertenece a cualquiera que esté dispuesto a sacrificar su presente por el progreso del mañana.
-                    </blockquote>
-                    <div class="quote-author-line">
-                        <span class="author-name">MANIFIESTO FUNDACIONAL</span>
-                        <span class="author-role">USACH SPACE PROGRAM</span>
-                    </div>
-                </div>
-            </div>
-
+                <blockquote>
+                    «La ciencia no pertenece a un solo hombre ni a una sola época; pertenece a cualquiera que esté dispuesto a sacrificar su presente por el progreso del mañana.»
+                </blockquote>
+                <figcaption>Manifiesto fundacional · USACH Space Program</figcaption>
+            </figure>
         </div>
     </section>
 
-    <!-- 6. Galería Real de Operaciones -->
-    <section class="gallery-tech-section">
-        <div class="section-header">
-            <div class="section-tag">[ BITÁCORA GRÁFICA ]</div>
-            <h2>Registro de Operaciones en Terreno</h2>
-            <p>Evidencia fotográfica real de jornadas de taller, manufactura aditiva, montaje electromecánico y pruebas de campo en la universidad.</p>
+    <!-- 7. Galería -->
+    <section class="section section-light" id="galeria" aria-labelledby="galeria-title">
+        <div class="section-inner">
+            <div class="section-head section-head-split">
+                <div>
+                    <p class="eyebrow">En terreno</p>
+                    <h2 id="galeria-title">Así se ve el trabajo</h2>
+                </div>
+                <p class="section-intro">Jornadas de taller, montaje y pruebas de campo. Toca una foto para verla en grande.</p>
+            </div>
+
+            <div class="gallery">
+                <button class="gallery-item gallery-item-wide" data-full="./src/assets/images/gallery/IMG-20260607-WA0030.jpg" data-caption="Ensayos de movilidad del rover">
+                    <img src="./src/assets/images/gallery/IMG-20260607-WA0030.jpg" alt="Ensayos de movilidad del rover" loading="lazy">
+                    <span class="gallery-cap"><span class="gallery-tag" style="--eje: var(--eje-robotica)">Robótica</span>Ensayos de movilidad del rover</span>
+                </button>
+                <button class="gallery-item" data-full="./src/assets/images/gallery/IMG-20260607-WA0039.jpg" data-caption="Banco de integración FlatSat">
+                    <img src="./src/assets/images/gallery/IMG-20260607-WA0039.jpg" alt="Banco de integración FlatSat" loading="lazy">
+                    <span class="gallery-cap"><span class="gallery-tag" style="--eje: var(--eje-orbital)">Aviónica</span>Banco de integración FlatSat</span>
+                </button>
+                <button class="gallery-item gallery-item-tall" data-full="./src/assets/images/gallery/IMG-20260607-WA0022.jpg" data-caption="Plataforma de lanzamiento hidroneumática">
+                    <img src="./src/assets/images/gallery/IMG-20260607-WA0022.jpg" alt="Plataforma de lanzamiento hidroneumática" loading="lazy">
+                    <span class="gallery-cap"><span class="gallery-tag" style="--eje: var(--eje-coheteria)">Cohetería</span>Plataforma de lanzamiento hidroneumática</span>
+                </button>
+                <button class="gallery-item gallery-item-wide" data-full="./src/assets/images/gallery/IMG-20260611-WA0050.jpg" data-caption="Presencia en evento de la UAI">
+                    <img src="./src/assets/images/gallery/IMG-20260611-WA0050.jpg" alt="Presencia en evento de la UAI" loading="lazy">
+                    <span class="gallery-cap"><span class="gallery-tag">Vinculación</span>Presencia en evento de la UAI</span>
+                </button>
+                <button class="gallery-item" data-full="./src/assets/images/gallery/IMG-20260605-WA0073.jpg" data-caption="Pruebas de despliegue en terreno">
+                    <img src="./src/assets/images/gallery/IMG-20260605-WA0073.jpg" alt="Pruebas de despliegue en terreno" loading="lazy">
+                    <span class="gallery-cap"><span class="gallery-tag">Campo</span>Pruebas de despliegue en terreno</span>
+                </button>
+            </div>
         </div>
 
-        <div class="gallery-tech-grid">
-            <div class="gallery-item" style="background-image: url('./src/assets/images/gallery/IMG-20260607-WA0030.jpg');">
-                <div class="gallery-item-overlay">
-                    <span class="tag">ROBÓTICA</span>
-                    <h5>Ensayos de Movilidad Rover Mascota</h5>
-                </div>
+        <dialog class="lightbox" id="lightbox" aria-label="Foto ampliada">
+            <button class="lightbox-close" aria-label="Cerrar">×</button>
+            <button class="lightbox-nav lightbox-prev" aria-label="Foto anterior">‹</button>
+            <figure>
+                <img alt="">
+                <figcaption></figcaption>
+            </figure>
+            <button class="lightbox-nav lightbox-next" aria-label="Foto siguiente">›</button>
+        </dialog>
+    </section>
+
+    <!-- 8. Conversión -->
+    <section class="section section-dark join" id="contacto-alianzas" aria-label="Súmate">
+        <div class="section-inner join-grid">
+            <div class="join-card join-students">
+                <p class="eyebrow eyebrow-dark">Estudiantes</p>
+                <h2>¿Quieres construir proyectos reales?</h2>
+                <p>Buscamos estudiantes con ganas de aprender en taller, desarrollar prototipos, software o gestión. No necesitas experiencia previa en todo: valoramos el compromiso, la honestidad técnica y la curiosidad.</p>
+                <a href="/registro/" class="btn btn-primary">Postular a la Convocatoria 2026 <span aria-hidden="true">→</span></a>
             </div>
-            <div class="gallery-item" style="background-image: url('./src/assets/images/gallery/IMG-20260607-WA0039.jpg');">
-                <div class="gallery-item-overlay">
-                    <span class="tag">AVIÓNICA</span>
-                    <h5>Banco de Integración FlatSat</h5>
-                </div>
-            </div>
-            <div class="gallery-item" style="background-image: url('./src/assets/images/gallery/IMG-20260607-WA0022.jpg');">
-                <div class="gallery-item-overlay">
-                    <span class="tag">COHETERÍA</span>
-                    <h5>Plataforma de Lanzamiento Hidroneumática</h5>
-                </div>
-            </div>
-            <div class="gallery-item" style="background-image: url('./src/assets/images/gallery/IMG-20260611-WA0050.jpg');">
-                <div class="gallery-item-overlay">
-                    <span class="tag">VINCULACIÓN CON EL MEDIO</span>
-                    <h5>Presencia en evento de la UAI</h5>
-                </div>
-            </div>
-            <div class="gallery-item" style="background-image: url('./src/assets/images/gallery/IMG-20260605-WA0073.jpg');">
-                <div class="gallery-item-overlay">
-                    <span class="tag">CAMPO</span>
-                    <h5>Pruebas de Despliegue en Terreno</h5>
-                </div>
+            <div class="join-card join-partners">
+                <p class="eyebrow eyebrow-dark">Profesionales y empresas</p>
+                <h2>Ayúdanos a llegar más lejos</h2>
+                <p>Cualquier aporte, ya sea económico, de conocimiento o de espacio, es un paso para que el desarrollo aeroespacial en Chile llegue aún más lejos.</p>
+                <a href="mailto:spaceprogram@usach.cl?subject=Apoyo%20o%20Colaboraci%C3%B3n%20-%20USACH%20Space%20Program" class="btn btn-ghost">Escríbenos</a>
             </div>
         </div>
     </section>
 
-    <!-- 7. Terminal Dual de Conversión -->
-    <section class="conversion-terminal-section" id="contacto-alianzas">
-        <div class="conversion-grid">
-            
-            <!-- Panel Estudiantes -->
-            <div class="conversion-card students">
-                <div class="card-tag">// POSTULACIÓN DE ESTUDIANTES</div>
-                <h3>¿Eres estudiante y buscas construir proyectos reales?</h3>
-                <p>
-                    Buscamos estudiantes con ganas de aprender en taller, desarrollar prototipos físicos, software o gestión. No se requiere experiencia previa en todas las áreas: valoramos el compromiso, la honestidad técnica y la curiosidad por aprender.
-                </p>
-                <div class="conversion-action">
-                    <a href="/registro/" class="btn-primary-tech">
-                        <span>Postular a la Convocatoria 2026</span>
-                        <span class="btn-arrow">→</span>
-                    </a>
-                </div>
+    <!-- 9. Alianzas -->
+    <section class="section section-light alliances" id="alianzas" aria-labelledby="alianzas-title">
+        <div class="section-inner">
+            <div class="section-head">
+                <p class="eyebrow">Ecosistema</p>
+                <h2 id="alianzas-title">Nos respaldan</h2>
             </div>
-
-            <!-- Panel Institucional -->
-            <div class="conversion-card institutions">
-                <div class="card-tag">// ALIANZAS & PATROCINIO</div>
-                <h3>¿Eres profesional u empresa?</h3>
-                <p>
-                    Si gustan en apoyar los distintos proyectos que estamos realizando pueden ponerse en contacto con nosotros por medio de nuestro correo institucional, cualquier aporte u apoyo tanto economico como en conocimiento u espacio son un paso para que el desarrollo aeroespacial en chile llegue aun mas lejos!
-                </p>
-                <div class="conversion-action">
-                    <a href="mailto:spaceprogram@usach.cl?subject=Apoyo%20o%20Colaboraci%C3%B3n%20-%20USACH%20Space%20Program" class="btn-secondary-tech">
-                        <span>Ponte en contacto con nosotros</span>
-                    </a>
-                </div>
+        </div>
+        <div class="marquee">
+            <div class="marquee-track">
+                <a href="https://www.usach.cl/" target="_blank" rel="noopener noreferrer" class="partner"><img src="./src/assets/images/gallery/usach_logo.png" alt="Universidad de Santiago de Chile"><span>Universidad de Santiago de Chile</span></a>
+                <a href="https://centroinnovacion.cl/" target="_blank" rel="noopener noreferrer" class="partner"><img src="./src/assets/images/gallery/centro de innovacion.webp" alt="Centro de Innovación USACH"><span>Centro de Innovación USACH</span></a>
+                <a href="https://www.achide.org/" target="_blank" rel="noopener noreferrer" class="partner"><img src="./src/assets/images/gallery/achide.png" alt="ACHIDE" class="logo-on-dark"><span>ACHIDE</span></a>
+                <a href="https://vrae.usach.cl/" target="_blank" rel="noopener noreferrer" class="partner"><img src="./src/assets/images/gallery/vrae_logo.svg" alt="VRAE USACH" class="logo-on-dark"><span>VRAE USACH</span></a>
+                <a href="https://full3d.cl/" target="_blank" rel="noopener noreferrer" class="partner"><img src="./src/assets/images/gallery/full3d_logo.png" alt="Full 3D"><span>Full 3D</span></a>
             </div>
-
         </div>
     </section>
 
-    <!-- 8. Red de Alianzas y Respaldo Institucional -->
-    <section class="alliances-section" id="alianzas">
-        <div class="section-header">
-            <div class="section-tag">[ ECOSISTEMA ]</div>
-            <h2>Respaldo y Vinculación Institucional</h2>
-            <p>Iniciativa apoyada por entidades clave dentro de la innovacion y desarrollo universitario nacional.</p>
-        </div>
-
-        <div class="alliances-logos">
-            <a href="https://www.usach.cl/" target="_blank" rel="noopener noreferrer" class="alliance-link-card">
-                <img src="./src/assets/images/gallery/usach_logo.png" alt="Universidad de Santiago de Chile">
-                <span>Universidad de Santiago de Chile</span>
-            </a>
-            <a href="https://centroinnovacion.cl/" target="_blank" rel="noopener noreferrer" class="alliance-link-card">
-                <img src="./src/assets/images/gallery/centro de innovacion.webp" alt="Centro de Innovación USACH">
-                <span>Centro de Innovación USACH</span>
-            </a>
-            <a href="https://www.achide.org/" target="_blank" rel="noopener noreferrer" class="alliance-link-card">
-                <img src="./src/assets/images/gallery/achide.png" alt="ACHIDE - Asociación Chilena del Espacio">
-                <span>ACHIDE (Asoc. Chilena del Espacio)</span>
-            </a>
-            <a href="https://vrae.usach.cl/" target="_blank" rel="noopener noreferrer" class="alliance-link-card">
-                <img src="./src/assets/images/gallery/vrae_logo.svg" alt="VRAE USACH">
-                <span>VRAE (Apoyo Estudiantil)</span>
-            </a>
-            <a href="https://full3d.cl/" target="_blank" rel="noopener noreferrer" class="alliance-link-card">
-                <img src="./src/assets/images/gallery/full3d_logo.png" alt="Full 3D Chile">
-                <span>Full 3D</span>
-            </a>
-        </div>
-    </section>
+    </main>
 
     <!-- Footer Component -->
     <footer>
@@ -630,36 +464,11 @@
 
         <div class="footer-bottom">
             <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
-            <p>Diseño y Fabricación con Fines Educativos</p>
+            <p>Diseño y fabricación con fines educativos</p>
         </div>
     </footer>
 
     <script type="module" src="./src/js/components/header.js"></script>
-
-    <!-- Script interactivo para filtro de proyectos -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const filterButtons = document.querySelectorAll('.project-filter-controls .filter-btn');
-            const projectCards = document.querySelectorAll('.projects-grid-catalog .project-tech-card');
-
-            filterButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterButtons.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-
-                    const filter = btn.getAttribute('data-filter');
-
-                    projectCards.forEach(card => {
-                        const category = card.getAttribute('data-category');
-                        if (filter === 'all' || category === filter) {
-                            card.style.display = 'flex';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            });
-        });
-    </script>
+    <script type="module" src="./src/js/pages/home.js"></script>
 </body>
 </html>

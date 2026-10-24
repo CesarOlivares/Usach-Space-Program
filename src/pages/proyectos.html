@@ -3,288 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyectos &amp; Hardware Aeroespacial | USACH Space Program</title>
-    
-    <link rel="icon" type="image/png" href="../assets/images/logo_noTextBLACK.png">
-    <link rel="stylesheet" href="../styles/main.css">
-    
-    <style>@import url("../styles/pages/proyectos.css");</style>
+    <title>Proyectos | USACH Space Program</title>
+    <meta name="description" content="Proyectos emblema y desafíos formativos del USACH Space Program: Rover Perseverance, Cohete de agua, CubeSat 1U, Mini CubeSat y Salva a Usachín.">
+
+    <link rel="icon" type="image/png" href="/src/assets/images/logo_noTextBLACK.png">
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <style>@import url("/src/styles/pages/proyectos.css");</style>
 </head>
-<body>
+<body class="site proyectos-page">
 
-    <!-- FONDO DE ESTRELLAS DINÁMICO -->
-    <div class="stars-container" id="stars"></div>
-
-    <!-- 0. BARRA SUPERIOR DE NAVEGACIÓN RÁPIDA (HUD NAVBAR) -->
-    <header class="rover-navbar">
-        <div class="rover-navbar-inner">
-            <!-- Brand -->
-            <a href="/" class="rover-nav-back" title="USACH Space Program">
-                <img src="../assets/images/logo_noTextBLACK.png" alt="Logo USP" class="rover-nav-logo">
-                <span class="brand-title">USACH Space Program</span>
+    <header>
+        <div class="nav-brand-container">
+            <a href="/" class="nav-brand-link">
+                <img src="/src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="nav-logo">
+                <span class="nav-brand">USACH Space Program</span>
             </a>
-
-            <!-- Enlaces Rápidos (Escritorio) -->
-            <nav class="rover-quick-nav">
-                <div class="nav-group">
-                    <a href="/" class="rover-nav-link">Inicio</a>
-                    <a href="/ejes/" class="rover-nav-link">Ejes</a>
-                    <a href="/proyectos/" class="rover-nav-link" style="color: var(--accent-amber);">Proyectos</a>
-                    <a href="/#manifiesto" class="rover-nav-link">Manifiesto</a>
-                    <a href="/#alianzas" class="rover-nav-link">Alianzas</a>
-                </div>
-
-                <span class="nav-divider">|</span>
-
-                <div class="nav-group">
-                    <a href="/proyectos/rover/" class="rover-nav-pill">Rover</a>
-                    <a href="/proyectos/cubesat/" class="rover-nav-pill">CubeSat 3U</a>
-                    <a href="/proyectos/cohete/" class="rover-nav-pill">Cohetería</a>
-                    <a href="/proyectos/cansat/" class="rover-nav-pill">Mini Cube-Sat</a>
-                    <a href="/proyectos/eggdrop/" class="rover-nav-pill">Salva a Usachín</a>
-                </div>
-            </nav>
-
-            <!-- Acciones -->
-            <div class="rover-nav-actions">
-                <a href="mailto:spaceprogram@usach.cl?subject=Consulta%20Proyectos%20-%20USACH%20Space%20Program" class="btn-nav-contact">
-                    <span>Contacto</span>
-                    <span>✉</span>
-                </a>
-                <a href="/registro/" class="btn-nav-postular">
-                    <span>Postular</span>
-                </a>
-            </div>
-
-            <!-- Botón Hamburguesa Móvil -->
-            <button class="rover-menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
-
-        <!-- Menú Desplegable Móvil -->
-        <div class="rover-mobile-menu" id="mobileMenu">
-            <a href="/" class="mobile-link home-link">USACH Space Program (Inicio)</a>
-            <div class="mobile-section-label">SECCIONES PRINCIPALES</div>
-            <a href="/ejes/" class="mobile-link">Ejes de Desarrollo</a>
-            <a href="/proyectos/" class="mobile-link active-link">Proyectos USP</a>
-            <a href="/#manifiesto" class="mobile-link">Manifiesto Estudiantil</a>
-            <a href="/#alianzas" class="mobile-link">Alianzas Institucionales</a>
-            <div class="mobile-section-label">PROYECTOS Y HARDWARE</div>
-            <a href="/proyectos/rover/" class="mobile-link">Rover Perseverance (Flagship)</a>
-            <a href="/proyectos/cubesat/" class="mobile-link">Bus Satelital CubeSat 3U</a>
-            <a href="/proyectos/cohete/" class="mobile-link">Cohetería Experimental &amp; Agua</a>
-            <a href="/proyectos/cansat/" class="mobile-link">Misión: Mini Cube-Sat</a>
-            <a href="/proyectos/eggdrop/" class="mobile-link">Misión: Salva a Usachín</a>
-            <div class="mobile-actions">
-                <a href="mailto:spaceprogram@usach.cl" class="btn-mobile-cta">Contacto: spaceprogram@usach.cl</a>
-                <a href="/registro/" class="btn-mobile-postular">Postular al Equipo 2026</a>
-            </div>
-        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+        <nav class="nav-links" id="navLinks">
+            <a href="/#novedades">Novedades</a>
+            <a href="/ejes/">Ejes</a>
+            <a href="/proyectos/" aria-current="page">Proyectos</a>
+            <a href="/#alianzas">Alianzas</a>
+            <a href="mailto:spaceprogram@usach.cl" class="nav-contact">Contacto</a>
+            <a href="/registro/" class="btn-nav-cta">Postular</a>
+        </nav>
     </header>
 
-    <!-- 1. CATALOG HERO -->
-    <section class="catalog-hero-section">
-        <div class="catalog-watermark">PROYECTOS</div>
-        
-        <div class="catalog-hero-inner">
-            <div class="rover-section-tag">
-                <span>✦</span>
-                <span>PORTAFOLIO DE INGENIERÍA // USACH SPACE PROGRAM</span>
-            </div>
-            <h1 class="catalog-hero-title">PROYECTOS AEROESPACIALES</h1>
-            <h2 class="catalog-hero-subtitle">De la Nivelación Formativa al Desarrollo de Hardware Avanzado</h2>
-            
-            <p class="catalog-hero-desc">
-                Nuestras iniciativas reflejan la metodología de aprender haciendo. Dividimos el trabajo entre <strong>Proyectos Emblema</strong> (plataformas avanzadas de robótica, satélites y cohetería) e <strong>Iniciativas Formativas</strong> (desafíos prácticos para nivelar a nuevos estudiantes desde conceptos básicos).
-            </p>
+    <main>
 
-            <!-- Filtros de Categoría -->
-            <div class="catalog-filters">
-                <button class="filter-btn active" data-filter="all">Todos los Proyectos (5)</button>
-                <button class="filter-btn" data-filter="emblema">★ Proyectos Emblema (3)</button>
-                <button class="filter-btn" data-filter="formativa">✦ Iniciativas Formativas (2)</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- 2. GRID DE PROYECTOS -->
-    <section class="catalog-grid-section">
-        <div class="catalog-grid" id="projectsGrid">
-            
-            <!-- Card 1: Rover Perseverance -->
-            <article class="catalog-card" data-category="emblema">
-                <div class="catalog-card-visual">
-                    <img src="../assets/images/rover/rover_primer_ensamble_completo.jpg" alt="Rover Perseverance USACH Space Program" loading="lazy">
-                    <div class="catalog-badge-floating">
-                        <span>★</span> PROYECTO EMBLEMA
-                    </div>
-                </div>
-                <div class="catalog-card-body">
-                    <span class="catalog-card-tag">EJE 01 // ROBÓTICA AEROESPACIAL</span>
-                    <h3 class="catalog-card-title">Rover Perseverance</h3>
-                    <p class="catalog-card-desc">
-                        Plataforma de exploración análoga 6WD con suspensión Rocker-Bogie, manufactura aditiva técnica en PETG (Full 3D) y control distribuido. Ganador a Mejor Impresión Aplicada en la 3D Printed Party y embajador en colegios.
-                    </p>
-                    <div class="catalog-card-footer">
-                        <span class="catalog-card-telemetry">6WD Pasivo · Full 3D</span>
-                        <a href="/proyectos/rover/" class="catalog-btn-link">
-                            <span>Ver Detalles</span>
-                            <span>→</span>
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 2: CubeSat 3U -->
-            <article class="catalog-card" data-category="emblema">
-                <div class="catalog-card-visual">
-                    <img src="../assets/images/nasa/cubesat_deployment.jpg" alt="Despliegue de CubeSat en órbita LEO desde la ISS - NASA" loading="lazy">
-                    <div class="catalog-badge-floating">
-                        <span>★</span> PROYECTO EMBLEMA
-                    </div>
-                </div>
-                <div class="catalog-card-body">
-                    <span class="catalog-card-tag">EJE 03 // SISTEMAS ORBITALES</span>
-                    <h3 class="catalog-card-title">Bus Satelital CubeSat 3U</h3>
-                    <p class="catalog-card-desc">
-                        Plataforma de validación orbital bajo el estándar internacional CubeSat Design Specification (Rev. 14). En desarrollo de arquitectura FlatSat en mesa, subsistema de potencia solar EPS, transceptores y estabilización ADCS.
-                    </p>
-                    <div class="catalog-card-footer">
-                        <span class="catalog-card-telemetry">LEO Class · CDS 3U</span>
-                        <a href="/proyectos/cubesat/" class="catalog-btn-link">
-                            <span>Ver Detalles</span>
-                            <span>→</span>
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 3: Cohete Experimental 3U -->
-            <article class="catalog-card" data-category="emblema">
-                <div class="catalog-card-visual">
-                    <img src="../assets/images/nasa/cohete_1u_prep.jpg" alt="Montaje de cohete de sondeo en rampa de lanzamiento - NASA" loading="lazy">
-                    <div class="catalog-badge-floating">
-                        <span>★</span> PROYECTO EMBLEMA
-                    </div>
-                </div>
-                <div class="catalog-card-body">
-                    <span class="catalog-card-tag">EJE 02 // COHETERÍA EXPERIMENTAL</span>
-                    <h3 class="catalog-card-title">Cohete Experimental 3U</h3>
-                    <p class="catalog-card-desc">
-                        Vehículo de sondeo atmosférico de 3 unidades para elevación de cargas útiles científicas. Cálculo de estabilidad aerodinámica (CP vs CG), aviónica de altimetría con barómetro y doble mecanismo de paracaídas.
-                    </p>
-                    <div class="catalog-card-footer">
-                        <span class="catalog-card-telemetry">Sondeo 3U · Altimetría</span>
-                        <a href="/proyectos/cohete/" class="catalog-btn-link">
-                            <span>Ver Detalles</span>
-                            <span>→</span>
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 4: Mini-CubeSat 1U & CanSat -->
-            <article class="catalog-card" data-category="formativa">
-                <div class="catalog-card-visual">
-                    <img src="../assets/images/nasa/nasa_balloon_payload.jpg" alt="Ensayo de carga útil estratosférica - NASA" loading="lazy">
-                    <div class="catalog-badge-floating cyan">
-                        <span>✦</span> INICIATIVA FORMATIVA
-                    </div>
-                </div>
-                <div class="catalog-card-body">
-                    <span class="catalog-card-tag cyan">EJE 03 // SISTEMAS ORBITALES</span>
-                    <h3 class="catalog-card-title">Misión: Mini Cube-Sat</h3>
-                    <p class="catalog-card-desc">
-                        Desafío de electrónica y enlace inalámbrico. Los equipos integran batería, microcontrolador, antena y sensores en una estructura cúbica cerrada para registrar anomalías ambientales en vuelo suspendido con dron hasta 30 m de altura.
-                    </p>
-                    <div class="catalog-card-footer">
-                        <span class="catalog-card-telemetry">Cubo Cerrado · Enlace RF Dron</span>
-                        <a href="/proyectos/cansat/" class="catalog-btn-link">
-                            <span>Ver Detalles</span>
-                            <span>→</span>
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 5: Salva a Usachín -->
-            <article class="catalog-card" data-category="formativa">
-                <div class="catalog-card-visual">
-                    <img src="../assets/images/nasa/salva_usachin_drop.jpg" alt="Simulación de descenso planetario y paracaídas - NASA" loading="lazy">
-                    <div class="catalog-badge-floating cyan">
-                        <span>✦</span> INICIATIVA FORMATIVA
-                    </div>
-                </div>
-                <div class="catalog-card-body">
-                    <span class="catalog-card-tag cyan">EJE 02 // COHETERÍA Y PROPULSIÓN</span>
-                    <h3 class="catalog-card-title">Misión: Salva a Usachín</h3>
-                    <p class="catalog-card-desc">
-                        Desafío de paracaídas y descenso pasivo. Los equipos construyen una cápsula que quepa en un molde cilíndrico de 1L y proteja el módulo sensor OLED (Usachín) ante una caída libre lanzada desde un dron en el campus.
-                    </p>
-                    <div class="catalog-card-footer">
-                        <span class="catalog-card-telemetry">Molde 1L · Sensor OLED · Dron</span>
-                        <a href="/proyectos/eggdrop/" class="catalog-btn-link">
-                            <span>Ver Detalles</span>
-                            <span>→</span>
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-        </div>
-    </section>
-
-    <!-- 3. CITA & CTA -->
-    <section class="project-quote-cta-section">
-        <div class="project-quote-box">
-            <div class="project-quote-text">
-                "La ingeniería aeroespacial en la USACH no es un privilegio de unos pocos: es un espacio abierto para cualquiera dispuesto a aprender y trabajar en equipo."
-            </div>
-            <div class="project-quote-sub">— USACH SPACE PROGRAM · COMUNIDAD DE ESTUDIANTES</div>
-        </div>
-
-        <div class="project-cta-card">
-            <h3>¿Tienes una Idea o Quieres Integrarte a un Proyecto?</h3>
-            <p>
-                Buscamos estudiantes motivados de todas las carreras para integrarse a nuestros equipos de robótica, cohetería y sistemas orbitales.
-            </p>
-            <a href="/registro/" class="btn-project-cta">
-                <span>Postular a la Convocatoria 2026</span>
-                <span>→</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- FOOTER INSTITUCIONAL -->
-    <footer style="background: #000000; border-top: 1px solid var(--border-subtle); padding: 70px 40px 40px;">
-        <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 50px;">
+    <section class="page-hero">
+        <div class="section-inner proyectos-hero">
             <div>
-                <h3 style="font-family: var(--font-now); font-size: 1.15rem; color: #ffffff; margin: 0 0 14px 0; text-transform: uppercase; letter-spacing: 1px;">USACH Space Program</h3>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
+                <p class="eyebrow eyebrow-dark">Portafolio</p>
+                <h1>Proyectos</h1>
+                <p class="page-hero-lede">Proyectos emblema de largo aliento, donde cada eje desarrolla hardware real, y desafíos formativos de 4 semanas para quienes recién llegan.</p>
             </div>
-            <div>
-                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Navegación</h4>
-                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
-                    <li><a href="/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">← Inicio Principal</a></li>
-                    <li><a href="/ejes/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Ejes de Desarrollo</a></li>
-                    <li><a href="/registro/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Convocatoria y Postulación</a></li>
+            <dl class="hero-stats">
+                <div><dt>Proyectos emblema</dt><dd>3</dd></div>
+                <div><dt>Desafíos formativos</dt><dd>3</dd></div>
+                <div><dt>Ejes</dt><dd>3</dd></div>
+            </dl>
+        </div>
+    </section>
+
+    <section class="section section-light section-tight" id="catalogo" aria-labelledby="catalogo-title">
+        <div class="section-inner">
+            <h2 id="catalogo-title" class="visually-hidden">Catálogo</h2>
+
+            <div class="filters">
+                <div class="filter-bar" role="group" aria-label="Filtrar por tipo">
+                    <span class="filter-label">Tipo</span>
+                    <button class="filter-chip is-active" data-group="tipo" data-filter="all" aria-pressed="true">Todos</button>
+                    <button class="filter-chip" data-group="tipo" data-filter="emblema" aria-pressed="false">Emblema <span>3</span></button>
+                    <button class="filter-chip" data-group="tipo" data-filter="formativo" aria-pressed="false">Formativos <span>3</span></button>
+                </div>
+                <div class="filter-bar" role="group" aria-label="Filtrar por eje">
+                    <span class="filter-label">Eje</span>
+                    <button class="filter-chip is-active" data-group="eje" data-filter="all" aria-pressed="true">Todos</button>
+                    <button class="filter-chip" data-group="eje" data-filter="robotica" aria-pressed="false" style="--eje: var(--eje-robotica)"><i class="chip-dot"></i>Robótica</button>
+                    <button class="filter-chip" data-group="eje" data-filter="coheteria" aria-pressed="false" style="--eje: var(--eje-coheteria)"><i class="chip-dot"></i>Cohetería</button>
+                    <button class="filter-chip" data-group="eje" data-filter="orbital" aria-pressed="false" style="--eje: var(--eje-orbital)"><i class="chip-dot"></i>Sistemas Orbitales</button>
+                </div>
+            </div>
+
+            <div class="projects-grid" aria-live="polite">
+                <a class="project-card" href="/proyectos/rover/" data-tipo="emblema" data-eje="robotica" style="--eje: var(--eje-robotica-ink)">
+                    <div class="project-media"><img src="/src/assets/images/rover/rover_primer_ensamble_completo.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body">
+                        <p class="project-meta"><span class="project-axis">Robótica</span> · Emblema</p>
+                        <h3>Rover Perseverance</h3>
+                        <p>Réplica funcional de 6 ruedas con suspensión Rocker-Bogie, piezas impresas en 3D y tracción independiente.</p>
+                        <p class="project-status"><span class="status-dot"></span>Optimización 2026–2027</p>
+                    </div>
+                </a>
+                <a class="project-card" href="/proyectos/cohete/" data-tipo="emblema" data-eje="coheteria" style="--eje: var(--eje-coheteria-ink)">
+                    <div class="project-media"><img src="/src/assets/images/gallery/IMG-20260607-WA0022.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body">
+                        <p class="project-meta"><span class="project-axis">Cohetería</span> · Emblema</p>
+                        <h3>Cohete de agua</h3>
+                        <p>Plataforma hidroneumática que pasa de una etapa a multietapa, con telemetría y paracaídas. Meta: propulsión sólida en 2028.</p>
+                        <p class="project-status"><span class="status-dot"></span>Fase 1 · Cohete de agua</p>
+                    </div>
+                </a>
+                <a class="project-card" href="/proyectos/cubesat/" data-tipo="emblema" data-eje="orbital" style="--eje: var(--eje-orbital-ink)">
+                    <div class="project-media"><img src="/src/assets/images/gallery/IMG-20260607-WA0039.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body">
+                        <p class="project-meta"><span class="project-axis">Sistemas Orbitales</span> · Emblema</p>
+                        <h3>CubeSat 1U</h3>
+                        <p>Satélite de 10 × 10 × 10 cm: computador de a bordo, potencia y comunicaciones integrados en FlatSat.</p>
+                        <p class="project-status"><span class="status-dot"></span>Integración en laboratorio</p>
+                    </div>
+                </a>
+                <a class="project-card" href="/proyectos/cansat/" data-tipo="formativo" data-eje="orbital" style="--eje: var(--eje-orbital-ink)">
+                    <div class="project-media"><img src="/src/assets/images/nasa/minicubesat_lab.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body">
+                        <p class="project-meta"><span class="project-axis">Sistemas Orbitales</span> · Formativo</p>
+                        <h3>Misión: Mini CubeSat</h3>
+                        <p>Sensores, controlador y antena en un cubo que transmite datos en vivo mientras un dron lo eleva hasta 30 m.</p>
+                        <p class="project-status"><span class="status-dot"></span>Desafío de 4 semanas</p>
+                    </div>
+                </a>
+                <a class="project-card" href="/proyectos/eggdrop/" data-tipo="formativo" data-eje="coheteria" style="--eje: var(--eje-coheteria-ink)">
+                    <div class="project-media"><img src="/src/assets/images/nasa/salva_usachin_drop.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body">
+                        <p class="project-meta"><span class="project-axis">Cohetería</span> · Formativo</p>
+                        <h3>Misión: Salva a Usachín</h3>
+                        <p>Una cápsula de 1 litro con paracaídas que debe proteger a Usachín en una caída libre desde un dron.</p>
+                        <p class="project-status"><span class="status-dot"></span>Desafío de 4 semanas</p>
+                    </div>
+                </a>
+                <a class="project-card" href="/proyectos/cohete/#formativo" data-tipo="formativo" data-eje="coheteria" style="--eje: var(--eje-coheteria-ink)">
+                    <div class="project-media"><img src="/src/assets/images/nasa/cohete_1u_prep.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body">
+                        <p class="project-meta"><span class="project-axis">Cohetería</span> · Formativo</p>
+                        <h3>Cohete de agua (1 unidad)</h3>
+                        <p>La física de la propulsión, el centrado de masas (CG vs. CP), aletas impresas en 3D y un paracaídas básico.</p>
+                        <p class="project-status"><span class="status-dot"></span>Introducción</p>
+                    </div>
+                </a>
+                <p class="filter-empty" hidden>No hay proyectos con esa combinación. Prueba con otro filtro.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark" aria-labelledby="tipos-title">
+        <div class="section-inner">
+            <div class="section-head">
+                <p class="eyebrow">Cómo se organizan</p>
+                <h2 id="tipos-title">Dos formas de participar</h2>
+            </div>
+            <div class="kinds">
+                <article class="kind">
+                    <span class="kind-label">Proyectos emblema</span>
+                    <h3>Desarrollo continuo por eje</h3>
+                    <p>Cada eje tiene un proyecto de largo aliento con fases, informes y demostraciones. Aquí se trabaja todo el año junto a los líderes de eje.</p>
+                    <ul class="check-list">
+                        <li>Hoja de ruta anual por fases</li>
+                        <li>Documentación técnica abierta</li>
+                        <li>Para integrantes del programa</li>
+                    </ul>
+                    <a href="/registro/" class="btn btn-primary">Postular al programa <span aria-hidden="true">→</span></a>
+                </article>
+                <article class="kind">
+                    <span class="kind-label">Desafíos formativos</span>
+                    <h3>Cuatro semanas, en equipo</h3>
+                    <p>Competencias cortas abiertas a toda la USACH. USP entrega los materiales y el acompañamiento, y no necesitas experiencia previa.</p>
+                    <ul class="check-list">
+                        <li>Equipos de 2 a 4 personas</li>
+                        <li>Prueba final con dron y premios</li>
+                        <li>Puerta de entrada al programa</li>
+                    </ul>
+                    <a href="/talleres/" class="btn btn-ghost">Inscribirme a un desafío</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-info">
+                <h3>USACH Space Program</h3>
+                <p>Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/proyectos/">Proyectos</a></li>
+                    <li><a href="/ejes/">Ejes</a></li>
+                    <li><a href="/registro/">Postular</a></li>
                 </ul>
             </div>
-            <div>
-                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Contacto Oficial</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 8px 0;">Universidad de Santiago de Chile</p>
-                <p style="margin: 0;"><a href="mailto:spaceprogram@usach.cl" style="color: var(--accent-amber); text-decoration: none; font-size: 0.9rem; font-family: var(--font-mono);">spaceprogram@usach.cl</a></p>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p>Universidad de Santiago de Chile</p>
+                <p><a href="mailto:spaceprogram@usach.cl">spaceprogram@usach.cl</a></p>
+            </div>
+            <div class="footer-institutions">
+                <h4>Vínculos</h4>
+                <div class="footer-institution-logos">
+                    <a href="https://centroinnovacion.cl/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="Centro de Innovación USACH"><img src="/src/assets/images/gallery/centro de innovacion.webp" alt="Centro de Innovación USACH"></a>
+                    <a href="https://www.achide.org/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="ACHIDE"><img src="/src/assets/images/gallery/achide.png" alt="ACHIDE"></a>
+                </div>
             </div>
         </div>
-        <div style="max-width: 1400px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">
-            <span>&copy; 2026 USACH Space Program. Todos los derechos reservados.</span>
-            <span>Diseño y Fabricación con Fines Educativos</span>
+        <div class="footer-bottom">
+            <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
+            <p>Diseño y fabricación con fines educativos</p>
         </div>
     </footer>
 
-    <script type="module" src="../js/pages/proyectos.js"></script>
+    <script type="module" src="/src/js/components/header.js"></script>
+    <script type="module" src="/src/js/pages/proyectos.js"></script>
 </body>
 </html>

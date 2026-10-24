@@ -47,12 +47,13 @@ header {
 .nav-links {
     display: flex;
     align-items: center;
+    gap: 24px;
 }
 
 .nav-links a {
     color: var(--text-secondary);
     text-decoration: none;
-    margin-left: 24px;
+    margin-left: 0;
     font-size: 0.8rem;
     font-family: var(--font-mono);
     font-weight: 500;
@@ -80,6 +81,10 @@ header {
     filter: brightness(1.15);
     box-shadow: 0 0 15px rgba(229, 169, 88, 0.4);
     transform: translateY(-1px);
+}
+
+.nav-links .nav-contact {
+    color: var(--accent-amber);
 }
 
 .nav-links .btn-login {

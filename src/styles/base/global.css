@@ -7,7 +7,10 @@ body, html {
     background-repeat: repeat;
     color: var(--bone-white);
     scroll-behavior: smooth;
+    /* clip (no hidden): hidden en html y body convierte a body en contenedor
+       de scroll y rompe position: sticky */
     overflow-x: hidden;
+    overflow-x: clip;
 }
 
 /* === TECH GRID BACKGROUND PATTERN OVERLAY === */

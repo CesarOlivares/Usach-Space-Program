@@ -4,514 +4,321 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rover Perseverance | USACH Space Program</title>
-    
-    <link rel="icon" type="image/png" href="../../../src/assets/images/logo_noTextBLACK.png">
-    <link rel="stylesheet" href="../../../src/styles/main.css">
-    
-    <style>@import url("../../styles/pages/proyectos/rover_avanzado.css");</style>
+    <meta name="description" content="Réplica funcional del rover Perseverance construida por estudiantes del USACH Space Program: suspensión Rocker-Bogie, impresión 3D y tracción 6WD.">
+
+    <link rel="icon" type="image/png" href="/src/assets/images/logo_noTextBLACK.png">
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <style>@import url("/src/styles/pages/ficha.css");</style>
 </head>
-<body>
+<body class="site ficha" style="--eje: var(--eje-robotica); --eje-ink: var(--eje-robotica-ink);">
 
-    <!-- FONDO DE ESTRELLAS DINÁMICO -->
-    <div class="stars-container" id="stars"></div>
-
-    <!-- 0. BARRA SUPERIOR DE NAVEGACIÓN RÁPIDA (HUD NAVBAR) -->
-    <header class="rover-navbar">
-        <div class="rover-navbar-inner">
-            <!-- Brand -->
-            <a href="/" class="rover-nav-back" title="USACH Space Program">
-                <img src="../../../src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="rover-nav-logo">
-                <span class="brand-title">USACH Space Program</span>
+    <header>
+        <div class="nav-brand-container">
+            <a href="/" class="nav-brand-link">
+                <img src="/src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="nav-logo">
+                <span class="nav-brand">USACH Space Program</span>
             </a>
-
-            <!-- Enlaces Rápidos (Escritorio) -->
-            <nav class="rover-quick-nav">
-                <div class="nav-group">
-                    <a href="/" class="rover-nav-link">Inicio</a>
-                    <a href="/ejes/" class="rover-nav-link">Ejes</a>
-                    <a href="/proyectos/" class="rover-nav-link">Proyectos</a>
-                    <a href="/#alianzas" class="rover-nav-link">Alianzas</a>
-                </div>
-
-                <span class="nav-divider">|</span>
-
-                <div class="nav-group">
-                    <a href="#hitos" class="rover-nav-pill active-pill">★ Hitos</a>
-                    <a href="#mecanica" class="rover-nav-pill">Mecatrónica</a>
-                    <a href="#taller" class="rover-nav-pill">Taller</a>
-                    <a href="#video-pruebas" class="rover-nav-pill">Video</a>
-                    <a href="#galeria" class="rover-nav-pill">Galería</a>
-                    <a href="#roadmap" class="rover-nav-pill">Roadmap</a>
-                </div>
-            </nav>
-
-            <!-- Acciones -->
-            <div class="rover-nav-actions">
-                <a href="mailto:spaceprogram@usach.cl?subject=Contacto%20Rover%20-%20USACH%20Space%20Program" class="btn-nav-contact">
-                    <span>Contacto</span>
-                    <span>✉</span>
-                </a>
-                <a href="/registro/" class="btn-nav-postular">
-                    <span>Postular</span>
-                </a>
-            </div>
-
-            <!-- Botón Hamburguesa Móvil -->
-            <button class="rover-menu-toggle" id="roverMenuToggle" aria-label="Abrir menú de navegación">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
-
-        <!-- Menú Desplegable Móvil -->
-        <div class="rover-mobile-menu" id="roverMobileMenu">
-            <a href="/" class="mobile-link home-link">USACH Space Program (Inicio)</a>
-            <div class="mobile-section-label">SECCIONES PRINCIPALES</div>
-            <a href="/ejes/" class="mobile-link">Ejes de Desarrollo</a>
-            <a href="/proyectos/" class="mobile-link">Proyectos de Hardware</a>
-            <a href="/#manifiesto" class="mobile-link">Manifiesto y Filosofía</a>
-            <a href="/#alianzas" class="mobile-link">Alianzas Institucionales</a>
-            <div class="mobile-section-label">SECCIONES DEL ROVER</div>
-            <a href="#hitos" class="mobile-link">★ Hitos y Logros Principales</a>
-            <a href="#mecanica" class="mobile-link">Arquitectura Mecatrónica Rocker-Bogie</a>
-            <a href="#taller" class="mobile-link">Proceso y Aprendizaje de Taller</a>
-            <a href="#video-pruebas" class="mobile-link">Video de Ensayos Dinámicos</a>
-            <a href="#galeria" class="mobile-link">Memoria Fotográfica de Ensamblaje</a>
-            <a href="#roadmap" class="mobile-link">Hoja de Ruta Tecnológica</a>
-            <div class="mobile-actions">
-                <a href="mailto:spaceprogram@usach.cl" class="btn-mobile-cta">Contacto: spaceprogram@usach.cl</a>
-                <a href="/registro/" class="btn-mobile-postular">Postular al Equipo 2026</a>
-            </div>
-        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+        <nav class="nav-links" id="navLinks">
+            <a href="/#novedades">Novedades</a>
+            <a href="/ejes/">Ejes</a>
+            <a href="/proyectos/" aria-current="page">Proyectos</a>
+            <a href="/#alianzas">Alianzas</a>
+            <a href="mailto:spaceprogram@usach.cl" class="nav-contact">Contacto</a>
+            <a href="/registro/" class="btn-nav-cta">Postular</a>
+        </nav>
     </header>
 
-    <!-- 1. HERO SECTION -->
-    <section class="rover-hero-section">
-        <div class="rover-hero-watermark">PERSEVERANCE</div>
-        <div class="rover-hero-ambient"></div>
+    <main>
 
-        <div class="rover-hero-container">
-            <!-- Columna Izquierda: Viewport Chasis HUD -->
-            <div class="rover-viewport-card">
-                <div class="rover-img-wrapper">
-                    <img src="../../../src/assets/images/rover/rover_primer_ensamble_completo.jpg" alt="Rover Perseverance USACH Space Program">
-                    <div class="rover-img-overlay-telemetry">
-                        <span class="rover-overlay-tag">USACH-SP // ROVER-01</span>
-                        <span class="rover-overlay-badge">MECATRÓNICA OPERATIVA</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Columna Derecha: Títulos, Resumen y Métricas Clave -->
-            <div class="rover-hero-content">
-                <div class="rover-section-tag">
-                    <span>✦</span>
-                    <span>PROYECTO EMBLEMA // EJE 01 ROBÓTICA</span>
-                </div>
-                <h1 class="rover-hero-title">ROVER PERSEVERANCE</h1>
-                <h2 class="rover-hero-subtitle">Plataforma de Exploración Análoga 6WD</h2>
-                
-                <p class="rover-hero-desc">
-                    Plataforma robótica terrestre de 6 ruedas inspirada en la arquitectura cinemática del Rover Perseverance de la NASA. Diseñada, impresa en 3D y testeada por estudiantes del USACH Space Program para dominar la suspensión Rocker-Bogie, tracción motriz distribuida y sistemas de telemetría en terreno.
-                </p>
-
-                <!-- Grid de Telemetría Rápida -->
-                <div class="rover-pills-grid">
-                    <div class="rover-pill-item">
-                        <span class="rover-pill-label">Suspensión</span>
-                        <span class="rover-pill-val">Rocker-Bogie Pasivo 6WD</span>
-                    </div>
-                    <div class="rover-pill-item">
-                        <span class="rover-pill-label">Manufactura</span>
-                        <span class="rover-pill-val">PETG Técnico (Full 3D)</span>
-                    </div>
-                    <div class="rover-pill-item">
-                        <span class="rover-pill-label">Tracción</span>
-                        <span class="rover-pill-val">6 Motores DC c/ Reductores</span>
-                    </div>
-                    <div class="rover-pill-item">
-                        <span class="rover-pill-label">Telemetría</span>
-                        <span class="rover-pill-val">Radioenlace 2.4 GHz</span>
-                    </div>
-                </div>
-
-                <!-- Botones de Acción -->
-                <div class="rover-hero-actions">
-                    <a href="#hitos" class="btn-rover-primary">
-                        <span>Ver Hitos y Logros</span>
-                        <span>★</span>
-                    </a>
-                    <a href="#video-pruebas" class="btn-rover-secondary">
-                        <span>Pruebas en Video</span>
-                        <span>▶</span>
-                    </a>
-                </div>
-            </div>
+    <section class="ficha-hero">
+        <div class="ficha-hero-media">
+            <img src="/src/assets/images/rover/rover_primer_ensamble_completo.jpg" alt="">
         </div>
-    </section>
-
-    <!-- 2. SPECS BAR (PARÁMETROS TÉCNICOS) -->
-    <section class="rover-specs-section">
-        <div class="rover-specs-grid">
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Mecanismo</span>
-                <div class="rover-spec-value">Rocker-Bogie 6WD</div>
-                <p class="rover-spec-sub">Cinemática pasiva sin amortiguadores para superar obstáculos de hasta 1.5x el radio de rueda.</p>
-            </div>
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Material</span>
-                <div class="rover-spec-value">PETG Reforzado</div>
-                <p class="rover-spec-sub">Fabricación aditiva estructural de alta tenacidad al impacto en alianza con Full 3D.</p>
-            </div>
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Tracción</span>
-                <div class="rover-spec-value">6 Motores Reducidos</div>
-                <p class="rover-spec-sub">Torque distribuido independiente en cada eje para mantener tracción en roca y tierra.</p>
-            </div>
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Energía</span>
-                <div class="rover-spec-value">Pack Li-Ion + BMS</div>
-                <p class="rover-spec-sub">Alimentación modular con protección electrónica y balanceo de celdas.</p>
-            </div>
-            <div class="rover-spec-card">
-                <span class="rover-spec-key">Expansión</span>
-                <div class="rover-spec-value">Mástil & Sensores</div>
-                <p class="rover-spec-sub">Estructura preparada para integración de sensor LiDAR y brazo manipulador.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. SECCIÓN DESTACADA: HITOS Y RECONOCIMIENTOS (2 HITOS PRINCIPALES) -->
-    <section class="rover-milestones-section" id="hitos">
-        <div class="section-head-center">
-            <div class="rover-section-tag">
-                <span>✦</span>
-                <span>LOGROS & VINCULACIÓN</span>
-            </div>
-            <h2>Hitos Principales del Proyecto</h2>
-            <p>
-                El valor de llevar el prototipo más allá del laboratorio: validación de ingeniería en eventos nacionales y vinculación activa con la sociedad.
+        <div class="ficha-hero-inner">
+            <ol class="breadcrumb">
+                <li><a href="/proyectos/">Proyectos</a></li>
+                <li><a href="/ejes/#robotica">Eje Robótica</a></li>
+            </ol>
+            <p class="ficha-tag">Proyecto emblema · Eje 01</p>
+            <h1>Rover Perseverance</h1>
+            <p class="ficha-subtitle">Plataforma de exploración análoga de 6 ruedas</p>
+            <p class="ficha-lede">
+                Una réplica funcional del rover Perseverance de la NASA, diseñada, impresa en 3D y probada por estudiantes para dominar la suspensión Rocker-Bogie, la tracción distribuida y la telemetría en terreno.
             </p>
-        </div>
-
-        <div class="milestones-duo-grid">
-            <!-- Hito 1: Premio 3D Printed Party -->
-            <div class="milestone-card">
-                <div class="milestone-visual">
-                    <img src="../../../src/assets/images/rover/piezas_rover.jpg" alt="Piezas mecánicas impresas en 3D del Rover" loading="lazy">
-                    <div class="milestone-badge-floating">
-                        <span>★</span>
-                        <span>PREMIO NACIONAL</span>
-                    </div>
-                </div>
-                <div class="milestone-body">
-                    <span class="milestone-event-tag">3D PRINTED PARTY // ALIANZA FULL 3D</span>
-                    <h3 class="milestone-title">Premio a la Mejor Impresión Aplicada</h3>
-                    <p class="milestone-desc">
-                        El Rover Perseverance fue galardonado con el premio a la Mejor Impresión Aplicada en la 3D Printed Party. Este reconocimiento validó la resistencia mecánica y la precisión de encaje de los componentes estructurales de la suspensión Rocker-Bogie y soportes de tracción, modelados por estudiantes del equipo y materializados en PETG técnico con el respaldo de nuestro aliado Full 3D.
-                    </p>
-                    <ul class="milestone-points">
-                        <li>
-                            <span class="icon">✦</span>
-                            <span>Optimización topológica y relleno estructural de alta densidad.</span>
-                        </li>
-                        <li>
-                            <span class="icon">✦</span>
-                            <span>Pivotes y soportes mecánicos validados ante torsión en terreno.</span>
-                        </li>
-                        <li>
-                            <span class="icon">✦</span>
-                            <span>Reconocimiento de la comunidad nacional de manufactura aditiva.</span>
-                        </li>
-                    </ul>
-                </div>
+            <div class="ficha-actions on-dark">
+                <a href="#video" class="btn btn-primary">Ver el rover en acción <span aria-hidden="true">▶</span></a>
+                <a href="#ruta" class="btn btn-ghost">Ruta 2026–2027</a>
             </div>
-
-            <!-- Hito 2: Presencia en Admisión y Colegios -->
-            <div class="milestone-card">
-                <div class="milestone-visual">
-                    <img src="../../../src/assets/images/nasa/nasa_stem_outreach.jpg" alt="Actividad de divulgación STEM y robótica escolar" loading="lazy">
-                    <div class="milestone-badge-floating cyan">
-                        <span>✦</span>
-                        <span>DIVULGACIÓN STEM</span>
-                    </div>
-                    <div class="milestone-tag-temp">
-                        [ FOTOGRAFÍA REFERENCIAL NASA STEM // PRÓXIMAMENTE REGISTRO DE NUESTRAS VISITAS ]
-                    </div>
-                </div>
-                <div class="milestone-body">
-                    <span class="milestone-event-tag cyan">ADMISIÓN USACH & CHARLAS ESCOLARES</span>
-                    <h3 class="milestone-title">Presencia en Eventos de Admisión y Visitas a Colegios</h3>
-                    <p class="milestone-desc">
-                        Más que un prototipo mecatrónico, el rover se ha consolidado como nuestro principal embajador de divulgación científica y tecnológica. Ha participado en ferias de admisión de la USACH y visitas a establecimientos escolares, permitiendo que niños, niñas y postulantes a carreras de ingeniería vean, toquen y operen un sistema de exploración espacial análoga, acercando la ingeniería aeroespacial a la comunidad.
-                    </p>
-                    <ul class="milestone-points cyan">
-                        <li>
-                            <span class="icon">✦</span>
-                            <span>Demostraciones en vivo de cinemática y control de tracción.</span>
-                        </li>
-                        <li>
-                            <span class="icon">✦</span>
-                            <span>Motivación vocacional temprana para futuros ingenieros.</span>
-                        </li>
-                        <li>
-                            <span class="icon">✦</span>
-                            <span>Difusión de proyectos universitarios aeroespaciales en Chile.</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <dl class="ficha-facts">
+                <div><dt>Suspensión</dt><dd>Rocker-Bogie 6WD</dd></div>
+                <div><dt>Manufactura</dt><dd>PETG técnico con Full 3D</dd></div>
+                <div><dt>Equipo</dt><dd>Líder César Olivares · 2 integrantes</dd></div>
+                <div><dt>Etapa</dt><dd>Optimización 2026–2027</dd></div>
+            </dl>
         </div>
     </section>
 
-    <!-- 4. ARQUITECTURA MECATRÓNICA & SPLIT DE INGENIERÍA -->
-    <section class="rover-split-section" id="mecanica">
-        <div class="rover-split-container">
-            <div class="rover-split-text">
-                <span class="rover-section-tag">01 // CINEMÁTICA PASIVA</span>
-                <h2>Suspensión Rocker-Bogie: Tracción en Terreno Irregular</h2>
-                <p>
-                    Adoptamos la geometría Rocker-Bogie empleada por los vehículos de exploración marciana de la NASA. El sistema utiliza una viga basculante ('rocker') articulada con un bogie secundario en cada lateral, vinculados por un diferencial superior. Esto permite que las seis ruedas mantengan contacto continuo con el suelo en pendientes de hasta 45°, distribuyendo la carga de manera uniforme sobre rocas sin recurrir a amortiguadores tradicionales.
-                </p>
-                <div class="rover-split-feature-box">
-                    <h4>Capacidad de Franqueo de Obstáculos</h4>
-                    <p>El diseño permite al rover sortear rocas y escalones superiores al diámetro de sus propias ruedas manteniendo el cuerpo central estabilizado.</p>
-                </div>
-            </div>
-            <div class="rover-split-visual">
-                <img src="../../../src/assets/images/rover/rover_primer plano.jpeg" alt="Detalle mecatrónico de la suspensión Rocker-Bogie" loading="lazy">
-            </div>
-        </div>
-    </section>
+    <nav class="ficha-subnav" aria-label="Secciones del proyecto">
+        <ul>
+            <li><a href="#resumen">Resumen</a></li>
+            <li><a href="#hitos">Hitos</a></li>
+            <li><a href="#ingenieria">Ingeniería</a></li>
+            <li><a href="#video">Video</a></li>
+            <li><a href="#ruta">Ruta 2026–2027</a></li>
+            <li><a href="#galeria">Galería</a></li>
+        </ul>
+    </nav>
 
-    <!-- 5. PROCESO DE TALLER: DE LA PANTALLA A LA REALIDAD -->
-    <section class="rover-split-section" id="taller">
-        <div class="rover-split-container reverse">
-            <div class="rover-split-text">
-                <span class="rover-section-tag">02 // PROTOTIPADO Y RESILIENCIA</span>
-                <h2>Ingeniería de Taller: Modelado, Falla y Aprendizaje</h2>
-                <p>
-                    Construir un rover funcional desde cero implicó semanas continuas de modelado CAD, calibración de perfiles térmicos de extrusión y resolución de desalineaciones en los ejes de transmisión. Tuvimos que rediseñar pivotes que fallaron bajo esfuerzo cortante y recalibrar tolerancias mecánicas. Cada pieza defectuosa en el taller fue una lección práctica invaluable de ingeniería y trabajo en equipo.
-                </p>
-                <div class="rover-split-feature-box">
-                    <h4>Aprendizaje Basado en Fallas Reales</h4>
-                    <p>La experiencia directa en el taller forjó nuestro estándar de diseño y la comprensión real de las tolerancias mecánicas.</p>
-                </div>
-            </div>
-            <div class="rover-split-visual">
-                <img src="../../../src/assets/images/rover/decenso_a_la_locura.jpg" alt="Proceso de diseño y prototipado en el taller" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. VIDEO SECTION: PRUEBAS DINÁMICAS 360° -->
-    <section class="rover-video-section" id="video-pruebas">
-        <div class="section-head-center">
-            <div class="rover-section-tag">
-                <span>03 // VALIDACIÓN DINÁMICA</span>
-            </div>
-            <h2>Pruebas de Giro y Tracción en Taller</h2>
-            <p>
-                Validación funcional de la respuesta motriz, calibración de radioenlace 2.4 GHz y cinemática de giro del prototipo.
-            </p>
-        </div>
-
-        <div class="rover-video-wrapper">
-            <div class="rover-video-header-bar">
-                <div class="video-status-tag">
-                    <span class="status-dot"></span>
-                    <span>USACH-SP // ENSAYO DINÁMICO EN TALLER</span>
-                </div>
-                <span>RADIO TELEMETRÍA: 2.4 GHz // CONTROL 6WD</span>
-            </div>
-
-            <div class="rover-video-element-container" id="video-wrapper">
-                <div id="video-cover-hud">
-                    <div class="video-play-btn">▶</div>
-                    <span class="video-play-label">Reproducir Ensayo Dinámico</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. CRÓNICA DE ENSAMBLAJE (REGISTRO FOTOGRÁFICO DE TALLER) -->
-    <section class="rover-gallery-section" id="galeria">
-        <div class="section-head-center">
-            <div class="rover-section-tag">
-                <span>04 // MEMORIA TÉCNICA</span>
-            </div>
-            <h2>La Trayectoria del Equipo</h2>
-            <p>
-                Registro fotográfico de las etapas de fabricación de piezas, ensamble inicial y camaradería estudiantil.
-            </p>
-        </div>
-
-        <div class="rover-gallery-grid">
-            <!-- Card 1 -->
-            <div class="rover-gallery-card">
-                <div class="rover-gallery-card-img">
-                    <img src="../../../src/assets/images/rover/piezas_rover.jpg" alt="Piezas mecánicas impresas en 3D" loading="lazy">
-                </div>
-                <div class="rover-gallery-card-body">
-                    <span class="rover-card-step">ETAPA 01</span>
-                    <h4>Componentes y Manufactura</h4>
-                    <p>Inspección y limpieza de perfiles impresos en PETG técnico para la suspensión.</p>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="rover-gallery-card">
-                <div class="rover-gallery-card-img">
-                    <img src="../../../src/assets/images/rover/primeros_pasos_rover.jpg" alt="Primeros pasos del chasis del Rover" loading="lazy">
-                </div>
-                <div class="rover-gallery-card-body">
-                    <span class="rover-card-step">ETAPA 02</span>
-                    <h4>Montaje de Suspensión</h4>
-                    <p>Alineación de ejes y ensamblaje de los brazos articulados Rocker-Bogie.</p>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="rover-gallery-card">
-                <div class="rover-gallery-card-img">
-                    <img src="../../../src/assets/images/rover/primer_cuerpo_rover.jpg" alt="Estructura central del Rover" loading="lazy">
-                </div>
-                <div class="rover-gallery-card-body">
-                    <span class="rover-card-step">ETAPA 03</span>
-                    <h4>Estructura Central</h4>
-                    <p>Validación de la rigidez torsional del chasis y anclaje de la caja de aviónica.</p>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="rover-gallery-card">
-                <div class="rover-gallery-card-img">
-                    <img src="../../../src/assets/images/rover/rover_primer ensamblaje.jpeg" alt="Primer ensamblaje completo del Rover" loading="lazy">
-                </div>
-                <div class="rover-gallery-card-body">
-                    <span class="rover-card-step">ETAPA 04</span>
-                    <h4>Cableado e Integración</h4>
-                    <p>Tendido de líneas de potencia hacia los 6 motores y prueba de receptores.</p>
-                </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="rover-gallery-card">
-                <div class="rover-gallery-card-img">
-                    <img src="../../../src/assets/images/rover/rover_armado_foto_grupal.jpg" alt="Foto grupal del equipo con el Rover terminado" loading="lazy">
-                </div>
-                <div class="rover-gallery-card-body">
-                    <span class="rover-card-step">ETAPA 05</span>
-                    <h4>Esfuerzo Conjunto</h4>
-                    <p>El equipo del USACH Space Program tras finalizar el primer ensamble integral.</p>
-                </div>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="rover-gallery-card">
-                <div class="rover-gallery-card-img">
-                    <img src="../../../src/assets/images/rover/rover_pizza.jpg" alt="Camaradería en el taller espacial" loading="lazy">
-                </div>
-                <div class="rover-gallery-card-body">
-                    <span class="rover-card-step">ETAPA 06</span>
-                    <h4>Hitos y Camaradería</h4>
-                    <p>Celebrando las largas jornadas de taller y el trabajo compartido entre carreras.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. HOJA DE RUTA (ROADMAP TÉCNICO) -->
-    <section class="rover-roadmap-section" id="roadmap">
-        <div class="rover-roadmap-container">
-            <div class="section-head-center">
-                <div class="rover-section-tag">
-                    <span>05 // DESARROLLO CONTINUO</span>
-                </div>
-                <h2>Próximos Pasos en el Eje de Robótica</h2>
-                <p>
-                    Evolución técnica planificada para el Rover hacia mayor autonomía, sensórica avanzada y misiones de campo.
-                </p>
-            </div>
-
-            <div class="rover-roadmap-timeline">
-                <div class="rover-roadmap-item">
-                    <span class="roadmap-phase-tag">FASE 01 // MECATRÓNICA</span>
-                    <h4>Brazo Robótico Manipulador (3-DOF)</h4>
-                    <p>Diseño y fabricación de un brazo robótico articulado con efector final intercambiable para toma de muestras en terreno.</p>
-                </div>
-
-                <div class="rover-roadmap-item">
-                    <span class="roadmap-phase-tag">FASE 02 // VISIÓN Y TELEMETRÍA</span>
-                    <h4>Telemetría Visual FPV en Tiempo Real</h4>
-                    <p>Implementación de cámara de alta resolución con transmisión de baja latencia para operación remota fuera de línea de vista.</p>
-                </div>
-
-                <div class="rover-roadmap-item">
-                    <span class="roadmap-phase-tag">FASE 03 // SENSÓRICA & MAPEO</span>
-                    <h4>Fusión Sensorial IMU + Sensor LiDAR</h4>
-                    <p>Integración de estimación inercial y escaneo tridimensional preliminar para detección y evasión de obstáculos.</p>
-                </div>
-
-                <div class="rover-roadmap-item">
-                    <span class="roadmap-phase-tag">FASE 04 // VALIDACIÓN EN TERRENO</span>
-                    <h4>Ensayos en Ambientes Análogos Chilenos</h4>
-                    <p>Pruebas de campo en zonas áridas y rocosas nacionales simulando las condiciones geológicas de superficies planetarias.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 9. CITA INSPIRACIONAL & CALL TO ACTION -->
-    <section class="rover-quote-cta-section">
-        <div class="rover-quote-box">
-            <div class="rover-quote-text">
-                "La curiosidad nos impulsa a soñar; la ingeniería nos da las herramientas para construirlo con nuestras propias manos."
-            </div>
-            <div class="rover-quote-sub">— USACH SPACE PROGRAM · EJE DE ROBÓTICA AEROESPACIAL</div>
-        </div>
-
-        <div class="rover-cta-card">
-            <h3>¿Interesado en Colaborar con el Eje de Robótica?</h3>
-            <p>
-                Buscamos estudiantes con ganas de aprender en taller, empresas interesadas en patrocinar instrumental o materiales técnicos de impresión, y colegios que deseen recibir una visita del rover para motivar vocaciones científicas.
-            </p>
-            <a href="mailto:spaceprogram@usach.cl?subject=Contacto%20Eje%20Rob%C3%B3tica%20Rover%20-%20USACH%20Space%20Program" class="btn-rover-cta">
-                <span>Ponte en Contacto con Nosotros</span>
-                <span>✉</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- 10. FOOTER INSTITUCIONAL -->
-    <footer style="background: #000000; border-top: 1px solid var(--border-subtle); padding: 70px 40px 40px;">
-        <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 50px;">
+    <!-- Resumen -->
+    <section class="section section-light" id="resumen">
+        <div class="section-inner split">
             <div>
-                <h3 style="font-family: var(--font-now); font-size: 1.15rem; color: #ffffff; margin: 0 0 14px 0; text-transform: uppercase; letter-spacing: 1px;">USACH Space Program</h3>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
-            </div>
-            <div>
-                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Navegación</h4>
-                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
-                    <li><a href="/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">← Inicio Principal</a></li>
-                    <li><a href="/ejes/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Ejes de Desarrollo</a></li>
-                    <li><a href="/proyectos/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Catálogo de Proyectos</a></li>
-                    <li><a href="/registro/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Convocatoria y Postulación</a></li>
+                <p class="eyebrow">Resumen</p>
+                <h2>Un rover hecho por estudiantes</h2>
+                <div class="prose">
+                    <p>El eje partió de una inquietud común: ir más allá de los diagramas y armar un robot físico capaz de moverse sobre tierra, piedras y pasto irregular. Al estudiar cómo se desplazan los vehículos que exploran otros planetas, vimos que la tracción rígida se atasca con facilidad, así que construimos un mecanismo de suspensión que mantiene las seis ruedas siempre apoyadas.</p>
+                    <p>Construir un rover obliga a cruzar disciplinas: <strong>mecánica</strong> para el chasis, <strong>electrónica</strong> para alimentar los motores y <strong>programación</strong> para el control.</p>
+                </div>
+                <ul class="check-list">
+                    <li>Suspensión pasiva que mantiene las 6 ruedas en contacto con el suelo</li>
+                    <li>Piezas impresas en PETG con relleno de alta densidad</li>
+                    <li>Motores independientes por rueda para giros sobre su propio eje</li>
                 </ul>
             </div>
-            <div>
-                <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px 0;">Contacto Oficial</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 8px 0;">Universidad de Santiago de Chile</p>
-                <p style="margin: 0;"><a href="mailto:spaceprogram@usach.cl" style="color: var(--accent-amber); text-decoration: none; font-size: 0.9rem; font-family: var(--font-mono);">spaceprogram@usach.cl</a></p>
+            <figure class="split-figure">
+                <img src="/src/assets/images/rover/rover_primer plano.jpeg" alt="Detalle de la suspensión Rocker-Bogie del rover" loading="lazy">
+                <figcaption>Detalle de la suspensión Rocker-Bogie</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Hitos -->
+    <section class="section section-dark" id="hitos">
+        <div class="section-inner">
+            <div class="section-head">
+                <p class="eyebrow">Logros y vinculación</p>
+                <h2>Hitos del proyecto</h2>
+                <p class="section-intro">Llevar el prototipo más allá del laboratorio: validación en eventos y vinculación con la comunidad.</p>
+            </div>
+            <div class="feature-cards" style="--cols: 2">
+                <article class="feature-card">
+                    <div class="feature-card-media"><img src="/src/assets/images/rover/piezas_rover.jpg" alt="Piezas del rover impresas en 3D" loading="lazy"></div>
+                    <div class="feature-card-body">
+                        <span class="feature-card-tag">3D Printed Party · Full 3D</span>
+                        <h3>Premio a la Mejor Impresión Aplicada</h3>
+                        <p>El reconocimiento validó la resistencia y la precisión de encaje de las piezas de la suspensión y los soportes de tracción, modelados por el equipo e impresos en PETG técnico con el respaldo de Full 3D.</p>
+                    </div>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-card-media"><img src="/src/assets/images/rover/rover_armado_foto_grupal.jpg" alt="Equipo junto al rover terminado" loading="lazy"></div>
+                    <div class="feature-card-body">
+                        <span class="feature-card-tag">Admisión USACH · Colegios</span>
+                        <h3>Presencia en ferias y visitas a colegios</h3>
+                        <p>El rover se volvió nuestro principal embajador de divulgación: en ferias de admisión y visitas escolares, niñas, niños y postulantes pueden ver, tocar y operar un sistema de exploración análoga.</p>
+                    </div>
+                </article>
             </div>
         </div>
-        <div style="max-width: 1400px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">
-            <span>&copy; 2026 USACH Space Program. Todos los derechos reservados.</span>
-            <span>Diseño y Fabricación con Fines Educativos</span>
+    </section>
+
+    <!-- Ingeniería -->
+    <section class="section section-light" id="ingenieria">
+        <div class="section-inner">
+            <div class="section-head section-head-split">
+                <div>
+                    <p class="eyebrow">Cómo funciona</p>
+                    <h2>Ingeniería del rover</h2>
+                </div>
+                <p class="section-intro">Toca cada sistema para ver el detalle.</p>
+            </div>
+            <div class="expand-grid">
+                <details class="expand-card" open>
+                    <summary><span class="expand-num">01</span><span class="expand-title"><strong>Suspensión Rocker-Bogie</strong><small>Cinemática pasiva</small></span><span class="expand-icon"></span></summary>
+                    <div class="expand-body">
+                        <img src="/src/assets/images/rover/primeros_pasos_rover.jpg" alt="Montaje de la suspensión del rover" loading="lazy">
+                        <p>Una viga basculante (rocker) se articula con un bogie secundario en cada lado, unidos por un diferencial. Así las seis ruedas siguen apoyadas en pendientes y sobre rocas, repartiendo la carga sin amortiguadores tradicionales.</p>
+                    </div>
+                </details>
+                <details class="expand-card">
+                    <summary><span class="expand-num">02</span><span class="expand-title"><strong>Tracción 6WD</strong><small>6 motores con reductor</small></span><span class="expand-icon"></span></summary>
+                    <div class="expand-body">
+                        <p>Cada rueda tiene su propio motor con reductor. El torque repartido mantiene la tracción sobre roca y tierra, y permite maniobras diferenciales (skid-steer) y giros sobre su propio eje.</p>
+                    </div>
+                </details>
+                <details class="expand-card">
+                    <summary><span class="expand-num">03</span><span class="expand-title"><strong>Energía</strong><small>Pack Li-Ion</small></span><span class="expand-icon"></span></summary>
+                    <div class="expand-body">
+                        <p>Alimentación modular con baterías de ion-litio. Integrar un sistema de gestión de baterías (BMS) con protección y balanceo de celdas es uno de los objetivos del periodo 2026–2027.</p>
+                    </div>
+                </details>
+                <details class="expand-card">
+                    <summary><span class="expand-num">04</span><span class="expand-title"><strong>Taller: modelado, falla y aprendizaje</strong><small>Prototipado</small></span><span class="expand-icon"></span></summary>
+                    <div class="expand-body">
+                        <img src="/src/assets/images/rover/decenso_a_la_locura.jpg" alt="Trabajo de diseño y prototipado en el taller" loading="lazy">
+                        <p>Semanas de modelado CAD, calibración de impresión y corrección de desalineaciones en los ejes. Rediseñamos pivotes que fallaron y recalibramos tolerancias: cada pieza defectuosa fue una lección de ingeniería y trabajo en equipo.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video -->
+    <section class="section section-dark" id="video">
+        <div class="section-inner">
+            <div class="section-head">
+                <p class="eyebrow">Validación dinámica</p>
+                <h2>Pruebas de giro y tracción</h2>
+                <p class="section-intro">Respuesta de los motores, radioenlace 2.4 GHz y giro del prototipo en el taller.</p>
+            </div>
+            <div class="video-frame">
+                <video controls playsinline preload="none" poster="/src/assets/images/rover/rover_primer_ensamble_completo.jpg">
+                    <source src="/src/assets/videos/rover_prueba_giro.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ruta -->
+    <section class="section section-light" id="ruta">
+        <div class="section-inner">
+            <div class="section-head">
+                <p class="eyebrow">Proyecciones 2026–2027</p>
+                <h2>Optimizar y refinar</h2>
+                <p class="section-intro">El objetivo del periodo es mejorar la réplica que ya tenemos. Al cierre, el eje entrega un informe de mejoras y hace una presentación demostrativa.</p>
+            </div>
+            <ol class="timeline" style="--cols: 4">
+                <li><span class="timeline-when">Objetivo 01</span><h3>Navegación autónoma</h3><p>Optimizar el sistema para que el rover se desplace sin control manual.</p></li>
+                <li><span class="timeline-when">Objetivo 02</span><h3>Baterías con BMS</h3><p>Integrar un sistema de gestión que proteja y balancee las celdas.</p></li>
+                <li><span class="timeline-when">Objetivo 03</span><h3>Cámara con espectrógrafo</h3><p>Sumar instrumentación para analizar el entorno, como en una misión real.</p></li>
+                <li><span class="timeline-when">Objetivo 04</span><h3>Sistema LiDAR</h3><p>Escaneo del entorno para detectar y evitar obstáculos.</p></li>
+            </ol>
+            <div class="callout">
+                <strong>Lo que viene después</strong>
+                <p>Al terminar este periodo, el proyecto rover cierra y con lo aprendido se formulará un nuevo robot capaz de soportar condiciones hostiles y hacer tareas de construcción, en línea con lo que plantean las misiones Artemis III.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="section section-dark" id="galeria">
+        <div class="section-inner">
+            <div class="section-head section-head-split">
+                <div>
+                    <p class="eyebrow">Memoria técnica</p>
+                    <h2>La trayectoria del equipo</h2>
+                </div>
+                <p class="section-intro">De las primeras piezas al primer ensamble completo. Toca una foto para verla en grande.</p>
+            </div>
+            <div class="gallery">
+                <button class="gallery-item gallery-item-wide" data-full="/src/assets/images/rover/rover_armado_foto_grupal.jpg" data-caption="El equipo tras el primer ensamble completo">
+                    <img src="/src/assets/images/rover/rover_armado_foto_grupal.jpg" alt="El equipo tras el primer ensamble completo" loading="lazy">
+                    <span class="gallery-cap"><span class="gallery-tag">Etapa 05</span>Esfuerzo conjunto</span>
+                </button>
+                <button class="gallery-item" data-full="/src/assets/images/rover/piezas_rover.jpg" data-caption="Piezas impresas en PETG para la suspensión">
+                    <img src="/src/assets/images/rover/piezas_rover.jpg" alt="Piezas impresas en PETG para la suspensión" loading="lazy">
+                    <span class="gallery-cap"><span class="gallery-tag">Etapa 01</span>Componentes</span>
+                </button>
+                <button class="gallery-item gallery-item-tall" data-full="/src/assets/images/rover/primer_cuerpo_rover.jpg" data-caption="Estructura central del rover">
+                    <img src="/src/assets/images/rover/primer_cuerpo_rover.jpg" alt="Estructura central del rover" loading="lazy">
+                    <span class="gallery-cap"><span class="gallery-tag">Etapa 03</span>Estructura central</span>
+                </button>
+                <button class="gallery-item" data-full="/src/assets/images/rover/primeros_pasos_rover.jpg" data-caption="Montaje de la suspensión">
+                    <img src="/src/assets/images/rover/primeros_pasos_rover.jpg" alt="Montaje de la suspensión" loading="lazy">
+                    <span class="gallery-cap"><span class="gallery-tag">Etapa 02</span>Suspensión</span>
+                </button>
+                <button class="gallery-item" data-full="/src/assets/images/rover/rover_primer ensamblaje.jpeg" data-caption="Cableado e integración de los 6 motores">
+                    <img src="/src/assets/images/rover/rover_primer ensamblaje.jpeg" alt="Cableado e integración de los 6 motores" loading="lazy">
+                    <span class="gallery-cap"><span class="gallery-tag">Etapa 04</span>Cableado</span>
+                </button>
+                <button class="gallery-item gallery-item-wide" data-full="/src/assets/images/rover/rover_pizza.jpg" data-caption="Celebrando las jornadas de taller">
+                    <img src="/src/assets/images/rover/rover_pizza.jpg" alt="Celebrando las jornadas de taller" loading="lazy">
+                    <span class="gallery-cap"><span class="gallery-tag">Etapa 06</span>Camaradería</span>
+                </button>
+            </div>
+        </div>
+        <dialog class="lightbox" id="lightbox" aria-label="Foto ampliada">
+            <button class="lightbox-close" aria-label="Cerrar">×</button>
+            <button class="lightbox-nav lightbox-prev" aria-label="Foto anterior">‹</button>
+            <figure><img alt=""><figcaption></figcaption></figure>
+            <button class="lightbox-nav lightbox-next" aria-label="Foto siguiente">›</button>
+        </dialog>
+    </section>
+
+    <!-- Cierre -->
+    <section class="section section-dark section-tight" aria-label="Súmate">
+        <div class="section-inner">
+            <figure class="ficha-quote">
+                <blockquote>«La curiosidad nos impulsa a soñar; la ingeniería nos da las herramientas para construirlo con nuestras propias manos.»</blockquote>
+                <figcaption>Eje de Robótica · USACH Space Program</figcaption>
+            </figure>
+            <div class="cta-panel">
+                <div>
+                    <h2>¿Quieres sumarte al eje de Robótica?</h2>
+                    <p>Buscamos estudiantes con ganas de aprender en taller, empresas que quieran apoyar con instrumental o materiales, y colegios que quieran recibir una visita del rover.</p>
+                </div>
+                <div class="cta-actions on-dark">
+                    <a href="/registro/" class="btn btn-primary">Postular <span aria-hidden="true">→</span></a>
+                    <a href="mailto:spaceprogram@usach.cl?subject=Contacto%20Eje%20Rob%C3%B3tica%20-%20USACH%20Space%20Program" class="btn btn-ghost">Escríbenos</a>
+                </div>
+            </div>
+
+            <h2 class="related-title">Otros proyectos</h2>
+            <div class="projects-grid">
+                <a class="project-card" href="/proyectos/cubesat/" style="--eje: var(--eje-orbital-ink)">
+                    <div class="project-media"><img src="/src/assets/images/gallery/IMG-20260607-WA0039.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body"><p class="project-meta"><span class="project-axis">Sistemas Orbitales</span> · Emblema</p><h3>CubeSat 1U</h3></div>
+                </a>
+                <a class="project-card" href="/proyectos/cohete/" style="--eje: var(--eje-coheteria-ink)">
+                    <div class="project-media"><img src="/src/assets/images/gallery/IMG-20260607-WA0022.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body"><p class="project-meta"><span class="project-axis">Cohetería</span> · Emblema</p><h3>Cohete de agua</h3></div>
+                </a>
+                <a class="project-card" href="/ejes/#robotica" style="--eje: var(--eje-robotica-ink)">
+                    <div class="project-media"><img src="/src/assets/images/rover/posando_rover_1.jpg" alt="" loading="lazy"></div>
+                    <div class="project-body"><p class="project-meta"><span class="project-axis">Eje 01</span> · Robótica</p><h3>Conoce el eje completo</h3></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-info">
+                <h3>USACH Space Program</h3>
+                <p>Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/proyectos/">Proyectos</a></li>
+                    <li><a href="/ejes/">Ejes</a></li>
+                    <li><a href="/registro/">Postular</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p>Universidad de Santiago de Chile</p>
+                <p><a href="mailto:spaceprogram@usach.cl">spaceprogram@usach.cl</a></p>
+            </div>
+            <div class="footer-institutions">
+                <h4>Vínculos</h4>
+                <div class="footer-institution-logos">
+                    <a href="https://centroinnovacion.cl/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="Centro de Innovación USACH"><img src="/src/assets/images/gallery/centro de innovacion.webp" alt="Centro de Innovación USACH"></a>
+                    <a href="https://www.achide.org/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="ACHIDE"><img src="/src/assets/images/gallery/achide.png" alt="ACHIDE"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
+            <p>Diseño y fabricación con fines educativos</p>
         </div>
     </footer>
 
-    <script type="module" src="../../js/pages/proyectos/rover_avanzado.js"></script>
+    <script type="module" src="/src/js/components/header.js"></script>
+    <script type="module" src="/src/js/pages/ficha.js"></script>
 </body>
 </html>
