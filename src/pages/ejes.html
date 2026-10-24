@@ -443,7 +443,7 @@ body.site {
 }
 
 .project-card.is-entering {
-    animation: riseIn 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: riseIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes riseIn {
@@ -716,7 +716,7 @@ body.site {
     padding: 0 22px 22px;
     display: grid;
     gap: 14px;
-    animation: riseIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: riseIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .expand-body img {
@@ -903,6 +903,209 @@ body.site {
     flex-wrap: wrap;
     gap: 12px;
     justify-content: flex-end;
+}
+
+/* === TONOS Y PUENTES ENTRE SECCIONES ===
+   En vez de pasar de negro a crema en 1 px, cada cambio de tono
+   atraviesa un puente de degradado (dusk → haze → mist). */
+.section-night { background: var(--night); }
+.section-night-to-void { background: linear-gradient(to bottom, var(--night), var(--void)); }
+.section-paper-to-mist { background: linear-gradient(to bottom, var(--paper) 0%, var(--paper) 40%, var(--mist) 100%); }
+.section-mist-to-paper { background: linear-gradient(to bottom, var(--mist), var(--paper)); }
+.section-mist-paper-mist { background: linear-gradient(to bottom, var(--mist) 0%, var(--paper) 25%, var(--paper) 70%, var(--mist) 100%); }
+
+.tone-bridge {
+    height: clamp(48px, 7vw, 90px);
+    pointer-events: none;
+}
+
+.tone-bridge--to-light {
+    background: linear-gradient(to bottom,
+        var(--dusk) 0%,
+        #2A3244 22%,
+        #5A5F6B 45%,
+        var(--haze) 60%,
+        #C9C7C1 80%,
+        var(--paper) 100%);
+}
+
+.tone-bridge--to-dark {
+    background: linear-gradient(to bottom,
+        var(--mist) 0%,
+        #C9C7C1 18%,
+        var(--haze) 40%,
+        #3A4152 65%,
+        #161D2D 85%,
+        var(--night) 100%);
+}
+
+/* El puente que sigue a una sección void/night parte desde su color */
+.tone-bridge--from-night.tone-bridge--to-light {
+    background: linear-gradient(to bottom,
+        var(--void) 0%,
+        var(--dusk) 25%,
+        #5A5F6B 50%,
+        var(--haze) 62%,
+        #CFCDC6 82%,
+        var(--mist) 100%);
+}
+
+/* Superficies sobre fondo oscuro: degradado leve y brillo superior en vez de borde duro */
+.surface-dark {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 24px 48px -32px rgba(0, 0, 0, 0.8);
+    border: 0;
+}
+
+/* === CAMPO DE ESTRELLAS (fondo ambiental lento) === */
+.starfield {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.starfield::before {
+    content: "";
+    position: absolute;
+    inset: -240px 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.55), transparent 60%),
+        radial-gradient(1px 1px at 120px 80px, rgba(255, 255, 255, 0.35), transparent 60%),
+        radial-gradient(1.5px 1.5px at 200px 160px, rgba(255, 255, 255, 0.45), transparent 60%),
+        radial-gradient(1px 1px at 60px 200px, rgba(255, 255, 255, 0.3), transparent 60%),
+        radial-gradient(1px 1px at 260px 40px, rgba(229, 169, 88, 0.45), transparent 60%),
+        radial-gradient(1px 1px at 300px 240px, rgba(63, 184, 217, 0.4), transparent 60%);
+    background-size: 320px 280px;
+    opacity: 0.7;
+    animation: starDrift 140s linear infinite alternate;
+}
+
+@keyframes starDrift {
+    from { transform: translateY(0); }
+    to { transform: translateY(-200px); }
+}
+
+/* === GRANO FOTOGRÁFICO ===
+   Unifica fotos de celular y de stock con una textura fina común */
+.photo-grain,
+.project-media,
+.news-media {
+    position: relative;
+}
+
+.photo-grain::after,
+.project-media::after,
+.gallery-item::after,
+.eje-figure::after,
+.news-card:not(.is-featured) .news-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.18;
+    mix-blend-mode: overlay;
+}
+
+/* === IMAGEN REFERENCIAL (stock) ===
+   Duotono con el color del eje + grano + crédito discreto, para que
+   las fotos de la NASA se integren a la paleta y no se confundan con las propias */
+.project-media.is-reference {
+    position: relative;
+}
+
+.project-media.is-reference img {
+    filter: grayscale(1) contrast(1.08) brightness(0.92);
+}
+
+.project-media.is-reference::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(160deg, var(--eje, var(--ink-soft)) 0%, var(--night) 100%);
+    mix-blend-mode: color;
+    opacity: 0.85;
+}
+
+.project-media.is-reference::after {
+    z-index: 2;
+}
+
+.reference-credit {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    z-index: 3;
+    padding: 4px 8px;
+    border-radius: 3px;
+    background: rgba(5, 8, 15, 0.7);
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(245, 245, 240, 0.85);
+}
+
+/* === APARICIÓN AL HACER SCROLL ===
+   Solo se oculta el contenido si motion.js está activo (clase en <html>),
+   así sin JS todo sigue visible. */
+.motion-ready .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+        opacity 0.35s var(--ease-out),
+        transform 0.45s var(--ease-out);
+    transition-delay: calc(var(--reveal-i, 0) * 40ms);
+}
+
+.motion-ready .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Barras fijas (subnavegación de fichas, barra de ejes) sobre secciones claras */
+[data-adaptive-bar] {
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+[data-adaptive-bar] a,
+[data-adaptive-bar] button {
+    transition: color 0.4s ease, border-color 0.25s ease;
+}
+
+[data-adaptive-bar].over-light {
+    background: rgba(243, 240, 232, 0.88);
+    border-color: rgba(14, 20, 36, 0.1);
+}
+
+[data-adaptive-bar].over-light a,
+[data-adaptive-bar].over-light button {
+    color: var(--ink-soft);
+}
+
+[data-adaptive-bar].over-light a:hover,
+[data-adaptive-bar].over-light a.is-active,
+[data-adaptive-bar].over-light button:hover,
+[data-adaptive-bar].over-light button.is-active {
+    color: var(--ink);
+}
+
+[data-adaptive-bar].over-light a.is-active {
+    border-bottom-color: var(--eje-ink, var(--ink));
+}
+
+/* Flotación ambiental lenta */
+@keyframes floatY {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+}
+
+.float-soft {
+    animation: floatY 9s ease-in-out infinite;
 }
 
 /* === RESPONSIVE === */
@@ -1177,7 +1380,7 @@ body.site {
 
 /* === PANEL === */
 .eje-panel {
-    animation: riseIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: riseIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .eje-panel[hidden] {
@@ -1455,10 +1658,11 @@ body.site {
         padding: 0 12px;
     }
 }</style>
-  <script type="module" crossorigin src="/assets/ejes-CHlGho5N.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/main-CS0-8tIx.js">
+  <script type="module" crossorigin src="/assets/ejes-CaLi2230.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/main-CJjJ4RO2.js">
   <link rel="modulepreload" crossorigin href="/assets/header-BHafkzy6.js">
-  <link rel="stylesheet" crossorigin href="/assets/main-UeEJRPuF.css">
+  <link rel="modulepreload" crossorigin href="/assets/motion-BQLF6M6p.js">
+  <link rel="stylesheet" crossorigin href="/assets/main-C2hFK1Xc.css">
 </head>
 <body class="site ejes-page">
 
@@ -1482,7 +1686,7 @@ body.site {
 
     <main>
 
-    <section class="page-hero ejes-hero">
+    <section class="page-hero ejes-hero starfield" data-tone="dark">
         <div class="section-inner">
             <p class="eyebrow eyebrow-dark">Estructura de aprendizaje</p>
             <h1>Ejes de desarrollo</h1>
@@ -1519,7 +1723,7 @@ body.site {
         </div>
     </section>
 
-    <nav class="ejes-bar" aria-label="Cambiar de eje">
+    <nav class="ejes-bar" data-adaptive-bar aria-label="Cambiar de eje">
         <div class="ejes-bar-inner">
             <button class="ejes-bar-tab is-active" data-eje="robotica" style="--eje: var(--eje-robotica)"><span class="axis-dot"></span>Robótica</button>
             <button class="ejes-bar-tab" data-eje="coheteria" style="--eje: var(--eje-coheteria)"><span class="axis-dot"></span>Cohetería</button>
@@ -1527,9 +1731,11 @@ body.site {
         </div>
     </nav>
 
+    <div class="tone-bridge tone-bridge--from-night tone-bridge--to-light" aria-hidden="true"></div>
+
     <!-- =============================== ROBÓTICA =============================== -->
     <div class="eje-panel" id="eje-robotica" role="tabpanel" style="--eje: var(--eje-robotica); --eje-ink: var(--eje-robotica-ink);">
-        <section class="section section-light">
+        <section class="section section-light section-mist-to-paper" data-tone="light">
             <div class="section-inner">
                 <div class="split">
                     <div>
@@ -1558,7 +1764,25 @@ body.site {
             </div>
         </section>
 
-        <section class="section section-dark">
+        <section class="section section-light section-paper-to-mist section-tight" data-tone="light">
+            <div class="section-inner profile">
+                <div>
+                    <p class="eyebrow">A quién buscamos</p>
+                    <h2>Perfil del eje</h2>
+                </div>
+                <div>
+                    <p class="profile-text">Personas con interés o experiencia en mecánica, electrónica, programación y afines, con ganas de desarrollar robótica para condiciones extremas como la espacial, y con un fuerte compromiso con la colaboración interdisciplinaria y horizontal.</p>
+                    <div class="profile-actions">
+                        <a href="/registro/" class="btn btn-primary">Postular a Robótica <span aria-hidden="true">→</span></a>
+                        <a href="/proyectos/rover/" class="btn btn-ghost">Ver el Rover</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="tone-bridge tone-bridge--to-dark" aria-hidden="true"></div>
+
+        <section class="section section-dark section-night" data-tone="dark">
             <div class="section-inner">
                 <blockquote class="vision">
                     <span class="vision-label">Proyección a largo plazo</span>
@@ -1581,27 +1805,11 @@ body.site {
                 </div>
             </div>
         </section>
-
-        <section class="section section-light section-tight">
-            <div class="section-inner profile">
-                <div>
-                    <p class="eyebrow">A quién buscamos</p>
-                    <h2>Perfil del eje</h2>
-                </div>
-                <div>
-                    <p class="profile-text">Personas con interés o experiencia en mecánica, electrónica, programación y afines, con ganas de desarrollar robótica para condiciones extremas como la espacial, y con un fuerte compromiso con la colaboración interdisciplinaria y horizontal.</p>
-                    <div class="profile-actions">
-                        <a href="/registro/" class="btn btn-primary">Postular a Robótica <span aria-hidden="true">→</span></a>
-                        <a href="/proyectos/rover/" class="btn btn-ghost">Ver el Rover</a>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
 
     <!-- =============================== COHETERÍA =============================== -->
     <div class="eje-panel" id="eje-coheteria" role="tabpanel" style="--eje: var(--eje-coheteria); --eje-ink: var(--eje-coheteria-ink);" hidden>
-        <section class="section section-light">
+        <section class="section section-light section-mist-to-paper" data-tone="light">
             <div class="section-inner">
                 <div class="split">
                     <div>
@@ -1632,7 +1840,25 @@ body.site {
             </div>
         </section>
 
-        <section class="section section-dark">
+        <section class="section section-light section-paper-to-mist section-tight" data-tone="light">
+            <div class="section-inner profile">
+                <div>
+                    <p class="eyebrow">A quién buscamos</p>
+                    <h2>Perfil del eje</h2>
+                </div>
+                <div>
+                    <p class="profile-text">Estudiantes con interés o experiencia en mecánica, mecatrónica, electrónica, sistemas embebidos, simulación (CFD o dinámica de vuelo) y materiales. Se pide un compromiso riguroso con los protocolos de seguridad, el registro de datos, la redacción técnica y el trabajo multidisciplinario.</p>
+                    <div class="profile-actions">
+                        <a href="/registro/" class="btn btn-primary">Postular a Cohetería <span aria-hidden="true">→</span></a>
+                        <a href="/proyectos/cohete/" class="btn btn-ghost">Ver el Cohete de agua</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="tone-bridge tone-bridge--to-dark" aria-hidden="true"></div>
+
+        <section class="section section-dark section-night" data-tone="dark">
             <div class="section-inner">
                 <blockquote class="vision">
                     <span class="vision-label">Proyección a largo plazo</span>
@@ -1655,27 +1881,11 @@ body.site {
                 </div>
             </div>
         </section>
-
-        <section class="section section-light section-tight">
-            <div class="section-inner profile">
-                <div>
-                    <p class="eyebrow">A quién buscamos</p>
-                    <h2>Perfil del eje</h2>
-                </div>
-                <div>
-                    <p class="profile-text">Estudiantes con interés o experiencia en mecánica, mecatrónica, electrónica, sistemas embebidos, simulación (CFD o dinámica de vuelo) y materiales. Se pide un compromiso riguroso con los protocolos de seguridad, el registro de datos, la redacción técnica y el trabajo multidisciplinario.</p>
-                    <div class="profile-actions">
-                        <a href="/registro/" class="btn btn-primary">Postular a Cohetería <span aria-hidden="true">→</span></a>
-                        <a href="/proyectos/cohete/" class="btn btn-ghost">Ver el Cohete de agua</a>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
 
     <!-- =============================== SISTEMAS ORBITALES =============================== -->
     <div class="eje-panel" id="eje-orbital" role="tabpanel" style="--eje: var(--eje-orbital); --eje-ink: var(--eje-orbital-ink);" hidden>
-        <section class="section section-light">
+        <section class="section section-light section-mist-to-paper" data-tone="light">
             <div class="section-inner">
                 <div class="split">
                     <div>
@@ -1705,7 +1915,25 @@ body.site {
             </div>
         </section>
 
-        <section class="section section-dark">
+        <section class="section section-light section-paper-to-mist section-tight" data-tone="light">
+            <div class="section-inner profile">
+                <div>
+                    <p class="eyebrow">A quién buscamos</p>
+                    <h2>Perfil del eje</h2>
+                </div>
+                <div>
+                    <p class="profile-text">Estudiantes con interés o experiencia en electrónica, diseño, programación o telecomunicaciones. Se pide disposición al trabajo en equipo, investigación bibliográfica rigurosa y redacción técnica basada en fuentes primarias, documentando cómo se relacionan los subsistemas entre sí.</p>
+                    <div class="profile-actions">
+                        <a href="/registro/" class="btn btn-primary">Postular a Sistemas Orbitales <span aria-hidden="true">→</span></a>
+                        <a href="/proyectos/cubesat/" class="btn btn-ghost">Ver el CubeSat 1U</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="tone-bridge tone-bridge--to-dark" aria-hidden="true"></div>
+
+        <section class="section section-dark section-night" data-tone="dark">
             <div class="section-inner">
                 <blockquote class="vision">
                     <span class="vision-label">Proyección a largo plazo</span>
@@ -1727,26 +1955,10 @@ body.site {
                 </div>
             </div>
         </section>
-
-        <section class="section section-light section-tight">
-            <div class="section-inner profile">
-                <div>
-                    <p class="eyebrow">A quién buscamos</p>
-                    <h2>Perfil del eje</h2>
-                </div>
-                <div>
-                    <p class="profile-text">Estudiantes con interés o experiencia en electrónica, diseño, programación o telecomunicaciones. Se pide disposición al trabajo en equipo, investigación bibliográfica rigurosa y redacción técnica basada en fuentes primarias, documentando cómo se relacionan los subsistemas entre sí.</p>
-                    <div class="profile-actions">
-                        <a href="/registro/" class="btn btn-primary">Postular a Sistemas Orbitales <span aria-hidden="true">→</span></a>
-                        <a href="/proyectos/cubesat/" class="btn btn-ghost">Ver el CubeSat 1U</a>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
 
     <!-- Cierre -->
-    <section class="section section-dark section-tight" aria-label="Súmate">
+    <section class="section section-dark section-night section-tight" data-tone="dark" aria-label="Súmate">
         <div class="section-inner">
             <div class="cta-panel">
                 <div>
@@ -1763,7 +1975,7 @@ body.site {
 
     </main>
 
-    <footer>
+    <footer data-tone="dark">
         <div class="footer-grid">
             <div class="footer-info">
                 <h3>USACH Space Program</h3>
