@@ -13,6 +13,7 @@ Bitácora de los cambios hechos a la página del USACH Space Program: qué se ca
 | [07-transiciones-y-movimiento.md](07-transiciones-y-movimiento.md) | Pauta de diseño, transiciones de color suaves, animaciones ambientales y tratamiento de fotos en el inicio |
 | [08-revision-taste-skill.md](08-revision-taste-skill.md) | Revisión con taste-skill: fuente, contraste, tamaño de texto, títulos de 2 líneas y franjas vacías |
 | [09-mejoras-sugeridas.md](09-mejoras-sugeridas.md) | Hero con video propio del rover, menos etiquetas monoespaciadas y tono en vez de bordes |
+| [10-portada-e-imagenes.md](10-portada-e-imagenes.md) | Vuelta a la portada del planeta e imágenes de referencia de la NASA con créditos |
 
 ## Resumen en una línea por etapa
 

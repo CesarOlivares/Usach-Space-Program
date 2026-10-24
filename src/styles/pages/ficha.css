@@ -452,6 +452,26 @@
 .section-light .steps p { color: var(--ink-soft); }
 .section-dark .steps p { color: rgba(245, 245, 240, 0.72); }
 
+/* === IMAGEN ANCHA DE REFERENCIA === */
+.wide-figure {
+    margin: 48px 0 0;
+}
+
+.wide-figure img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    object-fit: cover;
+    object-position: 50% 55%;
+    border-radius: 10px;
+}
+
+.wide-figure figcaption {
+    margin-top: 12px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
 /* === CITA === */
 .ficha-quote {
     margin: 0 0 56px;

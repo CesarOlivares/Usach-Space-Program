@@ -98,32 +98,30 @@
 
     <main>
 
-    <!-- 1. Hero: material propio (prueba de giro del rover en el taller) -->
+    <!-- 1. Hero: el planeta de fondo -->
     <section class="hero starfield" data-tone="dark" aria-labelledby="hero-title">
-        <div class="hero-grid">
-            <div class="hero-inner">
-                <p class="hero-status"><span class="badge-dot"></span>Convocatoria 2026 abierta</p>
-                <h1 class="hero-title" id="hero-title">Usach Space Program</h1>
-                <p class="hero-lede">
-                    Estudiantes de la Universidad de Santiago de Chile que construyen rovers, cohetes y satélites para aprender, en la práctica, cómo se hace la ingeniería aeroespacial.
-                </p>
-                <div class="hero-actions">
-                    <a href="/registro/" class="btn btn-primary">Postular a la Convocatoria 2026 <span aria-hidden="true">→</span></a>
-                    <a href="#novedades" class="btn btn-ghost">Ver novedades</a>
-                </div>
-                <ul class="hero-axes" aria-label="Ejes de desarrollo">
-                    <li style="--eje: var(--eje-robotica)"><a href="/ejes/#robotica"><span class="axis-dot"></span>Robótica</a></li>
-                    <li style="--eje: var(--eje-coheteria)"><a href="/ejes/#coheteria"><span class="axis-dot"></span>Cohetería</a></li>
-                    <li style="--eje: var(--eje-orbital)"><a href="/ejes/#orbital"><span class="axis-dot"></span>Sistemas Orbitales</a></li>
-                </ul>
-            </div>
+        <div class="hero-media" aria-hidden="true" data-parallax="0.12">
+            <video class="hero-video" autoplay muted loop playsinline poster="./src/assets/images/planeta_earth_still.jpg">
+                <source src="./src/assets/videos/planeta_loop.mp4" type="video/mp4">
+            </video>
+            <div class="hero-shade"></div>
+        </div>
 
-            <figure class="hero-feature">
-                <video autoplay muted loop playsinline preload="metadata" poster="./src/assets/images/rover/rover_prueba_giro_poster.jpg" aria-label="Video: el Rover Perseverance del equipo girando en el taller">
-                    <source src="./src/assets/videos/rover_prueba_giro.mp4" type="video/mp4">
-                </video>
-                <figcaption>Nuestro Rover Perseverance en prueba de giro, en el taller del programa</figcaption>
-            </figure>
+        <div class="hero-inner">
+            <p class="hero-status"><span class="badge-dot"></span>Programa aeroespacial estudiantil · USACH</p>
+            <h1 class="hero-title" id="hero-title">Usach Space Program</h1>
+            <p class="hero-lede">
+                Estudiantes de la Universidad de Santiago de Chile que construyen rovers, cohetes y satélites para aprender, en la práctica, cómo se hace la ingeniería aeroespacial.
+            </p>
+            <div class="hero-actions">
+                <a href="/registro/" class="btn btn-primary">Postular a la Convocatoria 2026 <span aria-hidden="true">→</span></a>
+                <a href="#novedades" class="btn btn-ghost">Ver novedades</a>
+            </div>
+            <ul class="hero-axes" aria-label="Ejes de desarrollo">
+                <li style="--eje: var(--eje-robotica)"><a href="/ejes/#robotica"><span class="axis-dot"></span>Robótica</a></li>
+                <li style="--eje: var(--eje-coheteria)"><a href="/ejes/#coheteria"><span class="axis-dot"></span>Cohetería</a></li>
+                <li style="--eje: var(--eje-orbital)"><a href="/ejes/#orbital"><span class="axis-dot"></span>Sistemas Orbitales</a></li>
+            </ul>
         </div>
     </section>
 
@@ -474,6 +472,7 @@
 
     <!-- 9. Súmate -->
     <section class="section section-dark section-night join" data-tone="dark" id="contacto-alianzas" aria-label="Súmate">
+        <div class="join-backdrop" aria-hidden="true"></div>
         <div class="section-inner join-grid">
             <div class="join-card join-students">
                 <p class="eyebrow eyebrow-dark">Estudiantes</p>
@@ -488,6 +487,7 @@
                 <a href="mailto:spaceprogram@usach.cl?subject=Apoyo%20o%20Colaboraci%C3%B3n%20-%20USACH%20Space%20Program" class="btn btn-ghost">Escríbenos</a>
             </div>
         </div>
+        <p class="section-inner join-credit">De fondo, Santiago de Chile de noche fotografiado desde la Estación Espacial Internacional · Imagen: NASA</p>
     </section>
 
         </main>

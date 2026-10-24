@@ -330,16 +330,23 @@
     color: var(--ink-soft);
 }
 
-/* Visión a largo plazo */
+/* Visión a largo plazo: texto + imagen de referencia de lo que inspira al eje */
 .vision {
     position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: clamp(24px, 4vw, 56px);
+    align-items: center;
     margin: 0 0 clamp(64px, 8vw, 104px);
     padding: clamp(28px, 4vw, 48px);
     border-radius: 12px;
     background:
         radial-gradient(100% 140% at 0% 0%, color-mix(in srgb, var(--eje) 22%, transparent), transparent 60%),
         var(--space-dark);
-    border: 1px solid var(--border-subtle);
+}
+
+.vision-text {
+    margin: 0;
     font-family: var(--font-title);
     font-size: clamp(1.15rem, 2vw, 1.5rem);
     font-weight: 300;
@@ -350,12 +357,27 @@
 .vision-label {
     display: block;
     margin-bottom: 14px;
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
     color: var(--eje);
+}
+
+.vision-figure {
+    position: relative;
+    margin: 0;
+}
+
+.vision-figure img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.vision-figure figcaption {
+    margin-top: 10px;
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--text-secondary);
 }
 
 .callout-row {
@@ -419,7 +441,8 @@
         aspect-ratio: 16 / 10;
     }
 
-    .callout-row {
+    .callout-row,
+    .vision {
         grid-template-columns: 1fr;
     }
 }
