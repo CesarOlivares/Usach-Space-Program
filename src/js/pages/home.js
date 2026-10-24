@@ -1,6 +1,7 @@
 import { noticias } from '../data/noticias.js';
 import { initLightbox } from '../components/lightbox.js';
 import { initProjectFilter } from '../components/project-filter.js';
+import { initMotion } from '../components/motion.js';
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -69,7 +70,7 @@ function initCounters() {
             if (!entry.isIntersecting) return;
             const el = entry.target;
             const target = Number(el.dataset.count);
-            const duration = 1400;
+            const duration = 900;
             const start = performance.now();
             const tick = (now) => {
                 const t = Math.min((now - start) / duration, 1);
@@ -179,3 +180,4 @@ initProjectFilter();
 initCycle();
 initLightbox();
 initMarquee();
+initMotion();

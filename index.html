@@ -99,8 +99,8 @@
     <main>
 
     <!-- 1. Hero -->
-    <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-media" aria-hidden="true">
+    <section class="hero starfield" data-tone="dark" aria-labelledby="hero-title">
+        <div class="hero-media" aria-hidden="true" data-parallax="0.12">
             <video class="hero-video" autoplay muted loop playsinline poster="./src/assets/images/planeta_earth_still.jpg">
                 <source src="./src/assets/videos/planeta_loop.mp4" type="video/mp4">
             </video>
@@ -127,7 +127,7 @@
     </section>
 
     <!-- 2. Métricas -->
-    <section class="metrics" aria-label="El programa en números">
+    <section class="metrics" data-tone="dark" aria-label="El programa en números">
         <div class="metrics-grid">
             <div class="metric">
                 <span class="metric-value" data-count="3" data-pad="2">03</span>
@@ -148,8 +148,11 @@
         </div>
     </section>
 
+    <!-- Puente oscuro → claro -->
+    <div class="tone-bridge tone-bridge--to-light" aria-hidden="true"></div>
+
     <!-- 3. Novedades (se rellena desde src/js/data/noticias.js) -->
-    <section class="section section-light" id="novedades" aria-labelledby="novedades-title">
+    <section class="section section-light section-flow-top" data-tone="light" id="novedades" aria-labelledby="novedades-title">
         <div class="section-inner">
             <div class="section-head section-head-split">
                 <div>
@@ -163,8 +166,87 @@
         </div>
     </section>
 
-    <!-- 4. Ejes (pestañas) -->
-    <section class="section section-dark" id="ejes" aria-labelledby="ejes-title">
+    <!-- 4. Proyectos -->
+    <section class="section section-light section-paper-to-mist" data-tone="light" id="proyectos" aria-labelledby="proyectos-title">
+        <div class="section-inner">
+            <div class="section-head section-head-split">
+                <div>
+                    <p class="eyebrow">Portafolio</p>
+                    <h2 id="proyectos-title">Proyectos e iniciativas</h2>
+                </div>
+                <p class="section-intro">Proyectos emblema de largo aliento y desafíos formativos de 4 semanas para quienes recién llegan.</p>
+            </div>
+
+            <div class="filter-bar" role="group" aria-label="Filtrar proyectos">
+                <button class="filter-chip is-active" data-group="tipo" data-filter="all" aria-pressed="true">Todos <span>6</span></button>
+                <button class="filter-chip" data-group="tipo" data-filter="emblema" aria-pressed="false">Emblema <span>3</span></button>
+                <button class="filter-chip" data-group="tipo" data-filter="formativo" aria-pressed="false">Formativos <span>3</span></button>
+            </div>
+
+            <div class="projects-grid">
+                <a class="project-card" href="/proyectos/rover/" data-tipo="emblema" style="--eje: var(--eje-robotica-ink)">
+                    <div class="project-media"><img src="./src/assets/images/rover/rover_primer_ensamble_completo.jpg" alt="Rover Perseverance construido por el equipo, en el taller" loading="lazy"></div>
+                    <div class="project-body">
+                        <p class="project-meta"><span class="project-axis">Robótica</span> · Emblema</p>
+                        <h3>Rover Perseverance</h3>
+                        <p>Suspensión Rocker-Bogie, tracción independiente y sensórica LiDAR para navegación autónoma.</p>
+                        <p class="project-status"><span class="status-dot"></span>Optimización 2026</p>
+                    </div>
+                </a>
+                <a class="project-card" href="/proyectos/cohete/" data-tipo="emblema" style="--eje: var(--eje-coheteria-ink)">
+                    <div class="project-media"><img src="./src/assets/images/gallery/IMG-20260607-WA0022.jpg" alt="Plataforma de lanzamiento hidroneumática del eje de Cohetería" loading="lazy"></div>
+                    <div class="project-body">
+                        <p class="project-meta"><span class="project-axis">Cohetería</span> · Emblema</p>
+                        <h3>Cohete de agua</h3>
+                        <p>Plataforma hidroneumática que pasa de una etapa a multietapa, con telemetría y paracaídas. Meta: propulsión sólida en 2028.</p>
+                        <p class="project-status"><span class="status-dot"></span>Fase 1 · Cohete de agua</p>
+                    </div>
+                </a>
+                <a class="project-card" href="/proyectos/cubesat/" data-tipo="emblema" style="--eje: var(--eje-orbital-ink)">
+                    <div class="project-media"><img src="./src/assets/images/gallery/IMG-20260607-WA0039.jpg" alt="Banco de integración FlatSat del CubeSat 1U" loading="lazy"></div>
+                    <div class="project-body">
+                        <p class="project-meta"><span class="project-axis">Sistemas Orbitales</span> · Emblema</p>
+                        <h3>CubeSat 1U</h3>
+                        <p>Bus satelital de 10×10×10 cm integrado en FlatSat: OBC, comunicaciones y estación terrena.</p>
+                        <p class="project-status"><span class="status-dot"></span>Integración en laboratorio</p>
+                    </div>
+                </a>
+                <a class="project-card" href="/proyectos/cansat/" data-tipo="formativo" style="--eje: var(--eje-orbital-ink)">
+                    <div class="project-media is-reference"><img src="./src/assets/images/nasa/minicubesat_lab.jpg" alt="Mini satélite en banco de pruebas (imagen referencial)" loading="lazy"><span class="reference-credit">Imagen referencial</span></div>
+                    <div class="project-body">
+                        <p class="project-meta"><span class="project-axis">Formativo</span> · 4 semanas</p>
+                        <h3>Misión: Mini CubeSat</h3>
+                        <p>Sensores, controlador y antena en un cubo cerrado que registra datos desde un dron a 30 m.</p>
+                        <p class="project-status"><span class="status-dot"></span>Electrónica y telemetría</p>
+                    </div>
+                </a>
+                <a class="project-card" href="/proyectos/eggdrop/" data-tipo="formativo" style="--eje: var(--eje-coheteria-ink)">
+                    <div class="project-media is-reference"><img src="./src/assets/images/nasa/salva_usachin_drop.jpg" alt="Cápsula con paracaídas en descenso (imagen referencial)" loading="lazy"><span class="reference-credit">Imagen referencial</span></div>
+                    <div class="project-body">
+                        <p class="project-meta"><span class="project-axis">Formativo</span> · 4 semanas</p>
+                        <h3>Misión: Salva a Usachín</h3>
+                        <p>Diseña una cápsula de 1 L que amortigüe el impacto de un módulo sensor lanzado desde un dron.</p>
+                        <p class="project-status"><span class="status-dot"></span>Paracaídas y amortiguación</p>
+                    </div>
+                </a>
+                <a class="project-card" href="/proyectos/cohete/#formativo" data-tipo="formativo" style="--eje: var(--eje-coheteria-ink)">
+                    <div class="project-media is-reference"><img src="./src/assets/images/nasa/cohete_1u_prep.jpg" alt="Preparación de un cohete en rampa de lanzamiento (imagen referencial)" loading="lazy"><span class="reference-credit">Imagen referencial</span></div>
+                    <div class="project-body">
+                        <p class="project-meta"><span class="project-axis">Formativo</span> · Introducción</p>
+                        <h3>Cohete de agua (1 unidad)</h3>
+                        <p>La física de la propulsión, el centrado de masas (CG vs. CP), toberas y un paracaídas básico.</p>
+                        <p class="project-status"><span class="status-dot"></span>Física y aerodinámica</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Puente claro → oscuro -->
+    <div class="tone-bridge tone-bridge--to-dark" aria-hidden="true"></div>
+
+    <!-- 5. Ejes (pestañas) -->
+    <section class="section section-dark section-night" data-tone="dark" id="ejes" aria-labelledby="ejes-title">
         <div class="section-inner">
             <div class="section-head">
                 <p class="eyebrow eyebrow-dark">Estructura de aprendizaje</p>
@@ -263,84 +345,8 @@
         </div>
     </section>
 
-    <!-- 5. Proyectos -->
-    <section class="section section-light" id="proyectos" aria-labelledby="proyectos-title">
-        <div class="section-inner">
-            <div class="section-head section-head-split">
-                <div>
-                    <p class="eyebrow">Portafolio</p>
-                    <h2 id="proyectos-title">Proyectos e iniciativas</h2>
-                </div>
-                <p class="section-intro">Proyectos emblema de largo aliento y desafíos formativos de 4 semanas para quienes recién llegan.</p>
-            </div>
-
-            <div class="filter-bar" role="group" aria-label="Filtrar proyectos">
-                <button class="filter-chip is-active" data-group="tipo" data-filter="all" aria-pressed="true">Todos <span>6</span></button>
-                <button class="filter-chip" data-group="tipo" data-filter="emblema" aria-pressed="false">Emblema <span>3</span></button>
-                <button class="filter-chip" data-group="tipo" data-filter="formativo" aria-pressed="false">Formativos <span>3</span></button>
-            </div>
-
-            <div class="projects-grid">
-                <a class="project-card" href="/proyectos/rover/" data-tipo="emblema" style="--eje: var(--eje-robotica-ink)">
-                    <div class="project-media"><img src="./src/assets/images/nasa/rover_perseverance.jpg" alt="Rover Perseverance de la NASA, referencia del proyecto" loading="lazy"></div>
-                    <div class="project-body">
-                        <p class="project-meta"><span class="project-axis">Robótica</span> · Emblema</p>
-                        <h3>Rover Perseverance</h3>
-                        <p>Suspensión Rocker-Bogie, tracción independiente y sensórica LiDAR para navegación autónoma.</p>
-                        <p class="project-status"><span class="status-dot"></span>Optimización 2026</p>
-                    </div>
-                </a>
-                <a class="project-card" href="/proyectos/cohete/" data-tipo="emblema" style="--eje: var(--eje-coheteria-ink)">
-                    <div class="project-media"><img src="./src/assets/images/nasa/cohete_multietapa.jpg" alt="Lanzamiento de un cohete multietapa (imagen referencial de la NASA)" loading="lazy"></div>
-                    <div class="project-body">
-                        <p class="project-meta"><span class="project-axis">Cohetería</span> · Emblema</p>
-                        <h3>Cohete de agua</h3>
-                        <p>Plataforma hidroneumática que pasa de una etapa a multietapa, con telemetría y paracaídas. Meta: propulsión sólida en 2028.</p>
-                        <p class="project-status"><span class="status-dot"></span>Fase 1 · Cohete de agua</p>
-                    </div>
-                </a>
-                <a class="project-card" href="/proyectos/cubesat/" data-tipo="emblema" style="--eje: var(--eje-orbital-ink)">
-                    <div class="project-media"><img src="./src/assets/images/nasa/cubesat_deployment.jpg" alt="CubeSats desplegándose en órbita (imagen referencial de la NASA)" loading="lazy"></div>
-                    <div class="project-body">
-                        <p class="project-meta"><span class="project-axis">Sistemas Orbitales</span> · Emblema</p>
-                        <h3>CubeSat 1U</h3>
-                        <p>Bus satelital de 10×10×10 cm integrado en FlatSat: OBC, comunicaciones y estación terrena.</p>
-                        <p class="project-status"><span class="status-dot"></span>Integración en laboratorio</p>
-                    </div>
-                </a>
-                <a class="project-card" href="/proyectos/cansat/" data-tipo="formativo" style="--eje: var(--ink-soft)">
-                    <div class="project-media"><img src="./src/assets/images/nasa/minicubesat_lab.jpg" alt="Mini satélite en banco de pruebas (imagen referencial)" loading="lazy"></div>
-                    <div class="project-body">
-                        <p class="project-meta"><span class="project-axis">Formativo</span> · 4 semanas</p>
-                        <h3>Misión: Mini CubeSat</h3>
-                        <p>Sensores, controlador y antena en un cubo cerrado que registra datos desde un dron a 30 m.</p>
-                        <p class="project-status"><span class="status-dot"></span>Electrónica y telemetría</p>
-                    </div>
-                </a>
-                <a class="project-card" href="/proyectos/eggdrop/" data-tipo="formativo" style="--eje: var(--ink-soft)">
-                    <div class="project-media"><img src="./src/assets/images/nasa/salva_usachin_drop.jpg" alt="Cápsula con paracaídas en descenso (imagen referencial)" loading="lazy"></div>
-                    <div class="project-body">
-                        <p class="project-meta"><span class="project-axis">Formativo</span> · 4 semanas</p>
-                        <h3>Misión: Salva a Usachín</h3>
-                        <p>Diseña una cápsula de 1 L que amortigüe el impacto de un módulo sensor lanzado desde un dron.</p>
-                        <p class="project-status"><span class="status-dot"></span>Paracaídas y amortiguación</p>
-                    </div>
-                </a>
-                <a class="project-card" href="/proyectos/cohete/#formativo" data-tipo="formativo" style="--eje: var(--ink-soft)">
-                    <div class="project-media"><img src="./src/assets/images/nasa/cohete_1u_prep.jpg" alt="Preparación de un cohete en rampa de lanzamiento (imagen referencial)" loading="lazy"></div>
-                    <div class="project-body">
-                        <p class="project-meta"><span class="project-axis">Formativo</span> · Introducción</p>
-                        <h3>Cohete de agua (1 unidad)</h3>
-                        <p>La física de la propulsión, el centrado de masas (CG vs. CP), toberas y un paracaídas básico.</p>
-                        <p class="project-status"><span class="status-dot"></span>Física y aerodinámica</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- 6. Filosofía: ciclo Piensa — Crea — Aprende -->
-    <section class="section section-dark" id="manifiesto" aria-labelledby="filosofia-title">
+    <section class="section section-dark section-night-to-void starfield" data-tone="dark" id="manifiesto" aria-labelledby="filosofia-title">
         <div class="section-inner">
             <div class="cycle-layout">
                 <div class="cycle-copy">
@@ -386,7 +392,7 @@
             </div>
 
             <figure class="manifesto">
-                <div class="manifesto-media">
+                <div class="manifesto-media" data-parallax="0.1">
                     <video autoplay muted loop playsinline poster="./src/assets/images/iss_still.jpg">
                         <source src="./src/assets/videos/iss_loop.mp4" type="video/mp4">
                     </video>
@@ -399,8 +405,11 @@
         </div>
     </section>
 
+    <!-- Puente oscuro → claro -->
+    <div class="tone-bridge tone-bridge--from-night tone-bridge--to-light" aria-hidden="true"></div>
+
     <!-- 7. Galería -->
-    <section class="section section-light" id="galeria" aria-labelledby="galeria-title">
+    <section class="section section-light section-mist-to-paper" data-tone="light" id="galeria" aria-labelledby="galeria-title">
         <div class="section-inner">
             <div class="section-head section-head-split">
                 <div>
@@ -445,26 +454,8 @@
         </dialog>
     </section>
 
-    <!-- 8. Conversión -->
-    <section class="section section-dark join" id="contacto-alianzas" aria-label="Súmate">
-        <div class="section-inner join-grid">
-            <div class="join-card join-students">
-                <p class="eyebrow eyebrow-dark">Estudiantes</p>
-                <h2>¿Quieres construir proyectos reales?</h2>
-                <p>Buscamos estudiantes con ganas de aprender en taller, desarrollar prototipos, software o gestión. No necesitas experiencia previa en todo: valoramos el compromiso, la honestidad técnica y la curiosidad.</p>
-                <a href="/registro/" class="btn btn-primary">Postular a la Convocatoria 2026 <span aria-hidden="true">→</span></a>
-            </div>
-            <div class="join-card join-partners">
-                <p class="eyebrow eyebrow-dark">Profesionales y empresas</p>
-                <h2>Ayúdanos a llegar más lejos</h2>
-                <p>Cualquier aporte, ya sea económico, de conocimiento o de espacio, es un paso para que el desarrollo aeroespacial en Chile llegue aún más lejos.</p>
-                <a href="mailto:spaceprogram@usach.cl?subject=Apoyo%20o%20Colaboraci%C3%B3n%20-%20USACH%20Space%20Program" class="btn btn-ghost">Escríbenos</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 9. Alianzas -->
-    <section class="section section-light alliances" id="alianzas" aria-labelledby="alianzas-title">
+    <!-- 8. Alianzas -->
+    <section class="section section-light section-paper-to-mist alliances" data-tone="light" id="alianzas" aria-labelledby="alianzas-title">
         <div class="section-inner">
             <div class="section-head">
                 <p class="eyebrow">Ecosistema</p>
@@ -482,10 +473,31 @@
         </div>
     </section>
 
-    </main>
+<!-- Puente claro → oscuro -->
+    <div class="tone-bridge tone-bridge--to-dark" aria-hidden="true"></div>
+
+    <!-- 9. Súmate -->
+    <section class="section section-dark section-night join" data-tone="dark" id="contacto-alianzas" aria-label="Súmate">
+        <div class="section-inner join-grid">
+            <div class="join-card join-students">
+                <p class="eyebrow eyebrow-dark">Estudiantes</p>
+                <h2>¿Quieres construir proyectos reales?</h2>
+                <p>Buscamos estudiantes con ganas de aprender en taller, desarrollar prototipos, software o gestión. No necesitas experiencia previa en todo: valoramos el compromiso, la honestidad técnica y la curiosidad.</p>
+                <a href="/registro/" class="btn btn-primary">Postular a la Convocatoria 2026 <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="join-card join-partners">
+                <p class="eyebrow eyebrow-dark">Profesionales y empresas</p>
+                <h2>Ayúdanos a llegar más lejos</h2>
+                <p>Cualquier aporte, ya sea económico, de conocimiento o de espacio, es un paso para que el desarrollo aeroespacial en Chile llegue aún más lejos.</p>
+                <a href="mailto:spaceprogram@usach.cl?subject=Apoyo%20o%20Colaboraci%C3%B3n%20-%20USACH%20Space%20Program" class="btn btn-ghost">Escríbenos</a>
+            </div>
+        </div>
+    </section>
+
+        </main>
 
     <!-- Footer Component -->
-    <footer>
+    <footer data-tone="dark">
         <div class="footer-grid">
             <div class="footer-info">
                 <h3>USACH Space Program</h3>

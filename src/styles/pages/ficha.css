@@ -23,8 +23,9 @@
 
 .ficha-hero-media {
     position: absolute;
-    inset: 0;
+    inset: -10% 0 0 0;
     z-index: -1;
+    will-change: transform;
 }
 
 .ficha-hero-media img {

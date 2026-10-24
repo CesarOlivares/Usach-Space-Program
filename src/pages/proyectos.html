@@ -53,7 +53,7 @@
 
     <main>
 
-    <section class="page-hero">
+    <section class="page-hero starfield" data-tone="dark">
         <div class="section-inner proyectos-hero">
             <div>
                 <p class="eyebrow eyebrow-dark">Portafolio</p>
@@ -68,7 +68,9 @@
         </div>
     </section>
 
-    <section class="section section-light section-tight" id="catalogo" aria-labelledby="catalogo-title">
+    <div class="tone-bridge tone-bridge--from-night tone-bridge--to-light" aria-hidden="true"></div>
+
+    <section class="section section-light section-mist-paper-mist section-tight" data-tone="light" id="catalogo" aria-labelledby="catalogo-title">
         <div class="section-inner">
             <h2 id="catalogo-title" class="visually-hidden">Catálogo</h2>
 
@@ -148,7 +150,9 @@
         </div>
     </section>
 
-    <section class="section section-dark" aria-labelledby="tipos-title">
+    <div class="tone-bridge tone-bridge--to-dark" aria-hidden="true"></div>
+
+    <section class="section section-dark section-night" data-tone="dark" aria-labelledby="tipos-title">
         <div class="section-inner">
             <div class="section-head">
                 <p class="eyebrow">Cómo se organizan</p>
@@ -183,7 +187,7 @@
 
     </main>
 
-    <footer>
+    <footer data-tone="dark">
         <div class="footer-grid">
             <div class="footer-info">
                 <h3>USACH Space Program</h3>

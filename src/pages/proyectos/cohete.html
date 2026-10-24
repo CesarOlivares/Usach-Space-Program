@@ -53,8 +53,8 @@
 
     <main>
 
-    <section class="ficha-hero">
-        <div class="ficha-hero-media">
+    <section class="ficha-hero" data-tone="dark">
+        <div class="ficha-hero-media" data-parallax="0.12">
             <img src="/src/assets/images/gallery/IMG-20260607-WA0022.jpg" alt="Plataforma de lanzamiento hidroneumática del eje de Cohetería">
         </div>
         <div class="ficha-hero-inner">
@@ -81,7 +81,7 @@
         </div>
     </section>
 
-    <nav class="ficha-subnav" aria-label="Secciones del proyecto">
+    <nav class="ficha-subnav" data-adaptive-bar aria-label="Secciones del proyecto">
         <ul>
             <li><a href="#resumen">Resumen</a></li>
             <li><a href="#formativo">Cohete de 1 unidad</a></li>
@@ -93,7 +93,9 @@
     </nav>
 
     <!-- Resumen -->
-    <section class="section section-light" id="resumen">
+    <div class="tone-bridge tone-bridge--from-night tone-bridge--to-light" aria-hidden="true"></div>
+
+    <section class="section section-light section-mist-to-paper" data-tone="light" id="resumen">
         <div class="section-inner split">
             <div>
                 <p class="eyebrow">Resumen</p>
@@ -117,7 +119,7 @@
     </section>
 
     <!-- Formativo -->
-    <section class="section section-dark" id="formativo">
+    <section class="section section-light" data-tone="light" id="formativo">
         <div class="section-inner split split-reverse">
             <div>
                 <p class="eyebrow">Iniciativa formativa</p>
@@ -139,7 +141,7 @@
     </section>
 
     <!-- Física -->
-    <section class="section section-light" id="fisica">
+    <section class="section section-light section-paper-to-mist" data-tone="light" id="fisica">
         <div class="section-inner">
             <div class="section-head section-head-split">
                 <div>
@@ -180,7 +182,9 @@
     </section>
 
     <!-- Ciclo de lanzamiento -->
-    <section class="section section-dark" id="lanzamiento">
+    <div class="tone-bridge tone-bridge--to-dark" aria-hidden="true"></div>
+
+    <section class="section section-dark section-night" data-tone="dark" id="lanzamiento">
         <div class="section-inner">
             <div class="section-head">
                 <p class="eyebrow">Metodología</p>
@@ -197,7 +201,7 @@
     </section>
 
     <!-- Ruta -->
-    <section class="section section-light" id="ruta">
+    <section class="section section-dark section-night" data-tone="dark" id="ruta">
         <div class="section-inner">
             <div class="section-head">
                 <p class="eyebrow">Proyecciones 2026–2027</p>
@@ -218,7 +222,7 @@
     </section>
 
     <!-- Galería -->
-    <section class="section section-dark" id="galeria">
+    <section class="section section-dark section-night" data-tone="dark" id="galeria">
         <div class="section-inner">
             <div class="section-head section-head-split">
                 <div>
@@ -259,7 +263,7 @@
     </section>
 
     <!-- Cierre -->
-    <section class="section section-dark section-tight" aria-label="Súmate">
+    <section class="section section-dark section-night section-tight" data-tone="dark" aria-label="Súmate">
         <div class="section-inner">
             <figure class="ficha-quote">
                 <blockquote>«La cohetería no es solo física en movimiento; es convertir la aerodinámica teórica en el primer vuelo controlado de tu vida.»</blockquote>
@@ -296,7 +300,7 @@
 
     </main>
 
-    <footer>
+    <footer data-tone="dark">
         <div class="footer-grid">
             <div class="footer-info">
                 <h3>USACH Space Program</h3>

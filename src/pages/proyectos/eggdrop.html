@@ -53,8 +53,8 @@
 
     <main>
 
-    <section class="ficha-hero">
-        <div class="ficha-hero-media">
+    <section class="ficha-hero" data-tone="dark">
+        <div class="ficha-hero-media" data-parallax="0.12">
             <img src="/src/assets/images/nasa/salva_usachin_drop.jpg" alt="Cápsula con paracaídas en descenso (imagen referencial)">
         </div>
         <div class="ficha-hero-inner">
@@ -81,7 +81,7 @@
         </div>
     </section>
 
-    <nav class="ficha-subnav" aria-label="Secciones del desafío">
+    <nav class="ficha-subnav" data-adaptive-bar aria-label="Secciones del desafío">
         <ul>
             <li><a href="#mision">La misión</a></li>
             <li><a href="#objetivos">Objetivos</a></li>
@@ -92,7 +92,9 @@
     </nav>
 
     <!-- Misión -->
-    <section class="section section-light" id="mision">
+    <div class="tone-bridge tone-bridge--from-night tone-bridge--to-light" aria-hidden="true"></div>
+
+    <section class="section section-light section-mist-to-paper" data-tone="light" id="mision">
         <div class="section-inner split">
             <div>
                 <p class="eyebrow">La misión</p>
@@ -115,7 +117,7 @@
     </section>
 
     <!-- Objetivos -->
-    <section class="section section-dark" id="objetivos">
+    <section class="section section-light" data-tone="light" id="objetivos">
         <div class="section-inner">
             <div class="section-head">
                 <p class="eyebrow">Propósito formativo</p>
@@ -132,7 +134,7 @@
     </section>
 
     <!-- Cronograma -->
-    <section class="section section-light" id="cronograma">
+    <section class="section section-light section-paper-to-mist" data-tone="light" id="cronograma">
         <div class="section-inner">
             <div class="section-head">
                 <p class="eyebrow">Cronograma</p>
@@ -149,7 +151,9 @@
     </section>
 
     <!-- Final -->
-    <section class="section section-dark" id="final">
+    <div class="tone-bridge tone-bridge--to-dark" aria-hidden="true"></div>
+
+    <section class="section section-dark section-night" data-tone="dark" id="final">
         <div class="section-inner">
             <div class="section-head">
                 <p class="eyebrow">El evento</p>
@@ -186,7 +190,7 @@
     </section>
 
     <!-- Cierre -->
-    <section class="section section-dark section-tight" id="inscripcion" aria-label="Inscripción">
+    <section class="section section-dark section-night section-tight" data-tone="dark" id="inscripcion" aria-label="Inscripción">
         <div class="section-inner">
             <figure class="ficha-quote">
                 <blockquote>«Un paracaídas bien doblado y una estructura liviana no son suerte: son trabajo en equipo y atención al detalle.»</blockquote>
@@ -222,7 +226,7 @@
 
     </main>
 
-    <footer>
+    <footer data-tone="dark">
         <div class="footer-grid">
             <div class="footer-info">
                 <h3>USACH Space Program</h3>

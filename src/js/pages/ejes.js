@@ -1,3 +1,5 @@
+import { initMotion } from '../components/motion.js';
+
 // Ejes: el selector del hero y la barra fija cambian el panel visible.
 // El eje activo queda en la URL (#robotica, #coheteria, #orbital) para poder enlazarlo.
 const EJES = ['robotica', 'coheteria', 'orbital'];
@@ -58,3 +60,5 @@ const ejeFromHash = () => {
 
 show(ejeFromHash());
 window.addEventListener('hashchange', () => show(ejeFromHash(), { scroll: true }));
+
+initMotion();

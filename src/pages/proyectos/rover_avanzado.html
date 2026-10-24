@@ -53,8 +53,8 @@
 
     <main>
 
-    <section class="ficha-hero">
-        <div class="ficha-hero-media">
+    <section class="ficha-hero" data-tone="dark">
+        <div class="ficha-hero-media" data-parallax="0.12">
             <img src="/src/assets/images/rover/rover_primer_ensamble_completo.jpg" alt="Rover Perseverance construido por el equipo, en el taller">
         </div>
         <div class="ficha-hero-inner">
@@ -81,7 +81,7 @@
         </div>
     </section>
 
-    <nav class="ficha-subnav" aria-label="Secciones del proyecto">
+    <nav class="ficha-subnav" data-adaptive-bar aria-label="Secciones del proyecto">
         <ul>
             <li><a href="#resumen">Resumen</a></li>
             <li><a href="#hitos">Hitos</a></li>
@@ -93,7 +93,9 @@
     </nav>
 
     <!-- Resumen -->
-    <section class="section section-light" id="resumen">
+    <div class="tone-bridge tone-bridge--from-night tone-bridge--to-light" aria-hidden="true"></div>
+
+    <section class="section section-light section-mist-to-paper" data-tone="light" id="resumen">
         <div class="section-inner split">
             <div>
                 <p class="eyebrow">Resumen</p>
@@ -116,7 +118,7 @@
     </section>
 
     <!-- Hitos -->
-    <section class="section section-dark" id="hitos">
+    <section class="section section-light" data-tone="light" id="hitos">
         <div class="section-inner">
             <div class="section-head">
                 <p class="eyebrow">Logros y vinculación</p>
@@ -145,7 +147,7 @@
     </section>
 
     <!-- Ingeniería -->
-    <section class="section section-light" id="ingenieria">
+    <section class="section section-light section-paper-to-mist" data-tone="light" id="ingenieria">
         <div class="section-inner">
             <div class="section-head section-head-split">
                 <div>
@@ -186,7 +188,9 @@
     </section>
 
     <!-- Video -->
-    <section class="section section-dark" id="video">
+    <div class="tone-bridge tone-bridge--to-dark" aria-hidden="true"></div>
+
+    <section class="section section-dark section-night" data-tone="dark" id="video">
         <div class="section-inner">
             <div class="section-head">
                 <p class="eyebrow">Validación dinámica</p>
@@ -202,7 +206,7 @@
     </section>
 
     <!-- Ruta -->
-    <section class="section section-light" id="ruta">
+    <section class="section section-dark section-night" data-tone="dark" id="ruta">
         <div class="section-inner">
             <div class="section-head">
                 <p class="eyebrow">Proyecciones 2026–2027</p>
@@ -223,7 +227,7 @@
     </section>
 
     <!-- Galería -->
-    <section class="section section-dark" id="galeria">
+    <section class="section section-dark section-night" data-tone="dark" id="galeria">
         <div class="section-inner">
             <div class="section-head section-head-split">
                 <div>
@@ -268,7 +272,7 @@
     </section>
 
     <!-- Cierre -->
-    <section class="section section-dark section-tight" aria-label="Súmate">
+    <section class="section section-dark section-night section-tight" data-tone="dark" aria-label="Súmate">
         <div class="section-inner">
             <figure class="ficha-quote">
                 <blockquote>«La curiosidad nos impulsa a soñar; la ingeniería nos da las herramientas para construirlo con nuestras propias manos.»</blockquote>
@@ -305,7 +309,7 @@
 
     </main>
 
-    <footer>
+    <footer data-tone="dark">
         <div class="footer-grid">
             <div class="footer-info">
                 <h3>USACH Space Program</h3>

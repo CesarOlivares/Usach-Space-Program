@@ -53,8 +53,8 @@
 
     <main>
 
-    <section class="ficha-hero">
-        <div class="ficha-hero-media">
+    <section class="ficha-hero" data-tone="dark">
+        <div class="ficha-hero-media" data-parallax="0.12">
             <img src="/src/assets/images/gallery/IMG-20260607-WA0039.jpg" alt="Banco de integración FlatSat del CubeSat 1U">
         </div>
         <div class="ficha-hero-inner">
@@ -81,7 +81,7 @@
         </div>
     </section>
 
-    <nav class="ficha-subnav" aria-label="Secciones del proyecto">
+    <nav class="ficha-subnav" data-adaptive-bar aria-label="Secciones del proyecto">
         <ul>
             <li><a href="#resumen">Resumen</a></li>
             <li><a href="#flatsat">FlatSat</a></li>
@@ -92,7 +92,9 @@
     </nav>
 
     <!-- Resumen -->
-    <section class="section section-light" id="resumen">
+    <div class="tone-bridge tone-bridge--from-night tone-bridge--to-light" aria-hidden="true"></div>
+
+    <section class="section section-light section-mist-to-paper" data-tone="light" id="resumen">
         <div class="section-inner split">
             <div>
                 <p class="eyebrow">Resumen</p>
@@ -115,7 +117,7 @@
     </section>
 
     <!-- FlatSat -->
-    <section class="section section-dark" id="flatsat">
+    <section class="section section-light" data-tone="light" id="flatsat">
         <div class="section-inner split split-reverse">
             <div>
                 <p class="eyebrow">Prototipado</p>
@@ -137,7 +139,7 @@
     </section>
 
     <!-- Subsistemas -->
-    <section class="section section-light" id="subsistemas">
+    <section class="section section-light section-paper-to-mist" data-tone="light" id="subsistemas">
         <div class="section-inner">
             <div class="section-head section-head-split">
                 <div>
@@ -178,7 +180,9 @@
     </section>
 
     <!-- Ruta -->
-    <section class="section section-dark" id="ruta">
+    <div class="tone-bridge tone-bridge--to-dark" aria-hidden="true"></div>
+
+    <section class="section section-dark section-night" data-tone="dark" id="ruta">
         <div class="section-inner">
             <div class="section-head">
                 <p class="eyebrow">Proyecciones 2026–2027</p>
@@ -199,7 +203,7 @@
     </section>
 
     <!-- Galería -->
-    <section class="section section-light" id="galeria">
+    <section class="section section-dark section-night" data-tone="dark" id="galeria">
         <div class="section-inner">
             <div class="section-head section-head-split">
                 <div>
@@ -240,7 +244,7 @@
     </section>
 
     <!-- Cierre -->
-    <section class="section section-dark section-tight" aria-label="Súmate">
+    <section class="section section-dark section-night section-tight" data-tone="dark" aria-label="Súmate">
         <div class="section-inner">
             <figure class="ficha-quote">
                 <blockquote>«El espacio no perdona errores de diseño; cada línea de código y cada soldadura son un compromiso con la excelencia del equipo.»</blockquote>
@@ -277,7 +281,7 @@
 
     </main>
 
-    <footer>
+    <footer data-tone="dark">
         <div class="footer-grid">
             <div class="footer-info">
                 <h3>USACH Space Program</h3>

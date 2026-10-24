@@ -33,6 +33,19 @@
     --earth-blue: #2a6f97;
     --moon-gray: #a2a2a2;
 
+    /* Escala de tonos: del vacío al papel, con puentes intermedios
+       para que los cambios de sección no sean cortes secos */
+    --void: #05080F;
+    --night: #0B1120;
+    --dusk: #1A2233;
+    --haze: #8C8E93;
+    --mist: #E4E1D9;
+
+    /* Movimiento */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --dur-fast: 0.2s;
+    --dur-base: 0.3s;
+
     /* Light surfaces (secciones claras) */
     --paper: #F3F0E8;
     --paper-raised: #FBFAF6;

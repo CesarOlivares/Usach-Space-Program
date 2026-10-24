@@ -1,4 +1,5 @@
 import { initLightbox } from '../components/lightbox.js';
+import { initMotion } from '../components/motion.js';
 
 // Marca en la subnavegación la sección que está en pantalla
 function initSubnav() {
@@ -34,3 +35,4 @@ function initSubnav() {
 
 initSubnav();
 initLightbox();
+initMotion();

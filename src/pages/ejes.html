@@ -53,7 +53,7 @@
 
     <main>
 
-    <section class="page-hero ejes-hero">
+    <section class="page-hero ejes-hero starfield" data-tone="dark">
         <div class="section-inner">
             <p class="eyebrow eyebrow-dark">Estructura de aprendizaje</p>
             <h1>Ejes de desarrollo</h1>
@@ -90,7 +90,7 @@
         </div>
     </section>
 
-    <nav class="ejes-bar" aria-label="Cambiar de eje">
+    <nav class="ejes-bar" data-adaptive-bar aria-label="Cambiar de eje">
         <div class="ejes-bar-inner">
             <button class="ejes-bar-tab is-active" data-eje="robotica" style="--eje: var(--eje-robotica)"><span class="axis-dot"></span>Robótica</button>
             <button class="ejes-bar-tab" data-eje="coheteria" style="--eje: var(--eje-coheteria)"><span class="axis-dot"></span>Cohetería</button>
@@ -98,9 +98,11 @@
         </div>
     </nav>
 
+    <div class="tone-bridge tone-bridge--from-night tone-bridge--to-light" aria-hidden="true"></div>
+
     <!-- =============================== ROBÓTICA =============================== -->
     <div class="eje-panel" id="eje-robotica" role="tabpanel" style="--eje: var(--eje-robotica); --eje-ink: var(--eje-robotica-ink);">
-        <section class="section section-light">
+        <section class="section section-light section-mist-to-paper" data-tone="light">
             <div class="section-inner">
                 <div class="split">
                     <div>
@@ -129,7 +131,25 @@
             </div>
         </section>
 
-        <section class="section section-dark">
+        <section class="section section-light section-paper-to-mist section-tight" data-tone="light">
+            <div class="section-inner profile">
+                <div>
+                    <p class="eyebrow">A quién buscamos</p>
+                    <h2>Perfil del eje</h2>
+                </div>
+                <div>
+                    <p class="profile-text">Personas con interés o experiencia en mecánica, electrónica, programación y afines, con ganas de desarrollar robótica para condiciones extremas como la espacial, y con un fuerte compromiso con la colaboración interdisciplinaria y horizontal.</p>
+                    <div class="profile-actions">
+                        <a href="/registro/" class="btn btn-primary">Postular a Robótica <span aria-hidden="true">→</span></a>
+                        <a href="/proyectos/rover/" class="btn btn-ghost">Ver el Rover</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="tone-bridge tone-bridge--to-dark" aria-hidden="true"></div>
+
+        <section class="section section-dark section-night" data-tone="dark">
             <div class="section-inner">
                 <blockquote class="vision">
                     <span class="vision-label">Proyección a largo plazo</span>
@@ -152,27 +172,11 @@
                 </div>
             </div>
         </section>
-
-        <section class="section section-light section-tight">
-            <div class="section-inner profile">
-                <div>
-                    <p class="eyebrow">A quién buscamos</p>
-                    <h2>Perfil del eje</h2>
-                </div>
-                <div>
-                    <p class="profile-text">Personas con interés o experiencia en mecánica, electrónica, programación y afines, con ganas de desarrollar robótica para condiciones extremas como la espacial, y con un fuerte compromiso con la colaboración interdisciplinaria y horizontal.</p>
-                    <div class="profile-actions">
-                        <a href="/registro/" class="btn btn-primary">Postular a Robótica <span aria-hidden="true">→</span></a>
-                        <a href="/proyectos/rover/" class="btn btn-ghost">Ver el Rover</a>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
 
     <!-- =============================== COHETERÍA =============================== -->
     <div class="eje-panel" id="eje-coheteria" role="tabpanel" style="--eje: var(--eje-coheteria); --eje-ink: var(--eje-coheteria-ink);" hidden>
-        <section class="section section-light">
+        <section class="section section-light section-mist-to-paper" data-tone="light">
             <div class="section-inner">
                 <div class="split">
                     <div>
@@ -203,7 +207,25 @@
             </div>
         </section>
 
-        <section class="section section-dark">
+        <section class="section section-light section-paper-to-mist section-tight" data-tone="light">
+            <div class="section-inner profile">
+                <div>
+                    <p class="eyebrow">A quién buscamos</p>
+                    <h2>Perfil del eje</h2>
+                </div>
+                <div>
+                    <p class="profile-text">Estudiantes con interés o experiencia en mecánica, mecatrónica, electrónica, sistemas embebidos, simulación (CFD o dinámica de vuelo) y materiales. Se pide un compromiso riguroso con los protocolos de seguridad, el registro de datos, la redacción técnica y el trabajo multidisciplinario.</p>
+                    <div class="profile-actions">
+                        <a href="/registro/" class="btn btn-primary">Postular a Cohetería <span aria-hidden="true">→</span></a>
+                        <a href="/proyectos/cohete/" class="btn btn-ghost">Ver el Cohete de agua</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="tone-bridge tone-bridge--to-dark" aria-hidden="true"></div>
+
+        <section class="section section-dark section-night" data-tone="dark">
             <div class="section-inner">
                 <blockquote class="vision">
                     <span class="vision-label">Proyección a largo plazo</span>
@@ -226,27 +248,11 @@
                 </div>
             </div>
         </section>
-
-        <section class="section section-light section-tight">
-            <div class="section-inner profile">
-                <div>
-                    <p class="eyebrow">A quién buscamos</p>
-                    <h2>Perfil del eje</h2>
-                </div>
-                <div>
-                    <p class="profile-text">Estudiantes con interés o experiencia en mecánica, mecatrónica, electrónica, sistemas embebidos, simulación (CFD o dinámica de vuelo) y materiales. Se pide un compromiso riguroso con los protocolos de seguridad, el registro de datos, la redacción técnica y el trabajo multidisciplinario.</p>
-                    <div class="profile-actions">
-                        <a href="/registro/" class="btn btn-primary">Postular a Cohetería <span aria-hidden="true">→</span></a>
-                        <a href="/proyectos/cohete/" class="btn btn-ghost">Ver el Cohete de agua</a>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
 
     <!-- =============================== SISTEMAS ORBITALES =============================== -->
     <div class="eje-panel" id="eje-orbital" role="tabpanel" style="--eje: var(--eje-orbital); --eje-ink: var(--eje-orbital-ink);" hidden>
-        <section class="section section-light">
+        <section class="section section-light section-mist-to-paper" data-tone="light">
             <div class="section-inner">
                 <div class="split">
                     <div>
@@ -276,7 +282,25 @@
             </div>
         </section>
 
-        <section class="section section-dark">
+        <section class="section section-light section-paper-to-mist section-tight" data-tone="light">
+            <div class="section-inner profile">
+                <div>
+                    <p class="eyebrow">A quién buscamos</p>
+                    <h2>Perfil del eje</h2>
+                </div>
+                <div>
+                    <p class="profile-text">Estudiantes con interés o experiencia en electrónica, diseño, programación o telecomunicaciones. Se pide disposición al trabajo en equipo, investigación bibliográfica rigurosa y redacción técnica basada en fuentes primarias, documentando cómo se relacionan los subsistemas entre sí.</p>
+                    <div class="profile-actions">
+                        <a href="/registro/" class="btn btn-primary">Postular a Sistemas Orbitales <span aria-hidden="true">→</span></a>
+                        <a href="/proyectos/cubesat/" class="btn btn-ghost">Ver el CubeSat 1U</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="tone-bridge tone-bridge--to-dark" aria-hidden="true"></div>
+
+        <section class="section section-dark section-night" data-tone="dark">
             <div class="section-inner">
                 <blockquote class="vision">
                     <span class="vision-label">Proyección a largo plazo</span>
@@ -298,26 +322,10 @@
                 </div>
             </div>
         </section>
-
-        <section class="section section-light section-tight">
-            <div class="section-inner profile">
-                <div>
-                    <p class="eyebrow">A quién buscamos</p>
-                    <h2>Perfil del eje</h2>
-                </div>
-                <div>
-                    <p class="profile-text">Estudiantes con interés o experiencia en electrónica, diseño, programación o telecomunicaciones. Se pide disposición al trabajo en equipo, investigación bibliográfica rigurosa y redacción técnica basada en fuentes primarias, documentando cómo se relacionan los subsistemas entre sí.</p>
-                    <div class="profile-actions">
-                        <a href="/registro/" class="btn btn-primary">Postular a Sistemas Orbitales <span aria-hidden="true">→</span></a>
-                        <a href="/proyectos/cubesat/" class="btn btn-ghost">Ver el CubeSat 1U</a>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
 
     <!-- Cierre -->
-    <section class="section section-dark section-tight" aria-label="Súmate">
+    <section class="section section-dark section-night section-tight" data-tone="dark" aria-label="Súmate">
         <div class="section-inner">
             <div class="cta-panel">
                 <div>
@@ -334,7 +342,7 @@
 
     </main>
 
-    <footer>
+    <footer data-tone="dark">
         <div class="footer-grid">
             <div class="footer-info">
                 <h3>USACH Space Program</h3>
