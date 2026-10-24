@@ -352,6 +352,42 @@ body.site {
     color: var(--pure-white);
 }
 
+/* Imagen de fondo del hero de página (como el planeta del inicio):
+   a la derecha, con bordes desvanecidos */
+.page-hero-media {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 60%;
+    z-index: 0;
+    pointer-events: none;
+    -webkit-mask-image:
+        linear-gradient(to bottom, #000 0%, #000 45%, transparent 95%),
+        linear-gradient(to right, transparent 0%, #000 40%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+        linear-gradient(to bottom, #000 0%, #000 45%, transparent 95%),
+        linear-gradient(to right, transparent 0%, #000 40%);
+    mask-composite: intersect;
+}
+
+.page-hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.page-hero > .section-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.page-hero-credit {
+    margin-top: 32px !important;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
 /* === CHIPS DE FILTRO === */
 .filter-bar {
     display: flex;
@@ -1844,6 +1880,26 @@ body.site .join-card {
 .section-light .steps p { color: var(--ink-soft); }
 .section-dark .steps p { color: rgba(245, 245, 240, 0.72); }
 
+/* === IMAGEN ANCHA DE REFERENCIA === */
+.wide-figure {
+    margin: 48px 0 0;
+}
+
+.wide-figure img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    object-fit: cover;
+    object-position: 50% 55%;
+    border-radius: 10px;
+}
+
+.wide-figure figcaption {
+    margin-top: 12px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
 /* === CITA === */
 .ficha-quote {
     margin: 0 0 56px;
@@ -2127,6 +2183,10 @@ body.site .join-card {
                 <li><strong>Integración</strong><p>Plegado del paracaídas y revisión de holguras para evitar bloqueos.</p></li>
                 <li><strong>Lanzamiento y análisis</strong><p>Operación con oficial de seguridad, recuperación y lectura de datos.</p></li>
             </ol>
+            <figure class="wide-figure">
+                <img src="/assets/nasa-student-launch-C1CGImst.jpg" alt="Estudiantes revisan su cohete junto a un evaluador antes del vuelo" loading="lazy">
+                <figcaption>Revisión de un cohete estudiantil antes de volar en la competencia NASA Student Launch · Imagen: NASA</figcaption>
+            </figure>
         </div>
     </section>
 

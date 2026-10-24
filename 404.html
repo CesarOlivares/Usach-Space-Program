@@ -336,6 +336,42 @@ body.site {
     color: var(--pure-white);
 }
 
+/* Imagen de fondo del hero de página (como el planeta del inicio):
+   a la derecha, con bordes desvanecidos */
+.page-hero-media {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 60%;
+    z-index: 0;
+    pointer-events: none;
+    -webkit-mask-image:
+        linear-gradient(to bottom, #000 0%, #000 45%, transparent 95%),
+        linear-gradient(to right, transparent 0%, #000 40%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+        linear-gradient(to bottom, #000 0%, #000 45%, transparent 95%),
+        linear-gradient(to right, transparent 0%, #000 40%);
+    mask-composite: intersect;
+}
+
+.page-hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.page-hero > .section-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.page-hero-credit {
+    margin-top: 32px !important;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
 /* === CHIPS DE FILTRO === */
 .filter-bar {
     display: flex;
@@ -1381,7 +1417,10 @@ body.site .join-card {
     }
 }
 
-.error-hero {
+/* .site .error-hero gana a la regla general \".site main { display: block }\" de ui.css */
+.site .error-hero {
+    position: relative;
+    isolation: isolate;
     min-height: 100vh;
     min-height: 100svh;
     display: grid;
@@ -1486,8 +1525,23 @@ body.site .join-card {
     border-color: var(--pure-white);
 }
 
+/* De fondo, la Laguna Verde de Atacama vista desde la ISS: un paisaje que parece de otro planeta */
+.error-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: url("/assets/laguna-verde-atacama-CltfjCJG.jpg") center / cover no-repeat;
+    opacity: 0.22;
+}
+
+.error-credit {
+    margin: 32px 0 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
 @media (max-width: 860px) {
-    .error-hero {
+    .site .error-hero {
         grid-template-columns: 1fr;
         text-align: left;
         padding-top: 104px;
@@ -1528,6 +1582,7 @@ body.site .join-card {
     </header>
 
     <main class="error-hero">
+        <div class="error-backdrop" aria-hidden="true"></div>
         <div class="error-orbit" aria-hidden="true">
             <span class="error-code">404</span>
             <span class="error-sat"></span>
@@ -1547,6 +1602,7 @@ body.site .join-card {
                 <li><a href="/proyectos/cohete/">Cohete de agua</a></li>
                 <li><a href="/registro/">Postular</a></li>
             </ul>
+            <p class="error-credit">De fondo, la Laguna Verde en el desierto de Atacama, fotografiada desde la Estación Espacial Internacional · Imagen: NASA</p>
         </div>
     </main>
 

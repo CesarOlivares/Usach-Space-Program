@@ -390,6 +390,42 @@ body.site {
     color: var(--pure-white);
 }
 
+/* Imagen de fondo del hero de página (como el planeta del inicio):
+   a la derecha, con bordes desvanecidos */
+.page-hero-media {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 60%;
+    z-index: 0;
+    pointer-events: none;
+    -webkit-mask-image:
+        linear-gradient(to bottom, #000 0%, #000 45%, transparent 95%),
+        linear-gradient(to right, transparent 0%, #000 40%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+        linear-gradient(to bottom, #000 0%, #000 45%, transparent 95%),
+        linear-gradient(to right, transparent 0%, #000 40%);
+    mask-composite: intersect;
+}
+
+.page-hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.page-hero > .section-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.page-hero-credit {
+    margin-top: 32px !important;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
 /* === CHIPS DE FILTRO === */
 .filter-bar {
     display: flex;
@@ -1436,8 +1472,7 @@ body.site .join-card {
 }
 
 /* === 1. HERO ===
-   Texto a la izquierda y, a la derecha, material propio: la prueba de giro
-   del rover en el taller (video vertical, recortado a 4:5) */
+   Texto sobre el planeta en rotación (video a la derecha, bordes desvanecidos) */
 .hero {
     position: relative;
     min-height: 100vh;
@@ -1450,18 +1485,44 @@ body.site .join-card {
     background: linear-gradient(to bottom, var(--void) 0%, var(--void) 72%, var(--dusk) 100%);
 }
 
-.hero-grid {
+.hero-media {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 62%;
+    pointer-events: none;
+    will-change: transform;
+    /* Bordes inferior e izquierdo desvanecidos: el video se funde con el fondo
+       en vez de terminar en un rectángulo, aunque el parallax lo desplace */
+    -webkit-mask-image:
+        linear-gradient(to bottom, #000 0%, #000 50%, transparent 92%),
+        linear-gradient(to right, transparent 0%, #000 28%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+        linear-gradient(to bottom, #000 0%, #000 50%, transparent 92%),
+        linear-gradient(to right, transparent 0%, #000 28%);
+    mask-composite: intersect;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center right;
+}
+
+.hero-shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(5, 8, 15, 0.55) 0%, transparent 60%);
+}
+
+.hero-inner {
     position: relative;
     z-index: 2;
     width: 100%;
     max-width: 1240px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
-    gap: clamp(32px, 5vw, 80px);
-    align-items: center;
 }
-
 .hero-status {
     display: inline-flex;
     align-items: center;
@@ -1490,8 +1551,8 @@ body.site .join-card {
     font-family: var(--font-horizon);
     font-weight: 400;
     /* "USACH SPACE" mide ~8,4em en Horizon: este tamaño lo deja en 2 líneas
-       en la columna de texto, desde 390 px hasta escritorio */
-    font-size: clamp(2.3rem, 6vw, 5.2rem);
+       desde 390 px hasta escritorio */
+    font-size: clamp(2.3rem, 7vw, 6rem);
     line-height: 1.02;
     letter-spacing: 0;
     text-transform: uppercase;
@@ -1548,29 +1609,6 @@ body.site .join-card {
     background: var(--eje);
 }
 
-.hero-feature {
-    margin: 0;
-    justify-self: end;
-    width: 100%;
-    max-width: 420px;
-}
-
-.hero-feature video {
-    display: block;
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    object-position: 50% 45%;
-    border-radius: 6px;
-    background: var(--night);
-}
-
-.hero-feature figcaption {
-    margin-top: 14px;
-    font-size: 0.9375rem;
-    line-height: 1.45;
-    color: var(--text-secondary);
-}
 /* === 2. MÉTRICAS === */
 .metrics {
     background: var(--dusk);
@@ -2219,7 +2257,29 @@ body.site .join-card {
     color: var(--accent-amber);
 }
 
-/* === 8. SÚMATE === */
+/* === 8. SÚMATE ===
+   De fondo, Santiago de noche desde la ISS: el lugar desde donde trabaja el programa */
+.join {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.join-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: url("/assets/santiago-noche-iss-ItG55B26.jpg") center 45% / cover no-repeat;
+    opacity: 0.55;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 75%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 75%, transparent 100%);
+}
+
+.join-credit {
+    margin-top: 28px !important;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
 .join-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -2244,15 +2304,13 @@ body.site .join-card {
 .join-students {
     background:
         radial-gradient(120% 120% at 0% 0%, rgba(229, 169, 88, 0.22), transparent 60%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)),
-        var(--night);
+        rgba(11, 17, 32, 0.82);
 }
 
 .join-partners {
     background:
         radial-gradient(120% 120% at 100% 0%, rgba(63, 184, 217, 0.18), transparent 60%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)),
-        var(--night);
+        rgba(11, 17, 32, 0.82);
 }
 
 .join-card h2 {
@@ -2340,19 +2398,15 @@ body.site .join-card {
 }
 
 /* === RESPONSIVE === */
-@media (max-width: 900px) {
-    .hero-grid {
-        grid-template-columns: 1fr;
+/* Tablet: el planeta está a la izquierda del video; con la columna más angosta
+   hay que correr el recorte para que siga apareciendo */
+@media (min-width: 761px) and (max-width: 1080px) {
+    .hero-media {
+        width: 78%;
     }
 
-    .hero-feature {
-        justify-self: stretch;
-        max-width: none;
-    }
-
-    .hero-feature video {
-        aspect-ratio: 16 / 10;
-        object-position: 50% 55%;
+    .hero-video {
+        object-position: 22% center;
     }
 }
 
@@ -2386,8 +2440,25 @@ body.site .join-card {
 
 @media (max-width: 760px) {
     .hero {
-        padding-top: 96px;
-        min-height: 0;
+        padding-top: 104px;
+        align-items: flex-end;
+    }
+
+    .hero-media {
+        width: 100%;
+        height: 62%;
+        inset: 0 0 auto 0;
+        opacity: 0.75;
+        -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
+        mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
+    }
+
+    .hero-video {
+        object-position: 70% center;
+    }
+
+    .hero-shade {
+        background: rgba(5, 8, 15, 0.25);
     }
 
 
@@ -2513,32 +2584,30 @@ body.site .join-card {
 
     <main>
 
-    <!-- 1. Hero: material propio (prueba de giro del rover en el taller) -->
+    <!-- 1. Hero: el planeta de fondo -->
     <section class="hero starfield" data-tone="dark" aria-labelledby="hero-title">
-        <div class="hero-grid">
-            <div class="hero-inner">
-                <p class="hero-status"><span class="badge-dot"></span>Convocatoria 2026 abierta</p>
-                <h1 class="hero-title" id="hero-title">Usach Space Program</h1>
-                <p class="hero-lede">
-                    Estudiantes de la Universidad de Santiago de Chile que construyen rovers, cohetes y satélites para aprender, en la práctica, cómo se hace la ingeniería aeroespacial.
-                </p>
-                <div class="hero-actions">
-                    <a href="/registro/" class="btn btn-primary">Postular a la Convocatoria 2026 <span aria-hidden="true">→</span></a>
-                    <a href="#novedades" class="btn btn-ghost">Ver novedades</a>
-                </div>
-                <ul class="hero-axes" aria-label="Ejes de desarrollo">
-                    <li style="--eje: var(--eje-robotica)"><a href="/ejes/#robotica"><span class="axis-dot"></span>Robótica</a></li>
-                    <li style="--eje: var(--eje-coheteria)"><a href="/ejes/#coheteria"><span class="axis-dot"></span>Cohetería</a></li>
-                    <li style="--eje: var(--eje-orbital)"><a href="/ejes/#orbital"><span class="axis-dot"></span>Sistemas Orbitales</a></li>
-                </ul>
-            </div>
+        <div class="hero-media" aria-hidden="true" data-parallax="0.12">
+            <video class="hero-video" autoplay muted loop playsinline poster="/assets/planeta_earth_still-BfQYB8ch.jpg">
+                <source src="/assets/planeta_loop-5ukQZ2qQ.mp4" type="video/mp4">
+            </video>
+            <div class="hero-shade"></div>
+        </div>
 
-            <figure class="hero-feature">
-                <video autoplay muted loop playsinline preload="metadata" poster="/assets/rover_prueba_giro_poster-CoKLE25v.jpg" aria-label="Video: el Rover Perseverance del equipo girando en el taller">
-                    <source src="/assets/rover_prueba_giro-Cev_lw_g.mp4" type="video/mp4">
-                </video>
-                <figcaption>Nuestro Rover Perseverance en prueba de giro, en el taller del programa</figcaption>
-            </figure>
+        <div class="hero-inner">
+            <p class="hero-status"><span class="badge-dot"></span>Programa aeroespacial estudiantil · USACH</p>
+            <h1 class="hero-title" id="hero-title">Usach Space Program</h1>
+            <p class="hero-lede">
+                Estudiantes de la Universidad de Santiago de Chile que construyen rovers, cohetes y satélites para aprender, en la práctica, cómo se hace la ingeniería aeroespacial.
+            </p>
+            <div class="hero-actions">
+                <a href="/registro/" class="btn btn-primary">Postular a la Convocatoria 2026 <span aria-hidden="true">→</span></a>
+                <a href="#novedades" class="btn btn-ghost">Ver novedades</a>
+            </div>
+            <ul class="hero-axes" aria-label="Ejes de desarrollo">
+                <li style="--eje: var(--eje-robotica)"><a href="/ejes/#robotica"><span class="axis-dot"></span>Robótica</a></li>
+                <li style="--eje: var(--eje-coheteria)"><a href="/ejes/#coheteria"><span class="axis-dot"></span>Cohetería</a></li>
+                <li style="--eje: var(--eje-orbital)"><a href="/ejes/#orbital"><span class="axis-dot"></span>Sistemas Orbitales</a></li>
+            </ul>
         </div>
     </section>
 
@@ -2889,6 +2958,7 @@ body.site .join-card {
 
     <!-- 9. Súmate -->
     <section class="section section-dark section-night join" data-tone="dark" id="contacto-alianzas" aria-label="Súmate">
+        <div class="join-backdrop" aria-hidden="true"></div>
         <div class="section-inner join-grid">
             <div class="join-card join-students">
                 <p class="eyebrow eyebrow-dark">Estudiantes</p>
@@ -2903,6 +2973,7 @@ body.site .join-card {
                 <a href="mailto:spaceprogram@usach.cl?subject=Apoyo%20o%20Colaboraci%C3%B3n%20-%20USACH%20Space%20Program" class="btn btn-ghost">Escríbenos</a>
             </div>
         </div>
+        <p class="section-inner join-credit">De fondo, Santiago de Chile de noche fotografiado desde la Estación Espacial Internacional · Imagen: NASA</p>
     </section>
 
         </main>
