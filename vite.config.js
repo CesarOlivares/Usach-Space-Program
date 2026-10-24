@@ -74,9 +74,12 @@ export default defineConfig({
     cleanUrlsPlugin()
   ],
   build: {
+    // Sin source maps en producción: no se publica el código fuente original
+    sourcemap: false,
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+        notFound: resolve(__dirname, '404.html'),
         login: resolve(__dirname, 'login.html'),
         proyectos: resolve(__dirname, 'src/pages/proyectos.html'),
         ejes: resolve(__dirname, 'src/pages/ejes.html'),
@@ -85,8 +88,6 @@ export default defineConfig({
         cubesat_avanzado: resolve(__dirname, 'src/pages/proyectos/cubesat_avanzado.html'),
         cohete: resolve(__dirname, 'src/pages/proyectos/cohete.html'),
         eggdrop: resolve(__dirname, 'src/pages/proyectos/eggdrop.html'),
-        impresion3d: resolve(__dirname, 'src/pages/proyectos/impresion3d.html'),
-        rover: resolve(__dirname, 'src/pages/proyectos/rover.html'),
         rover_avanzado: resolve(__dirname, 'src/pages/proyectos/rover_avanzado.html'),
         admision_talleres: resolve(__dirname, 'src/pages/admision_talleres.html')
       }

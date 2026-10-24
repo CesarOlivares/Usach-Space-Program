@@ -37,7 +37,7 @@ function renderNews() {
         return `
             <${tag} class="news-card${featured ? ' is-featured' : ''}" data-eje="${escapeHtml(n.eje)}"${href}>
                 <div class="news-media">
-                    <img src="${escapeHtml(n.imagen)}" alt="" loading="${featured ? 'eager' : 'lazy'}">
+                    <img src="${escapeHtml(n.imagen)}" alt="${escapeHtml(n.alt || n.titulo)}" loading="${featured ? 'eager' : 'lazy'}">
                 </div>
                 <div class="news-body">
                     <p class="news-meta">

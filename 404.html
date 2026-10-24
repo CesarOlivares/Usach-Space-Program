@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página no encontrada | USACH Space Program</title>
+    <meta name="description" content="La página que buscas no existe o cambió de dirección. Vuelve al inicio del USACH Space Program.">
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#030508">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Rutas absolutas: GitHub Pages sirve este archivo en cualquier URL que no exista -->
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <style>@import url("/src/styles/pages/error.css");</style>
+</head>
+<body class="site error-page">
+
+    <header>
+        <div class="nav-brand-container">
+            <a href="/" class="nav-brand-link">
+                <img src="/src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="nav-logo">
+                <span class="nav-brand">USACH Space Program</span>
+            </a>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+        <nav class="nav-links" id="navLinks">
+            <a href="/#novedades">Novedades</a>
+            <a href="/ejes/">Ejes</a>
+            <a href="/proyectos/">Proyectos</a>
+            <a href="/#alianzas">Alianzas</a>
+            <a href="mailto:spaceprogram@usach.cl" class="nav-contact">Contacto</a>
+            <a href="/registro/" class="btn-nav-cta">Postular</a>
+        </nav>
+    </header>
+
+    <main class="error-hero">
+        <div class="error-orbit" aria-hidden="true">
+            <span class="error-code">404</span>
+            <span class="error-sat"></span>
+        </div>
+        <div class="error-copy">
+            <p class="eyebrow eyebrow-dark">Señal perdida</p>
+            <h1>Esta página salió de órbita</h1>
+            <p class="error-lede">La dirección que buscas no existe o cambió de lugar. Puedes volver al inicio o ir directo a lo que más se visita.</p>
+            <div class="error-actions on-dark">
+                <a href="/" class="btn btn-primary">Volver al inicio <span aria-hidden="true">→</span></a>
+                <a href="/proyectos/" class="btn btn-ghost">Ver proyectos</a>
+            </div>
+            <ul class="error-links">
+                <li><a href="/ejes/">Ejes de desarrollo</a></li>
+                <li><a href="/proyectos/rover/">Rover Perseverance</a></li>
+                <li><a href="/proyectos/cubesat/">CubeSat 1U</a></li>
+                <li><a href="/proyectos/cohete/">Cohete de agua</a></li>
+                <li><a href="/registro/">Postular</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <script type="module" src="/src/js/components/header.js"></script>
+</body>
+</html>

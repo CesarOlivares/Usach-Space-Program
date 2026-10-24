@@ -27,6 +27,9 @@ Lista viva de lo que falta hacer, decidir o confirmar. Marca con `[x]` lo que se
 
 - [ ] **Videos pesados:** `planeta_loop.mp4` (33 MB) e `iss_loop.mp4` (41 MB). Comprimir a menos de 5 MB cada uno o reemplazarlos por versiones más cortas.
 - [ ] **Imágenes pesadas:** `rover_armado_foto_grupal.jpg` (3 MB) y varias de más de 700 KB. Convertir a WebP y redimensionar.
-- [ ] **Limpiar archivos sin uso:** `index.css`, `rover_avanzado.css`, `mision.css`, `cubesat_avanzado.css`, `rover_avanzado.js`, `rover.html` e `impresion3d.html`. Confirmar que nadie los necesita antes de borrarlos.
+- [ ] **Limpiar archivos sin uso:** `index.css`, `rover_avanzado.css`, `mision.css`, `cubesat_avanzado.css`, `rover_avanzado.js`, `rover.html` e `impresion3d.html`. Confirmar que nadie los necesita antes de borrarlos. Las dos páginas ya no se publican: se quitaron del build.
+- [ ] **Copias duplicadas en el build:** Vite también publica cada página en `/src/pages/...`, además de su ruta limpia. Tienen canonical a la ruta limpia, así que no afectan el SEO, pero se podrían eliminar del build.
+- [ ] **Search Console:** registrar spaceprogram.cl en Google Search Console y enviar `https://spaceprogram.cl/sitemap.xml`.
+- [ ] **Validar la vista previa al compartir** con el depurador de enlaces de LinkedIn o Facebook después de publicar.
 - [ ] **Vulnerabilidades de npm:** revisar las 2 alertas "high" con `npm audit` y actualizar con cuidado.
 - [ ] **Header y footer duplicados:** se repiten en cada HTML. El proyecto ya tiene `vite-plugin-html-inject` y `src/components/header.html` y `footer.html`, que se podrían usar para tener una sola copia.

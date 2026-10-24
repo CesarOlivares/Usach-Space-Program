@@ -1,0 +1,33 @@
+# USACH Space Program
+
+> Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile (USACH) dedicada al aprendizaje, la divulgación y el prototipado de proyectos aeroespaciales. Sus integrantes construyen rovers, cohetes y satélites para aprender en la práctica cómo se hace la ingeniería aeroespacial, con el método Piensa — Crea — Aprende y documentación abierta.
+
+- Sitio oficial: https://spaceprogram.cl
+- Contacto: spaceprogram@usach.cl
+- Ubicación: Universidad de Santiago de Chile, Santiago, Chile
+- Integrantes activos: más de 16 estudiantes de ingeniería y ciencias
+- Apoyos: Universidad de Santiago de Chile, Centro de Innovación USACH, ACHIDE (Asociación Chilena del Espacio), VRAE USACH y Full 3D
+
+## Ejes de desarrollo
+
+- [Ejes de desarrollo](https://spaceprogram.cl/ejes/): definición, objetivos, ruta 2026–2027 y perfil buscado de cada eje.
+- **Robótica y Mecánica Espacial** (líder: César Olivares). Prototipos robóticos para condiciones hostiles. Proyecto emblema: Rover Perseverance.
+- **Cohetería y Propulsión** (líderes: Alessandro Orellano y Simón García-Huidobro). Cohetería hidroneumática como banco de pruebas, con la propulsión sólida experimental como meta para 2028. Proyecto emblema: Cohete de agua.
+- **Sistemas Orbitales y Telecomunicaciones** (líderes: Daniel González y Martín Castillo). Computador de a bordo, potencia y comunicaciones integrados en banco de laboratorio. Proyecto emblema: CubeSat 1U.
+
+## Proyectos emblema
+
+- [Rover Perseverance](https://spaceprogram.cl/proyectos/rover/): réplica funcional de 6 ruedas con suspensión Rocker-Bogie, piezas impresas en 3D (premio a la Mejor Impresión Aplicada en la 3D Printed Party) y objetivos 2026–2027 de navegación autónoma, BMS, espectrógrafo y LiDAR.
+- [Cohete de agua](https://spaceprogram.cl/proyectos/cohete/): plataforma hidroneumática que pasa de una etapa a multietapa (Sep 2026 – Dic 2027), con telemetría, paracaídas y documentación abierta.
+- [CubeSat 1U](https://spaceprogram.cl/proyectos/cubesat/): satélite de 10 × 10 × 10 cm con subsistemas OBC, EPS y COMMS, validados primero en FlatSat y luego integrados en la estructura.
+
+## Desafíos formativos (4 semanas, abiertos a toda la USACH)
+
+- [Misión: Mini CubeSat](https://spaceprogram.cl/proyectos/cansat/): equipos de 2 a 4 integran un mini satélite que transmite datos mientras un dron lo eleva hasta 30 m.
+- [Misión: Salva a Usachín](https://spaceprogram.cl/proyectos/eggdrop/): equipos diseñan una cápsula de 1 litro con paracaídas que proteja un módulo sensor en caída libre desde un dron.
+
+## Participar
+
+- [Postular al programa](https://spaceprogram.cl/registro/): convocatoria 2026, abierta a estudiantes de cualquier carrera, sin experiencia previa.
+- [Inscribirse a un desafío formativo](https://spaceprogram.cl/talleres/)
+- [Catálogo de proyectos](https://spaceprogram.cl/proyectos/)

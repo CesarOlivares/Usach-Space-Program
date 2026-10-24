@@ -118,10 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             } else {
                 // Modo Vista Previa / Interfaz: Simulación fluida de 800ms
-                setTimeout(() => {
-                    console.log('Datos capturados en interfaz de admisión:', payload);
-                    mostrarExito();
-                }, 800);
+                setTimeout(mostrarExito, 800);
             }
 
             function mostrarExito() {

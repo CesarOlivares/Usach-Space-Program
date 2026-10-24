@@ -70,8 +70,7 @@
                 btn.style.color = '#ffffff';
                 
                 document.getElementById('reclutamientoForm').reset();
-            }).catch((error) => {
-                console.error('Error en la transmisión:', error);
+            }).catch(() => {
                 btn.innerHTML = 'FALLO DE CONEXIÓN. REINTENTANDO...';
                 btn.disabled = false;
                 setTimeout(() => {

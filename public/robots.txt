@@ -1,0 +1,25 @@
+# USACH Space Program — https://spaceprogram.cl
+# Indexación abierta para buscadores y asistentes de IA.
+# Solo se excluye el portal interno de acceso restringido.
+
+User-agent: *
+Allow: /
+Disallow: /login/
+
+# Bots de IA: permitidos explícitamente (mismas reglas que el resto)
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: anthropic-ai
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+Allow: /
+Disallow: /login/
+
+Sitemap: https://spaceprogram.cl/sitemap.xml

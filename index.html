@@ -6,7 +6,66 @@
     <title>USACH Space Program | Innovación Aeroespacial Estudiantil</title>
     <meta name="description" content="Iniciativa estudiantil de la Universidad de Santiago de Chile dedicada al aprendizaje, la divulgación y el prototipado aeroespacial.">
 
-    <link rel="icon" type="image/png" href="./src/assets/images/logo_noTextBLACK.png">
+    <link rel="canonical" href="https://spaceprogram.cl/">
+    <meta name="theme-color" content="#030508">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="USACH Space Program">
+    <meta property="og:locale" content="es_CL">
+    <meta property="og:title" content="USACH Space Program | Innovación Aeroespacial Estudiantil">
+    <meta property="og:description" content="Iniciativa estudiantil de la Universidad de Santiago de Chile dedicada al aprendizaje, la divulgación y el prototipado aeroespacial.">
+    <meta property="og:url" content="https://spaceprogram.cl/">
+    <meta property="og:image" content="https://spaceprogram.cl/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Integrantes del USACH Space Program junto al rover en el taller">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="USACH Space Program | Innovación Aeroespacial Estudiantil">
+    <meta name="twitter:description" content="Iniciativa estudiantil de la Universidad de Santiago de Chile dedicada al aprendizaje, la divulgación y el prototipado aeroespacial.">
+    <meta name="twitter:image" content="https://spaceprogram.cl/og-image.jpg">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://spaceprogram.cl/#organization",
+                "name": "USACH Space Program",
+                "alternateName": "USP",
+                "url": "https://spaceprogram.cl/",
+                "logo": "https://spaceprogram.cl/icon-512.png",
+                "image": "https://spaceprogram.cl/og-image.jpg",
+                "description": "Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, la divulgación y el prototipado aeroespacial.",
+                "email": "spaceprogram@usach.cl",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Santiago",
+                    "addressCountry": "CL"
+                },
+                "parentOrganization": {
+                    "@type": "CollegeOrUniversity",
+                    "name": "Universidad de Santiago de Chile",
+                    "url": "https://www.usach.cl/"
+                },
+                "knowsAbout": ["Robótica espacial", "Cohetería", "CubeSat", "Sistemas orbitales", "Telecomunicaciones"]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://spaceprogram.cl/#website",
+                "url": "https://spaceprogram.cl/",
+                "name": "USACH Space Program",
+                "inLanguage": "es-CL",
+                "publisher": { "@id": "https://spaceprogram.cl/#organization" }
+            }
+        ]
+    }
+    </script>
     <link rel="stylesheet" href="./src/styles/main.css">
     <style>@import url("src/styles/pages/home.css");</style>
 </head>
@@ -223,7 +282,7 @@
 
             <div class="projects-grid">
                 <a class="project-card" href="/proyectos/rover/" data-tipo="emblema" style="--eje: var(--eje-robotica-ink)">
-                    <div class="project-media"><img src="./src/assets/images/nasa/rover_perseverance.jpg" alt="" loading="lazy"></div>
+                    <div class="project-media"><img src="./src/assets/images/nasa/rover_perseverance.jpg" alt="Rover Perseverance de la NASA, referencia del proyecto" loading="lazy"></div>
                     <div class="project-body">
                         <p class="project-meta"><span class="project-axis">Robótica</span> · Emblema</p>
                         <h3>Rover Perseverance</h3>
@@ -232,7 +291,7 @@
                     </div>
                 </a>
                 <a class="project-card" href="/proyectos/cohete/" data-tipo="emblema" style="--eje: var(--eje-coheteria-ink)">
-                    <div class="project-media"><img src="./src/assets/images/nasa/cohete_multietapa.jpg" alt="" loading="lazy"></div>
+                    <div class="project-media"><img src="./src/assets/images/nasa/cohete_multietapa.jpg" alt="Lanzamiento de un cohete multietapa (imagen referencial de la NASA)" loading="lazy"></div>
                     <div class="project-body">
                         <p class="project-meta"><span class="project-axis">Cohetería</span> · Emblema</p>
                         <h3>Cohete de agua</h3>
@@ -241,7 +300,7 @@
                     </div>
                 </a>
                 <a class="project-card" href="/proyectos/cubesat/" data-tipo="emblema" style="--eje: var(--eje-orbital-ink)">
-                    <div class="project-media"><img src="./src/assets/images/nasa/cubesat_deployment.jpg" alt="" loading="lazy"></div>
+                    <div class="project-media"><img src="./src/assets/images/nasa/cubesat_deployment.jpg" alt="CubeSats desplegándose en órbita (imagen referencial de la NASA)" loading="lazy"></div>
                     <div class="project-body">
                         <p class="project-meta"><span class="project-axis">Sistemas Orbitales</span> · Emblema</p>
                         <h3>CubeSat 1U</h3>
@@ -250,7 +309,7 @@
                     </div>
                 </a>
                 <a class="project-card" href="/proyectos/cansat/" data-tipo="formativo" style="--eje: var(--ink-soft)">
-                    <div class="project-media"><img src="./src/assets/images/nasa/minicubesat_lab.jpg" alt="" loading="lazy"></div>
+                    <div class="project-media"><img src="./src/assets/images/nasa/minicubesat_lab.jpg" alt="Mini satélite en banco de pruebas (imagen referencial)" loading="lazy"></div>
                     <div class="project-body">
                         <p class="project-meta"><span class="project-axis">Formativo</span> · 4 semanas</p>
                         <h3>Misión: Mini CubeSat</h3>
@@ -259,7 +318,7 @@
                     </div>
                 </a>
                 <a class="project-card" href="/proyectos/eggdrop/" data-tipo="formativo" style="--eje: var(--ink-soft)">
-                    <div class="project-media"><img src="./src/assets/images/nasa/salva_usachin_drop.jpg" alt="" loading="lazy"></div>
+                    <div class="project-media"><img src="./src/assets/images/nasa/salva_usachin_drop.jpg" alt="Cápsula con paracaídas en descenso (imagen referencial)" loading="lazy"></div>
                     <div class="project-body">
                         <p class="project-meta"><span class="project-axis">Formativo</span> · 4 semanas</p>
                         <h3>Misión: Salva a Usachín</h3>
@@ -268,7 +327,7 @@
                     </div>
                 </a>
                 <a class="project-card" href="/proyectos/cohete/#formativo" data-tipo="formativo" style="--eje: var(--ink-soft)">
-                    <div class="project-media"><img src="./src/assets/images/nasa/cohete_1u_prep.jpg" alt="" loading="lazy"></div>
+                    <div class="project-media"><img src="./src/assets/images/nasa/cohete_1u_prep.jpg" alt="Preparación de un cohete en rampa de lanzamiento (imagen referencial)" loading="lazy"></div>
                     <div class="project-body">
                         <p class="project-meta"><span class="project-axis">Formativo</span> · Introducción</p>
                         <h3>Cohete de agua (1 unidad)</h3>
@@ -322,7 +381,7 @@
                             <circle r="30"/><text y="5">APRENDE</text>
                         </g>
                     </svg>
-                    <img src="./src/assets/images/logo.png" alt="" class="cycle-logo">
+                    <img src="./src/assets/images/logo.png" alt="Logo del USACH Space Program" class="cycle-logo">
                 </div>
             </div>
 
@@ -379,7 +438,7 @@
             <button class="lightbox-close" aria-label="Cerrar">×</button>
             <button class="lightbox-nav lightbox-prev" aria-label="Foto anterior">‹</button>
             <figure>
-                <img alt="">
+                <img alt="Foto ampliada de la galería">
                 <figcaption></figcaption>
             </figure>
             <button class="lightbox-nav lightbox-next" aria-label="Foto siguiente">›</button>
