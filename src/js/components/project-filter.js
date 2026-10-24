@@ -2,11 +2,12 @@
 // Chip:    <button class="filter-chip" data-group="tipo" data-filter="emblema">
 // Tarjeta: <a class="project-card" data-tipo="emblema" data-eje="robotica">
 // data-filter="all" muestra todo dentro de su grupo.
+// Otros elementos filtrables (como las noticias) se marcan con data-filter-item.
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 export function initProjectFilter(root = document) {
     const chips = [...root.querySelectorAll('.filter-chip')];
-    const cards = [...root.querySelectorAll('.project-card')];
+    const cards = [...root.querySelectorAll('.project-card, [data-filter-item]')];
     const empty = root.querySelector('.filter-empty');
     if (!chips.length) return;
 

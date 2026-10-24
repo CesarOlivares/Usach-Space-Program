@@ -16,7 +16,6 @@ const escapeHtml = (text = '') =>
     String(text).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 const formatDate = (iso) => {
-    if (!iso) return 'Vigente';
     const [y, m, d] = iso.split('-').map(Number);
     return new Date(y, m - 1, d).toLocaleDateString('es-CL', { day: 'numeric', month: 'short', year: 'numeric' });
 };
@@ -31,14 +30,17 @@ function renderNews() {
         return;
     }
 
-    grid.innerHTML = noticias.slice(0, 5).map((n, i) => {
-        const tag = n.enlace ? 'a' : 'article';
-        const href = n.enlace ? ` href="${escapeHtml(n.enlace)}"` : '';
+    // La destacada va primero (grande); el resto sigue el orden de la lista
+    const destacada = noticias.find((n) => n.destacada) || noticias[0];
+    const lista = [destacada, ...noticias.filter((n) => n !== destacada)].slice(0, 5);
+
+    grid.innerHTML = lista.map((n, i) => {
         const featured = i === 0;
+        const portada = n.fotos[0];
         return `
-            <${tag} class="news-card${featured ? ' is-featured' : ''}" data-eje="${escapeHtml(n.eje)}"${href}>
+            <a class="news-card${featured ? ' is-featured' : ''}" data-eje="${escapeHtml(n.eje)}" href="/novedades/#${escapeHtml(n.slug)}">
                 <div class="news-media">
-                    <img src="${escapeHtml(n.imagen)}" alt="${escapeHtml(n.alt || n.titulo)}" loading="${featured ? 'eager' : 'lazy'}">
+                    <img src="${escapeHtml(portada.src)}" alt="${escapeHtml(portada.alt)}" loading="${featured ? 'eager' : 'lazy'}">
                 </div>
                 <div class="news-body">
                     <p class="news-meta">
@@ -47,9 +49,9 @@ function renderNews() {
                     </p>
                     <h3>${escapeHtml(n.titulo)}</h3>
                     <p>${escapeHtml(n.resumen)}</p>
-                    ${featured && n.enlace ? '<span class="news-cta">Más información →</span>' : ''}
+                    ${featured ? '<span class="news-cta">Leer la noticia →</span>' : ''}
                 </div>
-            </${tag}>`;
+            </a>`;
     }).join('');
 }
 

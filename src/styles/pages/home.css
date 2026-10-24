@@ -373,6 +373,11 @@
     color: var(--ink-soft);
 }
 
+.news-more {
+    margin: 28px 0 0;
+    text-align: center;
+}
+
 /* === 4. EJES === */
 .ejes-tabs {
     display: flex;

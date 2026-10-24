@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novedades | USACH Space Program</title>
+    <meta name="description" content="Ferias, visitas, premios y pruebas de campo del USACH Space Program: el rover premiado en la 3D Printer Party, lanzamientos de cohetes de agua y el CubeSat a escala real.">
+
+    <link rel="canonical" href="https://spaceprogram.cl/novedades/">
+    <meta name="theme-color" content="#030508">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="USACH Space Program">
+    <meta property="og:locale" content="es_CL">
+    <meta property="og:title" content="Novedades | USACH Space Program">
+    <meta property="og:description" content="Ferias, visitas, premios y pruebas de campo del USACH Space Program.">
+    <meta property="og:url" content="https://spaceprogram.cl/novedades/">
+    <meta property="og:image" content="https://spaceprogram.cl/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Integrantes del USACH Space Program junto al rover en el taller">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Novedades | USACH Space Program">
+    <meta name="twitter:description" content="Ferias, visitas, premios y pruebas de campo del USACH Space Program.">
+    <meta name="twitter:image" content="https://spaceprogram.cl/og-image.jpg">
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <style>@import url("/src/styles/pages/novedades.css");</style>
+</head>
+<body class="site novedades-page">
+
+    <header>
+        <div class="nav-brand-container">
+            <a href="/" class="nav-brand-link">
+                <img src="/src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="nav-logo">
+                <span class="nav-brand">USACH Space Program</span>
+            </a>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+        <nav class="nav-links" id="navLinks">
+            <a href="/novedades/" aria-current="page">Novedades</a>
+            <a href="/ejes/">Ejes</a>
+            <a href="/proyectos/">Proyectos</a>
+            <a href="/#alianzas">Alianzas</a>
+            <a href="mailto:spaceprogram@usach.cl" class="nav-contact">Contacto</a>
+            <a href="/registro/" class="btn-nav-cta">Postular</a>
+        </nav>
+    </header>
+
+    <main>
+
+    <section class="page-hero starfield" data-tone="dark">
+        <div class="page-hero-media" aria-hidden="true"><img src="/src/assets/images/eventos/organizafest/lanzamiento.jpg" alt=""></div>
+        <div class="section-inner novedades-hero">
+            <div>
+                <p class="eyebrow eyebrow-dark">Bitácora 2026</p>
+                <h1>Novedades</h1>
+                <p class="page-hero-lede">Ferias, visitas a colegios, premios y pruebas de campo. Lo que el programa ha construido, probado y mostrado este año.</p>
+            </div>
+            <dl class="hero-stats">
+                <div><dt>Actividades</dt><dd id="statEventos">7</dd></div>
+                <div><dt>Lanzamientos</dt><dd>4</dd></div>
+                <div><dt>Altura</dt><dd>~60 m</dd></div>
+            </dl>
+        </div>
+    </section>
+
+    <div class="tone-bridge tone-bridge--from-night tone-bridge--to-light" aria-hidden="true"></div>
+
+    <section class="section section-light section-mist-paper-mist section-tight" data-tone="light" id="bitacora" aria-labelledby="bitacora-title">
+        <div class="section-inner">
+            <h2 id="bitacora-title" class="visually-hidden">Todas las novedades</h2>
+
+            <div class="filter-bar" role="group" aria-label="Filtrar por eje">
+                <span class="filter-label">Eje</span>
+                <button class="filter-chip is-active" data-group="eje" data-filter="all" aria-pressed="true">Todas</button>
+                <button class="filter-chip" data-group="eje" data-filter="robotica" aria-pressed="false" style="--eje: var(--eje-robotica)"><i class="chip-dot"></i>Robótica</button>
+                <button class="filter-chip" data-group="eje" data-filter="coheteria" aria-pressed="false" style="--eje: var(--eje-coheteria)"><i class="chip-dot"></i>Cohetería</button>
+                <button class="filter-chip" data-group="eje" data-filter="orbital" aria-pressed="false" style="--eje: var(--eje-orbital)"><i class="chip-dot"></i>Sistemas Orbitales</button>
+                <button class="filter-chip" data-group="eje" data-filter="comunidad" aria-pressed="false"><i class="chip-dot"></i>Comunidad</button>
+            </div>
+
+            <div class="notas" id="notas" aria-live="polite"></div>
+            <p class="filter-empty" hidden>No hay novedades de ese eje todavía.</p>
+        </div>
+
+        <dialog class="lightbox" id="lightbox" aria-label="Foto ampliada">
+            <button class="lightbox-close" aria-label="Cerrar">×</button>
+            <button class="lightbox-nav lightbox-prev" aria-label="Foto anterior">‹</button>
+            <figure>
+                <img alt="Foto ampliada">
+                <figcaption></figcaption>
+            </figure>
+            <button class="lightbox-nav lightbox-next" aria-label="Foto siguiente">›</button>
+        </dialog>
+    </section>
+
+    <div class="tone-bridge tone-bridge--to-dark" aria-hidden="true"></div>
+
+    <section class="section section-dark section-night" data-tone="dark" aria-labelledby="invita-title">
+        <div class="section-inner">
+            <div class="cta-panel">
+                <div>
+                    <p class="eyebrow">Para colegios y eventos</p>
+                    <h2 id="invita-title">¿Quieres que llevemos el rover?</h2>
+                    <p>Visitamos colegios, ferias y encuentros para mostrar nuestros prototipos y contar cómo se construye un proyecto aeroespacial estudiantil.</p>
+                </div>
+                <div class="cta-actions">
+                    <a href="mailto:spaceprogram@usach.cl?subject=Invitaci%C3%B3n%20a%20un%20evento" class="btn btn-primary">Escríbenos <span aria-hidden="true">→</span></a>
+                    <a href="/registro/" class="btn btn-ghost">Postular al programa</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <footer data-tone="dark">
+        <div class="footer-grid">
+            <div class="footer-info">
+                <h3>USACH Space Program</h3>
+                <p>Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/novedades/">Novedades</a></li>
+                    <li><a href="/proyectos/">Proyectos</a></li>
+                    <li><a href="/ejes/">Ejes</a></li>
+                    <li><a href="/registro/">Postular</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p>Universidad de Santiago de Chile</p>
+                <p><a href="mailto:spaceprogram@usach.cl">spaceprogram@usach.cl</a></p>
+            </div>
+            <div class="footer-institutions">
+                <h4>Vínculos</h4>
+                <div class="footer-institution-logos">
+                    <a href="https://centroinnovacion.cl/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="Centro de Innovación USACH"><img src="/src/assets/images/gallery/centro de innovacion.webp" alt="Centro de Innovación USACH"></a>
+                    <a href="https://www.achide.org/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="ACHIDE"><img src="/src/assets/images/gallery/achide.png" alt="ACHIDE"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
+            <p>Diseño y fabricación con fines educativos</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/js/components/header.js"></script>
+    <script type="module" src="/src/js/pages/novedades.js"></script>
+</body>
+</html>

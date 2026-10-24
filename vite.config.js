@@ -6,6 +6,8 @@ import injectHTML from 'vite-plugin-html-inject';
 const cleanRoutes = {
   '/ejes/': '/src/pages/ejes.html',
   '/ejes': '/src/pages/ejes.html',
+  '/novedades/': '/src/pages/novedades.html',
+  '/novedades': '/src/pages/novedades.html',
   '/proyectos/': '/src/pages/proyectos.html',
   '/proyectos': '/src/pages/proyectos.html',
   '/registro/': '/src/pages/registro.html',
@@ -28,6 +30,7 @@ const cleanRoutes = {
 
 const cleanBuildCopies = [
   { src: 'src/pages/ejes.html', dest: 'ejes/index.html' },
+  { src: 'src/pages/novedades.html', dest: 'novedades/index.html' },
   { src: 'src/pages/proyectos.html', dest: 'proyectos/index.html' },
   { src: 'src/pages/registro.html', dest: 'registro/index.html' },
   { src: 'src/pages/admision_talleres.html', dest: 'talleres/index.html' },
@@ -81,6 +84,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         notFound: resolve(__dirname, '404.html'),
         login: resolve(__dirname, 'login.html'),
+        novedades: resolve(__dirname, 'src/pages/novedades.html'),
         proyectos: resolve(__dirname, 'src/pages/proyectos.html'),
         ejes: resolve(__dirname, 'src/pages/ejes.html'),
         registro: resolve(__dirname, 'src/pages/registro.html'),

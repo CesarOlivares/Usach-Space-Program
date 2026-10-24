@@ -1,12 +1,14 @@
 // Visor a pantalla completa para galerías.
 // Espera botones .gallery-item con data-full y data-caption, y un <dialog id="lightbox">.
+// Si las fotos están dentro de un [data-gallery], las flechas recorren solo ese grupo.
 export function initLightbox() {
     const dialog = document.getElementById('lightbox');
-    const items = [...document.querySelectorAll('.gallery-item')];
-    if (!dialog || !items.length || typeof dialog.showModal !== 'function') return;
+    const all = [...document.querySelectorAll('.gallery-item')];
+    if (!dialog || !all.length || typeof dialog.showModal !== 'function') return;
 
     const img = dialog.querySelector('img');
     const caption = dialog.querySelector('figcaption');
+    let items = all;
     let index = 0;
 
     const open = (i) => {
@@ -17,9 +19,11 @@ export function initLightbox() {
         caption.textContent = item.dataset.caption;
     };
 
-    items.forEach((item, i) => {
+    all.forEach((item) => {
         item.addEventListener('click', () => {
-            open(i);
+            const group = item.closest('[data-gallery]');
+            items = group ? [...group.querySelectorAll('.gallery-item')] : all;
+            open(items.indexOf(item));
             dialog.showModal();
         });
     });
