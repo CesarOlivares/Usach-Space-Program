@@ -45,14 +45,16 @@
             btn.innerHTML = 'ENVIANDO REGISTRO...';
             btn.disabled = true;
 
-            const correo = document.getElementById('correo').value;
+            const nombre = document.getElementById('nombre').value.trim();
+            const correo = document.getElementById('correo').value.trim();
             const carrera = document.getElementById('carrera').value;
             const proyecto = document.getElementById('proyecto_interes').value;
 
             const urlGoogleForm = 'https://docs.google.com/forms/d/e/1FAIpQLSf5ad1kQyhQqIUZXvP8V7Yt5WdOlDS4ruzRX9Rizw7PdsRE7w/formResponse';
-            
+
+            // El Google Form solo tiene el campo "nombre": el correo va junto para poder contactar
             const formData = new URLSearchParams();
-            formData.append('entry.957077564', correo);
+            formData.append('entry.957077564', `${nombre} — ${correo}`);
             formData.append('entry.2006805985', carrera);
             formData.append('entry.1483108375', proyecto);
 

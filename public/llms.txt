@@ -12,7 +12,7 @@
 
 - [Ejes de desarrollo](https://spaceprogram.cl/ejes/): definición, objetivos, ruta 2026–2027 y perfil buscado de cada eje.
 - **Robótica y Mecánica Espacial** (líder: César Olivares). Prototipos robóticos para condiciones hostiles. Proyecto emblema: Rover Perseverance.
-- **Cohetería y Propulsión** (líderes: Alessandro Orellano y Simón García-Huidobro). Cohetería hidroneumática como banco de pruebas, con la propulsión sólida experimental como meta para 2028. Proyecto emblema: Cohete de agua.
+- **Cohetería y Propulsión** (líderes: Hugo Orellano y Simón García-Huidobro). Cohetería hidroneumática como banco de pruebas, con la propulsión sólida experimental como meta para 2028. Proyecto emblema: Cohete de agua.
 - **Sistemas Orbitales y Telecomunicaciones** (líderes: Daniel González y Martín Castillo). Computador de a bordo, potencia y comunicaciones integrados en banco de laboratorio. Proyecto emblema: CubeSat 1U.
 
 ## Proyectos emblema
@@ -21,13 +21,17 @@
 - [Cohete de agua](https://spaceprogram.cl/proyectos/cohete/): plataforma hidroneumática que pasa de una etapa a multietapa (Sep 2026 – Dic 2027), con telemetría, paracaídas y documentación abierta.
 - [CubeSat 1U](https://spaceprogram.cl/proyectos/cubesat/): satélite de 10 × 10 × 10 cm con subsistemas OBC, EPS y COMMS, validados primero en FlatSat y luego integrados en la estructura.
 
-## Desafíos formativos (4 semanas, abiertos a toda la USACH)
+## Actividades abiertas (inscripciones hasta el 4 de noviembre de 2026)
 
-- [Misión: Mini CubeSat](https://spaceprogram.cl/proyectos/cansat/): equipos de 2 a 4 integran un mini satélite que transmite datos mientras un dron lo eleva hasta 30 m.
-- [Misión: Salva a Usachín](https://spaceprogram.cl/proyectos/eggdrop/): equipos diseñan una cápsula de 1 litro con paracaídas que proteja un módulo sensor en caída libre desde un dron.
+Abiertas a cualquier carrera de la USACH, sin experiencia previa. Equipos de 3, los miércoles en el bloque W3, hasta diciembre.
+
+- [Concurso: diseño de cohetes de agua](https://spaceprogram.cl/talleres/#cohetes): diseñar, construir y probar un cohete de agua. Premio: kit de electrónica.
+- [Salva a Usachín](https://spaceprogram.cl/proyectos/eggdrop/): competencia de diseño y construcción del paracaídas de un cohete. Premio: peluche de Usachín.
+- [Taller: Desarrollo de CubeSats](https://spaceprogram.cl/proyectos/cansat/): cada equipo arma y prueba un CubeSat funcional.
 
 ## Participar
 
-- [Postular al programa](https://spaceprogram.cl/registro/): convocatoria 2026, abierta a estudiantes de cualquier carrera, sin experiencia previa.
-- [Inscribirse a un desafío formativo](https://spaceprogram.cl/talleres/)
+- [Postular a un proyecto emblema](https://spaceprogram.cl/registro/): Rover Perseverance, CubeSat 1U o Cohete de agua. Abierto a estudiantes de cualquier carrera, sin experiencia previa.
+- [Inscribirse en las actividades abiertas](https://spaceprogram.cl/talleres/)
+- Instagram: https://www.instagram.com/usach_space_program/
 - [Catálogo de proyectos](https://spaceprogram.cl/proyectos/)

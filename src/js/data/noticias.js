@@ -13,6 +13,7 @@
  *   cuerpo:    párrafos de la noticia completa
  *   fotos:     [{ src, alt }]; la primera es la portada
  *   destacada: opcional; la noticia que se muestra grande en el inicio
+ *   afiches:   opcional; las fotos son afiches verticales y se muestran completos
  *
  * Las fotos van en src/assets/images/eventos/<slug>/ (máx. 1.400 px, JPEG ~78%).
  */
@@ -20,6 +21,28 @@
 const foto = (url, alt) => ({ src: url.href, alt });
 
 export const noticias = [
+    {
+        slug: 'inscripciones-actividades-abiertas',
+        titulo: 'Inscripciones abiertas: cohetes de agua, Salva a Usachín y CubeSats',
+        fecha: '2026-10-26',
+        eje: 'comunidad',
+        lugar: 'Universidad de Santiago de Chile',
+        resumen: 'Tres actividades para cualquier carrera de la USACH, en equipos de 3 y sin experiencia previa. Inscripciones hasta el 4 de noviembre.',
+        cuerpo: [
+            'Abrimos las inscripciones para las tres actividades abiertas del semestre: el Concurso de diseño de cohetes de agua, la competencia Salva a Usachín y el Taller de desarrollo de CubeSats.',
+            'Pueden participar estudiantes de cualquier carrera de la USACH y no se necesita experiencia previa: aprendemos haciendo. Se trabaja en equipos de 3, los miércoles en el bloque W3, y las actividades se desarrollan hasta diciembre.',
+            'En el concurso, cada equipo diseña, construye y pone a prueba su propio cohete de agua; el ganador se lleva un kit de electrónica y una sorpresa. En Salva a Usachín, el desafío es diseñar y construir el paracaídas de un cohete, con un peluche de Usachín como premio. En el taller, cada equipo arma y prueba su primer CubeSat funcional.',
+            'Las inscripciones están abiertas hasta el 4 de noviembre. Al cerrarlas, el equipo del programa define los cupos de cada actividad.'
+        ],
+        fotos: [
+            foto(new URL('../../assets/images/eventos/actividades-abiertas/afiche-cohetes-de-agua.webp', import.meta.url), 'Afiche del Concurso de diseño de cohetes de agua'),
+            foto(new URL('../../assets/images/eventos/actividades-abiertas/afiche-salva-a-usachin.webp', import.meta.url), 'Afiche de Salva a Usachín: Usachín desciende con un paracaídas'),
+            foto(new URL('../../assets/images/eventos/actividades-abiertas/afiche-taller-cubesats.webp', import.meta.url), 'Afiche del Taller de desarrollo de CubeSats')
+        ],
+        enlace: '/talleres/',
+        destacada: true,
+        afiches: true
+    },
     {
         slug: 'organizafest-2026',
         titulo: 'Organizafest: lanzamos un cohete de agua en plena feria',
@@ -113,8 +136,7 @@ export const noticias = [
             foto(new URL('../../assets/images/eventos/printer-party/stand.jpg', import.meta.url), 'El rover en exhibición en el stand durante el evento'),
             foto(new URL('../../assets/images/eventos/printer-party/rover-trofeo.jpg', import.meta.url), 'Vista lateral del rover con el trofeo')
         ],
-        enlace: '/proyectos/rover/',
-        destacada: true
+        enlace: '/proyectos/rover/'
     },
     {
         slug: 'feria-vector',

@@ -34,7 +34,8 @@ const REVEAL_SELECTORS = [
     '.callout-row',
     '.profile',
     '.kinds',
-    '.nota'
+    '.nota',
+    '.actividades'
 ];
 
 export function initReveal(root = document) {

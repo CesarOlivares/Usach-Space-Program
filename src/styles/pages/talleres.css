@@ -1,0 +1,122 @@
+/* ==========================================================================
+   USACH SPACE PROGRAM - ACTIVIDADES ABIERTAS (/talleres/)
+   ficha.css trae ui.css, los pasos numerados y los botones del hero;
+   proyectos.css trae .hero-stats.
+   ========================================================================== */
+@import url("./ficha.css");
+@import url("./proyectos.css");
+
+.talleres-hero {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 40px;
+    align-items: end;
+}
+
+.talleres-hero .ficha-actions {
+    margin-top: 28px;
+}
+
+.talleres-hero .hero-stats dd {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    white-space: nowrap;
+}
+
+/* Tarjetas de actividad: afiche arriba, texto abajo */
+.actividades {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.actividad {
+    display: flex;
+    flex-direction: column;
+    background: var(--paper-raised);
+    border-radius: 12px;
+    overflow: hidden;
+    scroll-margin-top: 96px;
+}
+
+.actividad-afiche {
+    aspect-ratio: 707 / 1000;
+    border-radius: 0;
+}
+
+.actividad-afiche img {
+    object-fit: cover;
+    object-position: top;
+}
+
+.actividad-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 22px 22px 26px;
+    flex: 1;
+}
+
+.actividad-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--eje-ink);
+}
+
+.actividad-tag::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.actividad h3 {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 1.35rem;
+    line-height: 1.25;
+    color: var(--ink);
+}
+
+.actividad-body > p:not(.actividad-tag) {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+}
+
+.actividad-premio strong {
+    color: var(--ink);
+}
+
+.actividad .text-link {
+    margin-top: auto;
+    padding-top: 6px;
+}
+
+@media (max-width: 1080px) {
+    .talleres-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .actividades {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+    .actividades {
+        grid-template-columns: 1fr;
+    }
+
+    .talleres-hero .ficha-actions .btn {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+}

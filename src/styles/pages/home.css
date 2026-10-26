@@ -233,6 +233,10 @@
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.news-media.is-poster img {
+    object-position: top;
+}
+
 .news-card:hover .news-media img {
     transform: scale(1.05);
 }

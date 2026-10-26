@@ -90,8 +90,8 @@
             <a href="/proyectos/rover/" class="mobile-link">Rover Perseverance (Flagship)</a>
             <a href="/proyectos/cubesat/" class="mobile-link">Bus Satelital CubeSat 3U</a>
             <a href="/proyectos/cohete/" class="mobile-link">Cohetería Experimental &amp; Agua</a>
-            <a href="/proyectos/cansat/" class="mobile-link">Misión: Mini Cube-Sat</a>
-            <a href="/proyectos/eggdrop/" class="mobile-link">Misión: Salva a Usachín</a>
+            <a href="/proyectos/cansat/" class="mobile-link">Taller: Desarrollo de CubeSats</a>
+            <a href="/proyectos/eggdrop/" class="mobile-link">Salva a Usachín</a>
             <div class="mobile-actions">
                 <a href="mailto:spaceprogram@usach.cl" class="btn-mobile-cta">Contacto: spaceprogram@usach.cl</a>
                 <a href="/registro/" class="btn-mobile-postular">Postular al Equipo 2026</a>
@@ -106,16 +106,24 @@
             <div class="form-header">
                 <div class="rover-section-tag" style="justify-content: center; margin-bottom: 12px;">
                     <span>✦</span>
-                    <span>CONVOCATORIA GENERAL // TODAS LAS CARRERAS</span>
+                    <span>PROYECTOS EMBLEMA // TODAS LAS CARRERAS</span>
                 </div>
                 <h1>REGISTRO DE ESTUDIANTES</h1>
                 <p>
-                    Buscamos estudiantes motivados por aprender haciendo, sin importar el año que curses ni tu experiencia previa. Ingresa tus datos en nuestro registro para coordinar tu inducción y asignación a equipos técnicos.
+                    Postula a un proyecto emblema del programa: el Rover Perseverance, el CubeSat 1U o el cohete de agua. Buscamos estudiantes motivados por aprender haciendo, sin importar el año que curses ni tu experiencia previa.
+                </p>
+                <p>
+                    ¿Buscas el concurso de cohetes de agua, Salva a Usachín o el taller de CubeSats? <a href="/talleres/">Inscríbete en las actividades abiertas</a>.
                 </p>
             </div>
 
             <form id="reclutamientoForm">
-                
+
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="ejemplo: Ana Pérez" autocomplete="name" required>
+                </div>
+
                 <div class="form-group">
                     <label for="correo">Correo Electrónico Institucional o Personal</label>
                     <input type="email" id="correo" name="correo" placeholder="ejemplo: nombre.apellido@usach.cl" required>
@@ -205,15 +213,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="proyecto_interes">Área o Proyecto de Mayor Interés</label>
+                    <label for="proyecto_interes">Proyecto emblema de mayor interés</label>
                     <select id="proyecto_interes" name="proyecto_interes" required>
-                        <option value="" disabled selected>Selecciona tu área de preferencia inicial</option>
-                        <option value="Rover Perseverance">Rover Perseverance (Eje I: Robótica &amp; Mecánica Espacial)</option>
-                        <option value="CubeSat 3U">CubeSat 3U &amp; Cargas Útiles (Eje III: Sistemas Orbitales)</option>
-                        <option value="Cohete Experimental">Cohetería Experimental &amp; Agua (Eje II: Propulsión)</option>
-                        <option value="Mision Mini CubeSat">Misión Mini Cube-Sat (Desafío Formativo)</option>
-                        <option value="Mision Salva Usachin">Misión Salva a Usachín (Desafío Formativo)</option>
-                        <option value="Gestion y Divulgacion">Comunicaciones, Diseño &amp; Vinculación con el Medio</option>
+                        <option value="" disabled selected>Selecciona un proyecto</option>
+                        <option value="Rover Perseverance">Rover Perseverance (Robótica y Mecánica Espacial)</option>
+                        <option value="CubeSat 1U">CubeSat 1U (Sistemas Orbitales y Telecomunicaciones)</option>
+                        <option value="Cohete de agua">Cohete de agua (Cohetería y Propulsión)</option>
                     </select>
                     <span class="help-text">Tu selección nos ayuda a orientar las sesiones de inducción técnica según tus intereses.</span>
                 </div>

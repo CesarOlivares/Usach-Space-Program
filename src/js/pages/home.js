@@ -39,7 +39,7 @@ function renderNews() {
         const portada = n.fotos[0];
         return `
             <a class="news-card${featured ? ' is-featured' : ''}" data-eje="${escapeHtml(n.eje)}" href="/novedades/#${escapeHtml(n.slug)}">
-                <div class="news-media">
+                <div class="news-media${n.afiches ? ' is-poster' : ''}">
                     <img src="${escapeHtml(portada.src)}" alt="${escapeHtml(portada.alt)}" loading="${featured ? 'eager' : 'lazy'}">
                 </div>
                 <div class="news-body">

@@ -13,7 +13,8 @@ const EJE_LABEL = {
 const ENLACE_LABEL = {
     '/proyectos/rover/': 'Conoce el rover',
     '/proyectos/cohete/': 'Conoce el cohete de agua',
-    '/proyectos/cubesat/': 'Conoce el CubeSat 1U'
+    '/proyectos/cubesat/': 'Conoce el CubeSat 1U',
+    '/talleres/': 'Inscríbete en las actividades'
 };
 
 const escapeHtml = (text = '') =>
@@ -52,7 +53,7 @@ function renderNotas() {
                 <div class="nota-main">
                     <h2>${escapeHtml(n.titulo)}</h2>
                     ${n.cuerpo.map((p) => `<p>${escapeHtml(p)}</p>`).join('')}
-                    <div class="nota-galeria" data-gallery data-count="${Math.min(n.fotos.length, 5)}">${fotos}</div>
+                    <div class="nota-galeria${n.afiches ? ' nota-galeria--afiches' : ''}" data-gallery data-count="${Math.min(n.fotos.length, 5)}">${fotos}</div>
                     ${enlace}
                 </div>
             </article>`;

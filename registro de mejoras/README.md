@@ -15,6 +15,8 @@ Bitácora de los cambios hechos a la página del USACH Space Program: qué se ca
 | [09-mejoras-sugeridas.md](09-mejoras-sugeridas.md) | Hero con video propio del rover, menos etiquetas monoespaciadas y tono en vez de bordes |
 | [10-portada-e-imagenes.md](10-portada-e-imagenes.md) | Vuelta a la portada del planeta e imágenes de referencia de la NASA con créditos |
 | [11-novedades-reales.md](11-novedades-reales.md) | 7 noticias reales con fotos del Drive del equipo y nueva página `/novedades/` |
+| [12-auditoria-de-contenido.md](12-auditoria-de-contenido.md) | Auditoría del contenido del sitio y preguntas para que responda el equipo |
+| [13-actividades-abiertas-y-formularios.md](13-actividades-abiertas-y-formularios.md) | Página de actividades abiertas, formularios conectados, fichas según los afiches e Instagram |
 
 ## Resumen en una línea por etapa
 

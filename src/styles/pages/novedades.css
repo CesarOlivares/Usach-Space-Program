@@ -171,6 +171,21 @@
 .nota-galeria[data-count="4"] { grid-auto-rows: 300px; }
 .nota-galeria[data-count="4"] .is-cover { grid-column: auto; grid-row: auto; }
 
+/* Afiches: columnas iguales y el afiche completo, sin portada grande */
+.nota-galeria.nota-galeria--afiches {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+}
+
+.nota-galeria--afiches .gallery-item {
+    aspect-ratio: 707 / 1000;
+}
+
+.nota-galeria--afiches .is-cover {
+    grid-column: auto;
+    grid-row: auto;
+}
+
 .nota .text-link {
     margin-top: 6px;
 }
