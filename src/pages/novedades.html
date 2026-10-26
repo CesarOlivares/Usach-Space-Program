@@ -1076,6 +1076,11 @@ body.site {
     position: relative;
 }
 
+/* Afiches verticales: se muestra la parte de arriba, donde va el título */
+.project-media.is-poster img {
+    object-position: top;
+}
+
 .project-media.is-reference img {
     filter: grayscale(1) contrast(1.08) brightness(0.92);
 }
@@ -1768,6 +1773,21 @@ body.site .join-card {
 .nota-galeria[data-count="4"] { grid-auto-rows: 300px; }
 .nota-galeria[data-count="4"] .is-cover { grid-column: auto; grid-row: auto; }
 
+/* Afiches: columnas iguales y el afiche completo, sin portada grande */
+.nota-galeria.nota-galeria--afiches {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+}
+
+.nota-galeria--afiches .gallery-item {
+    aspect-ratio: 707 / 1000;
+}
+
+.nota-galeria--afiches .is-cover {
+    grid-column: auto;
+    grid-row: auto;
+}
+
 .nota .text-link {
     margin-top: 6px;
 }
@@ -1818,13 +1838,13 @@ body.site .join-card {
     .nota-galeria[data-count="4"] { grid-auto-rows: 200px; }
     .nota-galeria[data-count="1"] { grid-auto-rows: 300px; }
 }</style>
-  <script type="module" crossorigin src="/assets/novedades-CaIJhVQK.js"></script>
+  <script type="module" crossorigin src="/assets/novedades-DQbzcpSC.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/main-uMHmB8Kc.js">
   <link rel="modulepreload" crossorigin href="/assets/header-BHafkzy6.js">
-  <link rel="modulepreload" crossorigin href="/assets/noticias-DSqdLaep.js">
+  <link rel="modulepreload" crossorigin href="/assets/noticias-C0Iiwyli.js">
   <link rel="modulepreload" crossorigin href="/assets/lightbox-4WZmpiwN.js">
   <link rel="modulepreload" crossorigin href="/assets/project-filter-MhR1x_rp.js">
-  <link rel="modulepreload" crossorigin href="/assets/motion-CN-njdw4.js">
+  <link rel="modulepreload" crossorigin href="/assets/motion-epFh6Iqh.js">
   <link rel="stylesheet" crossorigin href="/assets/main-BhfFX2aH.css">
 </head>
 <body class="site novedades-page">
@@ -1935,6 +1955,7 @@ body.site .join-card {
                 <h4>Contacto</h4>
                 <p>Universidad de Santiago de Chile</p>
                 <p><a href="mailto:spaceprogram@usach.cl">spaceprogram@usach.cl</a></p>
+                <p><a href="https://www.instagram.com/usach_space_program/" target="_blank" rel="noopener">Instagram: @usach_space_program</a></p>
             </div>
             <div class="footer-institutions">
                 <h4>Vínculos</h4>

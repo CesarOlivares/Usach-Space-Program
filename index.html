@@ -43,6 +43,7 @@
                 "image": "https://spaceprogram.cl/og-image.jpg",
                 "description": "Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, la divulgación y el prototipado aeroespacial.",
                 "email": "spaceprogram@usach.cl",
+                "sameAs": ["https://www.instagram.com/usach_space_program/"],
                 "address": {
                     "@type": "PostalAddress",
                     "addressLocality": "Santiago",
@@ -1110,6 +1111,11 @@ body.site {
     position: relative;
 }
 
+/* Afiches verticales: se muestra la parte de arriba, donde va el título */
+.project-media.is-poster img {
+    object-position: top;
+}
+
 .project-media.is-reference img {
     filter: grayscale(1) contrast(1.08) brightness(0.92);
 }
@@ -1697,6 +1703,10 @@ body.site .join-card {
     object-fit: cover;
     display: block;
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.news-media.is-poster img {
+    object-position: top;
 }
 
 .news-card:hover .news-media img {
@@ -2552,13 +2562,13 @@ body.site .join-card {
         padding: 0 24px;
     }
 }</style>
-  <script type="module" crossorigin src="/assets/main--PMb5IIs.js"></script>
+  <script type="module" crossorigin src="/assets/main-BzD2oxqV.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/main-uMHmB8Kc.js">
   <link rel="modulepreload" crossorigin href="/assets/header-BHafkzy6.js">
-  <link rel="modulepreload" crossorigin href="/assets/noticias-DSqdLaep.js">
+  <link rel="modulepreload" crossorigin href="/assets/noticias-C0Iiwyli.js">
   <link rel="modulepreload" crossorigin href="/assets/lightbox-4WZmpiwN.js">
   <link rel="modulepreload" crossorigin href="/assets/project-filter-MhR1x_rp.js">
-  <link rel="modulepreload" crossorigin href="/assets/motion-CN-njdw4.js">
+  <link rel="modulepreload" crossorigin href="/assets/motion-epFh6Iqh.js">
   <link rel="stylesheet" crossorigin href="/assets/main-BhfFX2aH.css">
 </head>
 <body class="site home">
@@ -2666,13 +2676,13 @@ body.site .join-card {
                     <p class="eyebrow">Portafolio</p>
                     <h2 id="proyectos-title">Proyectos e iniciativas</h2>
                 </div>
-                <p class="section-intro">Proyectos emblema de largo aliento y desafíos formativos de 4 semanas para quienes recién llegan.</p>
+                <p class="section-intro">Proyectos emblema de largo aliento y actividades abiertas a toda la USACH para quienes recién llegan.</p>
             </div>
 
             <div class="filter-bar" role="group" aria-label="Filtrar proyectos">
                 <button class="filter-chip is-active" data-group="tipo" data-filter="all" aria-pressed="true">Todos <span>6</span></button>
                 <button class="filter-chip" data-group="tipo" data-filter="emblema" aria-pressed="false">Emblema <span>3</span></button>
-                <button class="filter-chip" data-group="tipo" data-filter="formativo" aria-pressed="false">Formativos <span>3</span></button>
+                <button class="filter-chip" data-group="tipo" data-filter="formativo" aria-pressed="false">Actividades abiertas <span>3</span></button>
             </div>
 
             <div class="projects-grid">
@@ -2703,31 +2713,31 @@ body.site .join-card {
                         <p class="project-status"><span class="status-dot"></span>Integración en laboratorio</p>
                     </div>
                 </a>
-                <a class="project-card" href="/proyectos/cansat/" data-tipo="formativo" style="--eje: var(--eje-orbital-ink)">
-                    <div class="project-media is-reference"><img src="/assets/minicubesat_lab-DbefhVxw.jpg" alt="Mini satélite en banco de pruebas (imagen referencial)" loading="lazy"><span class="reference-credit">Imagen referencial</span></div>
+                <a class="project-card" href="/talleres/#cohetes" data-tipo="formativo" style="--eje: var(--eje-coheteria-ink)">
+                    <div class="project-media is-poster"><img src="/assets/afiche-cohetes-de-agua-BCfO46rM.webp" alt="Afiche del Concurso de diseño de cohetes de agua" loading="lazy"></div>
                     <div class="project-body">
-                        <p class="project-meta"><span class="project-axis">Formativo</span> · 4 semanas</p>
-                        <h3>Misión: Mini CubeSat</h3>
-                        <p>Sensores, controlador y antena en un cubo cerrado que registra datos desde un dron a 30 m.</p>
-                        <p class="project-status"><span class="status-dot"></span>Electrónica y telemetría</p>
+                        <p class="project-meta"><span class="project-axis">Cohetería</span> · Concurso</p>
+                        <h3>Diseño de cohetes de agua</h3>
+                        <p>Diseña, construye y pon a prueba tu propio cohete de agua. Premio: kit de electrónica y una sorpresa.</p>
+                        <p class="project-status"><span class="status-dot"></span>Inscripciones hasta el 4 nov</p>
                     </div>
                 </a>
                 <a class="project-card" href="/proyectos/eggdrop/" data-tipo="formativo" style="--eje: var(--eje-coheteria-ink)">
-                    <div class="project-media is-reference"><img src="/assets/salva_usachin_drop-BZJ5SHPa.jpg" alt="Cápsula con paracaídas en descenso (imagen referencial)" loading="lazy"><span class="reference-credit">Imagen referencial</span></div>
+                    <div class="project-media is-poster"><img src="/assets/afiche-salva-a-usachin-DGX7g2nL.webp" alt="Afiche de Salva a Usachín" loading="lazy"></div>
                     <div class="project-body">
-                        <p class="project-meta"><span class="project-axis">Formativo</span> · 4 semanas</p>
-                        <h3>Misión: Salva a Usachín</h3>
-                        <p>Diseña una cápsula de 1 L que amortigüe el impacto de un módulo sensor lanzado desde un dron.</p>
-                        <p class="project-status"><span class="status-dot"></span>Paracaídas y amortiguación</p>
+                        <p class="project-meta"><span class="project-axis">Cohetería</span> · Competencia</p>
+                        <h3>Salva a Usachín</h3>
+                        <p>Diseña y construye el paracaídas de un cohete. El ganador se lleva un peluche de Usachín.</p>
+                        <p class="project-status"><span class="status-dot"></span>Inscripciones hasta el 4 nov</p>
                     </div>
                 </a>
-                <a class="project-card" href="/proyectos/cohete/#formativo" data-tipo="formativo" style="--eje: var(--eje-coheteria-ink)">
-                    <div class="project-media is-reference"><img src="/assets/cohete_1u_prep-DgzsFi7M.jpg" alt="Preparación de un cohete en rampa de lanzamiento (imagen referencial)" loading="lazy"><span class="reference-credit">Imagen referencial</span></div>
+                <a class="project-card" href="/proyectos/cansat/" data-tipo="formativo" style="--eje: var(--eje-orbital-ink)">
+                    <div class="project-media is-poster"><img src="/assets/afiche-taller-cubesats-liDzCIaj.webp" alt="Afiche del Taller de desarrollo de CubeSats" loading="lazy"></div>
                     <div class="project-body">
-                        <p class="project-meta"><span class="project-axis">Formativo</span> · Introducción</p>
-                        <h3>Cohete de agua (1 unidad)</h3>
-                        <p>La física de la propulsión, el centrado de masas (CG vs. CP), toberas y un paracaídas básico.</p>
-                        <p class="project-status"><span class="status-dot"></span>Física y aerodinámica</p>
+                        <p class="project-meta"><span class="project-axis">Sistemas Orbitales</span> · Taller</p>
+                        <h3>Desarrollo de CubeSats</h3>
+                        <p>Construye tu primer satélite desde cero: equipos de 3 arman y prueban un CubeSat funcional.</p>
+                        <p class="project-status"><span class="status-dot"></span>Inscripciones hasta el 4 nov</p>
                     </div>
                 </a>
             </div>
@@ -2790,7 +2800,7 @@ body.site .join-card {
                     <h3>Cohetería y Propulsión</h3>
                     <p>Usamos la propulsión hidroneumática como banco de pruebas seguro para validar aerodinámica, telemetría, estructuras y recuperación, y preparar el salto a la propulsión sólida experimental.</p>
                     <dl class="eje-facts">
-                        <div><dt>Líderes</dt><dd>Alessandro Orellano y Simón García-Huidobro</dd></div>
+                        <div><dt>Líderes</dt><dd>Hugo Orellano y Simón García-Huidobro</dd></div>
                         <div><dt>Integrantes</dt><dd>7</dd></div>
                         <div><dt>Emblema</dt><dd>Cohete de agua</dd></div>
                     </dl>
@@ -3007,6 +3017,7 @@ body.site .join-card {
                 <h4>Contacto</h4>
                 <p>Universidad de Santiago de Chile</p>
                 <p><a href="mailto:spaceprogram@usach.cl">spaceprogram@usach.cl</a></p>
+                <p><a href="https://www.instagram.com/usach_space_program/" target="_blank" rel="noopener">Instagram: @usach_space_program</a></p>
             </div>
 
             <div class="footer-institutions">
