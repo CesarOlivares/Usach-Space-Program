@@ -1,0 +1,370 @@
+/* ==========================================================================
+   USACH SPACE PROGRAM - QUIÉNES SOMOS
+   Hero, secciones y botones vienen de components/ui.css (vía proyectos.css).
+   ========================================================================== */
+@import url("./proyectos.css");
+
+.qs-hero {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 40px;
+    align-items: end;
+}
+
+.qs-hero .hero-stats dd {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    white-space: nowrap;
+}
+
+/* --- Foto grupal de la directiva --- */
+.qs-grupo {
+    margin: 0 0 56px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: 24px 48px;
+    align-items: end;
+}
+
+.qs-grupo img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+}
+
+.qs-grupo figcaption {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 34ch;
+}
+
+.qs-grupo figcaption strong {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+
+/* --- Tarjetas de la directiva --- */
+.qs-equipo {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px 28px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.qs-persona {
+    --eje: var(--ink-soft);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.qs-persona[data-eje="robotica"] { --eje: var(--eje-robotica-ink); }
+.qs-persona[data-eje="coheteria"] { --eje: var(--eje-coheteria-ink); }
+.qs-persona[data-eje="orbital"] { --eje: var(--eje-orbital-ink); }
+
+.qs-foto {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 6px;
+    background: var(--mist);
+    margin-bottom: 12px;
+}
+
+.qs-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s var(--ease-out);
+}
+
+.qs-persona:hover .qs-foto img {
+    transform: scale(1.04);
+}
+
+.qs-cargo {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+}
+
+.qs-nombre {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 1.375rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--ink);
+}
+
+.qs-eje {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin: 2px 0 0;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--eje);
+}
+
+.qs-eje::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.qs-carrera {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+}
+
+/* Toda la tarjeta abre la ficha; el botón cubre la tarjeta */
+.qs-abrir {
+    margin-top: 6px;
+    align-self: flex-start;
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--ink);
+    cursor: pointer;
+}
+
+.qs-abrir::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+.qs-abrir span {
+    display: inline-block;
+    transition: transform var(--dur-base) var(--ease-out);
+}
+
+.qs-persona:hover .qs-abrir span {
+    transform: translateX(4px);
+}
+
+.qs-abrir:focus-visible {
+    outline: none;
+}
+
+.qs-persona:has(.qs-abrir:focus-visible) .qs-foto {
+    outline: 2px solid var(--eje);
+    outline-offset: 3px;
+}
+
+/* --- Ficha (diálogo) --- */
+.qs-ficha {
+    width: min(920px, calc(100vw - 32px));
+    max-height: calc(100dvh - 48px);
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    background: var(--paper-raised);
+    color: var(--ink);
+    overflow: auto;
+}
+
+.qs-ficha::backdrop {
+    background: rgba(3, 5, 8, 0.72);
+}
+
+.qs-ficha[open] {
+    animation: riseIn 0.3s var(--ease-out);
+}
+
+.qs-ficha-grid {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+}
+
+.qs-ficha-foto {
+    margin: 0;
+    background: var(--mist);
+}
+
+.qs-ficha-foto img {
+    width: 100%;
+    height: 100%;
+    min-height: 360px;
+    object-fit: cover;
+    display: block;
+}
+
+.qs-ficha-texto {
+    --eje: var(--ink-soft);
+    padding: 40px 44px 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.qs-ficha-texto[data-eje="robotica"] { --eje: var(--eje-robotica-ink); }
+.qs-ficha-texto[data-eje="coheteria"] { --eje: var(--eje-coheteria-ink); }
+.qs-ficha-texto[data-eje="orbital"] { --eje: var(--eje-orbital-ink); }
+
+.qs-ficha-texto h2 {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.qs-ficha-texto p,
+.qs-ficha-texto li {
+    margin: 0;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 62ch;
+}
+
+.qs-ficha-texto ul {
+    margin: 0;
+    padding-left: 1.1em;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.qs-ficha-texto .qs-pendiente {
+    font-style: italic;
+    color: var(--ink-faint);
+}
+
+.qs-contacto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    margin-top: 8px;
+    padding-top: 18px;
+    border-top: 1px solid var(--paper-line);
+}
+
+.qs-contacto a {
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--paper-line);
+    text-underline-offset: 4px;
+}
+
+.qs-contacto a:hover {
+    text-decoration-color: currentColor;
+}
+
+.qs-cerrar {
+    position: sticky;
+    top: 12px;
+    float: right;
+    margin: 12px 12px -56px 0;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(14, 20, 36, 0.08);
+    color: var(--ink);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.qs-cerrar:hover {
+    background: rgba(14, 20, 36, 0.14);
+}
+
+/* --- Nuestros comienzos --- */
+.qs-origen {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    gap: 40px 64px;
+    align-items: center;
+}
+
+.qs-origen figure {
+    margin: 0;
+}
+
+.qs-origen img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+}
+
+.qs-origen figcaption {
+    margin-top: 12px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.qs-origen .prose p {
+    color: rgba(245, 245, 240, 0.82);
+    margin: 0 0 16px;
+}
+
+@media (max-width: 960px) {
+    .qs-hero,
+    .qs-grupo,
+    .qs-origen {
+        grid-template-columns: 1fr;
+    }
+
+    .qs-equipo {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .qs-ficha-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .qs-ficha-foto img {
+        min-height: 0;
+        max-height: 360px;
+        aspect-ratio: 4 / 3;
+    }
+
+    .qs-ficha-texto {
+        padding: 28px 24px 32px;
+    }
+}
+
+@media (max-width: 560px) {
+    .qs-equipo {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .qs-foto img,
+    .qs-abrir span,
+    .qs-ficha[open] {
+        transition: none;
+        animation: none;
+    }
+}

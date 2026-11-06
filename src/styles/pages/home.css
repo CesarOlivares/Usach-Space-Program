@@ -1090,3 +1090,34 @@
         padding: 0 24px;
     }
 }
+
+/* === QUIÉNES SOMOS (adelanto en el inicio) === */
+.home-nosotros {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 40px 64px;
+    align-items: center;
+}
+
+.home-nosotros-foto {
+    margin: 0;
+}
+
+.home-nosotros-foto img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1381 / 921;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+}
+
+.home-nosotros-texto h2 {
+    margin-bottom: 0;
+}
+
+@media (max-width: 960px) {
+    .home-nosotros {
+        grid-template-columns: 1fr;
+    }
+}

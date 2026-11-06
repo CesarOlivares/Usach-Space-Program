@@ -1,4 +1,5 @@
-import { noticias } from '../data/noticias.js';
+import { noticias as noticiasLocales } from '../data/noticias.js';
+import { cargarNoticias } from '../data/cargar-noticias.js';
 import { initLightbox } from '../components/lightbox.js';
 import { initProjectFilter } from '../components/project-filter.js';
 import { initMotion } from '../components/motion.js';
@@ -21,7 +22,7 @@ const formatDate = (iso) => {
 };
 
 // === Novedades ===
-function renderNews() {
+function renderNews(noticias) {
     const grid = document.getElementById('newsGrid');
     if (!grid) return;
 
@@ -30,7 +31,7 @@ function renderNews() {
         return;
     }
 
-    // La destacada va primero (grande); el resto sigue el orden de la lista
+    // La destacada va primero (grande); el resto, de la más nueva a la más antigua
     const destacada = noticias.find((n) => n.destacada) || noticias[0];
     const lista = [destacada, ...noticias.filter((n) => n !== destacada)].slice(0, 5);
 
@@ -175,7 +176,9 @@ function initMarquee() {
     });
 }
 
-renderNews();
+// Primero se muestran las del archivo (instantáneo) y luego se completan con las del panel
+renderNews(noticiasLocales);
+cargarNoticias().then(renderNews);
 initCounters();
 initEjeTabs();
 initProjectFilter();

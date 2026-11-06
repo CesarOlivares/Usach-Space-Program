@@ -6,6 +6,8 @@ import injectHTML from 'vite-plugin-html-inject';
 const cleanRoutes = {
   '/ejes/': '/src/pages/ejes.html',
   '/ejes': '/src/pages/ejes.html',
+  '/quienes-somos/': '/src/pages/quienes-somos.html',
+  '/quienes-somos': '/src/pages/quienes-somos.html',
   '/novedades/': '/src/pages/novedades.html',
   '/novedades': '/src/pages/novedades.html',
   '/proyectos/': '/src/pages/proyectos.html',
@@ -24,6 +26,8 @@ const cleanRoutes = {
   '/proyectos/cansat': '/src/pages/proyectos/cansat.html',
   '/proyectos/eggdrop/': '/src/pages/proyectos/eggdrop.html',
   '/proyectos/eggdrop': '/src/pages/proyectos/eggdrop.html',
+  '/panel/': '/src/pages/panel.html',
+  '/panel': '/src/pages/panel.html',
   '/login/': '/login.html',
   '/login': '/login.html',
 };
@@ -31,6 +35,7 @@ const cleanRoutes = {
 const cleanBuildCopies = [
   { src: 'src/pages/ejes.html', dest: 'ejes/index.html' },
   { src: 'src/pages/novedades.html', dest: 'novedades/index.html' },
+  { src: 'src/pages/quienes-somos.html', dest: 'quienes-somos/index.html' },
   { src: 'src/pages/proyectos.html', dest: 'proyectos/index.html' },
   { src: 'src/pages/registro.html', dest: 'registro/index.html' },
   { src: 'src/pages/admision_talleres.html', dest: 'talleres/index.html' },
@@ -40,6 +45,7 @@ const cleanBuildCopies = [
   { src: 'src/pages/proyectos/cansat.html', dest: 'proyectos/cansat/index.html' },
   { src: 'src/pages/proyectos/eggdrop.html', dest: 'proyectos/eggdrop/index.html' },
   { src: 'login.html', dest: 'login/index.html' },
+  { src: 'src/pages/panel.html', dest: 'panel/index.html' },
 ];
 
 function cleanUrlsPlugin() {
@@ -84,7 +90,9 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         notFound: resolve(__dirname, '404.html'),
         login: resolve(__dirname, 'login.html'),
+        panel: resolve(__dirname, 'src/pages/panel.html'),
         novedades: resolve(__dirname, 'src/pages/novedades.html'),
+        quienesSomos: resolve(__dirname, 'src/pages/quienes-somos.html'),
         proyectos: resolve(__dirname, 'src/pages/proyectos.html'),
         ejes: resolve(__dirname, 'src/pages/ejes.html'),
         registro: resolve(__dirname, 'src/pages/registro.html'),

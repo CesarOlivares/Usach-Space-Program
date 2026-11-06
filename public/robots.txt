@@ -5,6 +5,7 @@
 User-agent: *
 Allow: /
 Disallow: /login/
+Disallow: /panel/
 
 # Bots de IA: permitidos explícitamente (mismas reglas que el resto)
 User-agent: GPTBot
@@ -21,5 +22,6 @@ User-agent: Applebot-Extended
 User-agent: CCBot
 Allow: /
 Disallow: /login/
+Disallow: /panel/
 
 Sitemap: https://spaceprogram.cl/sitemap.xml

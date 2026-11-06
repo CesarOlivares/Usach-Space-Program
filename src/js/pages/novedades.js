@@ -1,4 +1,4 @@
-import { noticias } from '../data/noticias.js';
+import { cargarNoticias } from '../data/cargar-noticias.js';
 import { initLightbox } from '../components/lightbox.js';
 import { initProjectFilter } from '../components/project-filter.js';
 import { initMotion } from '../components/motion.js';
@@ -25,7 +25,7 @@ const parseDate = (iso) => {
     return new Date(y, m - 1, d);
 };
 
-function renderNotas() {
+function renderNotas(noticias) {
     const list = document.getElementById('notas');
     if (!list) return;
 
@@ -68,7 +68,9 @@ function renderNotas() {
     }
 }
 
-renderNotas();
-initProjectFilter(document.getElementById('bitacora'));
-initLightbox();
-initMotion();
+cargarNoticias().then((noticias) => {
+    renderNotas(noticias);
+    initProjectFilter(document.getElementById('bitacora'));
+    initLightbox();
+    initMotion();
+});

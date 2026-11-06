@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel interno | USACH Space Program</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#030508">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <style>@import url("/src/styles/pages/novedades.css");</style>
+    <link rel="stylesheet" href="/src/styles/pages/panel.css">
+</head>
+<body class="panel">
+    <header class="panel-top">
+        <a href="/" class="panel-marca">USP · Panel interno</a>
+        <nav class="panel-nav" aria-label="Secciones del panel">
+            <a href="/panel/" aria-current="page">Novedades</a>
+            <span class="panel-pronto" title="En desarrollo">Calendario <small>pronto</small></span>
+        </nav>
+        <span class="panel-usuario"><span id="usuario"></span> · <button type="button" id="salir">Salir</button></span>
+    </header>
+
+    <p class="panel-cargando" id="cargando">Verificando tu sesión…</p>
+
+    <div class="panel-cuerpo" id="panel" hidden>
+        <aside class="panel-lista" aria-label="Noticias">
+            <button class="p-btn p-btn-primario" id="nueva" type="button">+ Nueva noticia</button>
+            <ul id="lista"></ul>
+            <p class="p-ayuda p-ayuda-lista">Las marcadas como <b>En el código</b> siguen en el archivo del repositorio. Al guardarlas aquí pasan al panel y desde entonces se editan solo aquí.</p>
+        </aside>
+
+        <main class="panel-main">
+            <form id="form" class="p-form" novalidate>
+                <div class="p-form-head">
+                    <h1 id="formTitulo">Editar noticia</h1>
+                    <span class="p-estado" id="estado" aria-live="polite"></span>
+                </div>
+
+                <label class="p-campo">
+                    <span>Título <small>ideal hasta 70 caracteres</small></span>
+                    <input name="titulo" maxlength="120" required>
+                    <em class="p-contador" data-for="titulo"></em>
+                </label>
+
+                <div class="p-fila">
+                    <label class="p-campo"><span>Fecha</span><input type="date" name="fecha" required></label>
+                    <label class="p-campo"><span>Eje</span>
+                        <select name="eje">
+                            <option value="robotica">Robótica</option>
+                            <option value="coheteria">Cohetería</option>
+                            <option value="orbital">Sistemas Orbitales</option>
+                            <option value="comunidad">Comunidad</option>
+                        </select>
+                    </label>
+                    <label class="p-campo"><span>Lugar</span><input name="lugar" placeholder="Universidad de Santiago de Chile"></label>
+                </div>
+
+                <label class="p-campo">
+                    <span>Resumen <small>1–2 líneas, sale en la tarjeta del inicio</small></span>
+                    <textarea name="resumen" rows="2" maxlength="300"></textarea>
+                    <em class="p-contador" data-for="resumen"></em>
+                </label>
+
+                <label class="p-campo">
+                    <span>Texto de la noticia <small>deja una línea en blanco entre párrafos</small></span>
+                    <textarea name="cuerpo" rows="8"></textarea>
+                </label>
+
+                <div class="p-campo">
+                    <span>Fotos <small>la primera es la portada · arrastra para reordenar · clic en ✎ para describirla</small></span>
+                    <div class="p-fotos" id="fotos"></div>
+                    <p class="p-ayuda">Se achican a 1.400 px y se convierten a WebP antes de subirse.</p>
+                </div>
+
+                <div class="p-checks">
+                    <label><input type="checkbox" name="destacada"> Destacada en el inicio</label>
+                    <label><input type="checkbox" name="afiches"> Las fotos son afiches verticales</label>
+                </div>
+
+                <p class="p-error" id="error" role="alert" hidden></p>
+
+                <div class="p-acciones">
+                    <button class="p-btn p-btn-peligro" type="button" id="borrar">Eliminar</button>
+                    <span class="p-espacio"></span>
+                    <button class="p-btn" type="button" id="borrador">Guardar borrador</button>
+                    <button class="p-btn p-btn-primario" type="submit" id="publicar">Publicar</button>
+                </div>
+            </form>
+
+            <section class="p-preview" aria-labelledby="previewTitulo">
+                <p class="p-preview-label" id="previewTitulo">Vista previa · así se verá en /novedades/</p>
+                <div class="section-light p-preview-hoja">
+                    <div class="notas" id="preview"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <dialog class="p-dialogo" id="dialogo" aria-labelledby="dialogoTitulo">
+        <form method="dialog">
+            <h2 id="dialogoTitulo"></h2>
+            <p id="dialogoTexto"></p>
+            <input id="dialogoCampo" type="text" hidden>
+            <div class="p-acciones">
+                <span class="p-espacio"></span>
+                <button class="p-btn" value="cancelar" type="submit">Cancelar</button>
+                <button class="p-btn p-btn-primario" value="aceptar" type="submit" id="dialogoAceptar">Aceptar</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script type="module" src="/src/js/pages/panel.js"></script>
+</body>
+</html>
