@@ -118,3 +118,31 @@ footer {
     font-size: 0.8125rem;
     margin: 0;
 }
+
+/* Ingreso al panel interno: discreto, al final del pie */
+.footer-acceso {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 999px;
+    color: var(--text-secondary);
+    font-size: 0.8125rem;
+    text-decoration: none;
+    transition: color var(--dur-fast) ease, border-color var(--dur-fast) ease;
+}
+
+.footer-acceso::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent-amber);
+}
+
+.footer-acceso:hover,
+.footer-acceso:focus-visible {
+    color: var(--pure-white);
+    border-color: var(--border-highlight);
+}
