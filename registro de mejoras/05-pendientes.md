@@ -27,7 +27,7 @@ Lista viva de lo que falta hacer, decidir o confirmar. Marca con `[x]` lo que se
 
 ## Técnico
 
-- [ ] **Videos pesados:** `planeta_loop.mp4` (33 MB) e `iss_loop.mp4` (41 MB). Comprimir a menos de 5 MB cada uno o reemplazarlos por versiones más cortas.
+- [x] **Videos pesados:** `planeta_loop.mp4` (33 → 5,4 MB) e `iss_loop.mp4` (41 → 4,1 MB), recomprimidos a 30 fps sin audio con `+faststart` (6 nov 2026). El peso hacía fallar por tiempo la publicación en GitHub Pages.
 - [ ] **Imágenes pesadas:** `rover_armado_foto_grupal.jpg` (3 MB) y varias de más de 700 KB. Convertir a WebP y redimensionar.
 - [ ] **Limpiar archivos sin uso:** `index.css`, `rover_avanzado.css`, `mision.css`, `cubesat_avanzado.css`, `rover_avanzado.js`, `rover.html` e `impresion3d.html`. Confirmar que nadie los necesita antes de borrarlos. Las dos páginas ya no se publican: se quitaron del build.
 - [ ] **Copias duplicadas en el build:** Vite también publica cada página en `/src/pages/...`, además de su ruta limpia. Tienen canonical a la ruta limpia, así que no afectan el SEO, pero se podrían eliminar del build.
