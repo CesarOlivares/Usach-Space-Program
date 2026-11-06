@@ -2561,11 +2561,43 @@ body.site .join-card {
         mask-image: none;
         padding: 0 24px;
     }
+}
+
+/* === QUIÉNES SOMOS (adelanto en el inicio) === */
+.home-nosotros {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 40px 64px;
+    align-items: center;
+}
+
+.home-nosotros-foto {
+    margin: 0;
+}
+
+.home-nosotros-foto img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1381 / 921;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+}
+
+.home-nosotros-texto h2 {
+    margin-bottom: 0;
+}
+
+@media (max-width: 960px) {
+    .home-nosotros {
+        grid-template-columns: 1fr;
+    }
 }</style>
-  <script type="module" crossorigin src="/assets/main-BzD2oxqV.js"></script>
+  <script type="module" crossorigin src="/assets/main-DUkKyyrL.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/main-uMHmB8Kc.js">
   <link rel="modulepreload" crossorigin href="/assets/header-BHafkzy6.js">
   <link rel="modulepreload" crossorigin href="/assets/noticias-C0Iiwyli.js">
+  <link rel="modulepreload" crossorigin href="/assets/cargar-noticias-DZbhLz1A.js">
   <link rel="modulepreload" crossorigin href="/assets/lightbox-4WZmpiwN.js">
   <link rel="modulepreload" crossorigin href="/assets/project-filter-MhR1x_rp.js">
   <link rel="modulepreload" crossorigin href="/assets/motion-epFh6Iqh.js">
@@ -2592,6 +2624,7 @@ body.site .join-card {
             <a href="#novedades">Novedades</a>
             <a href="/ejes/">Ejes</a>
             <a href="/proyectos/">Proyectos</a>
+            <a href="/quienes-somos/">Nosotros</a>
             <a href="#alianzas">Alianzas</a>
             <a href="mailto:spaceprogram@usach.cl" class="nav-contact">Contacto</a>
             <a href="/registro/" class="btn-nav-cta">Postular</a>
@@ -2905,8 +2938,25 @@ body.site .join-card {
     <!-- Puente oscuro → claro -->
     <div class="tone-bridge tone-bridge--from-night tone-bridge--to-light" aria-hidden="true"></div>
 
-    <!-- 7. Galería -->
-    <section class="section section-light section-mist-to-paper" data-tone="light" id="galeria" aria-labelledby="galeria-title">
+    <!-- 7. Quiénes somos: la foto de los fundadores con el rover -->
+    <section class="section section-light section-mist-to-paper" data-tone="light" id="nosotros" aria-labelledby="nosotros-title">
+        <div class="section-inner home-nosotros">
+            <figure class="home-nosotros-foto">
+                <img src="/assets/fundadores-2026-B4Zn3i9X.webp" alt="Los primeros integrantes del USACH Space Program posan junto al rover en el pasto de la universidad" loading="lazy" width="1381" height="921">
+            </figure>
+            <div class="home-nosotros-texto">
+                <p class="eyebrow">Quiénes somos</p>
+                <h2 id="nosotros-title">Juntos llegamos más lejos</h2>
+                <p class="section-intro">Nacimos en 2026 con una idea simple: agruparnos para construir proyectos espaciales que ninguno podría hacer solo. Hoy somos un equipo de distintas carreras de la USACH, organizado en tres ejes.</p>
+                <div class="section-cta">
+                    <a href="/quienes-somos/" class="btn btn-ghost">Conoce al equipo <span aria-hidden="true">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Galería -->
+    <section class="section section-light" data-tone="light" id="galeria" aria-labelledby="galeria-title">
         <div class="section-inner">
             <div class="section-head section-head-split">
                 <div>
@@ -3009,6 +3059,7 @@ body.site .join-card {
                     <li><a href="/">Inicio</a></li>
                     <li><a href="/proyectos/">Proyectos</a></li>
                     <li><a href="/ejes/">Ejes</a></li>
+                    <li><a href="/quienes-somos/">Quiénes somos</a></li>
                     <li><a href="/registro/">Postular</a></li>
                 </ul>
             </div>
