@@ -271,3 +271,34 @@
     #areasCampo:not([hidden]), #segundoCampo:not([hidden]), .postular-ok { animation: none; }
     .opcion-cuerpo { transition: none; }
 }
+
+/* --- Correcciones de formato (12 nov) --- */
+/* Los campos medían su ancho sin contar el relleno y se salían de su columna */
+.postular-form *,
+.postular-form *::before,
+.postular-form *::after { box-sizing: border-box; }
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo input[type="tel"],
+.campo select {
+    height: 50px;
+    min-height: 0;
+}
+
+/* Las tarjetas de eje crecen con su contenido y ya no se montan entre filas */
+.opciones-eje { grid-auto-rows: auto; align-items: stretch; }
+.opcion { display: grid; }
+.opcion-cuerpo { height: auto; min-height: 100%; align-content: start; }
+
+/* Fila de dos campos: las etiquetas y los campos quedan alineados aunque
+   uno tenga texto de ayuda y el otro no */
+.campo-fila { align-items: start; }
+.campo-fila .campo { grid-template-rows: auto 50px auto; }
+
+/* Chips deshabilitados al llegar al máximo */
+.chip input:disabled + span { opacity: 0.4; cursor: not-allowed; }
+.chip:has(input:disabled) { cursor: not-allowed; }
+
+#areas2Campo:not([hidden]) { animation: campo-entra 0.35s cubic-bezier(0.22, 1, 0.36, 1) both; }
+#areasCuenta { margin: -8px 0 20px; }

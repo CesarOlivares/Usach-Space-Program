@@ -23,34 +23,63 @@ const areasCaja = document.getElementById('areas');
 const segundoCampo = document.getElementById('segundoCampo');
 const segundo = document.getElementById('eje_segundo');
 
-// Las áreas cambian según el eje elegido
-function pintarAreas(eje) {
-    const lista = AREAS_POR_EJE[eje] || [];
-    areasCaja.replaceChildren(...lista.map((area) => {
+// Las áreas cambian según el eje elegido, y la segunda opción suma las suyas
+const areas2Campo = document.getElementById('areas2Campo');
+const areas2Caja = document.getElementById('areas2');
+const cuentaAreas = document.getElementById('areasCuenta');
+const MAX_AREAS = 8;
+
+const marcadas = () => new Set([...form.querySelectorAll('input[name="areas"]:checked')].map((i) => i.value));
+
+function chips(caja, lista, previas) {
+    caja.replaceChildren(...lista.map((area) => {
         const label = document.createElement('label');
         label.className = 'chip';
-        const input = Object.assign(document.createElement('input'), { type: 'checkbox', name: 'areas', value: area });
+        const input = Object.assign(document.createElement('input'), { type: 'checkbox', name: 'areas', value: area, checked: previas.has(area) });
         const span = document.createElement('span');
         span.textContent = area;
         label.append(input, span);
         return label;
     }));
+}
+
+// Se pueden marcar hasta 8 áreas en total (límite de la base de datos)
+function limitar() {
+    const n = marcadas().size;
+    form.querySelectorAll('input[name="areas"]').forEach((i) => { i.disabled = !i.checked && n >= MAX_AREAS; });
+    const hay = !areasCampo.hidden;
+    cuentaAreas.hidden = !hay;
+    cuentaAreas.textContent = n >= MAX_AREAS ? `Marcaste ${n} áreas, el máximo.` : `${n} de ${MAX_AREAS} áreas marcadas.`;
+}
+
+function pintarAreas() {
+    const eje = form.querySelector('input[name="eje"]:checked')?.value || '';
+    const previas = marcadas();
+    const lista = AREAS_POR_EJE[eje] || [];
+    chips(areasCaja, lista, previas);
     areasCampo.hidden = !lista.length;
 
     const conSegundo = eje && eje !== 'no-se';
     segundoCampo.hidden = !conSegundo;
     [...segundo.options].forEach((o) => { o.hidden = o.disabled = o.value === eje; });
-    if (segundo.value === eje) segundo.value = '';
+    if (segundo.value === eje || !conSegundo) segundo.value = '';
+
+    // La segunda opción solo muestra las áreas que no estaban ya en la primera
+    const lista2 = (AREAS_POR_EJE[segundo.value] || []).filter((a) => !lista.includes(a));
+    chips(areas2Caja, lista2, previas);
+    areas2Campo.hidden = !lista2.length;
+    limitar();
 }
 
 form.addEventListener('change', (e) => {
-    if (e.target.name === 'eje') pintarAreas(e.target.value);
+    if (e.target.name === 'eje' || e.target.id === 'eje_segundo') pintarAreas();
+    if (e.target.name === 'areas') limitar();
 });
 
 // Llegar desde una página de eje deja el eje ya elegido (/registro/?eje=coheteria)
 const pedido = new URLSearchParams(location.search).get('eje');
 const radio = pedido && form.querySelector(`input[name="eje"][value="${CSS.escape(pedido)}"]`);
-if (radio) { radio.checked = true; pintarAreas(pedido); }
+if (radio) { radio.checked = true; pintarAreas(); }
 
 const motivacion = document.getElementById('motivacion');
 const cuenta = document.getElementById('motivacion-cuenta');
@@ -101,7 +130,7 @@ form.addEventListener('submit', async (e) => {
         anio_ingreso: String(f.get('anio_ingreso') || ''),
         eje: String(f.get('eje') || ''),
         eje_segundo: String(f.get('eje_segundo') || '') || null,
-        areas: f.getAll('areas').map(String).slice(0, 8),
+        areas: [...new Set(f.getAll('areas').map(String))].slice(0, MAX_AREAS),
         horas: String(f.get('horas') || ''),
         motivacion: String(f.get('motivacion') || '').trim().slice(0, 300),
         consentimiento: f.get('consentimiento') === 'on',
