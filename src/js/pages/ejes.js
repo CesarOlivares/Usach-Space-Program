@@ -34,7 +34,8 @@ function show(eje, { scroll = false, focus = false } = {}) {
         const top = bar.getBoundingClientRect().top + window.scrollY;
         // Solo baja si el panel no está ya a la vista
         if (window.scrollY < top - 10 || panel.getBoundingClientRect().top < 0) {
-            window.scrollTo({ top, behavior: 'smooth' });
+            // con el scroll suave activo, el desplazamiento lo hace Lenis
+            if (window.__lenis) window.__lenis.scrollTo(top); else window.scrollTo({ top, behavior: 'smooth' });
         }
     }
 }

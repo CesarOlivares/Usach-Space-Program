@@ -1,9 +1,11 @@
 // Menú móvil, enlace activo y cierre con Escape.
 import { initTildes } from './tildes.js';
 import { initDecoGuard } from './deco-guard.js';
+import { initScrollFx } from './scroll-fx.js';
 
 initTildes();
 initDecoGuard();
+initScrollFx();
 function initMenu() {
     const toggle = document.getElementById('menuToggle');
     const nav = document.getElementById('navLinks');

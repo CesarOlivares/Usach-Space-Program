@@ -373,3 +373,9 @@ html body.site .hero-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     html body.site .estacion-foto { clip-path: none; transition: none; }
     html body.site .estacion::before { transform: scaleX(0.32); }
 }
+
+/* --- Letras del nombre en el hero (js/components/scroll-fx.js) --- */
+.hero-title .fx-palabra { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.04em; }
+.hero-title .fx-letra { display: inline-block; will-change: transform; }
+/* Con las animaciones de scroll activas, el color de las siglas lo controla GSAP */
+html.fx .aspira-sigla { transition: none; }
