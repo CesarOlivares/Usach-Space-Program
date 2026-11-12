@@ -1,0 +1,17 @@
+import"./main-CW6GPwPW.js";import"./header-CMfFXvKa.js";import{c as u}from"./cargar-noticias-DG8Ac5yi.js";import{i as g}from"./lightbox-4WZmpiwN.js";import{i as h}from"./project-filter-MhR1x_rp.js";import{i as $}from"./motion-CyHyjdsW.js";import"./noticias-BCL0U-o7.js";const f={robotica:"Robótica",coheteria:"Cohetería",orbital:"Sistemas Orbitales",comunidad:"Comunidad"},y={"/proyectos/rover/":"Conoce el rover","/proyectos/cohete/":"Conoce el cohete de agua","/proyectos/cubesat/":"Conoce el CubeSat 1U","/talleres/":"Ver las actividades 2026","/ejes/":"Conoce la ruta de cada eje"},e=(a="")=>String(a).replace(/[&<>"']/g,o=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[o]),v=a=>{const[o,c,i]=a.split("-").map(Number);return new Date(o,c-1,i)};function C(a){const o=document.getElementById("notas");if(!o)return;const c=document.getElementById("statEventos");c&&(c.textContent=a.length),o.innerHTML=a.map(t=>{const n=v(t.fecha),r=n.toLocaleDateString("es-CL",{day:"numeric"}),l=n.toLocaleDateString("es-CL",{month:"short",year:"numeric"}),d=t.fotos.map((s,p)=>`
+            <button class="gallery-item${p===0?" is-cover":""}" data-full="${e(s.src)}" data-caption="${e(s.alt)}">
+                <img src="${e(s.src)}" alt="${e(s.alt)}" loading="lazy">
+            </button>`).join(""),m=t.enlace?`<a class="text-link" href="${e(t.enlace)}">${e(y[t.enlace]||"Ver más")} <span aria-hidden="true">→</span></a>`:"";return`
+            <article class="nota" id="${e(t.slug)}" data-eje="${e(t.eje)}" data-filter-item>
+                <div class="nota-aside">
+                    <time class="nota-fecha" datetime="${e(t.fecha)}"><span class="nota-dia">${r}</span><span class="nota-mes">${l}</span></time>
+                    <p class="nota-tag">${e(f[t.eje]||t.eje)}</p>
+                    <p class="nota-lugar">${e(t.lugar)}</p>
+                </div>
+                <div class="nota-main">
+                    <h2>${e(t.titulo)}</h2>
+                    ${t.cuerpo.map(s=>`<p>${e(s)}</p>`).join("")}
+                    <div class="nota-galeria${t.afiches?" nota-galeria--afiches":""}" data-gallery data-count="${Math.min(t.fotos.length,5)}">${d}</div>
+                    ${m}
+                </div>
+            </article>`}).join("");const i=location.hash&&document.getElementById(decodeURIComponent(location.hash.slice(1)));i&&(i.scrollIntoView(),window.addEventListener("load",()=>i.scrollIntoView(),{once:!0}))}u().then(a=>{C(a),h(document.getElementById("bitacora")),g(),$()});
