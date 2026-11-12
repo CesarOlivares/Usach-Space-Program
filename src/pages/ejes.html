@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejes de desarrollo | USACH Space Program</title>
-    <meta name="description" content="Los tres ejes del USACH Space Program: Robótica y Mecánica Espacial, Cohetería y Propulsión, y Sistemas Orbitales y Telecomunicaciones.">
+    <meta name="description" content="Los tres ejes del USACH Space Program: Robótica y Mecánica Espacial (equipo AREAS), Cohetería y Propulsión (equipo A.T.L.A.S.) y Sistemas Orbitales (equipo ETEREO). Metas y ruta 2026–2027.">
 
     <link rel="canonical" href="https://spaceprogram.cl/ejes/">
     <meta name="theme-color" content="#030508">
@@ -18,7 +18,7 @@
     <meta property="og:site_name" content="USACH Space Program">
     <meta property="og:locale" content="es_CL">
     <meta property="og:title" content="Ejes de desarrollo | USACH Space Program">
-    <meta property="og:description" content="Los tres ejes del USACH Space Program: Robótica y Mecánica Espacial, Cohetería y Propulsión, y Sistemas Orbitales y Telecomunicaciones.">
+    <meta property="og:description" content="Los tres ejes del USACH Space Program: Robótica y Mecánica Espacial (equipo AREAS), Cohetería y Propulsión (equipo A.T.L.A.S.) y Sistemas Orbitales (equipo ETEREO). Metas y ruta 2026–2027.">
     <meta property="og:url" content="https://spaceprogram.cl/ejes/">
     <meta property="og:image" content="https://spaceprogram.cl/og-image.jpg">
     <meta property="og:image:width" content="1200">
@@ -26,65 +26,49 @@
     <meta property="og:image:alt" content="Integrantes del USACH Space Program junto al rover en el taller">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ejes de desarrollo | USACH Space Program">
-    <meta name="twitter:description" content="Los tres ejes del USACH Space Program: Robótica y Mecánica Espacial, Cohetería y Propulsión, y Sistemas Orbitales y Telecomunicaciones.">
+    <meta name="twitter:description" content="Los tres ejes del USACH Space Program: Robótica y Mecánica Espacial (equipo AREAS), Cohetería y Propulsión (equipo A.T.L.A.S.) y Sistemas Orbitales (equipo ETEREO). Metas y ruta 2026–2027.">
     <meta name="twitter:image" content="https://spaceprogram.cl/og-image.jpg">
     <link rel="stylesheet" href="/src/styles/main.css">
     <style>@import url("/src/styles/pages/ejes.css");</style>
 </head>
 <body class="site ejes-page">
 
-    <header>
-        <div class="nav-brand-container">
-            <a href="/" class="nav-brand-link">
-                <img src="/src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="nav-logo">
-                <span class="nav-brand">USACH Space Program</span>
-            </a>
-        </div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
-        <nav class="nav-links" id="navLinks">
-            <a href="/novedades/">Novedades</a>
-            <a href="/ejes/" aria-current="page">Ejes</a>
-            <a href="/proyectos/">Proyectos</a>
-            <a href="/quienes-somos/">Nosotros</a>
-            <a href="/#alianzas">Alianzas</a>
-            <a href="mailto:spaceprogram@usach.cl" class="nav-contact">Contacto</a>
-            <a href="/registro/" class="btn-nav-cta">Postular</a>
-        </nav>
-    </header>
+    <load src="src/components/header.html" />
 
-    <main>
+    <main id="contenido">
 
-    <section class="page-hero ejes-hero starfield" data-tone="dark">
+    <section class="page-hero ejes-hero starfield has-deco" data-tone="dark">
+        <span class="deco deco--rango" aria-hidden="true"></span>
         <div class="section-inner">
-            <p class="eyebrow eyebrow-dark">Estructura de aprendizaje</p>
+            <p class="eyebrow eyebrow-dark">Tres ejes, tres equipos</p>
             <h1>Ejes de desarrollo</h1>
             <p class="page-hero-lede">
-                Los ejes son uno de los pilares del programa: permiten que cada persona llegue según sus intereses y concentran el esfuerzo en los temas que hoy mueven a la industria aeroespacial. Elige uno para conocerlo.
+                Cada eje tiene un equipo con nombre propio, una meta para 2027 y áreas donde hace falta gente. Elige uno para conocerlo.
             </p>
 
             <div class="eje-selectors" role="tablist" aria-label="Elegir eje">
                 <button class="eje-select is-active" role="tab" data-eje="robotica" aria-selected="true" aria-controls="eje-robotica" style="--eje: var(--eje-robotica)">
-                    <img src="/src/assets/images/rover/rover_primer_ensamble_completo.jpg" alt="Rover Perseverance construido por el equipo, en el taller">
+                    <img src="/src/assets/images/rover/rover_primer_ensamble_completo.jpg" alt="Réplica del rover Perseverance construida por el equipo, en el taller">
                     <span class="eje-select-body">
                         <span class="eje-select-num">Eje 01</span>
                         <span class="eje-select-name">Robótica y Mecánica Espacial</span>
-                        <span class="eje-select-meta">Rover Perseverance · 2 integrantes</span>
+                        <span class="eje-select-meta">Equipo AREAS · demo en marzo 2027</span>
                     </span>
                 </button>
                 <button class="eje-select" role="tab" data-eje="coheteria" aria-selected="false" aria-controls="eje-coheteria" tabindex="-1" style="--eje: var(--eje-coheteria)">
-                    <img src="/src/assets/images/gallery/IMG-20260607-WA0022.jpg" alt="Plataforma de lanzamiento hidroneumática del eje de Cohetería">
+                    <img src="/src/assets/images/eventos/pruebas-cohete/cohete-en-rampa.jpg" alt="Cohete en la rampa de lanzamiento durante una prueba de campo">
                     <span class="eje-select-body">
                         <span class="eje-select-num">Eje 02</span>
                         <span class="eje-select-name">Cohetería y Propulsión</span>
-                        <span class="eje-select-meta">Cohete de agua · 7 integrantes</span>
+                        <span class="eje-select-meta">Equipo A.T.L.A.S. · 3 km en abril 2027</span>
                     </span>
                 </button>
                 <button class="eje-select" role="tab" data-eje="orbital" aria-selected="false" aria-controls="eje-orbital" tabindex="-1" style="--eje: var(--eje-orbital)">
-                    <img src="/src/assets/images/gallery/IMG-20260607-WA0039.jpg" alt="Banco de integración FlatSat del CubeSat 1U">
+                    <img src="/src/assets/images/eventos/cubesat-escala/estructura.jpg" alt="Estructura del CubeSat 1U sobre el parche de misión">
                     <span class="eje-select-body">
                         <span class="eje-select-num">Eje 03</span>
-                        <span class="eje-select-name">Sistemas Orbitales y Telecomunicaciones</span>
-                        <span class="eje-select-meta">CubeSat 1U · 7 integrantes</span>
+                        <span class="eje-select-name">Sistemas Orbitales</span>
+                        <span class="eje-select-meta">Equipo ETEREO · estratósfera en diciembre 2027</span>
                     </span>
                 </button>
             </div>
@@ -107,16 +91,16 @@
             <div class="section-inner">
                 <div class="split">
                     <div>
-                        <p class="eyebrow">Eje 01 · Definición</p>
+                        <p class="eyebrow">Eje 01 · Equipo <span translate="no">{{equipo_robotica}}</span></p>
                         <h2>Robótica y Mecánica Espacial</h2>
                         <div class="prose">
-                            <p>Uno de los temas más interesantes del sector aeroespacial es la mecánica de los vehículos y la robótica espacial: máquinas sometidas a calor extremo, partículas o radiación, que además deben demostrar autonomía y funcionar por largos periodos.</p>
-                            <p>El eje crea <strong>prototipos funcionales que replican tecnologías reales</strong>, genera modelos distintos según problemas simulados y diseña prototipos originales a partir de lo investigado por sus integrantes.</p>
+                            <p>La robótica espacial trabaja con máquinas que deben moverse solas, lejos y por mucho tiempo, sobre terreno que nadie preparó para ellas. Ese es el problema que estudia este eje.</p>
+                            <p>Partimos construyendo una <strong>réplica funcional del rover Perseverance</strong>. Hoy la estamos afinando: que navegue sola, que vea y que manipule objetos con un brazo. Lo aprendido pasa a un robot de práctica propio.</p>
                         </div>
                         <dl class="eje-facts">
-                            <div><dt>Líder</dt><dd>César Olivares</dd></div>
-                            <div><dt>Integrantes</dt><dd>2</dd></div>
-                            <div><dt>Proyecto emblema</dt><dd><a href="/proyectos/rover/">Rover Perseverance →</a></dd></div>
+                            <div><dt>Líderes</dt><dd>{{lider_robotica}}</dd></div>
+                            <div><dt>Equipo</dt><dd translate="no">{{equipo_robotica}}</dd></div>
+                            <div><dt>Proyecto</dt><dd><a href="/proyectos/rover/">Rover, réplica del Perseverance →</a></dd></div>
                         </dl>
                     </div>
                     <figure class="eje-photo">
@@ -124,27 +108,32 @@
                     </figure>
                 </div>
 
-                <h3 class="block-title">Objetivos y ambiciones</h3>
+                <h3 class="block-title">Qué queremos lograr</h3>
+                <span class="deco deco--divisor-a deco-linea" aria-hidden="true"></span>
                 <div class="goal-cards">
-                    <article class="goal-card"><h4>Crear robots de carácter aeroespacial</h4><p>Prototipos que repliquen y adapten tecnologías de exploración.</p></article>
-                    <article class="goal-card"><h4>Probar mecanismos para condiciones hostiles</h4><p>Ensayar cómo responden ante calor, polvo, impactos y uso prolongado.</p></article>
+                    <article class="goal-card"><h4>Un rover que se mueve solo</h4><p>Odometría confiable, control en lazo cerrado y navegación con visión.</p></article><article class="goal-card"><h4>Ver y manipular</h4><p>Detección de objetos con cámara y un brazo robótico integrado al rover.</p></article><article class="goal-card"><h4>Un robot de práctica propio</h4><p>Diseñado con requisitos de competencia, para apuntar a NASA HERC 2028.</p></article>
                 </div>
             </div>
         </section>
 
         <section class="section section-light section-paper-to-mist section-tight" data-tone="light">
-            <div class="section-inner profile">
-                <div>
-                    <p class="eyebrow">A quién buscamos</p>
-                    <h2>Perfil del eje</h2>
-                </div>
-                <div>
-                    <p class="profile-text">Personas con interés o experiencia en mecánica, electrónica, programación y afines, con ganas de desarrollar robótica para condiciones extremas como la espacial, y con un fuerte compromiso con la colaboración interdisciplinaria y horizontal.</p>
-                    <div class="profile-actions">
-                        <a href="/registro/" class="btn btn-primary">Postular a Robótica <span aria-hidden="true">→</span></a>
-                        <a href="/proyectos/rover/" class="btn btn-ghost">Ver el Rover</a>
+            <div class="section-inner">
+                <div class="profile">
+                    <div>
+                        <p class="eyebrow">Buscamos integrantes</p>
+                        <h2>Hay lugar en cada área</h2>
+                    </div>
+                    <div>
+                        <p class="profile-text">Buscamos personas para taller, software y gestión. Sirve la experiencia en mecánica, electrónica o programación, pero pesa más el compromiso con el trabajo en equipo y las ganas de aprender haciendo.</p>
+                        <div class="profile-actions">
+                            <a href="/registro/?eje=robotica" class="btn btn-primary">Postular a Robótica <span aria-hidden="true">→</span></a>
+                            <a href="/proyectos/rover/" class="btn btn-ghost">Ver el rover</a>
+                        </div>
                     </div>
                 </div>
+                <ul class="areas-grid" style="margin-top: 36px">
+                    <li><strong>Navegación autónoma</strong><span>Encoders, odometría y control.</span></li><li><strong>Visión artificial</strong><span>Cámara, calibración y detección.</span></li><li><strong>Brazo robótico</strong><span>CAD, cinemática y fabricación.</span></li><li><strong>Software de control</strong><span>Arquitectura, interfaz y telemetría.</span></li><li><strong>Gestión y fondos</strong><span>Postulaciones, compras y documentación.</span></li>
+                </ul>
             </div>
         </section>
 
@@ -155,7 +144,7 @@
                 <div class="vision">
                     <blockquote class="vision-text">
                         <span class="vision-label">Proyección a largo plazo</span>
-                        Generar robots y mecanismos capaces de trabajar en condiciones hostiles, que a futuro permitan un desarrollo aplicable al sector aeroespacial, con mejora continua y el método Piensa — Crea — Aprende.
+                        Construir robots y mecanismos capaces de trabajar en condiciones hostiles, y llevar ese aprendizaje a competencias internacionales de robótica espacial.
                     </blockquote>
                     <figure class="vision-figure">
                         <img src="/src/assets/images/referencias/perseverance-marte-selfie.jpg" alt="El rover Perseverance de la NASA en Marte, junto al helicóptero Ingenuity" loading="lazy">
@@ -164,18 +153,16 @@
                 </div>
 
                 <div class="section-head">
-                    <p class="eyebrow">Proyecciones 2026–2027</p>
-                    <h2>Optimizar la réplica del Perseverance</h2>
+                    <p class="eyebrow">Ruta 2026–2027</p>
+                    <h2>Del rover afinado al robot de práctica</h2>
+                    <p class="section-intro">Las fechas son objetivos del equipo y se ajustan con los resultados de cada ensayo.</p>
                 </div>
                 <ol class="timeline" style="--cols: 4">
-                    <li><span class="timeline-when">Objetivo 01</span><h3>Navegación autónoma</h3><p>Optimizar el sistema de navegación del rover.</p></li>
-                    <li><span class="timeline-when">Objetivo 02</span><h3>Baterías con BMS</h3><p>Integrar un sistema de baterías con gestión electrónica.</p></li>
-                    <li><span class="timeline-when">Objetivo 03</span><h3>Cámara con espectrógrafo</h3><p>Sumar instrumentación para analizar el entorno.</p></li>
-                    <li><span class="timeline-when">Objetivo 04</span><h3>Sistema LiDAR</h3><p>Escanear el entorno para detectar obstáculos.</p></li>
+                    <li class="is-actual"><span class="timeline-when">Nov–Dic 2026</span><h3>Navegación base</h3><p>Odometría validada y placa central controlando las ruedas en lazo cerrado.</p></li><li><span class="timeline-when">Ene–Mar 2027</span><h3>Visión, brazo y demostración</h3><p>Detección de objetos, brazo fabricado y una demostración integrada del rover.</p></li><li><span class="timeline-when">Abr–Jun 2027</span><h3>Robot de práctica</h3><p>Requisitos, diseño y primeras compras de un robot separado del rover.</p></li><li><span class="timeline-when">Jul–Ago 2027</span><h3>Fabricación y propuesta</h3><p>Robot fabricado y propuesta lista para NASA HERC 2028.</p></li>
                 </ol>
                 <div class="callout-row">
-                    <div class="callout-box"><strong>Resultado al final del periodo</strong><p>Un informe de las mejoras con su uso, aprendizajes y posibles aplicaciones en otros ejes, más una presentación demostrativa.</p></div>
-                    <div class="callout-box"><strong>Siguiente periodo</strong><p>El proyecto rover cierra y se formula un nuevo robot que soporte condiciones hostiles y haga tareas de construcción, en vista de las misiones Artemis III.</p></div>
+                    <div class="callout-box"><strong>Meta del periodo</strong><p>El rover completo en una demostración integrada, con su documentación técnica publicada.</p></div>
+                    <div class="callout-box"><strong>A qué aspiramos</strong><p>Postular al NASA Human Exploration Rover Challenge 2028, en la división de operación remota. Más adelante: LiDAR y espectrógrafo.</p></div>
                 </div>
             </div>
         </section>
@@ -187,46 +174,49 @@
             <div class="section-inner">
                 <div class="split">
                     <div>
-                        <p class="eyebrow">Eje 02 · Definición</p>
+                        <p class="eyebrow">Eje 02 · Equipo <span translate="no">{{equipo_coheteria}}</span></p>
                         <h2>Cohetería y Propulsión</h2>
                         <div class="prose">
-                            <p>El acceso al espacio plantea el desafío fundamental del transporte y la energía: <strong>¿cómo colocamos una carga útil en altitud de forma controlada y segura?</strong></p>
-                            <p>El eje investiga, diseña e implementa sistemas de lanzamiento a escala amateur y formativa. Parte con la propulsión hidroneumática como banco de pruebas de bajo riesgo para validar aerodinámica, telemetría, estructuras y recuperación, bajo estándares de seguridad y documentación abierta, y sienta las bases para la propulsión sólida experimental.</p>
+                            <p>El acceso al espacio parte de una pregunta simple: ¿cómo llevamos una carga a altura de forma controlada y segura? Este eje la responde diseñando, fabricando y volando sus propios cohetes.</p>
+                            <p>El equipo se llama <strong translate="no">A.T.L.A.S.</strong> Aprendió con cohetes de agua, que alcanzaron unos 60 metros en 2026, y ahora da el salto a motores sólidos fabricados por el propio equipo. Es un equipo en formación: estamos sumando gente a cada área.</p>
                         </div>
                         <dl class="eje-facts">
-                            <div><dt>Líderes</dt><dd>Hugo Orellano y Simón García-Huidobro</dd></div>
-                            <div><dt>Integrantes</dt><dd>7</dd></div>
-                            <div><dt>Proyecto emblema</dt><dd><a href="/proyectos/cohete/">Cohete de agua →</a></dd></div>
+                            <div><dt>Líder</dt><dd>{{lider_coheteria}}</dd></div>
+                            <div><dt>Equipo</dt><dd translate="no">{{equipo_coheteria}}</dd></div>
+                            <div><dt>Proyecto</dt><dd><a href="/proyectos/cohete/">Cohete a 3 km →</a></dd></div>
                         </dl>
                     </div>
-                    <figure class="eje-photo">
-                        <img src="/src/assets/images/gallery/IMG-20260605-WA0073.jpg" alt="Pruebas de campo del eje de Cohetería" loading="lazy">
+                    <figure class="eje-photo is-parche">
+                        <img src="/src/assets/images/marca/atlas-parche.webp" alt="Parche del equipo A.T.L.A.S.: el titán Atlas sosteniendo el mundo" loading="lazy">
                     </figure>
                 </div>
 
-                <h3 class="block-title">Objetivos y ambiciones</h3>
+                <h3 class="block-title">Qué queremos lograr</h3>
+                <span class="deco deco--divisor-a deco-linea" aria-hidden="true"></span>
                 <div class="goal-cards">
-                    <article class="goal-card"><h4>Un vector hidroneumático modular y recuperable</h4><p>Plataformas de lanzamiento con despliegue activo y telemetría en tiempo real.</p></article>
-                    <article class="goal-card"><h4>Validar subsistemas escalables</h4><p>Aviónica, aletas, materiales y paracaídas transferibles a vectores con propelente químico.</p></article>
-                    <article class="goal-card"><h4>Transición a propulsión sólida</h4><p>Marco regulatorio, manejo de propelentes y bancos de pruebas estáticas (High-Power Rocketry).</p></article>
-                    <article class="goal-card"><h4>Seguridad y documentación abierta</h4><p>Protocolos de lanzamiento normalizados e ingeniería compartida como <em>open source</em>.</p></article>
+                    <article class="goal-card"><h4>Motores sólidos propios</h4><p>Diseñados, fabricados y caracterizados en un banco de ensayos del equipo.</p></article><article class="goal-card"><h4>Un vuelo a 3 km con recuperación</h4><p>Cohete con aviónica, localización y descenso en paracaídas.</p></article><article class="goal-card"><h4>Seguridad como forma de trabajo</h4><p>Protocolos escritos, responsable por ensayo y vuelos coordinados con la autoridad aeronáutica.</p></article>
                 </div>
             </div>
         </section>
 
         <section class="section section-light section-paper-to-mist section-tight" data-tone="light">
-            <div class="section-inner profile">
-                <div>
-                    <p class="eyebrow">A quién buscamos</p>
-                    <h2>Perfil del eje</h2>
-                </div>
-                <div>
-                    <p class="profile-text">Estudiantes con interés o experiencia en mecánica, mecatrónica, electrónica, sistemas embebidos, simulación (CFD o dinámica de vuelo) y materiales. Se pide un compromiso riguroso con los protocolos de seguridad, el registro de datos, la redacción técnica y el trabajo multidisciplinario.</p>
-                    <div class="profile-actions">
-                        <a href="/registro/" class="btn btn-primary">Postular a Cohetería <span aria-hidden="true">→</span></a>
-                        <a href="/proyectos/cohete/" class="btn btn-ghost">Ver el Cohete de agua</a>
+            <div class="section-inner">
+                <div class="profile">
+                    <div>
+                        <p class="eyebrow">Buscamos integrantes</p>
+                        <h2>Hay lugar en cada área</h2>
+                    </div>
+                    <div>
+                        <p class="profile-text">Buscamos estudiantes para todas las áreas del equipo. Se pide un compromiso riguroso con los protocolos de seguridad, el registro de datos y el trabajo entre disciplinas. La experiencia previa ayuda, pero no es requisito.</p>
+                        <div class="profile-actions">
+                            <a href="/registro/?eje=coheteria" class="btn btn-primary">Postular a Cohetería <span aria-hidden="true">→</span></a>
+                            <a href="/proyectos/cohete/" class="btn btn-ghost">Conocer A.T.L.A.S.</a>
+                        </div>
                     </div>
                 </div>
+                <ul class="areas-grid" style="margin-top: 36px">
+                    <li><strong>Propulsión</strong><span>Motores y banco de ensayos.</span></li><li><strong>Estructuras y manufactura</strong><span>Fuselaje, aletas y ojiva.</span></li><li><strong>Aerodinámica y recuperación</strong><span>Simulación de vuelo y paracaídas.</span></li><li><strong>Aviónica e instrumentación</strong><span>Altímetros, GPS y datos de vuelo.</span></li><li><strong>Operaciones y fondos</strong><span>Postulaciones, logística y alianzas.</span></li><li><strong>Seguridad</strong><span>Protocolos y permisos.</span></li>
+                </ul>
             </div>
         </section>
 
@@ -237,27 +227,25 @@
                 <div class="vision">
                     <blockquote class="vision-text">
                         <span class="vision-label">Proyección a largo plazo</span>
-                        Establecer en la universidad la infraestructura, el marco normativo y los protocolos para fabricar, caracterizar y lanzar cohetes sonda experimentales de combustible sólido, con registro sistemático de datos y modelado previo a cada prueba.
+                        Establecer en la universidad la capacidad de fabricar, ensayar y lanzar cohetes experimentales de propulsión sólida, con registro sistemático de datos y simulación previa a cada prueba.
                     </blockquote>
                     <figure class="vision-figure">
-                        <img style="object-position: 50% 18%" src="/src/assets/images/referencias/cohete-suborbital-estudiantes.jpg" alt="Lanzamiento de un cohete suborbital con experimentos de estudiantes" loading="lazy">
+                        <img src="/src/assets/images/referencias/cohete-suborbital-estudiantes.jpg" alt="Lanzamiento de un cohete suborbital con experimentos de estudiantes" loading="lazy">
                         <figcaption>Cohete sonda con experimentos de estudiantes, Wallops · Imagen: NASA</figcaption>
                     </figure>
                 </div>
 
                 <div class="section-head">
-                    <p class="eyebrow">Proyecciones 2026–2027</p>
-                    <h2>Del agua al propelente sólido</h2>
+                    <p class="eyebrow">Ruta 2026–2027</p>
+                    <h2>Del banco de ensayos a los 3 km</h2>
+                    <p class="section-intro">Las fechas son objetivos del equipo y se ajustan con los resultados de cada ensayo.</p>
                 </div>
                 <ol class="timeline" style="--cols: 4">
-                    <li><span class="timeline-when">Fase 1 · Sep–Ene</span><h3>Cohete de agua</h3><p>Uniones, resistencia a la presión, paracaídas y recolección de datos.</p></li>
-                    <li><span class="timeline-when">Fase 2 · Mar–Jul</span><h3>Multietapa</h3><p>Más de una fase de propulsión para ganar altura.</p></li>
-                    <li><span class="timeline-when">Fase 3 · Ago–Dic</span><h3>Competencias y permisos</h3><p>Competir en cohetería de agua y tramitar permisos para propelente.</p></li>
-                    <li><span class="timeline-when">2028</span><h3>Propulsión sólida</h3><p>Banco de pruebas estático y diseño del primer cohete sonda.</p></li>
+                    <li class="is-actual"><span class="timeline-when">Nov–Dic 2026</span><h3>Taller y protocolos</h3><p>Espacio de trabajo operativo y protocolos de seguridad escritos.</p></li><li><span class="timeline-when">Ene–Mar 2027</span><h3>Motores y banco de ensayos</h3><p>Motores cada vez más grandes probados en banco, y un vuelo de prueba a 1 km.</p></li><li><span class="timeline-when">Abril 2027</span><h3>Vuelo a 3 km</h3><p>Apogeo de al menos 3 km y cohete recuperado.</p></li><li><span class="timeline-when">May–Ago 2027</span><h3>Cohete de competencia</h3><p>Cohete y documentación listos para la categoría de 3 km.</p></li>
                 </ol>
                 <div class="callout-row">
-                    <div class="callout-box"><strong>Resultado al final del periodo</strong><p>Repositorio abierto (CAD, aviónica, código y manual de operación segura), informe de perfiles de vuelo y una jornada de demostración ante la comunidad.</p></div>
-                    <div class="callout-box"><strong>Qué se transfiere al propelente sólido</strong><p>Recuperación y eyección de paracaídas, aviónica y datos, diseño del cuerpo (CG vs. CP) y plataforma de lanzamiento.</p></div>
+                    <div class="callout-box"><strong>Meta del periodo</strong><p>Un cohete con motor propio que vuele a 3 km y se recupere, con su informe de vuelo publicado.</p></div>
+                    <div class="callout-box"><strong>A qué aspiramos</strong><p>Llegar preparados al Latin American Space Challenge, la mayor competencia de cohetería universitaria de la región.</p></div>
                 </div>
             </div>
         </section>
@@ -269,45 +257,49 @@
             <div class="section-inner">
                 <div class="split">
                     <div>
-                        <p class="eyebrow">Eje 03 · Definición</p>
-                        <h2>Sistemas Orbitales y Telecomunicaciones</h2>
+                        <p class="eyebrow">Eje 03 · Equipo <span translate="no">{{equipo_orbital}}</span></p>
+                        <h2>Sistemas Orbitales</h2>
                         <div class="prose">
-                            <p>Uno de los principales desafíos de la exploración espacial se concentra en las plataformas <strong>CubeSat y CanSat</strong>, los sistemas orbitales y las telecomunicaciones: telemetría, telecomando, procesamiento de datos, software embarcado y estaciones terrenas.</p>
-                            <p>El eje trabaja con una filosofía de <strong>calificación progresiva</strong>: demostrar primero que la cadena de adquisición, procesamiento y transmisión funciona de forma confiable, antes de sumar complejidad científica.</p>
+                            <p>Un satélite pequeño obliga a resolver lo mismo que uno grande: energía, cómputo, comunicaciones y una estructura que lo aguante todo. Este eje aprende a hacerlo con el estándar CubeSat.</p>
+                            <p>El equipo se llama <strong translate="no">ETEREO</strong> y su proyecto es el <strong translate="no">LLN-1</strong>, un CubeSat 1U. La regla del equipo es <strong>reducir incertidumbres antes de sumar complejidad</strong>: primero se prueba cada pieza, luego el conjunto y recién después el vuelo.</p>
                         </div>
                         <dl class="eje-facts">
-                            <div><dt>Líderes</dt><dd>Daniel González y Martín Castillo</dd></div>
-                            <div><dt>Integrantes</dt><dd>7</dd></div>
-                            <div><dt>Proyecto emblema</dt><dd><a href="/proyectos/cubesat/">CubeSat 1U →</a></dd></div>
+                            <div><dt>Líderes</dt><dd>{{lider_orbital}}</dd></div>
+                            <div><dt>Equipo</dt><dd translate="no">{{equipo_orbital}}</dd></div>
+                            <div><dt>Proyecto</dt><dd><a href="/proyectos/cubesat/">CubeSat LLN-1 →</a></dd></div>
                         </dl>
                     </div>
                     <figure class="eje-photo">
-                        <img src="/src/assets/images/gallery/IMG-20260607-WA0039.jpg" alt="Banco de integración FlatSat" loading="lazy">
+                        <img src="/src/assets/images/eventos/cubesat-escala/modelo.jpg" alt="Modelo a escala real del CubeSat 1U sobre el parche del programa" loading="lazy">
                     </figure>
                 </div>
 
-                <h3 class="block-title">Objetivos y ambiciones</h3>
+                <h3 class="block-title">Qué queremos lograr</h3>
+                <span class="deco deco--divisor-a deco-linea" aria-hidden="true"></span>
                 <div class="goal-cards">
-                    <article class="goal-card"><h4>Diseñar y operar plataformas orbitales y suborbitales</h4><p>Partiendo por un CubeSat 1U de bajo costo y alta iteración, y proyectando ese aprendizaje a futuras plataformas.</p></article>
-                    <article class="goal-card"><h4>Desarrollar capacidad tecnológica</h4><p>Electrónica, software de tiempo real, radiofrecuencia, datos de misión y estaciones terrestres.</p></article>
-                    <article class="goal-card"><h4>Desarrollar habilidades técnicas</h4><p>Protocolos de telemetría, comando y control, e integración de hardware, software y potencia.</p></article>
+                    <article class="goal-card"><h4>Una plataforma CubeSat 1U funcional</h4><p>Con componentes y subsistemas verificados experimentalmente.</p></article><article class="goal-card"><h4>Decisiones con evidencia</h4><p>Cada ensayo deja registro, conclusión y siguiente acción.</p></article><article class="goal-card"><h4>Probar fuera del laboratorio</h4><p>Una campaña estratosférica para evaluar el satélite en condiciones reales.</p></article>
                 </div>
             </div>
         </section>
 
         <section class="section section-light section-paper-to-mist section-tight" data-tone="light">
-            <div class="section-inner profile">
-                <div>
-                    <p class="eyebrow">A quién buscamos</p>
-                    <h2>Perfil del eje</h2>
-                </div>
-                <div>
-                    <p class="profile-text">Estudiantes con interés o experiencia en electrónica, diseño, programación o telecomunicaciones. Se pide disposición al trabajo en equipo, investigación bibliográfica rigurosa y redacción técnica basada en fuentes primarias, documentando cómo se relacionan los subsistemas entre sí.</p>
-                    <div class="profile-actions">
-                        <a href="/registro/" class="btn btn-primary">Postular a Sistemas Orbitales <span aria-hidden="true">→</span></a>
-                        <a href="/proyectos/cubesat/" class="btn btn-ghost">Ver el CubeSat 1U</a>
+            <div class="section-inner">
+                <div class="profile">
+                    <div>
+                        <p class="eyebrow">Buscamos integrantes</p>
+                        <h2>Hay lugar en cada área</h2>
+                    </div>
+                    <div>
+                        <p class="profile-text">Buscamos estudiantes con interés en electrónica, programación, diseño o telecomunicaciones, dispuestos a investigar con rigor, documentar lo que hacen y trabajar en equipo.</p>
+                        <div class="profile-actions">
+                            <a href="/registro/?eje=orbital" class="btn btn-primary">Postular a Sistemas Orbitales <span aria-hidden="true">→</span></a>
+                            <a href="/proyectos/cubesat/" class="btn btn-ghost">Ver el CubeSat LLN-1</a>
+                        </div>
                     </div>
                 </div>
+                <ul class="areas-grid" style="margin-top: 36px">
+                    <li><strong>Ingeniería de sistemas</strong><span>Requerimientos, interfaces y arquitectura.</span></li><li><strong>Aviónica y potencia</strong><span>Adquisición, alimentación y electrónica.</span></li><li><strong>Telecomunicaciones y software</strong><span>Enlace de radio, telemetría y estación en tierra.</span></li><li><strong>Mecánica e integración</strong><span>Estructura, montajes y ensayos.</span></li>
+                </ul>
             </div>
         </section>
 
@@ -318,38 +310,37 @@
                 <div class="vision">
                     <blockquote class="vision-text">
                         <span class="vision-label">Proyección a largo plazo</span>
-                        Una arquitectura de bus validada, documentada y con herencia de diseño propia, capaz de operar un CubeSat 1U en laboratorio, en validación estratosférica y, eventualmente, en órbita. Investigar, integrar, construir, validar y evolucionar.
+                        Una arquitectura de satélite validada, documentada y propia, capaz de operar un CubeSat 1U en laboratorio, en la estratósfera y, eventualmente, en órbita.
                     </blockquote>
                     <figure class="vision-figure">
-                        <img src="/src/assets/images/referencias/cubesat-deployer-iss.jpg" alt="Astronauta instalando un dispensador de CubeSats en la Estación Espacial" loading="lazy">
+                        <img src="/src/assets/images/referencias/cubesat-deployer-iss.jpg" alt="Astronauta instala un dispensador de CubeSats en la Estación Espacial Internacional" loading="lazy">
                         <figcaption>Dispensador de CubeSats en la Estación Espacial Internacional · Imagen: NASA</figcaption>
                     </figure>
                 </div>
 
                 <div class="section-head">
-                    <p class="eyebrow">Proyecciones 2026–2027</p>
-                    <h2>Arquitectura OBC y COMMS</h2>
+                    <p class="eyebrow">Ruta 2026–2027</p>
+                    <h2>De la mesa a la estratósfera</h2>
+                    <p class="section-intro">Las fechas son objetivos del equipo y se ajustan con los resultados de cada ensayo.</p>
                 </div>
-                <ol class="timeline" style="--cols: 3">
-                    <li><span class="timeline-when">Fase 1</span><h3>Investigación y arquitectura</h3><p>Estado del arte, banda de frecuencia, protocolo de enlace e informe técnico OBC/COMMS, al nivel del ya hecho para el EPS.</p></li>
-                    <li><span class="timeline-when">Fase 2</span><h3>Desarrollo del FlatSat</h3><p>OBC y comunicaciones en banco: adquisición, almacenamiento y transmisión a una estación terrena de prueba.</p></li>
-                    <li><span class="timeline-when">Fase 3 · Ene–Mar</span><h3>Integración en el CubeSat</h3><p>El FlatSat completo dentro del CubeSat, validado en condiciones representativas.</p></li>
+                <ol class="timeline" style="--cols: 4">
+                    <li class="is-hecho"><span class="timeline-when">Jul–Oct 2026</span><h3>Investigación y arquitectura</h3><p>Estudio de arquitecturas CubeSat, biblioteca técnica y requerimientos iniciales.</p></li><li class="is-actual"><span class="timeline-when">Nov 2026–Abr 2027</span><h3>FlatSat</h3><p>Ensayo y selección de componentes con el satélite extendido sobre la mesa.</p></li><li><span class="timeline-when">May–Sep 2027</span><h3>Integración 1U</h3><p>La configuración validada pasa a la estructura de 10 × 10 × 10 cm.</p></li><li><span class="timeline-when">Oct–Dic 2027</span><h3>Campaña estratosférica</h3><p>Preparación, vuelo y análisis de los datos de misión.</p></li>
                 </ol>
                 <div class="callout-row">
-                    <div class="callout-box"><strong>Resultado al final del periodo</strong><p>Informe de arquitectura con selección justificada de componentes, FlatSat funcional y CubeSat integrado y validado experimentalmente.</p></div>
-                    <div class="callout-box"><strong>Siguiente periodo</strong><p>Validar el funcionamiento en condiciones cercanas a la estratósfera y luego realizar una misión experimental real.</p></div>
+                    <div class="callout-box"><strong>Meta del periodo</strong><p>El LLN-1 integrado, verificado y probado en una misión estratosférica.</p></div>
+                    <div class="callout-box"><strong>En curso ahora</strong><p>Ensayos de alcance del enlace LoRa y caracterización eléctrica y térmica de los componentes.</p></div>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- Cierre -->
     <section class="section section-dark section-night section-tight" data-tone="dark" aria-label="Súmate">
         <div class="section-inner">
             <div class="cta-panel">
                 <div>
+                    <span class="deco deco--destellos-flecha deco-linea" aria-hidden="true"></span>
                     <h2>¿En qué eje te gustaría aprender?</h2>
-                    <p>Las puertas están abiertas para estudiantes de cualquier carrera de la USACH. No necesitas experiencia previa: solo ganas de aprender en taller y trabajar en equipo.</p>
+                    <p>La convocatoria está abierta todo el año para estudiantes de cualquier carrera de la USACH. No necesitas experiencia previa: solo ganas de aprender en taller y trabajar en equipo.</p>
                 </div>
                 <div class="cta-actions on-dark">
                     <a href="/registro/" class="btn btn-primary">Postular al equipo <span aria-hidden="true">→</span></a>
@@ -361,41 +352,7 @@
 
     </main>
 
-    <footer data-tone="dark">
-        <div class="footer-grid">
-            <div class="footer-info">
-                <h3>USACH Space Program</h3>
-                <p>Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Navegación</h4>
-                <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/proyectos/">Proyectos</a></li>
-                    <li><a href="/ejes/">Ejes</a></li>
-                    <li><a href="/registro/">Postular</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h4>Contacto</h4>
-                <p>Universidad de Santiago de Chile</p>
-                <p><a href="mailto:spaceprogram@usach.cl">spaceprogram@usach.cl</a></p>
-                <p><a href="https://www.instagram.com/usach_space_program/" target="_blank" rel="noopener">Instagram: @usach_space_program</a></p>
-            </div>
-            <div class="footer-institutions">
-                <h4>Vínculos</h4>
-                <div class="footer-institution-logos">
-                    <a href="https://centroinnovacion.cl/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="Centro de Innovación USACH"><img src="/src/assets/images/gallery/centro de innovacion.webp" alt="Centro de Innovación USACH"></a>
-                    <a href="https://www.achide.org/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="ACHIDE"><img src="/src/assets/images/gallery/achide.png" alt="ACHIDE"></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
-            <p>Diseño y fabricación con fines educativos</p>
-            <a href="/login/" class="footer-acceso" rel="nofollow">Acceso directiva</a>
-        </div>
-    </footer>
+    <load src="src/components/footer.html" />
 
     <script type="module" src="/src/js/components/header.js"></script>
     <script type="module" src="/src/js/pages/ejes.js"></script>

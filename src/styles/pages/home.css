@@ -4,6 +4,7 @@
    components/ui.css. Aquí solo lo propio del inicio.
    ========================================================================== */
 @import url("../components/ui.css");
+@import url("../components/ruta.css");
 
 /* === 1. HERO ===
    Texto sobre el planeta en rotación (video a la derecha, bordes desvanecidos) */

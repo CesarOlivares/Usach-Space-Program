@@ -22,16 +22,18 @@ const desdeFila = (f) => ({
     afiches: f.afiches
 });
 
+// Lectura pública directa a la API de Supabase: evita cargar la librería
+// completa (unos 230 KB) en el inicio y en Novedades solo para leer.
+// La clave es la pública; las reglas RLS solo dejan ver lo publicado.
+const SUPABASE_URL = 'https://fbsfegpbobynclwxxdlm.supabase.co';
+const CLAVE_PUBLICA = 'sb_publishable_OAy3FyGbjXbXcRLw0u3xAA_Rq9nX8hc';
+
 async function remotas() {
-    // Se carga aparte para no frenar el resto de la página
-    const { supabase } = await import('../lib/supabase.js');
-    const { data, error } = await supabase
-        .from('noticias')
-        .select('slug,titulo,fecha,eje,lugar,resumen,cuerpo,fotos,enlace,destacada,afiches')
-        .eq('estado', 'publicada')
-        .order('fecha', { ascending: false });
-    if (error) throw error;
-    return data.map(desdeFila);
+    const campos = 'slug,titulo,fecha,eje,lugar,resumen,cuerpo,fotos,enlace,destacada,afiches';
+    const url = `${SUPABASE_URL}/rest/v1/noticias?select=${campos}&estado=eq.publicada&order=fecha.desc`;
+    const res = await fetch(url, { headers: { apikey: CLAVE_PUBLICA, Accept: 'application/json' } });
+    if (!res.ok) throw new Error(`Supabase respondió ${res.status}`);
+    return (await res.json()).map(desdeFila);
 }
 
 export async function cargarNoticias() {

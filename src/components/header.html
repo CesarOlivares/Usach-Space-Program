@@ -1,26 +1,25 @@
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 <header>
     <div class="nav-brand-container">
-        <a href="/" class="nav-brand-link">
-            <img src="{=$root}src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="nav-logo">
+        <a href="/" class="nav-brand-link" translate="no">
+            <img src="/src/assets/images/marca/isotipo.webp" alt="" class="nav-logo" width="154" height="192">
             <span class="nav-brand">USACH Space Program</span>
         </a>
     </div>
-    
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
         <span></span>
         <span></span>
         <span></span>
     </button>
 
-    <nav class="nav-links" id="navLinks">
+    <nav class="nav-links" id="navLinks" aria-label="Principal">
+        <a href="/novedades/">Novedades</a>
         <a href="/ejes/">Ejes</a>
         <a href="/proyectos/">Proyectos</a>
-            <a href="/quienes-somos/">Nosotros</a>
-        <a href="/#manifiesto">Manifiesto</a>
+        <a href="/quienes-somos/">Nosotros</a>
         <a href="/#alianzas">Alianzas</a>
+        <a href="mailto:{{correo}}" class="nav-contact">Contacto</a>
         <a href="/registro/" class="btn-nav-cta">Postular</a>
-        <a href="/login/" class="btn-login">Intranet</a>
     </nav>
 </header>
-
-<script type="module" src="{=$root}src/js/components/header.js"></script>

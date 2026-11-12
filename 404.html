@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,26 +19,10 @@
 </head>
 <body class="site error-page">
 
-    <header>
-        <div class="nav-brand-container">
-            <a href="/" class="nav-brand-link">
-                <img src="/src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="nav-logo">
-                <span class="nav-brand">USACH Space Program</span>
-            </a>
-        </div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
-        <nav class="nav-links" id="navLinks">
-            <a href="/novedades/">Novedades</a>
-            <a href="/ejes/">Ejes</a>
-            <a href="/proyectos/">Proyectos</a>
-            <a href="/quienes-somos/">Nosotros</a>
-            <a href="/#alianzas">Alianzas</a>
-            <a href="mailto:spaceprogram@usach.cl" class="nav-contact">Contacto</a>
-            <a href="/registro/" class="btn-nav-cta">Postular</a>
-        </nav>
-    </header>
+    <load src="src/components/header.html" />
 
-    <main class="error-hero">
+    <main id="contenido" class="has-deco error-hero">
+        <span class="deco deco--esfera" aria-hidden="true" data-anim="titila"></span>
         <div class="error-backdrop" aria-hidden="true"></div>
         <div class="error-orbit" aria-hidden="true">
             <span class="error-code">404</span>

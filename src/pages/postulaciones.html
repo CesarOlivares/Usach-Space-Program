@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postulaciones · Panel | USACH Space Program</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#030508">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <link rel="stylesheet" href="/src/styles/pages/panel.css">
+    <link rel="stylesheet" href="/src/styles/pages/panel-postulaciones.css">
+</head>
+<body class="panel">
+    <header class="panel-top">
+        <a href="/" class="panel-marca">USP · Panel interno</a>
+        <nav class="panel-nav" aria-label="Secciones del panel">
+            <a href="/panel/">Novedades</a>
+            <a href="/panel/postulaciones/" aria-current="page">Postulaciones</a>
+        </nav>
+        <span class="panel-usuario"><span id="usuario"></span> · <button type="button" id="salir">Salir</button></span>
+    </header>
+
+    <p class="panel-cargando" id="cargando">Verificando tu sesión…</p>
+
+    <main class="post-main" id="panel" hidden>
+        <div class="post-head">
+            <div>
+                <h1>Postulaciones</h1>
+                <p class="post-sub" id="resumen"></p>
+            </div>
+            <div class="post-filtros" role="group" aria-label="Filtrar por eje">
+                <button type="button" class="p-btn is-activo" data-eje="todos">Todas</button>
+                <button type="button" class="p-btn" data-eje="robotica">Robótica</button>
+                <button type="button" class="p-btn" data-eje="coheteria">Cohetería</button>
+                <button type="button" class="p-btn" data-eje="orbital">Orbitales</button>
+                <button type="button" class="p-btn" data-eje="no-se">Sin definir</button>
+            </div>
+        </div>
+
+        <p class="post-aviso">Los datos se borran cuando marcas a la persona como contactada, tal como lo promete la política de privacidad. Antes de borrar, asegúrate de haberle escrito. Las postulaciones con más de 12 meses se eliminan solas al abrir esta página.</p>
+
+        <p class="p-error" id="error" role="alert" hidden></p>
+        <ul class="post-lista" id="lista" aria-live="polite"></ul>
+        <p class="post-vacio" id="vacio" hidden>No hay postulaciones pendientes.</p>
+    </main>
+
+    <dialog class="p-dialogo" id="dialogo" aria-labelledby="dialogoTitulo">
+        <form method="dialog">
+            <h2 id="dialogoTitulo"></h2>
+            <p id="dialogoTexto"></p>
+            <div class="p-acciones">
+                <span class="p-espacio"></span>
+                <button class="p-btn" value="cancelar" type="submit">Cancelar</button>
+                <button class="p-btn p-btn-peligro-lleno" value="aceptar" type="submit" id="dialogoAceptar">Borrar</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script type="module" src="/src/js/pages/postulaciones.js"></script>
+</body>
+</html>

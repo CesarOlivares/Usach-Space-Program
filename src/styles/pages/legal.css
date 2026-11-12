@@ -1,0 +1,26 @@
+/* Páginas de texto: privacidad */
+@import url("../components/ui.css");
+
+.legal { max-width: 46rem; }
+.legal h2 {
+    font-family: var(--font-title);
+    font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+    color: var(--ink);
+    margin: 48px 0 12px;
+}
+.legal h2:first-child { margin-top: 0; }
+.legal p, .legal li { color: var(--ink-soft); font-size: 1.0625rem; line-height: 1.7; }
+.legal ul { padding-left: 1.2rem; margin: 0 0 16px; }
+.legal li { margin-bottom: 6px; }
+.legal a { color: var(--eje-orbital-ink); text-underline-offset: 3px; }
+.legal-fecha {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 48px;
+}
+.legal-tabla { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 1rem; }
+.legal-tabla th, .legal-tabla td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid var(--paper-line); color: var(--ink-soft); }
+.legal-tabla th { color: var(--ink); font-weight: 600; width: 34%; }

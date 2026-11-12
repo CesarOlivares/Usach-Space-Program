@@ -1,0 +1,192 @@
+/* === Accesibilidad, estados compartidos y transición entre páginas === */
+.skip-link {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    padding: 12px 18px;
+    border-radius: 8px;
+    background: var(--accent-amber);
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+    transform: translateY(-200%);
+    transition: transform 0.2s ease;
+}
+.skip-link:focus { transform: none; }
+
+.project-status.is-cerrado { opacity: 0.75; }
+.project-status.is-cerrado .status-dot { background: currentColor; box-shadow: none; animation: none; }
+
+/* Botón para pausar los videos de fondo */
+.video-toggle {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    z-index: 5;
+    padding: 8px 14px;
+    border: 1px solid rgba(245, 245, 240, 0.28);
+    border-radius: 999px;
+    background: rgba(3, 5, 8, 0.55);
+    backdrop-filter: blur(8px);
+    color: rgba(245, 245, 240, 0.85);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.video-toggle:hover { background: rgba(3, 5, 8, 0.8); color: var(--pure-white); border-color: rgba(245, 245, 240, 0.6); }
+
+/* Pie */
+.footer-logo { width: 132px; height: auto; margin: -6px 0 14px -6px; display: block; }
+.footer-bottom a { color: inherit; text-underline-offset: 3px; }
+.footer-bottom a:hover { color: var(--pure-white); }
+
+/* Logo del menú: isotipo a color */
+.nav-logo { height: 34px; width: auto; filter: none; }
+
+/* Equipo de cada eje: placa con el nombre */
+.equipo-placa {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 14px 6px 6px;
+    border: 1px solid color-mix(in srgb, var(--eje) 45%, transparent);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--eje);
+}
+.equipo-placa img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
+
+/* Insignia grande de equipo (parche) */
+.parche {
+    width: min(100%, 360px);
+    aspect-ratio: 1;
+    object-fit: contain;
+    border-radius: 18px;
+    filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.45));
+}
+
+/* Áreas que buscan gente */
+.areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.areas-grid li {
+    padding: 20px 20px 18px;
+    border-radius: 12px;
+    border: 1px solid var(--paper-line);
+    background: var(--paper-raised);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s;
+}
+.section-dark .areas-grid li { border-color: rgba(245, 245, 240, 0.12); background: rgba(245, 245, 240, 0.03); }
+.areas-grid li:hover { transform: translateY(-3px); border-color: var(--eje-ink, var(--eje)); }
+.areas-grid strong { display: block; margin-bottom: 6px; font-family: var(--font-title); font-size: 1.0625rem; color: var(--ink); }
+.section-dark .areas-grid strong { color: var(--pure-white); }
+.areas-grid span { color: var(--ink-soft); font-size: 0.9688rem; line-height: 1.5; }
+.section-dark .areas-grid span { color: rgba(245, 245, 240, 0.72); }
+
+/* Fase en curso dentro de una línea de tiempo */
+.timeline li.is-actual .timeline-when::after {
+    content: "En curso";
+    margin-left: 10px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--eje);
+    color: var(--ink);
+    font-size: 0.6875rem;
+    letter-spacing: 1px;
+}
+.timeline li.is-hecho { opacity: 0.6; }
+.timeline li.is-hecho .timeline-when::after { content: "Completada"; margin-left: 10px; font-size: 0.6875rem; letter-spacing: 1px; opacity: 0.9; }
+
+/* Misión, visión y valores */
+.mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 2.4vw, 28px); }
+.mv-card {
+    padding: clamp(24px, 3vw, 36px);
+    border-radius: 14px;
+    border: 1px solid var(--paper-line);
+    background: var(--paper-raised);
+}
+.mv-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 12px;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--eje);
+}
+.mv-card h3::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--eje); }
+.mv-card p { margin: 0; font-size: clamp(1.125rem, 1.7vw, 1.375rem); line-height: 1.5; color: var(--ink); }
+.valores {
+    list-style: none;
+    margin: clamp(24px, 3vw, 36px) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--paper-line);
+}
+.valores li { padding: 20px 18px 0 0; }
+.valores strong { display: block; font-family: var(--font-title); font-size: 1.0625rem; color: var(--ink); margin-bottom: 6px; }
+.valores span { color: var(--ink-soft); font-size: 0.9688rem; line-height: 1.45; }
+@media (max-width: 900px) {
+    .mv-grid { grid-template-columns: 1fr; }
+    .valores { grid-template-columns: 1fr 1fr; }
+}
+
+/* Parche de equipo dentro de fichas y ejes */
+.eje-photo.is-parche img { aspect-ratio: 1; object-fit: contain; background: #07070f; padding: 8%; }
+.split-figure--parche { display: grid; justify-items: center; gap: 14px; }
+.split-figure--parche img.parche { width: min(100%, 340px); height: auto; aspect-ratio: 1; object-fit: contain; border-radius: 18px; }
+.split-figure--parche::after { display: none; }
+.ficha-hero h1 .h1-sub { display: block; font-size: 0.42em; letter-spacing: 0.04em; opacity: 0.85; margin-top: 0.25em; }
+
+/* Tildes dibujadas sobre la tipografía de títulos (ver js/components/tildes.js) */
+.tilde { position: relative; display: inline-block; }
+.tilde::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    width: 0.3em;
+    height: 0.075em;
+    margin-bottom: -0.1em;
+    background: currentColor;
+    border-radius: 0.04em;
+    transform: translateX(-30%) rotate(-32deg);
+    transform-origin: center;
+}
+.tilde--virgulilla::after { width: 0.42em; transform: translateX(-50%); }
+.tilde--dieresis::after {
+    width: 0.09em;
+    height: 0.09em;
+    border-radius: 50%;
+    transform: translateX(-190%);
+    box-shadow: 0.24em 0 0 currentColor;
+}
+/* Si el título va en contorno, la tilde también */
+[style*="text-stroke"] .tilde::after { background: none; }
+
+/* Transición suave entre páginas (navegadores compatibles) */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: 0.18s ease-out both vt-fade-out; }
+::view-transition-new(root) { animation: 0.28s ease-out both vt-fade-in; }
+@keyframes vt-fade-out { to { opacity: 0; } }
+@keyframes vt-fade-in { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+}

@@ -34,3 +34,13 @@ dist-ssr/
 # OS metadata
 .DS_Store
 Thumbs.db
+
+# Documentos internos de la organización: no van al repositorio público
+estatus actual.md
+*plan*estrategico*
+*Plan*Estrategico*
+documentos internos*/
+registro de mejoras/1[5-9]-*.md
+
+# Configuración local del editor
+.claude/

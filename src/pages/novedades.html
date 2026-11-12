@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,26 +33,9 @@
 </head>
 <body class="site novedades-page">
 
-    <header>
-        <div class="nav-brand-container">
-            <a href="/" class="nav-brand-link">
-                <img src="/src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="nav-logo">
-                <span class="nav-brand">USACH Space Program</span>
-            </a>
-        </div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
-        <nav class="nav-links" id="navLinks">
-            <a href="/novedades/" aria-current="page">Novedades</a>
-            <a href="/ejes/">Ejes</a>
-            <a href="/proyectos/">Proyectos</a>
-            <a href="/quienes-somos/">Nosotros</a>
-            <a href="/#alianzas">Alianzas</a>
-            <a href="mailto:spaceprogram@usach.cl" class="nav-contact">Contacto</a>
-            <a href="/registro/" class="btn-nav-cta">Postular</a>
-        </nav>
-    </header>
+    <load src="src/components/header.html" />
 
-    <main>
+    <main id="contenido">
 
     <section class="page-hero starfield" data-tone="dark">
         <div class="page-hero-media" aria-hidden="true"><img src="/src/assets/images/eventos/organizafest/lanzamiento.jpg" alt=""></div>
@@ -120,43 +103,7 @@
 
     </main>
 
-    <footer data-tone="dark">
-        <div class="footer-grid">
-            <div class="footer-info">
-                <h3>USACH Space Program</h3>
-                <p>Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Navegación</h4>
-                <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/novedades/">Novedades</a></li>
-                    <li><a href="/quienes-somos/">Quiénes somos</a></li>
-                    <li><a href="/proyectos/">Proyectos</a></li>
-                    <li><a href="/ejes/">Ejes</a></li>
-                    <li><a href="/registro/">Postular</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h4>Contacto</h4>
-                <p>Universidad de Santiago de Chile</p>
-                <p><a href="mailto:spaceprogram@usach.cl">spaceprogram@usach.cl</a></p>
-                <p><a href="https://www.instagram.com/usach_space_program/" target="_blank" rel="noopener">Instagram: @usach_space_program</a></p>
-            </div>
-            <div class="footer-institutions">
-                <h4>Vínculos</h4>
-                <div class="footer-institution-logos">
-                    <a href="https://centroinnovacion.cl/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="Centro de Innovación USACH"><img src="/src/assets/images/gallery/centro de innovacion.webp" alt="Centro de Innovación USACH"></a>
-                    <a href="https://www.achide.org/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="ACHIDE"><img src="/src/assets/images/gallery/achide.png" alt="ACHIDE"></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
-            <p>Diseño y fabricación con fines educativos</p>
-            <a href="/login/" class="footer-acceso" rel="nofollow">Acceso directiva</a>
-        </div>
-    </footer>
+    <load src="src/components/footer.html" />
 
     <script type="module" src="/src/js/components/header.js"></script>
     <script type="module" src="/src/js/pages/novedades.js"></script>

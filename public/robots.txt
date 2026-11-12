@@ -1,11 +1,9 @@
 # USACH Space Program — https://spaceprogram.cl
 # Indexación abierta para buscadores y asistentes de IA.
-# Solo se excluye el portal interno de acceso restringido.
+# El portal interno se excluye con <meta name="robots" content="noindex"> en sus páginas.
 
 User-agent: *
 Allow: /
-Disallow: /login/
-Disallow: /panel/
 
 # Bots de IA: permitidos explícitamente (mismas reglas que el resto)
 User-agent: GPTBot
@@ -21,7 +19,5 @@ User-agent: Google-Extended
 User-agent: Applebot-Extended
 User-agent: CCBot
 Allow: /
-Disallow: /login/
-Disallow: /panel/
 
 Sitemap: https://spaceprogram.cl/sitemap.xml

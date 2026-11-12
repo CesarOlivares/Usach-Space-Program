@@ -1,0 +1,273 @@
+/* ==========================================================================
+   POSTULAR · formulario con el sistema visual del sitio
+   ========================================================================== */
+@import url("../components/ui.css");
+
+.postular-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(260px, 1fr);
+    gap: clamp(28px, 5vw, 72px);
+    align-items: start;
+}
+
+/* --- Formulario --- */
+.postular-form,
+.postular-ok {
+    padding: clamp(22px, 3.4vw, 44px);
+    border: 1px solid var(--paper-line);
+    border-radius: 18px;
+    background: var(--paper-raised);
+    box-shadow: 0 30px 60px -40px rgba(14, 20, 36, 0.35);
+}
+
+.postular-form fieldset {
+    margin: 0 0 clamp(28px, 4vw, 40px);
+    padding: 0;
+    border: 0;
+    min-width: 0;
+}
+
+.postular-form legend {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 0 0 12px;
+    border-bottom: 1px solid var(--paper-line);
+    font-family: var(--font-title);
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.postular-form legend span {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: var(--eje-orbital-ink);
+}
+
+.campo { display: grid; gap: 8px; margin-bottom: 20px; min-width: 0; }
+.campo-fila { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
+
+.campo label,
+.campo-label {
+    font-weight: 600;
+    font-size: 0.9688rem;
+    color: var(--ink);
+}
+
+.campo small { font-weight: 400; font-size: 0.8125rem; color: var(--ink-faint); margin-left: 4px; }
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo input[type="tel"],
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid rgba(14, 20, 36, 0.22);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+    font-size: 1rem;
+    line-height: 1.4;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo textarea { resize: vertical; min-height: 96px; }
+.campo input::placeholder { color: #8A90A0; }
+
+.campo input:hover,
+.campo select:hover,
+.campo textarea:hover { border-color: rgba(14, 20, 36, 0.45); }
+
+.campo input:focus-visible,
+.campo select:focus-visible,
+.campo textarea:focus-visible {
+    outline: none;
+    border-color: var(--eje-orbital-ink);
+    box-shadow: 0 0 0 3px rgba(17, 101, 127, 0.22);
+}
+
+.campo [aria-invalid="true"] {
+    border-color: #B3261E;
+    box-shadow: 0 0 0 3px rgba(179, 38, 30, 0.14);
+}
+
+.campo-ayuda { margin: 0; font-size: 0.875rem; color: var(--ink-faint); }
+
+/* --- Opciones: tarjetas de eje y chips --- */
+.opciones { display: grid; gap: 10px; }
+.opciones-eje { grid-template-columns: 1fr 1fr; }
+.opciones-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.opcion,
+.chip { position: relative; cursor: pointer; }
+
+.opcion input,
+.chip input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.opcion-cuerpo {
+    display: grid;
+    gap: 3px;
+    height: 100%;
+    padding: 14px 16px;
+    border: 1px solid rgba(14, 20, 36, 0.2);
+    border-radius: 10px;
+    background: #fff;
+    transition: border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.opcion-cuerpo strong { display: flex; align-items: center; gap: 9px; font-family: var(--font-title); font-size: 1.0313rem; color: var(--ink); }
+.opcion-cuerpo strong::before { content: ""; flex: none; width: 9px; height: 9px; border-radius: 50%; background: var(--eje, var(--ink-faint)); }
+.opcion-cuerpo small { font-size: 0.8438rem; color: var(--ink-soft); }
+
+.opcion:hover .opcion-cuerpo { transform: translateY(-2px); box-shadow: 0 10px 22px -16px rgba(14, 20, 36, 0.5); }
+
+.opcion input:checked + .opcion-cuerpo {
+    border-color: var(--eje, var(--ink));
+    background: color-mix(in srgb, var(--eje, var(--ink)) 8%, #fff);
+    box-shadow: 0 0 0 1px var(--eje, var(--ink));
+}
+
+.chip span {
+    display: inline-block;
+    padding: 9px 15px;
+    border: 1px solid rgba(14, 20, 36, 0.24);
+    border-radius: 999px;
+    background: #fff;
+    font-size: 0.9375rem;
+    color: var(--ink);
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.chip:hover span { border-color: var(--ink); }
+.chip input:checked + span { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+.opcion input:focus-visible + .opcion-cuerpo,
+.chip input:focus-visible + span {
+    outline: 2px solid var(--eje-orbital-ink);
+    outline-offset: 3px;
+}
+
+#areasCampo:not([hidden]),
+#segundoCampo:not([hidden]) { animation: campo-entra 0.35s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@keyframes campo-entra {
+    from { opacity: 0; transform: translateY(-6px); }
+}
+
+/* --- Consentimiento, error y envío --- */
+.campo-trampa { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.consentimiento {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    align-items: start;
+    margin: 0 0 20px;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    cursor: pointer;
+}
+
+.consentimiento input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--ink); }
+.consentimiento a { color: var(--eje-orbital-ink); text-underline-offset: 3px; }
+
+.form-error {
+    margin: 0 0 18px;
+    padding: 13px 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(179, 38, 30, 0.35);
+    background: rgba(179, 38, 30, 0.07);
+    color: #8C1D18;
+    font-size: 0.9688rem;
+    line-height: 1.45;
+}
+
+.form-error a { color: inherit; font-weight: 600; }
+
+.postular-enviar { width: 100%; justify-content: center; padding-block: 16px; font-size: 1.0313rem; }
+.postular-enviar[aria-busy="true"] { opacity: 0.7; cursor: progress; }
+
+/* --- Confirmación --- */
+.postular-ok { border-top: 4px solid var(--eje-orbital-ink); animation: campo-entra 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.postular-ok:focus { outline: none; }
+.postular-ok h2 { margin: 0 0 14px; font-family: var(--font-title); font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--ink); }
+.postular-ok p:not(.eyebrow) { color: var(--ink-soft); font-size: 1.0625rem; line-height: 1.6; margin: 0 0 12px; }
+.postular-ok strong { color: var(--ink); }
+.postular-ok-acciones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+
+/* --- Columna lateral --- */
+.postular-lado { position: sticky; top: 104px; display: grid; gap: 28px; }
+
+.lado-bloque h2 {
+    margin: 0 0 14px;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--eje-orbital-ink);
+}
+
+.lado-bloque p { margin: 0; color: var(--ink-soft); line-height: 1.6; }
+.lado-bloque a { color: var(--eje-orbital-ink); text-underline-offset: 3px; }
+
+.lado-pasos { list-style: none; margin: 0; padding: 0; counter-reset: paso; display: grid; gap: 18px; }
+
+.lado-pasos li {
+    counter-increment: paso;
+    position: relative;
+    padding-left: 44px;
+    display: grid;
+    gap: 3px;
+}
+
+.lado-pasos li::before {
+    content: counter(paso);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid var(--ink);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--ink);
+}
+
+.lado-pasos strong { color: var(--ink); font-family: var(--font-title); }
+.lado-pasos span { color: var(--ink-soft); font-size: 0.9688rem; line-height: 1.5; }
+
+.lado-nota { padding-top: 22px; border-top: 1px solid var(--paper-line); }
+
+@media (max-width: 900px) {
+    .postular-grid { grid-template-columns: 1fr; }
+    .postular-lado { position: static; }
+}
+
+@media (max-width: 560px) {
+    .campo-fila, .opciones-eje { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #areasCampo:not([hidden]), #segundoCampo:not([hidden]), .postular-ok { animation: none; }
+    .opcion-cuerpo { transition: none; }
+}

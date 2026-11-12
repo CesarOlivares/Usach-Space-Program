@@ -1,63 +1,46 @@
-<footer>
+<footer data-tone="dark">
     <div class="footer-grid">
         <div class="footer-info">
-            <h3>USACH Space Program</h3>
-            <p>Iniciativa estudiantil interdisciplinaria dedicada al desarrollo científico y tecnológico en el sector aeroespacial.</p>
+            <img src="/src/assets/images/marca/logo-blanco.webp" alt="USACH Space Program" class="footer-logo" width="480" height="480" loading="lazy">
+            <p>Iniciativa estudiantil de la Universidad de Santiago de Chile dedicada al aprendizaje, la divulgación y el desarrollo de tecnología aeroespacial.</p>
         </div>
 
         <div class="footer-links">
             <h4>Navegación</h4>
             <ul>
                 <li><a href="/">Inicio</a></li>
-                <li><a href="/proyectos/">Proyectos</a></li>
                 <li><a href="/ejes/">Ejes</a></li>
-                <li><a href="/registro/">Registrarse</a></li>
+                <li><a href="/proyectos/">Proyectos</a></li>
+                <li><a href="/novedades/">Novedades</a></li>
+                <li><a href="/quienes-somos/">Quiénes somos</a></li>
+                <li><a href="/registro/">Postular</a></li>
             </ul>
         </div>
 
         <div class="footer-contact">
             <h4>Contacto</h4>
             <p>Universidad de Santiago de Chile</p>
-            <p><a href="mailto:spaceprogram@usach.cl">spaceprogram@usach.cl</a></p>
-                <p><a href="https://www.instagram.com/usach_space_program/" target="_blank" rel="noopener">Instagram: @usach_space_program</a></p>
+            <p><a href="mailto:{{correo}}">{{correo}}</a></p>
+            <p><a href="{{instagram_url}}" target="_blank" rel="noopener noreferrer">Instagram: {{instagram_usuario}}</a></p>
+            <p><a href="/privacidad/">Privacidad y uso de datos</a></p>
         </div>
 
         <div class="footer-institutions">
             <h4>Vínculos</h4>
-
             <div class="footer-institution-logos">
-                <a 
-                    href="https://centroinnovacion.cl/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    class="footer-institution-logo"
-                    aria-label="Centro de Innovación USACH"
-                >
-                    <img 
-                        src="{=$root}src/assets/images/gallery/centro de innovacion.webp"
-                        alt="Centro de Innovación USACH"
-                    >
+                <a href="https://centroinnovacion.cl/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="Centro de Innovación USACH">
+                    <img src="/src/assets/images/gallery/centro de innovacion.webp" alt="Centro de Innovación USACH" loading="lazy">
                 </a>
-
-                <a 
-                    href="https://www.achide.org/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    class="footer-institution-logo"
-                    aria-label="ACHIDE"
-                >
-                    <img 
-                        src="{=$root}src/assets/images/gallery/achide.png"
-                        alt="ACHIDE"
-                    >
+                <a href="https://www.achide.org/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="ACHIDE">
+                    <img src="/src/assets/images/gallery/achide.png" alt="ACHIDE" loading="lazy">
                 </a>
             </div>
         </div>
     </div>
 
     <div class="footer-bottom">
-        <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
-        <p>Diseño y Tecnología con Fines Educativos</p>
+        <p>&copy; {{anio_actual}} USACH Space Program · Textos y fotos propias bajo licencia <a href="https://creativecommons.org/licenses/by/4.0/deed.es" target="_blank" rel="noopener noreferrer license">CC BY 4.0</a>. Logos e imágenes de terceros pertenecen a sus dueños.</p>
+        <p><a href="https://spaceprogram-cl.translate.goog/?_x_tr_sl=es&_x_tr_tl=en" rel="nofollow" hreflang="en" lang="en" translate="no">English (auto-translated)</a></p>
         <a href="/login/" class="footer-acceso" rel="nofollow">Acceso directiva</a>
     </div>
 </footer>

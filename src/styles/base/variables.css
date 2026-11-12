@@ -88,7 +88,7 @@
     font-display: swap;
     src: local('Horizon'),
          url('../../assets/fonts/Horizon.woff') format('woff'),
-         url('https://fonts.cdnfonts.com/s/19372/Horizon-PersonalUse.woff') format('woff');
+         /* sin respaldo externo */ url('data:,') format('woff');
 }
 
 @font-face {
@@ -98,7 +98,7 @@
     font-display: swap;
     src: local('Now Light'), local('Now-Light'),
          url('../../assets/fonts/Now-Light.woff') format('woff'),
-         url('https://fonts.cdnfonts.com/s/18655/Now-Light.woff') format('woff');
+         /* sin respaldo externo */ url('data:,') format('woff');
 }
 
 @font-face {
@@ -108,7 +108,7 @@
     font-display: swap;
     src: local('Now'), local('Now-Regular'),
          url('../../assets/fonts/Now-Regular.woff') format('woff'),
-         url('https://fonts.cdnfonts.com/s/18655/Now-Regular.woff') format('woff');
+         /* sin respaldo externo */ url('data:,') format('woff');
 }
 
 @font-face {
@@ -118,7 +118,7 @@
     font-display: swap;
     src: local('Now Medium'), local('Now-Medium'),
          url('../../assets/fonts/Now-Medium.woff') format('woff'),
-         url('https://fonts.cdnfonts.com/s/18655/Now-Medium.woff') format('woff');
+         /* sin respaldo externo */ url('data:,') format('woff');
 }
 
 @font-face {
@@ -128,5 +128,5 @@
     font-display: swap;
     src: local('Now Bold'), local('Now-Bold'),
          url('../../assets/fonts/Now-Bold.woff') format('woff'),
-         url('https://fonts.cdnfonts.com/s/18655/Now-Bold.woff') format('woff');
+         /* sin respaldo externo */ url('data:,') format('woff');
 }

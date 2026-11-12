@@ -1,37 +1,42 @@
 # USACH Space Program
 
-> Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile (USACH) dedicada al aprendizaje, la divulgación y el prototipado de proyectos aeroespaciales. Sus integrantes construyen rovers, cohetes y satélites para aprender en la práctica cómo se hace la ingeniería aeroespacial, con el método Piensa — Crea — Aprende y documentación abierta.
+> Iniciativa estudiantil de la Universidad de Santiago de Chile (USACH) que construye rovers, cohetes y satélites para aprender ingeniería aeroespacial haciendo. Fundada el 1 de abril de 2026. Trabaja con el método Piensa — Crea — Aprende y tiene un plan hasta diciembre de 2027.
 
 - Sitio oficial: https://spaceprogram.cl
 - Contacto: spaceprogram@usach.cl
 - Ubicación: Universidad de Santiago de Chile, Santiago, Chile
-- Integrantes activos: más de 16 estudiantes de ingeniería y ciencias
+- Integrantes activos: 16 estudiantes de distintas carreras
 - Apoyos: Universidad de Santiago de Chile, Centro de Innovación USACH, ACHIDE (Asociación Chilena del Espacio), VRAE USACH y Full 3D
+- Convocatoria: abierta todo el año, para estudiantes de la USACH
+
+## Metas 2027 (objetivos, sujetos a ajuste)
+
+- Marzo de 2027: demostración integrada del rover (navegación autónoma, visión y brazo robótico).
+- Abril de 2027: vuelo de un cohete a 3 km con motor sólido propio y recuperación en paracaídas.
+- Diciembre de 2027: prueba del CubeSat LLN-1 en una misión estratosférica.
+- Aspiraciones: participar en el Latin American Space Challenge (LASC) y postular al NASA Human Exploration Rover Challenge 2028 en la división de operación remota. Ninguna de las dos está confirmada.
 
 ## Ejes de desarrollo
 
-- [Ejes de desarrollo](https://spaceprogram.cl/ejes/): definición, objetivos, ruta 2026–2027 y perfil buscado de cada eje.
-- **Robótica y Mecánica Espacial** (líder: César Olivares). Prototipos robóticos para condiciones hostiles. Proyecto emblema: Rover Perseverance.
-- **Cohetería y Propulsión** (líderes: Hugo Orellano y Simón García-Huidobro). Cohetería hidroneumática como banco de pruebas, con la propulsión sólida experimental como meta para 2028. Proyecto emblema: Cohete de agua.
-- **Sistemas Orbitales y Telecomunicaciones** (líderes: Daniel González y Martín Castillo). Computador de a bordo, potencia y comunicaciones integrados en banco de laboratorio. Proyecto emblema: CubeSat 1U.
+- [Ejes de desarrollo](https://spaceprogram.cl/ejes/): equipo, metas, áreas que buscan integrantes y ruta 2026–2027 de cada eje.
+- **Robótica y Mecánica Espacial** (equipo AREAS; líderes: H. Alessandro Orellano y César Olivares). Afina una réplica del rover Perseverance y prepara un robot de práctica.
+- **Cohetería y Propulsión** (equipo A.T.L.A.S., Área de Tecnologías de Lanzamiento y Ascenso Suborbital; líder: César Olivares). Pasa de los cohetes de agua a los motores sólidos propios. Equipo en formación.
+- **Sistemas Orbitales** (equipo ETEREO; líderes: Daniel González y Martín Castillo). Desarrolla el CubeSat 1U LLN-1.
 
-## Proyectos emblema
+## Proyectos
 
-- [Rover Perseverance](https://spaceprogram.cl/proyectos/rover/): réplica funcional de 6 ruedas con suspensión Rocker-Bogie, piezas impresas en 3D (premio a la Mejor Impresión Aplicada en la 3D Printed Party) y objetivos 2026–2027 de navegación autónoma, BMS, espectrógrafo y LiDAR.
-- [Cohete de agua](https://spaceprogram.cl/proyectos/cohete/): plataforma hidroneumática que pasa de una etapa a multietapa (Sep 2026 – Dic 2027), con telemetría, paracaídas y documentación abierta.
-- [CubeSat 1U](https://spaceprogram.cl/proyectos/cubesat/): satélite de 10 × 10 × 10 cm con subsistemas OBC, EPS y COMMS, validados primero en FlatSat y luego integrados en la estructura.
+- [Rover, réplica del Perseverance](https://spaceprogram.cl/proyectos/rover/): 6 ruedas, suspensión Rocker-Bogie, piezas impresas en 3D. Premio a la Mejor Impresión Aplicada en la 3D Printer Party.
+- [A.T.L.A.S. · cohete a 3 km](https://spaceprogram.cl/proyectos/cohete/): equipo, áreas, forma de trabajo con foco en seguridad y ruta hasta el vuelo de abril de 2027. En 2026 hizo cuatro lanzamientos de cohetes de agua, con unos 60 metros de altura.
+- [CubeSat LLN-1](https://spaceprogram.cl/proyectos/cubesat/): satélite de 10 × 10 × 10 cm. Fase 1 (investigación y arquitectura) completada en octubre de 2026; Fase 2 (FlatSat) en desarrollo hasta abril de 2027; integración 1U de mayo a septiembre; campaña estratosférica de octubre a diciembre de 2027.
 
-## Actividades abiertas (inscripciones hasta el 4 de noviembre de 2026)
+## Actividades abiertas 2026 (inscripciones cerradas el 4 de noviembre de 2026; en desarrollo hasta diciembre)
 
-Abiertas a cualquier carrera de la USACH, sin experiencia previa. Equipos de 3, los miércoles en el bloque W3, hasta diciembre.
-
-- [Concurso: diseño de cohetes de agua](https://spaceprogram.cl/talleres/#cohetes): diseñar, construir y probar un cohete de agua. Premio: kit de electrónica.
-- [Salva a Usachín](https://spaceprogram.cl/proyectos/eggdrop/): competencia de diseño y construcción del paracaídas de un cohete. Premio: peluche de Usachín.
-- [Taller: Desarrollo de CubeSats](https://spaceprogram.cl/proyectos/cansat/): cada equipo arma y prueba un CubeSat funcional.
+- [Actividades abiertas 2026](https://spaceprogram.cl/talleres/): concurso de diseño de cohetes de agua, Salva a Usachín y taller de desarrollo de CubeSats. Equipos de 3, cualquier carrera de la USACH.
 
 ## Participar
 
-- [Postular a un proyecto emblema](https://spaceprogram.cl/registro/): Rover Perseverance, CubeSat 1U o Cohete de agua. Abierto a estudiantes de cualquier carrera, sin experiencia previa.
-- [Inscribirse en las actividades abiertas](https://spaceprogram.cl/talleres/)
+- [Postular al programa](https://spaceprogram.cl/registro/): formulario para estudiantes de la USACH (correo @usach.cl). Tras postular, el programa escribe desde su correo institucional y coordina una reunión.
+- [Quiénes somos](https://spaceprogram.cl/quienes-somos/): misión, visión, valores y directiva.
+- [Novedades](https://spaceprogram.cl/novedades/)
+- [Privacidad y uso de datos](https://spaceprogram.cl/privacidad/)
 - Instagram: https://www.instagram.com/usach_space_program/
-- [Catálogo de proyectos](https://spaceprogram.cl/proyectos/)

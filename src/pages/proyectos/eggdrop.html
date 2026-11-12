@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salva a Usachín | USACH Space Program</title>
-    <meta name="description" content="Competencia de diseño y construcción del paracaídas de un cohete. Equipos de 3, cualquier carrera de la USACH, sin experiencia previa. Inscripciones hasta el 4 de noviembre.">
+    <meta name="description" content="Competencia de diseño y construcción del paracaídas de un cohete. Equipos de 3, cualquier carrera de la USACH, sin experiencia previa. Edición 2026, en desarrollo hasta diciembre.">
 
     <link rel="canonical" href="https://spaceprogram.cl/proyectos/eggdrop/">
     <meta name="theme-color" content="#030508">
@@ -18,7 +18,7 @@
     <meta property="og:site_name" content="USACH Space Program">
     <meta property="og:locale" content="es_CL">
     <meta property="og:title" content="Salva a Usachín | USACH Space Program">
-    <meta property="og:description" content="¡Usachín viene cayendo desde muy alto! Diseña y construye el paracaídas de un cohete. Inscripciones hasta el 4 de noviembre.">
+    <meta property="og:description" content="¡Usachín viene cayendo desde muy alto! Diseña y construye el paracaídas de un cohete. Edición 2026, en desarrollo hasta diciembre.">
     <meta property="og:url" content="https://spaceprogram.cl/proyectos/eggdrop/">
     <meta property="og:image" content="https://spaceprogram.cl/og-image.jpg">
     <meta property="og:image:width" content="1200">
@@ -26,33 +26,16 @@
     <meta property="og:image:alt" content="Integrantes del USACH Space Program junto al rover en el taller">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Salva a Usachín | USACH Space Program">
-    <meta name="twitter:description" content="¡Usachín viene cayendo desde muy alto! Diseña y construye el paracaídas de un cohete. Inscripciones hasta el 4 de noviembre.">
+    <meta name="twitter:description" content="¡Usachín viene cayendo desde muy alto! Diseña y construye el paracaídas de un cohete. Edición 2026, en desarrollo hasta diciembre.">
     <meta name="twitter:image" content="https://spaceprogram.cl/og-image.jpg">
     <link rel="stylesheet" href="/src/styles/main.css">
     <style>@import url("/src/styles/pages/ficha.css");</style>
 </head>
 <body class="site ficha" style="--eje: var(--eje-coheteria); --eje-ink: var(--eje-coheteria-ink);">
 
-    <header>
-        <div class="nav-brand-container">
-            <a href="/" class="nav-brand-link">
-                <img src="/src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="nav-logo">
-                <span class="nav-brand">USACH Space Program</span>
-            </a>
-        </div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
-        <nav class="nav-links" id="navLinks">
-            <a href="/novedades/">Novedades</a>
-            <a href="/ejes/">Ejes</a>
-            <a href="/proyectos/" aria-current="page">Proyectos</a>
-            <a href="/quienes-somos/">Nosotros</a>
-            <a href="/#alianzas">Alianzas</a>
-            <a href="mailto:spaceprogram@usach.cl" class="nav-contact">Contacto</a>
-            <a href="/registro/" class="btn-nav-cta">Postular</a>
-        </nav>
-    </header>
+    <load src="src/components/header.html" />
 
-    <main>
+    <main id="contenido">
 
     <section class="ficha-hero" data-tone="dark">
         <div class="ficha-hero-media" data-parallax="0.12">
@@ -63,14 +46,14 @@
                 <li><a href="/proyectos/">Proyectos</a></li>
                 <li><a href="/ejes/#coheteria">Eje Cohetería</a></li>
             </ol>
-            <p class="ficha-tag">Actividad abierta · Inscripciones hasta el 4 de noviembre</p>
+            <p class="ficha-tag">Actividad abierta · {{actividades_estado}}</p>
             <h1>Salva a Usachín</h1>
             <p class="ficha-subtitle">¡Usachín viene cayendo desde muy alto!</p>
             <p class="ficha-lede">
                 Participa en la competencia de diseño y construcción del paracaídas de un cohete. El equipo ganador se lleva un peluche de Usachín. No se necesita experiencia previa.
             </p>
             <div class="ficha-actions on-dark">
-                <a href="https://docs.google.com/forms/d/1ZGOaU90FnmBZcWZmNRoEojmLsB5BsdMy-HCLGlW7pBo/viewform" target="_blank" rel="noopener" class="btn btn-primary">Inscribirme <span aria-hidden="true">↗</span></a>
+                <a href="/registro/" class="btn btn-primary">Postular al programa <span aria-hidden="true">→</span></a>
                 <a href="/talleres/" class="btn btn-ghost">Ver todas las actividades</a>
             </div>
             <dl class="ficha-facts">
@@ -86,7 +69,7 @@
         <ul>
             <li><a href="#mision">La misión</a></li>
             <li><a href="#como">Cómo funciona</a></li>
-            <li><a href="#inscripcion">Inscripción</a></li>
+            <li><a href="#inscripcion">Participar</a></li>
         </ul>
     </nav>
 
@@ -122,8 +105,8 @@
                 <h2>De la inscripción a la prueba final</h2>
             </div>
             <ol class="steps">
-                <li><strong>Inscríbete</strong><p>Completa el formulario antes del 4 de noviembre.</p></li>
-                <li><strong>Confirmamos los cupos</strong><p>Al cerrar las inscripciones, el equipo del programa define los cupos.</p></li>
+                <li><strong>Inscripción</strong><p>Cerró el 4 de noviembre de 2026.</p></li>
+                <li><strong>Cupos</strong><p>El equipo del programa definió los cupos.</p></li>
                 <li><strong>Diseño y construcción</strong><p>Equipos de 3, los miércoles en el bloque W3.</p></li>
                 <li><strong>¿Se salva Usachín?</strong><p>Hasta diciembre. El mejor paracaídas se lleva el peluche de Usachín.</p></li>
             </ol>
@@ -133,15 +116,15 @@
     <!-- Cierre -->
     <div class="tone-bridge tone-bridge--to-dark" aria-hidden="true"></div>
 
-    <section class="section section-dark section-night" data-tone="dark" id="inscripcion" aria-label="Inscripción">
+    <section class="section section-dark section-night" data-tone="dark" id="inscripcion" aria-label="Participar">
         <div class="section-inner">
             <div class="cta-panel">
                 <div>
                     <h2>¿Aceptas el desafío?</h2>
-                    <p>Inscripciones abiertas hasta el 4 de noviembre para estudiantes de cualquier carrera de la USACH.</p>
+                    <p>Las inscripciones de la edición 2026 ya cerraron. Si quieres participar en la próxima, o sumarte a un proyecto del programa, puedes postular cuando quieras.</p>
                 </div>
                 <div class="cta-actions on-dark">
-                    <a href="https://docs.google.com/forms/d/1ZGOaU90FnmBZcWZmNRoEojmLsB5BsdMy-HCLGlW7pBo/viewform" target="_blank" rel="noopener" class="btn btn-primary">Inscribirme <span aria-hidden="true">↗</span></a>
+                    <a href="/registro/" class="btn btn-primary">Postular al programa <span aria-hidden="true">→</span></a>
                     <a href="/talleres/" class="btn btn-ghost">Ver todas las actividades</a>
                 </div>
             </div>
@@ -166,41 +149,7 @@
 
     </main>
 
-    <footer data-tone="dark">
-        <div class="footer-grid">
-            <div class="footer-info">
-                <h3>USACH Space Program</h3>
-                <p>Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Navegación</h4>
-                <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/proyectos/">Proyectos</a></li>
-                    <li><a href="/ejes/">Ejes</a></li>
-                    <li><a href="/talleres/">Actividades abiertas</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h4>Contacto</h4>
-                <p>Universidad de Santiago de Chile</p>
-                <p><a href="mailto:spaceprogram@usach.cl">spaceprogram@usach.cl</a></p>
-                <p><a href="https://www.instagram.com/usach_space_program/" target="_blank" rel="noopener">Instagram: @usach_space_program</a></p>
-            </div>
-            <div class="footer-institutions">
-                <h4>Vínculos</h4>
-                <div class="footer-institution-logos">
-                    <a href="https://centroinnovacion.cl/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="Centro de Innovación USACH"><img src="/src/assets/images/gallery/centro de innovacion.webp" alt="Centro de Innovación USACH"></a>
-                    <a href="https://www.achide.org/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="ACHIDE"><img src="/src/assets/images/gallery/achide.png" alt="ACHIDE"></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
-            <p>Diseño y fabricación con fines educativos</p>
-            <a href="/login/" class="footer-acceso" rel="nofollow">Acceso directiva</a>
-        </div>
-    </footer>
+    <load src="src/components/footer.html" />
 
     <script type="module" src="/src/js/components/header.js"></script>
     <script type="module" src="/src/js/pages/ficha.js"></script>

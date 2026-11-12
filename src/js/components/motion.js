@@ -81,7 +81,7 @@ export function initReveal(root = document) {
         });
     // Se activa apenas el bloque asoma (y un poco antes), para que ninguna zona
     // quede vacía mientras se hace scroll rápido o al llegar al final de la página
-    }, { rootMargin: '0px 0px 10% 0px', threshold: 0 });
+    }, { rootMargin: '0px 0px 30% 0px', threshold: 0 });
 
     items.forEach((el) => observer.observe(el));
 }
@@ -149,8 +149,107 @@ export function initParallax() {
     update();
 }
 
+// Carta "Ruta 2027": las líneas se dibujan y los hitos aparecen al entrar en
+// pantalla. La marca "Hoy" se ubica según la fecha real (nov 2026 → dic 2027).
+export function initRuta() {
+    const carta = document.querySelector('[data-ruta]');
+    if (!carta) return;
+
+    // Cada estación entra por separado: número, filete y foto
+    const estaciones = [...carta.querySelectorAll('.estacion')];
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+        estaciones.forEach((e) => e.classList.add('is-in'));
+    } else {
+        const obsEstacion = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-in');
+                obsEstacion.unobserve(entry.target);
+            });
+        }, { threshold: 0.3 });
+        estaciones.forEach((e) => obsEstacion.observe(e));
+    }
+
+    const hoy = carta.querySelector('[data-ruta-hoy]');
+    if (hoy) {
+        const inicio = new Date(2026, 10, 1).getTime();
+        const fin = new Date(2028, 0, 1).getTime();
+        const avance = (Date.now() - inicio) / (fin - inicio);
+        if (avance < 0 || avance > 1) hoy.hidden = true;
+        else hoy.style.setProperty('--hoy', avance.toFixed(4));
+    }
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+        carta.classList.add('is-on');
+        return;
+    }
+    new IntersectionObserver(([entry], obs) => {
+        if (!entry.isIntersecting) return;
+        carta.classList.add('is-on');
+        obs.disconnect();
+    }, { threshold: 0.08 }).observe(carta);
+}
+
+// Videos de fondo: se pueden pausar, no se reproducen con "reducir movimiento",
+// y los marcados [data-lazy-video] recién se cargan al acercarse a la pantalla.
+export function initBgVideos() {
+    const videos = [...document.querySelectorAll('video[data-bg-video]')];
+    if (!videos.length) return;
+
+    const tieneFuente = (v) => !!v.currentSrc || [...v.querySelectorAll('source')].some((s) => !s.media || window.matchMedia(s.media).matches);
+    const activos = videos.filter(tieneFuente);
+    let pausado = reduceMotion;
+
+    const aplicar = () => activos.forEach((v) => {
+        if (pausado) v.pause();
+        else if (v.dataset.visible !== 'no') v.play().catch(() => {});
+    });
+
+    if ('IntersectionObserver' in window) {
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+                e.target.dataset.visible = e.isIntersecting ? 'si' : 'no';
+                if (e.isIntersecting && !pausado) e.target.play().catch(() => {});
+                else e.target.pause();
+            });
+        }, { rootMargin: '200px 0px' });
+        activos.forEach((v) => obs.observe(v));
+    }
+
+    const boton = document.querySelector('[data-video-toggle]');
+    if (boton && activos.length) {
+        boton.hidden = false;
+        const pintar = () => {
+            boton.textContent = pausado ? 'Reproducir video' : 'Pausar video';
+            boton.setAttribute('aria-pressed', String(pausado));
+        };
+        pintar();
+        boton.addEventListener('click', () => { pausado = !pausado; pintar(); aplicar(); });
+    }
+    aplicar();
+}
+
+// Respaldo: si el observador no avisa (pasa en algunos celulares), al detenerse
+// el scroll se muestra todo lo que ya está en pantalla o quedó arriba.
+function initRespaldo() {
+    let t;
+    const revisar = () => {
+        const alto = window.innerHeight * 1.2;
+        document.querySelectorAll('.reveal:not(.is-visible), .estacion:not(.is-in), [data-ruta]:not(.is-on)').forEach((el) => {
+            if (el.getBoundingClientRect().top < alto) {
+                el.classList.add(el.matches('.estacion') ? 'is-in' : el.matches('[data-ruta]') ? 'is-on' : 'is-visible');
+            }
+        });
+    };
+    window.addEventListener('scroll', () => { clearTimeout(t); t = setTimeout(revisar, 150); }, { passive: true });
+    setTimeout(revisar, 1500);
+}
+
 export function initMotion() {
     initReveal();
     initAdaptiveHeader();
     initParallax();
+    initRuta();
+    initBgVideos();
+    initRespaldo();
 }

@@ -22,17 +22,55 @@ const foto = (url, alt) => ({ src: url.href, alt });
 
 export const noticias = [
     {
+        slug: 'ruta-2027',
+        titulo: 'Tenemos ruta: tres metas para 2027',
+        fecha: '2026-11-11',
+        eje: 'comunidad',
+        lugar: 'Universidad de Santiago de Chile',
+        resumen: 'Aprobamos el plan del programa hasta diciembre de 2027: un cohete a 3 km, el rover completo en demostración y nuestro CubeSat en la estratósfera.',
+        cuerpo: [
+            'Después de varios meses de trabajo, la directiva y los líderes de eje aprobamos el plan estratégico 2026–2027. Por primera vez los tres ejes comparten un mismo calendario, con metas que se pueden comprobar.',
+            'Robótica afina la réplica del rover Perseverance para mostrarla completa en marzo de 2027: navegación autónoma, visión y brazo robótico. Con esa experiencia construiremos un robot de práctica para apuntar a postular al NASA Human Exploration Rover Challenge 2028.',
+            'Cohetería, con el equipo A.T.L.A.S., pasa de los cohetes de agua a los motores sólidos propios. La meta es un vuelo a 3 km con recuperación en abril de 2027, y llegar preparados al Latin American Space Challenge.',
+            'Sistemas Orbitales, con el equipo ETEREO, desarrolla el CubeSat LLN-1: validación en banco hasta abril, integración hasta septiembre y una misión estratosférica en diciembre de 2027.',
+            'Las fechas son objetivos y las iremos ajustando con lo que aprendamos en cada ensayo. Lo que no cambia es la forma de trabajar: probar cada pieza antes de sumar complejidad, y dejar todo documentado.'
+        ],
+        fotos: [
+            foto(new URL('../../assets/images/equipo/fundadores-2026.webp', import.meta.url), 'Los primeros integrantes del programa junto al rover')
+        ],
+        enlace: '/ejes/',
+        destacada: true
+    },
+    {
+        slug: 'etereo-cierra-fase-1',
+        titulo: 'ETEREO cierra su primera fase y empieza el FlatSat',
+        fecha: '2026-10-28',
+        eje: 'orbital',
+        lugar: 'Universidad de Santiago de Chile',
+        resumen: 'El equipo del CubeSat LLN-1 terminó la etapa de investigación y arquitectura, y ya está ensayando componentes sobre la mesa.',
+        cuerpo: [
+            'El equipo ETEREO dio por cerrada la Fase 1 del CubeSat LLN-1. En ella estudió arquitecturas de satélites de este tipo, armó una biblioteca técnica y definió la arquitectura conceptual y los requerimientos iniciales del proyecto.',
+            'Con eso parte la Fase 2: el FlatSat, que es el satélite completo extendido sobre la mesa de ensayo. Ahí se prueban y comparan componentes antes de decidir cuáles van a volar.',
+            'El primer ensayo ya está en curso: medir el alcance del enlace de radio LoRa. Le siguen un gemelo digital con sensores inerciales, las pruebas del software de vuelo, la caracterización eléctrica y térmica, y la alimentación con panel solar.'
+        ],
+        fotos: [
+            foto(new URL('../../assets/images/eventos/cubesat-escala/estructura.jpg', import.meta.url), 'Estructura del CubeSat 1U sobre el parche de misión del programa'),
+            foto(new URL('../../assets/images/eventos/cubesat-escala/ensamblaje.jpg', import.meta.url), 'Manos ensamblando la estructura del CubeSat')
+        ],
+        enlace: '/proyectos/cubesat/'
+    },
+    {
         slug: 'inscripciones-actividades-abiertas',
-        titulo: 'Inscripciones abiertas: cohetes de agua, Salva a Usachín y CubeSats',
+        titulo: 'Actividades abiertas 2026: cohetes de agua, Salva a Usachín y CubeSats',
         fecha: '2026-10-26',
         eje: 'comunidad',
         lugar: 'Universidad de Santiago de Chile',
-        resumen: 'Tres actividades para cualquier carrera de la USACH, en equipos de 3 y sin experiencia previa. Inscripciones hasta el 4 de noviembre.',
+        resumen: 'Tres actividades para cualquier carrera de la USACH, en equipos de 3 y sin experiencia previa. Las inscripciones cerraron el 4 de noviembre.',
         cuerpo: [
             'Abrimos las inscripciones para las tres actividades abiertas del semestre: el Concurso de diseño de cohetes de agua, la competencia Salva a Usachín y el Taller de desarrollo de CubeSats.',
             'Pueden participar estudiantes de cualquier carrera de la USACH y no se necesita experiencia previa: aprendemos haciendo. Se trabaja en equipos de 3, los miércoles en el bloque W3, y las actividades se desarrollan hasta diciembre.',
             'En el concurso, cada equipo diseña, construye y pone a prueba su propio cohete de agua; el ganador se lleva un kit de electrónica y una sorpresa. En Salva a Usachín, el desafío es diseñar y construir el paracaídas de un cohete, con un peluche de Usachín como premio. En el taller, cada equipo arma y prueba su primer CubeSat funcional.',
-            'Las inscripciones están abiertas hasta el 4 de noviembre. Al cerrarlas, el equipo del programa define los cupos de cada actividad.'
+            'Las inscripciones cerraron el 4 de noviembre y los equipos ya están trabajando. Publicaremos los resultados cuando terminen las pruebas finales, en diciembre.'
         ],
         fotos: [
             foto(new URL('../../assets/images/eventos/actividades-abiertas/afiche-cohetes-de-agua.webp', import.meta.url), 'Afiche del Concurso de diseño de cohetes de agua'),
@@ -40,7 +78,6 @@ export const noticias = [
             foto(new URL('../../assets/images/eventos/actividades-abiertas/afiche-taller-cubesats.webp', import.meta.url), 'Afiche del Taller de desarrollo de CubeSats')
         ],
         enlace: '/talleres/',
-        destacada: true,
         afiches: true
     },
     {
@@ -55,9 +92,7 @@ export const noticias = [
             'En el toldo que se nos asignó mostramos varios de nuestros prototipos: el rover, el modelo del CubeSat con sus paneles solares y los cohetes de agua. Además, hicimos un lanzamiento de un cohete de agua a baja escala frente al público.'
         ],
         fotos: [
-            foto(new URL('../../assets/images/eventos/organizafest/stand-usp.jpg', import.meta.url), 'Toldo del USACH Space Program lleno de público en el Organizafest'),
             foto(new URL('../../assets/images/eventos/organizafest/lanzamiento.jpg', import.meta.url), 'Cohete de agua listo en su rampa antes del lanzamiento, con el equipo de fondo'),
-            foto(new URL('../../assets/images/eventos/organizafest/prototipos.jpg', import.meta.url), 'Mesa con prototipos del programa y estudiantes conversando con el equipo'),
             foto(new URL('../../assets/images/eventos/organizafest/cubesat-paneles.jpg', import.meta.url), 'Modelo del CubeSat con paneles solares y rover en miniatura'),
             foto(new URL('../../assets/images/eventos/organizafest/astronauta.jpg', import.meta.url), 'Integrante del equipo junto a una persona con traje de astronauta'),
             foto(new URL('../../assets/images/eventos/organizafest/lienzo.jpg', import.meta.url), 'Dos integrantes sostienen el lienzo del USACH Space Program')
@@ -169,8 +204,7 @@ export const noticias = [
         ],
         fotos: [
             foto(new URL('../../assets/images/eventos/rancagua/equipo.jpg', import.meta.url), 'Integrantes del equipo junto al rover en el stand del colegio'),
-            foto(new URL('../../assets/images/eventos/rancagua/rover.jpg', import.meta.url), 'El rover en el salón del colegio'),
-            foto(new URL('../../assets/images/eventos/rancagua/sala.jpg', import.meta.url), 'Vista general del salón con el rover y los stands')
+            foto(new URL('../../assets/images/eventos/rancagua/rover.jpg', import.meta.url), 'El rover en el salón del colegio')
         ]
     }
 ];

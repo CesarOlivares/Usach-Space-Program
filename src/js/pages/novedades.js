@@ -14,7 +14,8 @@ const ENLACE_LABEL = {
     '/proyectos/rover/': 'Conoce el rover',
     '/proyectos/cohete/': 'Conoce el cohete de agua',
     '/proyectos/cubesat/': 'Conoce el CubeSat 1U',
-    '/talleres/': 'Inscríbete en las actividades'
+    '/talleres/': 'Ver las actividades 2026',
+    '/ejes/': 'Conoce la ruta de cada eje'
 };
 
 const escapeHtml = (text = '') =>

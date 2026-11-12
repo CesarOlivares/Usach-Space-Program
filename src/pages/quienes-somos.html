@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,26 +33,9 @@
 </head>
 <body class="site quienes-somos-page">
 
-    <header>
-        <div class="nav-brand-container">
-            <a href="/" class="nav-brand-link">
-                <img src="/src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="nav-logo">
-                <span class="nav-brand">USACH Space Program</span>
-            </a>
-        </div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
-        <nav class="nav-links" id="navLinks">
-            <a href="/novedades/">Novedades</a>
-            <a href="/ejes/">Ejes</a>
-            <a href="/proyectos/">Proyectos</a>
-            <a href="/quienes-somos/" aria-current="page">Nosotros</a>
-            <a href="/#alianzas">Alianzas</a>
-            <a href="mailto:spaceprogram@usach.cl" class="nav-contact">Contacto</a>
-            <a href="/registro/" class="btn-nav-cta">Postular</a>
-        </nav>
-    </header>
+    <load src="src/components/header.html" />
 
-    <main>
+    <main id="contenido">
     <section class="page-hero starfield" data-tone="dark">
         <div class="page-hero-media" aria-hidden="true"><img src="/src/assets/images/rover/rover_armado_foto_grupal.jpg" alt=""></div>
         <div class="section-inner qs-hero">
@@ -64,24 +47,51 @@
             <dl class="hero-stats">
                 <div><dt>Fundación</dt><dd>2026</dd></div>
                 <div><dt>Ejes</dt><dd>3</dd></div>
-                <div><dt>Integrantes</dt><dd>16</dd></div>
+                <div><dt>Integrantes</dt><dd>{{integrantes}}</dd></div>
             </dl>
         </div>
     </section>
 
     <div class="tone-bridge tone-bridge--from-night tone-bridge--to-light" aria-hidden="true"></div>
 
-    <section class="section section-light section-mist-paper-mist" data-tone="light" aria-labelledby="directiva-title">
+    <section class="has-deco mv-seccion section section-light section-mist-to-paper" data-tone="light" aria-labelledby="mision-title">
+        <span class="deco deco--marco" aria-hidden="true"></span>
+        <div class="section-inner">
+            <div class="section-head">
+                <p class="eyebrow">Para qué existimos</p>
+                <h2 id="mision-title">Misión, visión y valores</h2>
+            </div>
+            <div class="mv-grid">
+                <article class="mv-card" style="--eje: var(--eje-robotica-ink)">
+                    <h3>Misión</h3>
+                    <p>Formar a estudiantes de la USACH en ingeniería aeroespacial mediante proyectos reales, y dejar el conocimiento documentado y abierto para quienes vengan después.</p>
+                </article>
+                <article class="mv-card" style="--eje: var(--eje-orbital-ink)">
+                    <h3>Visión</h3>
+                    <p>Ser un programa estudiantil de referencia en Chile en robótica espacial, cohetería y sistemas orbitales, reconocido por competir, volar y compartir lo que aprende.</p>
+                </article>
+            </div>
+            <ul class="valores">
+                <li><strong>Compromiso</strong><span>Lo que se promete, se hace.</span></li>
+                <li><strong>Honestidad técnica</strong><span>Los datos mandan, también cuando no nos gustan.</span></li>
+                <li><strong>Curiosidad</strong><span>Preguntar por qué antes de armar.</span></li>
+                <li><strong>Compartir conocimiento</strong><span>Lo aprendido queda escrito y abierto.</span></li>
+                <li><strong>Seguridad</strong><span>Ningún plazo vale un accidente.</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section section-light section-paper-to-mist" data-tone="light" aria-labelledby="directiva-title">
         <div class="section-inner">
             <div class="section-head">
                 <p class="eyebrow">Directiva 2026</p>
                 <h2 id="directiva-title">Quienes lo coordinan</h2>
-                <p class="section-intro">Seis estudiantes a cargo de la gestión del programa y del liderazgo de cada eje.</p>
+                <p class="section-intro">Seis estudiantes a cargo de la gestión del programa y del liderazgo de cada eje. Toca un perfil para conocer a cada persona.</p>
             </div>
 
             <figure class="qs-grupo">
                 <img src="/src/assets/images/equipo/directiva-2026.webp" alt="La directiva del USACH Space Program de pie, con los brazos cruzados, en una sala de la universidad">
-                <figcaption><strong>La directiva</strong>De izquierda a derecha: Daniel, Simón García-Huidobro, Alessandro Orellano, César Olivares y Benjamín Saavedra.</figcaption>
+                <figcaption><strong>La directiva</strong>De izquierda a derecha: Daniel González, Simón García-Huidobro, Alessandro Orellano, César Olivares y Benjamín Saavedra. Martín Castillo no estaba el día de la foto.</figcaption>
             </figure>
 
             <ul class="qs-equipo" id="equipo"></ul>
@@ -90,7 +100,8 @@
 
     <div class="tone-bridge tone-bridge--to-dark" aria-hidden="true"></div>
 
-    <section class="section section-dark section-night" data-tone="dark" aria-labelledby="origen-title">
+    <section class="has-deco qs-origen-seccion section section-dark section-night" data-tone="dark" aria-labelledby="origen-title">
+        <span class="deco deco--leon" aria-hidden="true" data-anim="gira"></span>
         <div class="section-inner qs-origen">
             <figure>
                 <img src="/src/assets/images/equipo/fundadores-2026.webp" alt="Los primeros integrantes del programa posan junto al rover en el pasto de la universidad">
@@ -102,7 +113,7 @@
                 <div class="prose">
                     <p>Como estudiantes de la USACH, siempre compartimos el interés y la pasión por el sector aeroespacial. Cada uno aprendía por su cuenta, en ramos, talleres y proyectos personales, pero los proyectos que de verdad nos entusiasmaban eran demasiado grandes para hacerlos solos.</p>
                     <p>Por eso decidimos agruparnos. El 1 de abril de 2026 fundamos el USACH Space Program con una idea simple: juntar a estudiantes de distintas carreras para construir lo que ninguno podría construir por separado. Nuestro primer gran proyecto fue la réplica del rover Perseverance, y con él aprendimos a diseñar, fabricar, fallar y volver a intentar.</p>
-                    <p>Hoy el programa se organiza en tres ejes, Robótica, Cohetería y Sistemas Orbitales, y sigue creciendo con cada actividad que abrimos a la comunidad universitaria.</p>
+                    <p>Hoy somos {{integrantes}} estudiantes organizados en tres ejes, Robótica, Cohetería y Sistemas Orbitales, cada uno con su equipo y un plan compartido hasta diciembre de 2027. <a href="/#ruta">Mira la ruta 2027</a>.</p>
                 </div>
             </div>
         </div>
@@ -116,43 +127,7 @@
     </dialog>
 
 
-    <footer data-tone="dark">
-        <div class="footer-grid">
-            <div class="footer-info">
-                <h3>USACH Space Program</h3>
-                <p>Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Navegación</h4>
-                <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/novedades/">Novedades</a></li>
-                    <li><a href="/quienes-somos/">Quiénes somos</a></li>
-                    <li><a href="/proyectos/">Proyectos</a></li>
-                    <li><a href="/ejes/">Ejes</a></li>
-                    <li><a href="/registro/">Postular</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h4>Contacto</h4>
-                <p>Universidad de Santiago de Chile</p>
-                <p><a href="mailto:spaceprogram@usach.cl">spaceprogram@usach.cl</a></p>
-                <p><a href="https://www.instagram.com/usach_space_program/" target="_blank" rel="noopener">Instagram: @usach_space_program</a></p>
-            </div>
-            <div class="footer-institutions">
-                <h4>Vínculos</h4>
-                <div class="footer-institution-logos">
-                    <a href="https://centroinnovacion.cl/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="Centro de Innovación USACH"><img src="/src/assets/images/gallery/centro de innovacion.webp" alt="Centro de Innovación USACH"></a>
-                    <a href="https://www.achide.org/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="ACHIDE"><img src="/src/assets/images/gallery/achide.png" alt="ACHIDE"></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
-            <p>Diseño y fabricación con fines educativos</p>
-            <a href="/login/" class="footer-acceso" rel="nofollow">Acceso directiva</a>
-        </div>
-    </footer>
+    <load src="src/components/footer.html" />
 
     <script type="module" src="/src/js/components/header.js"></script>
     <script type="module" src="/src/js/pages/quienes-somos.js"></script>

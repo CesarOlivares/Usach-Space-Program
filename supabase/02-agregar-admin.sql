@@ -8,8 +8,8 @@
 
 do $$
 declare
-    v_correo text := 'cesar.olivares.l@usach.cl';
-    v_nombre text := 'César Olivares';
+    v_correo text := 'correo@usach.cl';
+    v_nombre text := 'Nombre Apellido';
     v_id uuid;
 begin
     select id into v_id

@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+/* Fuente mono alojada en el sitio (sin llamadas a Google) */
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
 @import './base/variables.css';
 
 @import './base/global.css';
@@ -6,6 +8,8 @@
 @import './components/footer.css';
 @import './components/hud-card.css';
 @import './components/project-template.css';
-@import './components/timeline.css';
 @import './base/responsive.css';
 @import './components/decorations.css';
+@import './components/extras.css';
+@import './components/deco.css';
+@import './components/editorial.css';

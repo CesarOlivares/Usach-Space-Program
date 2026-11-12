@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CubeSat 1U | USACH Space Program</title>
-    <meta name="description" content="CubeSat 1U del USACH Space Program: computador de a bordo, potencia y comunicaciones integrados en banco de laboratorio (FlatSat).">
+    <title>CubeSat LLN-1 | USACH Space Program</title>
+    <meta name="description" content="LLN-1 es el CubeSat 1U del equipo ETEREO del USACH Space Program. Se valida en FlatSat, se integra en 2027 y se prueba en una misión estratosférica.">
 
     <link rel="canonical" href="https://spaceprogram.cl/proyectos/cubesat/">
     <meta name="theme-color" content="#030508">
@@ -17,67 +17,50 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="USACH Space Program">
     <meta property="og:locale" content="es_CL">
-    <meta property="og:title" content="CubeSat 1U | USACH Space Program">
-    <meta property="og:description" content="CubeSat 1U del USACH Space Program: computador de a bordo, potencia y comunicaciones integrados en banco de laboratorio (FlatSat).">
+    <meta property="og:title" content="CubeSat LLN-1 | USACH Space Program">
+    <meta property="og:description" content="LLN-1 es el CubeSat 1U del equipo ETEREO del USACH Space Program. Se valida en FlatSat, se integra en 2027 y se prueba en una misión estratosférica.">
     <meta property="og:url" content="https://spaceprogram.cl/proyectos/cubesat/">
     <meta property="og:image" content="https://spaceprogram.cl/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Integrantes del USACH Space Program junto al rover en el taller">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CubeSat 1U | USACH Space Program">
-    <meta name="twitter:description" content="CubeSat 1U del USACH Space Program: computador de a bordo, potencia y comunicaciones integrados en banco de laboratorio (FlatSat).">
+    <meta name="twitter:title" content="CubeSat LLN-1 | USACH Space Program">
+    <meta name="twitter:description" content="LLN-1 es el CubeSat 1U del equipo ETEREO del USACH Space Program. Se valida en FlatSat, se integra en 2027 y se prueba en una misión estratosférica.">
     <meta name="twitter:image" content="https://spaceprogram.cl/og-image.jpg">
     <link rel="stylesheet" href="/src/styles/main.css">
     <style>@import url("/src/styles/pages/ficha.css");</style>
 </head>
 <body class="site ficha" style="--eje: var(--eje-orbital); --eje-ink: var(--eje-orbital-ink);">
 
-    <header>
-        <div class="nav-brand-container">
-            <a href="/" class="nav-brand-link">
-                <img src="/src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="nav-logo">
-                <span class="nav-brand">USACH Space Program</span>
-            </a>
-        </div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
-        <nav class="nav-links" id="navLinks">
-            <a href="/novedades/">Novedades</a>
-            <a href="/ejes/">Ejes</a>
-            <a href="/proyectos/" aria-current="page">Proyectos</a>
-            <a href="/quienes-somos/">Nosotros</a>
-            <a href="/#alianzas">Alianzas</a>
-            <a href="mailto:spaceprogram@usach.cl" class="nav-contact">Contacto</a>
-            <a href="/registro/" class="btn-nav-cta">Postular</a>
-        </nav>
-    </header>
+    <load src="src/components/header.html" />
 
-    <main>
+    <main id="contenido">
 
     <section class="ficha-hero" data-tone="dark">
         <div class="ficha-hero-media" data-parallax="0.12">
-            <img src="/src/assets/images/gallery/IMG-20260607-WA0039.jpg" alt="Banco de integración FlatSat del CubeSat 1U">
+            <img src="/src/assets/images/eventos/cubesat-escala/estructura.jpg" alt="Estructura del CubeSat 1U sobre el parche de misión del programa">
         </div>
         <div class="ficha-hero-inner">
             <ol class="breadcrumb">
                 <li><a href="/proyectos/">Proyectos</a></li>
                 <li><a href="/ejes/#orbital">Eje Sistemas Orbitales</a></li>
             </ol>
-            <p class="ficha-tag">Proyecto emblema · Eje 03</p>
-            <h1>CubeSat 1U</h1>
-            <p class="ficha-subtitle">Un satélite de 10 × 10 × 10 cm, armado primero sobre la mesa</p>
+            <p class="ficha-tag">Proyecto emblema · Equipo <span translate="no">ETEREO</span></p>
+            <h1>CubeSat <span translate="no">LLN-1</span></h1>
+            <p class="ficha-subtitle">Un satélite de 10 × 10 × 10 cm, de la mesa a la estratósfera</p>
             <p class="ficha-lede">
-                Diseñamos e integramos en banco de laboratorio (FlatSat) la arquitectura de un satélite 1U: computador de a bordo, electrónica de potencia y enlace de radio. Cada subsistema se prueba en tierra para aprender cómo se opera una misión satelital real.
+                El LLN-1 es el CubeSat 1U del equipo ETEREO. Primero se prueba cada componente con el satélite extendido sobre la mesa (FlatSat), después se integra en su estructura y finalmente se valida en una misión estratosférica.
             </p>
             <div class="ficha-actions on-dark">
-                <a href="#subsistemas" class="btn btn-primary">Ver los subsistemas <span aria-hidden="true">→</span></a>
-                <a href="#ruta" class="btn btn-ghost">Ruta 2026–2027</a>
+                <a href="#ruta" class="btn btn-primary">Ver la ruta 2027 <span aria-hidden="true">→</span></a>
+                <a href="#subsistemas" class="btn btn-ghost">Subsistemas</a>
             </div>
             <dl class="ficha-facts">
                 <div><dt>Formato</dt><dd>CubeSat 1U · 10 × 10 × 10 cm</dd></div>
-                <div><dt>Subsistemas</dt><dd>OBC · EPS · COMMS</dd></div>
-                <div><dt>Equipo</dt><dd>Daniel González y Martín Castillo · 7 integrantes</dd></div>
-                <div><dt>Etapa</dt><dd>Integración en laboratorio</dd></div>
+                <div><dt>Etapa actual</dt><dd>Fase 2 · FlatSat</dd></div>
+                <div><dt>Meta</dt><dd>Vuelo estratosférico, diciembre de 2027</dd></div>
+                <div><dt>Líderes</dt><dd>{{lider_orbital}}</dd></div>
             </dl>
         </div>
     </section>
@@ -95,7 +78,8 @@
     <!-- Resumen -->
     <div class="tone-bridge tone-bridge--from-night tone-bridge--to-light" aria-hidden="true"></div>
 
-    <section class="section section-light section-mist-to-paper" data-tone="light" id="resumen">
+    <section class="has-deco section section-light section-mist-to-paper" data-tone="light" id="resumen">
+        <span class="deco deco--agujero-negro" aria-hidden="true" data-anim="gira"></span>
         <div class="section-inner split">
             <div>
                 <p class="eyebrow">Resumen</p>
@@ -112,7 +96,7 @@
             </div>
             <figure class="split-figure">
                 <img src="/src/assets/images/gallery/Cubesat orbitando.png" alt="Ilustración de un CubeSat en órbita terrestre" loading="lazy">
-                <figcaption>Ilustración conceptual · CubeSat en órbita</figcaption>
+                <figcaption>Ilustración del equipo · CubeSat en órbita</figcaption>
             </figure>
         </div>
     </section>
@@ -133,14 +117,15 @@
                 </div>
             </div>
             <figure class="split-figure">
-                <img src="/src/assets/images/gallery/IMG-20260607-WA0039.jpg" alt="Banco de integración FlatSat del equipo" loading="lazy">
-                <figcaption>Banco de integración FlatSat · Junio 2026</figcaption>
+                <img src="/src/assets/images/gallery/IMG-20260607-WA0039.jpg" alt="Integrante del equipo cablea un circuito de prueba sobre una protoboard" loading="lazy">
+                <figcaption>Pruebas de electrónica en mesa · 2026</figcaption>
             </figure>
         </div>
     </section>
 
     <!-- Subsistemas -->
-    <section class="section section-light section-paper-to-mist" data-tone="light" id="subsistemas">
+    <section class="has-deco section section-light section-paper-to-mist" data-tone="light" id="subsistemas">
+        <span class="deco deco--diagrama-orbital" aria-hidden="true" data-anim="gira"></span>
         <div class="section-inner">
             <div class="section-head section-head-split">
                 <div>
@@ -183,22 +168,23 @@
     <!-- Ruta -->
     <div class="tone-bridge tone-bridge--to-dark" aria-hidden="true"></div>
 
-    <section class="section section-dark section-night" data-tone="dark" id="ruta">
+    <section class="has-deco section section-dark section-night" data-tone="dark" id="ruta">
+        <span class="deco deco--radial" aria-hidden="true" data-anim="titila"></span>
         <div class="section-inner">
             <div class="section-head">
-                <p class="eyebrow">Proyecciones 2026–2027</p>
-                <h2>De la mesa a la estructura</h2>
-                <p class="section-intro">Definir, seleccionar e integrar en laboratorio la arquitectura de OBC y COMMS, y migrarla a la plataforma 1U.</p>
+                <p class="eyebrow">Ruta 2026–2027</p>
+                <h2>De la mesa a la estratósfera</h2>
+                <p class="section-intro">Cuatro fases. Para pasar a la siguiente no basta con que llegue la fecha: hay que demostrar que el satélite hace lo que debe.</p>
             </div>
             <ol class="timeline" style="--cols: 4">
-                <li><span class="timeline-when">Fase 1</span><h3>Investigación y arquitectura</h3><p>Estado del arte de computadores de a bordo y comunicaciones, elección de banda y protocolo, e informe técnico OBC/COMMS.</p></li>
-                <li><span class="timeline-when">Fase 2</span><h3>FlatSat</h3><p>OBC y comunicaciones integrados en banco: adquirir, guardar y transmitir telemetría a una estación terrena de prueba.</p></li>
-                <li><span class="timeline-when">Fase 3 · Ene–Mar</span><h3>Integración en el CubeSat</h3><p>El FlatSat completo pasa a la estructura 1U y se valida en condiciones representativas.</p></li>
-                <li><span class="timeline-when">Siguiente periodo</span><h3>Hacia una misión real</h3><p>Validación en condiciones cercanas a la estratósfera y luego una misión experimental de lanzamiento.</p></li>
+                <li class="is-hecho"><span class="timeline-when">Jul–Oct 2026</span><h3>Investigación y arquitectura</h3><p>Estudio de arquitecturas CubeSat, biblioteca técnica, arquitectura conceptual y requerimientos iniciales.</p></li>
+                <li class="is-actual"><span class="timeline-when">Nov 2026–Abr 2027</span><h3>FlatSat</h3><p>Ensayar, comparar y seleccionar componentes; verificar que los subsistemas funcionan por separado y en conjunto.</p></li>
+                <li><span class="timeline-when">May–Sep 2027</span><h3>Integración 1U</h3><p>La configuración validada pasa a la estructura de 10 × 10 × 10 cm, sin perder lo que ya funcionaba.</p></li>
+                <li><span class="timeline-when">Oct–Dic 2027</span><h3>Campaña estratosférica</h3><p>Preparación, vuelo y análisis de los datos de misión.</p></li>
             </ol>
             <div class="callout">
-                <strong>Resultado esperado al cierre del periodo</strong>
-                <p>Informe de arquitectura con selección justificada de componentes, FlatSat funcional en laboratorio y CubeSat integrado y validado experimentalmente.</p>
+                <strong>En curso ahora</strong>
+                <p>Cinco ensayos cierran 2026: alcance del enlace LoRa, gemelo digital con sensores inerciales, software de vuelo, caracterización eléctrica y térmica, y alimentación con panel solar. Cada uno deja registro, conclusión y siguiente acción.</p>
             </div>
         </div>
     </section>
@@ -214,9 +200,9 @@
                 <p class="section-intro">Toca una imagen para verla en grande.</p>
             </div>
             <div class="gallery">
-                <button class="gallery-item gallery-item-wide" data-full="/src/assets/images/gallery/IMG-20260607-WA0039.jpg" data-caption="Banco de integración FlatSat">
-                    <img src="/src/assets/images/gallery/IMG-20260607-WA0039.jpg" alt="Banco de integración FlatSat" loading="lazy">
-                    <span class="gallery-cap"><span class="gallery-tag">Laboratorio</span>Banco FlatSat</span>
+                <button class="gallery-item gallery-item-wide" data-full="/src/assets/images/gallery/IMG-20260607-WA0039.jpg" data-caption="Pruebas de electrónica en mesa">
+                    <img src="/src/assets/images/gallery/IMG-20260607-WA0039.jpg" alt="Pruebas de electrónica en mesa" loading="lazy">
+                    <span class="gallery-cap"><span class="gallery-tag">Laboratorio</span>Pruebas en mesa</span>
                 </button>
                 <button class="gallery-item" data-full="/src/assets/images/gallery/taller sensores c++.jpg" data-caption="Taller de sensores y programación">
                     <img src="/src/assets/images/gallery/taller sensores c++.jpg" alt="Taller de sensores y programación" loading="lazy">
@@ -254,11 +240,11 @@
             <div class="cta-panel">
                 <div>
                     <h2>¿Quieres construir un satélite?</h2>
-                    <p>Buscamos estudiantes con interés en electrónica, programación, diseño o telecomunicaciones, con disposición a investigar, documentar y trabajar en equipo.</p>
+                    <p>ETEREO busca integrantes para sistemas, aviónica y potencia, telecomunicaciones y software, y mecánica e integración. Pedimos disposición a investigar, documentar y trabajar en equipo.</p>
                 </div>
                 <div class="cta-actions on-dark">
-                    <a href="/registro/" class="btn btn-primary">Postular <span aria-hidden="true">→</span></a>
-                    <a href="mailto:spaceprogram@usach.cl?subject=Contacto%20Eje%20Sistemas%20Orbitales%20-%20USACH%20Space%20Program" class="btn btn-ghost">Escríbenos</a>
+                    <a href="/registro/?eje=orbital" class="btn btn-primary">Postular <span aria-hidden="true">→</span></a>
+                    <a href="mailto:{{correo}}?subject=Contacto%20Eje%20Sistemas%20Orbitales%20-%20USACH%20Space%20Program" class="btn btn-ghost">Escríbenos</a>
                 </div>
             </div>
 
@@ -270,7 +256,7 @@
                 </a>
                 <a class="project-card" href="/proyectos/rover/" style="--eje: var(--eje-robotica-ink)">
                     <div class="project-media"><img src="/src/assets/images/rover/rover_primer_ensamble_completo.jpg" alt="Rover Perseverance construido por el equipo, en el taller" loading="lazy"></div>
-                    <div class="project-body"><p class="project-meta"><span class="project-axis">Robótica</span> · Emblema</p><h3>Rover Perseverance</h3></div>
+                    <div class="project-body"><p class="project-meta"><span class="project-axis">Robótica</span> · Emblema</p><h3>Rover, réplica del Perseverance</h3></div>
                 </a>
                 <a class="project-card" href="/ejes/#orbital" style="--eje: var(--eje-orbital-ink)">
                     <div class="project-media"><img src="/src/assets/images/nasa/cubesat_deployment.jpg" alt="CubeSats desplegándose en órbita (imagen referencial de la NASA)" loading="lazy"></div>
@@ -282,41 +268,7 @@
 
     </main>
 
-    <footer data-tone="dark">
-        <div class="footer-grid">
-            <div class="footer-info">
-                <h3>USACH Space Program</h3>
-                <p>Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Navegación</h4>
-                <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/proyectos/">Proyectos</a></li>
-                    <li><a href="/ejes/">Ejes</a></li>
-                    <li><a href="/registro/">Postular</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h4>Contacto</h4>
-                <p>Universidad de Santiago de Chile</p>
-                <p><a href="mailto:spaceprogram@usach.cl">spaceprogram@usach.cl</a></p>
-                <p><a href="https://www.instagram.com/usach_space_program/" target="_blank" rel="noopener">Instagram: @usach_space_program</a></p>
-            </div>
-            <div class="footer-institutions">
-                <h4>Vínculos</h4>
-                <div class="footer-institution-logos">
-                    <a href="https://centroinnovacion.cl/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="Centro de Innovación USACH"><img src="/src/assets/images/gallery/centro de innovacion.webp" alt="Centro de Innovación USACH"></a>
-                    <a href="https://www.achide.org/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="ACHIDE"><img src="/src/assets/images/gallery/achide.png" alt="ACHIDE"></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
-            <p>Diseño y fabricación con fines educativos</p>
-            <a href="/login/" class="footer-acceso" rel="nofollow">Acceso directiva</a>
-        </div>
-    </footer>
+    <load src="src/components/footer.html" />
 
     <script type="module" src="/src/js/components/header.js"></script>
     <script type="module" src="/src/js/pages/ficha.js"></script>

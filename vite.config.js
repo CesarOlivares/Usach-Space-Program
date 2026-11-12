@@ -3,6 +3,28 @@ import fs from 'fs';
 import { defineConfig } from 'vite';
 import injectHTML from 'vite-plugin-html-inject';
 
+// Fuente única de datos: cada {{clave}} del HTML se reemplaza con src/data/programa.json
+function programaDataPlugin() {
+  const leer = () => JSON.parse(fs.readFileSync(resolve(__dirname, 'src/data/programa.json'), 'utf8'));
+  return {
+    name: 'programa-data-plugin',
+    transformIndexHtml: {
+      order: 'pre',
+      handler(html) {
+        const datos = leer();
+        return html.replace(/\{\{\s*([a-z0-9_]+)\s*\}\}/gi, (todo, clave) => {
+          if (!(clave in datos)) throw new Error(`programa.json no tiene la clave "${clave}"`);
+          return datos[clave];
+        });
+      }
+    },
+    configureServer(server) {
+      server.watcher.add(resolve(__dirname, 'src/data/programa.json'));
+      server.watcher.on('change', (f) => { if (f.endsWith('programa.json')) server.ws.send({ type: 'full-reload' }); });
+    }
+  };
+}
+
 const cleanRoutes = {
   '/ejes/': '/src/pages/ejes.html',
   '/ejes': '/src/pages/ejes.html',
@@ -26,8 +48,12 @@ const cleanRoutes = {
   '/proyectos/cansat': '/src/pages/proyectos/cansat.html',
   '/proyectos/eggdrop/': '/src/pages/proyectos/eggdrop.html',
   '/proyectos/eggdrop': '/src/pages/proyectos/eggdrop.html',
+  '/panel/postulaciones/': '/src/pages/postulaciones.html',
+  '/panel/postulaciones': '/src/pages/postulaciones.html',
   '/panel/': '/src/pages/panel.html',
   '/panel': '/src/pages/panel.html',
+  '/privacidad/': '/src/pages/privacidad.html',
+  '/privacidad': '/src/pages/privacidad.html',
   '/login/': '/login.html',
   '/login': '/login.html',
 };
@@ -44,8 +70,10 @@ const cleanBuildCopies = [
   { src: 'src/pages/proyectos/cohete.html', dest: 'proyectos/cohete/index.html' },
   { src: 'src/pages/proyectos/cansat.html', dest: 'proyectos/cansat/index.html' },
   { src: 'src/pages/proyectos/eggdrop.html', dest: 'proyectos/eggdrop/index.html' },
+  { src: 'src/pages/privacidad.html', dest: 'privacidad/index.html' },
   { src: 'login.html', dest: 'login/index.html' },
   { src: 'src/pages/panel.html', dest: 'panel/index.html' },
+  { src: 'src/pages/postulaciones.html', dest: 'panel/postulaciones/index.html' },
 ];
 
 function cleanUrlsPlugin() {
@@ -70,6 +98,8 @@ function cleanUrlsPlugin() {
           fs.copyFileSync(srcPath, destPath);
         }
       }
+      // Las páginas ya quedaron en su ruta limpia: se borra la copia en /src/pages
+      fs.rmSync(resolve(distDir, 'src'), { recursive: true, force: true });
     }
   };
 }
@@ -80,6 +110,7 @@ export default defineConfig({
     injectHTML({
       tagName: 'load'
     }),
+    programaDataPlugin(),
     cleanUrlsPlugin()
   ],
   build: {
@@ -91,10 +122,12 @@ export default defineConfig({
         notFound: resolve(__dirname, '404.html'),
         login: resolve(__dirname, 'login.html'),
         panel: resolve(__dirname, 'src/pages/panel.html'),
+        postulaciones: resolve(__dirname, 'src/pages/postulaciones.html'),
         novedades: resolve(__dirname, 'src/pages/novedades.html'),
         quienesSomos: resolve(__dirname, 'src/pages/quienes-somos.html'),
         proyectos: resolve(__dirname, 'src/pages/proyectos.html'),
         ejes: resolve(__dirname, 'src/pages/ejes.html'),
+        privacidad: resolve(__dirname, 'src/pages/privacidad.html'),
         registro: resolve(__dirname, 'src/pages/registro.html'),
         cansat: resolve(__dirname, 'src/pages/proyectos/cansat.html'),
         cubesat_avanzado: resolve(__dirname, 'src/pages/proyectos/cubesat_avanzado.html'),

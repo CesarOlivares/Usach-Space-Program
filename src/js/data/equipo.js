@@ -25,8 +25,8 @@ export const equipo = [
         slug: 'cesar-olivares',
         nombre: 'César Olivares',
         cargo: 'Presidente',
-        ejes: ['robotica'],
-        rolEje: 'Co-líder de Robótica',
+        ejes: ['robotica', 'coheteria'],
+        rolEje: 'Líder de Cohetería · Co-líder de Robótica',
         carrera: 'Estudiante de 4.° año de Ingeniería Civil Mecatrónica',
         bio: [
             'Apasionado por la tecnología y la innovación aeroespacial, combino mi formación en Ingeniería Civil Mecatrónica en la USACH con el rol de cofundador y Presidente del USACH Space Program.',
@@ -48,7 +48,7 @@ export const equipo = [
         nombre: 'H. Alessandro Orellano',
         cargo: 'Vicepresidente',
         ejes: ['robotica'],
-        rolEje: 'Co-líder de Robótica',
+        rolEje: 'Líder de Robótica',
         carrera: 'Estudiante de 5.° año de Ingeniería Civil Mecatrónica y ayudante de Electricidad y Magnetismo',
         bio: [
             'Me especializo en transformar conceptos de ingeniería en hardware tangible mediante impresión 3D, manufactura, electrónica aplicada y control autónomo, entre ellos ROS y visión artificial.',
@@ -73,7 +73,7 @@ export const equipo = [
     },
     {
         slug: 'daniel',
-        nombre: 'Daniel',
+        nombre: 'Daniel González',
         cargo: 'Tesorero',
         ejes: ['orbital'],
         rolEje: 'Líder de Sistemas Orbitales',
@@ -89,8 +89,8 @@ export const equipo = [
         slug: 'simon-garcia-huidobro',
         nombre: 'Simón García-Huidobro',
         cargo: 'Admisión',
-        ejes: ['coheteria'],
-        rolEje: 'Co-líder de Cohetería',
+        ejes: [],
+        rolEje: 'Admisión y actividades abiertas',
         carrera: 'Estudiante de 4.° año de Ingeniería Civil Mecatrónica',
         bio: [
             'Tengo experiencia en manufactura, prototipado y diseño 3D, además de conocimientos en soldadura y electrónica.',

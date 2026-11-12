@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,26 +33,9 @@
 </head>
 <body class="site proyectos-page">
 
-    <header>
-        <div class="nav-brand-container">
-            <a href="/" class="nav-brand-link">
-                <img src="/src/assets/images/logo_noTextBLACK.png" alt="Logo USP" class="nav-logo">
-                <span class="nav-brand">USACH Space Program</span>
-            </a>
-        </div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
-        <nav class="nav-links" id="navLinks">
-            <a href="/novedades/">Novedades</a>
-            <a href="/ejes/">Ejes</a>
-            <a href="/proyectos/" aria-current="page">Proyectos</a>
-            <a href="/quienes-somos/">Nosotros</a>
-            <a href="/#alianzas">Alianzas</a>
-            <a href="mailto:spaceprogram@usach.cl" class="nav-contact">Contacto</a>
-            <a href="/registro/" class="btn-nav-cta">Postular</a>
-        </nav>
-    </header>
+    <load src="src/components/header.html" />
 
-    <main>
+    <main id="contenido">
 
     <section class="page-hero starfield" data-tone="dark">
         <div class="page-hero-media" aria-hidden="true"><img src="/src/assets/images/referencias/chile-andes-orbita.jpg" alt=""></div>
@@ -60,7 +43,7 @@
             <div>
                 <p class="eyebrow eyebrow-dark">Portafolio</p>
                 <h1>Proyectos</h1>
-                <p class="page-hero-lede">Proyectos emblema de largo aliento, donde cada eje desarrolla hardware real, y actividades abiertas a toda la USACH para quienes recién llegan.</p>
+                <p class="page-hero-lede">Los proyectos de largo aliento de cada eje, donde se desarrolla hardware real, y las actividades que abrimos a toda la USACH para quienes recién llegan.</p>
             </div>
             <dl class="hero-stats">
                 <div><dt>Proyectos emblema</dt><dd>3</dd></div>
@@ -82,7 +65,7 @@
                     <span class="filter-label">Tipo</span>
                     <button class="filter-chip is-active" data-group="tipo" data-filter="all" aria-pressed="true">Todos</button>
                     <button class="filter-chip" data-group="tipo" data-filter="emblema" aria-pressed="false">Emblema <span>3</span></button>
-                    <button class="filter-chip" data-group="tipo" data-filter="formativo" aria-pressed="false">Actividades abiertas <span>3</span></button>
+                    <button class="filter-chip" data-group="tipo" data-filter="formativo" aria-pressed="false">Actividades 2026 <span>3</span></button>
                 </div>
                 <div class="filter-bar" role="group" aria-label="Filtrar por eje">
                     <span class="filter-label">Eje</span>
@@ -95,30 +78,30 @@
 
             <div class="projects-grid" aria-live="polite">
                 <a class="project-card" href="/proyectos/rover/" data-tipo="emblema" data-eje="robotica" style="--eje: var(--eje-robotica-ink)">
-                    <div class="project-media"><img src="/src/assets/images/rover/rover_primer_ensamble_completo.jpg" alt="Rover Perseverance construido por el equipo, en el taller" loading="lazy"></div>
+                    <div class="project-media"><img src="/src/assets/images/rover/rover_primer_ensamble_completo.jpg" alt="Réplica del rover Perseverance construida por el equipo, en el taller" loading="lazy"></div>
                     <div class="project-body">
                         <p class="project-meta"><span class="project-axis">Robótica</span> · Emblema</p>
-                        <h3>Rover Perseverance</h3>
-                        <p>Réplica funcional de 6 ruedas con suspensión Rocker-Bogie, piezas impresas en 3D y tracción independiente.</p>
-                        <p class="project-status"><span class="status-dot"></span>Optimización 2026–2027</p>
+                        <h3>Rover, réplica del Perseverance</h3>
+                        <p>Seis ruedas, suspensión Rocker-Bogie y tracción independiente. Ahora suma navegación autónoma, visión y un brazo.</p>
+                        <p class="project-status"><span class="status-dot"></span>Demostración en marzo 2027</p>
                     </div>
                 </a>
                 <a class="project-card" href="/proyectos/cohete/" data-tipo="emblema" data-eje="coheteria" style="--eje: var(--eje-coheteria-ink)">
-                    <div class="project-media"><img src="/src/assets/images/gallery/IMG-20260607-WA0022.jpg" alt="Plataforma de lanzamiento hidroneumática del eje de Cohetería" loading="lazy"></div>
+                    <div class="project-media"><img src="/src/assets/images/eventos/pruebas-cohete/cohete-en-rampa.jpg" alt="Cohete en la rampa de lanzamiento, contra el cielo" loading="lazy"></div>
                     <div class="project-body">
-                        <p class="project-meta"><span class="project-axis">Cohetería</span> · Emblema</p>
-                        <h3>Cohete de agua</h3>
-                        <p>Plataforma hidroneumática que pasa de una etapa a multietapa, con telemetría y paracaídas. Meta: propulsión sólida en 2028.</p>
-                        <p class="project-status"><span class="status-dot"></span>Fase 1 · Cohete de agua</p>
+                        <p class="project-meta"><span class="project-axis">Cohetería</span> · Equipo A.T.L.A.S.</p>
+                        <h3>Cohete a 3 km</h3>
+                        <p>Del agua a presión a los motores sólidos propios. Estamos armando el equipo que lo va a construir y volar.</p>
+                        <p class="project-status"><span class="status-dot"></span>Equipo en formación · buscamos integrantes</p>
                     </div>
                 </a>
                 <a class="project-card" href="/proyectos/cubesat/" data-tipo="emblema" data-eje="orbital" style="--eje: var(--eje-orbital-ink)">
-                    <div class="project-media"><img src="/src/assets/images/gallery/IMG-20260607-WA0039.jpg" alt="Banco de integración FlatSat del CubeSat 1U" loading="lazy"></div>
+                    <div class="project-media"><img src="/src/assets/images/eventos/cubesat-escala/estructura.jpg" alt="Estructura del CubeSat 1U sobre el parche de misión del programa" loading="lazy"></div>
                     <div class="project-body">
                         <p class="project-meta"><span class="project-axis">Sistemas Orbitales</span> · Emblema</p>
-                        <h3>CubeSat 1U</h3>
-                        <p>Satélite de 10 × 10 × 10 cm: computador de a bordo, potencia y comunicaciones integrados en FlatSat.</p>
-                        <p class="project-status"><span class="status-dot"></span>Integración en laboratorio</p>
+                        <h3>CubeSat LLN-1</h3>
+                        <p>Un satélite de 10 × 10 × 10 cm. Primero se valida sobre la mesa, después se integra y se prueba en la estratósfera.</p>
+                        <p class="project-status"><span class="status-dot"></span>Fase 2 · FlatSat en desarrollo</p>
                     </div>
                 </a>
                 <a class="project-card" href="/talleres/#cohetes" data-tipo="formativo" data-eje="coheteria" style="--eje: var(--eje-coheteria-ink)">
@@ -126,8 +109,8 @@
                     <div class="project-body">
                         <p class="project-meta"><span class="project-axis">Cohetería</span> · Concurso</p>
                         <h3>Diseño de cohetes de agua</h3>
-                        <p>Diseña, construye y pon a prueba tu propio cohete de agua. Premio: kit de electrónica y una sorpresa.</p>
-                        <p class="project-status"><span class="status-dot"></span>Inscripciones hasta el 4 nov</p>
+                        <p>Equipos de 3 diseñan, construyen y ponen a prueba su propio cohete de agua.</p>
+                        <p class="project-status is-cerrado"><span class="status-dot"></span>{{actividades_estado}}</p>
                     </div>
                 </a>
                 <a class="project-card" href="/proyectos/eggdrop/" data-tipo="formativo" data-eje="coheteria" style="--eje: var(--eje-coheteria-ink)">
@@ -135,8 +118,8 @@
                     <div class="project-body">
                         <p class="project-meta"><span class="project-axis">Cohetería</span> · Competencia</p>
                         <h3>Salva a Usachín</h3>
-                        <p>Diseña y construye el paracaídas de un cohete. El ganador se lleva un peluche de Usachín.</p>
-                        <p class="project-status"><span class="status-dot"></span>Inscripciones hasta el 4 nov</p>
+                        <p>Diseñar y construir el paracaídas de un cohete para que Usachín aterrice a salvo.</p>
+                        <p class="project-status is-cerrado"><span class="status-dot"></span>{{actividades_estado}}</p>
                     </div>
                 </a>
                 <a class="project-card" href="/proyectos/cansat/" data-tipo="formativo" data-eje="orbital" style="--eje: var(--eje-orbital-ink)">
@@ -144,8 +127,8 @@
                     <div class="project-body">
                         <p class="project-meta"><span class="project-axis">Sistemas Orbitales</span> · Taller</p>
                         <h3>Desarrollo de CubeSats</h3>
-                        <p>Construye tu primer satélite desde cero: equipos de 3 arman y prueban un CubeSat funcional.</p>
-                        <p class="project-status"><span class="status-dot"></span>Inscripciones hasta el 4 nov</p>
+                        <p>Equipos de 3 arman y prueban su primer satélite desde cero.</p>
+                        <p class="project-status is-cerrado"><span class="status-dot"></span>{{actividades_estado}}</p>
                     </div>
                 </a>
                 <p class="filter-empty" hidden>No hay proyectos con esa combinación. Prueba con otro filtro.</p>
@@ -155,7 +138,8 @@
 
     <div class="tone-bridge tone-bridge--to-dark" aria-hidden="true"></div>
 
-    <section class="section section-dark section-night" data-tone="dark" aria-labelledby="tipos-title">
+    <section class="section section-dark section-night has-deco tipos-seccion" data-tone="dark" aria-labelledby="tipos-title">
+        <span class="deco deco--aro" aria-hidden="true" data-anim="gira"></span>
         <div class="section-inner">
             <div class="section-head">
                 <p class="eyebrow">Cómo se organizan</p>
@@ -165,7 +149,7 @@
                 <article class="kind">
                     <span class="kind-label">Proyectos emblema</span>
                     <h3>Desarrollo continuo por eje</h3>
-                    <p>Cada eje tiene un proyecto de largo aliento con fases, informes y demostraciones. Aquí se trabaja todo el año junto a los líderes de eje.</p>
+                    <p>Cada eje tiene un equipo y un proyecto de largo aliento, con fases, ensayos y metas para 2027. Aquí se trabaja todo el año. La convocatoria está siempre abierta.</p>
                     <ul class="check-list">
                         <li>Hoja de ruta anual por fases</li>
                         <li>Documentación técnica abierta</li>
@@ -180,7 +164,7 @@
                     <ul class="check-list">
                         <li>Equipos de 3 personas</li>
                         <li>Miércoles, bloque W3</li>
-                        <li>Inscripciones hasta el 4 de noviembre</li>
+                        <li>Edición 2026 en desarrollo</li>
                     </ul>
                     <a href="/talleres/" class="btn btn-ghost">Ver las actividades</a>
                 </article>
@@ -190,41 +174,7 @@
 
     </main>
 
-    <footer data-tone="dark">
-        <div class="footer-grid">
-            <div class="footer-info">
-                <h3>USACH Space Program</h3>
-                <p>Iniciativa estudiantil autogestionada de la Universidad de Santiago de Chile dedicada al aprendizaje, divulgación y prototipado aeroespacial.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Navegación</h4>
-                <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/proyectos/">Proyectos</a></li>
-                    <li><a href="/ejes/">Ejes</a></li>
-                    <li><a href="/registro/">Postular</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h4>Contacto</h4>
-                <p>Universidad de Santiago de Chile</p>
-                <p><a href="mailto:spaceprogram@usach.cl">spaceprogram@usach.cl</a></p>
-                <p><a href="https://www.instagram.com/usach_space_program/" target="_blank" rel="noopener">Instagram: @usach_space_program</a></p>
-            </div>
-            <div class="footer-institutions">
-                <h4>Vínculos</h4>
-                <div class="footer-institution-logos">
-                    <a href="https://centroinnovacion.cl/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="Centro de Innovación USACH"><img src="/src/assets/images/gallery/centro de innovacion.webp" alt="Centro de Innovación USACH"></a>
-                    <a href="https://www.achide.org/" target="_blank" rel="noopener noreferrer" class="footer-institution-logo" aria-label="ACHIDE"><img src="/src/assets/images/gallery/achide.png" alt="ACHIDE"></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 USACH Space Program. Todos los derechos reservados.</p>
-            <p>Diseño y fabricación con fines educativos</p>
-            <a href="/login/" class="footer-acceso" rel="nofollow">Acceso directiva</a>
-        </div>
-    </footer>
+    <load src="src/components/footer.html" />
 
     <script type="module" src="/src/js/components/header.js"></script>
     <script type="module" src="/src/js/pages/proyectos.js"></script>
