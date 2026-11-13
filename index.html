@@ -1868,6 +1868,20 @@ body.site .join-card {
     .ruta-marca i { animation: none; }
 }
 
+/* Marcas vecinas (Demo del rover y Vuelo a 3 km, a un mes de distancia):
+   la segunda sube su rótulo para que no se pisen */
+.ruta-marca.is-alto b { position: relative; top: -22px; }
+.ruta-marca.is-alto b::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 1px;
+    height: 8px;
+    background: currentColor;
+    opacity: 0.6;
+}
+
 /* === 1. HERO ===
    Texto sobre el planeta en rotación (video a la derecha, bordes desvanecidos) */
 .hero {
@@ -3092,7 +3106,7 @@ body.site .join-card {
             <!-- Regla de meses: decorativa, las estaciones de abajo dicen lo mismo -->
             <div class="ruta-regla" aria-hidden="true">
                 <span class="ruta-marca" style="--m: 4; --eje: var(--eje-robotica); --glifo: url('/assets/glifo-a-DsmhABfM.webp')"><b>Demo del rover</b><i></i></span>
-                <span class="ruta-marca" style="--m: 5; --eje: var(--eje-coheteria); --glifo: url('/assets/cohete-a-OOQJIOJ4.webp')"><b>Vuelo a 3 km</b><i></i></span>
+                <span class="ruta-marca is-alto" style="--m: 5; --eje: var(--eje-coheteria); --glifo: url('/assets/cohete-a-OOQJIOJ4.webp')"><b>Vuelo a 3 km</b><i></i></span>
                 <span class="ruta-marca is-final" style="--m: 13; --eje: var(--eje-orbital); --glifo: url('/assets/glifo-c-5cL6k7oH.webp')"><b>Estratósfera</b><i></i></span>
                 <div class="ruta-hoy" data-ruta-hoy><span>Hoy</span></div>
                 <div class="ruta-regla-escala"></div>
